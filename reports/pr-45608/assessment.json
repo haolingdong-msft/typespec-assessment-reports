@@ -1,0 +1,2269 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-21T08:03:35.954Z",
+  "title": "TypeSpec assessment: specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights",
+  "repository": {
+    "root": "C:\\workspace\\azure-rest-api-specs",
+    "remoteUrl": "https://github.com/Azure/azure-rest-api-specs.git"
+  },
+  "pullRequest": {
+    "owner": "Azure",
+    "repository": "azure-rest-api-specs",
+    "number": 45608,
+    "url": "https://github.com/Azure/azure-rest-api-specs/pull/45608",
+    "cloneUrl": "https://github.com/Azure/azure-rest-api-specs.git",
+    "baseRef": "main",
+    "baseCommit": "ed801f1b94a172fb2b024b04083ad135b5f3e4fb",
+    "headCommit": "77adeaac583054090693640ce01a7df9ca709613"
+  },
+  "comparison": {
+    "baseRef": "ed801f1b94a172fb2b024b04083ad135b5f3e4fb",
+    "baseCommit": "cb5c66698e99c29b0d4ed099a88244d7ca46235c",
+    "headCommit": "77adeaac583054090693640ce01a7df9ca709613",
+    "workingTree": {
+      "staged": false,
+      "unstaged": false,
+      "untracked": false
+    }
+  },
+  "artifactComparisons": [
+    {
+      "projectId": "project-3d47c51b653f",
+      "mode": "existing-api-version",
+      "baseline": {
+        "sourceRevision": "base",
+        "commit": "cb5c66698e99c29b0d4ed099a88244d7ca46235c",
+        "apiVersion": "2025-10-01-preview",
+        "reason": "affected-existing-version"
+      },
+      "target": {
+        "sourceRevision": "current",
+        "commit": "77adeaac583054090693640ce01a7df9ca709613",
+        "apiVersion": "2025-10-01-preview",
+        "reason": "affected-existing-version"
+      },
+      "base": "2025-10-01-preview",
+      "current": "2025-10-01-preview",
+      "baseReason": "affected-existing-version",
+      "currentReason": "latest-version",
+      "addedCurrentVersions": [],
+      "available": {
+        "base": [
+          "2025-09-01",
+          "2025-10-01-preview"
+        ],
+        "current": [
+          "2025-09-01",
+          "2025-10-01-preview"
+        ]
+      }
+    }
+  ],
+  "confidence": "medium",
+  "safety": {
+    "scope": "rest-and-downstream-only",
+    "status": "failed"
+  },
+  "dimensions": {
+    "semantic": {
+      "status": "assessed",
+      "items": [
+        {
+          "id": "semantic-d3fb0b2b94907c0c",
+          "projectId": "project-3d47c51b653f",
+          "projectIds": [
+            "project-3d47c51b653f"
+          ],
+          "action": "modify",
+          "changeKind": "modify",
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-00c5365901eb5495",
+            "hunk-0806d943432fe472",
+            "hunk-24b50c667a133932",
+            "hunk-a83cd4f44c068755",
+            "hunk-bce939c25358b462"
+          ],
+          "declarationIds": [],
+          "declarationNames": [],
+          "ownedOperationIds": [],
+          "versionTransitionOperationIds": [],
+          "sourceMappedOperationIds": [],
+          "publicationEligibleOperationIds": [],
+          "operations": [],
+          "operationIds": [],
+          "beforeFactIds": [],
+          "afterFactIds": [],
+          "changedAspects": [],
+          "groupingEvidence": {
+            "kind": "deterministic-coherent-change",
+            "reasons": [
+              "transform:arm-resource-identifier",
+              "transform:client-name"
+            ],
+            "memberHunkIds": [
+              "hunk-00c5365901eb5495",
+              "hunk-0806d943432fe472",
+              "hunk-24b50c667a133932",
+              "hunk-a83cd4f44c068755",
+              "hunk-bce939c25358b462"
+            ]
+          },
+          "intentType": "normal",
+          "title": "Revise generated C# Security Insights model property names and resource identifier types",
+          "summary": "The change updates C#-specific client customizations in client.tsp: four resource ID properties use ResourceIdentifier and six existing model properties receive replacement C# names. It does not change REST operations or the wire contract.",
+          "informational": false,
+          "deterministicCoverage": {
+            "restCandidateIds": [],
+            "downstreamCandidateIds": [],
+            "complianceSearchRequestIds": [
+              "compliance-search-7267556d21ba4a2d"
+            ],
+            "relatedOperationIds": [],
+            "coveredHunkIds": [],
+            "uncoveredHunkIds": [
+              "hunk-00c5365901eb5495",
+              "hunk-0806d943432fe472",
+              "hunk-24b50c667a133932",
+              "hunk-a83cd4f44c068755",
+              "hunk-bce939c25358b462"
+            ],
+            "classifications": [
+              {
+                "hunkId": "hunk-00c5365901eb5495",
+                "status": "unknown",
+                "reason": "language-specific-sdk-customization-not-represented",
+                "restCandidateIds": [],
+                "downstreamCandidateIds": []
+              },
+              {
+                "hunkId": "hunk-0806d943432fe472",
+                "status": "unknown",
+                "reason": "language-specific-sdk-customization-not-represented",
+                "restCandidateIds": [],
+                "downstreamCandidateIds": []
+              },
+              {
+                "hunkId": "hunk-24b50c667a133932",
+                "status": "unknown",
+                "reason": "language-specific-sdk-customization-not-represented",
+                "restCandidateIds": [],
+                "downstreamCandidateIds": []
+              },
+              {
+                "hunkId": "hunk-a83cd4f44c068755",
+                "status": "unknown",
+                "reason": "language-specific-sdk-customization-not-represented",
+                "restCandidateIds": [],
+                "downstreamCandidateIds": []
+              },
+              {
+                "hunkId": "hunk-bce939c25358b462",
+                "status": "unknown",
+                "reason": "language-specific-sdk-customization-not-represented",
+                "restCandidateIds": [],
+                "downstreamCandidateIds": []
+              }
+            ],
+            "gaps": [
+              {
+                "hunkId": "hunk-00c5365901eb5495",
+                "reason": "language-specific-sdk-customization-not-represented"
+              },
+              {
+                "hunkId": "hunk-0806d943432fe472",
+                "reason": "language-specific-sdk-customization-not-represented"
+              },
+              {
+                "hunkId": "hunk-24b50c667a133932",
+                "reason": "language-specific-sdk-customization-not-represented"
+              },
+              {
+                "hunkId": "hunk-a83cd4f44c068755",
+                "reason": "language-specific-sdk-customization-not-represented"
+              },
+              {
+                "hunkId": "hunk-bce939c25358b462",
+                "reason": "language-specific-sdk-customization-not-represented"
+              }
+            ]
+          },
+          "inferenceRequired": true,
+          "inferenceResults": [
+            {
+              "requestId": "inference-request-0baa1233e590207b",
+              "hunkId": "hunk-00c5365901eb5495",
+              "decision": "candidates",
+              "rationale": "The added C# @@alternateType decorators change four generated model-property types and can break existing source assignments.",
+              "candidateIds": [
+                "inferred-downstream-recommendation-resource-id-type",
+                "inferred-downstream-workspace-target-resource-id-type",
+                "inferred-downstream-job-item-resource-id-type",
+                "inferred-downstream-assignment-item-resource-id-type"
+              ]
+            },
+            {
+              "requestId": "inference-request-d440dfaf325ceb20",
+              "hunkId": "hunk-0806d943432fe472",
+              "decision": "candidates",
+              "rationale": "The C# @@clientName changes rename one existing property and newly rename another generated property.",
+              "candidateIds": [
+                "inferred-downstream-whois-expires-rename",
+                "inferred-downstream-whois-created-rename"
+              ]
+            },
+            {
+              "requestId": "inference-request-7b14d1f1e93fe5bf",
+              "hunkId": "hunk-24b50c667a133932",
+              "decision": "candidates",
+              "rationale": "Two existing C# generated property names are explicitly replaced.",
+              "candidateIds": [
+                "inferred-downstream-files-valid-until-rename",
+                "inferred-downstream-import-valid-until-rename"
+              ]
+            },
+            {
+              "requestId": "inference-request-51ab1a5e60cc40a5",
+              "hunkId": "hunk-a83cd4f44c068755",
+              "decision": "candidates",
+              "rationale": "The added C# @@clientName changes the generated property name for an existing model property.",
+              "candidateIds": [
+                "inferred-downstream-team-created-rename"
+              ]
+            },
+            {
+              "requestId": "inference-request-0cf58b6078cd3051",
+              "hunkId": "hunk-bce939c25358b462",
+              "decision": "candidates",
+              "rationale": "The added C# @@clientName changes the generated property name for an existing model property.",
+              "candidateIds": [
+                "inferred-downstream-taxii-lookback-rename"
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-0806d943432fe472",
+                  "base": {
+                    "startLine": 416,
+                    "endLine": 422
+                  },
+                  "current": {
+                    "startLine": 416,
+                    "endLine": 423
+                  },
+                  "lines": [
+                    " );",
+                    " @@clientName(ElevationToken, \"SecurityInsightsProcessElevationToken\", \"csharp\");",
+                    " @@clientName(EnrichmentDomainBody, \"EnrichmentDomainContent\", \"csharp\");",
+                    "-@@clientName(EnrichmentDomainWhois.expires, \"ExpireOn\", \"csharp\");",
+                    "+@@clientName(EnrichmentDomainWhois.expires, \"ExpiresOn\", \"csharp\");",
+                    "+@@clientName(EnrichmentDomainWhois.created, \"CreatedOn\", \"csharp\");",
+                    " @@clientName(EnrichmentDomainWhois.updated, \"UpdatedOn\", \"csharp\");",
+                    " @@clientName(EnrichmentIpAddressBody, \"EnrichmentIPAddressContent\", \"csharp\");",
+                    " @@clientName(Entity, \"SecurityInsightsEntity\", \"csharp\");"
+                  ]
+                },
+                {
+                  "id": "hunk-24b50c667a133932",
+                  "base": {
+                    "startLine": 465,
+                    "endLine": 476
+                  },
+                  "current": {
+                    "startLine": 466,
+                    "endLine": 477
+                  },
+                  "lines": [
+                    " @@clientName(FileImportProperties.createdTimeUTC, \"CreatedOn\", \"csharp\");",
+                    " @@clientName(",
+                    "   FileImportProperties.filesValidUntilTimeUTC,",
+                    "-  \"FilesValidUntil\",",
+                    "+  \"FilesExpirationOn\",",
+                    "   \"csharp\"",
+                    " );",
+                    " @@clientName(",
+                    "   FileImportProperties.importValidUntilTimeUTC,",
+                    "-  \"ImportValidUntil\",",
+                    "+  \"ImportExpirationOn\",",
+                    "   \"csharp\"",
+                    " );",
+                    " @@clientName(FileImport, \"SecurityInsightsFileImport\", \"csharp\");"
+                  ]
+                },
+                {
+                  "id": "hunk-a83cd4f44c068755",
+                  "base": {
+                    "startLine": 1143,
+                    "endLine": 1148
+                  },
+                  "current": {
+                    "startLine": 1144,
+                    "endLine": 1150
+                  },
+                  "lines": [
+                    "   \"csharp\"",
+                    " );",
+                    " @@clientName(SupportTier, \"SecurityInsightsSupportTier\", \"csharp\");",
+                    "+@@clientName(TeamInformation.teamCreationTimeUtc, \"CreatedOn\", \"csharp\");",
+                    " @@clientName(TemplateModel, \"SecurityInsightsTemplate\", \"csharp\");",
+                    " @@clientName(",
+                    "   TemplateProperties,"
+                  ]
+                },
+                {
+                  "id": "hunk-bce939c25358b462",
+                  "base": {
+                    "startLine": 1271,
+                    "endLine": 1276
+                  },
+                  "current": {
+                    "startLine": 1273,
+                    "endLine": 1283
+                  },
+                  "lines": [
+                    "   \"TipLookbackOn\",",
+                    "   \"csharp\"",
+                    " );",
+                    "+@@clientName(",
+                    "+  TiTaxiiDataConnectorProperties.taxiiLookbackPeriod,",
+                    "+  \"TaxiiLookbackOn\",",
+                    "+  \"csharp\"",
+                    "+);",
+                    " @@clientName(TIDataConnector, \"SecurityInsightsTIDataConnector\", \"csharp\");",
+                    " @@clientName(TIDataConnectorDataTypes, \"TiDataConnectorDataTypes\", \"csharp\");",
+                    " @@clientName("
+                  ]
+                },
+                {
+                  "id": "hunk-00c5365901eb5495",
+                  "base": {
+                    "startLine": 1614,
+                    "endLine": 1619
+                  },
+                  "current": {
+                    "startLine": 1621,
+                    "endLine": 1642
+                  },
+                  "lines": [
+                    "   Azure.Core.armResourceIdentifier,",
+                    "   \"csharp\"",
+                    " );",
+                    "+@@alternateType(",
+                    "+  RecommendationProperties.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(",
+                    "+  WorkspaceManagerMemberProperties.targetWorkspaceResourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(JobItem.resourceId, Azure.Core.armResourceIdentifier, \"csharp\");",
+                    "+@@alternateType(",
+                    "+  AssignmentItem.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    " @@clientName(AlertRules.triggerRuleRun, \"TriggerRuleRunAlertRule\", \"csharp\");",
+                    " @@clientName(Status, \"SecurityInsightsContentStatus\", \"csharp\");",
+                    " @@clientName(",
+                    ""
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedFindings": {
+            "rest": [],
+            "downstream": [],
+            "typeImpact": [
+              "sdk-type-impact-06b0977e594373b7",
+              "sdk-type-impact-2d9b49bfe084b129",
+              "sdk-type-impact-3061d261335c7ad7",
+              "sdk-type-impact-63173d9e002132fa",
+              "sdk-type-impact-7b37a8425dc5b4f7",
+              "sdk-type-impact-8391e8f42fc662bc",
+              "sdk-type-impact-cfc3d354737c96b2",
+              "sdk-type-impact-d9464501769a02a9",
+              "sdk-type-impact-eb956ac3981ed50c",
+              "sdk-type-impact-fc682e97bbb70b32"
+            ]
+          }
+        }
+      ],
+      "sourceHunkIds": [
+        "hunk-00c5365901eb5495",
+        "hunk-0806d943432fe472",
+        "hunk-24b50c667a133932",
+        "hunk-a83cd4f44c068755",
+        "hunk-bce939c25358b462"
+      ],
+      "blockers": []
+    },
+    "rest": {
+      "status": "passed",
+      "findings": [],
+      "rejectedCandidateCount": 0,
+      "blockers": []
+    },
+    "downstream": {
+      "status": "failed",
+      "findings": [
+        {
+          "id": "inferred-downstream-recommendation-resource-id-type",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "Adding the C# alternate type changes RecommendationProperties.resourceId from the default string SDK representation to ResourceIdentifier",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::RecommendationProperties.resourceId",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-00c5365901eb5495"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-0baa1233e590207b"
+          ],
+          "severity": "medium",
+          "rationale": "Adding the C# alternate type changes RecommendationProperties.resourceId from the default string SDK representation to ResourceIdentifier; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-00c5365901eb5495",
+                  "base": {
+                    "startLine": 1614,
+                    "endLine": 1619
+                  },
+                  "current": {
+                    "startLine": 1621,
+                    "endLine": 1642
+                  },
+                  "lines": [
+                    "   Azure.Core.armResourceIdentifier,",
+                    "   \"csharp\"",
+                    " );",
+                    "+@@alternateType(",
+                    "+  RecommendationProperties.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(",
+                    "+  WorkspaceManagerMemberProperties.targetWorkspaceResourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(JobItem.resourceId, Azure.Core.armResourceIdentifier, \"csharp\");",
+                    "+@@alternateType(",
+                    "+  AssignmentItem.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    " @@clientName(AlertRules.triggerRuleRun, \"TriggerRuleRunAlertRule\", \"csharp\");",
+                    " @@clientName(Status, \"SecurityInsightsContentStatus\", \"csharp\");",
+                    " @@clientName(",
+                    ""
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        },
+        {
+          "id": "inferred-downstream-workspace-target-resource-id-type",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "Adding the C# alternate type changes WorkspaceManagerMemberProperties.targetWorkspaceResourceId from the default string SDK representation to ResourceIdentifier",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::WorkspaceManagerMemberProperties.targetWorkspaceResourceId",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-00c5365901eb5495"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-0baa1233e590207b"
+          ],
+          "severity": "medium",
+          "rationale": "Adding the C# alternate type changes WorkspaceManagerMemberProperties.targetWorkspaceResourceId from the default string SDK representation to ResourceIdentifier; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-00c5365901eb5495",
+                  "base": {
+                    "startLine": 1614,
+                    "endLine": 1619
+                  },
+                  "current": {
+                    "startLine": 1621,
+                    "endLine": 1642
+                  },
+                  "lines": [
+                    "   Azure.Core.armResourceIdentifier,",
+                    "   \"csharp\"",
+                    " );",
+                    "+@@alternateType(",
+                    "+  RecommendationProperties.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(",
+                    "+  WorkspaceManagerMemberProperties.targetWorkspaceResourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(JobItem.resourceId, Azure.Core.armResourceIdentifier, \"csharp\");",
+                    "+@@alternateType(",
+                    "+  AssignmentItem.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    " @@clientName(AlertRules.triggerRuleRun, \"TriggerRuleRunAlertRule\", \"csharp\");",
+                    " @@clientName(Status, \"SecurityInsightsContentStatus\", \"csharp\");",
+                    " @@clientName(",
+                    ""
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        },
+        {
+          "id": "inferred-downstream-job-item-resource-id-type",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "Adding the C# alternate type changes JobItem.resourceId from the default string SDK representation to ResourceIdentifier",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::JobItem.resourceId",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-00c5365901eb5495"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-0baa1233e590207b"
+          ],
+          "severity": "medium",
+          "rationale": "Adding the C# alternate type changes JobItem.resourceId from the default string SDK representation to ResourceIdentifier; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-00c5365901eb5495",
+                  "base": {
+                    "startLine": 1614,
+                    "endLine": 1619
+                  },
+                  "current": {
+                    "startLine": 1621,
+                    "endLine": 1642
+                  },
+                  "lines": [
+                    "   Azure.Core.armResourceIdentifier,",
+                    "   \"csharp\"",
+                    " );",
+                    "+@@alternateType(",
+                    "+  RecommendationProperties.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(",
+                    "+  WorkspaceManagerMemberProperties.targetWorkspaceResourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(JobItem.resourceId, Azure.Core.armResourceIdentifier, \"csharp\");",
+                    "+@@alternateType(",
+                    "+  AssignmentItem.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    " @@clientName(AlertRules.triggerRuleRun, \"TriggerRuleRunAlertRule\", \"csharp\");",
+                    " @@clientName(Status, \"SecurityInsightsContentStatus\", \"csharp\");",
+                    " @@clientName(",
+                    ""
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        },
+        {
+          "id": "inferred-downstream-assignment-item-resource-id-type",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "Adding the C# alternate type changes AssignmentItem.resourceId from the default string SDK representation to ResourceIdentifier",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::AssignmentItem.resourceId",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-00c5365901eb5495"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-0baa1233e590207b"
+          ],
+          "severity": "medium",
+          "rationale": "Adding the C# alternate type changes AssignmentItem.resourceId from the default string SDK representation to ResourceIdentifier; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-00c5365901eb5495",
+                  "base": {
+                    "startLine": 1614,
+                    "endLine": 1619
+                  },
+                  "current": {
+                    "startLine": 1621,
+                    "endLine": 1642
+                  },
+                  "lines": [
+                    "   Azure.Core.armResourceIdentifier,",
+                    "   \"csharp\"",
+                    " );",
+                    "+@@alternateType(",
+                    "+  RecommendationProperties.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(",
+                    "+  WorkspaceManagerMemberProperties.targetWorkspaceResourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    "+@@alternateType(JobItem.resourceId, Azure.Core.armResourceIdentifier, \"csharp\");",
+                    "+@@alternateType(",
+                    "+  AssignmentItem.resourceId,",
+                    "+  Azure.Core.armResourceIdentifier,",
+                    "+  \"csharp\"",
+                    "+);",
+                    " @@clientName(AlertRules.triggerRuleRun, \"TriggerRuleRunAlertRule\", \"csharp\");",
+                    " @@clientName(Status, \"SecurityInsightsContentStatus\", \"csharp\");",
+                    " @@clientName(",
+                    ""
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        },
+        {
+          "id": "inferred-downstream-whois-expires-rename",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "The C# property name changes from ExpireOn to ExpiresOn",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::EnrichmentDomainWhois.expires",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-0806d943432fe472"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-d440dfaf325ceb20"
+          ],
+          "severity": "medium",
+          "rationale": "The C# property name changes from ExpireOn to ExpiresOn; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-0806d943432fe472",
+                  "base": {
+                    "startLine": 416,
+                    "endLine": 422
+                  },
+                  "current": {
+                    "startLine": 416,
+                    "endLine": 423
+                  },
+                  "lines": [
+                    " );",
+                    " @@clientName(ElevationToken, \"SecurityInsightsProcessElevationToken\", \"csharp\");",
+                    " @@clientName(EnrichmentDomainBody, \"EnrichmentDomainContent\", \"csharp\");",
+                    "-@@clientName(EnrichmentDomainWhois.expires, \"ExpireOn\", \"csharp\");",
+                    "+@@clientName(EnrichmentDomainWhois.expires, \"ExpiresOn\", \"csharp\");",
+                    "+@@clientName(EnrichmentDomainWhois.created, \"CreatedOn\", \"csharp\");",
+                    " @@clientName(EnrichmentDomainWhois.updated, \"UpdatedOn\", \"csharp\");",
+                    " @@clientName(EnrichmentIpAddressBody, \"EnrichmentIPAddressContent\", \"csharp\");",
+                    " @@clientName(Entity, \"SecurityInsightsEntity\", \"csharp\");"
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        },
+        {
+          "id": "inferred-downstream-whois-created-rename",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "Adding the C# client name changes the generated property from Created to CreatedOn",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::EnrichmentDomainWhois.created",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-0806d943432fe472"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-d440dfaf325ceb20"
+          ],
+          "severity": "medium",
+          "rationale": "Adding the C# client name changes the generated property from Created to CreatedOn; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-0806d943432fe472",
+                  "base": {
+                    "startLine": 416,
+                    "endLine": 422
+                  },
+                  "current": {
+                    "startLine": 416,
+                    "endLine": 423
+                  },
+                  "lines": [
+                    " );",
+                    " @@clientName(ElevationToken, \"SecurityInsightsProcessElevationToken\", \"csharp\");",
+                    " @@clientName(EnrichmentDomainBody, \"EnrichmentDomainContent\", \"csharp\");",
+                    "-@@clientName(EnrichmentDomainWhois.expires, \"ExpireOn\", \"csharp\");",
+                    "+@@clientName(EnrichmentDomainWhois.expires, \"ExpiresOn\", \"csharp\");",
+                    "+@@clientName(EnrichmentDomainWhois.created, \"CreatedOn\", \"csharp\");",
+                    " @@clientName(EnrichmentDomainWhois.updated, \"UpdatedOn\", \"csharp\");",
+                    " @@clientName(EnrichmentIpAddressBody, \"EnrichmentIPAddressContent\", \"csharp\");",
+                    " @@clientName(Entity, \"SecurityInsightsEntity\", \"csharp\");"
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        },
+        {
+          "id": "inferred-downstream-files-valid-until-rename",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "The C# property name changes from FilesValidUntil to FilesExpirationOn",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::FileImportProperties.filesValidUntilTimeUTC",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-24b50c667a133932"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-7b14d1f1e93fe5bf"
+          ],
+          "severity": "medium",
+          "rationale": "The C# property name changes from FilesValidUntil to FilesExpirationOn; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-24b50c667a133932",
+                  "base": {
+                    "startLine": 465,
+                    "endLine": 476
+                  },
+                  "current": {
+                    "startLine": 466,
+                    "endLine": 477
+                  },
+                  "lines": [
+                    " @@clientName(FileImportProperties.createdTimeUTC, \"CreatedOn\", \"csharp\");",
+                    " @@clientName(",
+                    "   FileImportProperties.filesValidUntilTimeUTC,",
+                    "-  \"FilesValidUntil\",",
+                    "+  \"FilesExpirationOn\",",
+                    "   \"csharp\"",
+                    " );",
+                    " @@clientName(",
+                    "   FileImportProperties.importValidUntilTimeUTC,",
+                    "-  \"ImportValidUntil\",",
+                    "+  \"ImportExpirationOn\",",
+                    "   \"csharp\"",
+                    " );",
+                    " @@clientName(FileImport, \"SecurityInsightsFileImport\", \"csharp\");"
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        },
+        {
+          "id": "inferred-downstream-import-valid-until-rename",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "The C# property name changes from ImportValidUntil to ImportExpirationOn",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::FileImportProperties.importValidUntilTimeUTC",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-24b50c667a133932"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-7b14d1f1e93fe5bf"
+          ],
+          "severity": "medium",
+          "rationale": "The C# property name changes from ImportValidUntil to ImportExpirationOn; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-24b50c667a133932",
+                  "base": {
+                    "startLine": 465,
+                    "endLine": 476
+                  },
+                  "current": {
+                    "startLine": 466,
+                    "endLine": 477
+                  },
+                  "lines": [
+                    " @@clientName(FileImportProperties.createdTimeUTC, \"CreatedOn\", \"csharp\");",
+                    " @@clientName(",
+                    "   FileImportProperties.filesValidUntilTimeUTC,",
+                    "-  \"FilesValidUntil\",",
+                    "+  \"FilesExpirationOn\",",
+                    "   \"csharp\"",
+                    " );",
+                    " @@clientName(",
+                    "   FileImportProperties.importValidUntilTimeUTC,",
+                    "-  \"ImportValidUntil\",",
+                    "+  \"ImportExpirationOn\",",
+                    "   \"csharp\"",
+                    " );",
+                    " @@clientName(FileImport, \"SecurityInsightsFileImport\", \"csharp\");"
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        },
+        {
+          "id": "inferred-downstream-team-created-rename",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "Adding the C# client name changes the generated property from TeamCreationTimeUtc to CreatedOn",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::TeamInformation.teamCreationTimeUtc",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-a83cd4f44c068755"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-51ab1a5e60cc40a5"
+          ],
+          "severity": "medium",
+          "rationale": "Adding the C# client name changes the generated property from TeamCreationTimeUtc to CreatedOn; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-a83cd4f44c068755",
+                  "base": {
+                    "startLine": 1143,
+                    "endLine": 1148
+                  },
+                  "current": {
+                    "startLine": 1144,
+                    "endLine": 1150
+                  },
+                  "lines": [
+                    "   \"csharp\"",
+                    " );",
+                    " @@clientName(SupportTier, \"SecurityInsightsSupportTier\", \"csharp\");",
+                    "+@@clientName(TeamInformation.teamCreationTimeUtc, \"CreatedOn\", \"csharp\");",
+                    " @@clientName(TemplateModel, \"SecurityInsightsTemplate\", \"csharp\");",
+                    " @@clientName(",
+                    "   TemplateProperties,"
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        },
+        {
+          "id": "inferred-downstream-taxii-lookback-rename",
+          "dimension": "downstream",
+          "rule": "customization-changed",
+          "defaultSeverity": "medium",
+          "actual": "Adding the C# client name changes the generated property from TaxiiLookbackPeriod to TaxiiLookbackOn",
+          "expected": "Existing generated C# public model property names and types remain source compatible.",
+          "crossLanguageDefinitionId": "project-3d47c51b653f::TiTaxiiDataConnectorProperties.taxiiLookbackPeriod",
+          "operationIds": [],
+          "evidenceFactIds": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-bce939c25358b462"
+          ],
+          "reviewRequired": true,
+          "inferred": true,
+          "inferenceRequestIds": [
+            "inference-request-0cf58b6078cd3051"
+          ],
+          "severity": "medium",
+          "rationale": "Adding the C# client name changes the generated property from TaxiiLookbackPeriod to TaxiiLookbackOn; existing generated C# callers must update their property types or member names.",
+          "evidence": [],
+          "sources": [
+            {
+              "id": "source-00c4b6e9256a8eac",
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-bce939c25358b462",
+                  "base": {
+                    "startLine": 1271,
+                    "endLine": 1276
+                  },
+                  "current": {
+                    "startLine": 1273,
+                    "endLine": 1283
+                  },
+                  "lines": [
+                    "   \"TipLookbackOn\",",
+                    "   \"csharp\"",
+                    " );",
+                    "+@@clientName(",
+                    "+  TiTaxiiDataConnectorProperties.taxiiLookbackPeriod,",
+                    "+  \"TaxiiLookbackOn\",",
+                    "+  \"csharp\"",
+                    "+);",
+                    " @@clientName(TIDataConnector, \"SecurityInsightsTIDataConnector\", \"csharp\");",
+                    " @@clientName(TIDataConnectorDataTypes, \"TiDataConnectorDataTypes\", \"csharp\");",
+                    " @@clientName("
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "semanticMatchBasis": "unique-source"
+        }
+      ],
+      "methodGroups": [],
+      "typeImpacts": [
+        {
+          "id": "sdk-type-impact-06b0977e594373b7",
+          "type": "project-3d47c51b653f::TeamInformation.teamCreationTimeUtc",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-team-created-rename"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        },
+        {
+          "id": "sdk-type-impact-2d9b49bfe084b129",
+          "type": "project-3d47c51b653f::EnrichmentDomainWhois.created",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-whois-created-rename"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        },
+        {
+          "id": "sdk-type-impact-3061d261335c7ad7",
+          "type": "project-3d47c51b653f::FileImportProperties.filesValidUntilTimeUTC",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-files-valid-until-rename"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        },
+        {
+          "id": "sdk-type-impact-63173d9e002132fa",
+          "type": "project-3d47c51b653f::AssignmentItem.resourceId",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-assignment-item-resource-id-type"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        },
+        {
+          "id": "sdk-type-impact-7b37a8425dc5b4f7",
+          "type": "project-3d47c51b653f::EnrichmentDomainWhois.expires",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-whois-expires-rename"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        },
+        {
+          "id": "sdk-type-impact-8391e8f42fc662bc",
+          "type": "project-3d47c51b653f::RecommendationProperties.resourceId",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-recommendation-resource-id-type"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        },
+        {
+          "id": "sdk-type-impact-cfc3d354737c96b2",
+          "type": "project-3d47c51b653f::WorkspaceManagerMemberProperties.targetWorkspaceResourceId",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-workspace-target-resource-id-type"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        },
+        {
+          "id": "sdk-type-impact-d9464501769a02a9",
+          "type": "project-3d47c51b653f::FileImportProperties.importValidUntilTimeUTC",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-import-valid-until-rename"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        },
+        {
+          "id": "sdk-type-impact-eb956ac3981ed50c",
+          "type": "project-3d47c51b653f::TiTaxiiDataConnectorProperties.taxiiLookbackPeriod",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-taxii-lookback-rename"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        },
+        {
+          "id": "sdk-type-impact-fc682e97bbb70b32",
+          "type": "project-3d47c51b653f::JobItem.resourceId",
+          "locations": [],
+          "rootCauseIds": [],
+          "summary": "This generated SDK type has a confirmed public contract change.",
+          "findingIds": [
+            "inferred-downstream-job-item-resource-id-type"
+          ],
+          "affectedMethodCount": 0,
+          "affectedMethods": [],
+          "relatedSemanticIntents": [
+            "semantic-d3fb0b2b94907c0c"
+          ],
+          "unresolvedRelationshipReason": "No public SDK method reference path was deterministically established."
+        }
+      ],
+      "rootCauses": [],
+      "rejectedCandidateCount": 0,
+      "blockers": []
+    },
+    "compliance": {
+      "status": "passed",
+      "summary": "All Semantic intents were assessed; no applicable guidance was found for one or more intents.",
+      "coverage": {
+        "semanticIntentCount": 1,
+        "assessedIntentCount": 1,
+        "selectedDocumentCount": 4,
+        "unassessedIntentIds": []
+      },
+      "sharedSearch": {
+        "catalogRanking": [
+          {
+            "rank": 1,
+            "catalogOrder": 1,
+            "title": "Evolving APIs",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "Primary guidance for modifying an existing versioned Azure API; relevant to determine whether client-only customization requires API versioning."
+          },
+          {
+            "rank": 2,
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "The changes target model properties, so general model semantics are relevant."
+          },
+          {
+            "rank": 3,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "The change consists of augment decorator applications to model properties."
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Built-in decorator guidance is a nearby decorator reference, though it does not define the client-specific decorators used here."
+          },
+          {
+            "rank": 5,
+            "catalogOrder": 2,
+            "title": "Versioning overview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 6,
+            "catalogOrder": 3,
+            "title": "Add preview after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 7,
+            "catalogOrder": 4,
+            "title": "Add stable after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 8,
+            "catalogOrder": 5,
+            "title": "Add preview after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 9,
+            "catalogOrder": 6,
+            "title": "Add stable after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 10,
+            "catalogOrder": 7,
+            "title": "ARM resource types and modeling",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 11,
+            "catalogOrder": 8,
+            "title": "Specific extension resource sample",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 12,
+            "catalogOrder": 9,
+            "title": "Private endpoints",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 13,
+            "catalogOrder": 10,
+            "title": "Private links",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 14,
+            "catalogOrder": 11,
+            "title": "Network security perimeter",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 15,
+            "catalogOrder": 12,
+            "title": "ARM resource operations",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 16,
+            "catalogOrder": 13,
+            "title": "Azure.ResourceManager interface reference",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 17,
+            "catalogOrder": 14,
+            "title": "TypeSpec.Rest decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 18,
+            "catalogOrder": 15,
+            "title": "Azure.ResourceManager decorators",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 19,
+            "catalogOrder": 16,
+            "title": "ARM long-running operations",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 20,
+            "catalogOrder": 18,
+            "title": "Azure.ResourceManager data types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 21,
+            "catalogOrder": 20,
+            "title": "ARM common types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 22,
+            "catalogOrder": 22,
+            "title": "Enums",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 23,
+            "catalogOrder": 23,
+            "title": "Scalars",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 24,
+            "catalogOrder": 26,
+            "title": "OpenAPI decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 25,
+            "catalogOrder": 27,
+            "title": "Change provider namespace",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 26,
+            "catalogOrder": 28,
+            "title": "Azure Portal default experiences",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 27,
+            "catalogOrder": 30,
+            "title": "Directives",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/directives/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 28,
+            "catalogOrder": 31,
+            "title": "Azure Core `no-openapi` rule",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "The document can apply to ARM specifications, but its subject does not match these C# client customization changes."
+          },
+          {
+            "rank": 29,
+            "catalogOrder": 17,
+            "title": "Azure.Core long-running operations",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The document targets a different API pattern or service-plane concern and does not match these C# client customization changes."
+          },
+          {
+            "rank": 30,
+            "catalogOrder": 19,
+            "title": "TypeSpec pagination",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The document targets a different API pattern or service-plane concern and does not match these C# client customization changes."
+          },
+          {
+            "rank": 31,
+            "catalogOrder": 29,
+            "title": "Content negotiation",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The document targets a different API pattern or service-plane concern and does not match these C# client customization changes."
+          }
+        ],
+        "documents": [
+          {
+            "rank": 1,
+            "catalogOrder": 1,
+            "title": "Evolving APIs",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "Primary guidance for modifying an existing versioned Azure API; relevant to determine whether client-only customization requires API versioning.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-21T08:02:49.9628630Z",
+            "contentHash": "sha256:1a5af6c154f5a526ba3f6b1815091e533feb949fa65bad48535b04d20b137a9a"
+          },
+          {
+            "rank": 2,
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "The changes target model properties, so general model semantics are relevant.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-21T08:02:50.1271196Z",
+            "contentHash": "sha256:1a90dd13f99521e5c806072a6285307119be6bdca67a6ea6bc66534d79e329ab"
+          },
+          {
+            "rank": 3,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "The change consists of augment decorator applications to model properties.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-21T08:02:50.7861814Z",
+            "contentHash": "sha256:b21aa5ed3fd48138f8a161b6be14380fa0a1d4434ad23f6e8051f6951ede7768"
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Built-in decorator guidance is a nearby decorator reference, though it does not define the client-specific decorators used here.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-21T08:02:51.2299557Z",
+            "contentHash": "sha256:5ea375fc9e797a2901740f12373f5d90347d1d14e795f8ae742110487892cb30"
+          }
+        ]
+      },
+      "intentAssessments": [
+        {
+          "semanticIntentId": "semantic-d3fb0b2b94907c0c",
+          "reviewUnitId": "semantic-d3fb0b2b94907c0c",
+          "applicableGuidance": [],
+          "sourceChangeIds": [
+            "source-00c4b6e9256a8eac"
+          ],
+          "hunkIds": [
+            "hunk-00c5365901eb5495",
+            "hunk-0806d943432fe472",
+            "hunk-24b50c667a133932",
+            "hunk-a83cd4f44c068755",
+            "hunk-bce939c25358b462"
+          ],
+          "declarationIds": [],
+          "decision": "no-applicable-guidance",
+          "actual": "The PR changes C#-specific @@clientName and @@alternateType augment decorators in client.tsp without changing REST operations or TypeSpec API declarations.",
+          "rationale": "The retrieved Azure versioning, model, and decorator documents do not govern language-specific SDK naming or alternate-type customization, so no applicable Azure Guidelines requirement was found.",
+          "gap": "The retrieved Azure versioning, model, and decorator documents do not govern language-specific SDK naming or alternate-type customization, so no applicable Azure Guidelines requirement was found.",
+          "sourceLinks": [],
+          "codeSnippets": [
+            {
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "hunkId": "hunk-0806d943432fe472",
+              "lines": [
+                "-@@clientName(EnrichmentDomainWhois.expires, \"ExpireOn\", \"csharp\");",
+                "+@@clientName(EnrichmentDomainWhois.expires, \"ExpiresOn\", \"csharp\");",
+                "+@@clientName(EnrichmentDomainWhois.created, \"CreatedOn\", \"csharp\");"
+              ]
+            },
+            {
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "hunkId": "hunk-24b50c667a133932",
+              "lines": [
+                "-  \"FilesValidUntil\",",
+                "+  \"FilesExpirationOn\",",
+                "-  \"ImportValidUntil\",",
+                "+  \"ImportExpirationOn\","
+              ]
+            },
+            {
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "hunkId": "hunk-a83cd4f44c068755",
+              "lines": [
+                "+@@clientName(TeamInformation.teamCreationTimeUtc, \"CreatedOn\", \"csharp\");"
+              ]
+            },
+            {
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "hunkId": "hunk-bce939c25358b462",
+              "lines": [
+                "+@@clientName(",
+                "+  TiTaxiiDataConnectorProperties.taxiiLookbackPeriod,",
+                "+  \"TaxiiLookbackOn\",",
+                "+  \"csharp\"",
+                "+);"
+              ]
+            },
+            {
+              "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+              "hunkId": "hunk-00c5365901eb5495",
+              "lines": [
+                "+@@alternateType(",
+                "+  RecommendationProperties.resourceId,",
+                "+  Azure.Core.armResourceIdentifier,",
+                "+  \"csharp\"",
+                "+);",
+                "+@@alternateType(",
+                "+  WorkspaceManagerMemberProperties.targetWorkspaceResourceId,",
+                "+  Azure.Core.armResourceIdentifier,",
+                "+  \"csharp\"",
+                "+);",
+                "+@@alternateType(JobItem.resourceId, Azure.Core.armResourceIdentifier, \"csharp\");",
+                "+@@alternateType("
+              ]
+            }
+          ],
+          "blockers": []
+        }
+      ],
+      "findings": [],
+      "retrievalFailures": [],
+      "blockers": []
+    },
+    "documentQuality": {
+      "assessmentVersion": 5,
+      "status": "not-applicable",
+      "summary": "No newly added operation, model, enum, or interface declarations require documentation completeness assessment.",
+      "coverage": {
+        "semanticIntentCount": 1,
+        "assessedIntentCount": 1,
+        "declarationCount": 0,
+        "documentedDeclarationCount": 0,
+        "missingDeclarationCount": 0,
+        "unassessedIntentIds": [],
+        "notApplicableIntentIds": [
+          "semantic-d3fb0b2b94907c0c"
+        ]
+      },
+      "intentAssessments": [
+        {
+          "reviewUnitId": "semantic-d3fb0b2b94907c0c",
+          "status": "not-applicable",
+          "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
+          "declarations": []
+        }
+      ],
+      "findings": [],
+      "blockers": []
+    }
+  },
+  "changedFiles": [
+    {
+      "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights/client.tsp",
+      "status": "modified",
+      "origin": "committed",
+      "origins": [
+        "committed"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "project-3d47c51b653f",
+      "path": "specification/securityinsights/resource-manager/Microsoft.SecurityInsights/SecurityInsights",
+      "sourceChangeIds": [
+        "source-00c4b6e9256a8eac"
+      ],
+      "artifacts": {
+        "baseline": {
+          "comparisonRole": "baseline",
+          "sourceRevision": "base",
+          "sourceCommit": "cb5c66698e99c29b0d4ed099a88244d7ca46235c",
+          "apiVersion": "2025-10-01-preview",
+          "autorest": {
+            "status": "succeeded",
+            "command": {
+              "executable": "node_modules\\.bin\\tsp.cmd",
+              "args": [
+                "compile",
+                "C:\\workspace\\documents\\pr-45608\\worktrees\\base\\specification\\securityinsights\\resource-manager\\Microsoft.SecurityInsights\\SecurityInsights",
+                "--emit=@azure-tools/typespec-autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\workspace\\documents\\pr-45608\\projects\\project-3d47c51b653f\\baseline\\autorest",
+                "--warn-as-error",
+                "--option=@azure-tools/typespec-autorest.version=2025-10-01-preview"
+              ]
+            },
+            "exitCode": 0,
+            "durationMs": 46717,
+            "configPath": "worktrees\\base\\specification\\securityinsights\\resource-manager\\Microsoft.SecurityInsights\\SecurityInsights\\tspconfig.yaml",
+            "configHash": "a38717008f44c5af8a31b401c8808596c482e75e39f5816aa0b3df848b48cc77",
+            "logPath": "logs\\project-3d47c51b653f-baseline-autorest.log",
+            "comparisonRole": "baseline",
+            "sourceRevision": "base",
+            "sourceCommit": "cb5c66698e99c29b0d4ed099a88244d7ca46235c",
+            "selectedApiVersion": "2025-10-01-preview",
+            "format": "swagger-2.0",
+            "files": [
+              {
+                "path": "projects\\project-3d47c51b653f\\baseline\\autorest\\preview\\2025-10-01-preview\\openapi.json",
+                "apiVersion": "2025-10-01-preview",
+                "documentRole": "primary",
+                "contentHash": "50de807f7c17cdeda7c0011f749e818fd962a707f78839af6f1cd0a2965409db"
+              }
+            ]
+          },
+          "tcgc": {
+            "status": "succeeded",
+            "command": {
+              "executable": "node_modules\\.bin\\tsp.cmd",
+              "args": [
+                "compile",
+                "C:\\workspace\\documents\\pr-45608\\worktrees\\base\\specification\\securityinsights\\resource-manager\\Microsoft.SecurityInsights\\SecurityInsights",
+                "--emit=@azure-tools/typespec-client-generator-core",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\workspace\\documents\\pr-45608\\projects\\project-3d47c51b653f\\baseline\\tcgc",
+                "--warn-as-error",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\workspace\\documents\\pr-45608\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.api-version=2025-10-01-preview"
+              ]
+            },
+            "exitCode": 0,
+            "durationMs": 57342,
+            "configPath": "worktrees\\base\\specification\\securityinsights\\resource-manager\\Microsoft.SecurityInsights\\SecurityInsights\\tspconfig.yaml",
+            "configHash": "a38717008f44c5af8a31b401c8808596c482e75e39f5816aa0b3df848b48cc77",
+            "logPath": "logs\\project-3d47c51b653f-baseline-tcgc.log",
+            "comparisonRole": "baseline",
+            "sourceRevision": "base",
+            "sourceCommit": "cb5c66698e99c29b0d4ed099a88244d7ca46235c",
+            "selectedApiVersion": "2025-10-01-preview",
+            "format": "tcgc-yaml",
+            "files": [
+              {
+                "path": "projects\\project-3d47c51b653f\\baseline\\tcgc\\tcgc-output.yaml",
+                "contentHash": "78749540a4389f756b30cf081f1ff21b0eccea27ad9d4b5ee6e4c274c24a9a63"
+              }
+            ]
+          }
+        },
+        "target": {
+          "comparisonRole": "target",
+          "sourceRevision": "current",
+          "sourceCommit": "77adeaac583054090693640ce01a7df9ca709613",
+          "apiVersion": "2025-10-01-preview",
+          "autorest": {
+            "status": "succeeded",
+            "command": {
+              "executable": "node_modules\\.bin\\tsp.cmd",
+              "args": [
+                "compile",
+                "C:\\workspace\\documents\\pr-45608\\worktrees\\current\\specification\\securityinsights\\resource-manager\\Microsoft.SecurityInsights\\SecurityInsights",
+                "--emit=@azure-tools/typespec-autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\workspace\\documents\\pr-45608\\projects\\project-3d47c51b653f\\target\\autorest",
+                "--warn-as-error",
+                "--option=@azure-tools/typespec-autorest.version=2025-10-01-preview"
+              ]
+            },
+            "exitCode": 0,
+            "durationMs": 51103,
+            "configPath": "worktrees\\current\\specification\\securityinsights\\resource-manager\\Microsoft.SecurityInsights\\SecurityInsights\\tspconfig.yaml",
+            "configHash": "a38717008f44c5af8a31b401c8808596c482e75e39f5816aa0b3df848b48cc77",
+            "logPath": "logs\\project-3d47c51b653f-target-autorest.log",
+            "comparisonRole": "target",
+            "sourceRevision": "current",
+            "sourceCommit": "77adeaac583054090693640ce01a7df9ca709613",
+            "selectedApiVersion": "2025-10-01-preview",
+            "format": "swagger-2.0",
+            "files": [
+              {
+                "path": "projects\\project-3d47c51b653f\\target\\autorest\\preview\\2025-10-01-preview\\openapi.json",
+                "apiVersion": "2025-10-01-preview",
+                "documentRole": "primary",
+                "contentHash": "41c440abf7869ed3bb11537ad059210387f3ae43bf098ea32754224a2637cfd8"
+              }
+            ]
+          },
+          "tcgc": {
+            "status": "succeeded",
+            "command": {
+              "executable": "node_modules\\.bin\\tsp.cmd",
+              "args": [
+                "compile",
+                "C:\\workspace\\documents\\pr-45608\\worktrees\\current\\specification\\securityinsights\\resource-manager\\Microsoft.SecurityInsights\\SecurityInsights",
+                "--emit=@azure-tools/typespec-client-generator-core",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\workspace\\documents\\pr-45608\\projects\\project-3d47c51b653f\\target\\tcgc",
+                "--warn-as-error",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\workspace\\documents\\pr-45608\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.api-version=2025-10-01-preview"
+              ]
+            },
+            "exitCode": 0,
+            "durationMs": 31948,
+            "configPath": "worktrees\\current\\specification\\securityinsights\\resource-manager\\Microsoft.SecurityInsights\\SecurityInsights\\tspconfig.yaml",
+            "configHash": "a38717008f44c5af8a31b401c8808596c482e75e39f5816aa0b3df848b48cc77",
+            "logPath": "logs\\project-3d47c51b653f-target-tcgc.log",
+            "comparisonRole": "target",
+            "sourceRevision": "current",
+            "sourceCommit": "77adeaac583054090693640ce01a7df9ca709613",
+            "selectedApiVersion": "2025-10-01-preview",
+            "format": "tcgc-yaml",
+            "files": [
+              {
+                "path": "projects\\project-3d47c51b653f\\target\\tcgc\\tcgc-output.yaml",
+                "contentHash": "9934669f3f6b03d2b1b664230dfad42b5b12c68d4ec73b41ec17936459d4cd63"
+              }
+            ]
+          }
+        }
+      },
+      "blockers": [],
+      "artifactComparison": {
+        "mode": "existing-api-version",
+        "baseline": {
+          "sourceRevision": "base",
+          "commit": "cb5c66698e99c29b0d4ed099a88244d7ca46235c",
+          "apiVersion": "2025-10-01-preview",
+          "reason": "affected-existing-version"
+        },
+        "target": {
+          "sourceRevision": "current",
+          "commit": "77adeaac583054090693640ce01a7df9ca709613",
+          "apiVersion": "2025-10-01-preview",
+          "reason": "affected-existing-version"
+        },
+        "base": "2025-10-01-preview",
+        "current": "2025-10-01-preview",
+        "baseReason": "affected-existing-version",
+        "currentReason": "latest-version",
+        "addedCurrentVersions": [],
+        "available": {
+          "base": [
+            "2025-09-01",
+            "2025-10-01-preview"
+          ],
+          "current": [
+            "2025-09-01",
+            "2025-10-01-preview"
+          ]
+        }
+      },
+      "apiVersions": {
+        "base": "2025-10-01-preview",
+        "current": "2025-10-01-preview",
+        "baseReason": "affected-existing-version",
+        "currentReason": "affected-existing-version",
+        "addedCurrentVersions": [],
+        "available": {
+          "base": [
+            "2025-09-01",
+            "2025-10-01-preview"
+          ],
+          "current": [
+            "2025-09-01",
+            "2025-10-01-preview"
+          ]
+        }
+      }
+    }
+  ],
+  "blockers": [
+    "TCGC did not represent the language-specific C# customization deltas; downstream findings are inferred from the explicit client.tsp decorator changes."
+  ],
+  "provenance": {
+    "modelInput": "model-input.json",
+    "documentQuality": "dimensions/document-quality-input.json",
+    "inference": "inference.json",
+    "complianceSearchEvidence": "compliance-search-evidence.json",
+    "judgment": "assessment-judgment.json",
+    "preparationManifest": "preparation-manifest.json"
+  },
+  "inputAccounting": {
+    "budgetTier": "small",
+    "budgetBytes": 131072,
+    "bytes": 11391,
+    "estimatedTokens": 2848,
+    "retained": {
+      "evidenceSets": 1,
+      "facts": 0,
+      "semanticReviewUnits": 1,
+      "restCandidates": 0,
+      "downstreamCandidates": 0,
+      "downstreamRootCauses": 0,
+      "complianceSearchRequests": 1,
+      "inferenceRequests": 5
+    },
+    "omittedRedundant": {
+      "rawEmitterArtifacts": true,
+      "compilerLogs": true,
+      "unchangedInventories": true,
+      "unreferencedFacts": true,
+      "unreferencedDeterministicFacts": true,
+      "sourceChanges": true,
+      "repeatedDeclarationIds": true,
+      "repeatedReviewUnitEvidence": true
+    },
+    "inference": {
+      "requestCount": 5,
+      "inferredCandidateCount": 10,
+      "noImpactCount": 0,
+      "blockedCount": 0
+    },
+    "compliance": {
+      "catalogEntriesScored": 31,
+      "documentsFetched": 4,
+      "documentBytesFetched": 1777260,
+      "guidanceExcerptsRetained": 0,
+      "guidanceExcerptBytesRetained": 0
+    }
+  },
+  "timings": {
+    "metadataMs": 5608,
+    "fetchMs": 61918,
+    "scopeDiscoveryMs": 338,
+    "setupExcludingFetchMs": 308769,
+    "comparisonMs": 747,
+    "changeDiscoveryMs": 449,
+    "workspacePreparationMs": 295738,
+    "projectDiscoveryMs": 4012,
+    "totalMs": 1017575,
+    "semanticAnalysisMs": 274,
+    "restAnalysisMs": 357,
+    "downstreamAnalysisMs": 22062,
+    "documentQualityAnalysisMs": 1
+  }
+}
