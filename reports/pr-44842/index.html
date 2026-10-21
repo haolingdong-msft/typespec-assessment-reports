@@ -1,0 +1,1932 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TypeSpec Assessment</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#64748b;--line:#dbe3ef;--accent:#2563eb;--good:#047857;--warn:#b45309;--danger:#b91c1c;--add-bg:#dcfce7;--add-text:#166534;--remove-bg:#fee2e2;--remove-text:#991b1b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,sans-serif}.container{width:min(1100px,calc(100% - 32px));margin:auto}.hero{padding:38px 0 42px;background:linear-gradient(120deg,#172554,#2554d8);color:white}.hero .eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:800;color:#dbeafe}.hero h1{margin:.35em 0 .55em;font-size:clamp(34px,4.2vw,58px);line-height:1.08;letter-spacing:-.025em}.hero-meta{font-size:16px;color:#e0e7ff}.hero-meta strong{color:#86efac;text-transform:capitalize}.hero a{color:#dbeafe}.summary-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:28px}.summary-card{display:block;min-height:150px;padding:18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.09);color:white!important;text-decoration:none;transition:background .15s,border-color .15s,transform .15s}.summary-card:hover,.summary-card:focus-visible{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5);transform:translateY(-2px);outline:none}.summary-card:focus-visible{box-shadow:0 0 0 3px #93c5fd}.summary-value{display:flex;gap:10px;align-items:center;font-size:25px;font-weight:800}.summary-value .pass{color:#86efac}.summary-value .fail{color:#fecaca}.summary-label{margin-top:8px;font-size:16px;font-weight:750}.summary-detail{margin-top:7px;color:#dbeafe;font-size:13px}.notice{padding:16px 0;background:#fffbeb;color:#713f12;border-bottom:1px solid #fde68a}main{padding:28px 0}section{margin:0 0 30px}.dimension-details>summary{cursor:pointer;list-style-position:outside}.dimension-details>summary h2{display:inline-block;margin:0 0 12px}.panel,.finding,.intent,.operation,.compliance-intent,.compliance-comparison{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}.finding{border-left:4px solid var(--warn)}.finding.high,.compliance-comparison.applicable-fail{border-left:4px solid var(--danger)}.finding.low{border-left-color:var(--muted)}.intent>summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.intent>summary .action{margin-left:0}.intent-finding-badges{display:inline-flex;gap:7px;flex-wrap:wrap;margin-left:auto}.intent-finding-badge{border:1px solid #991b1b;border-radius:999px;padding:3px 10px;background:#b91c1c;color:#fff!important;font-size:13px;font-weight:800;text-decoration:none}.intent-finding-badge:hover,.intent-finding-badge:focus-visible{background:#7f1d1d;outline:2px solid #fca5a5;outline-offset:2px}.intent>summary,.representative-example>summary,.operation summary,.compliance-intent>summary,.compliance-comparison>summary,.finding>summary,.comparison-details>summary,.affected-operations>summary,.root-cause-provenance>summary{cursor:pointer}.intent>summary,.compliance-intent>summary{font-size:18px}.intent-body,.compliance-intent-body,.compliance-comparison-body{padding-top:12px}.finding>summary{display:flex;align-items:center;gap:12px;font-size:18px}.sdk-contract-card>summary,.sdk-method-card>summary{flex-wrap:wrap}.finding-summary{margin-left:auto;color:var(--muted);font-size:15px}.severity,.origin-tag,.contract-tag{border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800}.contract-tag{background:#dbeafe;color:#1e40af}.severity{text-transform:lowercase}.severity.high{background:#fee2e2;color:#991b1b}.severity.medium{background:#fef3c7;color:#92400e}.severity.low{background:#dbeafe;color:#1e40af}.origin-tag.rest-breaking-tag{background:#fee2e2;color:#991b1b}.downstream-rest-link{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}.downstream-rest-link:hover strong,.downstream-rest-link:focus-visible strong{text-decoration:underline}.finding-body{padding-top:12px}.comparison-details{margin:14px 0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--panel) 94%,var(--accent))}.comparison-details>summary{font-size:16px}.comparison-body{padding-top:12px}.contract-metadata{grid-template-columns:max-content minmax(0,1fr);margin:4px 0 22px}.http-contract{display:inline-flex;align-items:baseline;gap:8px;flex-wrap:wrap}.contract-change-table{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden}.contract-change-table th{background:#eaf0f9}.contract-change-table th,.contract-change-table td{padding:13px 15px;border-right:1px solid var(--line)}.contract-change-table th:last-child,.contract-change-table td:last-child{border-right:0}.contract-member{width:31%;background:color-mix(in srgb,#eaf0f9 70%,var(--panel))}.contract-area-kind{display:block;margin-bottom:3px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.contract-before{width:34.5%;background:#fff1f1}.contract-after{width:34.5%;background:#eefaf3}.contract-value{display:inline-block;padding:3px 7px;border-radius:5px;font-weight:700}.contract-value.before{background:var(--remove-bg);color:var(--remove-text)}.contract-value.after{background:var(--add-bg);color:var(--add-text)}.contract-detail{display:block;margin-top:4px;color:var(--muted);font-size:13px}.breaking-rationale{margin:17px 0 22px;padding:12px 14px;border-left:3px solid #e7a400;background:#fff9e8}.affected-operations{margin:20px 0}.affected-operations>summary{font-size:18px}.affected-operation-list{display:grid;gap:7px;margin-top:10px}.affected-operation{display:grid;grid-template-columns:minmax(230px,.8fr) 65px minmax(300px,1.8fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}.http-method{color:#075cab;font-family:ui-monospace,monospace;font-weight:800}.contract-footer{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:18px;color:var(--muted);font-size:13px}.root-cause-provenance{margin-top:14px}.mapping-unavailable{color:var(--muted)}.representative-example{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:9px}.operation summary{display:flex;gap:12px;align-items:center}.operation summary span,.action{margin-left:auto;border-radius:999px;padding:2px 8px;background:#dbeafe;color:#1e40af}.operation-body{padding-top:12px}.diff{background:#111827;color:#e5e7eb;border-radius:10px;overflow:auto;margin:12px 0}.diff-path{padding:7px 12px;background:#1f2937}.diff-path a{color:#93c5fd}.diff pre{padding:12px;margin:0}.diff pre span{display:block}.diff pre .line-number{display:inline-block;width:42px;color:#94a3b8;user-select:none}.diff .add{background:#123d2a;color:#bbf7d0}.diff .remove{background:#51212a;color:#fecaca}.parameter-diff{margin:12px 0}.parameter-line{display:flex;gap:8px;align-items:baseline;padding:5px 9px;margin:3px 0;border-radius:6px}.parameter-line.add,.delta-after,ins{background:var(--add-bg);color:var(--add-text)}.parameter-line.remove,.delta-before,del{background:var(--remove-bg);color:var(--remove-text)}.parameter-line.modify,.parameter-line.reorder{background:#fef3c7;color:#92400e}.parameter-line>span:first-child{font-weight:800}.parameter-attribute{white-space:nowrap}.delta-before,.delta-after,del,ins{padding:2px 5px;border-radius:4px;text-decoration:none}dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px}dt{font-weight:700}dd{margin:0}.not-assessed{color:var(--muted);font-weight:700}.good,.compliance-summary.passed{color:var(--good)}.compliance-summary.failed{color:var(--danger)}.sources{color:var(--muted);font-size:13px}blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--panel) 90%,var(--accent))}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere}@media(max-width:1050px){.summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.affected-operation{grid-template-columns:1fr 65px}.affected-operation code{grid-column:1/-1}}@media(max-width:700px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.finding-summary{width:100%;margin-left:0}.contract-change-table{display:block;overflow-x:auto}.contract-change-table th,.contract-change-table td{min-width:210px}}@media(max-width:540px){.summary-grid{grid-template-columns:1fr}.hero h1{font-size:32px}}@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--panel:#172033;--text:#e5e7eb;--muted:#9ca3af;--line:#334155;--add-bg:#123d2a;--add-text:#bbf7d0;--remove-bg:#51212a;--remove-text:#fecaca}.notice{background:#422006;color:#fde68a}.parameter-line.modify,.parameter-line.reorder{background:#422006;color:#fde68a}.contract-change-table th{background:#202d45}.contract-member{background:#1d293d}.contract-before{background:#431f29}.contract-after{background:#15382b}.breaking-rationale{background:#3b2f13}.http-method{color:#76b9ff}}
+.tag{border-radius:999px;padding:3px 10px;background:#dbeafe;color:#1e40af;font-size:13px;font-weight:800}.finding-summary-meta{margin-left:auto;color:var(--muted);font-size:14px}.rest-operation-list{display:grid;gap:7px}.rest-operation-line{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(260px,2fr);gap:12px;padding:9px 11px;border:1px solid var(--line);border-radius:8px}.rest-operation-line>span{color:var(--muted)}@media(max-width:700px){.rest-operation-line{grid-template-columns:1fr}.finding-summary-meta{width:100%;margin-left:0}}
+.finding{border-left:1px solid var(--line)}
+.rest-contract-card .contract-tag{background:#fee2e2;color:#991b1b}.rest-contract-card .rest-operation-list{margin-top:10px}
+.notice{padding:0}.notice>summary{display:flex;min-height:46px;align-items:center;gap:10px;padding:8px 0;cursor:pointer;list-style:none}.notice>summary::-webkit-details-marker{display:none}.notice>summary::before{content:"▸";flex:none;color:#b45309;font-size:15px;font-weight:900;transition:transform .15s ease}.notice[open]>summary::before{transform:rotate(90deg)}.notice-title{flex:none;font-size:14px;font-weight:800}.notice-summary{overflow:hidden;color:color-mix(in srgb,currentColor 78%,var(--muted));font-size:12.5px;text-overflow:ellipsis;white-space:nowrap}.notice-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 0 12px 25px;font-size:12.5px;line-height:1.4}.notice-body p{margin:0}@media(max-width:700px){.notice-summary{display:none}.notice-body{grid-template-columns:1fr;gap:6px}}@media(prefers-color-scheme:dark){.notice>summary::before{color:#fbbf24}}
+.compliance-finding-group>summary{flex-wrap:wrap}.compliance-affected-intents{display:grid;gap:12px}.compliance-affected-intent{margin:0;padding:14px 16px;border:1px solid var(--line);border-radius:10px}.compliance-affected-intent h4{margin:0 0 8px}.compliance-affected-intent h5{margin:14px 0 6px}
+.intent-finding-badge{font:inherit;font-size:13px;cursor:pointer}.intent-impact-trigger{position:relative}.intent-impact-popover{position:absolute;z-index:20;top:calc(100% + 8px);right:0;display:none;width:min(480px,88vw);overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--panel);box-shadow:0 14px 34px rgb(31 42 68 / 18%)}.intent-impact-trigger.open .intent-impact-popover{display:grid}.intent-impact-popover a{display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);color:var(--text)!important;text-decoration:none}.intent-impact-popover a:first-child{border-top:0}.intent-impact-popover a:hover,.intent-impact-popover a:focus-visible{background:color-mix(in srgb,var(--panel) 92%,var(--accent))}.intent-impact-popover a span{color:var(--muted);font-size:13px}.intent h3,.representative-example>summary{font-size:17px;font-weight:750;line-height:1.35}.impact-highlight{outline:3px solid #ef4444;outline-offset:3px}
+.affected-methods{margin:20px 0}.affected-methods>summary{font-size:18px}.affected-method-list{display:grid;gap:7px;margin-top:10px}.affected-method{display:grid;grid-template-columns:minmax(180px,.6fr) minmax(280px,1.4fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}@media(max-width:700px){.affected-method{grid-template-columns:1fr}}
+.summary-value {
+  white-space: nowrap;
+}
+.summary-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.summary-heading .summary-value {
+  flex: none;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.summary-heading .summary-label {
+  min-width: 0;
+  margin-top: 0;
+  line-height: 1.4;
+}
+.summary-heading .info {
+  color: #dbeafe;
+}
+@media (min-width: 1051px) {
+  .summary-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.report-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 14px;
+}
+.report-section-head > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+.report-section-head h2 {
+  margin: 0;
+}
+.report-section-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.report-section-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.report-count {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eaf0f9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+}
+.report-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+}
+.report-card {
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.report-card > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+.report-card > summary::-webkit-details-marker {
+  display: none;
+}
+.report-card > summary:before {
+  content: "+";
+  width: 16px;
+  flex: none;
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 1.2;
+}
+.report-card[open] > summary:before {
+  content: "−";
+}
+.report-card-title {
+  min-width: 0;
+  flex: 1;
+}
+.report-card-title strong {
+  display: block;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.report-card-title small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+.report-card-body {
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--line);
+}
+.report-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.report-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.report-badge.add {
+  background: #dcfce7;
+  color: #166534;
+}
+.report-badge.modify,
+.report-badge.direct {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.report-badge.remove {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.report-badge.indirect {
+  background: #ede9fe;
+  color: #6b21a8;
+}
+.report-badge.mixed {
+  background: #d1fae5;
+  color: #065f46;
+}
+.report-badge.unknown {
+  background: #fef3c7;
+  color: #92400e;
+}
+.report-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.report-table th {
+  background: #f2f5fa;
+  color: #53637a;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.report-table th,
+.report-table td {
+  padding: 11px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.report-table tr:last-child td {
+  border-bottom: 0;
+}
+.report-table td:first-child {
+  width: 29%;
+  min-width: 145px;
+}
+.report-table td:nth-child(2),
+.report-table td:nth-child(3) {
+  width: 35.5%;
+  min-width: 170px;
+}
+.report-table td:nth-child(2) {
+  background: #fff5f4;
+}
+.report-table td:nth-child(3) {
+  background: #f0faf5;
+}
+.report-table pre {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-detail,
+.report-small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.report-link-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 5px 0 0;
+}
+.report-link {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.report-link:hover,
+.report-link:focus-visible {
+  text-decoration: underline;
+  outline-offset: 2px;
+}
+.report-intent-relations {
+  margin-top: 12px;
+  cursor: default;
+}
+.report-relation-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: text;
+}
+.report-link.impact,
+.report-link[href^="#compliance-finding-"] {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fff1f2;
+}
+.report-reference-paths {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0;
+}
+.report-reference-path {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.35fr) minmax(180px, 1fr) max-content;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--panel) 92%, var(--accent));
+  font-size: 12px;
+}
+.report-reference-path > span {
+  color: var(--muted);
+}
+.report-type-impact {
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+.report-type-impact:first-child {
+  border-top: 0;
+}
+.report-type-impact h4 {
+  margin: 0 0 5px;
+}
+.report-guideline-section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-guideline-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+.report-guideline-section + .report-guideline-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.report-document-snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.report-document-snapshots.single-snapshot {
+  grid-template-columns: minmax(0, 1fr);
+}
+.report-document-context {
+  min-width: 0;
+}
+.report-document-related {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.report-document-related-type > h5 {
+  font-size: 13px;
+  margin: 15px 0 8px;
+  overflow-wrap: anywhere;
+}
+.report-document-related pre {
+  max-height: 400px;
+  overflow: auto;
+}
+.report-document-snapshot {
+  min-width: 0;
+}
+.report-document-snapshot h4,
+.report-document-snapshot h5 {
+  margin: 12px 0 6px;
+}
+.document-quality-check pre {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-document-rationale {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.report-document-rationale p {
+  margin: 5px 0 0;
+}
+.document-quality-scope {
+  margin-top: 14px;
+}
+.document-quality-intent-link {
+  margin-bottom: 12px;
+}
+.document-quality-file {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.document-quality-file-count {
+  font-weight: 400;
+  color: var(--muted);
+}
+.document-quality-list {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+  overscroll-behavior: contain;
+}
+.document-quality-row,
+.document-quality-document > summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.document-quality-document > summary {
+  cursor: pointer;
+}
+.document-quality-document > summary:before {
+  content: "+";
+  color: var(--accent);
+}
+.document-quality-document[open] > summary:before {
+  content: "-";
+}
+.document-quality-document > summary > span:first-of-type {
+  flex: 1;
+}
+.document-quality-document > summary > span:first-child,
+.document-quality-row > a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.document-quality-document > summary > .report-badge,
+.document-quality-row > .report-badge {
+  flex: none;
+}
+.document-quality-document-body {
+  padding: 12px;
+}
+.document-quality-document-body h4 {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+.document-quality-document-body blockquote {
+  margin: 0 0 15px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.document-quality-current {
+  padding: 0;
+}
+.document-quality-description-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.document-quality-description-heading h3,
+.document-quality-explanation h3,
+.document-quality-suggestion h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.document-quality-current mark {
+  background: var(--remove-bg);
+  color: var(--remove-text);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+.document-quality-explanation p,
+.document-quality-suggestion p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+.document-quality-check .document-quality-source {
+  margin-top: 16px;
+}
+.document-quality-source pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-badge.neutral {
+  background: color-mix(in srgb, var(--panel) 85%, var(--muted));
+  color: var(--muted);
+}
+.document-quality-neutral > summary {
+  padding: 12px 18px;
+}
+.document-quality-neutral .report-card-title strong {
+  font-size: 13px;
+}
+.document-quality-list:focus-visible,
+.document-quality-file > summary:focus-visible,
+.document-quality-document > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.report-source {
+  margin-bottom: 16px;
+}
+.report-source > summary,
+.report-subdetails > summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+.report-http {
+  color: #075cab;
+  font:
+    800 12px ui-monospace,
+    monospace;
+}
+.report-card .operation summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+}
+.report-card .operation summary > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-card .operation summary > code {
+  grid-column: 1/-1;
+}
+.report-card .operation summary > span {
+  margin-left: 0;
+  justify-self: start;
+}
+.report-operation-remainder {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.container,
+.report-card-body,
+.report-card,
+.report-guideline-section,
+.report-source,
+.operation {
+  min-width: 0;
+}
+body {
+  overflow-wrap: anywhere;
+}
+.diff,
+.report-table-wrap,
+#appendix .panel {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.diff-path {
+  overflow-wrap: anywhere;
+}
+#appendix pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#appendix table {
+  display: block;
+  overflow-x: auto;
+}
+@media (max-width: 760px) {
+  .report-document-snapshots {
+    grid-template-columns: 1fr;
+  }
+  .report-section-head {
+    display: block;
+  }
+  .report-section-meta {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+  .report-card > summary {
+    flex-wrap: wrap;
+  }
+  .report-card > summary > .report-badges {
+    margin-left: 28px;
+  }
+  .report-reference-path {
+    grid-template-columns: 1fr;
+  }
+  .report-count {
+    max-width: 100%;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-count {
+    background: #26344d;
+    color: #cbd5e1;
+  }
+  .report-badge.indirect {
+    background: #3b2852;
+    color: #e9d5ff;
+  }
+  .report-badge.mixed {
+    background: #143d34;
+    color: #a7f3d0;
+  }
+  .report-badge.add {
+    background: #123d2a;
+    color: #bbf7d0;
+  }
+  .report-badge.modify,
+  .report-badge.direct {
+    background: #202d45;
+    color: #dbeafe;
+  }
+  .report-badge.remove {
+    background: #431f29;
+    color: #fecaca;
+  }
+  .report-badge.unknown {
+    background: #422006;
+    color: #fde68a;
+  }
+  .report-table th {
+    background: #202d45;
+    color: #cbd5e1;
+  }
+  .report-table td:nth-child(2) {
+    background: #431f29;
+  }
+  .report-table td:nth-child(3) {
+    background: #15382b;
+  }
+  .report-link.impact,
+  .report-link[href^="#compliance-finding-"] {
+    color: #fecaca;
+    border-color: #7f1d1d;
+    background: #431f29;
+  }
+  .report-http {
+    color: #93c5fd;
+  }
+}
+
+</style></head><body>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>8 TypeSpec changes for Waves</h1>
+<p class="hero-meta">TypeSpec source diff: <code>232716e16c4b24af7939009d2933562da40e63df</code> → <code>a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0</code></p>
+<div class="summary-grid">
+<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">8 intents<br>5 operations<br>6 Added, 2 Modified, 0 Removed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">8 findings<br>8/8 intents assessed</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">2 findings</div></a>
+<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>19 declarations checked</div></a>
+</div></div></header>
+<details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
+<div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
+<p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
+<main class="container">
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">8 findings</span></div></div><p class="report-small">8 of 8 semantic intents assessed · 4 documents selected</p><details class="report-card compliance-finding compliance-finding-group"><summary><div class="report-card-title"><strong>Use the single active preview transition</strong><small>6 intents do not follow this guidance.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (6)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-1ad280cf03c1de19">Add shared wave-plan result types</a><a class="report-link" href="#intent-semantic-76cf51e44065330d">Add create-waves payloads</a><a class="report-link" href="#intent-semantic-85667619ce1332e6">Replace generate-wave-plan result shape</a><a class="report-link" href="#intent-semantic-88e0ecf8a4a88a6b">Add wave-plan listing payloads</a><a class="report-link" href="#intent-semantic-923fedd33c2c580c">Add SAS upload URI payloads</a><a class="report-link" href="#intent-semantic-b4cdd00c9459dbaf">Add wave-plan import payloads</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><div class="report-guideline-section expected-details"><h3>Expected</h3><p>For a preview-only API, replace the latest preview with the new preview and remove versioning decorators instead of retaining multiple preview versions.</p><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview — Preview Versioning Rules for All Azure APIs</a><blockquote>Make the last enum value the preview, apply @previewVersion to it, and mark changes from the latest stable with versioning decorators that reference that preview.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/">Add preview after preview — The Simplest Case: No Stable api-versions</a><blockquote>When an API has only preview versions, replace the latest preview with the new preview, remove versioning decorators, and make the new API changes directly.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs — Versioning Decorators</a><blockquote>Use @added with the version where a new model, property, or operation is introduced; use @removed with the version where an element is removed.</blockquote><div class="diff"><div class="diff-path"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Documented TypeSpec example</a></div><pre><span class="">@added(Versions.v2) model Employee { name?: string; }</span></pre></div></div></div><div class="report-guideline-section actual-details"><h3>Actual</h3><div class="report-type-impact" id="compliance-finding-compliance-678a637e1726df35"><h4><a class="report-link" href="#intent-semantic-1ad280cf03c1de19">Add shared wave-plan result types</a></h4><p>The service has no stable API version, so these models should describe the replacement active preview directly rather than creating another retained preview layer.</p><p>The new shared wave-plan models are gated with @added(ApiVersions.v2026_06_01_preview) while earlier preview versions remain in the enum.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp#L14-L22">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp:12-22</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp#L26-L34">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp:24-34</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp#L38-L50">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp:36-50</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp#L54-L78">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp:52-78</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp#L82-L88">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp:80-88</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp#L14-L22">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp:12-22</a></div><pre><span class="add"><span class="line-number">12</span>+import &quot;@typespec/versioning&quot;;</span>
+<span class="add"><span class="line-number">13</span>+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add"><span class="line-number">14</span>+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add"><span class="line-number">15</span>+import &quot;../Enums/Enums.tsp&quot;;</span>
+<span class="add"><span class="line-number">16</span>+</span>
+<span class="add"><span class="line-number">17</span>+using TypeSpec.Versioning;</span>
+<span class="add"><span class="line-number">18</span>+using Azure.Core;</span>
+<span class="add"><span class="line-number">19</span>+using Azure.ResourceManager;</span>
+<span class="add"><span class="line-number">20</span>+</span>
+<span class="add"><span class="line-number">21</span>+namespace Microsoft.Migrate;</span>
+<span class="add"><span class="line-number">22</span>+</span>
+<span class="add"><span class="line-number">23</span>+@doc(&quot;The source of a wave plan.&quot;)</span></pre></div></div><div class="report-type-impact" id="compliance-finding-compliance-fe247953327a8701"><h4><a class="report-link" href="#intent-semantic-76cf51e44065330d">Add create-waves payloads</a></h4><p>The added models should be part of the replacement preview without versioning decorators.</p><p>The create-waves models are introduced with @added(ApiVersions.v2026_06_01_preview) in a preview-only API.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp#L13-L19">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp:11-19</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp#L24-L34">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp:21-34</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp#L39-L63">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp:36-63</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp#L13-L19">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp:11-19</a></div><pre><span class="add"><span class="line-number">11</span>+import &quot;@typespec/versioning&quot;;</span>
+<span class="add"><span class="line-number">12</span>+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add"><span class="line-number">13</span>+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add"><span class="line-number">14</span>+</span>
+<span class="add"><span class="line-number">15</span>+using TypeSpec.Versioning;</span>
+<span class="add"><span class="line-number">16</span>+using Azure.Core;</span>
+<span class="add"><span class="line-number">17</span>+using Azure.ResourceManager;</span>
+<span class="add"><span class="line-number">18</span>+</span>
+<span class="add"><span class="line-number">19</span>+namespace Microsoft.Migrate;</span>
+<span class="add"><span class="line-number">20</span>+</span>
+<span class="add"><span class="line-number">21</span>+@doc(&quot;A wave selection item with name and optional display name.&quot;)</span>
+<span class="add"><span class="line-number">22</span>+@added(ApiVersions.v2026_06_01_preview)</span></pre></div></div><div class="report-type-impact" id="compliance-finding-compliance-a5f7b081e044b80b"><h4><a class="report-link" href="#intent-semantic-85667619ce1332e6">Replace generate-wave-plan result shape</a></h4><p>Because no stable version exists, the new preview should directly carry the revised model and retire the previous preview instead of preserving both preview shapes.</p><p>GenerateWavePlanResponse is reshaped across retained preview versions using versioning decorators rather than replacing the prior active preview contract.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp#L12-L18">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp:9-18</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp#L23-L68">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp:20-68</a></p><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/Waves/GenerateWavePlan.tsp</div><pre><span class="remove">-import &quot;@typespec/versioning&quot;;</span>
+<span class="remove">-using TypeSpec.Versioning;</span>
+<span class="remove">-</span>
+<span class="remove">-namespace Microsoft.Migrate;</span>
+<span class="remove">-</span>
+<span class="remove">-#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="remove">-@doc(&quot;Data model of Download URL for wave recommendation report.&quot;)</span>
+<span class="remove">-@added(ApiVersions.v2025_12_01_preview)</span>
+<span class="remove">-model GenerateWavePlanRequest {</span>
+<span class="remove">-  @doc(&quot;ARM Id of the assessment for which the wave plan report is to be generated.&quot;)</span>
+<span class="remove">-  assessmentArmId?: string;</span>
+<span class="remove">-</span></pre></div><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp#L12-L18">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp:9-18</a></div><pre><span class="add"><span class="line-number">9</span>+import &quot;@typespec/versioning&quot;;</span>
+<span class="add"><span class="line-number">10</span>+import &quot;../Enums/Enums.tsp&quot;;</span>
+<span class="add"><span class="line-number">11</span>+import &quot;./WavePlanCommon.tsp&quot;;</span>
+<span class="add"><span class="line-number">12</span>+</span>
+<span class="add"><span class="line-number">13</span>+using TypeSpec.Versioning;</span>
+<span class="add"><span class="line-number">14</span>+</span>
+<span class="add"><span class="line-number">15</span>+namespace Microsoft.Migrate;</span>
+<span class="add"><span class="line-number">16</span>+</span>
+<span class="add"><span class="line-number">17</span>+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="add"><span class="line-number">18</span>+@doc(&quot;Data model of Download URL for wave recommendation report.&quot;)</span>
+<span class="add"><span class="line-number">19</span>+@added(ApiVersions.v2025_12_01_preview)</span>
+<span class="add"><span class="line-number">20</span>+model GenerateWavePlanRequest {</span></pre></div></div><div class="report-type-impact" id="compliance-finding-compliance-05ca2dd1b1284ce9"><h4><a class="report-link" href="#intent-semantic-88e0ecf8a4a88a6b">Add wave-plan listing payloads</a></h4><p>These additions should be made directly in the replacement preview rather than versioned as another active preview.</p><p>The wave-plan listing models are gated with @added(ApiVersions.v2026_06_01_preview) while older previews remain active in TypeSpec.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp#L15-L21">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp:12-21</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp#L26-L30">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp:23-30</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp#L15-L21">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp:12-21</a></div><pre><span class="add"><span class="line-number">12</span>+import &quot;@typespec/versioning&quot;;</span>
+<span class="add"><span class="line-number">13</span>+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add"><span class="line-number">14</span>+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add"><span class="line-number">15</span>+import &quot;./WavePlanCommon.tsp&quot;;</span>
+<span class="add"><span class="line-number">16</span>+</span>
+<span class="add"><span class="line-number">17</span>+using TypeSpec.Versioning;</span>
+<span class="add"><span class="line-number">18</span>+using Azure.Core;</span>
+<span class="add"><span class="line-number">19</span>+using Azure.ResourceManager;</span>
+<span class="add"><span class="line-number">20</span>+</span>
+<span class="add"><span class="line-number">21</span>+namespace Microsoft.Migrate;</span>
+<span class="add"><span class="line-number">22</span>+</span>
+<span class="add"><span class="line-number">23</span>+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span></pre></div></div><div class="report-type-impact" id="compliance-finding-compliance-8f56fe2c8c5b14f8"><h4><a class="report-link" href="#intent-semantic-923fedd33c2c580c">Add SAS upload URI payloads</a></h4><p>The models should be introduced directly when replacing the prior preview, without retaining preview-specific version decorators.</p><p>The SAS URI models are gated with @added(ApiVersions.v2026_06_01_preview) in a preview-only API.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp#L14-L23">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp:11-23</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp#L28-L36">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp:25-36</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp#L14-L23">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp:11-23</a></div><pre><span class="add"><span class="line-number">11</span>+import &quot;@typespec/versioning&quot;;</span>
+<span class="add"><span class="line-number">12</span>+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add"><span class="line-number">13</span>+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add"><span class="line-number">14</span>+</span>
+<span class="add"><span class="line-number">15</span>+using TypeSpec.Versioning;</span>
+<span class="add"><span class="line-number">16</span>+using Azure.Core;</span>
+<span class="add"><span class="line-number">17</span>+using Azure.ResourceManager;</span>
+<span class="add"><span class="line-number">18</span>+</span>
+<span class="add"><span class="line-number">19</span>+namespace Microsoft.Migrate;</span>
+<span class="add"><span class="line-number">20</span>+</span>
+<span class="add"><span class="line-number">21</span>+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span>
+<span class="add"><span class="line-number">22</span>+@doc(&quot;Request body for the fetchSASUri action.&quot;)</span></pre></div></div><div class="report-type-impact" id="compliance-finding-compliance-91b235e5a2aac186"><h4><a class="report-link" href="#intent-semantic-b4cdd00c9459dbaf">Add wave-plan import payloads</a></h4><p>The import contract should be part of the replacement active preview rather than an additional retained preview layer.</p><p>The import models are gated with @added(ApiVersions.v2026_06_01_preview) while earlier preview versions remain declared.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp#L15-L24">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp:12-24</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp#L29-L31">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp:26-31</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp#L15-L24">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp:12-24</a></div><pre><span class="add"><span class="line-number">12</span>+import &quot;@typespec/versioning&quot;;</span>
+<span class="add"><span class="line-number">13</span>+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add"><span class="line-number">14</span>+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add"><span class="line-number">15</span>+import &quot;./WavePlanCommon.tsp&quot;;</span>
+<span class="add"><span class="line-number">16</span>+</span>
+<span class="add"><span class="line-number">17</span>+using TypeSpec.Versioning;</span>
+<span class="add"><span class="line-number">18</span>+using Azure.Core;</span>
+<span class="add"><span class="line-number">19</span>+using Azure.ResourceManager;</span>
+<span class="add"><span class="line-number">20</span>+</span>
+<span class="add"><span class="line-number">21</span>+namespace Microsoft.Migrate;</span>
+<span class="add"><span class="line-number">22</span>+</span>
+<span class="add"><span class="line-number">23</span>+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span></pre></div></div></div></div></details><details class="report-card compliance-finding"><summary><div class="report-card-title"><strong>Use the single active preview transition</strong><small>The preview-only version history retains multiple previews instead of replacing the latest active preview.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-739cf02329129243">Add the 2026-06-01 preview version</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><div class="report-guideline-section expected-details"><h3>Expected</h3><p>For a preview-only API, replace the latest preview with the new preview and remove versioning decorators instead of retaining multiple preview versions.</p><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview — Preview Versioning Rules for All Azure APIs</a><blockquote>Make the last enum value the preview, apply @previewVersion to it, and mark changes from the latest stable with versioning decorators that reference that preview.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/">Add preview after preview — The Simplest Case: No Stable api-versions</a><blockquote>When an API has only preview versions, replace the latest preview with the new preview, remove versioning decorators, and make the new API changes directly.</blockquote></div></div><div class="report-guideline-section actual-details"><h3>Actual</h3><div class="report-type-impact" id="compliance-finding-compliance-218dd7d459c5bb3b"><p>ApiVersions appends a fourth preview value, 2026-06-01-preview, and the supplied change does not mark it as the single @previewVersion.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/ApiVersions.tsp#L9-L25">specification/migrate/resource-manager/Microsoft.Migrate/Waves/ApiVersions.tsp:8-25</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/ApiVersions.tsp#L9-L25">specification/migrate/resource-manager/Microsoft.Migrate/Waves/ApiVersions.tsp:8-25</a></div><pre><span class="add"><span class="line-number">8</span>+</span>
+<span class="add"><span class="line-number">9</span>+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
+<span class="add"><span class="line-number">10</span>+  @doc(&quot;2026-06-01-preview API Version.&quot;)</span>
+<span class="add"><span class="line-number">11</span>+  v2026_06_01_preview: &quot;2026-06-01-preview&quot;,</span></pre></div></div></div></div></details><details class="report-card compliance-finding"><summary><div class="report-card-title"><strong>Use the single active preview transition</strong><small>The ARM action templates are appropriate, but the operations should be added directly to the replacement preview instead of retaining multiple active previews.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-bdc8934369754fc1">Add wave-plan resource actions</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><div class="report-guideline-section expected-details"><h3>Expected</h3><p>For a preview-only API, replace the latest preview with the new preview and remove versioning decorators instead of retaining multiple preview versions.</p><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview — Preview Versioning Rules for All Azure APIs</a><blockquote>Make the last enum value the preview, apply @previewVersion to it, and mark changes from the latest stable with versioning decorators that reference that preview.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/">Add preview after preview — The Simplest Case: No Stable api-versions</a><blockquote>When an API has only preview versions, replace the latest preview with the new preview, remove versioning decorators, and make the new API changes directly.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs — Versioning Decorators</a><blockquote>Use @added with the version where a new model, property, or operation is introduced; use @removed with the version where an element is removed.</blockquote><div class="diff"><div class="diff-path"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Documented TypeSpec example</a></div><pre><span class="">@added(Versions.v2) model Employee { name?: string; }</span></pre></div></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations — Resource Actions (POST)</a><blockquote>Operations outside CRUDL that return data or perform a specific state change should be modeled as resource actions.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations — Actions that take input and output</a><blockquote>Use ArmResourceActionSync or ArmResourceActionAsync for resource actions that consume a request model and produce a response model.</blockquote><div class="diff"><div class="diff-path"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">Documented TypeSpec example</a></div><pre><span class="">updateCredentials is ArmResourceActionAsync&lt;ResourceType, Request, Response&gt;;</span></pre></div></div></div><div class="report-guideline-section actual-details"><h3>Actual</h3><div class="report-type-impact" id="compliance-finding-compliance-f11f46cc667f2a08"><p>All four new ARM resource actions use @added(ApiVersions.v2026_06_01_preview) while the preview-only API keeps prior previews.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp#L48-L48">specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp:46-52</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp#L57-L57">specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp:54-61</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp#L66-L66">specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp:63-70</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp#L75-L75">specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp:72-79</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp#L48-L48">specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp:46-52</a></div><pre><span class="remove"><span class="line-number">46</span>-import &quot;./WebModels/Waves/GenerateWavePlan.tsp&quot;;</span>
+<span class="add"><span class="line-number">47</span>+import &quot;./WebModels/WavePlans/GenerateWavePlan.tsp&quot;;</span>
+<span class="add"><span class="line-number">48</span>+import &quot;./WebModels/WavePlans/CreateWavesFromPlan.tsp&quot;;</span>
+<span class="add"><span class="line-number">49</span>+import &quot;./WebModels/WavePlans/GetWavePlans.tsp&quot;;</span>
+<span class="add"><span class="line-number">50</span>+import &quot;./WebModels/WavePlans/FetchSasUri.tsp&quot;;</span>
+<span class="add"><span class="line-number">51</span>+import &quot;./WebModels/WavePlans/ImportWavePlan.tsp&quot;;</span></pre></div><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp#L48-L48">specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp:46-52</a></div><pre><span class="add"><span class="line-number">46</span>+</span>
+<span class="add"><span class="line-number">47</span>+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add"><span class="line-number">48</span>+  @doc(&quot;Create waves from a previously generated wave plan based on assessment data and selected wave names.&quot;)</span>
+<span class="add"><span class="line-number">49</span>+  createWavesFromPlan is ArmResourceActionAsync&lt;</span>
+<span class="add"><span class="line-number">50</span>+    MigrateProject,</span>
+<span class="add"><span class="line-number">51</span>+    CreateWavesFromPlanRequest,</span>
+<span class="add"><span class="line-number">52</span>+    CreateWavesFromPlanResponse</span>
+<span class="add"><span class="line-number">53</span>+  &gt;;</span>
+<span class="add"><span class="line-number">54</span>+</span>
+<span class="add"><span class="line-number">55</span>+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add"><span class="line-number">56</span>+  @doc(&quot;List wave plans previously generated for a given assessment, optionally scoped to a migration path.&quot;)</span>
+<span class="add"><span class="line-number">57</span>+  @action(&quot;getWavePlans&quot;)</span></pre></div></div></div></div></details></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">1 mapped methods · 1 changed types</span></div></div><details class="report-card sdk-method-card" id="downstream-method-project-97edaae931b3-Microsoft-Migrate-MigrateProjects-generateWavePlan"><summary><div class="report-card-title"><strong>MigrateProjects.generateWavePlan</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-85667619ce1332e6">Replace generate-wave-plan result shape</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.Migrate.MigrateProjects.generateWavePlan</code></p><div class="report-type-impact"><span id="downstream-type-project-97edaae931b3-Microsoft-Migrate-GenerateWavePlanResponse"></span><span id="downstream-sdk-type-impact-ccd8541ea968792e"></span><span id="downstream-downstream-323dd7c53ede5c1f"></span><span id="downstream-downstream-ec054cd65f36198c"></span><span id="finding-downstream-323dd7c53ede5c1f"></span><span id="finding-downstream-ec054cd65f36198c"></span><h4>GenerateWavePlanResponse</h4><p class="report-small"><code>Microsoft.Migrate.GenerateWavePlanResponse</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>(returned type)</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type member</span><strong>expirationTime</strong></td><td><pre>utcDateTime</pre></td><td><pre>removed</pre></td></tr><tr><td><span class="contract-area-kind">SDK type member</span><strong>sasUri</strong></td><td><pre>string</pre></td><td><pre>removed</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> <ul><li>GenerateWavePlanResponse previously exposed expirationTime from generateWavePlan, but the target response removes it. Existing SDK callers reading expirationTime must migrate and can no longer compile or access that result.</li><li>GenerateWavePlanResponse previously exposed sasUri from generateWavePlan, but the target response removes it. Existing SDK callers reading sasUri must migrate and can no longer compile or access that result.</li></ul></div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details></section>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">8 intents · 6 added · 2 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-1ad280cf03c1de19"><summary><div class="report-card-title"><strong>Add shared wave-plan result types</strong><small>Adds plan source, artifact identity, summary, and common wave-plan list/import response models for the 2026-06-01-preview API.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-678a637e1726df35">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp</div><pre><span class="add">+import &quot;@typespec/versioning&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add">+import &quot;../Enums/Enums.tsp&quot;;</span>
+<span class="add">+</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="add">+using Azure.Core;</span>
+<span class="add">+using Azure.ResourceManager;</span>
+<span class="add">+</span>
+<span class="add">+namespace Microsoft.Migrate;</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;The source of a wave plan.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+union PlanSource {</span>
+<span class="add">+  @doc(&quot;Plan generated by the system.&quot;)</span>
+<span class="add">+  SystemGenerated: &quot;SystemGenerated&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Plan imported by the user.&quot;)</span>
+<span class="add">+  Imported: &quot;Imported&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  string,</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;Artifact Store identity for a wave plan run. Consumers use the artifact ARM id and version id to reference or share the committed artifact and resolve time-bound download access.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model ArtifactProperties {</span>
+<span class="add">+  @doc(&quot;The ARM id of the Artifact Store artifact the run&#39;s files are committed under.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  artifactId: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The Artifact Store version id for the run&#39;s committed files.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  versionId: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;Plan-level summary surfaced on the generateWavePlan and getWavePlans responses.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model WavePlanSummary {</span>
+<span class="add">+  @doc(&quot;The total number of waves in the plan.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  numberOfWaves: int32;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The plan-level overall risk bucket (Low/Medium/High).&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  risk: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The plan-level overall confidence label (Low/Medium/High).&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  confidence: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;Common wave-plan identity fields shared by the getWavePlans list item and the importWavePlan response.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model WavePlanListItemBase {</span>
+<span class="add">+  @doc(&quot;The wave-plan name.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  wavePlanName: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The assessment ARM identifier the plan belongs to.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  assessmentArmId: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The migration path the plan was generated for.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  migrationPath: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The provisioning state of the plan.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  provisioningState: ProvisioningState;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The source of the plan.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  planSource: PlanSource;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The Artifact Store identity (artifactId, versionId) this plan&#39;s files are committed under, used to resolve time-bound download access.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  artifactProperties: ArtifactProperties;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;A single wave-plan entry in the getWavePlans response.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model WavePlanListItem {</span>
+<span class="add">+  ...WavePlanListItemBase;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The plan-level summary (number of waves, risk, confidence).&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  summary?: WavePlanSummary;</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp#L14-L22">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp:12</a></p></details><details class="report-subdetails" id="intent-semantic-1ad280cf03c1de19-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>MigrateProjects_GetWavePlans</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/getWavePlans</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/getWavePlans</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>MigrateProjects_ImportWavePlan</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/importWavePlan</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/importWavePlan</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-739cf02329129243"><summary><div class="report-card-title"><strong>Add the 2026-06-01 preview version</strong><small>Appends 2026-06-01-preview to the Migrate API version enum with ARM common types v6.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-218dd7d459c5bb3b">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/ApiVersions.tsp</div><pre><span class="context">   @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
+<span class="context">   @doc(&quot;2026-02-01-preview API Version.&quot;)</span>
+<span class="context">   v2026_02_01_preview: &quot;2026-02-01-preview&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
+<span class="add">+  @doc(&quot;2026-06-01-preview API Version.&quot;)</span>
+<span class="add">+  v2026_06_01_preview: &quot;2026-06-01-preview&quot;,</span>
+<span class="context"> }</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/ApiVersions.tsp#L9-L25">specification/migrate/resource-manager/Microsoft.Migrate/Waves/ApiVersions.tsp:8</a></p></details><details class="report-subdetails" id="intent-semantic-739cf02329129243-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-76cf51e44065330d"><summary><div class="report-card-title"><strong>Add create-waves payloads</strong><small>Adds request, wave-selection, and result models for creating migration waves from a generated wave plan.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-fe247953327a8701">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp</div><pre><span class="add">+import &quot;@typespec/versioning&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add">+</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="add">+using Azure.Core;</span>
+<span class="add">+using Azure.ResourceManager;</span>
+<span class="add">+</span>
+<span class="add">+namespace Microsoft.Migrate;</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;A wave selection item with name and optional display name.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model WaveSelectionItem {</span>
+<span class="add">+  @doc(&quot;The ARM-compliant wave resource name used to create the wave.&quot;)</span>
+<span class="add">+  waveName: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Optional friendly name used during wave creation.&quot;)</span>
+<span class="add">+  waveDisplayName?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span>
+<span class="add">+@doc(&quot;Request body for creating waves from a wave plan.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model CreateWavesFromPlanRequest {</span>
+<span class="add">+  @doc(&quot;The assessment ARM ID to capture migration preference, saving and scope.&quot;)</span>
+<span class="add">+  assessmentArmId: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The migration path preference.&quot;)</span>
+<span class="add">+  migrationPath: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The wave selection list. If null or empty, all waves from the wave plan will be included.&quot;)</span>
+<span class="add">+  @identifiers(#[&quot;waveName&quot;])</span>
+<span class="add">+  waveSelection?: WaveSelectionItem[];</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span>
+<span class="add">+@doc(&quot;Response for the create waves from plan operation.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model CreateWavesFromPlanResponse {</span>
+<span class="add">+  @doc(&quot;The total number of waves in the wave plan.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  totalWaves: int32;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The count of successfully created waves.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  succeededWaves: int32;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The count of failed wave creations.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  failedWaves: int32;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The count of skipped waves.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  skippedWaves: int32;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The read-only SAS URI for the exported error CSV.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  sasUri?: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The expiry timestamp (UTC) for the error CSV SAS URI.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  expirationTime?: utcDateTime;</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp#L13-L19">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp:11</a></p></details><details class="report-subdetails" id="intent-semantic-76cf51e44065330d-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>MigrateProjects_CreateWavesFromPlan</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/createWavesFromPlan</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/createWavesFromPlan</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-85667619ce1332e6"><summary><div class="report-card-title"><strong>Replace generate-wave-plan result shape</strong><small>Moves the generate-wave-plan models and changes its LRO result from SAS URI and expiration fields to persistent wave-plan identity, state, artifact, and summary data.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#downstream-method-project-97edaae931b3-Microsoft-Migrate-MigrateProjects-generateWavePlan">Downstream: MigrateProjects.generateWavePlan</a></div><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-a5f7b081e044b80b">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/Waves/GenerateWavePlan.tsp</div><pre><span class="remove">-import &quot;@typespec/versioning&quot;;</span>
+<span class="remove">-using TypeSpec.Versioning;</span>
+<span class="remove">-</span>
+<span class="remove">-namespace Microsoft.Migrate;</span>
+<span class="remove">-</span>
+<span class="remove">-#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="remove">-@doc(&quot;Data model of Download URL for wave recommendation report.&quot;)</span>
+<span class="remove">-@added(ApiVersions.v2025_12_01_preview)</span>
+<span class="remove">-model GenerateWavePlanRequest {</span>
+<span class="remove">-  @doc(&quot;ARM Id of the assessment for which the wave plan report is to be generated.&quot;)</span>
+<span class="remove">-  assessmentArmId?: string;</span>
+<span class="remove">-</span>
+<span class="remove">-  @doc(&quot;Optional. Specify the migration path for which the wave plan report is to be generated. If not specified, the default will be used&quot;)</span>
+<span class="remove">-  migrationPath?: string;</span>
+<span class="remove">-}</span>
+<span class="remove">-</span>
+<span class="remove">-#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="remove">-@doc(&quot;Data model of Download URL for wave recommendation report.&quot;)</span>
+<span class="remove">-@added(ApiVersions.v2025_12_01_preview)</span>
+<span class="remove">-model GenerateWavePlanResponse {</span>
+<span class="remove">-  @doc(&quot;Hyperlink to download report.&quot;)</span>
+<span class="remove">-  @visibility(Lifecycle.Read)</span>
+<span class="remove">-  sasUri: string;</span>
+<span class="remove">-</span>
+<span class="remove">-  @doc(&quot;Expiry date of download url.&quot;)</span>
+<span class="remove">-  @visibility(Lifecycle.Read)</span>
+<span class="remove">-  expirationTime: utcDateTime;</span>
+<span class="remove">-}</span>
+<span class="context"></span></pre></div><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp</div><pre><span class="add">+import &quot;@typespec/versioning&quot;;</span>
+<span class="add">+import &quot;../Enums/Enums.tsp&quot;;</span>
+<span class="add">+import &quot;./WavePlanCommon.tsp&quot;;</span>
+<span class="add">+</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="add">+</span>
+<span class="add">+namespace Microsoft.Migrate;</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="add">+@doc(&quot;Data model of Download URL for wave recommendation report.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2025_12_01_preview)</span>
+<span class="add">+model GenerateWavePlanRequest {</span>
+<span class="add">+  @doc(&quot;ARM Id of the assessment for which the wave plan report is to be generated.&quot;)</span>
+<span class="add">+  assessmentArmId?: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Optional. Specify the migration path for which the wave plan report is to be generated. If not specified, the default will be used&quot;)</span>
+<span class="add">+  migrationPath?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="add">+@doc(&quot;Data model of Download URL for wave recommendation report.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2025_12_01_preview)</span>
+<span class="add">+model GenerateWavePlanResponse {</span>
+<span class="add">+  @removed(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @doc(&quot;Hyperlink to download report.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  sasUri: string;</span>
+<span class="add">+</span>
+<span class="add">+  @removed(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @doc(&quot;Expiry date of download url.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  expirationTime: utcDateTime;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The deterministic wave-plan resource name matching the persisted row&#39;s wavePlanName.&quot;)</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  wavePlanName: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The provisioning state of the persisted wave-plan row.&quot;)</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  provisioningState: ProvisioningState;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The plan source (SystemGenerated for all generated runs).&quot;)</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  planSource: PlanSource;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The assessment ARM ID this plan was generated for.&quot;)</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  assessmentArmId: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The canonical migration-path string this plan was generated for.&quot;)</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  migrationPath: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The Artifact Store identity (artifactId, versionId) this run&#39;s files are committed under, used to resolve time-bound download access.&quot;)</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  artifactProperties: ArtifactProperties;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The plan-level summary (number of waves, risk, confidence).&quot;)</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  summary?: WavePlanSummary;</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/232716e16c4b24af7939009d2933562da40e63df/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/Waves/GenerateWavePlan.tsp#L9-L15">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/Waves/GenerateWavePlan.tsp:6</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp#L12-L18">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp:9</a></p></details><details class="report-subdetails" id="intent-semantic-85667619ce1332e6-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>MigrateProjects_GenerateWavePlan</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/generateWavePlan</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · artifactProperties</strong></td><td><pre>not present</pre></td><td><pre>ArtifactProperties (required)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · assessmentArmId</strong></td><td><pre>not present</pre></td><td><pre>string (required)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · expirationTime</strong></td><td><pre>string date-time (required)</pre></td><td><pre>removed</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · migrationPath</strong></td><td><pre>not present</pre></td><td><pre>string (required)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · planSource</strong></td><td><pre>not present</pre></td><td><pre>PlanSource (required)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · provisioningState</strong></td><td><pre>not present</pre></td><td><pre>ProvisioningState (required)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · sasUri</strong></td><td><pre>string (required)</pre></td><td><pre>removed</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · summary</strong></td><td><pre>not present</pre></td><td><pre>WavePlanSummary (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · wavePlanName</strong></td><td><pre>not present</pre></td><td><pre>string (required)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-88e0ecf8a4a88a6b"><summary><div class="report-card-title"><strong>Add wave-plan listing payloads</strong><small>Adds filter input and list response models for retrieving generated wave plans for an assessment and optional migration path.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-05ca2dd1b1284ce9">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp</div><pre><span class="add">+import &quot;@typespec/versioning&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add">+import &quot;./WavePlanCommon.tsp&quot;;</span>
+<span class="add">+</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="add">+using Azure.Core;</span>
+<span class="add">+using Azure.ResourceManager;</span>
+<span class="add">+</span>
+<span class="add">+namespace Microsoft.Migrate;</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span>
+<span class="add">+@doc(&quot;Request body for the getWavePlans listing action.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model GetWavePlansRequest {</span>
+<span class="add">+  @doc(&quot;The assessment ARM ID to scope the listing to.&quot;)</span>
+<span class="add">+  assessmentArmId: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The optional migration path filter. When omitted, plans across all migration paths are returned.&quot;)</span>
+<span class="add">+  migrationPath?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span>
+<span class="add">+@doc(&quot;Response payload for the getWavePlans listing action.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model GetWavePlansResponse {</span>
+<span class="add">+  @doc(&quot;The wave plan list items. Always present; empty when no plans match the filter.&quot;)</span>
+<span class="add">+  @identifiers(#[&quot;wavePlanName&quot;])</span>
+<span class="add">+  value: WavePlanListItem[];</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp#L15-L21">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp:12</a></p></details><details class="report-subdetails" id="intent-semantic-88e0ecf8a4a88a6b-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>MigrateProjects_GetWavePlans</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/getWavePlans</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/getWavePlans</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-923fedd33c2c580c"><summary><div class="report-card-title"><strong>Add SAS upload URI payloads</strong><small>Adds request and response models for obtaining a time-limited SAS URI used to stage an import CSV.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-8f56fe2c8c5b14f8">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp</div><pre><span class="add">+import &quot;@typespec/versioning&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add">+</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="add">+using Azure.Core;</span>
+<span class="add">+using Azure.ResourceManager;</span>
+<span class="add">+</span>
+<span class="add">+namespace Microsoft.Migrate;</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span>
+<span class="add">+@doc(&quot;Request body for the fetchSASUri action.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model FetchSasUriRequest {</span>
+<span class="add">+  @doc(&quot;The assessment ARM ID identifying the wave plan to amend.&quot;)</span>
+<span class="add">+  assessmentArmId: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The migration path identifying the wave plan to amend.&quot;)</span>
+<span class="add">+  migrationPath: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;An optional caller-supplied SAS version ID folded into the deterministic staging blob name so concurrent upload sessions stage to distinct blobs.&quot;)</span>
+<span class="add">+  sasVersionId?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span>
+<span class="add">+@doc(&quot;Response payload for the fetchSASUri action.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model FetchSasUriResponse {</span>
+<span class="add">+  @doc(&quot;The write-targeted SAS URI to which the caller should PUT the CSV payload.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  sasUri: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The UTC expiration timestamp of the returned SAS URI.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  expirationTime: utcDateTime;</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp#L14-L23">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp:11</a></p></details><details class="report-subdetails" id="intent-semantic-923fedd33c2c580c-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>MigrateProjects_FetchSasUri</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/fetchSASUri</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/fetchSASUri</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-b4cdd00c9459dbaf"><summary><div class="report-card-title"><strong>Add wave-plan import payloads</strong><small>Adds request and response models for importing a staged wave-plan CSV and returning the resulting plan identity and provisioning state.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-91b235e5a2aac186">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp</div><pre><span class="add">+import &quot;@typespec/versioning&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add">+import &quot;./WavePlanCommon.tsp&quot;;</span>
+<span class="add">+</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="add">+using Azure.Core;</span>
+<span class="add">+using Azure.ResourceManager;</span>
+<span class="add">+</span>
+<span class="add">+namespace Microsoft.Migrate;</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span>
+<span class="add">+@doc(&quot;Request body for the importWavePlan action.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model ImportWavePlanRequest {</span>
+<span class="add">+  @doc(&quot;The assessment ARM ID to scope the import to.&quot;)</span>
+<span class="add">+  assessmentArmId: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The migration path identifying the existing wave plan being amended.&quot;)</span>
+<span class="add">+  migrationPath: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;An optional caller-supplied SAS version ID. Must match the value passed to fetchSASUri when the CSV was staged.&quot;)</span>
+<span class="add">+  sasVersionId?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+#suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name consistent with existing wave plan action models in this API&quot;</span>
+<span class="add">+@doc(&quot;Response payload for the importWavePlan action.&quot;)</span>
+<span class="add">+@added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+model ImportWavePlanResponse {</span>
+<span class="add">+  ...WavePlanListItemBase;</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp#L15-L24">specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp:12</a></p></details><details class="report-subdetails" id="intent-semantic-b4cdd00c9459dbaf-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>MigrateProjects_ImportWavePlan</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/importWavePlan</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/importWavePlan</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-bdc8934369754fc1"><summary><div class="report-card-title"><strong>Add wave-plan resource actions</strong><small>Adds four MigrateProject actions for wave-plan creation, listing, SAS staging, and import, using synchronous or asynchronous ARM resource-action templates.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-f11f46cc667f2a08">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp</div><pre><span class="context"> import &quot;@typespec/rest&quot;;</span>
+<span class="context"> import &quot;@azure-tools/typespec-client-generator-core&quot;;</span>
+<span class="context"> import &quot;./ApiVersions.tsp&quot;;</span>
+<span class="remove">-import &quot;./WebModels/Waves/GenerateWavePlan.tsp&quot;;</span>
+<span class="add">+import &quot;./WebModels/WavePlans/GenerateWavePlan.tsp&quot;;</span>
+<span class="add">+import &quot;./WebModels/WavePlans/CreateWavesFromPlan.tsp&quot;;</span>
+<span class="add">+import &quot;./WebModels/WavePlans/GetWavePlans.tsp&quot;;</span>
+<span class="add">+import &quot;./WebModels/WavePlans/FetchSasUri.tsp&quot;;</span>
+<span class="add">+import &quot;./WebModels/WavePlans/ImportWavePlan.tsp&quot;;</span>
+<span class="context"> import &quot;./WebModels/Waves/MigrationWaves.tsp&quot;;</span>
+<span class="context"> import &quot;./WebModels/RefreshEntities/RefreshEntities.tsp&quot;;</span>
+<span class="context"> import &quot;./WebModels/MigrationEntity/MigrationEntity.tsp&quot;;</span></pre></div><div class="diff"><div class="diff-path">specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp</div><pre><span class="context">     RefreshEntitiesRequest,</span>
+<span class="context">     RefreshEntitiesResponse</span>
+<span class="context">   &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @doc(&quot;Create waves from a previously generated wave plan based on assessment data and selected wave names.&quot;)</span>
+<span class="add">+  createWavesFromPlan is ArmResourceActionAsync&lt;</span>
+<span class="add">+    MigrateProject,</span>
+<span class="add">+    CreateWavesFromPlanRequest,</span>
+<span class="add">+    CreateWavesFromPlanResponse</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @doc(&quot;List wave plans previously generated for a given assessment, optionally scoped to a migration path.&quot;)</span>
+<span class="add">+  @action(&quot;getWavePlans&quot;)</span>
+<span class="add">+  getWavePlans is ArmResourceActionSync&lt;</span>
+<span class="add">+    MigrateProject,</span>
+<span class="add">+    GetWavePlansRequest,</span>
+<span class="add">+    GetWavePlansResponse</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @doc(&quot;Mint a write-only SAS URI for customer CSV uploads, later consumed by importWavePlan.&quot;)</span>
+<span class="add">+  @action(&quot;fetchSASUri&quot;)</span>
+<span class="add">+  fetchSasUri is ArmResourceActionSync&lt;</span>
+<span class="add">+    MigrateProject,</span>
+<span class="add">+    FetchSasUriRequest,</span>
+<span class="add">+    FetchSasUriResponse</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @added(ApiVersions.v2026_06_01_preview)</span>
+<span class="add">+  @doc(&quot;Ingest a customer-uploaded wave-plan CSV and produce the updated wave-plan artifacts. Long-running operation.&quot;)</span>
+<span class="add">+  @action(&quot;importWavePlan&quot;)</span>
+<span class="add">+  importWavePlan is ArmResourceActionAsync&lt;</span>
+<span class="add">+    MigrateProject,</span>
+<span class="add">+    ImportWavePlanRequest,</span>
+<span class="add">+    ImportWavePlanResponse</span>
+<span class="add">+  &gt;;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @armResourceOperations</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0/specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp#L28-L80">specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp:27</a></p></details><details class="report-subdetails" id="intent-semantic-bdc8934369754fc1-operations"><summary>Affected operations (4)</summary><details class="operation"><summary><strong>MigrateProjects_CreateWavesFromPlan</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/createWavesFromPlan</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/createWavesFromPlan</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>MigrateProjects_FetchSasUri</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/fetchSASUri</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/fetchSASUri</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>MigrateProjects_GetWavePlans</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/getWavePlans</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/getWavePlans</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>MigrateProjects_ImportWavePlan</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/importWavePlan</code><span>2026-06-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/migrateProjects/{projectName}/importWavePlan</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 19 declarations checked</p></section>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
+<h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves</code></td><td>new-api-version</td><td><code>a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0@2026-02-01-preview</code><br><small>current · previous-latest-preview</small></td><td><code>a5578e490d3d1b39aef6782fcffe3f18d6a2f8e0@2026-06-01-preview</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
+<p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/44842">#44842</a></p>
+<h3 id="compliance-search-evidence">Guidance fetched</h3>
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/">Add preview after preview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;failed&quot;,
+  &quot;coverage&quot;: {
+    &quot;semanticIntentCount&quot;: 8,
+    &quot;assessedIntentCount&quot;: 8,
+    &quot;selectedDocumentCount&quot;: 4,
+    &quot;unassessedIntentIds&quot;: []
+  },
+  &quot;sharedSearch&quot;: {
+    &quot;catalogRanking&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Primary guidance for evolving models, properties, and operations in an existing versioned ARM API.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly governs Azure preview version ordering and the single-active-preview policy.&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Exactly matches adding a preview after an existing preview-only version history.&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers the ARM resource action templates used by the added operations.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Covers exact ARM interface template families used by the changed operation interface.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Resource semantics are relevant to actions bound to MigrateProject.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM resource decorators and lifecycle roles are relevant to the changed operation interface.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The change adds asynchronous ARM resource actions and modifies an LRO response contract.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;An action returns a list-like payload in ARM, making ARM list/paging types potentially relevant.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The version enum changes ARM common-types dependencies and adds ARM models.&quot;
+      },
+      {
+        &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Versioning guidance is relevant, but this change adds preview after preview rather than stable after preview.&quot;
+      },
+      {
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Versioning guidance is relevant, but the prior version is preview rather than stable.&quot;
+      },
+      {
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Versioning guidance is relevant, but neither side of this transition is stable.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 17,
+        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;LRO patterns are relevant, but the operations use ARM rather than Azure.Core templates.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;Model composition and property optionality are central to the changed payloads.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;The change adds PlanSource and modifies the API version enum.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;The change relies heavily on versioning and visibility decorators.&quot;
+      },
+      {
+        &quot;rank&quot;: 18,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;Built-in documentation and visibility decorators appear throughout the changed declarations.&quot;
+      },
+      {
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;Changed source includes justified suppressions, so directive semantics are relevant context.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 3
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-specific guidance applies generally, but no resource type is added or changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 8,
+        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-specific sample, but no extension resource is involved.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-specific guidance, but private endpoints are not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-specific guidance, but private links are not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-specific guidance, but network security perimeter behavior is not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-specific guidance, but the provider namespace is unchanged.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-specific guidance, but Azure Portal default experiences are not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 1
+        },
+        &quot;selectionRationale&quot;: &quot;Primitive scalar uses appear, but no custom scalar definition changes.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 19,
+        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Data-plane pagination decorators do not govern these ARM resource actions.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No OpenAPI-specific decorator change is present.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No shared-route content negotiation or typed Accept-header change is present.&quot;
+      },
+      {
+        &quot;rank&quot;: 31,
+        &quot;catalogOrder&quot;: 31,
+        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No OpenAPI decorator or no-openapi suppression is changed.&quot;
+      }
+    ],
+    &quot;documents&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Primary guidance for evolving models, properties, and operations in an existing versioned ARM API.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Versioning Decorators&quot;,
+            &quot;excerpt&quot;: &quot;Use @added with the version where a new model, property, or operation is introduced; use @removed with the version where an element is removed.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@added&quot;,
+              &quot;@removed&quot;,
+              &quot;model&quot;,
+              &quot;operation&quot;,
+              &quot;property&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@added(Versions.v2) model Employee { name?: string; }&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-0edf9b21bb1da3a2&quot;,
+              &quot;declaration-1a7c52cf5e2ab8a8&quot;,
+              &quot;declaration-31bc1da58a98c4ad&quot;,
+              &quot;declaration-3629b252d428920f&quot;,
+              &quot;declaration-4329a298e04a1116&quot;,
+              &quot;declaration-4414731bedb5a6c1&quot;,
+              &quot;declaration-5ca89b72d4ce088f&quot;,
+              &quot;declaration-732b3c9a8a65521b&quot;,
+              &quot;declaration-7c85cb0ae93a6ce5&quot;,
+              &quot;declaration-81606d5a1fce7f91&quot;,
+              &quot;declaration-8d1a9bcb9941843a&quot;,
+              &quot;declaration-950e0228883aeb97&quot;,
+              &quot;declaration-a4be5808e12c9cbc&quot;,
+              &quot;declaration-b93e54e883faa897&quot;,
+              &quot;declaration-bfa8efb3cf08230f&quot;,
+              &quot;declaration-c5d37db91571e5ce&quot;,
+              &quot;declaration-ca9418ceabc0633b&quot;,
+              &quot;declaration-cfccc41138cb3c5a&quot;,
+              &quot;declaration-e2e026519516fc1e&quot;,
+              &quot;declaration-f83565e259326706&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:29:14.709749Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:20b044a1297e1a163b01c1a18a53abc7d84f16c414bc36ca9b47b0bb6f8e042f&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly governs Azure preview version ordering and the single-active-preview policy.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Preview Versioning Rules for All Azure APIs&quot;,
+            &quot;excerpt&quot;: &quot;Make the last enum value the preview, apply @previewVersion to it, and mark changes from the latest stable with versioning decorators that reference that preview.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@previewVersion&quot;,
+              &quot;last enum value&quot;,
+              &quot;versioning decorators&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-0edf9b21bb1da3a2&quot;,
+              &quot;declaration-1a7c52cf5e2ab8a8&quot;,
+              &quot;declaration-31bc1da58a98c4ad&quot;,
+              &quot;declaration-3629b252d428920f&quot;,
+              &quot;declaration-4329a298e04a1116&quot;,
+              &quot;declaration-4414731bedb5a6c1&quot;,
+              &quot;declaration-5ca89b72d4ce088f&quot;,
+              &quot;declaration-732b3c9a8a65521b&quot;,
+              &quot;declaration-7c85cb0ae93a6ce5&quot;,
+              &quot;declaration-81606d5a1fce7f91&quot;,
+              &quot;declaration-8d1a9bcb9941843a&quot;,
+              &quot;declaration-950e0228883aeb97&quot;,
+              &quot;declaration-95995095b91cefe8&quot;,
+              &quot;declaration-a4be5808e12c9cbc&quot;,
+              &quot;declaration-b93e54e883faa897&quot;,
+              &quot;declaration-bfa8efb3cf08230f&quot;,
+              &quot;declaration-c5d37db91571e5ce&quot;,
+              &quot;declaration-ca9418ceabc0633b&quot;,
+              &quot;declaration-cfccc41138cb3c5a&quot;,
+              &quot;declaration-e2e026519516fc1e&quot;,
+              &quot;declaration-f83565e259326706&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:29:14.709749Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:b573f87ed292208706e2a92c6bc3344518e07517a8920e20b98c5fafdb194af5&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Exactly matches adding a preview after an existing preview-only version history.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;The Simplest Case: No Stable api-versions&quot;,
+            &quot;excerpt&quot;: &quot;When an API has only preview versions, replace the latest preview with the new preview, remove versioning decorators, and make the new API changes directly.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;no stable api-versions&quot;,
+              &quot;replace latest preview&quot;,
+              &quot;remove versioning decorators&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-0edf9b21bb1da3a2&quot;,
+              &quot;declaration-1a7c52cf5e2ab8a8&quot;,
+              &quot;declaration-31bc1da58a98c4ad&quot;,
+              &quot;declaration-3629b252d428920f&quot;,
+              &quot;declaration-4329a298e04a1116&quot;,
+              &quot;declaration-4414731bedb5a6c1&quot;,
+              &quot;declaration-5ca89b72d4ce088f&quot;,
+              &quot;declaration-732b3c9a8a65521b&quot;,
+              &quot;declaration-7c85cb0ae93a6ce5&quot;,
+              &quot;declaration-81606d5a1fce7f91&quot;,
+              &quot;declaration-8d1a9bcb9941843a&quot;,
+              &quot;declaration-950e0228883aeb97&quot;,
+              &quot;declaration-95995095b91cefe8&quot;,
+              &quot;declaration-a4be5808e12c9cbc&quot;,
+              &quot;declaration-b93e54e883faa897&quot;,
+              &quot;declaration-bfa8efb3cf08230f&quot;,
+              &quot;declaration-c5d37db91571e5ce&quot;,
+              &quot;declaration-ca9418ceabc0633b&quot;,
+              &quot;declaration-cfccc41138cb3c5a&quot;,
+              &quot;declaration-e2e026519516fc1e&quot;,
+              &quot;declaration-f83565e259326706&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:29:14.709749Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:290459cf3ec5fa7e74f441a524b0e3763275fce3a201dca64a2b5e08144a980c&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers the ARM resource action templates used by the added operations.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Resource Actions (POST)&quot;,
+            &quot;excerpt&quot;: &quot;Operations outside CRUDL that return data or perform a specific state change should be modeled as resource actions.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;resource actions&quot;,
+              &quot;CRUDL&quot;,
+              &quot;state change&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-7c85cb0ae93a6ce5&quot;,
+              &quot;declaration-81606d5a1fce7f91&quot;,
+              &quot;declaration-8d1a9bcb9941843a&quot;,
+              &quot;declaration-cfccc41138cb3c5a&quot;
+            ]
+          },
+          {
+            &quot;section&quot;: &quot;Actions that take input and output&quot;,
+            &quot;excerpt&quot;: &quot;Use ArmResourceActionSync or ArmResourceActionAsync for resource actions that consume a request model and produce a response model.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;ArmResourceActionSync&quot;,
+              &quot;ArmResourceActionAsync&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;updateCredentials is ArmResourceActionAsync&lt;ResourceType, Request, Response&gt;;&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-7c85cb0ae93a6ce5&quot;,
+              &quot;declaration-81606d5a1fce7f91&quot;,
+              &quot;declaration-8d1a9bcb9941843a&quot;,
+              &quot;declaration-cfccc41138cb3c5a&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:29:14.709749Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:1a3e8122d28073fbf18a426c6bbfbe16f2bfa5698a618e8cf6f75751219f8f2c&quot;
+      }
+    ]
+  },
+  &quot;intentAssessments&quot;: [
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-1ad280cf03c1de19&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-739cf02329129243&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-76cf51e44065330d&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-85667619ce1332e6&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-88e0ecf8a4a88a6b&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-923fedd33c2c580c&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-b4cdd00c9459dbaf&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-bdc8934369754fc1&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    }
+  ],
+  &quot;retrievalFailures&quot;: [],
+  &quot;blockers&quot;: []
+}</pre></details>
+<h3>Changed files</h3><ul><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/ApiVersions.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/Waves/GenerateWavePlan.tsp</code> (committed)</li></ul>
+<h3>Timing and model input</h3><pre>{
+  &quot;timings&quot;: {
+    &quot;metadataMs&quot;: 4247,
+    &quot;fetchMs&quot;: 889,
+    &quot;scopeDiscoveryMs&quot;: 838,
+    &quot;setupExcludingFetchMs&quot;: 48961,
+    &quot;comparisonMs&quot;: 773,
+    &quot;changeDiscoveryMs&quot;: 611,
+    &quot;workspacePreparationMs&quot;: 41299,
+    &quot;projectDiscoveryMs&quot;: 171,
+    &quot;totalMs&quot;: 275112,
+    &quot;semanticAnalysisMs&quot;: 132,
+    &quot;restAnalysisMs&quot;: 41,
+    &quot;downstreamAnalysisMs&quot;: 1156,
+    &quot;documentQualityAnalysisMs&quot;: 2
+  },
+  &quot;inputAccounting&quot;: {
+    &quot;budgetTier&quot;: &quot;small&quot;,
+    &quot;budgetBytes&quot;: 131072,
+    &quot;bytes&quot;: 58805,
+    &quot;estimatedTokens&quot;: 14702,
+    &quot;retained&quot;: {
+      &quot;evidenceSets&quot;: 19,
+      &quot;facts&quot;: 3,
+      &quot;semanticReviewUnits&quot;: 8,
+      &quot;restCandidates&quot;: 0,
+      &quot;downstreamCandidates&quot;: 8,
+      &quot;downstreamRootCauses&quot;: 1,
+      &quot;complianceSearchRequests&quot;: 8,
+      &quot;inferenceRequests&quot;: 0
+    },
+    &quot;omittedRedundant&quot;: {
+      &quot;rawEmitterArtifacts&quot;: true,
+      &quot;compilerLogs&quot;: true,
+      &quot;unchangedInventories&quot;: true,
+      &quot;unreferencedFacts&quot;: true,
+      &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;sourceChanges&quot;: true,
+      &quot;repeatedDeclarationIds&quot;: true,
+      &quot;repeatedReviewUnitEvidence&quot;: true
+    },
+    &quot;compliance&quot;: {
+      &quot;catalogEntriesScored&quot;: 31,
+      &quot;documentsFetched&quot;: 4,
+      &quot;documentBytesFetched&quot;: 1245,
+      &quot;guidanceExcerptsRetained&quot;: 5,
+      &quot;guidanceExcerptBytesRetained&quot;: 707
+    }
+  }
+}</pre>
+<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+</main>
+<script>
+function revealHashTarget() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (!target) return;
+  for (let element = target; element; element = element.parentElement) {
+    if (element.tagName === "DETAILS") element.open = true;
+  }
+  target.scrollIntoView({ block: "start" });
+}
+window.addEventListener("hashchange", revealHashTarget);
+document.addEventListener("click", (event) => {
+  if (event.target instanceof Element &&
+      event.target.closest(".report-card > summary .report-intent-relations") &&
+      !event.target.closest("a")) {
+    event.preventDefault();
+    return;
+  }
+  const link = event.target instanceof Element
+    ? event.target.closest('a[href^="#"]')
+    : null;
+  if (link) {
+    event.preventDefault();
+    location.hash = link.getAttribute("href");
+    window.setTimeout(revealHashTarget);
+  }
+});
+revealHashTarget();
+</script>
+</body></html>

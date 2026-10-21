@@ -1,0 +1,2041 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TypeSpec Assessment</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#64748b;--line:#dbe3ef;--accent:#2563eb;--good:#047857;--warn:#b45309;--danger:#b91c1c;--add-bg:#dcfce7;--add-text:#166534;--remove-bg:#fee2e2;--remove-text:#991b1b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,sans-serif}.container{width:min(1100px,calc(100% - 32px));margin:auto}.hero{padding:38px 0 42px;background:linear-gradient(120deg,#172554,#2554d8);color:white}.hero .eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:800;color:#dbeafe}.hero h1{margin:.35em 0 .55em;font-size:clamp(34px,4.2vw,58px);line-height:1.08;letter-spacing:-.025em}.hero-meta{font-size:16px;color:#e0e7ff}.hero-meta strong{color:#86efac;text-transform:capitalize}.hero a{color:#dbeafe}.summary-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:28px}.summary-card{display:block;min-height:150px;padding:18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.09);color:white!important;text-decoration:none;transition:background .15s,border-color .15s,transform .15s}.summary-card:hover,.summary-card:focus-visible{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5);transform:translateY(-2px);outline:none}.summary-card:focus-visible{box-shadow:0 0 0 3px #93c5fd}.summary-value{display:flex;gap:10px;align-items:center;font-size:25px;font-weight:800}.summary-value .pass{color:#86efac}.summary-value .fail{color:#fecaca}.summary-label{margin-top:8px;font-size:16px;font-weight:750}.summary-detail{margin-top:7px;color:#dbeafe;font-size:13px}.notice{padding:16px 0;background:#fffbeb;color:#713f12;border-bottom:1px solid #fde68a}main{padding:28px 0}section{margin:0 0 30px}.dimension-details>summary{cursor:pointer;list-style-position:outside}.dimension-details>summary h2{display:inline-block;margin:0 0 12px}.panel,.finding,.intent,.operation,.compliance-intent,.compliance-comparison{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}.finding{border-left:4px solid var(--warn)}.finding.high,.compliance-comparison.applicable-fail{border-left:4px solid var(--danger)}.finding.low{border-left-color:var(--muted)}.intent>summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.intent>summary .action{margin-left:0}.intent-finding-badges{display:inline-flex;gap:7px;flex-wrap:wrap;margin-left:auto}.intent-finding-badge{border:1px solid #991b1b;border-radius:999px;padding:3px 10px;background:#b91c1c;color:#fff!important;font-size:13px;font-weight:800;text-decoration:none}.intent-finding-badge:hover,.intent-finding-badge:focus-visible{background:#7f1d1d;outline:2px solid #fca5a5;outline-offset:2px}.intent>summary,.representative-example>summary,.operation summary,.compliance-intent>summary,.compliance-comparison>summary,.finding>summary,.comparison-details>summary,.affected-operations>summary,.root-cause-provenance>summary{cursor:pointer}.intent>summary,.compliance-intent>summary{font-size:18px}.intent-body,.compliance-intent-body,.compliance-comparison-body{padding-top:12px}.finding>summary{display:flex;align-items:center;gap:12px;font-size:18px}.sdk-contract-card>summary,.sdk-method-card>summary{flex-wrap:wrap}.finding-summary{margin-left:auto;color:var(--muted);font-size:15px}.severity,.origin-tag,.contract-tag{border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800}.contract-tag{background:#dbeafe;color:#1e40af}.severity{text-transform:lowercase}.severity.high{background:#fee2e2;color:#991b1b}.severity.medium{background:#fef3c7;color:#92400e}.severity.low{background:#dbeafe;color:#1e40af}.origin-tag.rest-breaking-tag{background:#fee2e2;color:#991b1b}.downstream-rest-link{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}.downstream-rest-link:hover strong,.downstream-rest-link:focus-visible strong{text-decoration:underline}.finding-body{padding-top:12px}.comparison-details{margin:14px 0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--panel) 94%,var(--accent))}.comparison-details>summary{font-size:16px}.comparison-body{padding-top:12px}.contract-metadata{grid-template-columns:max-content minmax(0,1fr);margin:4px 0 22px}.http-contract{display:inline-flex;align-items:baseline;gap:8px;flex-wrap:wrap}.contract-change-table{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden}.contract-change-table th{background:#eaf0f9}.contract-change-table th,.contract-change-table td{padding:13px 15px;border-right:1px solid var(--line)}.contract-change-table th:last-child,.contract-change-table td:last-child{border-right:0}.contract-member{width:31%;background:color-mix(in srgb,#eaf0f9 70%,var(--panel))}.contract-area-kind{display:block;margin-bottom:3px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.contract-before{width:34.5%;background:#fff1f1}.contract-after{width:34.5%;background:#eefaf3}.contract-value{display:inline-block;padding:3px 7px;border-radius:5px;font-weight:700}.contract-value.before{background:var(--remove-bg);color:var(--remove-text)}.contract-value.after{background:var(--add-bg);color:var(--add-text)}.contract-detail{display:block;margin-top:4px;color:var(--muted);font-size:13px}.breaking-rationale{margin:17px 0 22px;padding:12px 14px;border-left:3px solid #e7a400;background:#fff9e8}.affected-operations{margin:20px 0}.affected-operations>summary{font-size:18px}.affected-operation-list{display:grid;gap:7px;margin-top:10px}.affected-operation{display:grid;grid-template-columns:minmax(230px,.8fr) 65px minmax(300px,1.8fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}.http-method{color:#075cab;font-family:ui-monospace,monospace;font-weight:800}.contract-footer{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:18px;color:var(--muted);font-size:13px}.root-cause-provenance{margin-top:14px}.mapping-unavailable{color:var(--muted)}.representative-example{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:9px}.operation summary{display:flex;gap:12px;align-items:center}.operation summary span,.action{margin-left:auto;border-radius:999px;padding:2px 8px;background:#dbeafe;color:#1e40af}.operation-body{padding-top:12px}.diff{background:#111827;color:#e5e7eb;border-radius:10px;overflow:auto;margin:12px 0}.diff-path{padding:7px 12px;background:#1f2937}.diff-path a{color:#93c5fd}.diff pre{padding:12px;margin:0}.diff pre span{display:block}.diff pre .line-number{display:inline-block;width:42px;color:#94a3b8;user-select:none}.diff .add{background:#123d2a;color:#bbf7d0}.diff .remove{background:#51212a;color:#fecaca}.parameter-diff{margin:12px 0}.parameter-line{display:flex;gap:8px;align-items:baseline;padding:5px 9px;margin:3px 0;border-radius:6px}.parameter-line.add,.delta-after,ins{background:var(--add-bg);color:var(--add-text)}.parameter-line.remove,.delta-before,del{background:var(--remove-bg);color:var(--remove-text)}.parameter-line.modify,.parameter-line.reorder{background:#fef3c7;color:#92400e}.parameter-line>span:first-child{font-weight:800}.parameter-attribute{white-space:nowrap}.delta-before,.delta-after,del,ins{padding:2px 5px;border-radius:4px;text-decoration:none}dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px}dt{font-weight:700}dd{margin:0}.not-assessed{color:var(--muted);font-weight:700}.good,.compliance-summary.passed{color:var(--good)}.compliance-summary.failed{color:var(--danger)}.sources{color:var(--muted);font-size:13px}blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--panel) 90%,var(--accent))}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere}@media(max-width:1050px){.summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.affected-operation{grid-template-columns:1fr 65px}.affected-operation code{grid-column:1/-1}}@media(max-width:700px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.finding-summary{width:100%;margin-left:0}.contract-change-table{display:block;overflow-x:auto}.contract-change-table th,.contract-change-table td{min-width:210px}}@media(max-width:540px){.summary-grid{grid-template-columns:1fr}.hero h1{font-size:32px}}@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--panel:#172033;--text:#e5e7eb;--muted:#9ca3af;--line:#334155;--add-bg:#123d2a;--add-text:#bbf7d0;--remove-bg:#51212a;--remove-text:#fecaca}.notice{background:#422006;color:#fde68a}.parameter-line.modify,.parameter-line.reorder{background:#422006;color:#fde68a}.contract-change-table th{background:#202d45}.contract-member{background:#1d293d}.contract-before{background:#431f29}.contract-after{background:#15382b}.breaking-rationale{background:#3b2f13}.http-method{color:#76b9ff}}
+.tag{border-radius:999px;padding:3px 10px;background:#dbeafe;color:#1e40af;font-size:13px;font-weight:800}.finding-summary-meta{margin-left:auto;color:var(--muted);font-size:14px}.rest-operation-list{display:grid;gap:7px}.rest-operation-line{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(260px,2fr);gap:12px;padding:9px 11px;border:1px solid var(--line);border-radius:8px}.rest-operation-line>span{color:var(--muted)}@media(max-width:700px){.rest-operation-line{grid-template-columns:1fr}.finding-summary-meta{width:100%;margin-left:0}}
+.finding{border-left:1px solid var(--line)}
+.rest-contract-card .contract-tag{background:#fee2e2;color:#991b1b}.rest-contract-card .rest-operation-list{margin-top:10px}
+.notice{padding:0}.notice>summary{display:flex;min-height:46px;align-items:center;gap:10px;padding:8px 0;cursor:pointer;list-style:none}.notice>summary::-webkit-details-marker{display:none}.notice>summary::before{content:"▸";flex:none;color:#b45309;font-size:15px;font-weight:900;transition:transform .15s ease}.notice[open]>summary::before{transform:rotate(90deg)}.notice-title{flex:none;font-size:14px;font-weight:800}.notice-summary{overflow:hidden;color:color-mix(in srgb,currentColor 78%,var(--muted));font-size:12.5px;text-overflow:ellipsis;white-space:nowrap}.notice-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 0 12px 25px;font-size:12.5px;line-height:1.4}.notice-body p{margin:0}@media(max-width:700px){.notice-summary{display:none}.notice-body{grid-template-columns:1fr;gap:6px}}@media(prefers-color-scheme:dark){.notice>summary::before{color:#fbbf24}}
+.compliance-finding-group>summary{flex-wrap:wrap}.compliance-affected-intents{display:grid;gap:12px}.compliance-affected-intent{margin:0;padding:14px 16px;border:1px solid var(--line);border-radius:10px}.compliance-affected-intent h4{margin:0 0 8px}.compliance-affected-intent h5{margin:14px 0 6px}
+.intent-finding-badge{font:inherit;font-size:13px;cursor:pointer}.intent-impact-trigger{position:relative}.intent-impact-popover{position:absolute;z-index:20;top:calc(100% + 8px);right:0;display:none;width:min(480px,88vw);overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--panel);box-shadow:0 14px 34px rgb(31 42 68 / 18%)}.intent-impact-trigger.open .intent-impact-popover{display:grid}.intent-impact-popover a{display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);color:var(--text)!important;text-decoration:none}.intent-impact-popover a:first-child{border-top:0}.intent-impact-popover a:hover,.intent-impact-popover a:focus-visible{background:color-mix(in srgb,var(--panel) 92%,var(--accent))}.intent-impact-popover a span{color:var(--muted);font-size:13px}.intent h3,.representative-example>summary{font-size:17px;font-weight:750;line-height:1.35}.impact-highlight{outline:3px solid #ef4444;outline-offset:3px}
+.affected-methods{margin:20px 0}.affected-methods>summary{font-size:18px}.affected-method-list{display:grid;gap:7px;margin-top:10px}.affected-method{display:grid;grid-template-columns:minmax(180px,.6fr) minmax(280px,1.4fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}@media(max-width:700px){.affected-method{grid-template-columns:1fr}}
+.summary-value {
+  white-space: nowrap;
+}
+.summary-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.summary-heading .summary-value {
+  flex: none;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.summary-heading .summary-label {
+  min-width: 0;
+  margin-top: 0;
+  line-height: 1.4;
+}
+.summary-heading .info {
+  color: #dbeafe;
+}
+@media (min-width: 1051px) {
+  .summary-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.report-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 14px;
+}
+.report-section-head > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+.report-section-head h2 {
+  margin: 0;
+}
+.report-section-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.report-section-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.report-count {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eaf0f9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+}
+.report-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+}
+.report-card {
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.report-card > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+.report-card > summary::-webkit-details-marker {
+  display: none;
+}
+.report-card > summary:before {
+  content: "+";
+  width: 16px;
+  flex: none;
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 1.2;
+}
+.report-card[open] > summary:before {
+  content: "−";
+}
+.report-card-title {
+  min-width: 0;
+  flex: 1;
+}
+.report-card-title strong {
+  display: block;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.report-card-title small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+.report-card-body {
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--line);
+}
+.report-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.report-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.report-badge.add {
+  background: #dcfce7;
+  color: #166534;
+}
+.report-badge.modify,
+.report-badge.direct {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.report-badge.remove {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.report-badge.indirect {
+  background: #ede9fe;
+  color: #6b21a8;
+}
+.report-badge.mixed {
+  background: #d1fae5;
+  color: #065f46;
+}
+.report-badge.unknown {
+  background: #fef3c7;
+  color: #92400e;
+}
+.report-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.report-table th {
+  background: #f2f5fa;
+  color: #53637a;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.report-table th,
+.report-table td {
+  padding: 11px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.report-table tr:last-child td {
+  border-bottom: 0;
+}
+.report-table td:first-child {
+  width: 29%;
+  min-width: 145px;
+}
+.report-table td:nth-child(2),
+.report-table td:nth-child(3) {
+  width: 35.5%;
+  min-width: 170px;
+}
+.report-table td:nth-child(2) {
+  background: #fff5f4;
+}
+.report-table td:nth-child(3) {
+  background: #f0faf5;
+}
+.report-table pre {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-detail,
+.report-small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.report-link-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 5px 0 0;
+}
+.report-link {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.report-link:hover,
+.report-link:focus-visible {
+  text-decoration: underline;
+  outline-offset: 2px;
+}
+.report-intent-relations {
+  margin-top: 12px;
+  cursor: default;
+}
+.report-relation-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: text;
+}
+.report-link.impact,
+.report-link[href^="#compliance-finding-"] {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fff1f2;
+}
+.report-reference-paths {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0;
+}
+.report-reference-path {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.35fr) minmax(180px, 1fr) max-content;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--panel) 92%, var(--accent));
+  font-size: 12px;
+}
+.report-reference-path > span {
+  color: var(--muted);
+}
+.report-type-impact {
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+.report-type-impact:first-child {
+  border-top: 0;
+}
+.report-type-impact h4 {
+  margin: 0 0 5px;
+}
+.report-guideline-section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-guideline-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+.report-guideline-section + .report-guideline-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.report-document-snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.report-document-snapshots.single-snapshot {
+  grid-template-columns: minmax(0, 1fr);
+}
+.report-document-context {
+  min-width: 0;
+}
+.report-document-related {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.report-document-related-type > h5 {
+  font-size: 13px;
+  margin: 15px 0 8px;
+  overflow-wrap: anywhere;
+}
+.report-document-related pre {
+  max-height: 400px;
+  overflow: auto;
+}
+.report-document-snapshot {
+  min-width: 0;
+}
+.report-document-snapshot h4,
+.report-document-snapshot h5 {
+  margin: 12px 0 6px;
+}
+.document-quality-check pre {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-document-rationale {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.report-document-rationale p {
+  margin: 5px 0 0;
+}
+.document-quality-scope {
+  margin-top: 14px;
+}
+.document-quality-intent-link {
+  margin-bottom: 12px;
+}
+.document-quality-file {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.document-quality-file-count {
+  font-weight: 400;
+  color: var(--muted);
+}
+.document-quality-list {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+  overscroll-behavior: contain;
+}
+.document-quality-row,
+.document-quality-document > summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.document-quality-document > summary {
+  cursor: pointer;
+}
+.document-quality-document > summary:before {
+  content: "+";
+  color: var(--accent);
+}
+.document-quality-document[open] > summary:before {
+  content: "-";
+}
+.document-quality-document > summary > span:first-of-type {
+  flex: 1;
+}
+.document-quality-document > summary > span:first-child,
+.document-quality-row > a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.document-quality-document > summary > .report-badge,
+.document-quality-row > .report-badge {
+  flex: none;
+}
+.document-quality-document-body {
+  padding: 12px;
+}
+.document-quality-document-body h4 {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+.document-quality-document-body blockquote {
+  margin: 0 0 15px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.document-quality-current {
+  padding: 0;
+}
+.document-quality-description-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.document-quality-description-heading h3,
+.document-quality-explanation h3,
+.document-quality-suggestion h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.document-quality-current mark {
+  background: var(--remove-bg);
+  color: var(--remove-text);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+.document-quality-explanation p,
+.document-quality-suggestion p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+.document-quality-check .document-quality-source {
+  margin-top: 16px;
+}
+.document-quality-source pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-badge.neutral {
+  background: color-mix(in srgb, var(--panel) 85%, var(--muted));
+  color: var(--muted);
+}
+.document-quality-neutral > summary {
+  padding: 12px 18px;
+}
+.document-quality-neutral .report-card-title strong {
+  font-size: 13px;
+}
+.document-quality-list:focus-visible,
+.document-quality-file > summary:focus-visible,
+.document-quality-document > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.report-source {
+  margin-bottom: 16px;
+}
+.report-source > summary,
+.report-subdetails > summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+.report-http {
+  color: #075cab;
+  font:
+    800 12px ui-monospace,
+    monospace;
+}
+.report-card .operation summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+}
+.report-card .operation summary > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-card .operation summary > code {
+  grid-column: 1/-1;
+}
+.report-card .operation summary > span {
+  margin-left: 0;
+  justify-self: start;
+}
+.report-operation-remainder {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.container,
+.report-card-body,
+.report-card,
+.report-guideline-section,
+.report-source,
+.operation {
+  min-width: 0;
+}
+body {
+  overflow-wrap: anywhere;
+}
+.diff,
+.report-table-wrap,
+#appendix .panel {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.diff-path {
+  overflow-wrap: anywhere;
+}
+#appendix pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#appendix table {
+  display: block;
+  overflow-x: auto;
+}
+@media (max-width: 760px) {
+  .report-document-snapshots {
+    grid-template-columns: 1fr;
+  }
+  .report-section-head {
+    display: block;
+  }
+  .report-section-meta {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+  .report-card > summary {
+    flex-wrap: wrap;
+  }
+  .report-card > summary > .report-badges {
+    margin-left: 28px;
+  }
+  .report-reference-path {
+    grid-template-columns: 1fr;
+  }
+  .report-count {
+    max-width: 100%;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-count {
+    background: #26344d;
+    color: #cbd5e1;
+  }
+  .report-badge.indirect {
+    background: #3b2852;
+    color: #e9d5ff;
+  }
+  .report-badge.mixed {
+    background: #143d34;
+    color: #a7f3d0;
+  }
+  .report-badge.add {
+    background: #123d2a;
+    color: #bbf7d0;
+  }
+  .report-badge.modify,
+  .report-badge.direct {
+    background: #202d45;
+    color: #dbeafe;
+  }
+  .report-badge.remove {
+    background: #431f29;
+    color: #fecaca;
+  }
+  .report-badge.unknown {
+    background: #422006;
+    color: #fde68a;
+  }
+  .report-table th {
+    background: #202d45;
+    color: #cbd5e1;
+  }
+  .report-table td:nth-child(2) {
+    background: #431f29;
+  }
+  .report-table td:nth-child(3) {
+    background: #15382b;
+  }
+  .report-link.impact,
+  .report-link[href^="#compliance-finding-"] {
+    color: #fecaca;
+    border-color: #7f1d1d;
+    background: #431f29;
+  }
+  .report-http {
+    color: #93c5fd;
+  }
+}
+
+</style></head><body>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>21 TypeSpec changes for NetworkCloud</h1>
+<p class="hero-meta">TypeSpec source diff: <code>d8ae42826a35b0973ff1bb7900328c5063698a81</code> → <code>903b2940c442b1c3150e17067c34cff415600f0f</code></p>
+<div class="summary-grid">
+<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">21 intents<br>99 operations<br>0 Added, 21 Modified, 0 Removed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>20/20 intents assessed</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">0 findings</div></a>
+<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>5 declarations checked</div></a>
+</div></div></header>
+<details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
+<div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
+<p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
+<main class="container">
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">21 intents · 0 added · 21 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-0fa587e466c20736"><summary><div class="report-card-title"><strong>Update console patch tag handling</strong><small>Replaces the console PATCH parameter tag spread with TagsParameter while preserving the Consoles update contract.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/virtualmachines/Console_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/virtualmachines/Console_models.tsp#L152-L162">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/virtualmachines/Console_models.tsp:149</a></p></details><details class="report-subdetails" id="intent-semantic-0fa587e466c20736-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>Consoles_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles/{consoleName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-102fb0880e00a8e4"><summary><div class="report-card-title"><strong>Add EdgeManagement access bridge option</strong><small>Adds the EdgeManagement allowed-name variant in the 2026-08-01-preview version and updates access bridge PATCH tag handling.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/accessbridges/AccessBridge_models.tsp</div><pre><span class="context"> import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="context"> </span>
+<span class="context"> using Azure.ResourceManager;</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="context"> </span>
+<span class="context"> namespace Microsoft.NetworkCloud;</span>
+<span class="context"> </span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/accessbridges/AccessBridge_models.tsp</div><pre><span class="context">    * The access bridge for access to the storage dashboard.</span>
+<span class="context">    */</span>
+<span class="context">   StorageDashboard: &quot;StorageDashboard&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The access bridge for edge management.</span>
+<span class="add">+   */</span>
+<span class="add">+  @added(Versions.v2026_08_01_preview)</span>
+<span class="add">+  EdgeManagement: &quot;EdgeManagement&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/accessbridges/AccessBridge_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/accessbridges/AccessBridge_models.tsp#L14-L37">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/accessbridges/AccessBridge_models.tsp:11</a></p></details><details class="report-subdetails" id="intent-semantic-102fb0880e00a8e4-operations"><summary>Affected operations (4)</summary><details class="operation"><summary><strong>AccessBridges_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/accessBridges/{accessBridgeName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AccessBridges_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/accessBridges/{accessBridgeName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AccessBridges_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/accessBridges/{accessBridgeName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AccessBridges_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/accessBridges/{accessBridgeName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-1b0f5258f62271a5"><summary><div class="report-card-title"><strong>Update trunked network patch tags</strong><small>Replaces the trunked network PATCH parameter tag spread with TagsParameter without changing the update contract.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/TrunkedNetwork_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/TrunkedNetwork_models.tsp#L73-L78">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/TrunkedNetwork_models.tsp:70</a></p></details><details class="report-subdetails" id="intent-semantic-1b0f5258f62271a5-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>TrunkedNetworks_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/trunkedNetworks/{trunkedNetworkName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-2690a8c5abaf0534"><summary><div class="report-card-title"><strong>Update cloud services network patch tags</strong><small>Replaces the cloud services network PATCH tag spread with TagsParameter while retaining its existing patch properties.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/cloudservicesnetworks/CloudServicesNetwork_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/cloudservicesnetworks/CloudServicesNetwork_models.tsp#L342-L352">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/cloudservicesnetworks/CloudServicesNetwork_models.tsp:339</a></p></details><details class="report-subdetails" id="intent-semantic-2690a8c5abaf0534-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>CloudServicesNetworks_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/cloudServicesNetworks/{cloudServicesNetworkName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-2e92f2dc59669904"><summary><div class="report-card-title"><strong>Update agent pool patch tags</strong><small>Replaces the agent pool PATCH parameter tag spread with TagsParameter while preserving administrator, count, and upgrade settings.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/AgentPool_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/AgentPool_models.tsp#L105-L115">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/AgentPool_models.tsp:102</a></p></details><details class="report-subdetails" id="intent-semantic-2e92f2dc59669904-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>AgentPools_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/agentPools/{agentPoolName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-386928450020cf61"><summary><div class="report-card-title"><strong>Update volume patch tags</strong><small>Replaces the volume PATCH parameter tag spread with TagsParameter without changing the update contract.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/volumes/Volume_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/volumes/Volume_models.tsp#L73-L78">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/volumes/Volume_models.tsp:70</a></p></details><details class="report-subdetails" id="intent-semantic-386928450020cf61-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>Volumes_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/volumes/{volumeName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-47a2c8c2801c3798"><summary><div class="report-card-title"><strong>Update bare metal key set patch tags</strong><small>Replaces the bare metal machine key set PATCH tag spread with TagsParameter while retaining key-set patch properties.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/BareMetalMachineKeySet_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/BareMetalMachineKeySet_models.tsp#L191-L201">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/BareMetalMachineKeySet_models.tsp:188</a></p></details><details class="report-subdetails" id="intent-semantic-47a2c8c2801c3798-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>BareMetalMachineKeySets_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bareMetalMachineKeySets/{bareMetalMachineKeySetName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-491868e0d02d0938"><summary><div class="report-card-title"><strong>Update cluster feature patch tags</strong><small>Replaces the Kubernetes cluster feature PATCH tag spread with TagsParameter while retaining feature options.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesClusterFeature_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesClusterFeature_models.tsp#L188-L198">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesClusterFeature_models.tsp:185</a></p></details><details class="report-subdetails" id="intent-semantic-491868e0d02d0938-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>KubernetesClusterFeatures_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/features/{featureName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-492dd2193402da63"><summary><div class="report-card-title"><strong>Update L3 network patch tags</strong><small>Replaces the L3 network PATCH parameter tag spread with TagsParameter without changing the update contract.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/L3Network_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/L3Network_models.tsp#L112-L117">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/L3Network_models.tsp:109</a></p></details><details class="report-subdetails" id="intent-semantic-492dd2193402da63-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>L3Networks_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l3Networks/{l3NetworkName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-5cf2b1c2d926423e"><summary><div class="report-card-title"><strong>Update Kubernetes version patch tags</strong><small>Replaces the Kubernetes version PATCH tag spread with TagsParameter without changing the update contract.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesVersion_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesVersion_models.tsp#L94-L99">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesVersion_models.tsp:90</a></p></details><details class="report-subdetails" id="intent-semantic-5cf2b1c2d926423e-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>KubernetesVersions_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesVersions/{kubernetesVersionName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-62f836680fd2ce36"><summary><div class="report-card-title"><strong>Add cluster manager rollout ring</strong><small>Adds versioned rolloutRing properties to cluster manager resource and PATCH models, constrained to values of at least one.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clustermanagers/ClusterManager_models.tsp</div><pre><span class="context">   @visibility(Lifecycle.Read)</span>
+<span class="context">   relayConfiguration?: ClusterManagerRelayConfiguration;</span>
+<span class="context"> </span>
+<span class="add">+  /**</span>
+<span class="add">+   * The relative ordering group used to apply software updates to associated clusters. The minimum accepted value is 1; the service enforces the upper bound currently in effect, which may change over time.</span>
+<span class="add">+   */</span>
+<span class="add">+  @added(Versions.v2026_08_01_preview)</span>
+<span class="add">+  @minValue(1)</span>
+<span class="add">+  rolloutRing?: int32;</span>
+<span class="add">+</span>
+<span class="context">   /**</span>
+<span class="context">    * The size of the Azure virtual machines to use for hosting the cluster manager resource.</span>
+<span class="context">    */</span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clustermanagers/ClusterManager_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The list of cluster manager properties to patch.</span>
+<span class="add">+   */</span>
+<span class="add">+  @added(Versions.v2026_08_01_preview)</span>
+<span class="add">+  properties?: ClusterManagerPatchProperties;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clustermanagers/ClusterManager_models.tsp</div><pre><span class="context">     }</span>
+<span class="context">   ]&gt;;</span>
+<span class="context"> }</span>
+<span class="add">+</span>
+<span class="add">+/**</span>
+<span class="add">+ * ClusterManagerPatchProperties represents the cluster manager properties that may be patched.</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01_preview)</span>
+<span class="add">+model ClusterManagerPatchProperties {</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The relative ordering group used to apply software updates to associated clusters. The minimum accepted value is 1; the service enforces the upper bound currently in effect, which may change over time.</span>
+<span class="add">+   */</span>
+<span class="add">+  @minValue(1)</span>
+<span class="add">+  rolloutRing?: int32;</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clustermanagers/ClusterManager_models.tsp#L111-L189">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clustermanagers/ClusterManager_models.tsp:108</a></p></details><details class="report-subdetails" id="intent-semantic-62f836680fd2ce36-operations"><summary>Affected operations (3)</summary><details class="operation"><summary><strong>ClusterManagers_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusterManagers/{clusterManagerName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.rolloutRing</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.rolloutRing</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.rolloutRing</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>ClusterManagers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusterManagers/{clusterManagerName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.rolloutRing</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>ClusterManagers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusterManagers/{clusterManagerName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties</strong></td><td><pre>not present</pre></td><td><pre>ClusterManagerPatchProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.rolloutRing</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-72274e105564a35d"><summary><div class="report-card-title"><strong>Add cluster secret archive providers</strong><small>Adds versioned secret archive provider configurations and edge-management certificate data to cluster models, plus updated PATCH tag handling.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/Cluster_models.tsp</div><pre><span class="context">   @visibility(Lifecycle.Read)</span>
+<span class="context">   detailedStatusMessage?: string;</span>
+<span class="context"> </span>
+<span class="add">+  /**</span>
+<span class="add">+   * The CA certificate of the edge management service.</span>
+<span class="add">+   */</span>
+<span class="add">+  @added(Versions.v2026_08_01_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  edgeManagementServiceCaCertificate?: CertificateInfo;</span>
+<span class="add">+</span>
+<span class="context">   /**</span>
+<span class="context">    * Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).</span>
+<span class="context">    */</span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/Cluster_models.tsp</div><pre><span class="context">   associatedIdentity?: IdentitySelector;</span>
+<span class="context"> </span>
+<span class="context">   /**</span>
+<span class="remove">-   * The URI for the key vault used as the secret archive.</span>
+<span class="add">+   * The public key used to encrypt secrets before they are written to the secret archive. Expected encoding is a PEM-encoded RSA public key with a minimum key size of 3072 bits. Additional key formats or sizes may be supported in future versions.</span>
+<span class="add">+   */</span>
+<span class="add">+  @added(Versions.v2026_08_01_preview)</span>
+<span class="add">+  encryptionPublicKey?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The configuration indicating the use of self-supplied secret archive software. Specification of a provider configuration indicates that the provided configuration will be used. Exclusion of any providerConfiguration indicates the use of Azure Key Vault. If providerConfiguration is included in a PATCH, the body must be a complete, valid configuration for the chosen provider, including all fields required for that provider; omit providerConfiguration from PATCH bodies that do not change it.</span>
+<span class="add">+   */</span>
+<span class="add">+  @added(Versions.v2026_08_01_preview)</span>
+<span class="add">+  providerConfiguration?: SecretArchiveProviderConfiguration;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The URI of the secret archive endpoint. The URI must use the `https://` scheme.</span>
+<span class="context">    */</span>
+<span class="context">   vaultUri?: url;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+/**</span>
+<span class="add">+ * The provider of the secret archive. Absence of `providerConfiguration` on `SecretArchiveSettings` implies Azure Key Vault as the default provider; this enum enumerates only the self-supplied (non-Azure Key Vault) providers.</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01_preview)</span>
+<span class="add">+union SecretArchiveProviderType {</span>
+<span class="add">+  string,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * CyberArk secret archive provider.</span>
+<span class="add">+   */</span>
+<span class="add">+  CyberArk: &quot;CyberArk&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * HashiCorp Vault secret archive provider.</span>
+<span class="add">+   */</span>
+<span class="add">+  HashiCorpVault: &quot;HashiCorpVault&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * OpenBao secret archive provider.</span>
+<span class="add">+   */</span>
+<span class="add">+  OpenBao: &quot;OpenBao&quot;,</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+/**</span>
+<span class="add">+ * The version of the key value secrets engine. Supports values V1 and V2,</span>
+<span class="add">+ * which map to engine versions 1 and 2 respectively.</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01_preview)</span>
+<span class="add">+union KeyValueVersion {</span>
+<span class="add">+  string,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * Key/value engine version 1.</span>
+<span class="add">+   */</span>
+<span class="add">+  V1: &quot;V1&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * Key/value engine version 2.</span>
+<span class="add">+   */</span>
+<span class="add">+  V2: &quot;V2&quot;,</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+/**</span>
+<span class="add">+ * The authentication method used to authenticate to a HashiCorp Vault or OpenBao secret archive.</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01_preview)</span>
+<span class="add">+union VaultAuthenticationMethod {</span>
+<span class="add">+  string,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * AppRole authentication method.</span>
+<span class="add">+   */</span>
+<span class="add">+  AppRole: &quot;AppRole&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * Client certificate authentication method.</span>
+<span class="add">+   */</span>
+<span class="add">+  ClientCertificate: &quot;ClientCertificate&quot;,</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+/**</span>
+<span class="add">+ * SecretArchiveProviderConfiguration represents the base configuration for a self-supplied secret archive provider.</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01_preview)</span>
+<span class="add">+@discriminator(&quot;provider&quot;)</span>
+<span class="add">+model SecretArchiveProviderConfiguration {</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The provider of the secret archive.</span>
+<span class="add">+   */</span>
+<span class="add">+  provider: SecretArchiveProviderType;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+/**</span>
+<span class="add">+ * The configuration for a CyberArk secret archive provider.</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01_preview)</span>
+<span class="add">+model CyberArkSecretArchiveProviderConfiguration</span>
+<span class="add">+  extends SecretArchiveProviderConfiguration {</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The provider of the secret archive. Literal value CyberArk.</span>
+<span class="add">+   */</span>
+<span class="add">+  provider: SecretArchiveProviderType.CyberArk;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The CyberArk application ID.</span>
+<span class="add">+   */</span>
+<span class="add">+  applicationId: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The safe name for credential storage.</span>
+<span class="add">+   */</span>
+<span class="add">+  safeName: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The folder name within the safe. When not specified, the service uses `Root`.</span>
+<span class="add">+   */</span>
+<span class="add">+  folderName?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The object naming pattern within the safe. The tokens `{namespace}` and `{name}` may appear in the template and are substituted at archive time.</span>
+<span class="add">+   */</span>
+<span class="add">+  objectNameTemplate?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+/**</span>
+<span class="add">+ * The configuration for a HashiCorp Vault secret archive provider. Authentication credentials required by the selected authenticationMethod (for example, the AppRole secret, or client certificate and private key) are supplied out of band.</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01_preview)</span>
+<span class="add">+model HashiCorpVaultSecretArchiveProviderConfiguration</span>
+<span class="add">+  extends SecretArchiveProviderConfiguration {</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The provider of the secret archive. Literal value HashiCorpVault.</span>
+<span class="add">+   */</span>
+<span class="add">+  provider: SecretArchiveProviderType.HashiCorpVault;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The key value secrets engine mount path. When not specified, the service uses `secret`.</span>
+<span class="add">+   */</span>
+<span class="add">+  mountPath?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The key value engine version. Supports values `V1` and `V2`. When not specified, the service uses `V2`.</span>
+<span class="add">+   */</span>
+<span class="add">+  keyValueVersion?: KeyValueVersion;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The vault namespace.</span>
+<span class="add">+   */</span>
+<span class="add">+  `namespace`?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The secret path pattern. The tokens `{namespace}` and `{name}` may appear in the template and are substituted at archive time. When not specified, the service uses `edge-credentials/{namespace}/{name}`.</span>
+<span class="add">+   */</span>
+<span class="add">+  pathTemplate?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The authentication method used for the archive. When set to `AppRole`, `applicationRoleId` is required; when set to `ClientCertificate`, `applicationRoleId` is ignored.</span>
+<span class="add">+   */</span>
+<span class="add">+  authenticationMethod: VaultAuthenticationMethod;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The Role ID, required when `authenticationMethod` is `AppRole`; ignored for other authentication methods.</span>
+<span class="add">+   */</span>
+<span class="add">+  applicationRoleId?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The authentication method mount path in the archive.</span>
+<span class="add">+   */</span>
+<span class="add">+  authenticationMountPath?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+/**</span>
+<span class="add">+ * The configuration for an OpenBao secret archive provider. Authentication credentials required by the selected authenticationMethod (for example, the AppRole secret, or client certificate and private key) are supplied out of band.</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01_preview)</span>
+<span class="add">+model OpenBaoSecretArchiveProviderConfiguration</span>
+<span class="add">+  extends SecretArchiveProviderConfiguration {</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The provider of the secret archive. Literal value OpenBao.</span>
+<span class="add">+   */</span>
+<span class="add">+  provider: SecretArchiveProviderType.OpenBao;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The key value secrets engine mount path. When not specified, the service uses `secret`.</span>
+<span class="add">+   */</span>
+<span class="add">+  mountPath?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The key value engine version. Supports values `V1` and `V2`. When not specified, the service uses `V2`.</span>
+<span class="add">+   */</span>
+<span class="add">+  keyValueVersion?: KeyValueVersion;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The vault namespace.</span>
+<span class="add">+   */</span>
+<span class="add">+  `namespace`?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The secret path pattern. The tokens `{namespace}` and `{name}` may appear in the template and are substituted at archive time. When not specified, the service uses `edge-credentials/{namespace}/{name}`.</span>
+<span class="add">+   */</span>
+<span class="add">+  pathTemplate?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The authentication method used for the archive. When set to `AppRole`, `applicationRoleId` is required; when set to `ClientCertificate`, `applicationRoleId` is ignored.</span>
+<span class="add">+   */</span>
+<span class="add">+  authenticationMethod: VaultAuthenticationMethod;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The Role ID, required when `authenticationMethod` is `AppRole`; ignored for other authentication methods.</span>
+<span class="add">+   */</span>
+<span class="add">+  applicationRoleId?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The authentication method mount path in the archive.</span>
+<span class="add">+   */</span>
+<span class="add">+  authenticationMountPath?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="context"> /**</span>
+<span class="context">  * ClusterUpdateStrategy represents the strategy for updating the cluster.</span>
+<span class="context">  */</span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/Cluster_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/Cluster_models.tsp#L534-L639">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/Cluster_models.tsp:531</a></p></details><details class="report-subdetails" id="intent-semantic-72274e105564a35d-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>Clusters_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.edgeManagementServiceCaCertificate</strong></td><td><pre>not present</pre></td><td><pre>CertificateInfo (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.edgeManagementServiceCaCertificate</strong></td><td><pre>not present</pre></td><td><pre>CertificateInfo (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.edgeManagementServiceCaCertificate</strong></td><td><pre>not present</pre></td><td><pre>CertificateInfo (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>Clusters_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.edgeManagementServiceCaCertificate</strong></td><td><pre>not present</pre></td><td><pre>CertificateInfo (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-77aefeb81a9406d8"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 99 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/main.tsp</div><pre><span class="context">    */</span>
+<span class="context">   @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
+<span class="context">   v2026_07_01: &quot;2026-07-01&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The 2026-08-01-preview API version.</span>
+<span class="add">+   */</span>
+<span class="add">+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
+<span class="add">+  v2026_08_01_preview: &quot;2026-08-01-preview&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> interface Operations extends Azure.ResourceManager.Operations {}</span>
+<span class="context"></span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/common/models.tsp</div><pre><span class="context">    */</span>
+<span class="context">   @visibility(Lifecycle.Read)</span>
+<span class="context">   secretVersion?: string;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The public key used by the platform to encrypt the archived credential before it was written to the secret archive.</span>
+<span class="add">+   */</span>
+<span class="add">+  @added(Versions.v2026_08_01_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  encryptionPublicKey?: string;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/main.tsp#L57-L87">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/main.tsp:52</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/common/models.tsp#L395-L430">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/common/models.tsp:392</a></p></details><details class="report-subdetails" id="intent-semantic-77aefeb81a9406d8-operations"><summary>Affected operations (99)</summary><p class="report-small">Showing 10 operation cards; the remaining 89 are listed below.</p><details class="operation"><summary><strong>AccessBridges_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/accessBridges/{accessBridgeName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AccessBridges_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/accessBridges/{accessBridgeName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AccessBridges_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/accessBridges/{accessBridgeName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AccessBridges_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/accessBridges</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AccessBridges_ListBySubscription</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/accessBridges</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AccessBridges_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/accessBridges/{accessBridgeName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AgentPools_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/agentPools/{agentPoolName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AgentPools_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/agentPools/{agentPoolName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AgentPools_ListByKubernetesCluster</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/agentPools</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AgentPools_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/agentPools/{agentPoolName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (89)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bareMetalMachineKeySets/{bareMetalMachineKeySetName}">BareMetalMachineKeySets_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bareMetalMachineKeySets/{bareMetalMachineKeySetName}">BareMetalMachineKeySets_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bareMetalMachineKeySets">BareMetalMachineKeySets_ListByCluster (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bareMetalMachineKeySets/{bareMetalMachineKeySetName}">BareMetalMachineKeySets_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/bareMetalMachines/{bareMetalMachineName}">BareMetalMachines_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/bareMetalMachines/{bareMetalMachineName}">BareMetalMachines_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/bareMetalMachines/{bareMetalMachineName}">BareMetalMachines_Get (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/bareMetalMachines">BareMetalMachines_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/bareMetalMachines">BareMetalMachines_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/bareMetalMachines/{bareMetalMachineName}">BareMetalMachines_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bmcKeySets/{bmcKeySetName}">BmcKeySets_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bmcKeySets/{bmcKeySetName}">BmcKeySets_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bmcKeySets">BmcKeySets_ListByCluster (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bmcKeySets/{bmcKeySetName}">BmcKeySets_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/cloudServicesNetworks/{cloudServicesNetworkName}">CloudServicesNetworks_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/cloudServicesNetworks/{cloudServicesNetworkName}">CloudServicesNetworks_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/cloudServicesNetworks">CloudServicesNetworks_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/cloudServicesNetworks">CloudServicesNetworks_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/cloudServicesNetworks/{cloudServicesNetworkName}">CloudServicesNetworks_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusterManagers/{clusterManagerName}">ClusterManagers_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusterManagers/{clusterManagerName}">ClusterManagers_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusterManagers/{clusterManagerName}">ClusterManagers_Get (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusterManagers">ClusterManagers_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/clusterManagers">ClusterManagers_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusterManagers/{clusterManagerName}">ClusterManagers_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}">Clusters_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}">Clusters_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}">Clusters_Get (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters">Clusters_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/clusters">Clusters_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}">Clusters_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles/{consoleName}">Consoles_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles/{consoleName}">Consoles_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles">Consoles_ListByVirtualMachine (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}/consoles/{consoleName}">Consoles_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/features/{featureName}">KubernetesClusterFeatures_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/features/{featureName}">KubernetesClusterFeatures_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/features">KubernetesClusterFeatures_ListByKubernetesCluster (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}/features/{featureName}">KubernetesClusterFeatures_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}">KubernetesClusters_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}">KubernetesClusters_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters">KubernetesClusters_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/kubernetesClusters">KubernetesClusters_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}">KubernetesClusters_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesVersions/{kubernetesVersionName}">KubernetesVersions_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesVersions/{kubernetesVersionName}">KubernetesVersions_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesVersions">KubernetesVersions_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/kubernetesVersions">KubernetesVersions_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesVersions/{kubernetesVersionName}">KubernetesVersions_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l2Networks/{l2NetworkName}">L2Networks_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l2Networks/{l2NetworkName}">L2Networks_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l2Networks">L2Networks_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/l2Networks">L2Networks_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l2Networks/{l2NetworkName}">L2Networks_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l3Networks/{l3NetworkName}">L3Networks_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l3Networks/{l3NetworkName}">L3Networks_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l3Networks">L3Networks_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/l3Networks">L3Networks_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l3Networks/{l3NetworkName}">L3Networks_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/metricsConfigurations/{metricsConfigurationName}">MetricsConfigurations_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/metricsConfigurations/{metricsConfigurationName}">MetricsConfigurations_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/metricsConfigurations">MetricsConfigurations_ListByCluster (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/metricsConfigurations/{metricsConfigurationName}">MetricsConfigurations_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/racks/{rackName}">Racks_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/racks/{rackName}">Racks_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/racks">Racks_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/racks">Racks_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/racks/{rackName}">Racks_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/storageAppliances/{storageApplianceName}">StorageAppliances_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/storageAppliances/{storageApplianceName}">StorageAppliances_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/storageAppliances/{storageApplianceName}">StorageAppliances_Get (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/storageAppliances">StorageAppliances_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/storageAppliances">StorageAppliances_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/storageAppliances/{storageApplianceName}">StorageAppliances_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/trunkedNetworks/{trunkedNetworkName}">TrunkedNetworks_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/trunkedNetworks/{trunkedNetworkName}">TrunkedNetworks_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/trunkedNetworks">TrunkedNetworks_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/trunkedNetworks">TrunkedNetworks_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/trunkedNetworks/{trunkedNetworkName}">TrunkedNetworks_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}">VirtualMachines_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}">VirtualMachines_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines">VirtualMachines_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/virtualMachines">VirtualMachines_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}">VirtualMachines_Update (PATCH, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/volumes/{volumeName}">Volumes_CreateOrUpdate (PUT, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/volumes/{volumeName}">Volumes_Delete (DELETE, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/volumes">Volumes_ListByResourceGroup (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.NetworkCloud/volumes">Volumes_ListBySubscription (GET, 2026-08-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/volumes/{volumeName}">Volumes_Update (PATCH, 2026-08-01-preview)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-86493f7d6d022125"><summary><div class="report-card-title"><strong>Update Kubernetes cluster patch tags</strong><small>Replaces the Kubernetes cluster PATCH tag spread with TagsParameter while retaining administrator and control-plane patch settings.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesCluster_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesCluster_models.tsp#L1102-L1112">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesCluster_models.tsp:1099</a></p></details><details class="report-subdetails" id="intent-semantic-86493f7d6d022125-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>KubernetesClusters_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/kubernetesClusters/{kubernetesClusterName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-95853b97c4802e5c"><summary><div class="report-card-title"><strong>Update L2 network patch tags</strong><small>Replaces the L2 network PATCH parameter tag spread with TagsParameter without changing the update contract.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/L2Network_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/L2Network_models.tsp#L73-L78">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/L2Network_models.tsp:70</a></p></details><details class="report-subdetails" id="intent-semantic-95853b97c4802e5c-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>L2Networks_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l2Networks/{l2NetworkName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-a141d7cbd9ae5954"><summary><div class="report-card-title"><strong>Update rack patch tags</strong><small>Replaces the rack PATCH tag spread with TagsParameter while preserving constrained rack location and serial-number fields.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/racks/Rack_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/racks/Rack_models.tsp#L90-L100">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/racks/Rack_models.tsp:87</a></p></details><details class="report-subdetails" id="intent-semantic-a141d7cbd9ae5954-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>Racks_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/racks/{rackName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-a3325648321b46f0"><summary><div class="report-card-title"><strong>Update metrics configuration patch tags</strong><small>Replaces the cluster metrics configuration PATCH tag spread with TagsParameter while retaining collection settings.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/ClusterMetricsConfiguration_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/ClusterMetricsConfiguration_models.tsp#L127-L137">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/ClusterMetricsConfiguration_models.tsp:124</a></p></details><details class="report-subdetails" id="intent-semantic-a3325648321b46f0-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>MetricsConfigurations_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/metricsConfigurations/{metricsConfigurationName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-c9665ce9cdb34a9d"><summary><div class="report-card-title"><strong>Update bare metal machine patch tags</strong><small>Replaces the bare metal machine PATCH tag spread with TagsParameter while retaining machine details.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/baremetalmachines/BareMetalMachine_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/baremetalmachines/BareMetalMachine_models.tsp#L397-L407">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/baremetalmachines/BareMetalMachine_models.tsp:394</a></p></details><details class="report-subdetails" id="intent-semantic-c9665ce9cdb34a9d-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>BareMetalMachines_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/bareMetalMachines/{bareMetalMachineName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-e0e05933c6955e8e"><summary><div class="report-card-title"><strong>Update virtual machine patch model metadata</strong><small>Replaces the virtual machine PATCH tag spread with TagsParameter and documents a client-generator naming suppression for registryUrl.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/virtualmachines/VirtualMachine_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The URL of the authentication server used to validate the repository credentials.</span>
+<span class="context">    */</span>
+<span class="add">+  #suppress &quot;@azure-tools/typespec-client-generator-core/csharp-no-url-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="context">   registryUrl?: string;</span>
+<span class="context"> </span>
+<span class="context">   /**</span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/virtualmachines/VirtualMachine_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/virtualmachines/VirtualMachine_models.tsp#L328-L347">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/virtualmachines/VirtualMachine_models.tsp:324</a></p></details><details class="report-subdetails" id="intent-semantic-e0e05933c6955e8e-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>VirtualMachines_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/virtualMachines/{virtualMachineName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-f97bdf2c785cc8db"><summary><div class="report-card-title"><strong>Align storage appliance credential modeling</strong><small>Moves administrator credentials into the storage appliance specification shape and updates PATCH tag handling while preserving emitted contracts.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/storageappliances/StorageAppliance_models.tsp</div><pre><span class="context">  * StorageApplianceSpec represents the properties that are used as an input to the operator.</span>
+<span class="context">  */</span>
+<span class="context"> model StorageApplianceSpec {</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The credentials of the administrative interface on this storage appliance.</span>
+<span class="add">+   */</span>
+<span class="add">+  @visibility(Lifecycle.Read, Lifecycle.Create)</span>
+<span class="add">+  administratorCredentials: AdministrativeCredentials;</span>
+<span class="add">+</span>
+<span class="context">   /**</span>
+<span class="context">    * The resource ID of the rack where this storage appliance resides.</span>
+<span class="context">    */</span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/storageappliances/StorageAppliance_models.tsp</div><pre><span class="context">    * The serial number for the storage appliance.</span>
+<span class="context">    */</span>
+<span class="context">   serialNumber: string;</span>
+<span class="remove">-</span>
+<span class="remove">-  /**</span>
+<span class="remove">-   * The credentials of the administrative interface on this storage appliance.</span>
+<span class="remove">-   */</span>
+<span class="remove">-  @visibility(Lifecycle.Read, Lifecycle.Create)</span>
+<span class="remove">-  administratorCredentials: AdministrativeCredentials;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span></pre></div><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/storageappliances/StorageAppliance_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/storageappliances/StorageAppliance_models.tsp#L175-L206">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/storageappliances/StorageAppliance_models.tsp:172</a></p></details><details class="report-subdetails" id="intent-semantic-f97bdf2c785cc8db-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>StorageAppliances_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/storageAppliances/{storageApplianceName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>StorageAppliances_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/storageAppliances/{storageApplianceName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-fe39d147d328e015"><summary><div class="report-card-title"><strong>Update BMC key set patch tags</strong><small>Replaces the BMC key set PATCH tag spread with TagsParameter while retaining key-set patch properties.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/BmcKeySet_models.tsp</div><pre><span class="context">   /**</span>
+<span class="context">    * The Azure resource tags that will replace the existing ones.</span>
+<span class="context">    */</span>
+<span class="remove">-  ...Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...TagsParameter;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/903b2940c442b1c3150e17067c34cff415600f0f/specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/BmcKeySet_models.tsp#L167-L177">specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/BmcKeySet_models.tsp:164</a></p></details><details class="report-subdetails" id="intent-semantic-fe39d147d328e015-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>BmcKeySets_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/clusters/{clusterName}/bmcKeySets/{bmcKeySetName}</code><span>2026-08-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">20 of 20 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 5 declarations checked</p></section>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
+<h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud</code></td><td>new-api-version</td><td><code>903b2940c442b1c3150e17067c34cff415600f0f@2026-07-01</code><br><small>current · previous-latest-stable</small></td><td><code>903b2940c442b1c3150e17067c34cff415600f0f@2026-08-01-preview</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
+<p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/45167">#45167</a></p>
+<h3 id="compliance-search-evidence">Guidance fetched</h3>
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li><li><a href="https://typespec.io/docs/language-basics/decorators/">Decorators</a></li><li><a href="https://typespec.io/docs/standard-library/built-in-decorators/">Built-in decorators</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;coverage&quot;: {
+    &quot;semanticIntentCount&quot;: 20,
+    &quot;assessedIntentCount&quot;: 20,
+    &quot;selectedDocumentCount&quot;: 4,
+    &quot;unassessedIntentIds&quot;: []
+  },
+  &quot;sharedSearch&quot;: {
+    &quot;catalogRanking&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers adding and modifying properties in an existing versioned Azure API.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 8
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers models, properties, Record values, and spread composition used throughout the changes.&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 8
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers the changed @added, @visibility, constraint, and discriminator decorator applications.&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 8
+        },
+        &quot;selectionRationale&quot;: &quot;Directly documents changed built-in decorators including visibility, discriminator, minLength, maxLength, and minValue.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 8
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers the changed #suppress directive and its justification.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Relevant Azure versioning background for a new preview revision.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the preview-after-stable release context.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM common model composition is relevant to replacing ArmTagsProperty with TagsParameter.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 31,
+        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Warning guidance is contextually related, but the suppression is for a client-generator URL-suffix rule rather than no-openapi.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Versioning category matches, but the preceding selected version is stable rather than preview.&quot;
+      },
+      {
+        &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Azure versioning guidance applies generally, but this change adds a preview rather than a stable version.&quot;
+      },
+      {
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Azure versioning guidance applies generally, but this change adds a preview rather than a stable version.&quot;
+      },
+      {
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;Enum-like union variants are added, making enum/value guidance partially relevant.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no resource type is introduced.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 8,
+        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no extension resource is introduced.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no private endpoint resource is introduced.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no private link resource is introduced.&quot;
+      },
+      {
+        &quot;rank&quot;: 18,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no network security perimeter resource is introduced.&quot;
+      },
+      {
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but lifecycle operation templates are not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but resource operation template signatures are not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but ARM lifecycle decorators are not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no long-running operation behavior is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but paging data types are not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but the provider namespace is unchanged.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but portal default-experience metadata is unchanged.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No resource relationship or lifecycle decorator is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 17,
+        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No Azure.Core long-running operation behavior is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 19,
+        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The assessed service is ARM and no data-plane paging construct changes.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No scalar declaration is added or modified.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No OpenAPI decorator is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 31,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No content-negotiation construct is changed.&quot;
+      }
+    ],
+    &quot;documents&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers adding and modifying properties in an existing versioned Azure API.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Add a property in v2&quot;,
+            &quot;excerpt&quot;: &quot;Add a model property in a specific version by applying @added with the version where the property is introduced.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@added&quot;,
+              &quot;property&quot;,
+              &quot;Versions.v2026_08_01_preview&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@added(Versions.v2) city?: string;&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-259cff4f687413b3&quot;,
+              &quot;declaration-2f3481b55b0f35ed&quot;,
+              &quot;declaration-6035303b02a502d8&quot;,
+              &quot;declaration-678d2006e6b0df7c&quot;,
+              &quot;declaration-7ce12ba74c6926f5&quot;,
+              &quot;declaration-bdbb2a5ab03b4a4f&quot;,
+              &quot;declaration-d43bf56504704c72&quot;,
+              &quot;declaration-d8b812198b48490d&quot;,
+              &quot;declaration-dae3a4849e7f02f0&quot;,
+              &quot;declaration-ec351a6df4ef403f&quot;,
+              &quot;declaration-f23e64dfa10d9012&quot;
+            ]
+          },
+          {
+            &quot;section&quot;: &quot;Versioning Spread-In Properties with Augment Decorators&quot;,
+            &quot;excerpt&quot;: &quot;A model spread introduces its properties into all API versions; use an augment versioning decorator when a spread-in property must be added or removed only in a particular version.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;spread&quot;,
+              &quot;TagsParameter&quot;,
+              &quot;@@added&quot;,
+              &quot;@@removed&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@@added(Employee.identity, Versions.v2);&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-0eeb38c41883bd52&quot;,
+              &quot;declaration-19a8fd473e53eb3c&quot;,
+              &quot;declaration-203e9ddd82ae061a&quot;,
+              &quot;declaration-294547d3fe87202e&quot;,
+              &quot;declaration-3ecffd8b80085a3a&quot;,
+              &quot;declaration-4072903960aac579&quot;,
+              &quot;declaration-4435427ae11b33d0&quot;,
+              &quot;declaration-4f0ae8754524c2f9&quot;,
+              &quot;declaration-621f025cf51b1dfb&quot;,
+              &quot;declaration-656c59bedb689eff&quot;,
+              &quot;declaration-6b35ad9ffd914b00&quot;,
+              &quot;declaration-7ce12ba74c6926f5&quot;,
+              &quot;declaration-7ce3e56317814d1c&quot;,
+              &quot;declaration-97ee04327ed2d236&quot;,
+              &quot;declaration-99b587777adc4d85&quot;,
+              &quot;declaration-b63a6f86f360085a&quot;,
+              &quot;declaration-b9adbd238203b029&quot;,
+              &quot;declaration-bdbb2a5ab03b4a4f&quot;,
+              &quot;declaration-cdfc885e2048fcdd&quot;,
+              &quot;declaration-d8424a6312ba60df&quot;,
+              &quot;declaration-e45cd1d79485bcb4&quot;,
+              &quot;declaration-f81a2b4250f8d056&quot;
+            ]
+          },
+          {
+            &quot;section&quot;: &quot;Versioning Decorators&quot;,
+            &quot;excerpt&quot;: &quot;The @added decorator introduces new models, properties, or operations in the specified version and subsequent versions.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@added&quot;,
+              &quot;model&quot;,
+              &quot;property&quot;,
+              &quot;operation&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@added(Versions.v2) model Employee { name?: string; }&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-259cff4f687413b3&quot;,
+              &quot;declaration-2f3481b55b0f35ed&quot;,
+              &quot;declaration-6035303b02a502d8&quot;,
+              &quot;declaration-678d2006e6b0df7c&quot;,
+              &quot;declaration-7ce12ba74c6926f5&quot;,
+              &quot;declaration-bdbb2a5ab03b4a4f&quot;,
+              &quot;declaration-d43bf56504704c72&quot;,
+              &quot;declaration-d8b812198b48490d&quot;,
+              &quot;declaration-dae3a4849e7f02f0&quot;,
+              &quot;declaration-ec351a6df4ef403f&quot;,
+              &quot;declaration-f23e64dfa10d9012&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:36:07.078Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:1a5af6c154f5a526ba3f6b1815091e533feb949fa65bad48535b04d20b137a9a&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 8
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers models, properties, Record values, and spread composition used throughout the changes.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Using the ... operator&quot;,
+            &quot;excerpt&quot;: &quot;Spreading a model copies its properties into the target model at the spread location without creating a nominal relationship.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;model spread&quot;,
+              &quot;...&quot;,
+              &quot;properties&quot;,
+              &quot;TagsParameter&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;model Dog { ...Animal; ...Pet; }&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-0eeb38c41883bd52&quot;,
+              &quot;declaration-19a8fd473e53eb3c&quot;,
+              &quot;declaration-203e9ddd82ae061a&quot;,
+              &quot;declaration-294547d3fe87202e&quot;,
+              &quot;declaration-3ecffd8b80085a3a&quot;,
+              &quot;declaration-4072903960aac579&quot;,
+              &quot;declaration-4435427ae11b33d0&quot;,
+              &quot;declaration-4f0ae8754524c2f9&quot;,
+              &quot;declaration-621f025cf51b1dfb&quot;,
+              &quot;declaration-656c59bedb689eff&quot;,
+              &quot;declaration-6b35ad9ffd914b00&quot;,
+              &quot;declaration-7ce12ba74c6926f5&quot;,
+              &quot;declaration-7ce3e56317814d1c&quot;,
+              &quot;declaration-97ee04327ed2d236&quot;,
+              &quot;declaration-99b587777adc4d85&quot;,
+              &quot;declaration-b63a6f86f360085a&quot;,
+              &quot;declaration-b9adbd238203b029&quot;,
+              &quot;declaration-bdbb2a5ab03b4a4f&quot;,
+              &quot;declaration-cdfc885e2048fcdd&quot;,
+              &quot;declaration-d8424a6312ba60df&quot;,
+              &quot;declaration-e45cd1d79485bcb4&quot;,
+              &quot;declaration-f81a2b4250f8d056&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:36:07.119Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:1a90dd13f99521e5c806072a6285307119be6bdca67a6ea6bc66534d79e329ab&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 8
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers the changed @added, @visibility, constraint, and discriminator decorator applications.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:36:07.133Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:b21aa5ed3fd48138f8a161b6be14380fa0a1d4434ad23f6e8051f6951ede7768&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 8
+        },
+        &quot;selectionRationale&quot;: &quot;Directly documents changed built-in decorators including visibility, discriminator, minLength, maxLength, and minValue.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;@discriminator&quot;,
+            &quot;excerpt&quot;: &quot;Use @discriminator on a model to specify the property that discriminates derived types.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@discriminator&quot;,
+              &quot;provider&quot;,
+              &quot;SecretArchiveProviderConfiguration&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@discriminator(\&quot;kind\&quot;) model Pet { kind: string; }&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-259cff4f687413b3&quot;,
+              &quot;declaration-6035303b02a502d8&quot;,
+              &quot;declaration-d8b812198b48490d&quot;,
+              &quot;declaration-dae3a4849e7f02f0&quot;,
+              &quot;declaration-ec351a6df4ef403f&quot;,
+              &quot;declaration-f23e64dfa10d9012&quot;
+            ]
+          },
+          {
+            &quot;section&quot;: &quot;@minLength&quot;,
+            &quot;excerpt&quot;: &quot;Use @minLength to specify the minimum length accepted for a string or model property.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@minLength&quot;,
+              &quot;registryUrl&quot;,
+              &quot;rackLocation&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@minLength(2) scalar Username extends string;&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-99b587777adc4d85&quot;
+            ]
+          },
+          {
+            &quot;section&quot;: &quot;@maxLength&quot;,
+            &quot;excerpt&quot;: &quot;Use @maxLength to specify the maximum length accepted for a string or model property.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@maxLength&quot;,
+              &quot;rackLocation&quot;,
+              &quot;rackSerialNumber&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@maxLength(20) scalar Username extends string;&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-99b587777adc4d85&quot;
+            ]
+          },
+          {
+            &quot;section&quot;: &quot;@minValue&quot;,
+            &quot;excerpt&quot;: &quot;Use @minValue to specify the minimum accepted value for a numeric type or model property.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@minValue&quot;,
+              &quot;rolloutRing&quot;,
+              &quot;int32&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@minValue(18) scalar Age is int32;&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-2f3481b55b0f35ed&quot;,
+              &quot;declaration-678d2006e6b0df7c&quot;,
+              &quot;declaration-d43bf56504704c72&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:36:07.148Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:5ea375fc9e797a2901740f12373f5d90347d1d14e795f8ae742110487892cb30&quot;
+      }
+    ]
+  },
+  &quot;intentAssessments&quot;: [
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-0fa587e466c20736&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-102fb0880e00a8e4&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-1b0f5258f62271a5&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-2690a8c5abaf0534&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-2e92f2dc59669904&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-386928450020cf61&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-47a2c8c2801c3798&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-491868e0d02d0938&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-492dd2193402da63&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-5cf2b1c2d926423e&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-62f836680fd2ce36&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-72274e105564a35d&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-86493f7d6d022125&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-95853b97c4802e5c&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-a141d7cbd9ae5954&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-a3325648321b46f0&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-c9665ce9cdb34a9d&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-e0e05933c6955e8e&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-f97bdf2c785cc8db&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-fe39d147d328e015&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    }
+  ],
+  &quot;retrievalFailures&quot;: [],
+  &quot;blockers&quot;: []
+}</pre></details>
+<h3>Changed files</h3><ul><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/accessbridges/AccessBridge_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/baremetalmachines/BareMetalMachine_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/cloudservicesnetworks/CloudServicesNetwork_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clustermanagers/ClusterManager_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/BareMetalMachineKeySet_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/BmcKeySet_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/Cluster_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/clusters/ClusterMetricsConfiguration_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/common/models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/AgentPool_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesCluster_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesClusterFeature_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/kubernetesclusters/KubernetesVersion_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/main.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/L2Network_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/L3Network_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/networks/TrunkedNetwork_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/racks/Rack_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/storageappliances/StorageAppliance_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/virtualmachines/Console_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/virtualmachines/VirtualMachine_models.tsp</code> (committed)</li><li><code>specification/networkcloud/resource-manager/Microsoft.NetworkCloud/NetworkCloud/volumes/Volume_models.tsp</code> (committed)</li></ul>
+<h3>Timing and model input</h3><pre>{
+  &quot;timings&quot;: {
+    &quot;metadataMs&quot;: 2004,
+    &quot;fetchMs&quot;: 5995,
+    &quot;scopeDiscoveryMs&quot;: 359,
+    &quot;setupExcludingFetchMs&quot;: 15338,
+    &quot;comparisonMs&quot;: 416,
+    &quot;changeDiscoveryMs&quot;: 328,
+    &quot;workspacePreparationMs&quot;: 10907,
+    &quot;projectDiscoveryMs&quot;: 179,
+    &quot;totalMs&quot;: 198947,
+    &quot;semanticAnalysisMs&quot;: 738,
+    &quot;restAnalysisMs&quot;: 218,
+    &quot;downstreamAnalysisMs&quot;: 8001,
+    &quot;documentQualityAnalysisMs&quot;: 1
+  },
+  &quot;inputAccounting&quot;: {
+    &quot;budgetTier&quot;: &quot;small&quot;,
+    &quot;budgetBytes&quot;: 131072,
+    &quot;bytes&quot;: 76455,
+    &quot;estimatedTokens&quot;: 19114,
+    &quot;retained&quot;: {
+      &quot;evidenceSets&quot;: 40,
+      &quot;facts&quot;: 0,
+      &quot;semanticReviewUnits&quot;: 20,
+      &quot;restCandidates&quot;: 0,
+      &quot;downstreamCandidates&quot;: 0,
+      &quot;downstreamRootCauses&quot;: 0,
+      &quot;complianceSearchRequests&quot;: 20,
+      &quot;inferenceRequests&quot;: 0
+    },
+    &quot;omittedRedundant&quot;: {
+      &quot;rawEmitterArtifacts&quot;: true,
+      &quot;compilerLogs&quot;: true,
+      &quot;unchangedInventories&quot;: true,
+      &quot;unreferencedFacts&quot;: true,
+      &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;sourceChanges&quot;: true,
+      &quot;repeatedDeclarationIds&quot;: true,
+      &quot;repeatedReviewUnitEvidence&quot;: true
+    },
+    &quot;compliance&quot;: {
+      &quot;catalogEntriesScored&quot;: 31,
+      &quot;documentsFetched&quot;: 4,
+      &quot;documentBytesFetched&quot;: 1777260,
+      &quot;guidanceExcerptsRetained&quot;: 8,
+      &quot;guidanceExcerptBytesRetained&quot;: 882
+    }
+  }
+}</pre>
+<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+</main>
+<script>
+function revealHashTarget() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (!target) return;
+  for (let element = target; element; element = element.parentElement) {
+    if (element.tagName === "DETAILS") element.open = true;
+  }
+  target.scrollIntoView({ block: "start" });
+}
+window.addEventListener("hashchange", revealHashTarget);
+document.addEventListener("click", (event) => {
+  if (event.target instanceof Element &&
+      event.target.closest(".report-card > summary .report-intent-relations") &&
+      !event.target.closest("a")) {
+    event.preventDefault();
+    return;
+  }
+  const link = event.target instanceof Element
+    ? event.target.closest('a[href^="#"]')
+    : null;
+  if (link) {
+    event.preventDefault();
+    location.hash = link.getAttribute("href");
+    window.setTimeout(revealHashTarget);
+  }
+});
+revealHashTarget();
+</script>
+</body></html>

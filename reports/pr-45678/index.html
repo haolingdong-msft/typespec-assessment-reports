@@ -1,0 +1,2053 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TypeSpec Assessment</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#64748b;--line:#dbe3ef;--accent:#2563eb;--good:#047857;--warn:#b45309;--danger:#b91c1c;--add-bg:#dcfce7;--add-text:#166534;--remove-bg:#fee2e2;--remove-text:#991b1b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,sans-serif}.container{width:min(1100px,calc(100% - 32px));margin:auto}.hero{padding:38px 0 42px;background:linear-gradient(120deg,#172554,#2554d8);color:white}.hero .eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:800;color:#dbeafe}.hero h1{margin:.35em 0 .55em;font-size:clamp(34px,4.2vw,58px);line-height:1.08;letter-spacing:-.025em}.hero-meta{font-size:16px;color:#e0e7ff}.hero-meta strong{color:#86efac;text-transform:capitalize}.hero a{color:#dbeafe}.summary-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:28px}.summary-card{display:block;min-height:150px;padding:18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.09);color:white!important;text-decoration:none;transition:background .15s,border-color .15s,transform .15s}.summary-card:hover,.summary-card:focus-visible{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5);transform:translateY(-2px);outline:none}.summary-card:focus-visible{box-shadow:0 0 0 3px #93c5fd}.summary-value{display:flex;gap:10px;align-items:center;font-size:25px;font-weight:800}.summary-value .pass{color:#86efac}.summary-value .fail{color:#fecaca}.summary-label{margin-top:8px;font-size:16px;font-weight:750}.summary-detail{margin-top:7px;color:#dbeafe;font-size:13px}.notice{padding:16px 0;background:#fffbeb;color:#713f12;border-bottom:1px solid #fde68a}main{padding:28px 0}section{margin:0 0 30px}.dimension-details>summary{cursor:pointer;list-style-position:outside}.dimension-details>summary h2{display:inline-block;margin:0 0 12px}.panel,.finding,.intent,.operation,.compliance-intent,.compliance-comparison{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}.finding{border-left:4px solid var(--warn)}.finding.high,.compliance-comparison.applicable-fail{border-left:4px solid var(--danger)}.finding.low{border-left-color:var(--muted)}.intent>summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.intent>summary .action{margin-left:0}.intent-finding-badges{display:inline-flex;gap:7px;flex-wrap:wrap;margin-left:auto}.intent-finding-badge{border:1px solid #991b1b;border-radius:999px;padding:3px 10px;background:#b91c1c;color:#fff!important;font-size:13px;font-weight:800;text-decoration:none}.intent-finding-badge:hover,.intent-finding-badge:focus-visible{background:#7f1d1d;outline:2px solid #fca5a5;outline-offset:2px}.intent>summary,.representative-example>summary,.operation summary,.compliance-intent>summary,.compliance-comparison>summary,.finding>summary,.comparison-details>summary,.affected-operations>summary,.root-cause-provenance>summary{cursor:pointer}.intent>summary,.compliance-intent>summary{font-size:18px}.intent-body,.compliance-intent-body,.compliance-comparison-body{padding-top:12px}.finding>summary{display:flex;align-items:center;gap:12px;font-size:18px}.sdk-contract-card>summary,.sdk-method-card>summary{flex-wrap:wrap}.finding-summary{margin-left:auto;color:var(--muted);font-size:15px}.severity,.origin-tag,.contract-tag{border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800}.contract-tag{background:#dbeafe;color:#1e40af}.severity{text-transform:lowercase}.severity.high{background:#fee2e2;color:#991b1b}.severity.medium{background:#fef3c7;color:#92400e}.severity.low{background:#dbeafe;color:#1e40af}.origin-tag.rest-breaking-tag{background:#fee2e2;color:#991b1b}.downstream-rest-link{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}.downstream-rest-link:hover strong,.downstream-rest-link:focus-visible strong{text-decoration:underline}.finding-body{padding-top:12px}.comparison-details{margin:14px 0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--panel) 94%,var(--accent))}.comparison-details>summary{font-size:16px}.comparison-body{padding-top:12px}.contract-metadata{grid-template-columns:max-content minmax(0,1fr);margin:4px 0 22px}.http-contract{display:inline-flex;align-items:baseline;gap:8px;flex-wrap:wrap}.contract-change-table{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden}.contract-change-table th{background:#eaf0f9}.contract-change-table th,.contract-change-table td{padding:13px 15px;border-right:1px solid var(--line)}.contract-change-table th:last-child,.contract-change-table td:last-child{border-right:0}.contract-member{width:31%;background:color-mix(in srgb,#eaf0f9 70%,var(--panel))}.contract-area-kind{display:block;margin-bottom:3px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.contract-before{width:34.5%;background:#fff1f1}.contract-after{width:34.5%;background:#eefaf3}.contract-value{display:inline-block;padding:3px 7px;border-radius:5px;font-weight:700}.contract-value.before{background:var(--remove-bg);color:var(--remove-text)}.contract-value.after{background:var(--add-bg);color:var(--add-text)}.contract-detail{display:block;margin-top:4px;color:var(--muted);font-size:13px}.breaking-rationale{margin:17px 0 22px;padding:12px 14px;border-left:3px solid #e7a400;background:#fff9e8}.affected-operations{margin:20px 0}.affected-operations>summary{font-size:18px}.affected-operation-list{display:grid;gap:7px;margin-top:10px}.affected-operation{display:grid;grid-template-columns:minmax(230px,.8fr) 65px minmax(300px,1.8fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}.http-method{color:#075cab;font-family:ui-monospace,monospace;font-weight:800}.contract-footer{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:18px;color:var(--muted);font-size:13px}.root-cause-provenance{margin-top:14px}.mapping-unavailable{color:var(--muted)}.representative-example{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:9px}.operation summary{display:flex;gap:12px;align-items:center}.operation summary span,.action{margin-left:auto;border-radius:999px;padding:2px 8px;background:#dbeafe;color:#1e40af}.operation-body{padding-top:12px}.diff{background:#111827;color:#e5e7eb;border-radius:10px;overflow:auto;margin:12px 0}.diff-path{padding:7px 12px;background:#1f2937}.diff-path a{color:#93c5fd}.diff pre{padding:12px;margin:0}.diff pre span{display:block}.diff pre .line-number{display:inline-block;width:42px;color:#94a3b8;user-select:none}.diff .add{background:#123d2a;color:#bbf7d0}.diff .remove{background:#51212a;color:#fecaca}.parameter-diff{margin:12px 0}.parameter-line{display:flex;gap:8px;align-items:baseline;padding:5px 9px;margin:3px 0;border-radius:6px}.parameter-line.add,.delta-after,ins{background:var(--add-bg);color:var(--add-text)}.parameter-line.remove,.delta-before,del{background:var(--remove-bg);color:var(--remove-text)}.parameter-line.modify,.parameter-line.reorder{background:#fef3c7;color:#92400e}.parameter-line>span:first-child{font-weight:800}.parameter-attribute{white-space:nowrap}.delta-before,.delta-after,del,ins{padding:2px 5px;border-radius:4px;text-decoration:none}dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px}dt{font-weight:700}dd{margin:0}.not-assessed{color:var(--muted);font-weight:700}.good,.compliance-summary.passed{color:var(--good)}.compliance-summary.failed{color:var(--danger)}.sources{color:var(--muted);font-size:13px}blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--panel) 90%,var(--accent))}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere}@media(max-width:1050px){.summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.affected-operation{grid-template-columns:1fr 65px}.affected-operation code{grid-column:1/-1}}@media(max-width:700px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.finding-summary{width:100%;margin-left:0}.contract-change-table{display:block;overflow-x:auto}.contract-change-table th,.contract-change-table td{min-width:210px}}@media(max-width:540px){.summary-grid{grid-template-columns:1fr}.hero h1{font-size:32px}}@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--panel:#172033;--text:#e5e7eb;--muted:#9ca3af;--line:#334155;--add-bg:#123d2a;--add-text:#bbf7d0;--remove-bg:#51212a;--remove-text:#fecaca}.notice{background:#422006;color:#fde68a}.parameter-line.modify,.parameter-line.reorder{background:#422006;color:#fde68a}.contract-change-table th{background:#202d45}.contract-member{background:#1d293d}.contract-before{background:#431f29}.contract-after{background:#15382b}.breaking-rationale{background:#3b2f13}.http-method{color:#76b9ff}}
+.tag{border-radius:999px;padding:3px 10px;background:#dbeafe;color:#1e40af;font-size:13px;font-weight:800}.finding-summary-meta{margin-left:auto;color:var(--muted);font-size:14px}.rest-operation-list{display:grid;gap:7px}.rest-operation-line{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(260px,2fr);gap:12px;padding:9px 11px;border:1px solid var(--line);border-radius:8px}.rest-operation-line>span{color:var(--muted)}@media(max-width:700px){.rest-operation-line{grid-template-columns:1fr}.finding-summary-meta{width:100%;margin-left:0}}
+.finding{border-left:1px solid var(--line)}
+.rest-contract-card .contract-tag{background:#fee2e2;color:#991b1b}.rest-contract-card .rest-operation-list{margin-top:10px}
+.notice{padding:0}.notice>summary{display:flex;min-height:46px;align-items:center;gap:10px;padding:8px 0;cursor:pointer;list-style:none}.notice>summary::-webkit-details-marker{display:none}.notice>summary::before{content:"▸";flex:none;color:#b45309;font-size:15px;font-weight:900;transition:transform .15s ease}.notice[open]>summary::before{transform:rotate(90deg)}.notice-title{flex:none;font-size:14px;font-weight:800}.notice-summary{overflow:hidden;color:color-mix(in srgb,currentColor 78%,var(--muted));font-size:12.5px;text-overflow:ellipsis;white-space:nowrap}.notice-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 0 12px 25px;font-size:12.5px;line-height:1.4}.notice-body p{margin:0}@media(max-width:700px){.notice-summary{display:none}.notice-body{grid-template-columns:1fr;gap:6px}}@media(prefers-color-scheme:dark){.notice>summary::before{color:#fbbf24}}
+.compliance-finding-group>summary{flex-wrap:wrap}.compliance-affected-intents{display:grid;gap:12px}.compliance-affected-intent{margin:0;padding:14px 16px;border:1px solid var(--line);border-radius:10px}.compliance-affected-intent h4{margin:0 0 8px}.compliance-affected-intent h5{margin:14px 0 6px}
+.intent-finding-badge{font:inherit;font-size:13px;cursor:pointer}.intent-impact-trigger{position:relative}.intent-impact-popover{position:absolute;z-index:20;top:calc(100% + 8px);right:0;display:none;width:min(480px,88vw);overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--panel);box-shadow:0 14px 34px rgb(31 42 68 / 18%)}.intent-impact-trigger.open .intent-impact-popover{display:grid}.intent-impact-popover a{display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);color:var(--text)!important;text-decoration:none}.intent-impact-popover a:first-child{border-top:0}.intent-impact-popover a:hover,.intent-impact-popover a:focus-visible{background:color-mix(in srgb,var(--panel) 92%,var(--accent))}.intent-impact-popover a span{color:var(--muted);font-size:13px}.intent h3,.representative-example>summary{font-size:17px;font-weight:750;line-height:1.35}.impact-highlight{outline:3px solid #ef4444;outline-offset:3px}
+.affected-methods{margin:20px 0}.affected-methods>summary{font-size:18px}.affected-method-list{display:grid;gap:7px;margin-top:10px}.affected-method{display:grid;grid-template-columns:minmax(180px,.6fr) minmax(280px,1.4fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}@media(max-width:700px){.affected-method{grid-template-columns:1fr}}
+.summary-value {
+  white-space: nowrap;
+}
+.summary-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.summary-heading .summary-value {
+  flex: none;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.summary-heading .summary-label {
+  min-width: 0;
+  margin-top: 0;
+  line-height: 1.4;
+}
+.summary-heading .info {
+  color: #dbeafe;
+}
+@media (min-width: 1051px) {
+  .summary-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.report-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 14px;
+}
+.report-section-head > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+.report-section-head h2 {
+  margin: 0;
+}
+.report-section-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.report-section-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.report-count {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eaf0f9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+}
+.report-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+}
+.report-card {
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.report-card > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+.report-card > summary::-webkit-details-marker {
+  display: none;
+}
+.report-card > summary:before {
+  content: "+";
+  width: 16px;
+  flex: none;
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 1.2;
+}
+.report-card[open] > summary:before {
+  content: "−";
+}
+.report-card-title {
+  min-width: 0;
+  flex: 1;
+}
+.report-card-title strong {
+  display: block;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.report-card-title small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+.report-card-body {
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--line);
+}
+.report-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.report-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.report-badge.add {
+  background: #dcfce7;
+  color: #166534;
+}
+.report-badge.modify,
+.report-badge.direct {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.report-badge.remove {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.report-badge.indirect {
+  background: #ede9fe;
+  color: #6b21a8;
+}
+.report-badge.mixed {
+  background: #d1fae5;
+  color: #065f46;
+}
+.report-badge.unknown {
+  background: #fef3c7;
+  color: #92400e;
+}
+.report-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.report-table th {
+  background: #f2f5fa;
+  color: #53637a;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.report-table th,
+.report-table td {
+  padding: 11px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.report-table tr:last-child td {
+  border-bottom: 0;
+}
+.report-table td:first-child {
+  width: 29%;
+  min-width: 145px;
+}
+.report-table td:nth-child(2),
+.report-table td:nth-child(3) {
+  width: 35.5%;
+  min-width: 170px;
+}
+.report-table td:nth-child(2) {
+  background: #fff5f4;
+}
+.report-table td:nth-child(3) {
+  background: #f0faf5;
+}
+.report-table pre {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-detail,
+.report-small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.report-link-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 5px 0 0;
+}
+.report-link {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.report-link:hover,
+.report-link:focus-visible {
+  text-decoration: underline;
+  outline-offset: 2px;
+}
+.report-intent-relations {
+  margin-top: 12px;
+  cursor: default;
+}
+.report-relation-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: text;
+}
+.report-link.impact,
+.report-link[href^="#compliance-finding-"] {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fff1f2;
+}
+.report-reference-paths {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0;
+}
+.report-reference-path {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.35fr) minmax(180px, 1fr) max-content;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--panel) 92%, var(--accent));
+  font-size: 12px;
+}
+.report-reference-path > span {
+  color: var(--muted);
+}
+.report-type-impact {
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+.report-type-impact:first-child {
+  border-top: 0;
+}
+.report-type-impact h4 {
+  margin: 0 0 5px;
+}
+.report-guideline-section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-guideline-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+.report-guideline-section + .report-guideline-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.report-document-snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.report-document-snapshots.single-snapshot {
+  grid-template-columns: minmax(0, 1fr);
+}
+.report-document-context {
+  min-width: 0;
+}
+.report-document-related {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.report-document-related-type > h5 {
+  font-size: 13px;
+  margin: 15px 0 8px;
+  overflow-wrap: anywhere;
+}
+.report-document-related pre {
+  max-height: 400px;
+  overflow: auto;
+}
+.report-document-snapshot {
+  min-width: 0;
+}
+.report-document-snapshot h4,
+.report-document-snapshot h5 {
+  margin: 12px 0 6px;
+}
+.document-quality-check pre {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-document-rationale {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.report-document-rationale p {
+  margin: 5px 0 0;
+}
+.document-quality-scope {
+  margin-top: 14px;
+}
+.document-quality-intent-link {
+  margin-bottom: 12px;
+}
+.document-quality-file {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.document-quality-file-count {
+  font-weight: 400;
+  color: var(--muted);
+}
+.document-quality-list {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+  overscroll-behavior: contain;
+}
+.document-quality-row,
+.document-quality-document > summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.document-quality-document > summary {
+  cursor: pointer;
+}
+.document-quality-document > summary:before {
+  content: "+";
+  color: var(--accent);
+}
+.document-quality-document[open] > summary:before {
+  content: "-";
+}
+.document-quality-document > summary > span:first-of-type {
+  flex: 1;
+}
+.document-quality-document > summary > span:first-child,
+.document-quality-row > a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.document-quality-document > summary > .report-badge,
+.document-quality-row > .report-badge {
+  flex: none;
+}
+.document-quality-document-body {
+  padding: 12px;
+}
+.document-quality-document-body h4 {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+.document-quality-document-body blockquote {
+  margin: 0 0 15px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.document-quality-current {
+  padding: 0;
+}
+.document-quality-description-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.document-quality-description-heading h3,
+.document-quality-explanation h3,
+.document-quality-suggestion h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.document-quality-current mark {
+  background: var(--remove-bg);
+  color: var(--remove-text);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+.document-quality-explanation p,
+.document-quality-suggestion p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+.document-quality-check .document-quality-source {
+  margin-top: 16px;
+}
+.document-quality-source pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-badge.neutral {
+  background: color-mix(in srgb, var(--panel) 85%, var(--muted));
+  color: var(--muted);
+}
+.document-quality-neutral > summary {
+  padding: 12px 18px;
+}
+.document-quality-neutral .report-card-title strong {
+  font-size: 13px;
+}
+.document-quality-list:focus-visible,
+.document-quality-file > summary:focus-visible,
+.document-quality-document > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.report-source {
+  margin-bottom: 16px;
+}
+.report-source > summary,
+.report-subdetails > summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+.report-http {
+  color: #075cab;
+  font:
+    800 12px ui-monospace,
+    monospace;
+}
+.report-card .operation summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+}
+.report-card .operation summary > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-card .operation summary > code {
+  grid-column: 1/-1;
+}
+.report-card .operation summary > span {
+  margin-left: 0;
+  justify-self: start;
+}
+.report-operation-remainder {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.container,
+.report-card-body,
+.report-card,
+.report-guideline-section,
+.report-source,
+.operation {
+  min-width: 0;
+}
+body {
+  overflow-wrap: anywhere;
+}
+.diff,
+.report-table-wrap,
+#appendix .panel {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.diff-path {
+  overflow-wrap: anywhere;
+}
+#appendix pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#appendix table {
+  display: block;
+  overflow-x: auto;
+}
+@media (max-width: 760px) {
+  .report-document-snapshots {
+    grid-template-columns: 1fr;
+  }
+  .report-section-head {
+    display: block;
+  }
+  .report-section-meta {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+  .report-card > summary {
+    flex-wrap: wrap;
+  }
+  .report-card > summary > .report-badges {
+    margin-left: 28px;
+  }
+  .report-reference-path {
+    grid-template-columns: 1fr;
+  }
+  .report-count {
+    max-width: 100%;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-count {
+    background: #26344d;
+    color: #cbd5e1;
+  }
+  .report-badge.indirect {
+    background: #3b2852;
+    color: #e9d5ff;
+  }
+  .report-badge.mixed {
+    background: #143d34;
+    color: #a7f3d0;
+  }
+  .report-badge.add {
+    background: #123d2a;
+    color: #bbf7d0;
+  }
+  .report-badge.modify,
+  .report-badge.direct {
+    background: #202d45;
+    color: #dbeafe;
+  }
+  .report-badge.remove {
+    background: #431f29;
+    color: #fecaca;
+  }
+  .report-badge.unknown {
+    background: #422006;
+    color: #fde68a;
+  }
+  .report-table th {
+    background: #202d45;
+    color: #cbd5e1;
+  }
+  .report-table td:nth-child(2) {
+    background: #431f29;
+  }
+  .report-table td:nth-child(3) {
+    background: #15382b;
+  }
+  .report-link.impact,
+  .report-link[href^="#compliance-finding-"] {
+    color: #fecaca;
+    border-color: #7f1d1d;
+    background: #431f29;
+  }
+  .report-http {
+    color: #93c5fd;
+  }
+}
+
+</style></head><body>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>12 TypeSpec changes for fleet</h1>
+<p class="hero-meta">TypeSpec source diff: <code>9f5271b1ab4f354780443f12755bd097f148f9bc</code> → <code>32d9d100a1a1a07b7fbb79cbe98bda2af536a48d</code></p>
+<div class="summary-grid">
+<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">12 intents<br>28 operations<br>2 Added, 10 Modified, 0 Removed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">1 finding<br>11/11 intents assessed</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">1 finding</div></a>
+<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>18 declarations checked</div></a>
+</div></div></header>
+<details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
+<div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
+<p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
+<main class="container">
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">1 findings</span></div></div><p class="report-small">11 of 11 semantic intents assessed · 4 documents selected</p><details class="report-card compliance-finding"><summary><div class="report-card-title"><strong>New patch models are not version-gated</strong><small>The preview-versioning guidance requires changes from the latest stable version, including added types, to carry the appropriate preview version decorator.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-c086e82461cd9f81">Add patch and rollout strategy models</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><div class="report-guideline-section expected-details"><h3>Expected</h3><p>Mark all additions from the latest stable version, including newly added types, with the appropriate 2026-06-02-preview versioning decorator.</p><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview — Preview Versioning Rules for All Azure APIs</a><blockquote>Keep a single active preview as the last version and mark all changes from the latest stable version with appropriate versioning decorators that reference that preview.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable — Making Changes to your TypeSpec spec</a><blockquote>When adding a preview after a stable version, mark removed types with @removed and mark added, renamed, or otherwise modified types with the appropriate versioning decorator.</blockquote><div class="diff"><div class="diff-path"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Documented TypeSpec example</a></div><pre><span class="">@removed(Versions.`2026-01-01-preview`) model Foo {}</span></pre></div><div class="diff"><div class="diff-path"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Documented TypeSpec example</a></div><pre><span class="">@added(Versions.`2026-01-01-preview`) model Foo {}</span></pre></div></div></div><div class="report-guideline-section actual-details"><h3>Actual</h3><div class="report-type-impact" id="compliance-finding-compliance-9535db7a43b0ccaf"><p>New patch models are introduced without an @added decorator in the supplied changed declarations.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp#L164-L170">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp:163-170</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp#L173-L186">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp:172-186</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp#L30-L36">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp:29-36</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp#L39-L39">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp:38-40</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp#L164-L170">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp:163-170</a></div><pre><span class="add"><span class="line-number">163</span>+@added(Microsoft.ContainerService.Versions.v2026_06_02_preview)</span>
+<span class="add"><span class="line-number">164</span>+@doc(&quot;The rollout strategy configuration.&quot;)</span>
+<span class="add"><span class="line-number">165</span>+model RolloutStrategy {</span>
+<span class="add"><span class="line-number">166</span>+  @doc(&quot;The type of rollout strategy. Default is RollingUpdate.&quot;)</span>
+<span class="add"><span class="line-number">167</span>+  type?: RolloutStrategyType;</span>
+<span class="add"><span class="line-number">168</span>+</span>
+<span class="add"><span class="line-number">169</span>+  @doc(&quot;Reference to an existing cluster update strategy. Required when type is External.&quot;)</span>
+<span class="add"><span class="line-number">170</span>+  clusterUpdateStrategy?: ClusterUpdateStrategyReference;</span>
+<span class="add"><span class="line-number">171</span>+}</span>
+<span class="add"><span class="line-number">172</span>+</span>
+<span class="add"><span class="line-number">173</span>+@added(Microsoft.ContainerService.Versions.v2026_06_02_preview)</span>
+<span class="add"><span class="line-number">174</span>+@doc(&quot;A reference to an existing cluster staged update strategy.&quot;)</span></pre></div><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp#L164-L170">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp:163-170</a></div><pre><span class="add"><span class="line-number">163</span>+</span>
+<span class="add"><span class="line-number">164</span>+@doc(&quot;The ClusterResourcePlacement settings that can be patched.&quot;)</span>
+<span class="add"><span class="line-number">165</span>+model ClusterResourcePlacementSpecPatch {</span>
+<span class="add"><span class="line-number">166</span>+  @doc(&quot;The placement policy that can be patched.&quot;)</span>
+<span class="add"><span class="line-number">167</span>+  policy?: PlacementPolicyPatch;</span>
+<span class="add"><span class="line-number">168</span>+</span>
+<span class="add"><span class="line-number">169</span>+  @doc(&quot;The rollout strategy configuration that can be patched.&quot;)</span>
+<span class="add"><span class="line-number">170</span>+  rolloutStrategy?: RolloutStrategy;</span>
+<span class="add"><span class="line-number">171</span>+}</span>
+<span class="add"><span class="line-number">172</span>+</span>
+<span class="add"><span class="line-number">173</span>+@doc(&quot;The placement policy settings that can be patched.&quot;)</span>
+<span class="add"><span class="line-number">174</span>+model PlacementPolicyPatch {</span></pre></div><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp#L30-L36">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp:29-36</a></div><pre><span class="add"><span class="line-number">29</span>+@doc(&quot;The label selector settings that can be patched.&quot;)</span>
+<span class="add"><span class="line-number">30</span>+model LabelSelectorPatch {</span>
+<span class="add"><span class="line-number">31</span>+  ...OmitProperties&lt;OptionalProperties&lt;LabelSelector&gt;, &quot;matchExpressions&quot;&gt;;</span>
+<span class="add"><span class="line-number">32</span>+</span>
+<span class="add"><span class="line-number">33</span>+  @doc(&quot;The label selector requirements that can be patched.&quot;)</span>
+<span class="add"><span class="line-number">34</span>+  @identifiers(#[])</span>
+<span class="add"><span class="line-number">35</span>+  matchExpressions?: LabelSelectorRequirementPatch[];</span>
+<span class="add"><span class="line-number">36</span>+}</span>
+<span class="add"><span class="line-number">37</span>+</span>
+<span class="add"><span class="line-number">38</span>+@doc(&quot;A label selector requirement that can be patched.&quot;)</span>
+<span class="add"><span class="line-number">39</span>+model LabelSelectorRequirementPatch</span>
+<span class="add"><span class="line-number">40</span>+  is OptionalProperties&lt;LabelSelectorRequirement&gt;;</span></pre></div></div></div></div></details></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">1 mapped methods · 0 changed types</span></div></div><details class="report-card sdk-method-card" id="downstream-method-project-582be75b8d3d-Microsoft-ContainerService-FleetManagedNamespaces-update"><summary><div class="report-card-title"><strong>FleetManagedNamespaces.update</strong><small>The normalized SDK method contract changes directly.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-defad6c980f4a5d4">Version managed-namespace PATCH behavior</a></div></div></div><div class="report-badges"><span class="report-badge direct">Direct method change</span></div></summary><div class="report-card-body"><span id="downstream-downstream-group-669a43cf5817fabb"></span><span id="downstream-downstream-b775a85182428764"></span><span id="finding-downstream-b775a85182428764"></span><p class="report-small"><strong>Target normalized SDK method:</strong> <code>Microsoft.ContainerService.FleetManagedNamespaces.update</code></p><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK method</span><strong>Long-running behavior</strong><span class="report-detail">FleetManagedNamespaces.update changes final-state retrieval from the Location URL to the original resource URI; existing SDK polling now performs a different final GET, which can change completion results or errors.</span></td><td><pre>{
+  &quot;finalStateVia&quot;: &quot;location&quot;,
+  &quot;logicalResult&quot;: &quot;Microsoft.ContainerService.FleetManagedNamespace&quot;,
+  &quot;pollingStep&quot;: &quot;model&quot;,
+  &quot;finalStep&quot;: &quot;finalOperationLink&quot;,
+  &quot;statusMonitorStep&quot;: &quot;nextOperationLink&quot;
+}</pre></td><td><pre>{
+  &quot;finalStateVia&quot;: &quot;original-uri&quot;,
+  &quot;logicalResult&quot;: &quot;Microsoft.ContainerService.FleetManagedNamespace&quot;,
+  &quot;pollingStep&quot;: &quot;model&quot;,
+  &quot;finalStep&quot;: &quot;finalOperationLink&quot;,
+  &quot;statusMonitorStep&quot;: &quot;nextOperationLink&quot;
+}</pre></td></tr></tbody></table></div><p class="report-small"><strong>Constant headers (not numbered caller inputs):</strong> Baseline: Content-Type (header): &quot;application/json&quot;; Baseline: Accept (header): &quot;application/json&quot;; Target: Content-Type (header): &quot;application/json&quot;; Target: Accept (header): &quot;application/json&quot;</p><div class="breaking-rationale"><strong>Why this is breaking:</strong> FleetManagedNamespaces.update changes final-state retrieval from the Location URL to the original resource URI; existing SDK polling now performs a different final GET, which can change completion results or errors.</div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details></section>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">12 intents · 2 added · 10 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-0a5b57e7528ab046"><summary><div class="report-card-title"><strong>Add versioned day-of-week values</strong><small>Introduces the extensible DayOfWeek union and its named values in 2026-06-02-preview; no REST operation is directly affected.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/helpers.tsp</div><pre><span class="context"> using TypeSpec.OpenAPI;</span>
+<span class="context"> using TypeSpec.Http;</span>
+<span class="context"> using TypeSpec.Rest;</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="context"> using Azure.ResourceManager;</span>
+<span class="context"> using Azure.ResourceManager.Foundations;</span>
+<span class="context"> </span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/helpers.tsp</div><pre><span class="context">   | (ArmDeleteAcceptedResponse &amp; ArmLroLocationHeader)</span>
+<span class="context">   | ArmDeletedNoContentResponse</span>
+<span class="context">   | ErrorResponse;</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;The days of a week.&quot;)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="add">+union DayOfWeek {</span>
+<span class="add">+  string,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The day Monday.&quot;)</span>
+<span class="add">+  Monday: &quot;Monday&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The day Tuesday.&quot;)</span>
+<span class="add">+  Tuesday: &quot;Tuesday&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The day Wednesday.&quot;)</span>
+<span class="add">+  Wednesday: &quot;Wednesday&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The day Thursday.&quot;)</span>
+<span class="add">+  Thursday: &quot;Thursday&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The day Friday.&quot;)</span>
+<span class="add">+  Friday: &quot;Friday&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The day Saturday.&quot;)</span>
+<span class="add">+  Saturday: &quot;Saturday&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The day Sunday.&quot;)</span>
+<span class="add">+  Sunday: &quot;Sunday&quot;,</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/helpers.tsp#L115-L138">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/helpers.tsp:113</a></p></details><details class="report-subdetails" id="intent-semantic-0a5b57e7528ab046-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-0c182b2d6caaa3e8"><summary><div class="report-card-title"><strong>Expose update failure counters</strong><small>Adds read-only failureCount and maxAllowedFailures status properties for update groups, stages, and runs, propagating to four update-run operations.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/run.tsp</div><pre><span class="context">   @doc(&quot;The node image upgrade specs for the update run. It is only set in update run when `NodeImageSelection.type` is `Consistent`.&quot;)</span>
+<span class="context">   @added(Versions.v2023_06_15_preview)</span>
+<span class="context">   nodeImageSelection?: NodeImageSelectionStatus;</span>
+<span class="add">+</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  @doc(&quot;Total member upgrade failures across the entire UpdateRun.&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  failureCount?: int32;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @doc(&quot;The node image upgrade specs for the update run.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/run.tsp</div><pre><span class="context">   @doc(&quot;The name of the UpdateStage.&quot;)</span>
+<span class="context">   name?: string;</span>
+<span class="context"> </span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  @doc(&quot;The total member upgrade failures within the stage.&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  failureCount?: int32;</span>
+<span class="add">+</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  @doc(&quot;The max number of member upgrade failures allowed within this stage, resolved from the UpdateStrategy.UpdateStage.maxAllowedFailures value.&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  maxAllowedFailures?: int32;</span>
+<span class="add">+</span>
+<span class="context">   @visibility(Lifecycle.Read)</span>
+<span class="context">   @doc(&quot;The max number of upgrades that can run concurrently across all groups in this stage, resolved from the UpdateStrategy.UpdateStage.maxConcurrency value.&quot;)</span>
+<span class="context">   @added(Versions.v2026_02_01_preview)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/run.tsp</div><pre><span class="context">   @doc(&quot;The name of the UpdateGroup.&quot;)</span>
+<span class="context">   name?: string;</span>
+<span class="context"> </span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  @doc(&quot;The total member upgrade failures within the group.&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  failureCount?: int32;</span>
+<span class="add">+</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  @doc(&quot;The max number of member upgrade failures allowed within this group, resolved from the UpdateStrategy.UpdateGroup.maxAllowedFailures value.&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  maxAllowedFailures?: int32;</span>
+<span class="add">+</span>
+<span class="context">   @visibility(Lifecycle.Read)</span>
+<span class="context">   @doc(&quot;&quot;&quot;</span>
+<span class="context">       The max number of upgrades that can run concurrently in this group, resolved from the UpdateStrategy.UpdateGroup.maxConcurrency value. If no value was provided, this value defaults to &quot;${GroupMaxConcurrencyDefault}&quot;.</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/run.tsp#L218-L237">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/run.tsp:217</a></p></details><details class="report-subdetails" id="intent-semantic-0c182b2d6caaa3e8-operations"><summary>Affected operations (4)</summary><details class="operation"><summary><strong>UpdateRuns_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>UpdateRuns_Skip</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/skip</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>UpdateRuns_Start</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/start</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>UpdateRuns_Stop</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/stop</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-17122956db7d32e6"><summary><div class="report-card-title"><strong>Add scheduled-start gate details</strong><small>Adds the ScheduledStart gate type and its create/read scheduling properties for gate get and update operations.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/gate.tsp</div><pre><span class="context"> </span>
+<span class="context">   @doc(&quot;An approval gate is completed by setting its state to be Completed.&quot;)</span>
+<span class="context">   Approval: &quot;Approval&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;A scheduled start gate is automatically completed when the scheduled time is reached.&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  ScheduledStart: &quot;ScheduledStart&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @doc(&quot;The state of the Gate.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/gate.tsp</div><pre><span class="context">   @visibility(Lifecycle.Create, Lifecycle.Read)</span>
+<span class="context">   gateType: GateType;</span>
+<span class="context"> </span>
+<span class="add">+  @doc(&quot;Details for ScheduledStart gate&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Read)</span>
+<span class="add">+  scheduledStartProperties?: ScheduledStartProperties;</span>
+<span class="add">+</span>
+<span class="context">   @doc(&quot;The target that the Gate is controlling, e.g. an Update Run.&quot;)</span>
+<span class="context">   @visibility(Lifecycle.Create, Lifecycle.Read)</span>
+<span class="context">   target: GateTarget;</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/gate.tsp</div><pre><span class="context">   UpdateRun: &quot;UpdateRun&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+@doc(&quot;Properties for ScheduledStart gate&quot;)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="add">+model ScheduledStartProperties {</span>
+<span class="add">+  @doc(&quot;The day of the week when the scheduled start occurs.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Read)</span>
+<span class="add">+  startDay: DayOfWeek;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The local time of day when the scheduled start occurs in 24-hour (HH:mm) format.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Read)</span>
+<span class="add">+  @pattern(&quot;^([01][0-9]|2[0-3]):[0-5][0-9]$&quot;)</span>
+<span class="add">+  startTime: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The UTC offset for the scheduled time in HH:mm format, -14:00 to +14:00&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Read)</span>
+<span class="add">+  @pattern(&quot;^[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00)$&quot;)</span>
+<span class="add">+  utcOffset: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The absolute UTC time when the gate will complete. Set when the gate is created.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  absoluteStartTime?: utcDateTime;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="context"> @doc(&quot;The properties of the Update Run that the Gate is targeting.&quot;)</span>
+<span class="context"> @added(Versions.v2025_04_01_preview)</span>
+<span class="context"> model UpdateRunGateTargetProperties {</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/gate.tsp#L32-L41">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/gate.tsp:30</a></p></details><details class="report-subdetails" id="intent-semantic-17122956db7d32e6-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>Gates_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/gates/{gateName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.scheduledStartProperties</strong></td><td><pre>not present</pre></td><td><pre>ScheduledStartProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>Gates_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/gates/{gateName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.scheduledStartProperties</strong></td><td><pre>not present</pre></td><td><pre>ScheduledStartProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-470cb4c93f970394"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 24 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp</div><pre><span class="context">   @doc(&quot;Azure Kubernetes Fleet Manager api version 2026-06-01.&quot;)</span>
+<span class="context">   @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5)</span>
+<span class="context">   v2026_06_01: &quot;2026-06-01&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Azure Kubernetes Fleet Manager api version 2026-06-02-preview.&quot;)</span>
+<span class="add">+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5)</span>
+<span class="add">+  v2026_06_02_preview: &quot;2026-06-02-preview&quot;,</span>
+<span class="context"> }</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp#L29-L81">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp:28</a></p></details><details class="report-subdetails" id="intent-semantic-470cb4c93f970394-operations"><summary>Affected operations (24)</summary><p class="report-small">Showing 10 operation cards; the remaining 14 are listed below.</p><details class="operation"><summary><strong>AutoUpgradeProfiles_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AutoUpgradeProfiles_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AutoUpgradeProfiles_ListByFleet</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetManagedNamespaces_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/managedNamespaces/{managedNamespaceName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetManagedNamespaces_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/managedNamespaces/{managedNamespaceName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetManagedNamespaces_ListByFleet</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/managedNamespaces</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetManagedNamespaces_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/managedNamespaces/{managedNamespaceName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">LRO</span><strong>options.final-state-via</strong></td><td><pre>location</pre></td><td><pre>original-uri</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties</strong></td><td><pre>not present</pre></td><td><pre>FleetManagedNamespacePropertiesPatch (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, lro.</p></div></details><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_ListByFleet</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (14)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}">FleetMembers_Update (PATCH, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/fleets">Fleets_ListBySubscription (GET, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}">FleetUpdateStrategies_CreateOrUpdate (PUT, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}">FleetUpdateStrategies_Get (GET, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies">FleetUpdateStrategies_ListByFleet (GET, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/gates/{gateName}">Gates_Get (GET, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/gates">Gates_ListByFleet (GET, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/gates/{gateName}">Gates_Update (PATCH, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}">UpdateRuns_CreateOrUpdate (PUT, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}">UpdateRuns_Get (GET, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns">UpdateRuns_ListByFleet (GET, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/skip">UpdateRuns_Skip (POST, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/start">UpdateRuns_Start (POST, 2026-06-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/stop">UpdateRuns_Stop (POST, 2026-06-02-preview)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-7d262f4845ecfa97"><summary><div class="report-card-title"><strong>Restore member selection in preview</strong><small>Reintroduces MemberSelector for 2026-06-02-preview after its stable-version removal, affecting cluster-mesh apply and create/update operations.</small></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp</div><pre><span class="context"> @doc(&quot;Select members of a fleet.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> model MemberSelector {</span>
+<span class="context">   @doc(&quot;Kubernetes-style label selector for selecting Fleet members, e.g. `env=production`.&quot;)</span>
+<span class="context">   @maxLength(512)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp#L10-L15">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp:6</a></p></details><details class="report-subdetails" id="intent-semantic-7d262f4845ecfa97-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>ClusterMeshProfiles_Apply</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}/apply</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}/apply</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ClusterMeshProfiles_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-8c8b4d71f2db7144"><summary><div class="report-card-title"><strong>Restore mesh member status models</strong><small>Reintroduces Cilium and mesh-member status types for 2026-06-02-preview, affecting fleet-member creation.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> @doc(&quot;The Mesh Member data for a Fleet Member resource.&quot;)</span>
+<span class="context"> model MeshProperties {</span>
+<span class="context">   @doc(&quot;The Cilium cluster properties.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> @doc(&quot;The Cilium specific properties of the member cluster.&quot;)</span>
+<span class="context"> model CiliumProperties {</span>
+<span class="context">   @doc(&quot;Cilium requires each cluster to be assigned a unique numeric cluster id from 1 - 255. The id is managed by Fleet and cannot be set by the user.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> @doc(&quot;Mesh member state.&quot;)</span>
+<span class="context"> union MeshMemberState {</span>
+<span class="context">   string,</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> @doc(&quot;Status of the mesh member.&quot;)</span>
+<span class="context"> model MeshMemberStatus {</span>
+<span class="context">   @doc(&quot;The mesh member state.&quot;)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp#L19-L31">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp:15</a></p></details><details class="report-subdetails" id="intent-semantic-8c8b4d71f2db7144-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-91145db4418054b7"><summary><div class="report-card-title"><strong>Restore fleet member mesh properties</strong><small>Reintroduces FleetMemberProperties.meshProperties for the new preview across fleet-member create, get, and update operations.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp</div><pre><span class="context"> </span>
+<span class="context">   @added(Versions.v2026_03_02_preview)</span>
+<span class="context">   @removed(Versions.v2026_06_01)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="context">   @visibility(Lifecycle.Read)</span>
+<span class="context">   @doc(&quot;The Mesh Member Properties associated with this Fleet Member.&quot;)</span>
+<span class="context">   meshProperties?: MeshProperties;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp#L39-L75">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp:38</a></p></details><details class="report-subdetails" id="intent-semantic-91145db4418054b7-operations"><summary>Affected operations (3)</summary><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.meshProperties</strong></td><td><pre>not present</pre></td><td><pre>MeshProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-c086e82461cd9f81"><summary><div class="report-card-title"><strong>Add patch and rollout strategy models</strong><small>Adds patch-specific selector, affinity, placement, and rollout strategy models used by the new preview&#39;s managed-namespace patch surface.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-9535db7a43b0ccaf">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp</div><pre><span class="context"> </span>
+<span class="context"> namespace Placement.V1;</span>
+<span class="context"> </span>
+<span class="add">+@added(Microsoft.ContainerService.Versions.v2026_06_02_preview)</span>
+<span class="add">+@doc(&quot;The rollout strategy configuration.&quot;)</span>
+<span class="add">+model RolloutStrategy {</span>
+<span class="add">+  @doc(&quot;The type of rollout strategy. Default is RollingUpdate.&quot;)</span>
+<span class="add">+  type?: RolloutStrategyType;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Reference to an existing cluster update strategy. Required when type is External.&quot;)</span>
+<span class="add">+  clusterUpdateStrategy?: ClusterUpdateStrategyReference;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Microsoft.ContainerService.Versions.v2026_06_02_preview)</span>
+<span class="add">+@doc(&quot;A reference to an existing cluster staged update strategy.&quot;)</span>
+<span class="add">+model ClusterUpdateStrategyReference {</span>
+<span class="add">+  @doc(&quot;The name of an existing cluster staged update strategy.&quot;)</span>
+<span class="add">+  name?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Microsoft.ContainerService.Versions.v2026_06_02_preview)</span>
+<span class="add">+@doc(&quot;The possible rollout strategy types.&quot;)</span>
+<span class="add">+union RolloutStrategyType {</span>
+<span class="add">+  @doc(&quot;Use rolling update strategy for rollout.&quot;)</span>
+<span class="add">+  RollingUpdate: &quot;RollingUpdate&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Use external rollout strategy via Staged Update Run.&quot;)</span>
+<span class="add">+  External: &quot;External&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  string,</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="context"> @doc(&quot;ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.&quot;)</span>
+<span class="context"> model ClusterResourcePlacementSpec {</span>
+<span class="context">   @doc(&quot;Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.&quot;)</span>
+<span class="context">   policy?: PlacementPolicy;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Microsoft.ContainerService.Versions.v2026_06_02_preview)</span>
+<span class="add">+  @doc(&quot;The rollout strategy configuration for the cluster resource placement.&quot;)</span>
+<span class="add">+  rolloutStrategy?: RolloutStrategy;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @doc(&quot;PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp</div><pre><span class="context">   @doc(&quot;Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.&quot;)</span>
+<span class="context">   effect?: TaintEffect;</span>
+<span class="context"> }</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;The ClusterResourcePlacement settings that can be patched.&quot;)</span>
+<span class="add">+model ClusterResourcePlacementSpecPatch {</span>
+<span class="add">+  @doc(&quot;The placement policy that can be patched.&quot;)</span>
+<span class="add">+  policy?: PlacementPolicyPatch;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The rollout strategy configuration that can be patched.&quot;)</span>
+<span class="add">+  rolloutStrategy?: RolloutStrategy;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;The placement policy settings that can be patched.&quot;)</span>
+<span class="add">+model PlacementPolicyPatch {</span>
+<span class="add">+  @doc(&quot;The placement type that can be patched.&quot;)</span>
+<span class="add">+  placementType?: PlacementType;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The member cluster names that can be patched.&quot;)</span>
+<span class="add">+  clusterNames?: string[];</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The cluster affinity settings that can be patched.&quot;)</span>
+<span class="add">+  affinity?: AffinityPatch;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The tolerations that can be patched.&quot;)</span>
+<span class="add">+  @identifiers(#[])</span>
+<span class="add">+  tolerations?: Toleration[];</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;The affinity settings that can be patched.&quot;)</span>
+<span class="add">+model AffinityPatch {</span>
+<span class="add">+  @doc(&quot;The cluster affinity settings that can be patched.&quot;)</span>
+<span class="add">+  clusterAffinity?: ClusterAffinityPatch;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;The cluster affinity rules that can be patched.&quot;)</span>
+<span class="add">+model ClusterAffinityPatch {</span>
+<span class="add">+  @doc(&quot;The required cluster selector that can be patched.&quot;)</span>
+<span class="add">+  requiredDuringSchedulingIgnoredDuringExecution?: ClusterSelectorPatch;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;The cluster selector settings that can be patched.&quot;)</span>
+<span class="add">+model ClusterSelectorPatch {</span>
+<span class="add">+  @doc(&quot;The cluster selector terms that can be patched.&quot;)</span>
+<span class="add">+  @identifiers(#[])</span>
+<span class="add">+  clusterSelectorTerms?: ClusterSelectorTermPatch[];</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;A cluster selector term that can be patched.&quot;)</span>
+<span class="add">+model ClusterSelectorTermPatch {</span>
+<span class="add">+  @doc(&quot;The label selector that can be patched.&quot;)</span>
+<span class="add">+  labelSelector?: LabelSelectorPatch;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The property selector that can be patched.&quot;)</span>
+<span class="add">+  propertySelector?: PropertySelectorPatch;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;The property selector settings that can be patched.&quot;)</span>
+<span class="add">+model PropertySelectorPatch {</span>
+<span class="add">+  @doc(&quot;The property selector requirements that can be patched.&quot;)</span>
+<span class="add">+  @identifiers(#[])</span>
+<span class="add">+  matchExpressions?: PropertySelectorRequirementPatch[];</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;A property selector requirement that can be patched.&quot;)</span>
+<span class="add">+model PropertySelectorRequirementPatch {</span>
+<span class="add">+  @doc(&quot;The property name that can be patched.&quot;)</span>
+<span class="add">+  name?: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The property selector operator that can be patched.&quot;)</span>
+<span class="add">+  operator?: PropertySelectorOperator;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The property values that can be patched.&quot;)</span>
+<span class="add">+  values?: string[];</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp</div><pre><span class="context">   values?: string[];</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+@doc(&quot;The label selector settings that can be patched.&quot;)</span>
+<span class="add">+model LabelSelectorPatch {</span>
+<span class="add">+  ...OmitProperties&lt;OptionalProperties&lt;LabelSelector&gt;, &quot;matchExpressions&quot;&gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The label selector requirements that can be patched.&quot;)</span>
+<span class="add">+  @identifiers(#[])</span>
+<span class="add">+  matchExpressions?: LabelSelectorRequirementPatch[];</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;A label selector requirement that can be patched.&quot;)</span>
+<span class="add">+model LabelSelectorRequirementPatch</span>
+<span class="add">+  is OptionalProperties&lt;LabelSelectorRequirement&gt;;</span>
+<span class="add">+</span>
+<span class="context"> @doc(&quot;A label selector operator is the set of operators that can be used in a selector requirement.&quot;)</span>
+<span class="context"> union LabelSelectorOperator {</span>
+<span class="context">   @doc(&quot;Label Selector Operator In&quot;)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp#L14-L20">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp:12</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp#L30-L36">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp:29</a></p></details><details class="report-subdetails" id="intent-semantic-c086e82461cd9f81-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-cc1648917bc19e7a"><summary><div class="report-card-title"><strong>Restore cluster mesh profile resource</strong><small>Reintroduces the Fleet child ClusterMeshProfile resource and its get, create/update, delete, and apply lifecycle operations in 2026-06-02-preview.</small></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> @doc(&quot;A cluster mesh profile stores the general information about the mesh.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> @resource(&quot;clusterMeshProfiles&quot;)</span>
+<span class="context"> @parentResource(Fleet)</span>
+<span class="context"> model ClusterMeshProfile</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> @doc(&quot;A cluster mesh profile stores the general information about the mesh.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> model ClusterMeshProfileProperties {</span>
+<span class="context">   @doc(&quot;The provisioning state of the cluster mesh profile.&quot;)</span>
+<span class="context">   @visibility(Lifecycle.Read)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> @doc(&quot;The provisioning state of the cluster mesh profile resource.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> union ClusterMeshProfileProvisioningState {</span>
+<span class="context">   string,</span>
+<span class="context">   ResourceProvisioningState,</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> @doc(&quot;Cluster mesh state.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> union ClusterMeshState {</span>
+<span class="context">   string,</span>
+<span class="context"> </span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> @doc(&quot;Status of the cluster mesh.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> model ClusterMeshProfileStatus {</span>
+<span class="context">   @doc(&quot;The state of the cluster mesh.&quot;)</span>
+<span class="context">   @visibility(Lifecycle.Read)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="context"> @removed(Versions.v2026_06_01)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="context"> @armResourceOperations</span>
+<span class="context"> interface ClusterMeshProfiles {</span>
+<span class="context">   get is ArmResourceRead&lt;ClusterMeshProfile&gt;;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L18-L18">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp:12</a></p></details><details class="report-subdetails" id="intent-semantic-cc1648917bc19e7a-operations"><summary>Affected operations (4)</summary><details class="operation"><summary><strong>ClusterMeshProfiles_Apply</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}/apply</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}/apply</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ClusterMeshProfiles_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ClusterMeshProfiles_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ClusterMeshProfiles_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/clusterMeshProfiles/{clusterMeshProfileName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-d29ee7d93f943030"><summary><div class="report-card-title"><strong>Extend update strategy configuration</strong><small>Adds scheduled-start gate configuration, member selectors, and allowed-failure settings to update groups and stages for the new preview.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/common.tsp</div><pre><span class="context">   @doc(&quot;Defines the groups to be executed in parallel in this stage. Duplicate groups are not allowed. Min size: 1.&quot;)</span>
+<span class="context">   groups?: UpdateGroup[];</span>
+<span class="context"> </span>
+<span class="add">+  @doc(&quot;&quot;&quot;</span>
+<span class="add">+    Select the members of the stage.</span>
+<span class="add">+      * If specified without UpdateGroup, one implicit group containing the selected members will be created.</span>
+<span class="add">+      * If specified with UpdateGroup, members will be pre-filtered before group-level selection logic is applied.</span>
+<span class="add">+      * If not specified, group-level selection logic will be used.</span>
+<span class="add">+    &quot;&quot;&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read, Lifecycle.Create)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  memberSelector?: MemberSelector;</span>
+<span class="add">+</span>
+<span class="context">   @doc(&quot;The time in seconds to wait at the end of this stage before starting the next one. Defaults to 0 seconds if unspecified.&quot;)</span>
+<span class="context">   afterStageWaitInSeconds?: int32;</span>
+<span class="context"> </span>
+<span class="add">+  @doc(&quot;&quot;&quot;</span>
+<span class="add">+    Limits the number of member (cluster) upgrade failures tolerated within this stage.</span>
+<span class="add">+    Failures are evaluated over all members within all groups within this stage. </span>
+<span class="add">+    Accepts either:</span>
+<span class="add">+      • A fixed count n, where n &gt;= 0</span>
+<span class="add">+      • A percentage p%, where 0 &lt;= p &lt;= 100</span>
+<span class="add">+        Percentage resolves at stage start using: resolvedThreshold = ceil(p * N), </span>
+<span class="add">+        where p is the percentage as a decimal and N is the number of members in this stage at scope start.</span>
+<span class="add">+    Examples:</span>
+<span class="add">+      • &quot;3&quot;   --&gt; up to 3 member upgrade failures are tolerated within this stage. The 4th failure would cause the entire stage to fail.</span>
+<span class="add">+      • &quot;25%&quot; --&gt; up to 25% of the members in this stage can fail their upgrade before the stage is considered failed.</span>
+<span class="add">+    &quot;&quot;&quot;)</span>
+<span class="add">+  @pattern(&quot;^(?:0|[1-9]\\d*|(?:0|[1-9]\\d?|100)%)$&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  maxAllowedFailures?: string;</span>
+<span class="add">+</span>
+<span class="context">   @doc(&quot;&quot;&quot;</span>
+<span class="context">     The max number of upgrades that can run concurrently across all groups in this stage.</span>
+<span class="context">     Acts as a ceiling (and not a quota) for the number of concurrent upgrades within the stage you want to tolerate at a time.</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/common.tsp</div><pre><span class="context">   afterGates?: GateConfiguration[];</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+@doc(&quot;Configuration for ScheduledStart gate&quot;)</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="add">+model ScheduledStartConfiguration {</span>
+<span class="add">+  @doc(&quot;The day of the week when the scheduled start occurs.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Read)</span>
+<span class="add">+  startDay: DayOfWeek;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The local time of day when the scheduled start occurs in 24-hour (HH:mm) format.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Read)</span>
+<span class="add">+  @pattern(&quot;^([01][0-9]|2[0-3]):[0-5][0-9]$&quot;)</span>
+<span class="add">+  startTime: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The UTC offset for the scheduled time in HH:mm format, -14:00 to +14:00&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Read)</span>
+<span class="add">+  @pattern(&quot;^[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00)$&quot;)</span>
+<span class="add">+  utcOffset: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="context"> @doc(&quot;A group to be updated.&quot;)</span>
+<span class="context"> model UpdateGroup {</span>
+<span class="context">   @doc(&quot;&quot;&quot;</span>
+<span class="context">     Name of the group.</span>
+<span class="remove">-    It must match a group name of an existing fleet member. </span>
+<span class="add">+    It must match a group name of an existing fleet member.</span>
+<span class="context">     &quot;&quot;&quot;)</span>
+<span class="context">   @pattern(&quot;^[a-z0-9]([-a-z0-9]*[a-z0-9])?$&quot;)</span>
+<span class="context">   @minLength(1)</span>
+<span class="context">   @maxLength(50)</span>
+<span class="context">   name: string;</span>
+<span class="context"> </span>
+<span class="add">+  @doc(&quot;&quot;&quot;</span>
+<span class="add">+    Limits the number of member (cluster) upgrade failures tolerated within this group.</span>
+<span class="add">+    Failures are evaluated over members within this group only. </span>
+<span class="add">+    Accepts either:</span>
+<span class="add">+      • A fixed count n, where n &gt;= 0</span>
+<span class="add">+      • A percentage p%, where 0 &lt;= p &lt;= 100</span>
+<span class="add">+        Percentage resolves at stage start using: resolvedThreshold = ceil(p * N), </span>
+<span class="add">+        where p is the percentage as a decimal and N is the number of members in this group at scope start.</span>
+<span class="add">+    Examples:</span>
+<span class="add">+      • &quot;3&quot;   --&gt; up to 3 member upgrade failures are tolerated within this group. The 4th failure causes the group to fail.</span>
+<span class="add">+      • &quot;25%&quot; --&gt; up to 25% of the members in this group can fail their upgrade before the group is considered failed.</span>
+<span class="add">+    &quot;&quot;&quot;)</span>
+<span class="add">+  @pattern(&quot;^(?:0|[1-9]\\d*|(?:0|[1-9]\\d?|100)%)$&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  maxAllowedFailures?: string;</span>
+<span class="add">+</span>
+<span class="context">   @doc(&quot;&quot;&quot;</span>
+<span class="context">     The max number of upgrades that can run concurrently in this specific group.</span>
+<span class="context">     Acts as a ceiling (and not a quota) for the number of concurrent upgrades within the group you want to tolerate at a time.</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/common.tsp</div><pre><span class="context">   @added(Versions.v2026_02_01_preview)</span>
+<span class="context">   maxConcurrency?: string;</span>
+<span class="context"> </span>
+<span class="add">+  @doc(&quot;&quot;&quot;</span>
+<span class="add">+    Select the members of the group.</span>
+<span class="add">+      * If specified, label-based selection will override group name based selection,</span>
+<span class="add">+        and Name is only used as an identifier.</span>
+<span class="add">+      * If not specified, group name based selection will be used, and Name must match a</span>
+<span class="add">+        group name of an existing fleet member.</span>
+<span class="add">+    &quot;&quot;&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read, Lifecycle.Create)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  memberSelector?: MemberSelector;</span>
+<span class="add">+</span>
+<span class="context">   @doc(&quot;A list of Gates that will be created before this Group is executed.&quot;)</span>
+<span class="context">   @added(Versions.v2025_04_01_preview)</span>
+<span class="context">   @identifiers(#[])</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/common.tsp</div><pre><span class="context"> </span>
+<span class="context">   @doc(&quot;The type of the Gate determines how it is completed.&quot;)</span>
+<span class="context">   type: GateType;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Scheduled start configuration for gates of type ScheduledStart.&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  scheduledStartConfiguration?: ScheduledStartConfiguration;</span>
+<span class="context"> }</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/common.tsp#L26-L93">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/common.tsp:25</a></p></details><details class="report-subdetails" id="intent-semantic-d29ee7d93f943030-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-d2cd0db64f82ab5f"><summary><div class="report-card-title"><strong>Extend auto-upgrade profile status</strong><small>Adds SecurityPatch upgrade-channel support plus target-version and last-trigger status details to auto-upgrade profile operations.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/autoupgradeprofile.tsp</div><pre><span class="context"> using TypeSpec.Http;</span>
+<span class="context"> using TypeSpec.Rest;</span>
+<span class="context"> using TypeSpec.Versioning;</span>
+<span class="add">+using TypeSpec.OpenAPI;</span>
+<span class="context"> using Azure.ResourceManager;</span>
+<span class="context"> using Azure.ResourceManager.Foundations;</span>
+<span class="context"> using Azure.Core;</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/autoupgradeprofile.tsp</div><pre><span class="context">       This is the target Kubernetes version for auto-upgrade. The format must be `{major version}.{minor version}`. For example, &quot;1.30&quot;.</span>
+<span class="context">       By default, this is empty.</span>
+<span class="context">       If upgrade channel is set to TargetKubernetesVersion, this field must not be empty.</span>
+<span class="remove">-      If upgrade channel is Rapid, Stable or NodeImage, this field must be empty.</span>
+<span class="add">+      If upgrade channel is not TargetKubernetesVersion, this field must be empty.</span>
+<span class="context">     &quot;&quot;&quot;)</span>
+<span class="context">   @added(Versions.v2025_04_01_preview)</span>
+<span class="context">   targetKubernetesVersion?: string;</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/autoupgradeprofile.tsp</div><pre><span class="context">     &quot;&quot;&quot;)</span>
+<span class="context">   @added(Versions.v2025_04_01_preview)</span>
+<span class="context">   TargetKubernetesVersion: &quot;TargetKubernetesVersion&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;&quot;&quot;</span>
+<span class="add">+      Applies security patches to the nodes of the target clusters.</span>
+<span class="add">+      For information on the behavior of update run for security patch upgrade,</span>
+<span class="add">+      see https://learn.microsoft.com/en-us/azure/kubernetes-fleet/update-orchestration?tabs=azure-portal</span>
+<span class="add">+    &quot;&quot;&quot;)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  SecurityPatch: &quot;SecurityPatch&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @doc(&quot;The node image upgrade to be applied to the target clusters in auto upgrade.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/autoupgradeprofile.tsp</div><pre><span class="context">   @doc(&quot;The target Kubernetes version or node image versions of the last trigger.&quot;)</span>
+<span class="context">   @visibility(Lifecycle.Read)</span>
+<span class="context">   lastTriggerUpgradeVersions?: string[];</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Additional information about the last trigger attempt.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  lastTriggerMessage?: string;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @doc(&quot;AutoUpgradeLastTriggerStatus is the status of the last AutoUpgrade trigger (attempt to automatically create and start UpdateRun when there are new released versions) of an auto upgrade profile.&quot;)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/autoupgradeprofile.tsp#L46-L91">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/autoupgradeprofile.tsp:44</a></p></details><details class="report-subdetails" id="intent-semantic-d2cd0db64f82ab5f-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>AutoUpgradeProfiles_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AutoUpgradeProfiles_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-defad6c980f4a5d4"><summary><div class="report-card-title"><strong>Version managed-namespace PATCH behavior</strong><small>Adds structured managed-namespace patch properties and versions the asynchronous PATCH operation so the new preview uses original-URI final-state retrieval.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#downstream-method-project-582be75b8d3d-Microsoft-ContainerService-FleetManagedNamespaces-update">Downstream: FleetManagedNamespaces.update</a></div></div></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetnamespace.tsp</div><pre><span class="context"> </span>
+<span class="context">   listByFleet is ArmResourceListByParent&lt;FleetManagedNamespace&gt;;</span>
+<span class="context"> </span>
+<span class="add">+  @sharedRoute</span>
+<span class="add">+  @removed(Versions.v2026_06_02_preview)</span>
+<span class="add">+  @renamedFrom(Versions.v2026_06_02_preview, &quot;update&quot;)</span>
+<span class="add">+  updateOld is ArmCustomPatchAsync&lt;</span>
+<span class="add">+    FleetManagedNamespace,</span>
+<span class="add">+    FleetManagedNamespacePatch,</span>
+<span class="add">+    Azure.ResourceManager.Foundations.BaseParameters&lt;FleetManagedNamespace&gt; &amp;</span>
+<span class="add">+      IfMatchParameters&lt;FleetManagedNamespace&gt;</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @sharedRoute</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  @Azure.Core.useFinalStateVia(&quot;original-uri&quot;)</span>
+<span class="context">   update is ArmCustomPatchAsync&lt;</span>
+<span class="context">     FleetManagedNamespace,</span>
+<span class="context">     FleetManagedNamespacePatch,</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetnamespace.tsp</div><pre><span class="context"> model FleetManagedNamespacePatch {</span>
+<span class="context">   /* The ARM tags of the fleet managed namespace resource.*/</span>
+<span class="context">   ...Azure.ResourceManager.Foundations.ArmTagsProperty;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_06_02_preview)</span>
+<span class="add">+  @doc(&quot;The updatable properties of the fleet managed namespace.&quot;)</span>
+<span class="add">+  properties?: FleetManagedNamespacePropertiesPatch;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="add">+@doc(&quot;The properties of a fleet managed namespace that can be patched.&quot;)</span>
+<span class="add">+model FleetManagedNamespacePropertiesPatch {</span>
+<span class="add">+  @doc(&quot;The namespace properties for the fleet managed namespace.&quot;)</span>
+<span class="add">+  managedNamespaceProperties?: ManagedNamespaceProperties;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Action if the managed namespace with the same name already exists.&quot;)</span>
+<span class="add">+  adoptionPolicy?: AdoptionPolicy;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Delete options of a fleet managed namespace.&quot;)</span>
+<span class="add">+  deletePolicy?: DeletePolicy;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The profile of the propagation to create the namespace.&quot;)</span>
+<span class="add">+  propagationPolicy?: PropagationPolicyPatch;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="add">+@doc(&quot;The propagation settings that can be patched.&quot;)</span>
+<span class="add">+model PropagationPolicyPatch {</span>
+<span class="add">+  @doc(&quot;The type of the policy to be used.&quot;)</span>
+<span class="add">+  type?: PropagationType;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The placement profile that can be patched.&quot;)</span>
+<span class="add">+  placementProfile?: PlacementProfilePatch;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_06_02_preview)</span>
+<span class="add">+@doc(&quot;The placement profile settings that can be patched.&quot;)</span>
+<span class="add">+model PlacementProfilePatch {</span>
+<span class="add">+  @doc(&quot;The default ClusterResourcePlacement policy configuration that can be patched.&quot;)</span>
+<span class="add">+  defaultClusterResourcePlacement?: ClusterResourcePlacementSpecPatch;</span>
+<span class="context"> }</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/32d9d100a1a1a07b7fbb79cbe98bda2af536a48d/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetnamespace.tsp#L205-L242">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetnamespace.tsp:203</a></p></details><details class="report-subdetails" id="intent-semantic-defad6c980f4a5d4-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>FleetManagedNamespaces_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/managedNamespaces/{managedNamespaceName}</code><span>2026-06-02-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">LRO</span><strong>options.final-state-via</strong></td><td><pre>location</pre></td><td><pre>original-uri</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties</strong></td><td><pre>not present</pre></td><td><pre>FleetManagedNamespacePropertiesPatch (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, lro.</p></div></details></details></div></details></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 18 declarations checked</p></section>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
+<h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet</code></td><td>new-api-version</td><td><code>32d9d100a1a1a07b7fbb79cbe98bda2af536a48d@2026-06-01</code><br><small>current · previous-latest-stable</small></td><td><code>32d9d100a1a1a07b7fbb79cbe98bda2af536a48d@2026-06-02-preview</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
+<p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/45678">#45678</a></p>
+<h3 id="compliance-search-evidence">Guidance fetched</h3>
+<ul class="guidance-document-list"><li><a href="https://typespec.io/docs/libraries/rest/reference/decorators/">TypeSpec.Rest decorators</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;failed&quot;,
+  &quot;coverage&quot;: {
+    &quot;semanticIntentCount&quot;: 11,
+    &quot;assessedIntentCount&quot;: 11,
+    &quot;selectedDocumentCount&quot;: 4,
+    &quot;unassessedIntentIds&quot;: []
+  },
+  &quot;sharedSearch&quot;: {
+    &quot;catalogRanking&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;The changed ClusterMeshProfile uses the exact @resource and @parentResource constructs named by this reference.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Primary guidance for adding, removing, renaming, and modifying constructs in an existing versioned ARM API.&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Applies to the new ARM preview and requires version decorators for changes from the latest stable version.&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly matches adding 2026-06-02-preview after the 2026-06-01 stable version.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The change adds and restores an ARM child resource and its resource model.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The change adds ARM resource operations and modifies an asynchronous custom PATCH operation.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM operation-template signatures are relevant to the added and modified resource operations.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM lifecycle decorators and resource-operation semantics are relevant to the resource changes.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The custom PATCH is long-running and changes its final-state retrieval behavior.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 31,
+        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The change adds a TypeSpec.OpenAPI import in an Azure API, though no changed OpenAPI decorator is shown.&quot;
+      },
+      {
+        &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Relevant versioning category, but the selected transition is preview after stable rather than preview after preview.&quot;
+      },
+      {
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Relevant versioning category, but the selected target is preview rather than stable.&quot;
+      },
+      {
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Relevant versioning category, but the selected target is preview rather than stable.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 17,
+        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;Long-running behavior is relevant, though the assessment scope is an ARM service.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;Many model and property additions are present, but versioning guidance is more specific to the change context.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;Union and enum-like value additions are present, but versioning guidance is more specific.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;Several decorators are added, with more specific versioning and resource guidance ranked higher.&quot;
+      },
+      {
+        &quot;rank&quot;: 18,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;Documentation, visibility, and pattern decorators are used, with more specific guidance ranked higher.&quot;
+      },
+      {
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;A TypeSpec.OpenAPI import is added, but no changed OpenAPI decorator is shown in the bounded evidence.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 8,
+        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM guidance, but no extension resource is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM guidance, but no private endpoint resource is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM guidance, but no private link resource is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM guidance, but no network security perimeter resource is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM guidance applies generally, but no paging parameter change is assessed.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM common types apply generally, but no common-type definition change is assessed.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM guidance applies generally, but the provider namespace is unchanged.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM guidance applies generally, but no portal experience customization is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 19,
+        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Data-plane paging does not apply to this ARM assessment.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No custom scalar definition is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Content negotiation is not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 31,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No suppression directive is changed in the bounded evidence.&quot;
+      }
+    ],
+    &quot;documents&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;The changed ClusterMeshProfile uses the exact @resource and @parentResource constructs named by this reference.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;@parentResource and @resource&quot;,
+            &quot;excerpt&quot;: &quot;Use @parentResource to mark a model as a child of its parent resource, and @resource to mark the model as a resource type with a collection name.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@parentResource&quot;,
+              &quot;@resource&quot;,
+              &quot;ClusterMeshProfile&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@TypeSpec.Rest.parentResource(parent: Model)&quot;,
+              &quot;@TypeSpec.Rest.resource(collectionName: valueof string)&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-12ebf232b72b18ce&quot;,
+              &quot;declaration-a2fe553211d4a045&quot;,
+              &quot;declaration-b370cfa51267c70c&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:19:08.2873503Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:cc1a80deef5130be153ea0b6bb14164f8b6b9ac963559cc9c3e2dd62da88cbb7&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Primary guidance for adding, removing, renaming, and modifying constructs in an existing versioned ARM API.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Versioning Decorators&quot;,
+            &quot;excerpt&quot;: &quot;Add new models, properties, or operations in a specific version with @added; remove them from a version onward with @removed; use @renamedFrom when a declaration name changes.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@added&quot;,
+              &quot;@removed&quot;,
+              &quot;@renamedFrom&quot;,
+              &quot;model&quot;,
+              &quot;property&quot;,
+              &quot;operation&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@added(Versions.v2)&quot;,
+              &quot;@removed(Versions.v3)&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-0012a96947fad7bc&quot;,
+              &quot;declaration-12ebf232b72b18ce&quot;,
+              &quot;declaration-1cc9c85c11a73fe2&quot;,
+              &quot;declaration-2fa186988cab6b23&quot;,
+              &quot;declaration-459a7e46933ac80e&quot;,
+              &quot;declaration-6678e83cd8076ed5&quot;,
+              &quot;declaration-7c7baa9ff97789e5&quot;,
+              &quot;declaration-96e9ae37a9f32e74&quot;,
+              &quot;declaration-974460b88d98c6c4&quot;,
+              &quot;declaration-98e06e42bc112e32&quot;,
+              &quot;declaration-9904f4b41b88d228&quot;,
+              &quot;declaration-9af0d2604bcbbd0b&quot;,
+              &quot;declaration-a2fe553211d4a045&quot;,
+              &quot;declaration-ad64c5e9ebff40b5&quot;,
+              &quot;declaration-adc2e3220b9105e3&quot;,
+              &quot;declaration-af5a9606a5495ef4&quot;,
+              &quot;declaration-b2292e277c07870d&quot;,
+              &quot;declaration-b370cfa51267c70c&quot;,
+              &quot;declaration-c278505fb1dbe002&quot;,
+              &quot;declaration-caaa85ed7fc25fe4&quot;,
+              &quot;declaration-cb614f209a2563b1&quot;,
+              &quot;declaration-d437903349351c5d&quot;,
+              &quot;declaration-dfa3006b5883c7c1&quot;,
+              &quot;declaration-e62d213329993d07&quot;,
+              &quot;declaration-eaa31cae1d7f7e23&quot;
+            ]
+          },
+          {
+            &quot;section&quot;: &quot;Converting an Operation from Synchronous to Asynchronous&quot;,
+            &quot;excerpt&quot;: &quot;Version an operation replacement by retaining the old declaration with @removed, @renamedFrom, and @sharedRoute, and adding the replacement with @added and @sharedRoute.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@sharedRoute&quot;,
+              &quot;updateOld&quot;,
+              &quot;ArmCustomPatchAsync&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@removed(Versions.v2) @renamedFrom(Versions.v2, \&quot;createOrUpdate\&quot;) @sharedRoute&quot;,
+              &quot;@added(Versions.v2) @sharedRoute&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-13308b50e9036153&quot;,
+              &quot;declaration-40f38a83f5c70723&quot;,
+              &quot;declaration-c89f6a3ee676b771&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:19:08.9212349Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:1a5af6c154f5a526ba3f6b1815091e533feb949fa65bad48535b04d20b137a9a&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Applies to the new ARM preview and requires version decorators for changes from the latest stable version.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Preview Versioning Rules for All Azure APIs&quot;,
+            &quot;excerpt&quot;: &quot;Keep a single active preview as the last version and mark all changes from the latest stable version with appropriate versioning decorators that reference that preview.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;preview&quot;,
+              &quot;latest stable&quot;,
+              &quot;versioning decorators&quot;,
+              &quot;2026-06-02-preview&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-04bb82605a6abaaa&quot;,
+              &quot;declaration-ac9724b338733032&quot;,
+              &quot;declaration-d047e595d7b66694&quot;,
+              &quot;declaration-e67e696d4ab4206e&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:19:09.2006693Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:a8df1e8a9fd8527b5b7a615aa65e54328175f4063901d2ce964a8f9fb8ed24b6&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly matches adding 2026-06-02-preview after the 2026-06-01 stable version.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
+            &quot;excerpt&quot;: &quot;When adding a preview after a stable version, mark removed types with @removed and mark added, renamed, or otherwise modified types with the appropriate versioning decorator.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;preview after stable&quot;,
+              &quot;@added&quot;,
+              &quot;@removed&quot;,
+              &quot;@renamedFrom&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@removed(Versions.`2026-01-01-preview`) model Foo {}&quot;,
+              &quot;@added(Versions.`2026-01-01-preview`) model Foo {}&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-0012a96947fad7bc&quot;,
+              &quot;declaration-04bb82605a6abaaa&quot;,
+              &quot;declaration-13308b50e9036153&quot;,
+              &quot;declaration-1cc9c85c11a73fe2&quot;,
+              &quot;declaration-2fa186988cab6b23&quot;,
+              &quot;declaration-40f38a83f5c70723&quot;,
+              &quot;declaration-459a7e46933ac80e&quot;,
+              &quot;declaration-6678e83cd8076ed5&quot;,
+              &quot;declaration-7c7baa9ff97789e5&quot;,
+              &quot;declaration-96e9ae37a9f32e74&quot;,
+              &quot;declaration-974460b88d98c6c4&quot;,
+              &quot;declaration-98e06e42bc112e32&quot;,
+              &quot;declaration-9904f4b41b88d228&quot;,
+              &quot;declaration-9af0d2604bcbbd0b&quot;,
+              &quot;declaration-ac9724b338733032&quot;,
+              &quot;declaration-ad64c5e9ebff40b5&quot;,
+              &quot;declaration-adc2e3220b9105e3&quot;,
+              &quot;declaration-af5a9606a5495ef4&quot;,
+              &quot;declaration-b2292e277c07870d&quot;,
+              &quot;declaration-c278505fb1dbe002&quot;,
+              &quot;declaration-c89f6a3ee676b771&quot;,
+              &quot;declaration-caaa85ed7fc25fe4&quot;,
+              &quot;declaration-cb614f209a2563b1&quot;,
+              &quot;declaration-d047e595d7b66694&quot;,
+              &quot;declaration-d437903349351c5d&quot;,
+              &quot;declaration-dfa3006b5883c7c1&quot;,
+              &quot;declaration-e62d213329993d07&quot;,
+              &quot;declaration-e67e696d4ab4206e&quot;,
+              &quot;declaration-eaa31cae1d7f7e23&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-21T09:19:09.4898728Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:2cfcbb79b46e8004ff9ef95a9da0b0b8f09d2b146ab415502901130490a174d7&quot;
+      }
+    ]
+  },
+  &quot;intentAssessments&quot;: [
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-0a5b57e7528ab046&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-0c182b2d6caaa3e8&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-17122956db7d32e6&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-7d262f4845ecfa97&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-8c8b4d71f2db7144&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-91145db4418054b7&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-c086e82461cd9f81&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-cc1648917bc19e7a&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-d29ee7d93f943030&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-d2cd0db64f82ab5f&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-defad6c980f4a5d4&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    }
+  ],
+  &quot;retrievalFailures&quot;: [],
+  &quot;blockers&quot;: []
+}</pre></details>
+<h3>Changed files</h3><ul><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetnamespace.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/gate.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/helpers.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/k8s.io/apimachinery/apis/meta/v1/types.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/kubefleet/apis/placement/v1/types.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/autoupgradeprofile.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/common.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/update/run.tsp</code> (committed)</li></ul>
+<h3>Timing and model input</h3><pre>{
+  &quot;timings&quot;: {
+    &quot;metadataMs&quot;: 1717,
+    &quot;fetchMs&quot;: 159,
+    &quot;scopeDiscoveryMs&quot;: 81,
+    &quot;setupExcludingFetchMs&quot;: 110799,
+    &quot;comparisonMs&quot;: 147,
+    &quot;changeDiscoveryMs&quot;: 98,
+    &quot;workspacePreparationMs&quot;: 108413,
+    &quot;projectDiscoveryMs&quot;: 99,
+    &quot;totalMs&quot;: 219320,
+    &quot;semanticAnalysisMs&quot;: 2641,
+    &quot;restAnalysisMs&quot;: 85,
+    &quot;downstreamAnalysisMs&quot;: 12,
+    &quot;documentQualityAnalysisMs&quot;: 1
+  },
+  &quot;inputAccounting&quot;: {
+    &quot;budgetTier&quot;: &quot;small&quot;,
+    &quot;budgetBytes&quot;: 131072,
+    &quot;bytes&quot;: 88316,
+    &quot;estimatedTokens&quot;: 22079,
+    &quot;retained&quot;: {
+      &quot;evidenceSets&quot;: 22,
+      &quot;facts&quot;: 4,
+      &quot;semanticReviewUnits&quot;: 11,
+      &quot;restCandidates&quot;: 0,
+      &quot;downstreamCandidates&quot;: 1,
+      &quot;downstreamRootCauses&quot;: 1,
+      &quot;complianceSearchRequests&quot;: 11,
+      &quot;inferenceRequests&quot;: 1
+    },
+    &quot;omittedRedundant&quot;: {
+      &quot;rawEmitterArtifacts&quot;: true,
+      &quot;compilerLogs&quot;: true,
+      &quot;unchangedInventories&quot;: true,
+      &quot;unreferencedFacts&quot;: true,
+      &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;sourceChanges&quot;: true,
+      &quot;repeatedDeclarationIds&quot;: true,
+      &quot;repeatedReviewUnitEvidence&quot;: true
+    },
+    &quot;inference&quot;: {
+      &quot;requestCount&quot;: 1,
+      &quot;inferredCandidateCount&quot;: 0,
+      &quot;noImpactCount&quot;: 1,
+      &quot;blockedCount&quot;: 0
+    },
+    &quot;compliance&quot;: {
+      &quot;catalogEntriesScored&quot;: 31,
+      &quot;documentsFetched&quot;: 4,
+      &quot;documentBytesFetched&quot;: 1368102,
+      &quot;guidanceExcerptsRetained&quot;: 5,
+      &quot;guidanceExcerptBytesRetained&quot;: 831
+    }
+  }
+}</pre>
+<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+</main>
+<script>
+function revealHashTarget() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (!target) return;
+  for (let element = target; element; element = element.parentElement) {
+    if (element.tagName === "DETAILS") element.open = true;
+  }
+  target.scrollIntoView({ block: "start" });
+}
+window.addEventListener("hashchange", revealHashTarget);
+document.addEventListener("click", (event) => {
+  if (event.target instanceof Element &&
+      event.target.closest(".report-card > summary .report-intent-relations") &&
+      !event.target.closest("a")) {
+    event.preventDefault();
+    return;
+  }
+  const link = event.target instanceof Element
+    ? event.target.closest('a[href^="#"]')
+    : null;
+  if (link) {
+    event.preventDefault();
+    location.hash = link.getAttribute("href");
+    window.setTimeout(revealHashTarget);
+  }
+});
+revealHashTarget();
+</script>
+</body></html>
