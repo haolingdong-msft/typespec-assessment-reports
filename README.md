@@ -4,7 +4,7 @@ Static GitHub Pages dashboard for 30 Azure REST API specification assessments us
 
 - 20 cases with observed Python SDK AutoPR regeneration
 - 10 cases without observed regeneration in the October 8, 2026 snapshot
-- Each dashboard row includes explicit SDK regeneration, assessed SDK breaking-change, and GitHub SDK breaking-change label flags
+- Each dashboard row includes the PR merge date plus explicit SDK regeneration, assessed SDK breaking-change, and GitHub SDK breaking-change label flags
 - Each report includes rendered HTML and structured `assessment.json`
 
 The SDK breaking-change label flag is `Yes` when the PR has one or more language-specific `BreakingChange-*-Sdk` labels, including approved variants.
