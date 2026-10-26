@@ -652,7 +652,7 @@ body {
 2. clusterName (path): string
 3. privateEndpointConnectionName (path): string
 4. properties (body input): PrivateEndpointConnectionUpdate</pre></td></tr><tr><td><span class="contract-area-kind">SDK method</span><strong>Return type (body output)</strong></td><td><pre>PrivateEndpointConnection</pre></td><td><pre>PrivateEndpointConnectionResource</pre></td></tr></tbody></table></div><p class="report-small"><strong>Constant headers (not numbered caller inputs):</strong> Baseline: Content-Type (header): &quot;application/json&quot;; Baseline: Accept (header): &quot;application/json&quot;; Target: Content-Type (header): &quot;application/json&quot;; Target: Accept (header): &quot;application/json&quot;</p><div class="breaking-rationale"><strong>Why this is breaking:</strong> <ul><li>HorizonDbPrivateEndpointConnections.update inserts required clusterName between resourceGroupName and privateEndpointConnectionName. Existing calls must supply the new argument; positional calls also need their subsequent arguments shifted.</li><li>HorizonDbPrivateEndpointConnections.update changes its named public result from PrivateEndpointConnection to PrivateEndpointConnectionResource. Consumers explicitly typed to the previous result must migrate; identical member shapes do not preserve the removed nominal SDK type.</li></ul></div><div class="report-type-impact"><span id="downstream-type-project-1a17ac3fb584-Azure-ResourceManager-CommonTypes-PrivateEndpointConnection"></span><span id="downstream-sdk-type-impact-4d50e216919f79e1"></span><span id="downstream-downstream-c6f9c73c367820cd"></span><span id="finding-downstream-c6f9c73c367820cd"></span><h4>PrivateEndpointConnection</h4><p class="report-small"><code>Azure.ResourceManager.CommonTypes.PrivateEndpointConnection</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>(returned type)</code><span>baseline evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type availability</span><strong>PrivateEndpointConnection</strong></td><td><pre>access: public · reachable: true · usage: 10500</pre></td><td><pre>Not recorded</pre></td></tr><tr><td><span class="contract-area-kind">SDK type contract</span><strong>PrivateEndpointConnection</strong></td><td><pre>Azure.ResourceManager.CommonTypes.PrivateEndpointConnection preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Azure.ResourceManager.CommonTypes.PrivateEndpointConnection changed public access, usage, or reachability.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> The public PrivateEndpointConnection update-result model disappears from the target SDK surface and is replaced by separately named PrivateEndpointConnectionResource. Existing references to the former public type must migrate even though its property shape is preserved.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details></section>
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">1 intents · 0 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-8928ca2cf24aac04"><summary><div class="report-card-title"><strong>Scope private endpoint connection update and delete to their HorizonDB cluster</strong><small>Pass HorizonDbCluster as the parent resource to the private endpoint connection PATCH and asynchronous DELETE templates. Both existing operations gain the clusters/{clusterName} parent segment and a required clusterName argument in the existing 2026-01-20-preview API; the update operation&#39;s neutral SDK result also changes to PrivateEndpointConnectionResource.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (4)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Delete-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Delete</a><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Update</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-delete">Downstream: HorizonDbPrivateEndpointConnections.delete</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update">Downstream: HorizonDbPrivateEndpointConnections.update</a></div><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-879ce59fb50ecf19">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</div><pre><span class="context">   &gt;;</span>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">1 intents · 0 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-8928ca2cf24aac04"><summary><div class="report-card-title"><strong>Scope private endpoint connection update and delete to their HorizonDB cluster</strong><small>Pass HorizonDbCluster as the parent resource to the private endpoint connection PATCH and asynchronous DELETE templates. Both existing operations gain the clusters/{clusterName} parent segment and a required clusterName argument in the existing 2026-01-20-preview API; the update operation&#39;s neutral SDK result also changes to PrivateEndpointConnectionResource.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (4)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Delete-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Delete</a><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Update</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-delete">Downstream: HorizonDbPrivateEndpointConnections.delete</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update">Downstream: HorizonDbPrivateEndpointConnections.update</a></div><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-879ce59fb50ecf19">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</div><pre><span class="context">   &gt;;</span>
 <span class="context"> </span>
 <span class="context">   @doc(&quot;Updates a private endpoint connection.&quot;)</span>
 <span class="remove">-  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span>
@@ -1272,25 +1272,26 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 2916,
-    &quot;fetchMs&quot;: 5005,
-    &quot;scopeDiscoveryMs&quot;: 64,
-    &quot;setupExcludingFetchMs&quot;: 6504,
-    &quot;comparisonMs&quot;: 120,
-    &quot;changeDiscoveryMs&quot;: 64,
-    &quot;workspacePreparationMs&quot;: 3143,
-    &quot;projectDiscoveryMs&quot;: 8,
-    &quot;totalMs&quot;: 99446,
-    &quot;semanticAnalysisMs&quot;: 26,
-    &quot;restAnalysisMs&quot;: 20,
-    &quot;downstreamAnalysisMs&quot;: 898,
+    &quot;metadataMs&quot;: 1764,
+    &quot;fetchMs&quot;: 127,
+    &quot;scopeDiscoveryMs&quot;: 67,
+    &quot;setupExcludingFetchMs&quot;: 5652,
+    &quot;comparisonMs&quot;: 107,
+    &quot;changeDiscoveryMs&quot;: 63,
+    &quot;workspacePreparationMs&quot;: 3446,
+    &quot;projectDiscoveryMs&quot;: 11,
+    &quot;totalMs&quot;: 184536,
+    &quot;semanticAnalysisMs&quot;: 30,
+    &quot;restAnalysisMs&quot;: 37,
+    &quot;downstreamAnalysisMs&quot;: 970,
+    &quot;semanticContextPolicyMs&quot;: 2,
     &quot;documentQualityAnalysisMs&quot;: 1
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;small&quot;,
     &quot;budgetBytes&quot;: 131072,
-    &quot;bytes&quot;: 37646,
-    &quot;estimatedTokens&quot;: 9412,
+    &quot;bytes&quot;: 39714,
+    &quot;estimatedTokens&quot;: 9929,
     &quot;retained&quot;: {
       &quot;evidenceSets&quot;: 8,
       &quot;facts&quot;: 13,
@@ -1307,6 +1308,7 @@ body {
       &quot;unchangedInventories&quot;: true,
       &quot;unreferencedFacts&quot;: true,
       &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;restCandidateEvidenceFacts&quot;: false,
       &quot;sourceChanges&quot;: true,
       &quot;repeatedDeclarationIds&quot;: true,
       &quot;repeatedReviewUnitEvidence&quot;: true
@@ -1320,7 +1322,7 @@ body {
     }
   }
 }</pre>
-<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+<p><strong>Provenance:</strong> 2, model-input.json, dimensions/document-quality-input.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
 </main>
 <script>
 function revealHashTarget() {

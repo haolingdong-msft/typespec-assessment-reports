@@ -622,20 +622,20 @@ body {
 }
 
 </style></head><body>
-<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>2 TypeSpec changes for StorageCache</h1>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>3 TypeSpec changes for StorageCache</h1>
 <p class="hero-meta">TypeSpec source diff: <code>20420164745b1ff92c2f66238376a42670703e58</code> → <code>b3ff37cc333df1358b7e222d76cf65f7196f6a7e</code></p>
 <div class="summary-grid">
-<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">2 intents<br>14 operations<br>1 Added, 1 Modified, 0 Removed</div></a>
-<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>1/1 intents assessed</div></a>
+<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">3 intents<br>8 operations<br>2 Added, 1 Modified, 0 Removed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>3/3 intents assessed</div></a>
 <a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
 <a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">0 findings</div></a>
-<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">1 finding<br>7 declarations checked</div></a>
+<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">1 finding<br>11 declarations checked</div></a>
 </div></div></header>
 <details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span></div></div><p class="report-small">1 finding · 7 declarations checked</p><div class="document-quality-scope"><details class="report-card document-quality-check" id="document-quality-document-finding-e10fa3d5cc411a11"><summary><div class="report-card-title"><strong>RebalanceJobs</strong><small>Missing documentation for RebalanceJobs</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-19342d41cab42c40">Add RebalanceJob child resource and expansion linkage</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/RebalanceJob.tsp:31-70</code> · first 40 lines shown</p><pre><code>@added(Versions.v2026_08_01)
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span></div></div><p class="report-small">1 finding · 11 declarations checked</p><div class="document-quality-scope"><details class="report-card document-quality-check" id="document-quality-document-finding-5b45655e198d8589"><summary><div class="report-card-title"><strong>RebalanceJobs</strong><small>Missing documentation for RebalanceJobs</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-d002d4a6c75c72c3">Add the rebalance job child resource and operations</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/RebalanceJob.tsp:31-70</code> · first 40 lines shown</p><pre><code>@added(Versions.v2026_08_01)
 @armResourceOperations(#{ omitTags: true })
 interface RebalanceJobs {
   /**
@@ -675,157 +675,7 @@ interface RebalanceJobs {
    */
   @tag(&quot;rebalanceJobs&quot;)
   listByAmlFilesystem is ArmResourceListByParent&lt;</code></pre></details><div class="report-guideline-section document-quality-explanation"><h3>Why this needs attention</h3><p>The TypeSpec compiler returned no nonempty documentation for this declaration.</p></div><div class="report-guideline-section document-quality-suggestion"><h3>Suggested change</h3><p>Add a nonempty TypeSpec documentation description.</p></div></div></details></div></section>
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">2 intents · 1 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-19342d41cab42c40"><summary><div class="report-card-title"><strong>Add RebalanceJob child resource and expansion linkage</strong><small>The 2026-08-01 API adds a RebalanceJob proxy child resource under AmlFilesystem with read, asynchronous update, asynchronous delete, and list-by-parent operations. Expansion jobs also gain controls to create a rebalance job and expose its resource ID.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-e10fa3d5cc411a11">Documentation Completeness: Missing documentation for RebalanceJobs</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (3)</summary><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp</div><pre><span class="context"> import &quot;./ImportJob.tsp&quot;;</span>
-<span class="context"> import &quot;./AutoImportJob.tsp&quot;;</span>
-<span class="context"> import &quot;./ExpansionJob.tsp&quot;;</span>
-<span class="add">+import &quot;./RebalanceJob.tsp&quot;;</span>
-<span class="context"> import &quot;./Cache.tsp&quot;;</span>
-<span class="context"> import &quot;./StorageTarget.tsp&quot;;</span>
-<span class="context"> import &quot;./routes.tsp&quot;;</span></pre></div><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp</div><pre><span class="context">   nextLink?: url;</span>
-<span class="context"> }</span>
-<span class="context"> </span>
-<span class="add">+/**</span>
-<span class="add">+ * Result of the request to list rebalance jobs. It contains a list of rebalance jobs and a URL link to get the next set of results.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(Versions.v2026_08_01)</span>
-<span class="add">+model RebalanceJobsListResult {</span>
-<span class="add">+  /**</span>
-<span class="add">+   * List of rebalance jobs.</span>
-<span class="add">+   */</span>
-<span class="add">+  @pageItems</span>
-<span class="add">+  value?: RebalanceJob[];</span>
-<span class="add">+</span>
-<span class="add">+  /**</span>
-<span class="add">+   * URL to get the next set of rebalance job list results, if there are any.</span>
-<span class="add">+   */</span>
-<span class="add">+  @nextLink</span>
-<span class="add">+  nextLink?: url;</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="context"> /**</span>
-<span class="context">  * Result of the request to list auto import jobs. It contains a list of auto import jobs and a URL link to get the next set of results.</span>
-<span class="context">  */</span></pre></div><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp</div><pre><span class="context">    */</span>
-<span class="context">   @visibility(Lifecycle.Read)</span>
-<span class="context">   status?: ExpansionJobPropertiesStatus;</span>
-<span class="add">+</span>
-<span class="add">+  /**</span>
-<span class="add">+   * When true, expansion creates a RebalanceJob after completing. Optional, defaults to true.</span>
-<span class="add">+   */</span>
-<span class="add">+  @added(Versions.v2026_08_01)</span>
-<span class="add">+  @visibility(Lifecycle.Read, Lifecycle.Create)</span>
-<span class="add">+  runRebalanceJob?: boolean = true;</span>
-<span class="add">+</span>
-<span class="add">+  /**</span>
-<span class="add">+   * Fully qualified ARM resource ID of the child rebalance job created by this expansion. Populated after RebalanceJob is created.</span>
-<span class="add">+   */</span>
-<span class="add">+  @added(Versions.v2026_08_01)</span>
-<span class="add">+  @visibility(Lifecycle.Read)</span>
-<span class="add">+  rebalanceJobId?: Azure.Core.armResourceIdentifier&lt;[</span>
-<span class="add">+    {</span>
-<span class="add">+      type: &quot;Microsoft.StorageCache/amlFilesystems/rebalanceJobs&quot;;</span>
-<span class="add">+    }</span>
-<span class="add">+  ]&gt;;</span>
-<span class="context"> }</span>
-<span class="context"> </span>
-<span class="context"> /**</span></pre></div><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/RebalanceJob.tsp</div><pre><span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
-<span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
-<span class="add">+import &quot;@typespec/rest&quot;;</span>
-<span class="add">+import &quot;@typespec/versioning&quot;;</span>
-<span class="add">+import &quot;./models.tsp&quot;;</span>
-<span class="add">+import &quot;./AmlFilesystem.tsp&quot;;</span>
-<span class="add">+</span>
-<span class="add">+using TypeSpec.Rest;</span>
-<span class="add">+using TypeSpec.Versioning;</span>
-<span class="add">+using Azure.ResourceManager;</span>
-<span class="add">+using TypeSpec.Http;</span>
-<span class="add">+</span>
-<span class="add">+namespace Microsoft.StorageCache;</span>
-<span class="add">+</span>
-<span class="add">+/**</span>
-<span class="add">+ * A rebalance job instance. Rebalances OST data across storage targets after a cluster expansion.</span>
-<span class="add">+ * Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md</span>
-<span class="add">+ */</span>
-<span class="add">+@added(Versions.v2026_08_01)</span>
-<span class="add">+@parentResource(AmlFilesystem)</span>
-<span class="add">+model RebalanceJob</span>
-<span class="add">+  is Azure.ResourceManager.ProxyResource&lt;RebalanceJobProperties&gt; {</span>
-<span class="add">+  ...ResourceNameParameter&lt;</span>
-<span class="add">+    Resource = RebalanceJob,</span>
-<span class="add">+    KeyName = &quot;rebalanceJobName&quot;,</span>
-<span class="add">+    SegmentName = &quot;rebalanceJobs&quot;,</span>
-<span class="add">+    NamePattern = &quot;^[0-9a-zA-Z][-0-9a-zA-Z_]{0,78}[0-9a-zA-Z]$&quot;</span>
-<span class="add">+  &gt;;</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+@added(Versions.v2026_08_01)</span>
-<span class="add">+@armResourceOperations(#{ omitTags: true })</span>
-<span class="add">+interface RebalanceJobs {</span>
-<span class="add">+  /**</span>
-<span class="add">+   * Returns a rebalance job.</span>
-<span class="add">+   */</span>
-<span class="add">+  @tag(&quot;rebalanceJobs&quot;)</span>
-<span class="add">+  get is ArmResourceRead&lt;RebalanceJob, Error = ErrorResponse&gt;;</span>
-<span class="add">+</span>
-<span class="add">+  /**</span>
-<span class="add">+   * Update a rebalance job instance.</span>
-<span class="add">+   */</span>
-<span class="add">+  @tag(&quot;rebalanceJobs&quot;)</span>
-<span class="add">+  @patch(#{ implicitOptionality: false })</span>
-<span class="add">+  update is ArmCustomPatchAsync&lt;</span>
-<span class="add">+    RebalanceJob,</span>
-<span class="add">+    PatchModel = RebalanceJobUpdate,</span>
-<span class="add">+    LroHeaders = ArmCombinedLroHeaders&lt;FinalResult = RebalanceJob&gt; &amp;</span>
-<span class="add">+      Azure.Core.Foundations.RetryAfterHeader,</span>
-<span class="add">+    Error = ErrorResponse</span>
-<span class="add">+  &gt;;</span>
-<span class="add">+</span>
-<span class="add">+  /**</span>
-<span class="add">+   * Schedules a rebalance job for deletion.</span>
-<span class="add">+   */</span>
-<span class="add">+  @tag(&quot;rebalanceJobs&quot;)</span>
-<span class="add">+  delete is ArmResourceDeleteWithoutOkAsync&lt;</span>
-<span class="add">+    RebalanceJob,</span>
-<span class="add">+    Response =</span>
-<span class="add">+      | ArmDeleteAcceptedLroResponse&lt;ArmCombinedLroHeaders&lt;FinalResult = void&gt; &amp;</span>
-<span class="add">+          Azure.Core.Foundations.RetryAfterHeader&gt;</span>
-<span class="add">+      | ArmDeletedNoContentResponse,</span>
-<span class="add">+    Error = ErrorResponse</span>
-<span class="add">+  &gt;;</span>
-<span class="add">+</span>
-<span class="add">+  /**</span>
-<span class="add">+   * Returns all the rebalance jobs the user has access to under an AML File System.</span>
-<span class="add">+   */</span>
-<span class="add">+  @tag(&quot;rebalanceJobs&quot;)</span>
-<span class="add">+  listByAmlFilesystem is ArmResourceListByParent&lt;</span>
-<span class="add">+    RebalanceJob,</span>
-<span class="add">+    Response = ArmResponse&lt;RebalanceJobsListResult&gt;,</span>
-<span class="add">+    Error = ErrorResponse</span>
-<span class="add">+  &gt;;</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+@@maxLength(RebalanceJob.name, 80);</span>
-<span class="add">+@@minLength(RebalanceJob.name, 2);</span>
-<span class="add">+@@doc(</span>
-<span class="add">+  RebalanceJob.name,</span>
-<span class="add">+  &quot;Name for the rebalance job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.&quot;</span>
-<span class="add">+);</span>
-<span class="add">+@@doc(RebalanceJob.properties, &quot;Properties of the rebalance job.&quot;);</span>
-<span class="add">+@@doc(</span>
-<span class="add">+  RebalanceJobs.update::parameters.properties,</span>
-<span class="add">+  &quot;Object containing the user-selectable properties of the rebalance job. If read-only properties are included, they must match the existing values of those properties.&quot;</span>
-<span class="add">+);</span>
-<span class="context"></span></pre></div><p class="sources"><code>specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp</code>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b3ff37cc333df1358b7e222d76cf65f7196f6a7e/specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp#L54-L66">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp:50</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b3ff37cc333df1358b7e222d76cf65f7196f6a7e/specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/RebalanceJob.tsp#L21-L21">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/RebalanceJob.tsp:15</a></p></details><details class="report-subdetails" id="intent-semantic-19342d41cab42c40-operations"><summary>Affected operations (4)</summary><details class="operation"><summary><strong>RebalanceJobs_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>RebalanceJobs_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>RebalanceJobs_ListByAmlFilesystem</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>RebalanceJobs_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-ccfae2c56b43a476"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 12 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp</div><pre><span class="context">    * The 2026-01-01 API version.</span>
-<span class="context">    */</span>
-<span class="context">   v2026_01_01: &quot;2026-01-01&quot;,</span>
-<span class="add">+</span>
-<span class="add">+  /**</span>
-<span class="add">+   * The 2026-08-01 API version.</span>
-<span class="add">+   */</span>
-<span class="add">+  v2026_08_01: &quot;2026-08-01&quot;,</span>
-<span class="context"> }</span>
-<span class="context"> </span>
-<span class="context"> interface Operations</span>
-<span class="context"></span></pre></div><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp</div><pre><span class="context"> import &quot;@typespec/rest&quot;;</span>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">3 intents · 2 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-7fc4ab387bb5c3ab"><summary><div class="report-card-title"><strong>Add rebalance job models and states</strong><small>Add preview-independent 2026-08-01 rebalance job properties, status and provisioning-state unions, plus additive update properties for import and export jobs.</small></div><div class="report-badges"><span class="report-badge add">add</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp</div><pre><span class="context"> import &quot;@typespec/rest&quot;;</span>
 <span class="context"> import &quot;@typespec/http&quot;;</span>
 <span class="add">+import &quot;@typespec/openapi&quot;;</span>
 <span class="add">+import &quot;@typespec/versioning&quot;;</span>
@@ -1131,19 +981,169 @@ interface RebalanceJobs {
 <span class="context"> /**</span>
 <span class="context">  * Information required to validate the subnet that will be used in AML file system create</span>
 <span class="context">  */</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b3ff37cc333df1358b7e222d76cf65f7196f6a7e/specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp#L45-L55">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp:42</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b3ff37cc333df1358b7e222d76cf65f7196f6a7e/specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp#L699-L719">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp:694</a></p></details><details class="report-subdetails" id="intent-semantic-ccfae2c56b43a476-operations"><summary>Affected operations (12)</summary><p class="report-small">Showing 10 operation cards; the remaining 2 are listed below.</p><details class="operation"><summary><strong>amlFilesystems_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}</code><span>2026-08-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>autoExportJobs_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/autoExportJobs/{autoExportJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>autoImportJobs_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/autoImportJobs/{autoImportJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Caches_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/caches/{cacheName}</code><span>2026-08-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Caches_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/caches/{cacheName}</code><span>2026-08-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>expansionJobs_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/expansionJobs/{expansionJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>expansionJobs_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/expansionJobs/{expansionJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>expansionJobs_ListByAmlFilesystem</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/expansionJobs</code><span>2026-08-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>expansionJobs_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/expansionJobs/{expansionJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>importJobs_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/importJobs/{importJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (2)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}">RebalanceJobs_Get (GET, 2026-08-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}">RebalanceJobs_Update (PATCH, 2026-08-01)</span>.</p></div></details></div></details></section>
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">1 of 1 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b3ff37cc333df1358b7e222d76cf65f7196f6a7e/specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp#L699-L719">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp:694</a></p></details><details class="report-subdetails" id="intent-semantic-7fc4ab387bb5c3ab-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>RebalanceJobs_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>RebalanceJobs_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-ae4076663aac93e4"><summary><div class="report-card-title"><strong>Publish the 2026-08-01 stable API</strong><small>Add the 2026-08-01 stable API after 2026-01-01.</small></div><div class="report-badges"><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp</div><pre><span class="context">    * The 2026-01-01 API version.</span>
+<span class="context">    */</span>
+<span class="context">   v2026_01_01: &quot;2026-01-01&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The 2026-08-01 API version.</span>
+<span class="add">+   */</span>
+<span class="add">+  v2026_08_01: &quot;2026-08-01&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> interface Operations</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b3ff37cc333df1358b7e222d76cf65f7196f6a7e/specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp#L45-L55">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp:42</a></p></details><details class="report-subdetails" id="intent-semantic-ae4076663aac93e4-operations"><summary>Affected operations (4)</summary><details class="operation"><summary><strong>expansionJobs_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/expansionJobs/{expansionJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>expansionJobs_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/expansionJobs/{expansionJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>expansionJobs_ListByAmlFilesystem</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/expansionJobs</code><span>2026-08-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>expansionJobs_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/expansionJobs/{expansionJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.rebalanceJobId</strong></td><td><pre>not present</pre></td><td><pre>string arm-id (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.runRebalanceJob</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-d002d4a6c75c72c3"><summary><div class="report-card-title"><strong>Add the rebalance job child resource and operations</strong><small>Add an AML filesystem child RebalanceJob resource with get, update, delete and paged list operations, plus optional expansion-job linkage properties.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-5b45655e198d8589">Documentation Completeness: Missing documentation for RebalanceJobs</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span><span class="report-badge">type</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (3)</summary><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp</div><pre><span class="context"> import &quot;./ImportJob.tsp&quot;;</span>
+<span class="context"> import &quot;./AutoImportJob.tsp&quot;;</span>
+<span class="context"> import &quot;./ExpansionJob.tsp&quot;;</span>
+<span class="add">+import &quot;./RebalanceJob.tsp&quot;;</span>
+<span class="context"> import &quot;./Cache.tsp&quot;;</span>
+<span class="context"> import &quot;./StorageTarget.tsp&quot;;</span>
+<span class="context"> import &quot;./routes.tsp&quot;;</span></pre></div><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/RebalanceJob.tsp</div><pre><span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="add">+import &quot;@typespec/rest&quot;;</span>
+<span class="add">+import &quot;@typespec/versioning&quot;;</span>
+<span class="add">+import &quot;./models.tsp&quot;;</span>
+<span class="add">+import &quot;./AmlFilesystem.tsp&quot;;</span>
+<span class="add">+</span>
+<span class="add">+using TypeSpec.Rest;</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="add">+using Azure.ResourceManager;</span>
+<span class="add">+using TypeSpec.Http;</span>
+<span class="add">+</span>
+<span class="add">+namespace Microsoft.StorageCache;</span>
+<span class="add">+</span>
+<span class="add">+/**</span>
+<span class="add">+ * A rebalance job instance. Rebalances OST data across storage targets after a cluster expansion.</span>
+<span class="add">+ * Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01)</span>
+<span class="add">+@parentResource(AmlFilesystem)</span>
+<span class="add">+model RebalanceJob</span>
+<span class="add">+  is Azure.ResourceManager.ProxyResource&lt;RebalanceJobProperties&gt; {</span>
+<span class="add">+  ...ResourceNameParameter&lt;</span>
+<span class="add">+    Resource = RebalanceJob,</span>
+<span class="add">+    KeyName = &quot;rebalanceJobName&quot;,</span>
+<span class="add">+    SegmentName = &quot;rebalanceJobs&quot;,</span>
+<span class="add">+    NamePattern = &quot;^[0-9a-zA-Z][-0-9a-zA-Z_]{0,78}[0-9a-zA-Z]$&quot;</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_08_01)</span>
+<span class="add">+@armResourceOperations(#{ omitTags: true })</span>
+<span class="add">+interface RebalanceJobs {</span>
+<span class="add">+  /**</span>
+<span class="add">+   * Returns a rebalance job.</span>
+<span class="add">+   */</span>
+<span class="add">+  @tag(&quot;rebalanceJobs&quot;)</span>
+<span class="add">+  get is ArmResourceRead&lt;RebalanceJob, Error = ErrorResponse&gt;;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * Update a rebalance job instance.</span>
+<span class="add">+   */</span>
+<span class="add">+  @tag(&quot;rebalanceJobs&quot;)</span>
+<span class="add">+  @patch(#{ implicitOptionality: false })</span>
+<span class="add">+  update is ArmCustomPatchAsync&lt;</span>
+<span class="add">+    RebalanceJob,</span>
+<span class="add">+    PatchModel = RebalanceJobUpdate,</span>
+<span class="add">+    LroHeaders = ArmCombinedLroHeaders&lt;FinalResult = RebalanceJob&gt; &amp;</span>
+<span class="add">+      Azure.Core.Foundations.RetryAfterHeader,</span>
+<span class="add">+    Error = ErrorResponse</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * Schedules a rebalance job for deletion.</span>
+<span class="add">+   */</span>
+<span class="add">+  @tag(&quot;rebalanceJobs&quot;)</span>
+<span class="add">+  delete is ArmResourceDeleteWithoutOkAsync&lt;</span>
+<span class="add">+    RebalanceJob,</span>
+<span class="add">+    Response =</span>
+<span class="add">+      | ArmDeleteAcceptedLroResponse&lt;ArmCombinedLroHeaders&lt;FinalResult = void&gt; &amp;</span>
+<span class="add">+          Azure.Core.Foundations.RetryAfterHeader&gt;</span>
+<span class="add">+      | ArmDeletedNoContentResponse,</span>
+<span class="add">+    Error = ErrorResponse</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * Returns all the rebalance jobs the user has access to under an AML File System.</span>
+<span class="add">+   */</span>
+<span class="add">+  @tag(&quot;rebalanceJobs&quot;)</span>
+<span class="add">+  listByAmlFilesystem is ArmResourceListByParent&lt;</span>
+<span class="add">+    RebalanceJob,</span>
+<span class="add">+    Response = ArmResponse&lt;RebalanceJobsListResult&gt;,</span>
+<span class="add">+    Error = ErrorResponse</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@@maxLength(RebalanceJob.name, 80);</span>
+<span class="add">+@@minLength(RebalanceJob.name, 2);</span>
+<span class="add">+@@doc(</span>
+<span class="add">+  RebalanceJob.name,</span>
+<span class="add">+  &quot;Name for the rebalance job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.&quot;</span>
+<span class="add">+);</span>
+<span class="add">+@@doc(RebalanceJob.properties, &quot;Properties of the rebalance job.&quot;);</span>
+<span class="add">+@@doc(</span>
+<span class="add">+  RebalanceJobs.update::parameters.properties,</span>
+<span class="add">+  &quot;Object containing the user-selectable properties of the rebalance job. If read-only properties are included, they must match the existing values of those properties.&quot;</span>
+<span class="add">+);</span>
+<span class="context"></span></pre></div><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp</div><pre><span class="context">   nextLink?: url;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+/**</span>
+<span class="add">+ * Result of the request to list rebalance jobs. It contains a list of rebalance jobs and a URL link to get the next set of results.</span>
+<span class="add">+ */</span>
+<span class="add">+@added(Versions.v2026_08_01)</span>
+<span class="add">+model RebalanceJobsListResult {</span>
+<span class="add">+  /**</span>
+<span class="add">+   * List of rebalance jobs.</span>
+<span class="add">+   */</span>
+<span class="add">+  @pageItems</span>
+<span class="add">+  value?: RebalanceJob[];</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * URL to get the next set of rebalance job list results, if there are any.</span>
+<span class="add">+   */</span>
+<span class="add">+  @nextLink</span>
+<span class="add">+  nextLink?: url;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="context"> /**</span>
+<span class="context">  * Result of the request to list auto import jobs. It contains a list of auto import jobs and a URL link to get the next set of results.</span>
+<span class="context">  */</span></pre></div><div class="diff"><div class="diff-path">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp</div><pre><span class="context">    */</span>
+<span class="context">   @visibility(Lifecycle.Read)</span>
+<span class="context">   status?: ExpansionJobPropertiesStatus;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * When true, expansion creates a RebalanceJob after completing. Optional, defaults to true.</span>
+<span class="add">+   */</span>
+<span class="add">+  @added(Versions.v2026_08_01)</span>
+<span class="add">+  @visibility(Lifecycle.Read, Lifecycle.Create)</span>
+<span class="add">+  runRebalanceJob?: boolean = true;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * Fully qualified ARM resource ID of the child rebalance job created by this expansion. Populated after RebalanceJob is created.</span>
+<span class="add">+   */</span>
+<span class="add">+  @added(Versions.v2026_08_01)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  rebalanceJobId?: Azure.Core.armResourceIdentifier&lt;[</span>
+<span class="add">+    {</span>
+<span class="add">+      type: &quot;Microsoft.StorageCache/amlFilesystems/rebalanceJobs&quot;;</span>
+<span class="add">+    }</span>
+<span class="add">+  ]&gt;;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> /**</span></pre></div><p class="sources"><code>specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp</code>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b3ff37cc333df1358b7e222d76cf65f7196f6a7e/specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/RebalanceJob.tsp#L21-L21">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/RebalanceJob.tsp:15</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b3ff37cc333df1358b7e222d76cf65f7196f6a7e/specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp#L54-L66">specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp:50</a></p></details><details class="report-subdetails" id="intent-semantic-d002d4a6c75c72c3-operations"><summary>Affected operations (4)</summary><details class="operation"><summary><strong>RebalanceJobs_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>RebalanceJobs_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>RebalanceJobs_ListByAmlFilesystem</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>RebalanceJobs_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</code><span>2026-08-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageCache/amlFilesystems/{amlFilesystemName}/rebalanceJobs/{rebalanceJobName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">3 of 3 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
 <section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
 <section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
 <section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache</code></td><td>new-api-version</td><td><code>b3ff37cc333df1358b7e222d76cf65f7196f6a7e@2026-01-01</code><br><small>current · previous-latest-stable</small></td><td><code>b3ff37cc333df1358b7e222d76cf65f7196f6a7e@2026-08-01</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/43757">#43757</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li><li><a href="https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/">Azure.ResourceManager interface reference</a></li><li><a href="https://typespec.io/docs/libraries/rest/reference/decorators/">TypeSpec.Rest decorators</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/">ARM long-running operations</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/">Add stable after stable</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
   &quot;status&quot;: &quot;passed&quot;,
   &quot;coverage&quot;: {
-    &quot;semanticIntentCount&quot;: 1,
-    &quot;assessedIntentCount&quot;: 1,
+    &quot;semanticIntentCount&quot;: 3,
+    &quot;assessedIntentCount&quot;: 3,
     &quot;selectedDocumentCount&quot;: 4,
     &quot;unassessedIntentIds&quot;: []
   },
@@ -1151,76 +1151,6 @@ interface RebalanceJobs {
     &quot;catalogRanking&quot;: [
       {
         &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 12,
-        &quot;title&quot;: &quot;ARM resource operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
-        },
-        &quot;selectionRationale&quot;: &quot;The change uses ArmResourceRead, ArmCustomPatchAsync, ArmResourceDeleteWithoutOkAsync, and ArmResourceListByParent to add ARM lifecycle operations.&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 13,
-        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
-        },
-        &quot;selectionRationale&quot;: &quot;The interface reference defines the exact Azure.ResourceManager operation-template family used by the new interface.&quot;
-      },
-      {
-        &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 14,
-        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
-        },
-        &quot;selectionRationale&quot;: &quot;The source directly applies @parentResource and relies on resource lifecycle semantics for read, update, delete, and list.&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 16,
-        &quot;title&quot;: &quot;ARM long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
-        },
-        &quot;selectionRationale&quot;: &quot;The new PATCH and DELETE operations use ArmCombinedLroHeaders, Azure-AsyncOperation, Location, Retry-After, and explicit FinalResult values.&quot;
-      },
-      {
-        &quot;rank&quot;: 5,
-        &quot;catalogOrder&quot;: 19,
-        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 8
-        },
-        &quot;selectionRationale&quot;: &quot;The changed list result uses @pageItems and @nextLink, but this low-level pagination document is data-plane oriented while the intent is ARM.&quot;
-      },
-      {
-        &quot;rank&quot;: 6,
         &quot;catalogOrder&quot;: 1,
         &quot;title&quot;: &quot;Evolving APIs&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
@@ -1231,10 +1161,10 @@ interface RebalanceJobs {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The change evolves an existing versioned ARM API by adding a resource, operations, and properties.&quot;
+        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
       },
       {
-        &quot;rank&quot;: 7,
+        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 2,
         &quot;title&quot;: &quot;Versioning overview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
@@ -1245,10 +1175,10 @@ interface RebalanceJobs {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Version ordering and API-version publication apply to the new stable ARM API version.&quot;
+        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
       },
       {
-        &quot;rank&quot;: 8,
+        &quot;rank&quot;: 3,
         &quot;catalogOrder&quot;: 6,
         &quot;title&quot;: &quot;Add stable after stable&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
@@ -1259,66 +1189,10 @@ interface RebalanceJobs {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The target adds stable 2026-08-01 after stable 2026-01-01.&quot;
+        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
       },
       {
-        &quot;rank&quot;: 9,
-        &quot;catalogOrder&quot;: 7,
-        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;The intent adds a proxy child ARM resource and standard resource operations.&quot;
-      },
-      {
-        &quot;rank&quot;: 10,
-        &quot;catalogOrder&quot;: 15,
-        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;ARM lifecycle decorators are relevant to the added resource operations, although the source uses operation templates rather than these individual decorators.&quot;
-      },
-      {
-        &quot;rank&quot;: 11,
-        &quot;catalogOrder&quot;: 18,
-        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;ARM list paging is relevant to the new list-by-parent operation, though no top or skip parameters are added.&quot;
-      },
-      {
-        &quot;rank&quot;: 12,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;The intent adds ARM models, but it does not define an ARM common type.&quot;
-      },
-      {
-        &quot;rank&quot;: 13,
+        &quot;rank&quot;: 4,
         &quot;catalogOrder&quot;: 21,
         &quot;title&quot;: &quot;Models&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
@@ -1329,234 +1203,346 @@ interface RebalanceJobs {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The intent adds and extends models with optional properties, defaults, inheritance, and composition.&quot;
+        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
       },
       {
-        &quot;rank&quot;: 14,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;The change adds several decorators to new models, properties, and operations.&quot;
-      },
-      {
-        &quot;rank&quot;: 15,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Visibility, documentation, length, and pattern constraints are used in the added declarations.&quot;
-      },
-      {
-        &quot;rank&quot;: 16,
+        &quot;rank&quot;: 5,
         &quot;catalogOrder&quot;: 3,
         &quot;title&quot;: &quot;Add preview after preview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;This is versioning guidance for ARM APIs, but the change is not preview after preview.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 17,
+        &quot;rank&quot;: 6,
         &quot;catalogOrder&quot;: 4,
         &quot;title&quot;: &quot;Add stable after preview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;This is versioning guidance for ARM APIs, but the baseline version is not preview.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 18,
+        &quot;rank&quot;: 7,
         &quot;catalogOrder&quot;: 5,
         &quot;title&quot;: &quot;Add preview after stable&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;This is versioning guidance for ARM APIs, but the added version is not preview.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 19,
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
         &quot;catalogOrder&quot;: 8,
         &quot;title&quot;: &quot;Specific extension resource sample&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The document concerns ARM resource types, but the added resource is a child proxy rather than an extension resource.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 20,
+        &quot;rank&quot;: 10,
         &quot;catalogOrder&quot;: 9,
         &quot;title&quot;: &quot;Private endpoints&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The document is in the ARM resource category, but the change does not add private endpoints.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 21,
+        &quot;rank&quot;: 11,
         &quot;catalogOrder&quot;: 10,
         &quot;title&quot;: &quot;Private links&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The document is in the ARM resource category, but the change does not add private links.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 22,
+        &quot;rank&quot;: 12,
         &quot;catalogOrder&quot;: 11,
         &quot;title&quot;: &quot;Network security perimeter&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The document is in the ARM resource category, but the change does not add network security perimeter configuration.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 23,
-        &quot;catalogOrder&quot;: 26,
-        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The document concerns decorators, but no OpenAPI-specific decorator is added.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 24,
-        &quot;catalogOrder&quot;: 27,
-        &quot;title&quot;: &quot;Change provider namespace&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The document concerns ARM decorators, but the provider namespace is unchanged.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 25,
-        &quot;catalogOrder&quot;: 28,
-        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The document concerns ARM resource customization, but no portal default-experience change is present.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 26,
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 18,
         &quot;catalogOrder&quot;: 17,
         &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
+          &quot;patternCategory&quot;: 0,
           &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The change includes LROs, but this document targets Azure.Core rather than ARM resource operations.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 27,
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 19,
+        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
         &quot;catalogOrder&quot;: 22,
         &quot;title&quot;: &quot;Enums&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Generic enum guidance applies to ARM TypeSpec, but no enum declaration is part of the assessed intent.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 28,
+        &quot;rank&quot;: 23,
         &quot;catalogOrder&quot;: 23,
         &quot;title&quot;: &quot;Scalars&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Generic scalar guidance applies to ARM TypeSpec, but no scalar declaration is part of the assessed intent.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 29,
-        &quot;catalogOrder&quot;: 30,
-        &quot;title&quot;: &quot;Directives&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Directive guidance can apply to ARM TypeSpec, but no suppression directive is present in the assessed evidence.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
-        &quot;rank&quot;: 30,
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
         &quot;catalogOrder&quot;: 29,
         &quot;title&quot;: &quot;Content negotiation&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
@@ -1567,7 +1553,21 @@ interface RebalanceJobs {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The ARM change does not involve content negotiation or typed Accept headers.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       },
       {
         &quot;rank&quot;: 31,
@@ -1581,196 +1581,242 @@ interface RebalanceJobs {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The change does not use OpenAPI decorators or suppress the Azure Core no-openapi rule.&quot;
+        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
       }
     ],
     &quot;documents&quot;: [
       {
         &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 12,
-        &quot;title&quot;: &quot;ARM resource operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The change uses ArmResourceRead, ArmCustomPatchAsync, ArmResourceDeleteWithoutOkAsync, and ArmResourceListByParent to add ARM lifecycle operations.&quot;,
+        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
         &quot;guidance&quot;: [
           {
-            &quot;section&quot;: &quot;Recommended and Required Operations&quot;,
-            &quot;excerpt&quot;: &quot;For proxy resources, GET and list by parent are required; create, update, and delete are optional. If create is implemented, delete is highly recommended, and vice versa.&quot;,
+            &quot;section&quot;: &quot;Versioning Decorators&quot;,
+            &quot;excerpt&quot;: &quot;Add new models, properties, or operations in a specific version using the appropriate versioning decorators.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;proxy resource&quot;,
-              &quot;GET&quot;,
-              &quot;list by parent&quot;,
-              &quot;update&quot;,
-              &quot;delete&quot;
+              &quot;@added&quot;,
+              &quot;@madeOptional&quot;,
+              &quot;preview&quot;
             ],
-            &quot;examples&quot;: [
-              &quot;get is ArmResourceRead&lt;Resource&gt;;&quot;,
-              &quot;listByParent is ArmResourceListByParent&lt;Resource&gt;;&quot;
-            ],
+            &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-1b31f71cb223a9b3&quot;,
               &quot;declaration-3c972c51f0db3278&quot;,
+              &quot;declaration-3e24ce8f08ca4613&quot;,
               &quot;declaration-3e3d80969c4a7582&quot;,
+              &quot;declaration-461b4bda34bf7ef5&quot;,
               &quot;declaration-5d6ebe4f74f9e464&quot;,
+              &quot;declaration-5e53b3f418d4aa6b&quot;,
+              &quot;declaration-6329574e6aeaf779&quot;,
+              &quot;declaration-6509dca4a1b7c0a5&quot;,
+              &quot;declaration-6a899b66373f96f8&quot;,
+              &quot;declaration-6cc74297d91eedda&quot;,
+              &quot;declaration-8003e276f8a4a184&quot;,
+              &quot;declaration-83c11ef90d6568b8&quot;,
               &quot;declaration-8d56ba4a739cf493&quot;,
+              &quot;declaration-9a574bb9bb6e4d35&quot;,
+              &quot;declaration-a02f44c5bcaab8c8&quot;,
+              &quot;declaration-a20644f50a1cb5ba&quot;,
+              &quot;declaration-a6d2f490643bb231&quot;,
+              &quot;declaration-af066e3e92586320&quot;,
+              &quot;declaration-c2058c761bec2b9d&quot;,
+              &quot;declaration-cda6ab0e3ebc0751&quot;,
+              &quot;declaration-d596ec18add26ea1&quot;,
+              &quot;declaration-ee5bc8376d619802&quot;,
               &quot;declaration-eeda546bfe2e6100&quot;,
-              &quot;declaration-fefaaf90777aed23&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;Resource Update Operations (PATCH)&quot;,
-            &quot;excerpt&quot;: &quot;ArmCustomPatch templates are the recommended choice for PATCH operations because they use an explicit custom request model and preserve control over the PATCH schema.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;ArmCustomPatchAsync&quot;,
-              &quot;PATCH&quot;,
-              &quot;custom request model&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;update is ArmCustomPatchAsync&lt;ResourceType, PatchRequestModel&gt;;&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-3c972c51f0db3278&quot;,
-              &quot;declaration-3e3d80969c4a7582&quot;,
-              &quot;declaration-5d6ebe4f74f9e464&quot;,
-              &quot;declaration-8d56ba4a739cf493&quot;,
-              &quot;declaration-eeda546bfe2e6100&quot;,
-              &quot;declaration-fefaaf90777aed23&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;Resource List Operations (GET)&quot;,
-            &quot;excerpt&quot;: &quot;Child resources should include a list operation at the scope of their immediate parent, using the standard list-by-parent template.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;child resource&quot;,
-              &quot;list by parent&quot;,
-              &quot;ArmResourceListByParent&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;listByWidget is ArmResourceListByParent&lt;ResourceType&gt;;&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-3c972c51f0db3278&quot;,
-              &quot;declaration-3e3d80969c4a7582&quot;,
-              &quot;declaration-5d6ebe4f74f9e464&quot;,
-              &quot;declaration-8d56ba4a739cf493&quot;,
-              &quot;declaration-eeda546bfe2e6100&quot;,
+              &quot;declaration-f600bbc3309f1367&quot;,
               &quot;declaration-fefaaf90777aed23&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T08:07:36.265Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:4689aca2a93dadb21b03591f9ebc7c7447e3ae2df2aafac90bf2ada5cfd3e14a&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:5bcd9f3d8f35ef4f7b5bc755389766c723d05200acf250eff4b3a815af65bfa3&quot;
       },
       {
         &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 13,
-        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The interface reference defines the exact Azure.ResourceManager operation-template family used by the new interface.&quot;,
-        &quot;guidance&quot;: [],
-        &quot;noRelevantGuidance&quot;: true,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T08:07:36.278Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:4280b53deebd210f39e3d246bc030834d4808dcc317cef4fa8e1e3237f929c25&quot;
+        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Preview Versioning Rules for All Azure APIs&quot;,
+            &quot;excerpt&quot;: &quot;Mark changes from the latest stable with appropriate versioning decorators using the preview version as the argument.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;latest stable&quot;,
+              &quot;preview&quot;,
+              &quot;versioning&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-1b31f71cb223a9b3&quot;,
+              &quot;declaration-461b4bda34bf7ef5&quot;,
+              &quot;declaration-6509dca4a1b7c0a5&quot;,
+              &quot;declaration-6a899b66373f96f8&quot;,
+              &quot;declaration-6cc74297d91eedda&quot;,
+              &quot;declaration-8003e276f8a4a184&quot;,
+              &quot;declaration-83c11ef90d6568b8&quot;,
+              &quot;declaration-9a574bb9bb6e4d35&quot;,
+              &quot;declaration-a02f44c5bcaab8c8&quot;,
+              &quot;declaration-a20644f50a1cb5ba&quot;,
+              &quot;declaration-cda6ab0e3ebc0751&quot;,
+              &quot;declaration-d596ec18add26ea1&quot;,
+              &quot;declaration-ee5bc8376d619802&quot;,
+              &quot;declaration-f600bbc3309f1367&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:5e72a1d09c1662bda04e0c31a0d6a8338c0f231c64d0c38f246431f0147027a2&quot;
       },
       {
         &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 14,
-        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The source directly applies @parentResource and relies on resource lifecycle semantics for read, update, delete, and list.&quot;,
+        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
         &quot;guidance&quot;: [
           {
-            &quot;section&quot;: &quot;@parentResource&quot;,
-            &quot;excerpt&quot;: &quot;The @parentResource decorator marks a resource model as a child of the supplied parent resource model.&quot;,
+            &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
+            &quot;excerpt&quot;: &quot;When adding a new stable API version, add new types and operations in the new stable and mark additions, removals, renames, and other modifications with appropriate versioning decorators.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;@parentResource&quot;,
-              &quot;child resource&quot;,
-              &quot;AmlFilesystem&quot;
+              &quot;new stable&quot;,
+              &quot;@added&quot;,
+              &quot;@removed&quot;
             ],
-            &quot;examples&quot;: [
-              &quot;@parentResource(ParentModel)&quot;
-            ],
+            &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-1b31f71cb223a9b3&quot;,
               &quot;declaration-3c972c51f0db3278&quot;,
+              &quot;declaration-3e24ce8f08ca4613&quot;,
               &quot;declaration-3e3d80969c4a7582&quot;,
+              &quot;declaration-461b4bda34bf7ef5&quot;,
               &quot;declaration-5d6ebe4f74f9e464&quot;,
+              &quot;declaration-5e53b3f418d4aa6b&quot;,
+              &quot;declaration-6329574e6aeaf779&quot;,
+              &quot;declaration-6509dca4a1b7c0a5&quot;,
+              &quot;declaration-6a899b66373f96f8&quot;,
+              &quot;declaration-6cc74297d91eedda&quot;,
+              &quot;declaration-8003e276f8a4a184&quot;,
+              &quot;declaration-83c11ef90d6568b8&quot;,
               &quot;declaration-8d56ba4a739cf493&quot;,
+              &quot;declaration-9a574bb9bb6e4d35&quot;,
+              &quot;declaration-a02f44c5bcaab8c8&quot;,
+              &quot;declaration-a20644f50a1cb5ba&quot;,
+              &quot;declaration-a6d2f490643bb231&quot;,
+              &quot;declaration-af066e3e92586320&quot;,
+              &quot;declaration-c2058c761bec2b9d&quot;,
+              &quot;declaration-cda6ab0e3ebc0751&quot;,
+              &quot;declaration-d596ec18add26ea1&quot;,
+              &quot;declaration-ee5bc8376d619802&quot;,
               &quot;declaration-eeda546bfe2e6100&quot;,
+              &quot;declaration-f600bbc3309f1367&quot;,
               &quot;declaration-fefaaf90777aed23&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T08:07:36.264Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:cc1a80deef5130be153ea0b6bb14164f8b6b9ac963559cc9c3e2dd62da88cbb7&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00.000Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:2003431db8a41ec16628e128ab5876f84385bed359c16ee5de1456ba8d32400b&quot;
       },
       {
         &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 16,
-        &quot;title&quot;: &quot;ARM long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The new PATCH and DELETE operations use ArmCombinedLroHeaders, Azure-AsyncOperation, Location, Retry-After, and explicit FinalResult values.&quot;,
+        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
         &quot;guidance&quot;: [
           {
-            &quot;section&quot;: &quot;ARM long-running operations&quot;,
-            &quot;excerpt&quot;: &quot;Asynchronous PATCH and DELETE templates may use combined Azure-AsyncOperation and Location headers with Retry-After. FinalResult must match the operation result: the resource for PATCH and void for DELETE.&quot;,
+            &quot;section&quot;: &quot;Optional properties&quot;,
+            &quot;excerpt&quot;: &quot;Properties can be designated as optional by using the ? symbol.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;ArmCombinedLroHeaders&quot;,
-              &quot;Azure-AsyncOperation&quot;,
-              &quot;Location&quot;,
-              &quot;Retry-After&quot;,
-              &quot;FinalResult&quot;
+              &quot;optional properties&quot;,
+              &quot;tokenId&quot;,
+              &quot;identity&quot;
             ],
             &quot;examples&quot;: [
-              &quot;ArmCombinedLroHeaders&lt;FinalResult = MyResource&gt;&quot;,
-              &quot;ArmCombinedLroHeaders&lt;FinalResult = void&gt;&quot;
+              &quot;model Dog { address?: string; }&quot;
             ],
             &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-1b31f71cb223a9b3&quot;,
               &quot;declaration-3c972c51f0db3278&quot;,
+              &quot;declaration-3e24ce8f08ca4613&quot;,
               &quot;declaration-3e3d80969c4a7582&quot;,
+              &quot;declaration-461b4bda34bf7ef5&quot;,
               &quot;declaration-5d6ebe4f74f9e464&quot;,
+              &quot;declaration-5e53b3f418d4aa6b&quot;,
+              &quot;declaration-6329574e6aeaf779&quot;,
+              &quot;declaration-6509dca4a1b7c0a5&quot;,
+              &quot;declaration-6a899b66373f96f8&quot;,
+              &quot;declaration-6cc74297d91eedda&quot;,
+              &quot;declaration-8003e276f8a4a184&quot;,
+              &quot;declaration-83c11ef90d6568b8&quot;,
               &quot;declaration-8d56ba4a739cf493&quot;,
+              &quot;declaration-9a574bb9bb6e4d35&quot;,
+              &quot;declaration-a02f44c5bcaab8c8&quot;,
+              &quot;declaration-a20644f50a1cb5ba&quot;,
+              &quot;declaration-a6d2f490643bb231&quot;,
+              &quot;declaration-af066e3e92586320&quot;,
+              &quot;declaration-c2058c761bec2b9d&quot;,
+              &quot;declaration-d596ec18add26ea1&quot;,
+              &quot;declaration-ee5bc8376d619802&quot;,
               &quot;declaration-eeda546bfe2e6100&quot;,
+              &quot;declaration-f600bbc3309f1367&quot;,
               &quot;declaration-fefaaf90777aed23&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T08:07:36.258Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:7b6abb9ffb54188e75113fd56e8417c1df9d80ae8f024943beb650a7ca707638&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:1a90dd13f99521e5c806072a6285307119be6bdca67a6ea6bc66534d79e329ab&quot;
       }
     ]
   },
   &quot;intentAssessments&quot;: [
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-19342d41cab42c40&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-7fc4ab387bb5c3ab&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-ae4076663aac93e4&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-d002d4a6c75c72c3&quot;,
       &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     }
@@ -1781,34 +1827,35 @@ interface RebalanceJobs {
 <h3>Changed files</h3><ul><li><code>specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/main.tsp</code> (committed)</li><li><code>specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/models.tsp</code> (committed)</li><li><code>specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache/RebalanceJob.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 1998,
-    &quot;fetchMs&quot;: 346,
-    &quot;scopeDiscoveryMs&quot;: 130,
-    &quot;setupExcludingFetchMs&quot;: 12472,
-    &quot;comparisonMs&quot;: 220,
-    &quot;changeDiscoveryMs&quot;: 186,
-    &quot;workspacePreparationMs&quot;: 9422,
-    &quot;projectDiscoveryMs&quot;: 47,
-    &quot;totalMs&quot;: 166028,
-    &quot;semanticAnalysisMs&quot;: 175,
-    &quot;restAnalysisMs&quot;: 83,
-    &quot;downstreamAnalysisMs&quot;: 2529,
-    &quot;documentQualityAnalysisMs&quot;: 1
+    &quot;metadataMs&quot;: 3069,
+    &quot;fetchMs&quot;: 150,
+    &quot;scopeDiscoveryMs&quot;: 69,
+    &quot;setupExcludingFetchMs&quot;: 14527,
+    &quot;comparisonMs&quot;: 130,
+    &quot;changeDiscoveryMs&quot;: 112,
+    &quot;workspacePreparationMs&quot;: 10856,
+    &quot;projectDiscoveryMs&quot;: 42,
+    &quot;totalMs&quot;: 254416,
+    &quot;semanticAnalysisMs&quot;: 148,
+    &quot;restAnalysisMs&quot;: 69,
+    &quot;downstreamAnalysisMs&quot;: 2170,
+    &quot;semanticContextPolicyMs&quot;: 29,
+    &quot;documentQualityAnalysisMs&quot;: 2
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;small&quot;,
     &quot;budgetBytes&quot;: 131072,
-    &quot;bytes&quot;: 17316,
-    &quot;estimatedTokens&quot;: 4329,
+    &quot;bytes&quot;: 34760,
+    &quot;estimatedTokens&quot;: 8690,
     &quot;retained&quot;: {
-      &quot;evidenceSets&quot;: 2,
+      &quot;evidenceSets&quot;: 6,
       &quot;facts&quot;: 4,
-      &quot;semanticReviewUnits&quot;: 1,
+      &quot;semanticReviewUnits&quot;: 3,
       &quot;restCandidates&quot;: 0,
       &quot;downstreamCandidates&quot;: 0,
       &quot;downstreamRootCauses&quot;: 0,
-      &quot;complianceSearchRequests&quot;: 1,
-      &quot;inferenceRequests&quot;: 1
+      &quot;complianceSearchRequests&quot;: 3,
+      &quot;inferenceRequests&quot;: 2
     },
     &quot;omittedRedundant&quot;: {
       &quot;rawEmitterArtifacts&quot;: true,
@@ -1816,26 +1863,27 @@ interface RebalanceJobs {
       &quot;unchangedInventories&quot;: true,
       &quot;unreferencedFacts&quot;: true,
       &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;restCandidateEvidenceFacts&quot;: false,
       &quot;sourceChanges&quot;: true,
       &quot;repeatedDeclarationIds&quot;: true,
       &quot;repeatedReviewUnitEvidence&quot;: true
     },
     &quot;inference&quot;: {
-      &quot;requestCount&quot;: 1,
+      &quot;requestCount&quot;: 2,
       &quot;inferredCandidateCount&quot;: 0,
-      &quot;noImpactCount&quot;: 1,
+      &quot;noImpactCount&quot;: 2,
       &quot;blockedCount&quot;: 0
     },
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 2283652,
-      &quot;guidanceExcerptsRetained&quot;: 5,
-      &quot;guidanceExcerptBytesRetained&quot;: 774
+      &quot;documentBytesFetched&quot;: 677182,
+      &quot;guidanceExcerptsRetained&quot;: 4,
+      &quot;guidanceExcerptBytesRetained&quot;: 475
     }
   }
 }</pre>
-<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+<p><strong>Provenance:</strong> 2, model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
 </main>
 <script>
 function revealHashTarget() {

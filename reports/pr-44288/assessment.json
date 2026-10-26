@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T07:54:26.164Z",
+  "generatedAt": "2026-10-26T12:23:09.167Z",
   "title": "TypeSpec assessment: specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb",
   "repository": {
     "root": "C:\\workspace\\azure-rest-api-specs",
@@ -1726,7 +1726,168 @@
             "parameters",
             "path"
           ],
+          "classificationVersion": 2,
+          "changeFacts": [
+            {
+              "id": "semantic-change-0a75e8377d09e3dd",
+              "sourceChangeId": "source-64fc44709ee9c077",
+              "hunkIds": [
+                "hunk-be12a0670688d306"
+              ],
+              "declarationIds": [
+                "declaration-2b7bb778f5e41164",
+                "declaration-82ecde4e4d56e9e4"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-2b7bb778f5e41164"
+              ],
+              "afterDeclarationIds": [
+                "declaration-82ecde4e4d56e9e4"
+              ],
+              "changeType": "operation",
+              "declarationKind": "operation",
+              "qualifiedName": "HorizonDbPrivateEndpointConnections.update",
+              "action": "modify",
+              "facets": [
+                "lro",
+                "parameters",
+                "path"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-64fc44709ee9c077",
+                "hunkIds": [
+                  "hunk-be12a0670688d306"
+                ],
+                "declarationIds": [
+                  "declaration-2b7bb778f5e41164",
+                  "declaration-82ecde4e4d56e9e4"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-69302d57008b01c5",
+              "sourceChangeId": "source-64fc44709ee9c077",
+              "hunkIds": [
+                "hunk-be12a0670688d306"
+              ],
+              "declarationIds": [
+                "declaration-2d3d846baac34783",
+                "declaration-7a33fd0e4dae5170"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-7a33fd0e4dae5170"
+              ],
+              "afterDeclarationIds": [
+                "declaration-2d3d846baac34783"
+              ],
+              "changeType": "type",
+              "declarationKind": "interface",
+              "qualifiedName": "HorizonDbPrivateEndpointConnections",
+              "action": "modify",
+              "facets": [
+                "lro",
+                "parameters",
+                "path"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-64fc44709ee9c077",
+                "hunkIds": [
+                  "hunk-be12a0670688d306"
+                ],
+                "declarationIds": [
+                  "declaration-2d3d846baac34783",
+                  "declaration-7a33fd0e4dae5170"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-d6b54941ff933a63",
+              "sourceChangeId": "source-64fc44709ee9c077",
+              "hunkIds": [
+                "hunk-be12a0670688d306"
+              ],
+              "declarationIds": [
+                "declaration-775b200f38fdfccf",
+                "declaration-934363b30dd7dacf"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-775b200f38fdfccf"
+              ],
+              "afterDeclarationIds": [
+                "declaration-934363b30dd7dacf"
+              ],
+              "changeType": "operation",
+              "declarationKind": "operation",
+              "qualifiedName": "HorizonDbPrivateEndpointConnections.delete",
+              "action": "modify",
+              "facets": [
+                "lro",
+                "parameters",
+                "path"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-64fc44709ee9c077",
+                "hunkIds": [
+                  "hunk-be12a0670688d306"
+                ],
+                "declarationIds": [
+                  "declaration-775b200f38fdfccf",
+                  "declaration-934363b30dd7dacf"
+                ]
+              }
+            }
+          ],
+          "changeTypes": [
+            "operation",
+            "type"
+          ],
           "intentType": "normal",
+          "carryOverProof": {
+            "schemaVersion": 1,
+            "status": "not-applicable",
+            "operations": [],
+            "equivalentOperationIds": [],
+            "differentOperationIds": [],
+            "unknownOperationIds": []
+          },
+          "contextPolicy": {
+            "schemaVersion": 1,
+            "rest": {
+              "mode": "agent",
+              "reason": "rest-candidates-require-judgment",
+              "evidenceIds": [
+                "rest-320869014d4b2b8c",
+                "rest-65b757c6f1cb25e2",
+                "rest-95875766bd6af816",
+                "rest-d3aa85936d7ff1f8",
+                "rest-ddb21d3d4b9868ad"
+              ]
+            },
+            "downstream": {
+              "mode": "agent",
+              "reason": "downstream-candidates-require-judgment",
+              "evidenceIds": [
+                "downstream-38923c7c65105569",
+                "downstream-8262316c0a3b516a",
+                "downstream-8c33c6d7b846cf95",
+                "downstream-c413c277afcecf4a",
+                "downstream-c6f9c73c367820cd",
+                "downstream-ed55490cefd690e3",
+                "downstream-ee82380623aa067e"
+              ]
+            },
+            "guidelines": {
+              "mode": "agent",
+              "reason": "changed-design-facts-require-guidelines-assessment"
+            },
+            "documentation": {
+              "mode": "deterministic",
+              "reason": "compiler-effective-documentation-check"
+            }
+          },
           "title": "Scope private endpoint connection update and delete to their HorizonDB cluster",
           "summary": "Pass HorizonDbCluster as the parent resource to the private endpoint connection PATCH and asynchronous DELETE templates. Both existing operations gain the clusters/{clusterName} parent segment and a required clusterName argument in the existing 2026-01-20-preview API; the update operation's neutral SDK result also changes to PrivateEndpointConnectionResource.",
           "informational": false,
@@ -1741,7 +1902,9 @@
             "downstreamCandidateIds": [
               "downstream-38923c7c65105569",
               "downstream-8262316c0a3b516a",
+              "downstream-8c33c6d7b846cf95",
               "downstream-c413c277afcecf4a",
+              "downstream-c6f9c73c367820cd",
               "downstream-ed55490cefd690e3",
               "downstream-ee82380623aa067e"
             ],
@@ -1771,7 +1934,9 @@
                 "downstreamCandidateIds": [
                   "downstream-38923c7c65105569",
                   "downstream-8262316c0a3b516a",
+                  "downstream-8c33c6d7b846cf95",
                   "downstream-c413c277afcecf4a",
+                  "downstream-c6f9c73c367820cd",
                   "downstream-ed55490cefd690e3",
                   "downstream-ee82380623aa067e"
                 ]
@@ -3157,7 +3322,10 @@
           "relatedSemanticIntents": [
             "semantic-8928ca2cf24aac04"
           ],
-          "semanticMatchBasis": "operation-identity"
+          "semanticMatchBasis": "candidate-ownership",
+          "hunkIds": [
+            "hunk-be12a0670688d306"
+          ]
         },
         {
           "id": "rest-65b757c6f1cb25e2",
@@ -4038,7 +4206,10 @@
           "relatedSemanticIntents": [
             "semantic-8928ca2cf24aac04"
           ],
-          "semanticMatchBasis": "operation-identity"
+          "semanticMatchBasis": "candidate-ownership",
+          "hunkIds": [
+            "hunk-be12a0670688d306"
+          ]
         },
         {
           "id": "rest-d3aa85936d7ff1f8",
@@ -4920,7 +5091,10 @@
           "relatedSemanticIntents": [
             "semantic-8928ca2cf24aac04"
           ],
-          "semanticMatchBasis": "operation-identity"
+          "semanticMatchBasis": "candidate-ownership",
+          "hunkIds": [
+            "hunk-be12a0670688d306"
+          ]
         },
         {
           "id": "rest-ddb21d3d4b9868ad",
@@ -5724,7 +5898,10 @@
           "relatedSemanticIntents": [
             "semantic-8928ca2cf24aac04"
           ],
-          "semanticMatchBasis": "operation-identity"
+          "semanticMatchBasis": "candidate-ownership",
+          "hunkIds": [
+            "hunk-be12a0670688d306"
+          ]
         }
       ],
       "rejectedCandidateCount": 1,
@@ -7272,7 +7449,7 @@
           "relatedSemanticIntents": [
             "semantic-8928ca2cf24aac04"
           ],
-          "semanticMatchBasis": "declaration-identity"
+          "semanticMatchBasis": "candidate-ownership"
         },
         {
           "id": "downstream-c6f9c73c367820cd",
@@ -7284,8 +7461,17 @@
           "sourceChangeIds": [
             "source-64fc44709ee9c077"
           ],
-          "declarationIds": [],
-          "hunkIds": [],
+          "declarationIds": [
+            "declaration-2b7bb778f5e41164",
+            "declaration-2d3d846baac34783",
+            "declaration-775b200f38fdfccf",
+            "declaration-7a33fd0e4dae5170",
+            "declaration-82ecde4e4d56e9e4",
+            "declaration-934363b30dd7dacf"
+          ],
+          "hunkIds": [
+            "hunk-be12a0670688d306"
+          ],
           "evidenceFactIds": [
             "sdk-fact-d5d3f00f44798e03"
           ],
@@ -7901,7 +8087,7 @@
           "relatedSemanticIntents": [
             "semantic-8928ca2cf24aac04"
           ],
-          "semanticMatchBasis": "unique-source"
+          "semanticMatchBasis": "candidate-ownership"
         },
         {
           "id": "downstream-ed55490cefd690e3",
@@ -9154,7 +9340,7 @@
           "relatedSemanticIntents": [
             "semantic-8928ca2cf24aac04"
           ],
-          "semanticMatchBasis": "declaration-identity"
+          "semanticMatchBasis": "candidate-ownership"
         },
         {
           "id": "downstream-ee82380623aa067e",
@@ -10695,7 +10881,7 @@
           "relatedSemanticIntents": [
             "semantic-8928ca2cf24aac04"
           ],
-          "semanticMatchBasis": "declaration-identity"
+          "semanticMatchBasis": "candidate-ownership"
         }
       ],
       "methodGroups": [
@@ -12623,7 +12809,7 @@
               "relatedSemanticIntents": [
                 "semantic-8928ca2cf24aac04"
               ],
-              "semanticMatchBasis": "declaration-identity"
+              "semanticMatchBasis": "candidate-ownership"
             }
           ],
           "apiVersion": "2026-01-20-preview",
@@ -15164,7 +15350,7 @@
               "relatedSemanticIntents": [
                 "semantic-8928ca2cf24aac04"
               ],
-              "semanticMatchBasis": "declaration-identity"
+              "semanticMatchBasis": "candidate-ownership"
             },
             {
               "id": "downstream-ee82380623aa067e",
@@ -16705,7 +16891,7 @@
               "relatedSemanticIntents": [
                 "semantic-8928ca2cf24aac04"
               ],
-              "semanticMatchBasis": "declaration-identity"
+              "semanticMatchBasis": "candidate-ownership"
             }
           ],
           "apiVersion": "2026-01-20-preview",
@@ -17679,15 +17865,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-44288\\worktrees\\base\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\worktrees\\base\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\workspace\\documents\\pr-44288\\projects\\project-1a17ac3fb584\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\projects\\project-1a17ac3fb584\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-01-20-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 4365,
+            "durationMs": 23668,
             "configPath": "worktrees\\base\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb\\tspconfig.yaml",
             "configHash": "bcbab44057eb5ffd9dfbf7d0ce245808f7ec3f2c79667eedec1c6835e44a5584",
             "logPath": "logs\\project-1a17ac3fb584-baseline-autorest.log",
@@ -17711,16 +17897,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-44288\\worktrees\\base\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\worktrees\\base\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\workspace\\documents\\pr-44288\\projects\\project-1a17ac3fb584\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\projects\\project-1a17ac3fb584\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\workspace\\documents\\pr-44288\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-01-20-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 4615,
+            "durationMs": 5439,
             "configPath": "worktrees\\base\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb\\tspconfig.yaml",
             "configHash": "bcbab44057eb5ffd9dfbf7d0ce245808f7ec3f2c79667eedec1c6835e44a5584",
             "logPath": "logs\\project-1a17ac3fb584-baseline-tcgc.log",
@@ -17748,15 +17934,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-44288\\worktrees\\current\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\worktrees\\current\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\workspace\\documents\\pr-44288\\projects\\project-1a17ac3fb584\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\projects\\project-1a17ac3fb584\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-01-20-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 4580,
+            "durationMs": 5093,
             "configPath": "worktrees\\current\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb\\tspconfig.yaml",
             "configHash": "bcbab44057eb5ffd9dfbf7d0ce245808f7ec3f2c79667eedec1c6835e44a5584",
             "logPath": "logs\\project-1a17ac3fb584-target-autorest.log",
@@ -17780,16 +17966,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-44288\\worktrees\\current\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\worktrees\\current\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\workspace\\documents\\pr-44288\\projects\\project-1a17ac3fb584\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\projects\\project-1a17ac3fb584\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\workspace\\documents\\pr-44288\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-01-20-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 4376,
+            "durationMs": 5113,
             "configPath": "worktrees\\current\\specification\\horizondb\\resource-manager\\Microsoft.HorizonDb\\HorizonDb\\tspconfig.yaml",
             "configHash": "bcbab44057eb5ffd9dfbf7d0ce245808f7ec3f2c79667eedec1c6835e44a5584",
             "logPath": "logs\\project-1a17ac3fb584-target-tcgc.log",
@@ -17855,6 +18041,7 @@
   ],
   "blockers": [],
   "provenance": {
+    "contextPolicyVersion": 2,
     "modelInput": "model-input.json",
     "documentQuality": "dimensions/document-quality-input.json",
     "complianceSearchEvidence": "compliance-search-evidence.json",
@@ -17864,8 +18051,8 @@
   "inputAccounting": {
     "budgetTier": "small",
     "budgetBytes": 131072,
-    "bytes": 37646,
-    "estimatedTokens": 9412,
+    "bytes": 39714,
+    "estimatedTokens": 9929,
     "retained": {
       "evidenceSets": 8,
       "facts": 13,
@@ -17882,6 +18069,7 @@
       "unchangedInventories": true,
       "unreferencedFacts": true,
       "unreferencedDeterministicFacts": true,
+      "restCandidateEvidenceFacts": false,
       "sourceChanges": true,
       "repeatedDeclarationIds": true,
       "repeatedReviewUnitEvidence": true
@@ -17895,18 +18083,19 @@
     }
   },
   "timings": {
-    "metadataMs": 2916,
-    "fetchMs": 5005,
-    "scopeDiscoveryMs": 64,
-    "setupExcludingFetchMs": 6504,
-    "comparisonMs": 120,
-    "changeDiscoveryMs": 64,
-    "workspacePreparationMs": 3143,
-    "projectDiscoveryMs": 8,
-    "totalMs": 99446,
-    "semanticAnalysisMs": 26,
-    "restAnalysisMs": 20,
-    "downstreamAnalysisMs": 898,
+    "metadataMs": 1764,
+    "fetchMs": 127,
+    "scopeDiscoveryMs": 67,
+    "setupExcludingFetchMs": 5652,
+    "comparisonMs": 107,
+    "changeDiscoveryMs": 63,
+    "workspacePreparationMs": 3446,
+    "projectDiscoveryMs": 11,
+    "totalMs": 184536,
+    "semanticAnalysisMs": 30,
+    "restAnalysisMs": 37,
+    "downstreamAnalysisMs": 970,
+    "semanticContextPolicyMs": 2,
     "documentQualityAnalysisMs": 1
   }
 }

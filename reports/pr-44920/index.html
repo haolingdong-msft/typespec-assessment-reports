@@ -626,7 +626,7 @@ body {
 <p class="hero-meta">TypeSpec source diff: <code>e7e40281ef2589e48a27a1c9ba914ad9dbcd4cf7</code> → <code>94ca4ab2e350fb8e1186c9edd13eff4722060c2e</code></p>
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">3 intents<br>15 operations<br>1 Added, 2 Modified, 0 Removed</div></a>
-<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>2/2 intents assessed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>3/3 intents assessed</div></a>
 <a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
 <a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">1 finding</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>0 declarations checked</div></a>
@@ -635,33 +635,8 @@ body {
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">5 mapped methods · 1 changed types</span></div></div><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-create"><summary><div class="report-card-title"><strong>ConnectedRegistries.create</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-779c7d5a4160ed59">Add managed-identity sync authentication</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.create</code></p><div class="report-type-impact"><span id="downstream-type-project-9dc15a9f8ade-Microsoft-ContainerRegistry-SyncProperties"></span><span id="downstream-sdk-type-impact-b7a7c4c114575849"></span><span id="downstream-downstream-edba0552660320ae"></span><span id="finding-downstream-edba0552660320ae"></span><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Input / body</span><code>connectedRegistryCreateParameters.properties.parent.syncProperties</code><span>target evidence</span></div><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional. Existing SDK consumers of create, get, list, resync, or update results can no longer assume a non-null token ID and must handle absence.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-get"><summary><div class="report-card-title"><strong>ConnectedRegistries.get</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-779c7d5a4160ed59">Add managed-identity sync authentication</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.get</code></p><div class="report-type-impact"><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional. Existing SDK consumers of create, get, list, resync, or update results can no longer assume a non-null token ID and must handle absence.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-list"><summary><div class="report-card-title"><strong>ConnectedRegistries.list</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-779c7d5a4160ed59">Add managed-identity sync authentication</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.list</code></p><div class="report-type-impact"><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional. Existing SDK consumers of create, get, list, resync, or update results can no longer assume a non-null token ID and must handle absence.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-resync"><summary><div class="report-card-title"><strong>ConnectedRegistries.resync</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-779c7d5a4160ed59">Add managed-identity sync authentication</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.resync</code></p><div class="report-type-impact"><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional. Existing SDK consumers of create, get, list, resync, or update results can no longer assume a non-null token ID and must handle absence.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-update"><summary><div class="report-card-title"><strong>ConnectedRegistries.update</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-779c7d5a4160ed59">Add managed-identity sync authentication</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.update</code></p><div class="report-type-impact"><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional. Existing SDK consumers of create, get, list, resync, or update results can no longer assume a non-null token ID and must handle absence.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details></section>
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">3 intents · 1 added · 2 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-2795952e23884061"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 14 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/main.tsp</div><pre><span class="context">    * The latest preview API version.</span>
-<span class="context">    */</span>
-<span class="context">   @previewVersion</span>
-<span class="remove">-  vLatestPreview: &quot;2026-03-01-preview&quot;,</span>
-<span class="add">+  vLatestPreview: &quot;2026-09-01-preview&quot;,</span>
-<span class="context"> }</span>
-<span class="context"> </span>
-<span class="context"> interface Operations</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/main.tsp#L70-L81">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/main.tsp:67</a></p></details><details class="report-subdetails" id="intent-semantic-2795952e23884061-operations"><summary>Affected operations (14)</summary><p class="report-small">Showing 10 operation cards; the remaining 4 are listed below.</p><details class="operation"><summary><strong>CacheRules_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules/{cacheRuleName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>CacheRules_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules/{cacheRuleName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>CacheRules_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules</code><span>2026-09-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>CacheRules_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules/{cacheRuleName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>ConnectedRegistries_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>ConnectedRegistries_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>ConnectedRegistries_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries</code><span>2026-09-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ConnectedRegistries_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>Registries_CheckNameAvailability</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.ContainerRegistry/checkNameAvailability</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>autoGeneratedDomainNameLabelScope</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourceGroupName</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · availableLoginServerName</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>Registries_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.autoGeneratedDomainNameLabelScope</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.endpointProtocol</strong></td><td><pre>not present</pre></td><td><pre>EndpointProtocol (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.metadataSearch</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.regionalEndpointHostNames</strong></td><td><pre>not present</pre></td><td><pre>array (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.regionalEndpoints</strong></td><td><pre>not present</pre></td><td><pre>RegionalEndpoints (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.writableCacheRepos</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.autoGeneratedDomainNameLabelScope</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.endpointProtocol</strong></td><td><pre>not present</pre></td><td><pre>EndpointProtocol (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.metadataSearch</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.regionalEndpointHostNames</strong></td><td><pre>not present</pre></td><td><pre>array (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.regionalEndpoints</strong></td><td><pre>not present</pre></td><td><pre>RegionalEndpoints (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.writableCacheRepos</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.autoGeneratedDomainNameLabelScope</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.endpointProtocol</strong></td><td><pre>not present</pre></td><td><pre>EndpointProtocol (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.metadataSearch</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.regionalEndpointHostNames</strong></td><td><pre>not present</pre></td><td><pre>array (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.regionalEndpoints</strong></td><td><pre>not present</pre></td><td><pre>RegionalEndpoints (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.writableCacheRepos</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (4)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}">Registries_Get (GET, 2026-09-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.ContainerRegistry/registries">Registries_List (GET, 2026-09-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries">Registries_ListByResourceGroup (GET, 2026-09-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}">Registries_Update (PATCH, 2026-09-01-preview)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-76038a2122aeff36"><summary><div class="report-card-title"><strong>Add managed identity to connected registries</strong><small>Adds a version-gated optional user-assigned managed identity to the ConnectedRegistry ARM resource representation, affecting the ConnectedRegistries_Resync result without changing its lifecycle role.</small></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.tsp</div><pre><span class="context">     SegmentName = &quot;connectedRegistries&quot;,</span>
-<span class="context">     NamePattern = &quot;^[a-zA-Z0-9]*$&quot;</span>
-<span class="context">   &gt;;</span>
-<span class="add">+</span>
-<span class="add">+  /**</span>
-<span class="add">+   * The user-assigned managed identity used by the on-prem connected registry to authenticate with the cloud registry for sync operations.</span>
-<span class="add">+   */</span>
-<span class="add">+  ...ManagedServiceIdentityProperty;</span>
-<span class="context"> }</span>
-<span class="add">+@@added(ConnectedRegistry.identity, Versions.vLatestPreview);</span>
-<span class="add">+@@doc(</span>
-<span class="add">+  ConnectedRegistry.identity,</span>
-<span class="add">+  &quot;The user-assigned managed identity used by the on-prem connected registry to authenticate with the cloud registry for sync operations. Requires authType to be ManagedIdentity.&quot;</span>
-<span class="add">+);</span>
-<span class="context"> </span>
-<span class="context"> @armResourceOperations</span>
-<span class="context"> interface ConnectedRegistries {</span>
-<span class="context"></span></pre></div><p class="sources"><code>specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.tsp:14</code></p></details><details class="report-subdetails" id="intent-semantic-76038a2122aeff36-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ConnectedRegistries_Resync</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}/resync</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}/resync</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-779c7d5a4160ed59"><summary><div class="report-card-title"><strong>Add managed-identity sync authentication</strong><small>Adds AuthType and managed-identity update support, adds storage-capacity fields, and makes SyncProperties.tokenId optional in the new preview; ConnectedRegistries_Update remains the affected ARM update operation.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (5)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-create">Downstream: ConnectedRegistries.create</a><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-get">Downstream: ConnectedRegistries.get</a><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-list">Downstream: ConnectedRegistries.list</a><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-resync">Downstream: ConnectedRegistries.resync</a><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-update">Downstream: ConnectedRegistries.update</a></div></div></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp</div><pre><span class="context">   Pending: &quot;Pending&quot;,</span>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">5 mapped methods · 1 changed types</span></div></div><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-create"><summary><div class="report-card-title"><strong>ConnectedRegistries.create</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-09bbfa99ea51d07a">Add managed-identity authentication and relax sync token requirements</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.create</code></p><div class="report-type-impact"><span id="downstream-type-project-9dc15a9f8ade-Microsoft-ContainerRegistry-SyncProperties"></span><span id="downstream-sdk-type-impact-b7a7c4c114575849"></span><span id="downstream-downstream-edba0552660320ae"></span><span id="finding-downstream-edba0552660320ae"></span><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Input / body</span><code>connectedRegistryCreateParameters.properties.parent.syncProperties</code><span>target evidence</span></div><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional in the language-neutral generated SDK model. This changes construction and validation expectations for the existing member; the finding records the neutral contract change without claiming every language has a source or binary break.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-get"><summary><div class="report-card-title"><strong>ConnectedRegistries.get</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-09bbfa99ea51d07a">Add managed-identity authentication and relax sync token requirements</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.get</code></p><div class="report-type-impact"><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional in the language-neutral generated SDK model. This changes construction and validation expectations for the existing member; the finding records the neutral contract change without claiming every language has a source or binary break.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-list"><summary><div class="report-card-title"><strong>ConnectedRegistries.list</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-09bbfa99ea51d07a">Add managed-identity authentication and relax sync token requirements</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.list</code></p><div class="report-type-impact"><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional in the language-neutral generated SDK model. This changes construction and validation expectations for the existing member; the finding records the neutral contract change without claiming every language has a source or binary break.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-resync"><summary><div class="report-card-title"><strong>ConnectedRegistries.resync</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-09bbfa99ea51d07a">Add managed-identity authentication and relax sync token requirements</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.resync</code></p><div class="report-type-impact"><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional in the language-neutral generated SDK model. This changes construction and validation expectations for the existing member; the finding records the neutral contract change without claiming every language has a source or binary break.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details><details class="report-card sdk-method-card" id="downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-update"><summary><div class="report-card-title"><strong>ConnectedRegistries.update</strong><small>The method uses changed SDK types; its top-level signature need not change.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-09bbfa99ea51d07a">Add managed-identity authentication and relax sync token requirements</a></div></div></div><div class="report-badges"><span class="report-badge indirect">Indirect type change</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.ContainerRegistry.ConnectedRegistries.update</code></p><div class="report-type-impact"><h4>SyncProperties</h4><p class="report-small"><code>Microsoft.ContainerRegistry.SyncProperties</code></p><p class="report-small">Representative method paths from recorded graph edges:</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / body</span><code>properties.parent.syncProperties</code><span>target evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type contract</span><strong>SyncProperties</strong></td><td><pre>Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> SyncProperties.tokenId changes from required to optional in the language-neutral generated SDK model. This changes construction and validation expectations for the existing member; the finding records the neutral contract change without claiming every language has a source or binary break.</div></div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details></section>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">3 intents · 1 added · 2 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-09bbfa99ea51d07a"><summary><div class="report-card-title"><strong>Add managed-identity authentication and relax sync token requirements</strong><small>Add preview-scoped managed identity and authType support to connected-registry update models, and make SyncProperties.tokenId optional in the new preview.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (5)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-create">Downstream: ConnectedRegistries.create</a><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-get">Downstream: ConnectedRegistries.get</a><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-list">Downstream: ConnectedRegistries.list</a><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-resync">Downstream: ConnectedRegistries.resync</a><a class="report-link impact" href="#downstream-method-project-9dc15a9f8ade-Microsoft-ContainerRegistry-ConnectedRegistries-update">Downstream: ConnectedRegistries.update</a></div></div></div><div class="report-badges"><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp</div><pre><span class="context">   Pending: &quot;Pending&quot;,</span>
 <span class="context"> }</span>
 <span class="context"> </span>
 <span class="add">+/**</span>
@@ -750,19 +725,44 @@ body {
 <span class="context"> }</span>
 <span class="context"> </span>
 <span class="context"> /**</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L164-L176">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp:160</a></p></details><details class="report-subdetails" id="intent-semantic-779c7d5a4160ed59-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ConnectedRegistries_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details></section>
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">2 of 2 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L164-L176">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp:160</a></p></details><details class="report-subdetails" id="intent-semantic-09bbfa99ea51d07a-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ConnectedRegistries_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-cb0517db7d695a90"><summary><div class="report-card-title"><strong>Publish the 2026-09-01 preview</strong><small>Advance vLatestPreview from 2026-03-01-preview to 2026-09-01-preview after the 2025-11-01 stable API.</small></div><div class="report-badges"><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/main.tsp</div><pre><span class="context">    * The latest preview API version.</span>
+<span class="context">    */</span>
+<span class="context">   @previewVersion</span>
+<span class="remove">-  vLatestPreview: &quot;2026-03-01-preview&quot;,</span>
+<span class="add">+  vLatestPreview: &quot;2026-09-01-preview&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> interface Operations</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/main.tsp#L70-L81">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/main.tsp:67</a></p></details><details class="report-subdetails" id="intent-semantic-cb0517db7d695a90-operations"><summary>Affected operations (14)</summary><p class="report-small">Showing 10 operation cards; the remaining 4 are listed below.</p><details class="operation"><summary><strong>CacheRules_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules/{cacheRuleName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>CacheRules_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules/{cacheRuleName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>CacheRules_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules</code><span>2026-09-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>CacheRules_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/cacheRules/{cacheRuleName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>IdentityProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.additionalAuthenticationProperties</strong></td><td><pre>not present</pre></td><td><pre>AdditionalAuthenticationProperties (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>ConnectedRegistries_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>ConnectedRegistries_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>ConnectedRegistries_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries</code><span>2026-09-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ConnectedRegistries_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.registrySyncResult</strong></td><td><pre>not present</pre></td><td><pre>RegistrySyncResult (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>Registries_CheckNameAvailability</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.ContainerRegistry/checkNameAvailability</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>autoGeneratedDomainNameLabelScope</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourceGroupName</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · availableLoginServerName</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>Registries_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.autoGeneratedDomainNameLabelScope</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.endpointProtocol</strong></td><td><pre>not present</pre></td><td><pre>EndpointProtocol (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.metadataSearch</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.regionalEndpointHostNames</strong></td><td><pre>not present</pre></td><td><pre>array (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.regionalEndpoints</strong></td><td><pre>not present</pre></td><td><pre>RegionalEndpoints (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.writableCacheRepos</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.autoGeneratedDomainNameLabelScope</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.endpointProtocol</strong></td><td><pre>not present</pre></td><td><pre>EndpointProtocol (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.metadataSearch</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.regionalEndpointHostNames</strong></td><td><pre>not present</pre></td><td><pre>array (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.regionalEndpoints</strong></td><td><pre>not present</pre></td><td><pre>RegionalEndpoints (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.writableCacheRepos</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.autoGeneratedDomainNameLabelScope</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.endpointProtocol</strong></td><td><pre>not present</pre></td><td><pre>EndpointProtocol (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.metadataSearch</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.regionalEndpointHostNames</strong></td><td><pre>not present</pre></td><td><pre>array (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.regionalEndpoints</strong></td><td><pre>not present</pre></td><td><pre>RegionalEndpoints (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.writableCacheRepos</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (4)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}">Registries_Get (GET, 2026-09-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.ContainerRegistry/registries">Registries_List (GET, 2026-09-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries">Registries_ListByResourceGroup (GET, 2026-09-01-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}">Registries_Update (PATCH, 2026-09-01-preview)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-cb3d798199346ea5"><summary><div class="report-card-title"><strong>Add managed identity to connected registries</strong><small>Add the optional managed identity property to ConnectedRegistry in the new preview for sync authentication.</small></div><div class="report-badges"><span class="report-badge add">add</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.tsp</div><pre><span class="context">     SegmentName = &quot;connectedRegistries&quot;,</span>
+<span class="context">     NamePattern = &quot;^[a-zA-Z0-9]*$&quot;</span>
+<span class="context">   &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The user-assigned managed identity used by the on-prem connected registry to authenticate with the cloud registry for sync operations.</span>
+<span class="add">+   */</span>
+<span class="add">+  ...ManagedServiceIdentityProperty;</span>
+<span class="context"> }</span>
+<span class="add">+@@added(ConnectedRegistry.identity, Versions.vLatestPreview);</span>
+<span class="add">+@@doc(</span>
+<span class="add">+  ConnectedRegistry.identity,</span>
+<span class="add">+  &quot;The user-assigned managed identity used by the on-prem connected registry to authenticate with the cloud registry for sync operations. Requires authType to be ManagedIdentity.&quot;</span>
+<span class="add">+);</span>
+<span class="context"> </span>
+<span class="context"> @armResourceOperations</span>
+<span class="context"> interface ConnectedRegistries {</span>
+<span class="context"></span></pre></div><p class="sources"><code>specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.tsp:14</code></p></details><details class="report-subdetails" id="intent-semantic-cb3d798199346ea5-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ConnectedRegistries_Resync</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}/resync</code><span>2026-09-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName}/connectedRegistries/{connectedRegistryName}/resync</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">3 of 3 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
 <section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 0 declarations checked</p></section>
 <section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry</code></td><td>new-api-version</td><td><code>94ca4ab2e350fb8e1186c9edd13eff4722060c2e@2025-11-01</code><br><small>current · previous-latest-stable</small></td><td><code>94ca4ab2e350fb8e1186c9edd13eff4722060c2e@2026-09-01-preview</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/44920">#44920</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
   &quot;status&quot;: &quot;passed&quot;,
   &quot;coverage&quot;: {
-    &quot;semanticIntentCount&quot;: 2,
-    &quot;assessedIntentCount&quot;: 2,
+    &quot;semanticIntentCount&quot;: 3,
+    &quot;assessedIntentCount&quot;: 3,
     &quot;selectedDocumentCount&quot;: 4,
     &quot;unassessedIntentIds&quot;: []
   },
@@ -770,20 +770,6 @@ body {
     &quot;catalogRanking&quot;: [
       {
         &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 7
-        },
-        &quot;selectionRationale&quot;: &quot;The title exactly names the changed model construct and covers optional properties and spreads.&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 1,
         &quot;title&quot;: &quot;Evolving APIs&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
@@ -794,10 +780,10 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Primary versioning guidance governs added and modified properties in an existing ARM API.&quot;
+        &quot;selectionRationale&quot;: &quot;Preview-scoped model and property changes are governed by evolving API guidance.&quot;
       },
       {
-        &quot;rank&quot;: 3,
+        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 2,
         &quot;title&quot;: &quot;Versioning overview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
@@ -808,10 +794,10 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Versioning overview applies to the new ARM preview and version-gated changes.&quot;
+        &quot;selectionRationale&quot;: &quot;The PR adds a new ARM preview after stable and uses versioning decorators.&quot;
       },
       {
-        &quot;rank&quot;: 4,
+        &quot;rank&quot;: 3,
         &quot;catalogOrder&quot;: 5,
         &quot;title&quot;: &quot;Add preview after stable&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
@@ -822,7 +808,21 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The project adds a preview version after the previous stable comparison version.&quot;
+        &quot;selectionRationale&quot;: &quot;The selected comparison is stable to a newly published preview.&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Model optionality and additive properties directly match the changed contracts.&quot;
       },
       {
         &quot;rank&quot;: 5,
@@ -831,12 +831,12 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Versioning category applies, but the selected transition is preview after stable, not preview after preview.&quot;
+        &quot;selectionRationale&quot;: &quot;Versioning category applies, but the latest baseline is stable rather than preview.&quot;
       },
       {
         &quot;rank&quot;: 6,
@@ -845,12 +845,12 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Versioning category applies, but this change adds a preview rather than a stable version.&quot;
+        &quot;selectionRationale&quot;: &quot;Versioning category applies, but this PR is not a preview-to-stable promotion.&quot;
       },
       {
         &quot;rank&quot;: 7,
@@ -859,12 +859,12 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Versioning category applies, but this is not a stable-after-stable transition.&quot;
+        &quot;selectionRationale&quot;: &quot;Versioning category applies, but the new version is preview rather than stable.&quot;
       },
       {
         &quot;rank&quot;: 8,
@@ -873,239 +873,141 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The changed ConnectedRegistry is an ARM resource model, though no new resource type is introduced.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM resource context is relevant, but the bounded assessed edit restores operations rather than defining a new resource kind.&quot;
       },
       {
         &quot;rank&quot;: 9,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Managed identity uses an ARM common model property, making common-type modeling relevant.&quot;
-      },
-      {
-        &quot;rank&quot;: 10,
-        &quot;catalogOrder&quot;: 22,
-        &quot;title&quot;: &quot;Enums&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 3
-        },
-        &quot;selectionRationale&quot;: &quot;Enum guidance is category-relevant to the new AuthType value set, represented as a union.&quot;
-      },
-      {
-        &quot;rank&quot;: 11,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 3
-        },
-        &quot;selectionRationale&quot;: &quot;Decorator guidance is relevant to @added, @@added, @@doc, and @madeOptional usage.&quot;
-      },
-      {
-        &quot;rank&quot;: 12,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 3
-        },
-        &quot;selectionRationale&quot;: &quot;Built-in decorator guidance is relevant to documentation and visibility decorators.&quot;
-      },
-      {
-        &quot;rank&quot;: 13,
         &quot;catalogOrder&quot;: 8,
         &quot;title&quot;: &quot;Specific extension resource sample&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM-specific document, but no extension resource pattern is changed.&quot;
+        &quot;selectionRationale&quot;: &quot;The list has resource-group scope, but the edit does not define a specific-extension resource.&quot;
       },
       {
-        &quot;rank&quot;: 14,
+        &quot;rank&quot;: 10,
         &quot;catalogOrder&quot;: 9,
         &quot;title&quot;: &quot;Private endpoints&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM-specific document, but private endpoints are unrelated.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches; no private endpoint is changed.&quot;
       },
       {
-        &quot;rank&quot;: 15,
+        &quot;rank&quot;: 11,
         &quot;catalogOrder&quot;: 10,
         &quot;title&quot;: &quot;Private links&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM-specific document, but private links are unrelated.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches; no private link is changed.&quot;
       },
       {
-        &quot;rank&quot;: 16,
+        &quot;rank&quot;: 12,
         &quot;catalogOrder&quot;: 11,
         &quot;title&quot;: &quot;Network security perimeter&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM-specific document, but network security perimeter behavior is unrelated.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches; no network security perimeter is changed.&quot;
       },
       {
-        &quot;rank&quot;: 17,
+        &quot;rank&quot;: 13,
         &quot;catalogOrder&quot;: 12,
         &quot;title&quot;: &quot;ARM resource operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM operations are affected indirectly, but no operation template is added or changed.&quot;
+        &quot;selectionRationale&quot;: &quot;New ARM actions and a restored resource read match the operation category.&quot;
       },
       {
-        &quot;rank&quot;: 18,
+        &quot;rank&quot;: 14,
         &quot;catalogOrder&quot;: 13,
         &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM interface reference is plane-relevant but no interface signature is changed.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM interface templates are relevant to resource operation additions, but no exact template is named in the catalog description.&quot;
       },
       {
-        &quot;rank&quot;: 19,
+        &quot;rank&quot;: 15,
         &quot;catalogOrder&quot;: 14,
         &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Resource semantics are plane-relevant, but no lifecycle decorator changes.&quot;
+        &quot;selectionRationale&quot;: &quot;Shared resource/action semantics are relevant; catalog-listed resource decorators are not the exact changed decorators.&quot;
       },
       {
-        &quot;rank&quot;: 20,
+        &quot;rank&quot;: 16,
         &quot;catalogOrder&quot;: 15,
         &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM decorators are plane-relevant, but no ARM lifecycle decorator changes.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM lifecycle context applies, but catalog-listed lifecycle decorators are not directly edited.&quot;
       },
       {
-        &quot;rank&quot;: 21,
+        &quot;rank&quot;: 17,
         &quot;catalogOrder&quot;: 16,
         &quot;title&quot;: &quot;ARM long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM LRO guidance is plane-relevant, but LRO behavior is unchanged.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM LROs appear in aggregate evidence, but the assessed hunks do not change their polling protocol.&quot;
       },
       {
-        &quot;rank&quot;: 22,
-        &quot;catalogOrder&quot;: 18,
-        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM data types are plane-relevant, but paging parameters are unchanged.&quot;
-      },
-      {
-        &quot;rank&quot;: 23,
-        &quot;catalogOrder&quot;: 27,
-        &quot;title&quot;: &quot;Change provider namespace&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM-specific document, but provider namespace is unchanged.&quot;
-      },
-      {
-        &quot;rank&quot;: 24,
-        &quot;catalogOrder&quot;: 28,
-        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM-specific document, but portal default experiences are unchanged.&quot;
-      },
-      {
-        &quot;rank&quot;: 25,
+        &quot;rank&quot;: 18,
         &quot;catalogOrder&quot;: 17,
         &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
@@ -1116,10 +1018,24 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No Azure.Core LRO construct changes.&quot;
+        &quot;selectionRationale&quot;: &quot;LRO category overlaps; the operations use the ARM service plane, not Azure.Core data-plane LRO authoring.&quot;
       },
       {
-        &quot;rank&quot;: 26,
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;ARM paging applies, but the changed list does not add ArmTopParameter or ArmSkipParameter.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
         &quot;catalogOrder&quot;: 19,
         &quot;title&quot;: &quot;TypeSpec pagination&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
@@ -1130,10 +1046,38 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No data-plane paging changes.&quot;
+        &quot;selectionRationale&quot;: &quot;No paging behavior is changed.&quot;
       },
       {
-        &quot;rank&quot;: 27,
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but the assessed intents do not author common-type definitions.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Enum concepts overlap with Python member naming; the edit is SDK customization, not wire-value design.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
         &quot;catalogOrder&quot;: 23,
         &quot;title&quot;: &quot;Scalars&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
@@ -1144,10 +1088,38 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No scalar declaration changes.&quot;
+        &quot;selectionRationale&quot;: &quot;Scalar types overlap with the UUID override, but no scalar declaration is authored.&quot;
       },
       {
-        &quot;rank&quot;: 28,
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Augment decorators are edited; this shared language page is not specific to the changed SDK customization semantics.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The added @@doc is a built-in decorator use, but catalog metadata does not name its exact symbol.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
         &quot;catalogOrder&quot;: 26,
         &quot;title&quot;: &quot;OpenAPI decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
@@ -1158,7 +1130,35 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No OpenAPI decorator changes.&quot;
+        &quot;selectionRationale&quot;: &quot;No OpenAPI-specific decorator is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The ARM provider namespace is unchanged.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No Azure Portal customization is changed.&quot;
       },
       {
         &quot;rank&quot;: 29,
@@ -1172,7 +1172,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No content-negotiation changes.&quot;
+        &quot;selectionRationale&quot;: &quot;No content-negotiation behavior is changed.&quot;
       },
       {
         &quot;rank&quot;: 30,
@@ -1186,7 +1186,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;A suppression appears only as unchanged context and no directive is modified.&quot;
+        &quot;selectionRationale&quot;: &quot;The supplied changed hunks do not add or modify suppressions.&quot;
       },
       {
         &quot;rank&quot;: 31,
@@ -1200,56 +1200,12 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No OpenAPI-specific decorator or no-openapi suppression changes.&quot;
+        &quot;selectionRationale&quot;: &quot;No no-openapi suppression or OpenAPI decorator is changed.&quot;
       }
     ],
     &quot;documents&quot;: [
       {
         &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 7
-        },
-        &quot;selectionRationale&quot;: &quot;The title exactly names the changed model construct and covers optional properties and spreads.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Optional properties&quot;,
-            &quot;excerpt&quot;: &quot;Properties can be designated as optional by using the `?` symbol.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;optional properties&quot;,
-              &quot;?&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;model Dog { address?: string; }&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-04225dbdf8a1edce&quot;,
-              &quot;declaration-2c663ccf6ff77f22&quot;,
-              &quot;declaration-6a5f13e5260c8aa8&quot;,
-              &quot;declaration-754365d59da6cb97&quot;,
-              &quot;declaration-8e9bbdf2dbff07ca&quot;,
-              &quot;declaration-977e75e83ca95530&quot;,
-              &quot;declaration-a3580b9744bdc016&quot;,
-              &quot;declaration-b3acf2c92bc7098c&quot;,
-              &quot;declaration-c84eceaed26b2c01&quot;,
-              &quot;declaration-ca6bfe4f4e2ee893&quot;,
-              &quot;declaration-d689a8fedbe1bc56&quot;,
-              &quot;declaration-dcfd57f6d12a9ef3&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T09:29:24.933130Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:ce59d49ad08316da6a22a195e87542ab027a78b7c10ff579f85648db8eb03522&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 1,
         &quot;title&quot;: &quot;Evolving APIs&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
@@ -1260,81 +1216,38 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Primary versioning guidance governs added and modified properties in an existing ARM API.&quot;,
+        &quot;selectionRationale&quot;: &quot;Preview-scoped model and property changes are governed by evolving API guidance.&quot;,
         &quot;guidance&quot;: [
           {
-            &quot;section&quot;: &quot;Versioning Spread-In Properties with Augment Decorators&quot;,
-            &quot;excerpt&quot;: &quot;When a model is spread into a resource, its properties are introduced into all API versions; use an `@@added` augment to introduce the spread-in property only in a specific version.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;spread-in&quot;,
-              &quot;@@added&quot;,
-              &quot;ManagedServiceIdentityProperty&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;@@added(Employee.identity, Versions.v2);&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-87f14ed9ec4ae5ca&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;@madeRequired and @madeOptional&quot;,
-            &quot;excerpt&quot;: &quot;Use `@madeOptional(Versions.version)` to make a property optional starting in that version.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@madeOptional&quot;,
-              &quot;optional&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;@madeOptional(Versions.v2) movingStatus?: string;&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-04225dbdf8a1edce&quot;,
-              &quot;declaration-2c663ccf6ff77f22&quot;,
-              &quot;declaration-6a5f13e5260c8aa8&quot;,
-              &quot;declaration-754365d59da6cb97&quot;,
-              &quot;declaration-8e9bbdf2dbff07ca&quot;,
-              &quot;declaration-977e75e83ca95530&quot;,
-              &quot;declaration-a3580b9744bdc016&quot;,
-              &quot;declaration-b3acf2c92bc7098c&quot;,
-              &quot;declaration-c84eceaed26b2c01&quot;,
-              &quot;declaration-ca6bfe4f4e2ee893&quot;,
-              &quot;declaration-d689a8fedbe1bc56&quot;,
-              &quot;declaration-dcfd57f6d12a9ef3&quot;
-            ]
-          },
-          {
             &quot;section&quot;: &quot;Versioning Decorators&quot;,
-            &quot;excerpt&quot;: &quot;Use `@added` to add new models, properties, or operations in a specific version and later versions.&quot;,
+            &quot;excerpt&quot;: &quot;Add new models, properties, or operations in a specific version using the appropriate versioning decorators.&quot;,
             &quot;queryTerms&quot;: [
               &quot;@added&quot;,
-              &quot;properties&quot;,
-              &quot;versions&quot;
+              &quot;@madeOptional&quot;,
+              &quot;preview&quot;
             ],
-            &quot;examples&quot;: [
-              &quot;@added(Versions.v2) city?: string;&quot;
-            ],
+            &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
               &quot;declaration-04225dbdf8a1edce&quot;,
               &quot;declaration-2c663ccf6ff77f22&quot;,
+              &quot;declaration-3978469c27b71613&quot;,
               &quot;declaration-6a5f13e5260c8aa8&quot;,
-              &quot;declaration-754365d59da6cb97&quot;,
-              &quot;declaration-8e9bbdf2dbff07ca&quot;,
+              &quot;declaration-87f14ed9ec4ae5ca&quot;,
               &quot;declaration-977e75e83ca95530&quot;,
               &quot;declaration-a3580b9744bdc016&quot;,
               &quot;declaration-b3acf2c92bc7098c&quot;,
               &quot;declaration-c84eceaed26b2c01&quot;,
-              &quot;declaration-ca6bfe4f4e2ee893&quot;,
               &quot;declaration-d689a8fedbe1bc56&quot;,
               &quot;declaration-dcfd57f6d12a9ef3&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T09:29:24.933130Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:32c9f6040b49c3be0dc12eec2659541a52d04599a308d727319e4412452d7f3d&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:5bcd9f3d8f35ef4f7b5bc755389766c723d05200acf250eff4b3a815af65bfa3&quot;
       },
       {
-        &quot;rank&quot;: 3,
+        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 2,
         &quot;title&quot;: &quot;Versioning overview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
@@ -1345,39 +1258,38 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Versioning overview applies to the new ARM preview and version-gated changes.&quot;,
+        &quot;selectionRationale&quot;: &quot;The PR adds a new ARM preview after stable and uses versioning decorators.&quot;,
         &quot;guidance&quot;: [
           {
             &quot;section&quot;: &quot;Preview Versioning Rules for All Azure APIs&quot;,
-            &quot;excerpt&quot;: &quot;Keep a single active preview, make the last enum value the preview, and mark changes from the latest stable with versioning decorators that reference that preview.&quot;,
+            &quot;excerpt&quot;: &quot;Mark changes from the latest stable with appropriate versioning decorators using the preview version as the argument.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;active preview&quot;,
-              &quot;versioning decorators&quot;,
-              &quot;latest stable&quot;
+              &quot;latest stable&quot;,
+              &quot;preview&quot;,
+              &quot;versioning&quot;
             ],
             &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
               &quot;declaration-04225dbdf8a1edce&quot;,
               &quot;declaration-2c663ccf6ff77f22&quot;,
+              &quot;declaration-3978469c27b71613&quot;,
               &quot;declaration-6a5f13e5260c8aa8&quot;,
-              &quot;declaration-754365d59da6cb97&quot;,
-              &quot;declaration-8e9bbdf2dbff07ca&quot;,
+              &quot;declaration-87f14ed9ec4ae5ca&quot;,
               &quot;declaration-977e75e83ca95530&quot;,
               &quot;declaration-a3580b9744bdc016&quot;,
               &quot;declaration-b3acf2c92bc7098c&quot;,
               &quot;declaration-c84eceaed26b2c01&quot;,
-              &quot;declaration-ca6bfe4f4e2ee893&quot;,
               &quot;declaration-d689a8fedbe1bc56&quot;,
               &quot;declaration-dcfd57f6d12a9ef3&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T09:29:24.933130Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:1fd8c8887ff82c991c65319625062f8c3f7f087894501367c10af7c7ae9e74ff&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:5e72a1d09c1662bda04e0c31a0d6a8338c0f231c64d0c38f246431f0147027a2&quot;
       },
       {
-        &quot;rank&quot;: 4,
+        &quot;rank&quot;: 3,
         &quot;catalogOrder&quot;: 5,
         &quot;title&quot;: &quot;Add preview after stable&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
@@ -1388,50 +1300,94 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The project adds a preview version after the previous stable comparison version.&quot;,
+        &quot;selectionRationale&quot;: &quot;The selected comparison is stable to a newly published preview.&quot;,
         &quot;guidance&quot;: [
           {
             &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
-            &quot;excerpt&quot;: &quot;For a new preview after stable, add and mark the preview version, then mark added, renamed, removed, or otherwise modified types with the appropriate versioning decorators.&quot;,
+            &quot;excerpt&quot;: &quot;If types are added, renamed, or otherwise modified in the new preview, mark them with the appropriate versioning decorator.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;preview after stable&quot;,
-              &quot;@previewVersion&quot;,
-              &quot;versioning decorator&quot;
+              &quot;new preview&quot;,
+              &quot;@added&quot;,
+              &quot;@madeOptional&quot;
             ],
-            &quot;examples&quot;: [
-              &quot;@added(Versions.`2026-01-01-preview`) model Foo {}&quot;
-            ],
+            &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
               &quot;declaration-04225dbdf8a1edce&quot;,
               &quot;declaration-2c663ccf6ff77f22&quot;,
+              &quot;declaration-3978469c27b71613&quot;,
               &quot;declaration-6a5f13e5260c8aa8&quot;,
-              &quot;declaration-754365d59da6cb97&quot;,
               &quot;declaration-87f14ed9ec4ae5ca&quot;,
-              &quot;declaration-8e9bbdf2dbff07ca&quot;,
               &quot;declaration-977e75e83ca95530&quot;,
               &quot;declaration-a3580b9744bdc016&quot;,
               &quot;declaration-b3acf2c92bc7098c&quot;,
               &quot;declaration-c84eceaed26b2c01&quot;,
-              &quot;declaration-ca6bfe4f4e2ee893&quot;,
               &quot;declaration-d689a8fedbe1bc56&quot;,
               &quot;declaration-dcfd57f6d12a9ef3&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T09:29:24.933130Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:6a716ecef8aaeb5b902146c2c53571896eca6a22f030cc612b0a25aae19cd176&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:c7d009412b378b059d4b354dd31ddb42a8f9232260779ddf689a870518feefc3&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Model optionality and additive properties directly match the changed contracts.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Optional properties&quot;,
+            &quot;excerpt&quot;: &quot;Properties can be designated as optional by using the ? symbol.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;optional properties&quot;,
+              &quot;tokenId&quot;,
+              &quot;identity&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;model Dog { address?: string; }&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-04225dbdf8a1edce&quot;,
+              &quot;declaration-2c663ccf6ff77f22&quot;,
+              &quot;declaration-6a5f13e5260c8aa8&quot;,
+              &quot;declaration-87f14ed9ec4ae5ca&quot;,
+              &quot;declaration-977e75e83ca95530&quot;,
+              &quot;declaration-a3580b9744bdc016&quot;,
+              &quot;declaration-b3acf2c92bc7098c&quot;,
+              &quot;declaration-c84eceaed26b2c01&quot;,
+              &quot;declaration-d689a8fedbe1bc56&quot;,
+              &quot;declaration-dcfd57f6d12a9ef3&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:1a90dd13f99521e5c806072a6285307119be6bdca67a6ea6bc66534d79e329ab&quot;
       }
     ]
   },
   &quot;intentAssessments&quot;: [
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-76038a2122aeff36&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-09bbfa99ea51d07a&quot;,
       &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     },
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-779c7d5a4160ed59&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-cb0517db7d695a90&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-cb3d798199346ea5&quot;,
       &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     }
@@ -1442,33 +1398,34 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp</code> (committed)</li><li><code>specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.tsp</code> (committed)</li><li><code>specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/main.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 2038,
-    &quot;fetchMs&quot;: 6031,
-    &quot;scopeDiscoveryMs&quot;: 101,
-    &quot;setupExcludingFetchMs&quot;: 11937,
-    &quot;comparisonMs&quot;: 223,
-    &quot;changeDiscoveryMs&quot;: 182,
-    &quot;workspacePreparationMs&quot;: 8808,
-    &quot;projectDiscoveryMs&quot;: 144,
-    &quot;totalMs&quot;: 294085,
-    &quot;semanticAnalysisMs&quot;: 417,
-    &quot;restAnalysisMs&quot;: 161,
-    &quot;downstreamAnalysisMs&quot;: 3944,
+    &quot;metadataMs&quot;: 1890,
+    &quot;fetchMs&quot;: 129,
+    &quot;scopeDiscoveryMs&quot;: 65,
+    &quot;setupExcludingFetchMs&quot;: 10998,
+    &quot;comparisonMs&quot;: 103,
+    &quot;changeDiscoveryMs&quot;: 75,
+    &quot;workspacePreparationMs&quot;: 8482,
+    &quot;projectDiscoveryMs&quot;: 179,
+    &quot;totalMs&quot;: 192371,
+    &quot;semanticAnalysisMs&quot;: 227,
+    &quot;restAnalysisMs&quot;: 71,
+    &quot;downstreamAnalysisMs&quot;: 2345,
+    &quot;semanticContextPolicyMs&quot;: 375,
     &quot;documentQualityAnalysisMs&quot;: 1
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;small&quot;,
     &quot;budgetBytes&quot;: 131072,
-    &quot;bytes&quot;: 48753,
-    &quot;estimatedTokens&quot;: 12189,
+    &quot;bytes&quot;: 54205,
+    &quot;estimatedTokens&quot;: 13552,
     &quot;retained&quot;: {
-      &quot;evidenceSets&quot;: 5,
+      &quot;evidenceSets&quot;: 7,
       &quot;facts&quot;: 13,
-      &quot;semanticReviewUnits&quot;: 2,
+      &quot;semanticReviewUnits&quot;: 3,
       &quot;restCandidates&quot;: 0,
       &quot;downstreamCandidates&quot;: 1,
       &quot;downstreamRootCauses&quot;: 1,
-      &quot;complianceSearchRequests&quot;: 2,
+      &quot;complianceSearchRequests&quot;: 3,
       &quot;inferenceRequests&quot;: 3
     },
     &quot;omittedRedundant&quot;: {
@@ -1477,6 +1434,7 @@ body {
       &quot;unchangedInventories&quot;: true,
       &quot;unreferencedFacts&quot;: true,
       &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;restCandidateEvidenceFacts&quot;: false,
       &quot;sourceChanges&quot;: true,
       &quot;repeatedDeclarationIds&quot;: true,
       &quot;repeatedReviewUnitEvidence&quot;: true
@@ -1490,13 +1448,13 @@ body {
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 1320,
-      &quot;guidanceExcerptsRetained&quot;: 6,
-      &quot;guidanceExcerptBytesRetained&quot;: 771
+      &quot;documentBytesFetched&quot;: 682970,
+      &quot;guidanceExcerptsRetained&quot;: 4,
+      &quot;guidanceExcerptBytesRetained&quot;: 411
     }
   }
 }</pre>
-<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+<p><strong>Provenance:</strong> 2, model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
 </main>
 <script>
 function revealHashTarget() {
