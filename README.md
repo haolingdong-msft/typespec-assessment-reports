@@ -1,11 +1,13 @@
 # TypeSpec Assessment Reports
 
-Static GitHub Pages dashboard for 30 Azure REST API specification assessments used in the Python SDK regeneration experiment.
+Static GitHub Pages dashboard for 31 Azure REST API specification assessments: the original 30-case Python SDK regeneration experiment and one attribution-driven addition.
 
 - 20 cases with observed Python SDK AutoPR regeneration
 - 10 cases without observed regeneration in the October 8, 2026 snapshot
 - Each dashboard row includes the PR merge date, a release-plan link, and explicit SDK regeneration, assessed SDK breaking-change, and GitHub SDK breaking-change label flags
 - Each report includes rendered HTML and structured `assessment.json`
+
+The additional [assessment for Azure/azure-rest-api-specs#44288](https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288/) investigates the earlier PR that introduced required `clusterName` on HorizonDB private endpoint update/delete. Its release-plan and regeneration associations remain unverified and are displayed as such, not copied from the later PR's SDK release. It is outside the original sample and does not change the original 20/10 sampling split.
 
 The SDK breaking-change label flag is `Yes` when the PR has one or more language-specific `BreakingChange-*-Sdk` labels, including approved variants.
 
