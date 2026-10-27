@@ -626,7 +626,7 @@ body {
 <p class="hero-meta">TypeSpec source diff: <code>4df35c8e76875cb6c056193f2421756a1cd57a1a</code> → <code>bdd551d79cf0026bc9476f44a5ee5bcc94fefe27</code></p>
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">2 intents<br>24 operations<br>0 Added, 2 Modified, 0 Removed</div></a>
-<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>2/2 intents assessed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">1 finding<br>2/2 intents assessed</div></a>
 <a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
 <a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">0 findings</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>0 declarations checked</div></a>
@@ -635,7 +635,19 @@ body {
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">2 intents · 0 added · 2 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-baf12b5d92fe5756"><summary><div class="report-card-title"><strong>Add the planned promotion option in the preview</strong><small>Add Planned as a preview-scoped PromoteOption value for the Mongo cluster promotion operation. Existing options and operation signatures remain available.</small></div><div class="report-badges"><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp</div><pre><span class="context"> </span>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">1 findings</span></div></div><p class="report-small">2 of 2 semantic intents assessed · 4 documents selected</p><details class="report-card compliance-finding"><summary><div class="report-card-title"><strong>The new preview version lacks @previewVersion</strong><small>Both the general preview rules and the directly matching stable-to-preview instructions require the decorator. The new version string and its chronological placement are present, but the added enum member omits this required preview marker. This Guidelines finding is independent of REST and SDK compatibility.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-2779be869e5e1ef9">Publish the 2026-06-15-preview MongoCluster API version</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><div class="report-guideline-section expected-details"><h3>Expected</h3><p>Declare the new preview after the stable version and decorate the new preview enum member with Azure.Core.previewVersion.</p><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview — Preview Versioning Rules for All Azure APIs</a><blockquote>*   Always make the last enum value the preview and apply `@previewVersion` to it.
+*   Only one version may be marked with the `@previewVersion` decorator.
+*   Mark all changes from the latest stable with appropriate versioning decorators, using `Versions.&lt;PreviewVersion&gt;` as the version argument (where `&lt;PreviewVersion&gt;` is the name of the last enum value)</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable — Making Changes to your TypeSpec spec</a><blockquote>Decorate this version with the `@previewVersion` decorator from the `Azure.Core` library</blockquote></div></div><div class="report-guideline-section actual-details"><h3>Actual</h3><div class="report-type-impact" id="compliance-finding-compliance-62e0c524b9679afc"><p>The complete added member is a documentation comment followed by v2026_06_15_preview: &quot;2026-06-15-preview&quot;; no @previewVersion decorator is added.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp#L27-L60">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp:26-60</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp#L27-L60">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp:26-60</a></div><pre><span class="add"><span class="line-number">26</span>+</span>
+<span class="add"><span class="line-number">27</span>+  /** Azure Cosmos DB for Mongo vCore clusters api version 2026-06-15-preview. */</span>
+<span class="add"><span class="line-number">28</span>+  v2026_06_15_preview: &quot;2026-06-15-preview&quot;,</span></pre></div></div></div></div></details></section>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">2 intents · 0 added · 2 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-2779be869e5e1ef9"><summary><div class="report-card-title"><strong>Publish the 2026-06-15-preview MongoCluster API version</strong><small>Add 2026-06-15-preview to Versions after 2026-06-01 and propagate that version across the MongoCluster management surface. The supplied comparison identifies 23 equivalent operation pairs and one differing pair; the Planned promotion option remains independently owned by the MongoCluster.tsp intent.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-62e0c524b9679afc">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span><span class="report-badge">carry-over 23</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 24 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>property-contract</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp</div><pre><span class="context"> </span>
+<span class="context">   /** Azure Cosmos DB for Mongo vCore clusters api version 2026-06-01. */</span>
+<span class="context">   v2026_06_01: &quot;2026-06-01&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  /** Azure Cosmos DB for Mongo vCore clusters api version 2026-06-15-preview. */</span>
+<span class="add">+  v2026_06_15_preview: &quot;2026-06-15-preview&quot;,</span>
+<span class="context"> }</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp#L27-L60">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp:26</a></p></details><details class="report-subdetails" id="intent-semantic-2779be869e5e1ef9-operations"><summary>Affected operations (24)</summary><p class="report-small">Showing 10 operation cards; the remaining 14 are listed below.</p><details class="operation"><summary><strong>FirewallRules_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FirewallRules_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FirewallRules_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FirewallRules_ListByMongoCluster</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_CheckNameAvailability</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/checkMongoClusterNameAvailability</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/mongoClusters</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (14)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/listConnectionStrings">MongoClusters_ListConnectionStrings (POST, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote">MongoClusters_Promote (POST, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}">MongoClusters_Update (PATCH, 2026-06-15-preview)</span>; <span title="/providers/Microsoft.DocumentDB/operations">Operations_List (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections/{privateEndpointConnectionName}">PrivateEndpointConnections_Create (PUT, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections/{privateEndpointConnectionName}">PrivateEndpointConnections_Delete (DELETE, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections/{privateEndpointConnectionName}">PrivateEndpointConnections_Get (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections">PrivateEndpointConnections_ListByMongoCluster (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateLinkResources">PrivateLinks_ListByMongoCluster (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/replicas">Replicas_ListByParent (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/users/{userName}">Users_CreateOrUpdate (PUT, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/users/{userName}">Users_Delete (DELETE, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/users/{userName}">Users_Get (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/users">Users_ListByMongoCluster (GET, 2026-06-15-preview)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-b5c7ce441731ad50"><summary><div class="report-card-title"><strong>Add the preview-gated Planned promotion option</strong><small>Extend PromoteOption with Planned beginning in 2026-06-15-preview. The source describes waiting for a replica to catch up before promotion to avoid data loss, and the supplied mapping associates this option with MongoClusters_Promote. The version decorator controls this feature&#39;s applicability; it does not make the feature a publication change. Resource lifecycle templates are not included in the bounded evidence.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:MongoCluster</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>PromoteOption</code></td><td>type</td><td>modify</td><td>version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp</div><pre><span class="context"> </span>
 <span class="context">   /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */</span>
 <span class="context">   &quot;Forced&quot;,</span>
 <span class="add">+</span>
@@ -645,15 +657,7 @@ body {
 <span class="context"> }</span>
 <span class="context"> </span>
 <span class="context"> /** The mode to apply to a promote operation. */</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp:429</a></p></details><details class="report-subdetails" id="intent-semantic-baf12b5d92fe5756-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>MongoClusters_Promote</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-f50bc78a1e31ccd0"><summary><div class="report-card-title"><strong>Publish the 2026-06-15 preview</strong><small>Add the 2026-06-15-preview API after the 2026-06-01 stable API, with only the planned promotion option differing across the compared projections.</small></div><div class="report-badges"><span class="report-badge modify">modify</span><span class="report-badge">versioning</span><span class="report-badge">carry-over 23</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp</div><pre><span class="context"> </span>
-<span class="context">   /** Azure Cosmos DB for Mongo vCore clusters api version 2026-06-01. */</span>
-<span class="context">   v2026_06_01: &quot;2026-06-01&quot;,</span>
-<span class="add">+</span>
-<span class="add">+  /** Azure Cosmos DB for Mongo vCore clusters api version 2026-06-15-preview. */</span>
-<span class="add">+  v2026_06_15_preview: &quot;2026-06-15-preview&quot;,</span>
-<span class="context"> }</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp#L27-L60">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp:26</a></p></details><details class="report-subdetails" id="intent-semantic-f50bc78a1e31ccd0-operations"><summary>Affected operations (24)</summary><p class="report-small">Showing 10 operation cards; the remaining 14 are listed below.</p><details class="operation"><summary><strong>FirewallRules_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FirewallRules_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FirewallRules_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules/{firewallRuleName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FirewallRules_ListByMongoCluster</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/firewallRules</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_CheckNameAvailability</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/checkMongoClusterNameAvailability</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/mongoClusters</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>MongoClusters_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (14)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/listConnectionStrings">MongoClusters_ListConnectionStrings (POST, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote">MongoClusters_Promote (POST, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}">MongoClusters_Update (PATCH, 2026-06-15-preview)</span>; <span title="/providers/Microsoft.DocumentDB/operations">Operations_List (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections/{privateEndpointConnectionName}">PrivateEndpointConnections_Create (PUT, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections/{privateEndpointConnectionName}">PrivateEndpointConnections_Delete (DELETE, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections/{privateEndpointConnectionName}">PrivateEndpointConnections_Get (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateEndpointConnections">PrivateEndpointConnections_ListByMongoCluster (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/privateLinkResources">PrivateLinks_ListByMongoCluster (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/replicas">Replicas_ListByParent (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/users/{userName}">Users_CreateOrUpdate (PUT, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/users/{userName}">Users_Delete (DELETE, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/users/{userName}">Users_Get (GET, 2026-06-15-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/users">Users_ListByMongoCluster (GET, 2026-06-15-preview)</span>.</p></div></details></div></details></section>
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">2 of 2 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440">specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp:429</a></p></details><details class="report-subdetails" id="intent-semantic-b5c7ce441731ad50-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>MongoClusters_Promote</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote</code><span>2026-06-15-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details></section>
 <section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
 <section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 0 declarations checked</p></section>
@@ -661,8 +665,8 @@ body {
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster</code></td><td>new-api-version</td><td><code>bdd551d79cf0026bc9476f44a5ee5bcc94fefe27@2026-06-01</code><br><small>current · previous-latest-stable</small></td><td><code>bdd551d79cf0026bc9476f44a5ee5bcc94fefe27@2026-06-15-preview</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/44557">#44557</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
-  &quot;status&quot;: &quot;passed&quot;,
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/">Add preview after preview</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;failed&quot;,
   &quot;coverage&quot;: {
     &quot;semanticIntentCount&quot;: 2,
     &quot;assessedIntentCount&quot;: 2,
@@ -683,7 +687,7 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
+        &quot;selectionRationale&quot;: &quot;Primary guidance for additive changes to an existing versioned ARM API and the version applicability of the new promotion option.&quot;
       },
       {
         &quot;rank&quot;: 2,
@@ -697,7 +701,7 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
+        &quot;selectionRationale&quot;: &quot;Version enum ordering and active-preview rules govern the new preview after the latest stable ARM API.&quot;
       },
       {
         &quot;rank&quot;: 3,
@@ -711,206 +715,346 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
+        &quot;selectionRationale&quot;: &quot;Directly matches adding 2026-06-15-preview after the latest stable 2026-06-01 ARM API.&quot;
       },
       {
         &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Related ARM preview-versioning category, but preview-after-preview is not the supplied stable-to-preview transition.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Related versioning category for ARM APIs, but this change does not promote a preview to stable.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Related ARM versioning category, but the new version is preview rather than stable.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Models-and-enums category and ARM plane overlap, but common-type definitions and their versions do not change.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;ARM decorator category overlaps; @armProviderNamespace is contextual and unchanged, so it earns no exact-changed-symbol signal.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;ARM decorator category overlaps; no portal experience changes are supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
         &quot;catalogOrder&quot;: 21,
         &quot;title&quot;: &quot;Models&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
-      },
-      {
-        &quot;rank&quot;: 5,
-        &quot;catalogOrder&quot;: 3,
-        &quot;title&quot;: &quot;Add preview after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
           &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 3
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Models-and-enums category overlaps; no model shape or property is changed.&quot;
       },
       {
-        &quot;rank&quot;: 6,
-        &quot;catalogOrder&quot;: 4,
-        &quot;title&quot;: &quot;Add stable after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
+          &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 3
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Enum category matches Versions and the enum-like promotion choice, but generic enum syntax is less specific than version-transition guidance.&quot;
       },
       {
-        &quot;rank&quot;: 7,
-        &quot;catalogOrder&quot;: 6,
-        &quot;title&quot;: &quot;Add stable after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
+          &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 3
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Models-and-enums catalog category overlaps; no reusable scalar definition changes.&quot;
       },
       {
-        &quot;rank&quot;: 8,
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 3
+        },
+        &quot;selectionRationale&quot;: &quot;Decorator category matches @added, but generic decorator application is less specific than versioning guidance.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 3
+        },
+        &quot;selectionRationale&quot;: &quot;Decorator category matches, but no built-in visibility or constraint decorator changes.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 3
+        },
+        &quot;selectionRationale&quot;: &quot;Decorator category overlaps, but no OpenAPI-specific decorator changes.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 3
+        },
+        &quot;selectionRationale&quot;: &quot;Decorator category overlaps, but data-plane content negotiation is not changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
         &quot;catalogOrder&quot;: 7,
         &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches; neither source-owned change introduces or remodels a resource type.&quot;
       },
       {
-        &quot;rank&quot;: 9,
+        &quot;rank&quot;: 18,
         &quot;catalogOrder&quot;: 8,
         &quot;title&quot;: &quot;Specific extension resource sample&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no extension-resource template changes are supplied.&quot;
       },
       {
-        &quot;rank&quot;: 10,
+        &quot;rank&quot;: 19,
         &quot;catalogOrder&quot;: 9,
         &quot;title&quot;: &quot;Private endpoints&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Private endpoints occur only in the propagated operation inventory, not as changed resource constructs.&quot;
       },
       {
-        &quot;rank&quot;: 11,
+        &quot;rank&quot;: 20,
         &quot;catalogOrder&quot;: 10,
         &quot;title&quot;: &quot;Private links&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Private links occur only in the propagated inventory; no private-link design changes are supplied.&quot;
       },
       {
-        &quot;rank&quot;: 12,
+        &quot;rank&quot;: 21,
         &quot;catalogOrder&quot;: 11,
         &quot;title&quot;: &quot;Network security perimeter&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no network security perimeter construct changes are supplied.&quot;
       },
       {
-        &quot;rank&quot;: 13,
+        &quot;rank&quot;: 22,
         &quot;catalogOrder&quot;: 12,
         &quot;title&quot;: &quot;ARM resource operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;The feature modifies a union choice, not an ARM operation or lifecycle template.&quot;
       },
       {
-        &quot;rank&quot;: 14,
+        &quot;rank&quot;: 23,
         &quot;catalogOrder&quot;: 13,
         &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches; operation template signatures are not changed or supplied as source evidence.&quot;
       },
       {
-        &quot;rank&quot;: 15,
+        &quot;rank&quot;: 24,
         &quot;catalogOrder&quot;: 14,
         &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Resource semantics can apply to ARM, but no resource-association or lifecycle decorator is changed.&quot;
       },
       {
-        &quot;rank&quot;: 16,
+        &quot;rank&quot;: 25,
         &quot;catalogOrder&quot;: 15,
         &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no ARM lifecycle-role decorator changes are supplied.&quot;
       },
       {
-        &quot;rank&quot;: 17,
+        &quot;rank&quot;: 26,
         &quot;catalogOrder&quot;: 16,
         &quot;title&quot;: &quot;ARM long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no polling or asynchronous operation contract changes are supplied.&quot;
       },
       {
-        &quot;rank&quot;: 18,
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches; no paging parameter or paging template changes are supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
         &quot;catalogOrder&quot;: 17,
         &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
@@ -921,24 +1065,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Data-plane LRO patterns do not match these ARM version and union changes.&quot;
       },
       {
-        &quot;rank&quot;: 19,
-        &quot;catalogOrder&quot;: 18,
-        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 20,
+        &quot;rank&quot;: 29,
         &quot;catalogOrder&quot;: 19,
         &quot;title&quot;: &quot;TypeSpec pagination&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
@@ -949,133 +1079,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 21,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 22,
-        &quot;catalogOrder&quot;: 22,
-        &quot;title&quot;: &quot;Enums&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 23,
-        &quot;catalogOrder&quot;: 23,
-        &quot;title&quot;: &quot;Scalars&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 24,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 25,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 26,
-        &quot;catalogOrder&quot;: 26,
-        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 27,
-        &quot;catalogOrder&quot;: 27,
-        &quot;title&quot;: &quot;Change provider namespace&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 28,
-        &quot;catalogOrder&quot;: 28,
-        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 29,
-        &quot;catalogOrder&quot;: 29,
-        &quot;title&quot;: &quot;Content negotiation&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;No data-plane pagination constructs change.&quot;
       },
       {
         &quot;rank&quot;: 30,
@@ -1089,7 +1093,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;No warning suppression or directive changes are supplied.&quot;
       },
       {
         &quot;rank&quot;: 31,
@@ -1103,7 +1107,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;No OpenAPI decorator warning or suppression changes are supplied.&quot;
       }
     ],
     &quot;documents&quot;: [
@@ -1119,26 +1123,25 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
+        &quot;selectionRationale&quot;: &quot;Primary guidance for additive changes to an existing versioned ARM API and the version applicability of the new promotion option.&quot;,
         &quot;guidance&quot;: [
           {
             &quot;section&quot;: &quot;Versioning Decorators&quot;,
-            &quot;excerpt&quot;: &quot;Add new models, properties, or operations in a specific version using the appropriate versioning decorators.&quot;,
+            &quot;excerpt&quot;: &quot;You can add new models, properties, or operations in a specific version and all subsequent versions using the `@added` decorator.\n\n*   The `version` argument is the version where the element is introduced.\n*   The element will be present in that version and all later versions.&quot;,
             &quot;queryTerms&quot;: [
               &quot;@added&quot;,
-              &quot;@madeOptional&quot;,
-              &quot;preview&quot;
+              &quot;PromoteOption&quot;,
+              &quot;2026-06-15-preview&quot;
             ],
             &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-a819d45489ba4a99&quot;,
               &quot;declaration-be711e430feb7ab2&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:5bcd9f3d8f35ef4f7b5bc755389766c723d05200acf250eff4b3a815af65bfa3&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-27T04:31:02.385Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2&quot;
       },
       {
         &quot;rank&quot;: 2,
@@ -1152,15 +1155,15 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
+        &quot;selectionRationale&quot;: &quot;Version enum ordering and active-preview rules govern the new preview after the latest stable ARM API.&quot;,
         &quot;guidance&quot;: [
           {
             &quot;section&quot;: &quot;Preview Versioning Rules for All Azure APIs&quot;,
-            &quot;excerpt&quot;: &quot;Mark changes from the latest stable with appropriate versioning decorators using the preview version as the argument.&quot;,
+            &quot;excerpt&quot;: &quot;*   Always make the last enum value the preview and apply `@previewVersion` to it.\n*   Only one version may be marked with the `@previewVersion` decorator.\n*   Mark all changes from the latest stable with appropriate versioning decorators, using `Versions.&lt;PreviewVersion&gt;` as the version argument (where `&lt;PreviewVersion&gt;` is the name of the last enum value)&quot;,
             &quot;queryTerms&quot;: [
-              &quot;latest stable&quot;,
-              &quot;preview&quot;,
-              &quot;versioning&quot;
+              &quot;Versions&quot;,
+              &quot;@previewVersion&quot;,
+              &quot;preview&quot;
             ],
             &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
@@ -1170,8 +1173,8 @@ body {
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:5e72a1d09c1662bda04e0c31a0d6a8338c0f231c64d0c38f246431f0147027a2&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-27T04:30:59.189Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:2aeadb30f0b22daa0b3aaed66c02786b479d3b63331dab61409d77f5b9452765&quot;
       },
       {
         &quot;rank&quot;: 3,
@@ -1185,71 +1188,54 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
+        &quot;selectionRationale&quot;: &quot;Directly matches adding 2026-06-15-preview after the latest stable 2026-06-01 ARM API.&quot;,
         &quot;guidance&quot;: [
           {
             &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
-            &quot;excerpt&quot;: &quot;If types are added, renamed, or otherwise modified in the new preview, mark them with the appropriate versioning decorator.&quot;,
+            &quot;excerpt&quot;: &quot;Decorate this version with the `@previewVersion` decorator from the `Azure.Core` library&quot;,
             &quot;queryTerms&quot;: [
-              &quot;new preview&quot;,
-              &quot;@added&quot;,
-              &quot;@madeOptional&quot;
+              &quot;Versions&quot;,
+              &quot;@previewVersion&quot;,
+              &quot;2026-06-15-preview&quot;
             ],
             &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-a819d45489ba4a99&quot;,
-              &quot;declaration-be711e430feb7ab2&quot;
+              &quot;declaration-a819d45489ba4a99&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:c7d009412b378b059d4b354dd31ddb42a8f9232260779ddf689a870518feefc3&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-27T04:31:01.315Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:de2ef952af27219ac5048ce94808b1d730c9631012c7a0f70650ade06533c0f8&quot;
       },
       {
         &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Optional properties&quot;,
-            &quot;excerpt&quot;: &quot;Properties can be designated as optional by using the ? symbol.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;optional properties&quot;,
-              &quot;tokenId&quot;,
-              &quot;identity&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;model Dog { address?: string; }&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-be711e430feb7ab2&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:1a90dd13f99521e5c806072a6285307119be6bdca67a6ea6bc66534d79e329ab&quot;
+        &quot;selectionRationale&quot;: &quot;Related ARM preview-versioning category, but preview-after-preview is not the supplied stable-to-preview transition.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-27T04:31:00.250Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:2c6251c4cd869659e0829dcd22161108ac268e2afd42999295057772b1d3f74d&quot;
       }
     ]
   },
   &quot;intentAssessments&quot;: [
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-baf12b5d92fe5756&quot;,
-      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-2779be869e5e1ef9&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
       &quot;blockers&quot;: []
     },
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-f50bc78a1e31ccd0&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-b5c7ce441731ad50&quot;,
       &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     }
@@ -1260,26 +1246,18 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp</code> (committed)</li><li><code>specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 3144,
-    &quot;fetchMs&quot;: 144,
-    &quot;scopeDiscoveryMs&quot;: 66,
-    &quot;setupExcludingFetchMs&quot;: 14635,
-    &quot;comparisonMs&quot;: 114,
-    &quot;changeDiscoveryMs&quot;: 91,
-    &quot;workspacePreparationMs&quot;: 10982,
-    &quot;projectDiscoveryMs&quot;: 40,
-    &quot;totalMs&quot;: 245741,
-    &quot;semanticAnalysisMs&quot;: 91,
-    &quot;restAnalysisMs&quot;: 39,
-    &quot;downstreamAnalysisMs&quot;: 1166,
-    &quot;semanticContextPolicyMs&quot;: 280,
-    &quot;documentQualityAnalysisMs&quot;: 1
+    &quot;semanticAnalysisMs&quot;: 148,
+    &quot;restAnalysisMs&quot;: 154,
+    &quot;downstreamAnalysisMs&quot;: 1483,
+    &quot;semanticContextPolicyMs&quot;: 331,
+    &quot;documentQualityAnalysisMs&quot;: 1,
+    &quot;replayAnalysisMs&quot;: 5206
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;small&quot;,
     &quot;budgetBytes&quot;: 131072,
-    &quot;bytes&quot;: 11008,
-    &quot;estimatedTokens&quot;: 2752,
+    &quot;bytes&quot;: 11018,
+    &quot;estimatedTokens&quot;: 2755,
     &quot;retained&quot;: {
       &quot;evidenceSets&quot;: 4,
       &quot;facts&quot;: 0,
@@ -1304,9 +1282,9 @@ body {
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 682970,
-      &quot;guidanceExcerptsRetained&quot;: 4,
-      &quot;guidanceExcerptBytesRetained&quot;: 411
+      &quot;documentBytesFetched&quot;: 33915,
+      &quot;guidanceExcerptsRetained&quot;: 3,
+      &quot;guidanceExcerptBytesRetained&quot;: 724
     }
   }
 }</pre>

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T12:29:24.449Z",
+  "generatedAt": "2026-10-27T04:32:23.116Z",
   "title": "TypeSpec assessment: specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster",
   "repository": {
     "root": "C:\\workspace\\azure-rest-api-specs",
@@ -78,7 +78,7 @@
       }
     }
   ],
-  "confidence": "medium",
+  "confidence": "high",
   "safety": {
     "scope": "rest-and-downstream-only",
     "status": "passed"
@@ -88,755 +88,14 @@
       "status": "assessed",
       "items": [
         {
-          "id": "semantic-baf12b5d92fe5756",
+          "id": "semantic-2779be869e5e1ef9",
           "projectId": "project-af97c3bfeee7",
           "projectIds": [
             "project-af97c3bfeee7"
           ],
           "action": "modify",
           "changeKind": "modify",
-          "classificationVersion": 2,
-          "changeFacts": [
-            {
-              "id": "semantic-change-340519897884170d",
-              "sourceChangeId": "source-31899288ad61385c",
-              "hunkIds": [
-                "hunk-ed5c5f66a26cc3ae"
-              ],
-              "declarationIds": [
-                "declaration-b8ef222ec662e4c9",
-                "declaration-be711e430feb7ab2"
-              ],
-              "beforeDeclarationIds": [
-                "declaration-b8ef222ec662e4c9"
-              ],
-              "afterDeclarationIds": [
-                "declaration-be711e430feb7ab2"
-              ],
-              "changeType": "versioning",
-              "declarationKind": "union",
-              "qualifiedName": "PromoteOption",
-              "action": "modify",
-              "facets": [
-                "version-activation"
-              ],
-              "evidenceRef": {
-                "artifact": "source/source-index.json",
-                "sourceChangeId": "source-31899288ad61385c",
-                "hunkIds": [
-                  "hunk-ed5c5f66a26cc3ae"
-                ],
-                "declarationIds": [
-                  "declaration-b8ef222ec662e4c9",
-                  "declaration-be711e430feb7ab2"
-                ]
-              }
-            }
-          ],
-          "changeTypes": [
-            "versioning"
-          ],
-          "sourceChangeIds": [
-            "source-31899288ad61385c"
-          ],
-          "hunkIds": [
-            "hunk-ed5c5f66a26cc3ae"
-          ],
-          "declarationIds": [
-            "declaration-b8ef222ec662e4c9",
-            "declaration-be711e430feb7ab2"
-          ],
-          "declarationNames": [
-            "PromoteOption"
-          ],
-          "ownedOperationIds": [
-            "MongoClusters_Promote"
-          ],
-          "versionTransitionOperationIds": [],
-          "sourceMappedOperationIds": [
-            "MongoClusters_Promote"
-          ],
-          "publicationEligibleOperationIds": [],
-          "operations": [
-            {
-              "operationId": "MongoClusters_Promote",
-              "beforeFactId": "operation-7d0dcf227bfb90ec",
-              "afterFactId": "operation-43aec11a0b27ba2a",
-              "restChanged": false,
-              "matchBasis": "compiler-reference",
-              "sourceChangeIds": [
-                "source-31899288ad61385c"
-              ],
-              "hunkIds": [
-                "hunk-ed5c5f66a26cc3ae"
-              ],
-              "declarationIds": [
-                "declaration-b8ef222ec662e4c9",
-                "declaration-be711e430feb7ab2"
-              ],
-              "apiVersion": "2026-06-15-preview",
-              "method": "post",
-              "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote",
-              "changedAspects": [],
-              "before": {
-                "id": "operation-7d0dcf227bfb90ec",
-                "projectId": "project-af97c3bfeee7",
-                "comparisonRole": "baseline",
-                "sourceRevision": "current",
-                "sourceCommit": "bdd551d79cf0026bc9476f44a5ee5bcc94fefe27",
-                "apiVersion": "2026-06-01",
-                "operationId": "MongoClusters_Promote",
-                "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote",
-                "method": "post",
-                "routeSource": "paths",
-                "parameters": [
-                  {
-                    "name": "mongoClusterName",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                      "kind": "scalar",
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "name": "ApiVersionParameter",
-                    "in": "unresolved",
-                    "required": false
-                  },
-                  {
-                    "name": "ResourceGroupNameParameter",
-                    "in": "unresolved",
-                    "required": false
-                  },
-                  {
-                    "name": "SubscriptionIdParameter",
-                    "in": "unresolved",
-                    "required": false
-                  }
-                ],
-                "request": {
-                  "kind": "body",
-                  "name": "body",
-                  "required": true,
-                  "schema": {
-                    "kind": "object",
-                    "reference": "stable/2026-06-01/mongoCluster.json#/definitions/PromoteReplicaRequest",
-                    "references": [
-                      "stable/2026-06-01/mongoCluster.json#/definitions/PromoteReplicaRequest"
-                    ],
-                    "properties": [
-                      {
-                        "name": "mode",
-                        "required": false,
-                        "schema": {
-                          "kind": "enum",
-                          "type": "string",
-                          "reference": "stable/2026-06-01/mongoCluster.json#/definitions/PromoteMode",
-                          "references": [
-                            "stable/2026-06-01/mongoCluster.json#/definitions/PromoteMode"
-                          ]
-                        }
-                      },
-                      {
-                        "name": "promoteOption",
-                        "required": true,
-                        "schema": {
-                          "kind": "enum",
-                          "type": "string",
-                          "reference": "stable/2026-06-01/mongoCluster.json#/definitions/PromoteOption",
-                          "references": [
-                            "stable/2026-06-01/mongoCluster.json#/definitions/PromoteOption"
-                          ]
-                        }
-                      }
-                    ]
-                  }
-                },
-                "responses": [
-                  {
-                    "status": "202",
-                    "headers": [
-                      {
-                        "name": "Location",
-                        "schema": {
-                          "kind": "scalar",
-                          "type": "string"
-                        }
-                      },
-                      {
-                        "name": "Retry-After",
-                        "schema": {
-                          "kind": "scalar",
-                          "type": "integer",
-                          "format": "int32"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "status": "default",
-                    "schema": {
-                      "kind": "reference",
-                      "ref": "specification/common-types/resource-management/v5/types.json#/definitions/ErrorResponse",
-                      "unresolved": true
-                    },
-                    "headers": []
-                  }
-                ],
-                "consumes": [
-                  "application/json"
-                ],
-                "produces": [
-                  "application/json"
-                ],
-                "lro": {
-                  "enabled": true,
-                  "options": {
-                    "final-state-via": "location"
-                  }
-                }
-              },
-              "after": {
-                "id": "operation-43aec11a0b27ba2a",
-                "projectId": "project-af97c3bfeee7",
-                "comparisonRole": "target",
-                "sourceRevision": "current",
-                "sourceCommit": "bdd551d79cf0026bc9476f44a5ee5bcc94fefe27",
-                "apiVersion": "2026-06-15-preview",
-                "operationId": "MongoClusters_Promote",
-                "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote",
-                "method": "post",
-                "routeSource": "paths",
-                "parameters": [
-                  {
-                    "name": "mongoClusterName",
-                    "in": "path",
-                    "required": true,
-                    "schema": {
-                      "kind": "scalar",
-                      "type": "string"
-                    }
-                  },
-                  {
-                    "name": "ApiVersionParameter",
-                    "in": "unresolved",
-                    "required": false
-                  },
-                  {
-                    "name": "ResourceGroupNameParameter",
-                    "in": "unresolved",
-                    "required": false
-                  },
-                  {
-                    "name": "SubscriptionIdParameter",
-                    "in": "unresolved",
-                    "required": false
-                  }
-                ],
-                "request": {
-                  "kind": "body",
-                  "name": "body",
-                  "required": true,
-                  "schema": {
-                    "kind": "object",
-                    "reference": "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteReplicaRequest",
-                    "references": [
-                      "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteReplicaRequest"
-                    ],
-                    "properties": [
-                      {
-                        "name": "mode",
-                        "required": false,
-                        "schema": {
-                          "kind": "enum",
-                          "type": "string",
-                          "reference": "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteMode",
-                          "references": [
-                            "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteMode"
-                          ]
-                        }
-                      },
-                      {
-                        "name": "promoteOption",
-                        "required": true,
-                        "schema": {
-                          "kind": "enum",
-                          "type": "string",
-                          "reference": "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteOption",
-                          "references": [
-                            "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteOption"
-                          ]
-                        }
-                      }
-                    ]
-                  }
-                },
-                "responses": [
-                  {
-                    "status": "202",
-                    "headers": [
-                      {
-                        "name": "Location",
-                        "schema": {
-                          "kind": "scalar",
-                          "type": "string"
-                        }
-                      },
-                      {
-                        "name": "Retry-After",
-                        "schema": {
-                          "kind": "scalar",
-                          "type": "integer",
-                          "format": "int32"
-                        }
-                      }
-                    ]
-                  },
-                  {
-                    "status": "default",
-                    "schema": {
-                      "kind": "reference",
-                      "ref": "specification/common-types/resource-management/v5/types.json#/definitions/ErrorResponse",
-                      "unresolved": true
-                    },
-                    "headers": []
-                  }
-                ],
-                "consumes": [
-                  "application/json"
-                ],
-                "produces": [
-                  "application/json"
-                ],
-                "lro": {
-                  "enabled": true,
-                  "options": {
-                    "final-state-via": "location"
-                  }
-                }
-              },
-              "outcome": "HTTP signature and represented payload contract unchanged.",
-              "sources": [
-                {
-                  "id": "source-31899288ad61385c",
-                  "path": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
-                  "status": "modified",
-                  "origins": [
-                    "committed"
-                  ],
-                  "hunks": [
-                    {
-                      "id": "hunk-ed5c5f66a26cc3ae",
-                      "base": {
-                        "startLine": 433,
-                        "endLine": 438
-                      },
-                      "current": {
-                        "startLine": 433,
-                        "endLine": 442
-                      },
-                      "lines": [
-                        " ",
-                        "   /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
-                        "   \"Forced\",",
-                        "+",
-                        "+  /** Promote option waits for the replica to be caught up to the primary before promoting, guaranteeing no data loss during the promotion. */",
-                        "+  @added(Microsoft.DocumentDB.Versions.v2026_06_15_preview)",
-                        "+  \"Planned\",",
-                        " }",
-                        " ",
-                        " /** The mode to apply to a promote operation. */",
-                        ""
-                      ]
-                    }
-                  ],
-                  "declarations": [
-                    {
-                      "id": "declaration-b8ef222ec662e4c9",
-                      "kind": "union",
-                      "qualifiedName": "PromoteOption",
-                      "decorators": [
-                        "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
-                      ],
-                      "versionedMembers": [
-                        "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
-                      ],
-                      "hunkIds": [
-                        "hunk-ed5c5f66a26cc3ae"
-                      ],
-                      "source": {
-                        "revision": "base",
-                        "startLine": 429,
-                        "endLine": 436,
-                        "link": "https://github.com/Azure/azure-rest-api-specs/blob/4df35c8e76875cb6c056193f2421756a1cd57a1a/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L436"
-                      },
-                      "compilerEvidence": {
-                        "kind": "semantic-type",
-                        "compilerTypeKind": "Union",
-                        "sourceFile": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
-                        "position": {
-                          "start": 15064,
-                          "end": 15416
-                        },
-                        "referencedNames": [
-                          "string"
-                        ]
-                      },
-                      "documentationPresent": true,
-                      "sourceSnippet": {
-                        "startLine": 429,
-                        "endLine": 436,
-                        "lines": [
-                          "/** The option to apply to a promote operation. */",
-                          "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)",
-                          "union PromoteOption {",
-                          "  string,",
-                          "",
-                          "  /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
-                          "  \"Forced\",",
-                          "}"
-                        ],
-                        "truncated": false
-                      }
-                    },
-                    {
-                      "id": "declaration-be711e430feb7ab2",
-                      "kind": "union",
-                      "qualifiedName": "PromoteOption",
-                      "decorators": [
-                        "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
-                      ],
-                      "versionedMembers": [
-                        "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
-                      ],
-                      "hunkIds": [
-                        "hunk-ed5c5f66a26cc3ae"
-                      ],
-                      "source": {
-                        "revision": "current",
-                        "startLine": 429,
-                        "endLine": 440,
-                        "link": "https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440"
-                      },
-                      "compilerEvidence": {
-                        "kind": "semantic-type",
-                        "compilerTypeKind": "Union",
-                        "sourceFile": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
-                        "position": {
-                          "start": 15064,
-                          "end": 15633
-                        },
-                        "referencedNames": [
-                          "string"
-                        ]
-                      },
-                      "documentationPresent": true,
-                      "sourceSnippet": {
-                        "startLine": 429,
-                        "endLine": 440,
-                        "lines": [
-                          "/** The option to apply to a promote operation. */",
-                          "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)",
-                          "union PromoteOption {",
-                          "  string,",
-                          "",
-                          "  /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
-                          "  \"Forced\",",
-                          "",
-                          "  /** Promote option waits for the replica to be caught up to the primary before promoting, guaranteeing no data loss during the promotion. */",
-                          "  @added(Microsoft.DocumentDB.Versions.v2026_06_15_preview)",
-                          "  \"Planned\",",
-                          "}"
-                        ],
-                        "truncated": false
-                      }
-                    }
-                  ],
-                  "documentEvidence": {
-                    "schemaVersion": 4,
-                    "status": "ready",
-                    "blockers": [],
-                    "declarations": [
-                      {
-                        "declarationId": "declaration-be711e430feb7ab2",
-                        "qualifiedName": "PromoteOption",
-                        "kind": "union",
-                        "newDeclaration": false,
-                        "documentationPresent": true,
-                        "source": {
-                          "revision": "current",
-                          "startLine": 429,
-                          "endLine": 440,
-                          "link": "https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440"
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          ],
-          "operationIds": [
-            "operation-43aec11a0b27ba2a"
-          ],
-          "beforeFactIds": [
-            "operation-7d0dcf227bfb90ec"
-          ],
-          "afterFactIds": [
-            "operation-43aec11a0b27ba2a"
-          ],
-          "changedAspects": [],
-          "groupingEvidence": {
-            "kind": "deterministic-coherent-change",
-            "reasons": [
-              "feature:MongoCluster"
-            ],
-            "memberHunkIds": [
-              "hunk-ed5c5f66a26cc3ae"
-            ]
-          },
-          "intentType": "normal",
-          "carryOverProof": {
-            "schemaVersion": 1,
-            "status": "partial",
-            "operations": [
-              {
-                "operationId": "MongoClusters_Promote",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-7d0dcf227bfb90ec",
-                "afterFactId": "operation-43aec11a0b27ba2a"
-              }
-            ],
-            "equivalentOperationIds": [],
-            "differentOperationIds": [
-              "MongoClusters_Promote"
-            ],
-            "unknownOperationIds": []
-          },
-          "contextPolicy": {
-            "schemaVersion": 1,
-            "rest": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-rest-scope",
-              "evidenceIds": []
-            },
-            "downstream": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-downstream-scope",
-              "evidenceIds": []
-            },
-            "guidelines": {
-              "mode": "agent",
-              "reason": "version-event-remains-guidelines-eligible"
-            },
-            "documentation": {
-              "mode": "deterministic",
-              "reason": "compiler-effective-documentation-check"
-            }
-          },
-          "title": "Add the planned promotion option in the preview",
-          "summary": "Add Planned as a preview-scoped PromoteOption value for the Mongo cluster promotion operation. Existing options and operation signatures remain available.",
-          "informational": false,
-          "deterministicCoverage": {
-            "restCandidateIds": [],
-            "downstreamCandidateIds": [],
-            "complianceSearchRequestIds": [
-              "compliance-search-32739bcb14e84d13"
-            ],
-            "relatedOperationIds": [
-              "MongoClusters_Promote"
-            ],
-            "coveredHunkIds": [
-              "hunk-ed5c5f66a26cc3ae"
-            ],
-            "uncoveredHunkIds": [],
-            "classifications": [
-              {
-                "hunkId": "hunk-ed5c5f66a26cc3ae",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
-                "restCandidateIds": [],
-                "downstreamCandidateIds": []
-              }
-            ],
-            "gaps": []
-          },
-          "inferenceRequired": false,
-          "sources": [
-            {
-              "id": "source-31899288ad61385c",
-              "path": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
-              "status": "modified",
-              "origins": [
-                "committed"
-              ],
-              "hunks": [
-                {
-                  "id": "hunk-ed5c5f66a26cc3ae",
-                  "base": {
-                    "startLine": 433,
-                    "endLine": 438
-                  },
-                  "current": {
-                    "startLine": 433,
-                    "endLine": 442
-                  },
-                  "lines": [
-                    " ",
-                    "   /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
-                    "   \"Forced\",",
-                    "+",
-                    "+  /** Promote option waits for the replica to be caught up to the primary before promoting, guaranteeing no data loss during the promotion. */",
-                    "+  @added(Microsoft.DocumentDB.Versions.v2026_06_15_preview)",
-                    "+  \"Planned\",",
-                    " }",
-                    " ",
-                    " /** The mode to apply to a promote operation. */",
-                    ""
-                  ]
-                }
-              ],
-              "declarations": [
-                {
-                  "id": "declaration-b8ef222ec662e4c9",
-                  "kind": "union",
-                  "qualifiedName": "PromoteOption",
-                  "decorators": [
-                    "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
-                  ],
-                  "versionedMembers": [
-                    "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
-                  ],
-                  "hunkIds": [
-                    "hunk-ed5c5f66a26cc3ae"
-                  ],
-                  "source": {
-                    "revision": "base",
-                    "startLine": 429,
-                    "endLine": 436,
-                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/4df35c8e76875cb6c056193f2421756a1cd57a1a/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L436"
-                  },
-                  "compilerEvidence": {
-                    "kind": "semantic-type",
-                    "compilerTypeKind": "Union",
-                    "sourceFile": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
-                    "position": {
-                      "start": 15064,
-                      "end": 15416
-                    },
-                    "referencedNames": [
-                      "string"
-                    ]
-                  },
-                  "documentationPresent": true,
-                  "sourceSnippet": {
-                    "startLine": 429,
-                    "endLine": 436,
-                    "lines": [
-                      "/** The option to apply to a promote operation. */",
-                      "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)",
-                      "union PromoteOption {",
-                      "  string,",
-                      "",
-                      "  /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
-                      "  \"Forced\",",
-                      "}"
-                    ],
-                    "truncated": false
-                  }
-                },
-                {
-                  "id": "declaration-be711e430feb7ab2",
-                  "kind": "union",
-                  "qualifiedName": "PromoteOption",
-                  "decorators": [
-                    "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
-                  ],
-                  "versionedMembers": [
-                    "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
-                  ],
-                  "hunkIds": [
-                    "hunk-ed5c5f66a26cc3ae"
-                  ],
-                  "source": {
-                    "revision": "current",
-                    "startLine": 429,
-                    "endLine": 440,
-                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440"
-                  },
-                  "compilerEvidence": {
-                    "kind": "semantic-type",
-                    "compilerTypeKind": "Union",
-                    "sourceFile": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
-                    "position": {
-                      "start": 15064,
-                      "end": 15633
-                    },
-                    "referencedNames": [
-                      "string"
-                    ]
-                  },
-                  "documentationPresent": true,
-                  "sourceSnippet": {
-                    "startLine": 429,
-                    "endLine": 440,
-                    "lines": [
-                      "/** The option to apply to a promote operation. */",
-                      "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)",
-                      "union PromoteOption {",
-                      "  string,",
-                      "",
-                      "  /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
-                      "  \"Forced\",",
-                      "",
-                      "  /** Promote option waits for the replica to be caught up to the primary before promoting, guaranteeing no data loss during the promotion. */",
-                      "  @added(Microsoft.DocumentDB.Versions.v2026_06_15_preview)",
-                      "  \"Planned\",",
-                      "}"
-                    ],
-                    "truncated": false
-                  }
-                }
-              ],
-              "documentEvidence": {
-                "schemaVersion": 4,
-                "status": "ready",
-                "blockers": [],
-                "declarations": [
-                  {
-                    "declarationId": "declaration-be711e430feb7ab2",
-                    "qualifiedName": "PromoteOption",
-                    "kind": "union",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 429,
-                      "endLine": 440,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440"
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "relatedFindings": {
-            "rest": [],
-            "downstream": [],
-            "typeImpact": []
-          }
-        },
-        {
-          "id": "semantic-f50bc78a1e31ccd0",
-          "projectId": "project-af97c3bfeee7",
-          "projectIds": [
-            "project-af97c3bfeee7"
-          ],
-          "action": "modify",
-          "changeKind": "modify",
-          "classificationVersion": 2,
+          "classificationVersion": 3,
           "changeFacts": [
             {
               "id": "semantic-change-55bbff8096bba80e",
@@ -14658,14 +13917,14 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Publish the 2026-06-15 preview",
-          "summary": "Add the 2026-06-15-preview API after the 2026-06-01 stable API, with only the planned promotion option differing across the compared projections.",
+          "title": "Publish the 2026-06-15-preview MongoCluster API version",
+          "summary": "Add 2026-06-15-preview to Versions after 2026-06-01 and propagate that version across the MongoCluster management surface. The supplied comparison identifies 23 equivalent operation pairs and one differing pair; the Planned promotion option remains independently owned by the MongoCluster.tsp intent.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
             "downstreamCandidateIds": [],
             "complianceSearchRequestIds": [
-              "compliance-search-bfca945f6fefdb6d"
+              "compliance-search-3c993d0c850d14e2"
             ],
             "relatedOperationIds": [
               "FirewallRules_CreateOrUpdate",
@@ -14914,6 +14173,737 @@
             "downstream": [],
             "typeImpact": []
           }
+        },
+        {
+          "id": "semantic-b5c7ce441731ad50",
+          "projectId": "project-af97c3bfeee7",
+          "projectIds": [
+            "project-af97c3bfeee7"
+          ],
+          "action": "modify",
+          "changeKind": "modify",
+          "classificationVersion": 3,
+          "changeFacts": [
+            {
+              "id": "semantic-change-21c86895f15499bb",
+              "sourceChangeId": "source-31899288ad61385c",
+              "hunkIds": [
+                "hunk-ed5c5f66a26cc3ae"
+              ],
+              "declarationIds": [
+                "declaration-b8ef222ec662e4c9",
+                "declaration-be711e430feb7ab2"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-b8ef222ec662e4c9"
+              ],
+              "afterDeclarationIds": [
+                "declaration-be711e430feb7ab2"
+              ],
+              "changeType": "type",
+              "declarationKind": "union",
+              "qualifiedName": "PromoteOption",
+              "action": "modify",
+              "facets": [
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-31899288ad61385c",
+                "hunkIds": [
+                  "hunk-ed5c5f66a26cc3ae"
+                ],
+                "declarationIds": [
+                  "declaration-b8ef222ec662e4c9",
+                  "declaration-be711e430feb7ab2"
+                ]
+              }
+            }
+          ],
+          "changeTypes": [
+            "type"
+          ],
+          "sourceChangeIds": [
+            "source-31899288ad61385c"
+          ],
+          "hunkIds": [
+            "hunk-ed5c5f66a26cc3ae"
+          ],
+          "declarationIds": [
+            "declaration-b8ef222ec662e4c9",
+            "declaration-be711e430feb7ab2"
+          ],
+          "declarationNames": [
+            "PromoteOption"
+          ],
+          "ownedOperationIds": [
+            "MongoClusters_Promote"
+          ],
+          "versionTransitionOperationIds": [],
+          "sourceMappedOperationIds": [
+            "MongoClusters_Promote"
+          ],
+          "publicationEligibleOperationIds": [],
+          "operations": [
+            {
+              "operationId": "MongoClusters_Promote",
+              "beforeFactId": "operation-7d0dcf227bfb90ec",
+              "afterFactId": "operation-43aec11a0b27ba2a",
+              "restChanged": false,
+              "matchBasis": "compiler-reference",
+              "sourceChangeIds": [
+                "source-31899288ad61385c"
+              ],
+              "hunkIds": [
+                "hunk-ed5c5f66a26cc3ae"
+              ],
+              "declarationIds": [
+                "declaration-b8ef222ec662e4c9",
+                "declaration-be711e430feb7ab2"
+              ],
+              "apiVersion": "2026-06-15-preview",
+              "method": "post",
+              "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote",
+              "changedAspects": [],
+              "before": {
+                "id": "operation-7d0dcf227bfb90ec",
+                "projectId": "project-af97c3bfeee7",
+                "comparisonRole": "baseline",
+                "sourceRevision": "current",
+                "sourceCommit": "bdd551d79cf0026bc9476f44a5ee5bcc94fefe27",
+                "apiVersion": "2026-06-01",
+                "operationId": "MongoClusters_Promote",
+                "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote",
+                "method": "post",
+                "routeSource": "paths",
+                "parameters": [
+                  {
+                    "name": "mongoClusterName",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                      "kind": "scalar",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "ApiVersionParameter",
+                    "in": "unresolved",
+                    "required": false
+                  },
+                  {
+                    "name": "ResourceGroupNameParameter",
+                    "in": "unresolved",
+                    "required": false
+                  },
+                  {
+                    "name": "SubscriptionIdParameter",
+                    "in": "unresolved",
+                    "required": false
+                  }
+                ],
+                "request": {
+                  "kind": "body",
+                  "name": "body",
+                  "required": true,
+                  "schema": {
+                    "kind": "object",
+                    "reference": "stable/2026-06-01/mongoCluster.json#/definitions/PromoteReplicaRequest",
+                    "references": [
+                      "stable/2026-06-01/mongoCluster.json#/definitions/PromoteReplicaRequest"
+                    ],
+                    "properties": [
+                      {
+                        "name": "mode",
+                        "required": false,
+                        "schema": {
+                          "kind": "enum",
+                          "type": "string",
+                          "reference": "stable/2026-06-01/mongoCluster.json#/definitions/PromoteMode",
+                          "references": [
+                            "stable/2026-06-01/mongoCluster.json#/definitions/PromoteMode"
+                          ]
+                        }
+                      },
+                      {
+                        "name": "promoteOption",
+                        "required": true,
+                        "schema": {
+                          "kind": "enum",
+                          "type": "string",
+                          "reference": "stable/2026-06-01/mongoCluster.json#/definitions/PromoteOption",
+                          "references": [
+                            "stable/2026-06-01/mongoCluster.json#/definitions/PromoteOption"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "responses": [
+                  {
+                    "status": "202",
+                    "headers": [
+                      {
+                        "name": "Location",
+                        "schema": {
+                          "kind": "scalar",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "Retry-After",
+                        "schema": {
+                          "kind": "scalar",
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "status": "default",
+                    "schema": {
+                      "kind": "reference",
+                      "ref": "specification/common-types/resource-management/v5/types.json#/definitions/ErrorResponse",
+                      "unresolved": true
+                    },
+                    "headers": []
+                  }
+                ],
+                "consumes": [
+                  "application/json"
+                ],
+                "produces": [
+                  "application/json"
+                ],
+                "lro": {
+                  "enabled": true,
+                  "options": {
+                    "final-state-via": "location"
+                  }
+                }
+              },
+              "after": {
+                "id": "operation-43aec11a0b27ba2a",
+                "projectId": "project-af97c3bfeee7",
+                "comparisonRole": "target",
+                "sourceRevision": "current",
+                "sourceCommit": "bdd551d79cf0026bc9476f44a5ee5bcc94fefe27",
+                "apiVersion": "2026-06-15-preview",
+                "operationId": "MongoClusters_Promote",
+                "path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/mongoClusters/{mongoClusterName}/promote",
+                "method": "post",
+                "routeSource": "paths",
+                "parameters": [
+                  {
+                    "name": "mongoClusterName",
+                    "in": "path",
+                    "required": true,
+                    "schema": {
+                      "kind": "scalar",
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "ApiVersionParameter",
+                    "in": "unresolved",
+                    "required": false
+                  },
+                  {
+                    "name": "ResourceGroupNameParameter",
+                    "in": "unresolved",
+                    "required": false
+                  },
+                  {
+                    "name": "SubscriptionIdParameter",
+                    "in": "unresolved",
+                    "required": false
+                  }
+                ],
+                "request": {
+                  "kind": "body",
+                  "name": "body",
+                  "required": true,
+                  "schema": {
+                    "kind": "object",
+                    "reference": "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteReplicaRequest",
+                    "references": [
+                      "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteReplicaRequest"
+                    ],
+                    "properties": [
+                      {
+                        "name": "mode",
+                        "required": false,
+                        "schema": {
+                          "kind": "enum",
+                          "type": "string",
+                          "reference": "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteMode",
+                          "references": [
+                            "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteMode"
+                          ]
+                        }
+                      },
+                      {
+                        "name": "promoteOption",
+                        "required": true,
+                        "schema": {
+                          "kind": "enum",
+                          "type": "string",
+                          "reference": "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteOption",
+                          "references": [
+                            "preview/2026-06-15-preview/mongoCluster.json#/definitions/PromoteOption"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "responses": [
+                  {
+                    "status": "202",
+                    "headers": [
+                      {
+                        "name": "Location",
+                        "schema": {
+                          "kind": "scalar",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "Retry-After",
+                        "schema": {
+                          "kind": "scalar",
+                          "type": "integer",
+                          "format": "int32"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "status": "default",
+                    "schema": {
+                      "kind": "reference",
+                      "ref": "specification/common-types/resource-management/v5/types.json#/definitions/ErrorResponse",
+                      "unresolved": true
+                    },
+                    "headers": []
+                  }
+                ],
+                "consumes": [
+                  "application/json"
+                ],
+                "produces": [
+                  "application/json"
+                ],
+                "lro": {
+                  "enabled": true,
+                  "options": {
+                    "final-state-via": "location"
+                  }
+                }
+              },
+              "outcome": "HTTP signature and represented payload contract unchanged.",
+              "sources": [
+                {
+                  "id": "source-31899288ad61385c",
+                  "path": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
+                  "status": "modified",
+                  "origins": [
+                    "committed"
+                  ],
+                  "hunks": [
+                    {
+                      "id": "hunk-ed5c5f66a26cc3ae",
+                      "base": {
+                        "startLine": 433,
+                        "endLine": 438
+                      },
+                      "current": {
+                        "startLine": 433,
+                        "endLine": 442
+                      },
+                      "lines": [
+                        " ",
+                        "   /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
+                        "   \"Forced\",",
+                        "+",
+                        "+  /** Promote option waits for the replica to be caught up to the primary before promoting, guaranteeing no data loss during the promotion. */",
+                        "+  @added(Microsoft.DocumentDB.Versions.v2026_06_15_preview)",
+                        "+  \"Planned\",",
+                        " }",
+                        " ",
+                        " /** The mode to apply to a promote operation. */",
+                        ""
+                      ]
+                    }
+                  ],
+                  "declarations": [
+                    {
+                      "id": "declaration-b8ef222ec662e4c9",
+                      "kind": "union",
+                      "qualifiedName": "PromoteOption",
+                      "decorators": [
+                        "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
+                      ],
+                      "versionedMembers": [
+                        "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
+                      ],
+                      "hunkIds": [
+                        "hunk-ed5c5f66a26cc3ae"
+                      ],
+                      "source": {
+                        "revision": "base",
+                        "startLine": 429,
+                        "endLine": 436,
+                        "link": "https://github.com/Azure/azure-rest-api-specs/blob/4df35c8e76875cb6c056193f2421756a1cd57a1a/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L436"
+                      },
+                      "compilerEvidence": {
+                        "kind": "semantic-type",
+                        "compilerTypeKind": "Union",
+                        "sourceFile": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
+                        "position": {
+                          "start": 15064,
+                          "end": 15416
+                        },
+                        "referencedNames": [
+                          "string"
+                        ]
+                      },
+                      "documentationPresent": true,
+                      "sourceSnippet": {
+                        "startLine": 429,
+                        "endLine": 436,
+                        "lines": [
+                          "/** The option to apply to a promote operation. */",
+                          "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)",
+                          "union PromoteOption {",
+                          "  string,",
+                          "",
+                          "  /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
+                          "  \"Forced\",",
+                          "}"
+                        ],
+                        "truncated": false
+                      }
+                    },
+                    {
+                      "id": "declaration-be711e430feb7ab2",
+                      "kind": "union",
+                      "qualifiedName": "PromoteOption",
+                      "decorators": [
+                        "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
+                      ],
+                      "versionedMembers": [
+                        "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
+                      ],
+                      "hunkIds": [
+                        "hunk-ed5c5f66a26cc3ae"
+                      ],
+                      "source": {
+                        "revision": "current",
+                        "startLine": 429,
+                        "endLine": 440,
+                        "link": "https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440"
+                      },
+                      "compilerEvidence": {
+                        "kind": "semantic-type",
+                        "compilerTypeKind": "Union",
+                        "sourceFile": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
+                        "position": {
+                          "start": 15064,
+                          "end": 15633
+                        },
+                        "referencedNames": [
+                          "string"
+                        ]
+                      },
+                      "documentationPresent": true,
+                      "sourceSnippet": {
+                        "startLine": 429,
+                        "endLine": 440,
+                        "lines": [
+                          "/** The option to apply to a promote operation. */",
+                          "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)",
+                          "union PromoteOption {",
+                          "  string,",
+                          "",
+                          "  /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
+                          "  \"Forced\",",
+                          "",
+                          "  /** Promote option waits for the replica to be caught up to the primary before promoting, guaranteeing no data loss during the promotion. */",
+                          "  @added(Microsoft.DocumentDB.Versions.v2026_06_15_preview)",
+                          "  \"Planned\",",
+                          "}"
+                        ],
+                        "truncated": false
+                      }
+                    }
+                  ],
+                  "documentEvidence": {
+                    "schemaVersion": 4,
+                    "status": "ready",
+                    "blockers": [],
+                    "declarations": [
+                      {
+                        "declarationId": "declaration-be711e430feb7ab2",
+                        "qualifiedName": "PromoteOption",
+                        "kind": "union",
+                        "newDeclaration": false,
+                        "documentationPresent": true,
+                        "source": {
+                          "revision": "current",
+                          "startLine": 429,
+                          "endLine": 440,
+                          "link": "https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "operationIds": [
+            "operation-43aec11a0b27ba2a"
+          ],
+          "beforeFactIds": [
+            "operation-7d0dcf227bfb90ec"
+          ],
+          "afterFactIds": [
+            "operation-43aec11a0b27ba2a"
+          ],
+          "changedAspects": [],
+          "groupingEvidence": {
+            "kind": "deterministic-coherent-change",
+            "reasons": [
+              "feature:MongoCluster"
+            ],
+            "memberHunkIds": [
+              "hunk-ed5c5f66a26cc3ae"
+            ]
+          },
+          "intentType": "normal",
+          "carryOverProof": {
+            "schemaVersion": 1,
+            "status": "not-applicable",
+            "operations": [],
+            "equivalentOperationIds": [],
+            "differentOperationIds": [],
+            "unknownOperationIds": []
+          },
+          "contextPolicy": {
+            "schemaVersion": 1,
+            "rest": {
+              "mode": "agent",
+              "reason": "changed-or-unresolved-rest-scope",
+              "evidenceIds": []
+            },
+            "downstream": {
+              "mode": "agent",
+              "reason": "changed-or-unresolved-downstream-scope",
+              "evidenceIds": []
+            },
+            "guidelines": {
+              "mode": "agent",
+              "reason": "changed-design-facts-require-guidelines-assessment"
+            },
+            "documentation": {
+              "mode": "deterministic",
+              "reason": "compiler-effective-documentation-check"
+            }
+          },
+          "title": "Add the preview-gated Planned promotion option",
+          "summary": "Extend PromoteOption with Planned beginning in 2026-06-15-preview. The source describes waiting for a replica to catch up before promotion to avoid data loss, and the supplied mapping associates this option with MongoClusters_Promote. The version decorator controls this feature's applicability; it does not make the feature a publication change. Resource lifecycle templates are not included in the bounded evidence.",
+          "informational": false,
+          "deterministicCoverage": {
+            "restCandidateIds": [],
+            "downstreamCandidateIds": [],
+            "complianceSearchRequestIds": [
+              "compliance-search-dff4c5610f5ec10d"
+            ],
+            "relatedOperationIds": [
+              "MongoClusters_Promote"
+            ],
+            "coveredHunkIds": [
+              "hunk-ed5c5f66a26cc3ae"
+            ],
+            "uncoveredHunkIds": [],
+            "classifications": [
+              {
+                "hunkId": "hunk-ed5c5f66a26cc3ae",
+                "status": "no-impact",
+                "reason": "declaration-mapped-and-contracts-compared",
+                "restCandidateIds": [],
+                "downstreamCandidateIds": []
+              }
+            ],
+            "gaps": []
+          },
+          "inferenceRequired": false,
+          "sources": [
+            {
+              "id": "source-31899288ad61385c",
+              "path": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-ed5c5f66a26cc3ae",
+                  "base": {
+                    "startLine": 433,
+                    "endLine": 438
+                  },
+                  "current": {
+                    "startLine": 433,
+                    "endLine": 442
+                  },
+                  "lines": [
+                    " ",
+                    "   /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
+                    "   \"Forced\",",
+                    "+",
+                    "+  /** Promote option waits for the replica to be caught up to the primary before promoting, guaranteeing no data loss during the promotion. */",
+                    "+  @added(Microsoft.DocumentDB.Versions.v2026_06_15_preview)",
+                    "+  \"Planned\",",
+                    " }",
+                    " ",
+                    " /** The mode to apply to a promote operation. */",
+                    ""
+                  ]
+                }
+              ],
+              "declarations": [
+                {
+                  "id": "declaration-b8ef222ec662e4c9",
+                  "kind": "union",
+                  "qualifiedName": "PromoteOption",
+                  "decorators": [
+                    "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
+                  ],
+                  "versionedMembers": [
+                    "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
+                  ],
+                  "hunkIds": [
+                    "hunk-ed5c5f66a26cc3ae"
+                  ],
+                  "source": {
+                    "revision": "base",
+                    "startLine": 429,
+                    "endLine": 436,
+                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/4df35c8e76875cb6c056193f2421756a1cd57a1a/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L436"
+                  },
+                  "compilerEvidence": {
+                    "kind": "semantic-type",
+                    "compilerTypeKind": "Union",
+                    "sourceFile": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
+                    "position": {
+                      "start": 15064,
+                      "end": 15416
+                    },
+                    "referencedNames": [
+                      "string"
+                    ]
+                  },
+                  "documentationPresent": true,
+                  "sourceSnippet": {
+                    "startLine": 429,
+                    "endLine": 436,
+                    "lines": [
+                      "/** The option to apply to a promote operation. */",
+                      "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)",
+                      "union PromoteOption {",
+                      "  string,",
+                      "",
+                      "  /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
+                      "  \"Forced\",",
+                      "}"
+                    ],
+                    "truncated": false
+                  }
+                },
+                {
+                  "id": "declaration-be711e430feb7ab2",
+                  "kind": "union",
+                  "qualifiedName": "PromoteOption",
+                  "decorators": [
+                    "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
+                  ],
+                  "versionedMembers": [
+                    "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)"
+                  ],
+                  "hunkIds": [
+                    "hunk-ed5c5f66a26cc3ae"
+                  ],
+                  "source": {
+                    "revision": "current",
+                    "startLine": 429,
+                    "endLine": 440,
+                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440"
+                  },
+                  "compilerEvidence": {
+                    "kind": "semantic-type",
+                    "compilerTypeKind": "Union",
+                    "sourceFile": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
+                    "position": {
+                      "start": 15064,
+                      "end": 15633
+                    },
+                    "referencedNames": [
+                      "string"
+                    ]
+                  },
+                  "documentationPresent": true,
+                  "sourceSnippet": {
+                    "startLine": 429,
+                    "endLine": 440,
+                    "lines": [
+                      "/** The option to apply to a promote operation. */",
+                      "@added(Microsoft.DocumentDB.Versions.v2024_06_01_preview)",
+                      "union PromoteOption {",
+                      "  string,",
+                      "",
+                      "  /** Promote option forces the promotion without waiting for the replica to be caught up to the primary. This can result in data-loss so should only be used during disaster recovery scenarios. */",
+                      "  \"Forced\",",
+                      "",
+                      "  /** Promote option waits for the replica to be caught up to the primary before promoting, guaranteeing no data loss during the promotion. */",
+                      "  @added(Microsoft.DocumentDB.Versions.v2026_06_15_preview)",
+                      "  \"Planned\",",
+                      "}"
+                    ],
+                    "truncated": false
+                  }
+                }
+              ],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": [
+                  {
+                    "declarationId": "declaration-be711e430feb7ab2",
+                    "qualifiedName": "PromoteOption",
+                    "kind": "union",
+                    "newDeclaration": false,
+                    "documentationPresent": true,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 429,
+                      "endLine": 440,
+                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp#L431-L440"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "relatedFindings": {
+            "rest": [],
+            "downstream": [],
+            "typeImpact": []
+          }
         }
       ],
       "sourceHunkIds": [
@@ -14938,8 +14928,8 @@
       "blockers": []
     },
     "compliance": {
-      "status": "passed",
-      "summary": "All Semantic intents match applicable fetched guidance.",
+      "status": "failed",
+      "summary": "1 documentation-grounded Azure Guidelines finding(s).",
       "coverage": {
         "semanticIntentCount": 2,
         "assessedIntentCount": 2,
@@ -14960,7 +14950,7 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category."
+            "selectionRationale": "Primary guidance for additive changes to an existing versioned ARM API and the version applicability of the new promotion option."
           },
           {
             "rank": 2,
@@ -14974,7 +14964,7 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category."
+            "selectionRationale": "Version enum ordering and active-preview rules govern the new preview after the latest stable ARM API."
           },
           {
             "rank": 3,
@@ -14988,206 +14978,346 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category."
+            "selectionRationale": "Directly matches adding 2026-06-15-preview after the latest stable 2026-06-01 ARM API."
           },
           {
             "rank": 4,
+            "catalogOrder": 3,
+            "title": "Add preview after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Related ARM preview-versioning category, but preview-after-preview is not the supplied stable-to-preview transition."
+          },
+          {
+            "rank": 5,
+            "catalogOrder": 4,
+            "title": "Add stable after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Related versioning category for ARM APIs, but this change does not promote a preview to stable."
+          },
+          {
+            "rank": 6,
+            "catalogOrder": 6,
+            "title": "Add stable after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Related ARM versioning category, but the new version is preview rather than stable."
+          },
+          {
+            "rank": 7,
+            "catalogOrder": 20,
+            "title": "ARM common types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Models-and-enums category and ARM plane overlap, but common-type definitions and their versions do not change."
+          },
+          {
+            "rank": 8,
+            "catalogOrder": 27,
+            "title": "Change provider namespace",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "ARM decorator category overlaps; @armProviderNamespace is contextual and unchanged, so it earns no exact-changed-symbol signal."
+          },
+          {
+            "rank": 9,
+            "catalogOrder": 28,
+            "title": "Azure Portal default experiences",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "ARM decorator category overlaps; no portal experience changes are supplied."
+          },
+          {
+            "rank": 10,
             "catalogOrder": 21,
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category."
-          },
-          {
-            "rank": 5,
-            "catalogOrder": 3,
-            "title": "Add preview after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
               "servicePlane": 0,
               "changeContext": 0,
-              "total": 0
+              "total": 3
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Models-and-enums category overlaps; no model shape or property is changed."
           },
           {
-            "rank": 6,
-            "catalogOrder": 4,
-            "title": "Add stable after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
+            "rank": 11,
+            "catalogOrder": 22,
+            "title": "Enums",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
+              "patternCategory": 3,
               "servicePlane": 0,
               "changeContext": 0,
-              "total": 0
+              "total": 3
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Enum category matches Versions and the enum-like promotion choice, but generic enum syntax is less specific than version-transition guidance."
           },
           {
-            "rank": 7,
-            "catalogOrder": 6,
-            "title": "Add stable after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "rank": 12,
+            "catalogOrder": 23,
+            "title": "Scalars",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
+              "patternCategory": 3,
               "servicePlane": 0,
               "changeContext": 0,
-              "total": 0
+              "total": 3
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Models-and-enums catalog category overlaps; no reusable scalar definition changes."
           },
           {
-            "rank": 8,
+            "rank": 13,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 3
+            },
+            "selectionRationale": "Decorator category matches @added, but generic decorator application is less specific than versioning guidance."
+          },
+          {
+            "rank": 14,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 3
+            },
+            "selectionRationale": "Decorator category matches, but no built-in visibility or constraint decorator changes."
+          },
+          {
+            "rank": 15,
+            "catalogOrder": 26,
+            "title": "OpenAPI decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 3
+            },
+            "selectionRationale": "Decorator category overlaps, but no OpenAPI-specific decorator changes."
+          },
+          {
+            "rank": 16,
+            "catalogOrder": 29,
+            "title": "Content negotiation",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 3
+            },
+            "selectionRationale": "Decorator category overlaps, but data-plane content negotiation is not changed."
+          },
+          {
+            "rank": 17,
             "catalogOrder": 7,
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches; neither source-owned change introduces or remodels a resource type."
           },
           {
-            "rank": 9,
+            "rank": 18,
             "catalogOrder": 8,
             "title": "Specific extension resource sample",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but no extension-resource template changes are supplied."
           },
           {
-            "rank": 10,
+            "rank": 19,
             "catalogOrder": 9,
             "title": "Private endpoints",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Private endpoints occur only in the propagated operation inventory, not as changed resource constructs."
           },
           {
-            "rank": 11,
+            "rank": 20,
             "catalogOrder": 10,
             "title": "Private links",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Private links occur only in the propagated inventory; no private-link design changes are supplied."
           },
           {
-            "rank": 12,
+            "rank": 21,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but no network security perimeter construct changes are supplied."
           },
           {
-            "rank": 13,
+            "rank": 22,
             "catalogOrder": 12,
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "The feature modifies a union choice, not an ARM operation or lifecycle template."
           },
           {
-            "rank": 14,
+            "rank": 23,
             "catalogOrder": 13,
             "title": "Azure.ResourceManager interface reference",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches; operation template signatures are not changed or supplied as source evidence."
           },
           {
-            "rank": 15,
+            "rank": 24,
             "catalogOrder": 14,
             "title": "TypeSpec.Rest decorators",
             "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Resource semantics can apply to ARM, but no resource-association or lifecycle decorator is changed."
           },
           {
-            "rank": 16,
+            "rank": 25,
             "catalogOrder": 15,
             "title": "Azure.ResourceManager decorators",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but no ARM lifecycle-role decorator changes are supplied."
           },
           {
-            "rank": 17,
+            "rank": 26,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but no polling or asynchronous operation contract changes are supplied."
           },
           {
-            "rank": 18,
+            "rank": 27,
+            "catalogOrder": 18,
+            "title": "Azure.ResourceManager data types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "ARM plane matches; no paging parameter or paging template changes are supplied."
+          },
+          {
+            "rank": 28,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -15198,24 +15328,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Data-plane LRO patterns do not match these ARM version and union changes."
           },
           {
-            "rank": 19,
-            "catalogOrder": 18,
-            "title": "Azure.ResourceManager data types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 20,
+            "rank": 29,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -15226,133 +15342,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 21,
-            "catalogOrder": 20,
-            "title": "ARM common types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 22,
-            "catalogOrder": 22,
-            "title": "Enums",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 23,
-            "catalogOrder": 23,
-            "title": "Scalars",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 24,
-            "catalogOrder": 24,
-            "title": "Decorators",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 25,
-            "catalogOrder": 25,
-            "title": "Built-in decorators",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 26,
-            "catalogOrder": 26,
-            "title": "OpenAPI decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 27,
-            "catalogOrder": 27,
-            "title": "Change provider namespace",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 28,
-            "catalogOrder": 28,
-            "title": "Azure Portal default experiences",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 29,
-            "catalogOrder": 29,
-            "title": "Content negotiation",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No data-plane pagination constructs change."
           },
           {
             "rank": 30,
@@ -15366,7 +15356,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No warning suppression or directive changes are supplied."
           },
           {
             "rank": 31,
@@ -15380,7 +15370,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No OpenAPI decorator warning or suppression changes are supplied."
           }
         ],
         "documents": [
@@ -15396,26 +15386,25 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category.",
+            "selectionRationale": "Primary guidance for additive changes to an existing versioned ARM API and the version applicability of the new promotion option.",
             "guidance": [
               {
                 "section": "Versioning Decorators",
-                "excerpt": "Add new models, properties, or operations in a specific version using the appropriate versioning decorators.",
+                "excerpt": "You can add new models, properties, or operations in a specific version and all subsequent versions using the `@added` decorator.\n\n*   The `version` argument is the version where the element is introduced.\n*   The element will be present in that version and all later versions.",
                 "queryTerms": [
                   "@added",
-                  "@madeOptional",
-                  "preview"
+                  "PromoteOption",
+                  "2026-06-15-preview"
                 ],
                 "examples": [],
                 "applicableDeclarationIds": [
-                  "declaration-a819d45489ba4a99",
                   "declaration-be711e430feb7ab2"
                 ]
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-28T00:00:00Z",
-            "contentHash": "sha256:5bcd9f3d8f35ef4f7b5bc755389766c723d05200acf250eff4b3a815af65bfa3"
+            "retrievedAt": "2026-10-27T04:31:02.385Z",
+            "contentHash": "sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2"
           },
           {
             "rank": 2,
@@ -15429,15 +15418,15 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category.",
+            "selectionRationale": "Version enum ordering and active-preview rules govern the new preview after the latest stable ARM API.",
             "guidance": [
               {
                 "section": "Preview Versioning Rules for All Azure APIs",
-                "excerpt": "Mark changes from the latest stable with appropriate versioning decorators using the preview version as the argument.",
+                "excerpt": "*   Always make the last enum value the preview and apply `@previewVersion` to it.\n*   Only one version may be marked with the `@previewVersion` decorator.\n*   Mark all changes from the latest stable with appropriate versioning decorators, using `Versions.<PreviewVersion>` as the version argument (where `<PreviewVersion>` is the name of the last enum value)",
                 "queryTerms": [
-                  "latest stable",
-                  "preview",
-                  "versioning"
+                  "Versions",
+                  "@previewVersion",
+                  "preview"
                 ],
                 "examples": [],
                 "applicableDeclarationIds": [
@@ -15447,8 +15436,8 @@
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-28T00:00:00Z",
-            "contentHash": "sha256:5e72a1d09c1662bda04e0c31a0d6a8338c0f231c64d0c38f246431f0147027a2"
+            "retrievedAt": "2026-10-27T04:30:59.189Z",
+            "contentHash": "sha256:2aeadb30f0b22daa0b3aaed66c02786b479d3b63331dab61409d77f5b9452765"
           },
           {
             "rank": 3,
@@ -15462,67 +15451,100 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category.",
+            "selectionRationale": "Directly matches adding 2026-06-15-preview after the latest stable 2026-06-01 ARM API.",
             "guidance": [
               {
                 "section": "Making Changes to your TypeSpec spec",
-                "excerpt": "If types are added, renamed, or otherwise modified in the new preview, mark them with the appropriate versioning decorator.",
+                "excerpt": "Decorate this version with the `@previewVersion` decorator from the `Azure.Core` library",
                 "queryTerms": [
-                  "new preview",
-                  "@added",
-                  "@madeOptional"
+                  "Versions",
+                  "@previewVersion",
+                  "2026-06-15-preview"
                 ],
                 "examples": [],
                 "applicableDeclarationIds": [
-                  "declaration-a819d45489ba4a99",
-                  "declaration-be711e430feb7ab2"
+                  "declaration-a819d45489ba4a99"
                 ]
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-28T00:00:00Z",
-            "contentHash": "sha256:c7d009412b378b059d4b354dd31ddb42a8f9232260779ddf689a870518feefc3"
+            "retrievedAt": "2026-10-27T04:31:01.315Z",
+            "contentHash": "sha256:de2ef952af27219ac5048ce94808b1d730c9631012c7a0f70650ade06533c0f8"
           },
           {
             "rank": 4,
-            "catalogOrder": 21,
-            "title": "Models",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "catalogOrder": 3,
+            "title": "Add preview after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
+              "changeContext": 0,
+              "total": 5
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category.",
-            "guidance": [
-              {
-                "section": "Optional properties",
-                "excerpt": "Properties can be designated as optional by using the ? symbol.",
-                "queryTerms": [
-                  "optional properties",
-                  "tokenId",
-                  "identity"
-                ],
-                "examples": [
-                  "model Dog { address?: string; }"
-                ],
-                "applicableDeclarationIds": [
-                  "declaration-be711e430feb7ab2"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-28T00:00:00Z",
-            "contentHash": "sha256:1a90dd13f99521e5c806072a6285307119be6bdca67a6ea6bc66534d79e329ab"
+            "selectionRationale": "Related ARM preview-versioning category, but preview-after-preview is not the supplied stable-to-preview transition.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-27T04:31:00.250Z",
+            "contentHash": "sha256:2c6251c4cd869659e0829dcd22161108ac268e2afd42999295057772b1d3f74d"
           }
         ]
       },
       "intentAssessments": [
         {
-          "semanticIntentId": "semantic-baf12b5d92fe5756",
-          "reviewUnitId": "semantic-baf12b5d92fe5756",
+          "semanticIntentId": "semantic-2779be869e5e1ef9",
+          "reviewUnitId": "semantic-2779be869e5e1ef9",
+          "applicableGuidance": [
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
+            }
+          ],
+          "sourceChangeIds": [
+            "source-a917209f44f3e234"
+          ],
+          "hunkIds": [
+            "hunk-978ce6430c6a7dfa"
+          ],
+          "declarationIds": [
+            "declaration-a819d45489ba4a99"
+          ],
+          "decision": "applicable-fail",
+          "title": "The new preview version lacks @previewVersion",
+          "severity": "medium",
+          "expected": "Declare the new preview after the stable version and decorate the new preview enum member with Azure.Core.previewVersion.",
+          "actual": "The complete added member is a documentation comment followed by v2026_06_15_preview: \"2026-06-15-preview\"; no @previewVersion decorator is added.",
+          "rationale": "Both the general preview rules and the directly matching stable-to-preview instructions require the decorator. The new version string and its chronological placement are present, but the added enum member omits this required preview marker. This Guidelines finding is independent of REST and SDK compatibility.",
+          "gap": "Both the general preview rules and the directly matching stable-to-preview instructions require the decorator. The new version string and its chronological placement are present, but the added enum member omits this required preview marker. This Guidelines finding is independent of REST and SDK compatibility.",
+          "sourceLinks": [
+            {
+              "path": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp",
+              "startLine": 26,
+              "endLine": 60,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/bdd551d79cf0026bc9476f44a5ee5bcc94fefe27/specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp#L27-L60"
+            }
+          ],
+          "codeSnippets": [
+            {
+              "path": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp",
+              "hunkId": "hunk-978ce6430c6a7dfa",
+              "lines": [
+                "+",
+                "+  /** Azure Cosmos DB for Mongo vCore clusters api version 2026-06-15-preview. */",
+                "+  v2026_06_15_preview: \"2026-06-15-preview\","
+              ]
+            }
+          ],
+          "blockers": []
+        },
+        {
+          "semanticIntentId": "semantic-b5c7ce441731ad50",
+          "reviewUnitId": "semantic-b5c7ce441731ad50",
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
@@ -15531,14 +15553,6 @@
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
               "guidanceSection": "Preview Versioning Rules for All Azure APIs"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-              "guidanceSection": "Making Changes to your TypeSpec spec"
-            },
-            {
-              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/models/",
-              "guidanceSection": "Optional properties"
             }
           ],
           "sourceChangeIds": [
@@ -15551,10 +15565,10 @@
             "declaration-be711e430feb7ab2"
           ],
           "decision": "applicable-pass",
-          "expected": "Add the enum-like option only in the new preview using versioning metadata.",
-          "actual": "PromoteOption.Planned is added at v2026_06_15_preview and existing options remain unchanged.",
-          "rationale": "The additive preview-scoped value follows the fetched versioning and model guidance.",
-          "gap": "The additive preview-scoped value follows the fetched versioning and model guidance.",
+          "expected": "Scope the new feature to the new preview with an appropriate versioning decorator referencing that preview, rather than introducing it in previous stable versions.",
+          "actual": "The new Planned union variant carries @added(Microsoft.DocumentDB.Versions.v2026_06_15_preview).",
+          "rationale": "The added choice explicitly references the newly introduced preview, matching the fetched requirement to version changes from the latest stable. This pass is limited to the feature's version applicability; it does not excuse the separately owned missing preview marker or infer requirements about promotion lifecycle templates absent from the bounded evidence.",
+          "gap": "The added choice explicitly references the newly introduced preview, matching the fetched requirement to version changes from the latest stable. This pass is limited to the feature's version applicability; it does not excuse the separately owned missing preview marker or infer requirements about promotion lifecycle templates absent from the bounded evidence.",
           "sourceLinks": [
             {
               "path": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/MongoCluster.tsp",
@@ -15576,23 +15590,28 @@
             }
           ],
           "blockers": []
-        },
+        }
+      ],
+      "findings": [
         {
-          "semanticIntentId": "semantic-f50bc78a1e31ccd0",
-          "reviewUnitId": "semantic-f50bc78a1e31ccd0",
+          "id": "compliance-62e0c524b9679afc",
+          "semanticIntentId": "semantic-2779be869e5e1ef9",
+          "title": "The new preview version lacks @previewVersion",
+          "severity": "medium",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs",
+              "excerpt": "*   Always make the last enum value the preview and apply `@previewVersion` to it.\n*   Only one version may be marked with the `@previewVersion` decorator.\n*   Mark all changes from the latest stable with appropriate versioning decorators, using `Versions.<PreviewVersion>` as the version argument (where `<PreviewVersion>` is the name of the last enum value)"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-              "guidanceSection": "Making Changes to your TypeSpec spec"
+              "guidanceSection": "Making Changes to your TypeSpec spec",
+              "excerpt": "Decorate this version with the `@previewVersion` decorator from the `Azure.Core` library"
             }
+          ],
+          "declarationIds": [
+            "declaration-a819d45489ba4a99"
           ],
           "sourceChangeIds": [
             "source-a917209f44f3e234"
@@ -15600,14 +15619,9 @@
           "hunkIds": [
             "hunk-978ce6430c6a7dfa"
           ],
-          "declarationIds": [
-            "declaration-a819d45489ba4a99"
-          ],
-          "decision": "applicable-pass",
-          "expected": "Publish the new preview after stable and scope changes to it.",
-          "actual": "Versions adds 2026-06-15-preview after 2026-06-01 and the changed option is version-scoped.",
-          "rationale": "The version progression follows the preview-after-stable guidance.",
-          "gap": "The version progression follows the preview-after-stable guidance.",
+          "expected": "Declare the new preview after the stable version and decorate the new preview enum member with Azure.Core.previewVersion.",
+          "actual": "The complete added member is a documentation comment followed by v2026_06_15_preview: \"2026-06-15-preview\"; no @previewVersion decorator is added.",
+          "gap": "Both the general preview rules and the directly matching stable-to-preview instructions require the decorator. The new version string and its chronological placement are present, but the added enum member omits this required preview marker. This Guidelines finding is independent of REST and SDK compatibility.",
           "sourceLinks": [
             {
               "path": "specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster/main.tsp",
@@ -15626,11 +15640,9 @@
                 "+  v2026_06_15_preview: \"2026-06-15-preview\","
               ]
             }
-          ],
-          "blockers": []
+          ]
         }
       ],
-      "findings": [],
       "retrievalFailures": [],
       "blockers": []
     },
@@ -15646,19 +15658,19 @@
         "missingDeclarationCount": 0,
         "unassessedIntentIds": [],
         "notApplicableIntentIds": [
-          "semantic-baf12b5d92fe5756",
-          "semantic-f50bc78a1e31ccd0"
+          "semantic-2779be869e5e1ef9",
+          "semantic-b5c7ce441731ad50"
         ]
       },
       "intentAssessments": [
         {
-          "reviewUnitId": "semantic-baf12b5d92fe5756",
+          "reviewUnitId": "semantic-2779be869e5e1ef9",
           "status": "not-applicable",
           "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
           "declarations": []
         },
         {
-          "reviewUnitId": "semantic-f50bc78a1e31ccd0",
+          "reviewUnitId": "semantic-b5c7ce441731ad50",
           "status": "not-applicable",
           "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
           "declarations": []
@@ -15934,8 +15946,8 @@
   "inputAccounting": {
     "budgetTier": "small",
     "budgetBytes": 131072,
-    "bytes": 11008,
-    "estimatedTokens": 2752,
+    "bytes": 11018,
+    "estimatedTokens": 2755,
     "retained": {
       "evidenceSets": 4,
       "facts": 0,
@@ -15960,25 +15972,17 @@
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 682970,
-      "guidanceExcerptsRetained": 4,
-      "guidanceExcerptBytesRetained": 411
+      "documentBytesFetched": 33915,
+      "guidanceExcerptsRetained": 3,
+      "guidanceExcerptBytesRetained": 724
     }
   },
   "timings": {
-    "metadataMs": 3144,
-    "fetchMs": 144,
-    "scopeDiscoveryMs": 66,
-    "setupExcludingFetchMs": 14635,
-    "comparisonMs": 114,
-    "changeDiscoveryMs": 91,
-    "workspacePreparationMs": 10982,
-    "projectDiscoveryMs": 40,
-    "totalMs": 245741,
-    "semanticAnalysisMs": 91,
-    "restAnalysisMs": 39,
-    "downstreamAnalysisMs": 1166,
-    "semanticContextPolicyMs": 280,
-    "documentQualityAnalysisMs": 1
+    "semanticAnalysisMs": 148,
+    "restAnalysisMs": 154,
+    "downstreamAnalysisMs": 1483,
+    "semanticContextPolicyMs": 331,
+    "documentQualityAnalysisMs": 1,
+    "replayAnalysisMs": 5206
   }
 }

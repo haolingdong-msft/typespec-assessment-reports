@@ -1,164 +1,454 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T12:33:32.2328377Z",
+  "generatedAt": "2026-10-27T04:54:25.519Z",
   "toolRevision": {
     "gitHead": "bbc311bb03c20d7be7dd338fb35af74b512f2384",
     "workingTreeModified": true,
-    "contextPolicyVersion": 2
+    "contextPolicyVersion": 2,
+    "classificationVersion": 3,
+    "sourceHashes": {
+      "agent-decisions.schema.d.ts": "784c172a238e1d54de28f24a248ac9f9c576aaaddde374b333aa2622ea6e3269",
+      "agent-decisions.schema.json": "034c55a8ad13b40df980e2acc96c7f505ecac31ace881fbb871db62c860e1f62",
+      "analyze-downstream-breaking.ts": "b6e87db6fb5e9a2fe9d1420957e2b2478cca1ca009ce9537bbc42c429497ef54",
+      "analyze-rest-breaking.ts": "39425e7d70241844684131903ee9b5b1bba62d1aab6c6ed8acff84a359425564",
+      "analyze-semantic-intents.ts": "03903381b1af70e230cbdf793feaed6fa8df8f207f6f857a79ad9f9f0871c367",
+      "api-version-selection.ts": "a377a37cc7e6b840b672b44306e5f52e35e2acf8da1637adcd6ea30723f656f8",
+      "assemble-assessment.ts": "2ac4255104b307f843224498a39f400c619838b0ba04bd8b563e233c04a06f19",
+      "assessment-display.ts": "bb64fd56bbcf5b25aaed39fe544bcaeb9ff24d0864cdffc01fb2a21ea125bc33",
+      "assessment-input.ts": "5cea8cc15ac3c45e391a74eff817b70543b514638650878f0075f099a0c436d2",
+      "assessment-judgment.schema.d.ts": "b1ff56f3f3b34c28e0106e2ab75b11005855f7a6ee4c5f6462075717d8311a82",
+      "assessment-judgment.schema.json": "d2535eab4fa0e4f765ea7bea1a5ba6fa47be7b5d6e7dbec4e4bbfe2999140e70",
+      "assessment-report-ui.css": "a2a92f2ce0a142b5d8d432b9b53234b5fc81691de514bd8e6c48445d8b56cbd7",
+      "assessment-report-ui.ts": "bb17ca78101373eee6dc764de176a24fbf32a584526eb44bbf848e4fe7f460fc",
+      "assessment.schema.d.ts": "8f16f6bf7e4b3f9085b6709de69350ea42a50eb5ee68d65ae14b0790084ada59",
+      "assessment.schema.json": "5513819198e21c1a444e21966cf84f782348a8a4520c3a1e5e72cd335343d3c3",
+      "autorest-contract.ts": "3754e1079bb059477a8ea384f18dc7d0d315ed63523f52588d5cfce60decfea4",
+      "build-agent-workspace.ts": "5f20f81a5fe191261ccfc6d871b656fdb930fe357b3e54917bd70056465edd50",
+      "cli.ts": "2ad8c43b5c9bdf5bf73bc489c4aa6b6ca59f7f31a17a996018ee69bd0f06881a",
+      "compiler-runner.ts": "46b3d518e74353949c66abe673467dbf55f6cf49c87a239b0c3805508eae5d12",
+      "compliance-assessment.ts": "bb8c82773b81bf32e1a6482844f1229854447f832e391d052aa16b6c1de1d98f",
+      "compliance-search-evidence.schema.d.ts": "670ddb8b4e7fef25fea99880b2b927b2aea3eb4daf904a2b0d5c5ff8dc5748e4",
+      "compliance-search-evidence.schema.json": "a47aadcf336f89226ba7691f4b6b8fb72ed862dabd759917d47579aebcd63da5",
+      "compliance-search-request.ts": "0dc1e59d60340ff1bbf4551fcce1c639456c36e294d29bdb4804c5c5b2494197",
+      "document-quality-assessment.ts": "5ab0495835e96b6272479e11fa2b45e60b2dc0836a6c8575f302968818b8cb4b",
+      "document-quality-input.ts": "006303157a78226cdcb9ce3c4cb704c7153e9f4c4d69d85f4b430e4a3c60bd5d",
+      "finalize-assessment.ts": "a932fefbcdb20be65f638fe6d57abc93d9fe865cee2096e6dd7a89733c586109",
+      "git-evidence.ts": "8ab0ae737a6c3571bf839c995a83fb1e28f685c7882efbcf016212d16c0c2b28",
+      "inference.schema.d.ts": "8f1f03b036d7751cd2746ec2770fce9515b9fc3cee846b138cdaf78a1a2a8f3b",
+      "inference.schema.json": "0836b607076fe647da1460cd8e75ed640c6fa7f54e29187171e8b1242f98e76d",
+      "materialize-assessment-results.ts": "5e7bd9f3368330ea9c395382ec2becfd2f099da838f314109d55a066934d7d7d",
+      "npm-command.ts": "7422d048f06cbf0fec26d3baebf0dfd0675d4ca1fa434e86cf205990c3ba1dcf",
+      "package-manager.ts": "38132c18914f1497dab144e106bc648f59b5232c5b81020583aacd104d2ab906",
+      "prepare-assessment.ts": "d659ba00f40897f0a9df5a5841d5b41dbf5506c5d35e544c43f08b97af278d58",
+      "render-assessment-html.ts": "9d10b9377f88fbb9f951047b8d5d9e7cfc7557551964fc1eb020a7163b2c03f8",
+      "run-assessment-analysis.ts": "6c20f24dec5b5f3ac2a278182267d12a6aff6c30f3af47d966875a69f1d2e3a3",
+      "runtime-types.ts": "f8f6c042489a5cb7117107480c7fa3cdcad0a3f0cb58e1e39217327b37d8273b",
+      "sdk-method-delta.ts": "9763fe13ad1635f57fbd1f202f633fe71ce889f106f34e8fbd01aad372effe3f",
+      "semantic-assessment-scope.ts": "cc259ae296133e699ef1f98fd7c58ce0ace824837c7939fc5b8297deb591a4d7",
+      "semantic-change-facts.ts": "eceffce2c3323c3bf97c11ed7ac9dd193b00d89a7c81e0800d503703b50d715f",
+      "semantic-context-policy.ts": "d3cceb833422ee174114cd92ffdfaef43e8b0db5ac95cbf038a4c98fcbebd6e1",
+      "serve-assessment.ts": "75abb27f2597bcdfdfeea5d6322245c3a1e6faab898ca7bcfe92490e23bca798",
+      "skill-dependencies.ts": "0699579624ba195ba192a3b47e2b8c99c54c5fd34bfeec16bb1d852cc1f87d80",
+      "source-index.ts": "646200589b2e14a890c8791c8782c863816cff1d46cdb7a3ed850706a2365532",
+      "stable-id.ts": "3a48fd1f6e3d8a42b2b6dd9b0d139d73e78f1461a93867d78a21053685f5b4e4",
+      "tcgc-contract.ts": "cf132afdbf98354178a13e6c31ce8c54ccee322a5beaa5677aa566f5ca3b3352",
+      "validate-assessment.ts": "b34b5323370dc8dc712985a016f71e722e5c334c8f59e48d08bd1e2ddba84da1",
+      "workflow-state.ts": "73ea585cdf6e0b998456c08fb445e2bbe98e702800a0f5c23ebac75cdd9ac43e"
+    }
   },
-  "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-  "verificationStatus": "verified",
+  "refreshKind": "frozen-preparation-replay",
+  "selectedReportCount": 11,
+  "cohort": {
+    "core": [
+      44288,
+      44920,
+      44101,
+      44557,
+      46008,
+      43918,
+      43757,
+      39064,
+      46679
+    ],
+    "verification": [
+      46679,
+      44988,
+      45348
+    ],
+    "selectedUnique": [
+      44288,
+      44920,
+      44101,
+      44557,
+      46008,
+      43918,
+      43757,
+      39064,
+      46679,
+      44988,
+      45348
+    ]
+  },
+  "combinedReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/combined.html",
+  "combinedHtmlSha256": "5a281388024f6a52e28fe9fc87782efe237c26f2c4eee6cde1573239e7d212e9",
+  "previousPublicationCommit": "8c13e66daa18ea368a080c85c1be60f90b5fd1ed",
+  "deploymentCommit": null,
+  "verificationStatus": "pending-deployment",
   "reports": [
     {
       "pr": 44288,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44288\\assessment.html",
-      "assessmentJsonSha256": "39119442f54bf4d96b22efedfaf5a7aa4c18729d7d7f85c23f7dd0e8fc33dd1d",
-      "assessmentHtmlSha256": "b783a1b640fee0c5f7ddc5f8432e452076eb8988239bede5daa8fd2a39bc23a6",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44288",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44288\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44288\\assessment.html",
+      "assessmentJsonSha256": "1bc1500b018ad6fc6deaf2c591bf4d3f71548a4f7c13c96275914b0b593b66c0",
+      "assessmentHtmlSha256": "9a3287e4eb5770d37edee8af1317f4739fa50b24dfa49da8ac9c200e5ad3cdb3",
+      "replayProvenanceSha256": "92b4a3186a72b0a90ac66a35a9793164b9ea4887898ea8ee8e6fc61b2335c703",
+      "refreshMetricsSha256": "54c4c20832ebe14ec5c9be37b5013a7c5dce44500a386551c18a47fb18b55542",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288/assessment.json",
-      "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-26T12:35:27.7455135Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "d4b1d2c82edd7f58f4340f861d848c5d351e1edd",
+        "baseCommit": "397a6977353e62db503b266fd796f51d14d60ef6",
+        "headCommit": "b931dadcc0382a211cc8d8489f45dab5bdf858b9",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "not-assessed",
+        "downstream": "failed",
+        "safety": "not-assessed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     },
     {
       "pr": 44920,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\assessment.html",
-      "assessmentJsonSha256": "ba1aa8d5f4e309f8f891298f57dda7b6b42a9c56b0b4f63e851f6b1be3db10b8",
-      "assessmentHtmlSha256": "1e5d755715a24bfceac0c0449372070ce0261113a621e7d12ef1c9b8868c820e",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44920",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44920\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44920\\assessment.html",
+      "assessmentJsonSha256": "d4d916ea9525d0b881ba45af39008d66980ce408c2094e5f74b48bea276bd9d9",
+      "assessmentHtmlSha256": "1d5707bd144b4fa119447fc5886175d867346e47ae230aea115b7b2696719ffb",
+      "replayProvenanceSha256": "724c1c4eb674c114634f06332cbb4083bafa62dc80f4440ac42641644d611b43",
+      "refreshMetricsSha256": "996c633bfe58410dfb50ebe553f74b618bde7c47fbf0779c923c5935d11fbedf",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44920/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44920/assessment.json",
-      "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-26T12:35:27.7455135Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "e7e40281ef2589e48a27a1c9ba914ad9dbcd4cf7",
+        "baseCommit": "e7e40281ef2589e48a27a1c9ba914ad9dbcd4cf7",
+        "headCommit": "94ca4ab2e350fb8e1186c9edd13eff4722060c2e",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "passed",
+        "downstream": "failed",
+        "safety": "failed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     },
     {
       "pr": 44101,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\assessment.html",
-      "assessmentJsonSha256": "bd762436fd75ae11b3a790487cf72ac54c2c636dcda852a7bf0e9236bef0ae8b",
-      "assessmentHtmlSha256": "82d9b8f73852a881df5e29f6b8a7b80893363ee4505c35c60e79b6d92c240595",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44101",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44101\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44101\\assessment.html",
+      "assessmentJsonSha256": "a11c3a692592419e16b8edb250f1bb577380eb14062822c55e62c06e86b14e5a",
+      "assessmentHtmlSha256": "4023cb6222e8a4843ee2e2e5e7c956fbaa34243075f92420daf9145216c5f817",
+      "replayProvenanceSha256": "170dbda2c30d4be39948736f3bf41e48c167097bbd04cf5fb8f65389eb3d7731",
+      "refreshMetricsSha256": "4c098a0da03f2157dfd7eb552efd393f106b4b479d97600f7f48caa038db7867",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44101/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44101/assessment.json",
-      "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-26T12:35:27.7455135Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "6160a0aa235ab0b54b42cf3279abbb9a8dce7b97",
+        "baseCommit": "6160a0aa235ab0b54b42cf3279abbb9a8dce7b97",
+        "headCommit": "d44082c34ce29d8102acf3a94ef07a6cbfc4570c",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "not-assessed",
+        "downstream": "not-assessed",
+        "safety": "not-assessed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     },
     {
       "pr": 44557,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44557",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44557\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44557\\assessment.html",
-      "assessmentJsonSha256": "2f76a4277232a9c7d334451c1f2bbd0c414a7d7bf40d2ff75da95912a8e0778e",
-      "assessmentHtmlSha256": "030e392cafda66f995d5944fca0586d7cd5df27276fff37b0655e15f710d1251",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44557",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44557\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44557\\assessment.html",
+      "assessmentJsonSha256": "6579e9ce05bb07aee2cae6946c78e4652fd7c7a29364af8796ffae368baadfaf",
+      "assessmentHtmlSha256": "1b76a35a0f09c34aafdcb5e446bf4cc17c6e121d57182101e873d54a5dd9b2ca",
+      "replayProvenanceSha256": "becd5c13eb176c81d75bd89fd1e73d501c1ec432c36511c0cb28551e365eb792",
+      "refreshMetricsSha256": "4a1fe47668ac7898bc3e81cdb4a2a759928d851e8e96fd74b3061e29c9ec742e",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44557/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44557/assessment.json",
-      "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-26T12:35:27.7455135Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "4df35c8e76875cb6c056193f2421756a1cd57a1a",
+        "baseCommit": "4df35c8e76875cb6c056193f2421756a1cd57a1a",
+        "headCommit": "bdd551d79cf0026bc9476f44a5ee5bcc94fefe27",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "passed",
+        "downstream": "passed",
+        "safety": "passed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     },
     {
       "pr": 46008,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-46008",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-46008\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-46008\\assessment.html",
-      "assessmentJsonSha256": "f5c21507a6c1f8b5b01bb42ddc0c0b483ed7aacbca6ba783fc38b13ec4094857",
-      "assessmentHtmlSha256": "71ce07e4f3c550f6e2413480b0df44c5a23594bfea7dfab90687c565413e02e1",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-46008",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-46008\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-46008\\assessment.html",
+      "assessmentJsonSha256": "f67b07401fc7dfea2f07fa4928845ea1baf17ea9d98be287e5eaefa6360263fe",
+      "assessmentHtmlSha256": "6d0121192a3f5d272c43b12bc63c3301cb86839af9be96dda9363732e5e1ba94",
+      "replayProvenanceSha256": "fbfb3bc2301d37612aa530109bb6c35768d265f3a33b499cdd04fcc748793e98",
+      "refreshMetricsSha256": "af9361586fa4d062267c1fddb63f25bd5b05e604b0239f7f270431c575906bf9",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46008/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46008/assessment.json",
-      "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-26T12:35:27.7455135Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "6d91149c44651898788d726945e6123631c2cc61",
+        "baseCommit": "6d91149c44651898788d726945e6123631c2cc61",
+        "headCommit": "98d26fc2d438424cfccecb16dded275f8f6d1afc",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "passed",
+        "downstream": "passed",
+        "safety": "passed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     },
     {
       "pr": 43918,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\assessment.html",
-      "assessmentJsonSha256": "05001dc529c994e7335528bf1b0523487c93bab28f5f87a6495d312e30a95ba8",
-      "assessmentHtmlSha256": "4308fd1b7245c65fb0f5dc155d477f337e2a9cf122ff615299680167a6b0c9cd",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-43918",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-43918\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-43918\\assessment.html",
+      "assessmentJsonSha256": "d434b84aec01c60f2368804cf8be5c68769dba0ae8ef637ff1f7602d4a6aba67",
+      "assessmentHtmlSha256": "a4d62d078c3afb2ca2630288b0055f5c826e0950cd2cf18767ce918b4b02ff33",
+      "replayProvenanceSha256": "223a24b853b71fa79a57a1f418fb8352fd185f668a0cbbc3fa7c8e54117fbd86",
+      "refreshMetricsSha256": "8100f89bcbbf4da990134bc8ff8f930d6c0b04fd59f7d068b86da247fb70b5fa",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43918/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43918/assessment.json",
-      "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-26T12:35:27.7455135Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "9e59a14b366a14d17522ea7a92af406e8170ee80",
+        "baseCommit": "9e59a14b366a14d17522ea7a92af406e8170ee80",
+        "headCommit": "668c17e024727325842a75915dc6744197bc2300",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "passed",
+        "downstream": "passed",
+        "safety": "passed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     },
     {
       "pr": 43757,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43757",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43757\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43757\\assessment.html",
-      "assessmentJsonSha256": "87092117aa5d94724b1cb48d7676b8683aa5ada3e000299678fdb390b9b5fc68",
-      "assessmentHtmlSha256": "ffe94ffca126d60066362aa965dd44a4ff340b450c3025a16fd466a0bdb4c358",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-43757",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-43757\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-43757\\assessment.html",
+      "assessmentJsonSha256": "2f0efc21e90c742cb8e72349362f32ed9bc2c8c7d5297a7e79b06713de65d8bf",
+      "assessmentHtmlSha256": "c032078e4b9c0856f3ac7e7b6ed7e862bc2c2e547bd26556e640d0dc28df9f18",
+      "replayProvenanceSha256": "f36d4bd90428eb5923cf3244259609ea94324bf4c41d029217dcd4110e7efc6b",
+      "refreshMetricsSha256": "38459692a76cc593c75ece2e5ea05afc7f3afb90d6419e1aecf7f8fce8e846e2",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43757/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43757/assessment.json",
-      "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-26T12:35:27.7455135Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "20420164745b1ff92c2f66238376a42670703e58",
+        "baseCommit": "20420164745b1ff92c2f66238376a42670703e58",
+        "headCommit": "b3ff37cc333df1358b7e222d76cf65f7196f6a7e",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "passed",
+        "downstream": "passed",
+        "safety": "passed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     },
     {
       "pr": 39064,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-39064",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-39064\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-39064\\assessment.html",
-      "assessmentJsonSha256": "0a47dc3507cb2e6c607fd921421b11b7d41f21a50a11dcfbb8bc6c1445ff8a88",
-      "assessmentHtmlSha256": "96d6686330881ab48cf8ae2752f3bd6d8f410f85a1a7b4503004fda39082e563",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-39064",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-39064\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-39064\\assessment.html",
+      "assessmentJsonSha256": "1d14e616ad77212845e73703612a887365f2edb5e510b209e887745fe0acf28b",
+      "assessmentHtmlSha256": "9d370853bbff2c642f574145057796ff8923b4d5abc5b0e0568c94fa2667e7e3",
+      "replayProvenanceSha256": "fbb3167160dd87d29bc388b0aa8c8fcd8532aaa75c5f5e4d84be1ce2e52973af",
+      "refreshMetricsSha256": "0266ce4e18b2c0ee6904ab2d5ec2b04cd1b13a9e6fded52e77610fee11a1053f",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-39064/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-39064/assessment.json",
-      "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-26T12:35:27.7455135Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "b07c3b3368b2a6bf86fc33af5f5e96cdaf97d760",
+        "baseCommit": "b07c3b3368b2a6bf86fc33af5f5e96cdaf97d760",
+        "headCommit": "39739b52a45585edde28e43753cfc30c5aa8aa42",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "not-assessed",
+        "downstream": "not-assessed",
+        "safety": "not-assessed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     },
     {
       "pr": 46679,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-46679-context-v2-run4",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-46679-context-v2-run4\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-46679-context-v2-run4\\assessment.html",
-      "assessmentJsonSha256": "a0051de4c0210495ea7e685c21795335c5b7c310c9a26877e56520e80870e935",
-      "assessmentHtmlSha256": "8b6dcd40d15e4a54f53d5ba5e342abbc02c3dd8e1c67946cfa0841b855bd1c42",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-46679",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-46679\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-46679\\assessment.html",
+      "assessmentJsonSha256": "3ea1fa4de7e18f729783b14ad56162822320a2873fe832970075629f99b8c3f6",
+      "assessmentHtmlSha256": "538c819dbc635954faaeb512ea8aa70197b561ee180aff9d4190f8689ac21198",
+      "replayProvenanceSha256": "438c8e69ac6355cdeb09301fc331e423fbf9caf721a3c0147dac8d42e9d00b64",
+      "refreshMetricsSha256": "411fc8b26c7ff14ed24e20d1263c53e6aee0d729ee844036d7ee1defe1faedbd",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679/assessment.json",
-      "deploymentCommit": "93eb09fc231cf1f49f124b54fc7269af19d4d103",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-26T12:35:27.7455135Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "74f4a55555f7e67433cd1a4b844bfca26086dba9",
+        "baseCommit": "b306e248a9e097d2b22e80030318c3d0080933dd",
+        "headCommit": "75c564b29d32d4da78bc5e8f6e38cbd8cb553b08",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "not-assessed",
+        "downstream": "not-assessed",
+        "safety": "not-assessed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     }
   ],
-  "verifiedAt": "2026-10-26T12:35:27.7455135Z",
-  "deploymentWorkflowUrl": "https://github.com/haolingdong-msft/typespec-assessment-reports/actions/runs/40323575838",
   "verificationReports": [
     {
       "pr": 44988,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-44988-context-v2-run6",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-44988-context-v2-run6\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-44988-context-v2-run6\\assessment.html",
-      "assessmentJsonSha256": "4f7afc3ef793933c992217b9349ec5e03b66f8e24821659a8b20580f49e01aeb",
-      "assessmentHtmlSha256": "a9a94af16a613ca1ffc38b251828e5a9fce933090892b1c36f89ff04ef0da9a0",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44988",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44988\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-44988\\assessment.html",
+      "assessmentJsonSha256": "309d712e1b316bbd5cc0dfd26f4b172258bda87412fdf5ec053636270b13c0b8",
+      "assessmentHtmlSha256": "ad803dadd4eed21dcb225ec7ab09bf500be756a9350aa63fe25cc35208515dad",
+      "replayProvenanceSha256": "43b6184c37654fa3da6d4e593286be2842b068020f66f48d2a2d672e3adb8031",
+      "refreshMetricsSha256": "622e0caaa72c9ea229ab66cccc739db770537b34e770764613821fb66b449940",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44988/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44988/assessment.json",
-      "deploymentCommit": "ef0402f57fdc506f23a528fc905105810fc1332c",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-27T02:22:04.7194840Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "9f0ad696cc186c2d16cb522abc0fbd4aa3854ca5",
+        "baseCommit": "9f0ad696cc186c2d16cb522abc0fbd4aa3854ca5",
+        "headCommit": "780a61ace56c22ce10dd01caa8ab95ca4514ac2e",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "passed",
+        "downstream": "failed",
+        "safety": "failed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     },
     {
       "pr": 45348,
-      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c",
-      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\assessment.json",
-      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\assessment.html",
-      "assessmentJsonSha256": "e760a123bd47ca2ae3552342d1d6f1154a93e4b2e8debabae9472d0bbb0cd302",
-      "assessmentHtmlSha256": "cfbcc494ec0a54268dcc835186649ba3918a89fbfd00abccc4a2eb4560c88791",
+      "finalizedLocalDirectory": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-45348",
+      "localAssessmentJson": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-45348\\assessment.json",
+      "localAssessmentHtml": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\file-grouped-refresh-45348\\assessment.html",
+      "assessmentJsonSha256": "5617215efd029caba363e0a23235a94ce002fdd25753f8d5becdc5049295ef7f",
+      "assessmentHtmlSha256": "dc923377c3f2bcb13be632ff60364631afdb095bcc382b41482b148033d596bb",
+      "replayProvenanceSha256": "2e2838794077df552dee72d295f94214c4d01df0d6b452f525ee487902268a1f",
+      "refreshMetricsSha256": "07bdeb95908838dbb884580caebcb7526dfdcddefb0feb128ccae48ae1789892",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45348/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45348/assessment.json",
-      "deploymentCommit": "ef0402f57fdc506f23a528fc905105810fc1332c",
-      "verificationStatus": "verified",
-      "verifiedAt": "2026-10-27T02:22:04.7194840Z"
+      "classificationVersion": 3,
+      "contextPolicyVersion": 2,
+      "refreshKind": "frozen-preparation-replay",
+      "comparison": {
+        "baseRef": "2991970c5377110244bcf9614be03e5aaf32362f",
+        "baseCommit": "2991970c5377110244bcf9614be03e5aaf32362f",
+        "headCommit": "b209254310b3e569b16210d3c59fc8b8ac3b84b4",
+        "workingTree": {
+          "staged": false,
+          "unstaged": false,
+          "untracked": false
+        }
+      },
+      "compatibilityCoverage": {
+        "rest": "not-assessed",
+        "downstream": "passed",
+        "safety": "not-assessed"
+      },
+      "deploymentCommit": null,
+      "verificationStatus": "pending-deployment"
     }
   ],
-  "verificationReportsGeneratedAt": "2026-10-27T02:18:50.3418789Z",
-  "verificationReportDeploymentCommit": "ef0402f57fdc506f23a528fc905105810fc1332c",
-  "verificationReportDeploymentWorkflowUrl": "https://github.com/haolingdong-msft/typespec-assessment-reports/actions/runs/40437760526",
-  "verificationReportsVerifiedAt": "2026-10-27T02:22:04.7194840Z"
+  "preservedHistoricalReportCount": 23
 }

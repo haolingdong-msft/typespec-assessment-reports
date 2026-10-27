@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T12:29:24.366Z",
+  "generatedAt": "2026-10-27T04:36:42.556Z",
   "title": "TypeSpec assessment: specification/relationships/resource-manager/Microsoft.Relationships/Relationships",
   "repository": {
     "root": "C:\\workspace\\azure-rest-api-specs",
@@ -61,7 +61,7 @@
       }
     }
   ],
-  "confidence": "medium",
+  "confidence": "high",
   "safety": {
     "scope": "rest-and-downstream-only",
     "status": "passed"
@@ -71,54 +71,15 @@
       "status": "assessed",
       "items": [
         {
-          "id": "semantic-067744c21fa97baf",
+          "id": "semantic-955d241af17e81fc",
           "projectId": "project-3fbb610dc848",
           "projectIds": [
             "project-3fbb610dc848"
           ],
           "action": "modify",
           "changeKind": "modify",
-          "classificationVersion": 2,
+          "classificationVersion": 3,
           "changeFacts": [
-            {
-              "id": "semantic-change-185c117a3736ac91",
-              "sourceChangeId": "source-38b80a54388355f6",
-              "hunkIds": [
-                "hunk-01b06ea68ca50c51"
-              ],
-              "declarationIds": [
-                "declaration-2aa827fd4e35cec0",
-                "declaration-55f7b2ec59f3b88e",
-                "declaration-b4002b3c247adbdf",
-                "declaration-d3e8d9131cafc10d"
-              ],
-              "beforeDeclarationIds": [
-                "declaration-2aa827fd4e35cec0",
-                "declaration-d3e8d9131cafc10d"
-              ],
-              "afterDeclarationIds": [
-                "declaration-55f7b2ec59f3b88e",
-                "declaration-b4002b3c247adbdf"
-              ],
-              "changeType": "documentation",
-              "declarationKind": "property",
-              "qualifiedName": "filter",
-              "action": "modify",
-              "facets": [],
-              "evidenceRef": {
-                "artifact": "source/source-index.json",
-                "sourceChangeId": "source-38b80a54388355f6",
-                "hunkIds": [
-                  "hunk-01b06ea68ca50c51"
-                ],
-                "declarationIds": [
-                  "declaration-2aa827fd4e35cec0",
-                  "declaration-55f7b2ec59f3b88e",
-                  "declaration-b4002b3c247adbdf",
-                  "declaration-d3e8d9131cafc10d"
-                ]
-              }
-            },
             {
               "id": "semantic-change-29f6efe94d15ed97",
               "sourceChangeId": "source-38b80a54388355f6",
@@ -153,7 +114,46 @@
               }
             },
             {
-              "id": "semantic-change-4deb1d649b9ddac3",
+              "id": "semantic-change-8b6dd02fc33100eb",
+              "sourceChangeId": "source-38b80a54388355f6",
+              "hunkIds": [
+                "hunk-01b06ea68ca50c51"
+              ],
+              "declarationIds": [
+                "declaration-2aa827fd4e35cec0",
+                "declaration-55f7b2ec59f3b88e",
+                "declaration-b4002b3c247adbdf",
+                "declaration-d3e8d9131cafc10d"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-2aa827fd4e35cec0",
+                "declaration-d3e8d9131cafc10d"
+              ],
+              "afterDeclarationIds": [
+                "declaration-55f7b2ec59f3b88e",
+                "declaration-b4002b3c247adbdf"
+              ],
+              "changeType": "type",
+              "declarationKind": "property",
+              "qualifiedName": "filter",
+              "action": "modify",
+              "facets": [],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-38b80a54388355f6",
+                "hunkIds": [
+                  "hunk-01b06ea68ca50c51"
+                ],
+                "declarationIds": [
+                  "declaration-2aa827fd4e35cec0",
+                  "declaration-55f7b2ec59f3b88e",
+                  "declaration-b4002b3c247adbdf",
+                  "declaration-d3e8d9131cafc10d"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-dbe3e8235c500487",
               "sourceChangeId": "source-38b80a54388355f6",
               "hunkIds": [
                 "hunk-01b06ea68ca50c51"
@@ -168,7 +168,7 @@
               "afterDeclarationIds": [
                 "declaration-26ce76dd9b3929ff"
               ],
-              "changeType": "documentation",
+              "changeType": "operation",
               "declarationKind": "operation",
               "qualifiedName": "ContainsRelationships.listBySubscription",
               "action": "modify",
@@ -187,7 +187,9 @@
             }
           ],
           "changeTypes": [
-            "documentation"
+            "documentation",
+            "operation",
+            "type"
           ],
           "sourceChangeIds": [
             "source-38b80a54388355f6"
@@ -1083,14 +1085,14 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Clarify supported list query parameters",
-          "summary": "Document that the relationship collection GET supports api-version and OData filter while intentionally omitting top. The compiled operation contract is unchanged.",
+          "title": "Explain the ContainsRelationship list query options",
+          "summary": "Add an explanatory comment stating that collection GETs intentionally omit $top and support api-version and $filter. The existing ContainsRelationship subscription-list operation and its optional filter are unchanged; the compared REST and neutral SDK contracts produce no breaking candidates.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
             "downstreamCandidateIds": [],
             "complianceSearchRequestIds": [
-              "compliance-search-e8993df2dc46852e"
+              "compliance-search-ef1635dabec29348"
             ],
             "relatedOperationIds": [
               "ContainsRelationships_ListBySubscription"
@@ -1726,125 +1728,297 @@
           }
         },
         {
-          "id": "semantic-9ae0588a22e4b766",
+          "id": "semantic-9f14082f7056ca15",
+          "projectId": "project-3fbb610dc848",
+          "projectIds": [
+            "project-3fbb610dc848"
+          ],
+          "action": "modify",
+          "changeKind": "modify",
+          "classificationVersion": 3,
+          "changeFacts": [
+            {
+              "id": "semantic-change-de413a56ed4ffe77",
+              "sourceChangeId": "source-38b80a54388355f6",
+              "hunkIds": [
+                "hunk-7bcf5c4b3bf95082"
+              ],
+              "declarationIds": [],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [],
+              "changeType": "documentation",
+              "action": "modify",
+              "facets": [],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-38b80a54388355f6",
+                "hunkIds": [
+                  "hunk-7bcf5c4b3bf95082"
+                ],
+                "declarationIds": []
+              }
+            }
+          ],
+          "changeTypes": [
+            "documentation"
+          ],
+          "sourceChangeIds": [
+            "source-38b80a54388355f6"
+          ],
+          "hunkIds": [
+            "hunk-7bcf5c4b3bf95082"
+          ],
+          "declarationIds": [],
+          "declarationNames": [],
+          "ownedOperationIds": [],
+          "versionTransitionOperationIds": [],
+          "sourceMappedOperationIds": [],
+          "publicationEligibleOperationIds": [],
+          "operations": [],
+          "operationIds": [],
+          "beforeFactIds": [],
+          "afterFactIds": [],
+          "changedAspects": [],
+          "groupingEvidence": {
+            "kind": "deterministic-coherent-change",
+            "reasons": [],
+            "memberHunkIds": [
+              "hunk-7bcf5c4b3bf95082"
+            ]
+          },
+          "intentType": "normal",
+          "carryOverProof": {
+            "schemaVersion": 1,
+            "status": "not-applicable",
+            "operations": [],
+            "equivalentOperationIds": [],
+            "differentOperationIds": [],
+            "unknownOperationIds": []
+          },
+          "contextPolicy": {
+            "schemaVersion": 1,
+            "rest": {
+              "mode": "agent",
+              "reason": "changed-or-unresolved-rest-scope",
+              "evidenceIds": []
+            },
+            "downstream": {
+              "mode": "agent",
+              "reason": "changed-or-unresolved-downstream-scope",
+              "evidenceIds": []
+            },
+            "guidelines": {
+              "mode": "agent",
+              "reason": "changed-design-facts-require-guidelines-assessment"
+            },
+            "documentation": {
+              "mode": "deterministic",
+              "reason": "compiler-effective-documentation-check"
+            }
+          },
+          "title": "Clarify the ServiceGroup dependencyOf version history",
+          "summary": "Revise an ordinary comment to explain that ServiceGroup-scoped dependencyOf operations introduced in 2026-03-01-preview continue into 2026-08-01 while 2023-09-01-preview remains unchanged. This comment-only group changes neither declarations nor runtime contracts.",
+          "informational": false,
+          "deterministicCoverage": {
+            "restCandidateIds": [],
+            "downstreamCandidateIds": [],
+            "complianceSearchRequestIds": [
+              "compliance-search-83157fc8e92520fe"
+            ],
+            "relatedOperationIds": [],
+            "coveredHunkIds": [
+              "hunk-7bcf5c4b3bf95082"
+            ],
+            "uncoveredHunkIds": [],
+            "classifications": [
+              {
+                "hunkId": "hunk-7bcf5c4b3bf95082",
+                "status": "semantic-only",
+                "reason": "documentation-only-change",
+                "restCandidateIds": [],
+                "downstreamCandidateIds": []
+              }
+            ],
+            "gaps": []
+          },
+          "inferenceRequired": false,
+          "sources": [
+            {
+              "id": "source-38b80a54388355f6",
+              "path": "specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-7bcf5c4b3bf95082",
+                  "base": {
+                    "startLine": 314,
+                    "endLine": 323
+                  },
+                  "current": {
+                    "startLine": 314,
+                    "endLine": 322
+                  },
+                  "lines": [
+                    " /*",
+                    "  * Service-group-scoped dependencyOf operations were already available on the",
+                    "  * internal preview branch for 2026-03-01-preview but were missed when that",
+                    "- * version was published. Introduce them from 2026-03-01-preview (this preview",
+                    "- * version has not shipped to customers yet); 2023-09-01-preview remains",
+                    "- * unchanged. Uses Extension.ExternalResource to define explicit tenant-level",
+                    "- * ServiceGroup paths",
+                    "+ * version was initially published. Introduce them from 2026-03-01-preview and",
+                    "+ * carry them forward into 2026-08-01; 2023-09-01-preview remains unchanged.",
+                    "+ * Uses Extension.ExternalResource to define explicit tenant-level ServiceGroup paths",
+                    "  * (/providers/Microsoft.Management/serviceGroups/{serviceGroupName}/providers/Microsoft.Relationships/dependencyOf[/{name}]),",
+                    "  * which satisfies ARM validation that requires explicitly-routed tenant-level",
+                    "  * URIs rather than the generic {resourceUri} wildcard used in"
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": [
+                  {
+                    "declarationId": "declaration-58620d84b164fae3",
+                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup",
+                    "kind": "interface",
+                    "newDeclaration": false,
+                    "documentationPresent": false,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 334,
+                      "endLine": 347,
+                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L336-L347"
+                    }
+                  },
+                  {
+                    "declarationId": "declaration-1c86cb1a02d371f9",
+                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup.get",
+                    "kind": "operation",
+                    "newDeclaration": false,
+                    "documentationPresent": true,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 337,
+                      "endLine": 337,
+                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L337-L337"
+                    }
+                  },
+                  {
+                    "declarationId": "declaration-cc6f0bb03971f256",
+                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup.createOrUpdate",
+                    "kind": "operation",
+                    "newDeclaration": false,
+                    "documentationPresent": true,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 338,
+                      "endLine": 341,
+                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L338-L338"
+                    }
+                  },
+                  {
+                    "declarationId": "declaration-560708dcb64f0f0e",
+                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup.delete",
+                    "kind": "operation",
+                    "newDeclaration": false,
+                    "documentationPresent": true,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 342,
+                      "endLine": 345
+                    }
+                  },
+                  {
+                    "declarationId": "declaration-bbe0275190a86d88",
+                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup.list",
+                    "kind": "operation",
+                    "newDeclaration": false,
+                    "documentationPresent": true,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 346,
+                      "endLine": 346
+                    }
+                  },
+                  {
+                    "declarationId": "declaration-77c68d288f587ac9",
+                    "qualifiedName": "ContainsRelationships",
+                    "kind": "interface",
+                    "newDeclaration": false,
+                    "documentationPresent": false,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 358,
+                      "endLine": 386,
+                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L362-L386"
+                    }
+                  },
+                  {
+                    "declarationId": "declaration-26ce76dd9b3929ff",
+                    "qualifiedName": "ContainsRelationships.listBySubscription",
+                    "kind": "operation",
+                    "newDeclaration": false,
+                    "documentationPresent": true,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 363,
+                      "endLine": 371,
+                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L364-L364"
+                    }
+                  },
+                  {
+                    "declarationId": "declaration-b4002b3c247adbdf",
+                    "qualifiedName": "filter",
+                    "kind": "property",
+                    "newDeclaration": false,
+                    "documentationPresent": true,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 367,
+                      "endLine": 369
+                    }
+                  },
+                  {
+                    "declarationId": "declaration-55f7b2ec59f3b88e",
+                    "qualifiedName": "filter",
+                    "kind": "property",
+                    "newDeclaration": false,
+                    "documentationPresent": true,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 382,
+                      "endLine": 384
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "relatedFindings": {
+            "rest": [],
+            "downstream": [],
+            "typeImpact": []
+          }
+        },
+        {
+          "id": "semantic-fee638e507a75464",
           "projectId": "project-3fbb610dc848",
           "projectIds": [
             "project-3fbb610dc848"
           ],
           "action": "add",
           "changeKind": "add",
-          "classificationVersion": 2,
+          "classificationVersion": 3,
           "changeFacts": [
             {
-              "id": "semantic-change-80605abd40a9d0e0",
-              "sourceChangeId": "source-38b80a54388355f6",
-              "hunkIds": [
-                "hunk-eeb86dfd51211119"
-              ],
-              "declarationIds": [
-                "declaration-0ab8ebb8907e2fe1",
-                "declaration-cc6f0bb03971f256"
-              ],
-              "beforeDeclarationIds": [
-                "declaration-0ab8ebb8907e2fe1"
-              ],
-              "afterDeclarationIds": [
-                "declaration-cc6f0bb03971f256"
-              ],
-              "changeType": "versioning",
-              "declarationKind": "operation",
-              "qualifiedName": "DependencyOfRelationshipsByServiceGroup.createOrUpdate",
-              "action": "modify",
-              "facets": [
-                "operation",
-                "version-activation"
-              ],
-              "evidenceRef": {
-                "artifact": "source/source-index.json",
-                "sourceChangeId": "source-38b80a54388355f6",
-                "hunkIds": [
-                  "hunk-eeb86dfd51211119"
-                ],
-                "declarationIds": [
-                  "declaration-0ab8ebb8907e2fe1",
-                  "declaration-cc6f0bb03971f256"
-                ]
-              }
-            },
-            {
-              "id": "semantic-change-a65397f033d57fc1",
-              "sourceChangeId": "source-38b80a54388355f6",
-              "hunkIds": [
-                "hunk-eeb86dfd51211119"
-              ],
-              "declarationIds": [
-                "declaration-560708dcb64f0f0e",
-                "declaration-e127347280d6699d"
-              ],
-              "beforeDeclarationIds": [
-                "declaration-e127347280d6699d"
-              ],
-              "afterDeclarationIds": [
-                "declaration-560708dcb64f0f0e"
-              ],
-              "changeType": "versioning",
-              "declarationKind": "operation",
-              "qualifiedName": "DependencyOfRelationshipsByServiceGroup.delete",
-              "action": "modify",
-              "facets": [
-                "operation",
-                "version-activation"
-              ],
-              "evidenceRef": {
-                "artifact": "source/source-index.json",
-                "sourceChangeId": "source-38b80a54388355f6",
-                "hunkIds": [
-                  "hunk-eeb86dfd51211119"
-                ],
-                "declarationIds": [
-                  "declaration-560708dcb64f0f0e",
-                  "declaration-e127347280d6699d"
-                ]
-              }
-            },
-            {
-              "id": "semantic-change-c854fb0e83e10bda",
-              "sourceChangeId": "source-38b80a54388355f6",
-              "hunkIds": [
-                "hunk-eeb86dfd51211119"
-              ],
-              "declarationIds": [
-                "declaration-bbe0275190a86d88",
-                "declaration-e149729c6b037942"
-              ],
-              "beforeDeclarationIds": [
-                "declaration-e149729c6b037942"
-              ],
-              "afterDeclarationIds": [
-                "declaration-bbe0275190a86d88"
-              ],
-              "changeType": "versioning",
-              "declarationKind": "operation",
-              "qualifiedName": "DependencyOfRelationshipsByServiceGroup.list",
-              "action": "modify",
-              "facets": [
-                "operation",
-                "version-activation"
-              ],
-              "evidenceRef": {
-                "artifact": "source/source-index.json",
-                "sourceChangeId": "source-38b80a54388355f6",
-                "hunkIds": [
-                  "hunk-eeb86dfd51211119"
-                ],
-                "declarationIds": [
-                  "declaration-bbe0275190a86d88",
-                  "declaration-e149729c6b037942"
-                ]
-              }
-            },
-            {
-              "id": "semantic-change-f8298901867cf739",
+              "id": "semantic-change-041e605c851551f9",
               "sourceChangeId": "source-38b80a54388355f6",
               "hunkIds": [
                 "hunk-eeb86dfd51211119"
@@ -1859,12 +2033,11 @@
               "afterDeclarationIds": [
                 "declaration-58620d84b164fae3"
               ],
-              "changeType": "versioning",
+              "changeType": "type",
               "declarationKind": "interface",
               "qualifiedName": "DependencyOfRelationshipsByServiceGroup",
               "action": "modify",
               "facets": [
-                "operation",
                 "version-activation"
               ],
               "evidenceRef": {
@@ -1880,7 +2053,42 @@
               }
             },
             {
-              "id": "semantic-change-fc7f167501632c5c",
+              "id": "semantic-change-469529899b7d73bf",
+              "sourceChangeId": "source-38b80a54388355f6",
+              "hunkIds": [
+                "hunk-eeb86dfd51211119"
+              ],
+              "declarationIds": [
+                "declaration-0ab8ebb8907e2fe1",
+                "declaration-cc6f0bb03971f256"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-0ab8ebb8907e2fe1"
+              ],
+              "afterDeclarationIds": [
+                "declaration-cc6f0bb03971f256"
+              ],
+              "changeType": "operation",
+              "declarationKind": "operation",
+              "qualifiedName": "DependencyOfRelationshipsByServiceGroup.createOrUpdate",
+              "action": "modify",
+              "facets": [
+                "operation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-38b80a54388355f6",
+                "hunkIds": [
+                  "hunk-eeb86dfd51211119"
+                ],
+                "declarationIds": [
+                  "declaration-0ab8ebb8907e2fe1",
+                  "declaration-cc6f0bb03971f256"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-8fdee447f22ea845",
               "sourceChangeId": "source-38b80a54388355f6",
               "hunkIds": [
                 "hunk-eeb86dfd51211119"
@@ -1895,13 +2103,12 @@
               "afterDeclarationIds": [
                 "declaration-1c86cb1a02d371f9"
               ],
-              "changeType": "versioning",
+              "changeType": "operation",
               "declarationKind": "operation",
               "qualifiedName": "DependencyOfRelationshipsByServiceGroup.get",
               "action": "modify",
               "facets": [
-                "operation",
-                "version-activation"
+                "operation"
               ],
               "evidenceRef": {
                 "artifact": "source/source-index.json",
@@ -1914,10 +2121,81 @@
                   "declaration-bcb08ee137f532fa"
                 ]
               }
+            },
+            {
+              "id": "semantic-change-9d0f7272e58f7042",
+              "sourceChangeId": "source-38b80a54388355f6",
+              "hunkIds": [
+                "hunk-eeb86dfd51211119"
+              ],
+              "declarationIds": [
+                "declaration-bbe0275190a86d88",
+                "declaration-e149729c6b037942"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-e149729c6b037942"
+              ],
+              "afterDeclarationIds": [
+                "declaration-bbe0275190a86d88"
+              ],
+              "changeType": "operation",
+              "declarationKind": "operation",
+              "qualifiedName": "DependencyOfRelationshipsByServiceGroup.list",
+              "action": "modify",
+              "facets": [
+                "operation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-38b80a54388355f6",
+                "hunkIds": [
+                  "hunk-eeb86dfd51211119"
+                ],
+                "declarationIds": [
+                  "declaration-bbe0275190a86d88",
+                  "declaration-e149729c6b037942"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-caa971b738bc0e23",
+              "sourceChangeId": "source-38b80a54388355f6",
+              "hunkIds": [
+                "hunk-eeb86dfd51211119"
+              ],
+              "declarationIds": [
+                "declaration-560708dcb64f0f0e",
+                "declaration-e127347280d6699d"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-e127347280d6699d"
+              ],
+              "afterDeclarationIds": [
+                "declaration-560708dcb64f0f0e"
+              ],
+              "changeType": "operation",
+              "declarationKind": "operation",
+              "qualifiedName": "DependencyOfRelationshipsByServiceGroup.delete",
+              "action": "modify",
+              "facets": [
+                "operation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-38b80a54388355f6",
+                "hunkIds": [
+                  "hunk-eeb86dfd51211119"
+                ],
+                "declarationIds": [
+                  "declaration-560708dcb64f0f0e",
+                  "declaration-e127347280d6699d"
+                ]
+              }
             }
           ],
           "changeTypes": [
-            "versioning"
+            "operation",
+            "type"
           ],
           "sourceChangeIds": [
             "source-38b80a54388355f6"
@@ -6437,41 +6715,11 @@
           "intentType": "normal",
           "carryOverProof": {
             "schemaVersion": 1,
-            "status": "partial",
-            "operations": [
-              {
-                "operationId": "DependencyOfRelationshipsByServiceGroup_CreateOrUpdate",
-                "rest": "unknown",
-                "downstream": "unknown",
-                "afterFactId": "operation-c9e8e7761547aa4a"
-              },
-              {
-                "operationId": "DependencyOfRelationshipsByServiceGroup_Delete",
-                "rest": "unknown",
-                "downstream": "unknown",
-                "afterFactId": "operation-cb47274f83a93fb0"
-              },
-              {
-                "operationId": "DependencyOfRelationshipsByServiceGroup_Get",
-                "rest": "unknown",
-                "downstream": "unknown",
-                "afterFactId": "operation-cf2f2b8d3f407451"
-              },
-              {
-                "operationId": "DependencyOfRelationshipsByServiceGroup_List",
-                "rest": "unknown",
-                "downstream": "unknown",
-                "afterFactId": "operation-57527ca571dbb4ec"
-              }
-            ],
+            "status": "not-applicable",
+            "operations": [],
             "equivalentOperationIds": [],
             "differentOperationIds": [],
-            "unknownOperationIds": [
-              "DependencyOfRelationshipsByServiceGroup_CreateOrUpdate",
-              "DependencyOfRelationshipsByServiceGroup_Delete",
-              "DependencyOfRelationshipsByServiceGroup_Get",
-              "DependencyOfRelationshipsByServiceGroup_List"
-            ]
+            "unknownOperationIds": []
           },
           "contextPolicy": {
             "schemaVersion": 1,
@@ -6487,21 +6735,21 @@
             },
             "guidelines": {
               "mode": "agent",
-              "reason": "version-event-remains-guidelines-eligible"
+              "reason": "changed-design-facts-require-guidelines-assessment"
             },
             "documentation": {
               "mode": "deterministic",
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Carry service-group dependency operations into 2026-08-01",
-          "summary": "Remove the 2026-08-01 removal boundary so create, delete, get and list service-group dependency operations remain available in that API version.",
+          "title": "Retain ServiceGroup dependencyOf operations in 2026-08-01",
+          "summary": "Remove the 2026-08-01 @removed decorator from DependencyOfRelationshipsByServiceGroup while retaining its 2026-03-01-preview @added boundary. This activates the DependencyOfRelationship extension-resource read, asynchronous create-or-replace, asynchronous delete, and list-by-target lifecycle operations at the explicit ServiceGroup scope in the existing stable version; it does not remove existing members or declare a new API version.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
             "downstreamCandidateIds": [],
             "complianceSearchRequestIds": [
-              "compliance-search-997fce51735d5fa6"
+              "compliance-search-0544d15119b8f948"
             ],
             "relatedOperationIds": [
               "DependencyOfRelationshipsByServiceGroup_CreateOrUpdate",
@@ -7445,286 +7693,6 @@
             "downstream": [],
             "typeImpact": []
           }
-        },
-        {
-          "id": "semantic-d08f6ace8d7db6c9",
-          "projectId": "project-3fbb610dc848",
-          "projectIds": [
-            "project-3fbb610dc848"
-          ],
-          "action": "modify",
-          "changeKind": "modify",
-          "classificationVersion": 2,
-          "changeFacts": [
-            {
-              "id": "semantic-change-de413a56ed4ffe77",
-              "sourceChangeId": "source-38b80a54388355f6",
-              "hunkIds": [
-                "hunk-7bcf5c4b3bf95082"
-              ],
-              "declarationIds": [],
-              "beforeDeclarationIds": [],
-              "afterDeclarationIds": [],
-              "changeType": "documentation",
-              "action": "modify",
-              "facets": [],
-              "evidenceRef": {
-                "artifact": "source/source-index.json",
-                "sourceChangeId": "source-38b80a54388355f6",
-                "hunkIds": [
-                  "hunk-7bcf5c4b3bf95082"
-                ],
-                "declarationIds": []
-              }
-            }
-          ],
-          "changeTypes": [
-            "documentation"
-          ],
-          "sourceChangeIds": [
-            "source-38b80a54388355f6"
-          ],
-          "hunkIds": [
-            "hunk-7bcf5c4b3bf95082"
-          ],
-          "declarationIds": [],
-          "declarationNames": [],
-          "ownedOperationIds": [],
-          "versionTransitionOperationIds": [],
-          "sourceMappedOperationIds": [],
-          "publicationEligibleOperationIds": [],
-          "operations": [],
-          "operationIds": [],
-          "beforeFactIds": [],
-          "afterFactIds": [],
-          "changedAspects": [],
-          "groupingEvidence": {
-            "kind": "deterministic-coherent-change",
-            "reasons": [],
-            "memberHunkIds": [
-              "hunk-7bcf5c4b3bf95082"
-            ]
-          },
-          "intentType": "normal",
-          "carryOverProof": {
-            "schemaVersion": 1,
-            "status": "not-applicable",
-            "operations": [],
-            "equivalentOperationIds": [],
-            "differentOperationIds": [],
-            "unknownOperationIds": []
-          },
-          "contextPolicy": {
-            "schemaVersion": 1,
-            "rest": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-rest-scope",
-              "evidenceIds": []
-            },
-            "downstream": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-downstream-scope",
-              "evidenceIds": []
-            },
-            "guidelines": {
-              "mode": "agent",
-              "reason": "changed-design-facts-require-guidelines-assessment"
-            },
-            "documentation": {
-              "mode": "deterministic",
-              "reason": "compiler-effective-documentation-check"
-            }
-          },
-          "title": "Update the versioning rationale comment",
-          "summary": "Update explanatory source comments to state that the service-group operations continue into 2026-08-01. No wire or SDK contract changes arise from the comment itself.",
-          "informational": false,
-          "deterministicCoverage": {
-            "restCandidateIds": [],
-            "downstreamCandidateIds": [],
-            "complianceSearchRequestIds": [
-              "compliance-search-b6e4bed5f8e81f01"
-            ],
-            "relatedOperationIds": [],
-            "coveredHunkIds": [
-              "hunk-7bcf5c4b3bf95082"
-            ],
-            "uncoveredHunkIds": [],
-            "classifications": [
-              {
-                "hunkId": "hunk-7bcf5c4b3bf95082",
-                "status": "semantic-only",
-                "reason": "documentation-only-change",
-                "restCandidateIds": [],
-                "downstreamCandidateIds": []
-              }
-            ],
-            "gaps": []
-          },
-          "inferenceRequired": false,
-          "sources": [
-            {
-              "id": "source-38b80a54388355f6",
-              "path": "specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp",
-              "status": "modified",
-              "origins": [
-                "committed"
-              ],
-              "hunks": [
-                {
-                  "id": "hunk-7bcf5c4b3bf95082",
-                  "base": {
-                    "startLine": 314,
-                    "endLine": 323
-                  },
-                  "current": {
-                    "startLine": 314,
-                    "endLine": 322
-                  },
-                  "lines": [
-                    " /*",
-                    "  * Service-group-scoped dependencyOf operations were already available on the",
-                    "  * internal preview branch for 2026-03-01-preview but were missed when that",
-                    "- * version was published. Introduce them from 2026-03-01-preview (this preview",
-                    "- * version has not shipped to customers yet); 2023-09-01-preview remains",
-                    "- * unchanged. Uses Extension.ExternalResource to define explicit tenant-level",
-                    "- * ServiceGroup paths",
-                    "+ * version was initially published. Introduce them from 2026-03-01-preview and",
-                    "+ * carry them forward into 2026-08-01; 2023-09-01-preview remains unchanged.",
-                    "+ * Uses Extension.ExternalResource to define explicit tenant-level ServiceGroup paths",
-                    "  * (/providers/Microsoft.Management/serviceGroups/{serviceGroupName}/providers/Microsoft.Relationships/dependencyOf[/{name}]),",
-                    "  * which satisfies ARM validation that requires explicitly-routed tenant-level",
-                    "  * URIs rather than the generic {resourceUri} wildcard used in"
-                  ]
-                }
-              ],
-              "declarations": [],
-              "documentEvidence": {
-                "schemaVersion": 4,
-                "status": "ready",
-                "blockers": [],
-                "declarations": [
-                  {
-                    "declarationId": "declaration-58620d84b164fae3",
-                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup",
-                    "kind": "interface",
-                    "newDeclaration": false,
-                    "documentationPresent": false,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 334,
-                      "endLine": 347,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L336-L347"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-1c86cb1a02d371f9",
-                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup.get",
-                    "kind": "operation",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 337,
-                      "endLine": 337,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L337-L337"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-cc6f0bb03971f256",
-                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup.createOrUpdate",
-                    "kind": "operation",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 338,
-                      "endLine": 341,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L338-L338"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-560708dcb64f0f0e",
-                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup.delete",
-                    "kind": "operation",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 342,
-                      "endLine": 345
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-bbe0275190a86d88",
-                    "qualifiedName": "DependencyOfRelationshipsByServiceGroup.list",
-                    "kind": "operation",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 346,
-                      "endLine": 346
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-77c68d288f587ac9",
-                    "qualifiedName": "ContainsRelationships",
-                    "kind": "interface",
-                    "newDeclaration": false,
-                    "documentationPresent": false,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 358,
-                      "endLine": 386,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L362-L386"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-26ce76dd9b3929ff",
-                    "qualifiedName": "ContainsRelationships.listBySubscription",
-                    "kind": "operation",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 363,
-                      "endLine": 371,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/98d26fc2d438424cfccecb16dded275f8f6d1afc/specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp#L364-L364"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-b4002b3c247adbdf",
-                    "qualifiedName": "filter",
-                    "kind": "property",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 367,
-                      "endLine": 369
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-55f7b2ec59f3b88e",
-                    "qualifiedName": "filter",
-                    "kind": "property",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 382,
-                      "endLine": 384
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "relatedFindings": {
-            "rest": [],
-            "downstream": [],
-            "typeImpact": []
-          }
         }
       ],
       "sourceHunkIds": [
@@ -7772,13 +7740,13 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category."
+            "selectionRationale": "Primary guidance for changing operation availability in an existing versioned ARM API; removing the removal boundary is the actual feature change."
           },
           {
             "rank": 2,
-            "catalogOrder": 2,
-            "title": "Versioning overview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+            "catalogOrder": 8,
+            "title": "Specific extension resource sample",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
@@ -7786,7 +7754,7 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category."
+            "selectionRationale": "The scoped Extension operation sample directly relates to activating the existing ServiceGroup extension-resource lifecycle interface; the catalog names the template family rather than an exact changed symbol."
           },
           {
             "rank": 3,
@@ -7800,13 +7768,13 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category."
+            "selectionRationale": "ARM lifecycle and list guidance is directly relevant to the newly active dependencyOf operation group and the comment explaining collection query choices."
           },
           {
             "rank": 4,
-            "catalogOrder": 21,
-            "title": "Models",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "catalogOrder": 13,
+            "title": "Azure.ResourceManager interface reference",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
@@ -7814,192 +7782,248 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category."
+            "selectionRationale": "Reference signatures for ARM extension-operation interfaces are relevant when evaluating the newly active scoped interface."
           },
           {
             "rank": 5,
+            "catalogOrder": 15,
+            "title": "Azure.ResourceManager decorators",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "ARM lifecycle decorator guidance relates to the active operation interface; its catalog description lists lifecycle decorators rather than the supplied @armResourceOperations symbol."
+          },
+          {
+            "rank": 6,
+            "catalogOrder": 2,
+            "title": "Versioning overview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Azure versioning is relevant to the retained preview introduction boundary, but no version enum or ordering changes."
+          },
+          {
+            "rank": 7,
             "catalogOrder": 3,
             "title": "Add preview after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 5
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Versioning category and Azure service applicability match; this change does not add a preview after another preview."
           },
           {
-            "rank": 6,
+            "rank": 8,
             "catalogOrder": 4,
             "title": "Add stable after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 5
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Preview-to-stable availability is related, but the comparison edits an already existing stable version rather than introducing a new stable version."
           },
           {
-            "rank": 7,
+            "rank": 9,
             "catalogOrder": 5,
             "title": "Add preview after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 5
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Azure versioning category matches; no new preview is added after a stable version."
           },
           {
-            "rank": 8,
+            "rank": 10,
             "catalogOrder": 6,
             "title": "Add stable after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 5
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Azure versioning category matches; no new stable version is added after another stable version."
           },
           {
-            "rank": 9,
+            "rank": 11,
             "catalogOrder": 7,
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 5
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM extension-resource modeling provides relevant scope context, but no resource model or resource kind is newly defined."
           },
           {
-            "rank": 10,
-            "catalogOrder": 8,
-            "title": "Specific extension resource sample",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
+            "rank": 12,
+            "catalogOrder": 16,
+            "title": "ARM long-running operations",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 5
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "The activated ARM create/delete operations use asynchronous templates, but their LRO pattern and headers are not modified."
           },
           {
-            "rank": 11,
+            "rank": 13,
+            "catalogOrder": 18,
+            "title": "Azure.ResourceManager data types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "ARM paging and the $top comment are related, but no standard paging parameter declaration is added or modified."
+          },
+          {
+            "rank": 14,
+            "catalogOrder": 14,
+            "title": "TypeSpec.Rest decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 1,
+              "total": 4
+            },
+            "selectionRationale": "General resource lifecycle categories match the activated operations, but the catalog entry is plane-neutral and names no exact changed decorator."
+          },
+          {
+            "rank": 15,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 1,
+              "total": 4
+            },
+            "selectionRationale": "Removing a version decorator changes operation availability, but general decorator syntax is less specific than version-evolution and ARM guidance."
+          },
+          {
+            "rank": 16,
             "catalogOrder": 9,
             "title": "Private endpoints",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but no private endpoint resource or operation changes."
           },
           {
-            "rank": 12,
+            "rank": 17,
             "catalogOrder": 10,
             "title": "Private links",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but no private link feature changes."
           },
           {
-            "rank": 13,
+            "rank": 18,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but no network security perimeter feature changes."
           },
           {
-            "rank": 14,
-            "catalogOrder": 13,
-            "title": "Azure.ResourceManager interface reference",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
+            "rank": 19,
+            "catalogOrder": 20,
+            "title": "ARM common types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but common model definitions and their versions are unchanged."
           },
           {
-            "rank": 15,
-            "catalogOrder": 14,
-            "title": "TypeSpec.Rest decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
+            "rank": 20,
+            "catalogOrder": 27,
+            "title": "Change provider namespace",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but the provider namespace is unchanged."
           },
           {
-            "rank": 16,
-            "catalogOrder": 15,
-            "title": "Azure.ResourceManager decorators",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
+            "rank": 21,
+            "catalogOrder": 28,
+            "title": "Azure Portal default experiences",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "ARM plane matches, but no Portal experience customization changes."
           },
           {
-            "rank": 17,
-            "catalogOrder": 16,
-            "title": "ARM long-running operations",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 18,
+            "rank": 22,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -8010,24 +8034,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Azure.Core data-plane polling patterns do not govern these ARM Extension operations."
           },
           {
-            "rank": 19,
-            "catalogOrder": 18,
-            "title": "Azure.ResourceManager data types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 20,
+            "rank": 23,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -8038,13 +8048,13 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "Low-level data-plane paging decorators are not the ARM list templates in this scope."
           },
           {
-            "rank": 21,
-            "catalogOrder": 20,
-            "title": "ARM common types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "rank": 24,
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
@@ -8052,10 +8062,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No model property, composition, or inheritance edit is supplied; incidental referenced model shapes do not establish a model-design change."
           },
           {
-            "rank": 22,
+            "rank": 25,
             "catalogOrder": 22,
             "title": "Enums",
             "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
@@ -8066,10 +8076,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No enum declaration or enum value changes."
           },
           {
-            "rank": 23,
+            "rank": 26,
             "catalogOrder": 23,
             "title": "Scalars",
             "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
@@ -8080,24 +8090,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No scalar declaration or constraint changes."
           },
           {
-            "rank": 24,
-            "catalogOrder": 24,
-            "title": "Decorators",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 25,
+            "rank": 27,
             "catalogOrder": 25,
             "title": "Built-in decorators",
             "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
@@ -8108,10 +8104,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No built-in documentation, visibility, or value-constraint decorator changes; ordinary comments are not new compiler documentation."
           },
           {
-            "rank": 26,
+            "rank": 28,
             "catalogOrder": 26,
             "title": "OpenAPI decorators",
             "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
@@ -8122,35 +8118,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 27,
-            "catalogOrder": 27,
-            "title": "Change provider namespace",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
-          },
-          {
-            "rank": 28,
-            "catalogOrder": 28,
-            "title": "Azure Portal default experiences",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No OpenAPI-specific decorator changes."
           },
           {
             "rank": 29,
@@ -8164,7 +8132,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No Azure.Core content negotiation or Accept-header feature changes."
           },
           {
             "rank": 30,
@@ -8178,7 +8146,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "An existing interface warning suppression appears as source context, but this PR does not add or modify it."
           },
           {
             "rank": 31,
@@ -8192,7 +8160,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "This document is less directly applicable to the selected changes than the four fetched entries."
+            "selectionRationale": "No no-openapi diagnostic or OpenAPI decorator suppression changes."
           }
         ],
         "documents": [
@@ -8208,15 +8176,16 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category.",
+            "selectionRationale": "Primary guidance for changing operation availability in an existing versioned ARM API; removing the removal boundary is the actual feature change.",
             "guidance": [
               {
                 "section": "Versioning Decorators",
-                "excerpt": "Add new models, properties, or operations in a specific version using the appropriate versioning decorators.",
+                "excerpt": "You can add new models, properties, or operations in a specific version and all subsequent versions using the `@added` decorator. The element will be present in that version and all later versions. To remove models, properties, or operations starting from a specific version, use the `@removed` decorator. The element will not be present in that version or any later versions.",
                 "queryTerms": [
                   "@added",
-                  "@madeOptional",
-                  "preview"
+                  "@removed",
+                  "2026-03-01-preview",
+                  "2026-08-01"
                 ],
                 "examples": [],
                 "applicableDeclarationIds": [
@@ -8229,14 +8198,14 @@
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-28T00:00:00Z",
-            "contentHash": "sha256:5bcd9f3d8f35ef4f7b5bc755389766c723d05200acf250eff4b3a815af65bfa3"
+            "retrievedAt": "2026-10-27T04:34:23.450Z",
+            "contentHash": "sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2"
           },
           {
             "rank": 2,
-            "catalogOrder": 2,
-            "title": "Versioning overview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+            "catalogOrder": 8,
+            "title": "Specific extension resource sample",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
@@ -8244,15 +8213,18 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category.",
+            "selectionRationale": "The scoped Extension operation sample directly relates to activating the existing ServiceGroup extension-resource lifecycle interface; the catalog names the template family rather than an exact changed symbol.",
             "guidance": [
               {
-                "section": "Preview Versioning Rules for All Azure APIs",
-                "excerpt": "Mark changes from the latest stable with appropriate versioning decorators using the preview version as the argument.",
+                "section": "Specific extension resource sample: scoped lifecycle operations",
+                "excerpt": "The sample defines get, create, delete, and list using Extension.Read, Extension.CreateOrReplaceAsync, Extension.DeleteWithoutOkAsync, and Extension.ListByTarget with a resource scope. Its ServiceGroups interface applies @armResourceOperations at the service-group-level extension-resource path.",
                 "queryTerms": [
-                  "latest stable",
-                  "preview",
-                  "versioning"
+                  "Extension.Read",
+                  "Extension.CreateOrReplaceAsync",
+                  "Extension.DeleteWithoutOkAsync",
+                  "Extension.ListByTarget",
+                  "ServiceGroup",
+                  "@armResourceOperations"
                 ],
                 "examples": [],
                 "applicableDeclarationIds": [
@@ -8265,8 +8237,8 @@
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-28T00:00:00Z",
-            "contentHash": "sha256:5e72a1d09c1662bda04e0c31a0d6a8338c0f231c64d0c38f246431f0147027a2"
+            "retrievedAt": "2026-10-27T04:34:21.305Z",
+            "contentHash": "sha256:73cbcdd91aa0613d52f11d9de8b9546082b25c8fbdf71b3fc5211a3e70877407"
           },
           {
             "rank": 3,
@@ -8280,39 +8252,35 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category.",
+            "selectionRationale": "ARM lifecycle and list guidance is directly relevant to the newly active dependencyOf operation group and the comment explaining collection query choices.",
             "guidance": [
               {
-                "section": "TypeSpec Operation Templates and Interface Templates",
-                "excerpt": "TypeSpec operation templates describe the request and response of standard resource operations, including synchronous and asynchronous lifecycle variants.",
+                "section": "Resource List Operations (GET)",
+                "excerpt": "All resources should include a list operation at its immediate parent scope. For Extension Resources, this is at the scope of resources they are extending.",
                 "queryTerms": [
-                  "resource operations",
-                  "PATCH",
-                  "DELETE",
-                  "list"
+                  "Extension Resources",
+                  "ServiceGroup",
+                  "Extension.ListByTarget"
                 ],
                 "examples": [],
                 "applicableDeclarationIds": [
                   "declaration-1c86cb1a02d371f9",
-                  "declaration-26ce76dd9b3929ff",
-                  "declaration-55f7b2ec59f3b88e",
                   "declaration-560708dcb64f0f0e",
                   "declaration-58620d84b164fae3",
-                  "declaration-77c68d288f587ac9",
                   "declaration-bbe0275190a86d88",
                   "declaration-cc6f0bb03971f256"
                 ]
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-28T00:00:00.000Z",
-            "contentHash": "sha256:799cfd3e26e93d0903bd978b22927829c23ce1822e68f99eaa8df0576ed29cc6"
+            "retrievedAt": "2026-10-27T04:34:22.391Z",
+            "contentHash": "sha256:c647a4908a0d0e74803347a5e4956b56986a684344b8c67a3b3f7f37c67558d7"
           },
           {
             "rank": 4,
-            "catalogOrder": 21,
-            "title": "Models",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "catalogOrder": 13,
+            "title": "Azure.ResourceManager interface reference",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
@@ -8320,24 +8288,19 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "This official guidance directly covers the selected ARM API evolution and declaration category.",
+            "selectionRationale": "Reference signatures for ARM extension-operation interfaces are relevant when evaluating the newly active scoped interface.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-28T00:00:00Z",
-            "contentHash": "sha256:1a90dd13f99521e5c806072a6285307119be6bdca67a6ea6bc66534d79e329ab"
+            "retrievedAt": "2026-10-27T04:34:24.556Z",
+            "contentHash": "sha256:26450a2c031c3781894e2b8cd491f78bf250e5eb432c1c77f4abc3e5319717f3"
           }
         ]
       },
       "intentAssessments": [
         {
-          "semanticIntentId": "semantic-067744c21fa97baf",
-          "reviewUnitId": "semantic-067744c21fa97baf",
-          "applicableGuidance": [
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-              "guidanceSection": "TypeSpec Operation Templates and Interface Templates"
-            }
-          ],
+          "semanticIntentId": "semantic-955d241af17e81fc",
+          "reviewUnitId": "semantic-955d241af17e81fc",
+          "applicableGuidance": [],
           "sourceChangeIds": [
             "source-38b80a54388355f6"
           ],
@@ -8349,11 +8312,10 @@
             "declaration-55f7b2ec59f3b88e",
             "declaration-77c68d288f587ac9"
           ],
-          "decision": "applicable-pass",
-          "expected": "Keep the list operation contract explicit and consistent with its supported parameters.",
-          "actual": "The source comment documents the existing api-version and filter parameters without changing the emitted operation.",
-          "rationale": "The operation remains consistent with the fetched ARM operation guidance; this edit is documentation-only.",
-          "gap": "The operation remains consistent with the fetched ARM operation guidance; this edit is documentation-only.",
+          "decision": "no-applicable-guidance",
+          "actual": "The only changed lines add an ordinary comment explaining the intentional omission of $top. The existing ArmListBySubscription application and optional @query(\"$filter\") property remain unchanged, as does the adjacent warning suppression.",
+          "rationale": "The shared search reviewed ARM list and query-parameter guidance, but no fetched passage governs this explanatory comment or verifies its cited RPC-Get-V1-15 assertion. Recommendations about reusable filter parameter models do not establish a new design violation in an unchanged declaration, and the existing suppression is neither a new exemption nor a new failure.",
+          "gap": "The shared search reviewed ARM list and query-parameter guidance, but no fetched passage governs this explanatory comment or verifies its cited RPC-Get-V1-15 assertion. Recommendations about reusable filter parameter models do not establish a new design violation in an unchanged declaration, and the existing suppression is neither a new exemption nor a new failure.",
           "sourceLinks": [
             {
               "path": "specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp",
@@ -8386,20 +8348,53 @@
           "blockers": []
         },
         {
-          "semanticIntentId": "semantic-9ae0588a22e4b766",
-          "reviewUnitId": "semantic-9ae0588a22e4b766",
+          "semanticIntentId": "semantic-9f14082f7056ca15",
+          "reviewUnitId": "semantic-9f14082f7056ca15",
+          "applicableGuidance": [],
+          "sourceChangeIds": [
+            "source-38b80a54388355f6"
+          ],
+          "hunkIds": [
+            "hunk-7bcf5c4b3bf95082"
+          ],
+          "declarationIds": [],
+          "decision": "no-applicable-guidance",
+          "actual": "An ordinary historical comment now states that ServiceGroup dependencyOf operations continue from 2026-03-01-preview into 2026-08-01, preserving 2023-09-01-preview.",
+          "rationale": "The search found version-decorator and extension-resource modeling guidance, but none imposes a requirement on the wording of this non-contract comment. The actual operation-availability edit is assessed separately in its supplied owning group.",
+          "gap": "The search found version-decorator and extension-resource modeling guidance, but none imposes a requirement on the wording of this non-contract comment. The actual operation-availability edit is assessed separately in its supplied owning group.",
+          "sourceLinks": [],
+          "codeSnippets": [
+            {
+              "path": "specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp",
+              "hunkId": "hunk-7bcf5c4b3bf95082",
+              "lines": [
+                "- * version was published. Introduce them from 2026-03-01-preview (this preview",
+                "- * version has not shipped to customers yet); 2023-09-01-preview remains",
+                "- * unchanged. Uses Extension.ExternalResource to define explicit tenant-level",
+                "- * ServiceGroup paths",
+                "+ * version was initially published. Introduce them from 2026-03-01-preview and",
+                "+ * carry them forward into 2026-08-01; 2023-09-01-preview remains unchanged.",
+                "+ * Uses Extension.ExternalResource to define explicit tenant-level ServiceGroup paths"
+              ]
+            }
+          ],
+          "blockers": []
+        },
+        {
+          "semanticIntentId": "semantic-fee638e507a75464",
+          "reviewUnitId": "semantic-fee638e507a75464",
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
               "guidanceSection": "Versioning Decorators"
             },
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
+              "guidanceSection": "Specific extension resource sample: scoped lifecycle operations"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-              "guidanceSection": "TypeSpec Operation Templates and Interface Templates"
+              "guidanceSection": "Resource List Operations (GET)"
             }
           ],
           "sourceChangeIds": [
@@ -8416,10 +8411,10 @@
             "declaration-cc6f0bb03971f256"
           ],
           "decision": "applicable-pass",
-          "expected": "Use versioning decorators to control operation availability in the intended API versions.",
-          "actual": "Removing the 2026-08-01 removal boundary carries the existing operation family into that version without changing the operations themselves.",
-          "rationale": "The change uses TypeSpec versioning semantics to expose additive operations and retains standard ARM operation shapes.",
-          "gap": "The change uses TypeSpec versioning semantics to expose additive operations and retains standard ARM operation shapes.",
+          "expected": "Use @added to bound introduction and @removed only when the element should stop appearing in that and later versions. Extension-resource lifecycle operations should use scoped templates, including a list at the resource's extended target scope.",
+          "actual": "The interface retains @added(2026-03-01-preview), drops @removed(2026-08-01), and applies @armResourceOperations. Its operations use Extension.Read, Extension.CreateOrReplaceAsync, Extension.DeleteWithoutOkAsync, and Extension.ListByTarget with ServiceGroup and DependencyOfRelationship.",
+          "rationale": "The decorator edit makes the existing feature continue into 2026-08-01 without moving its introduction into 2023-09-01-preview. The supplied templates identify the read, create-or-replace, delete, and list lifecycle roles and retain listing at the ServiceGroup target scope. This is additive activation in an existing version, not a publication event; tracked-resource PATCH requirements are not inferred for this extension resource.",
+          "gap": "The decorator edit makes the existing feature continue into 2026-08-01 without moving its introduction into 2023-09-01-preview. The supplied templates identify the read, create-or-replace, delete, and list lifecycle roles and retain listing at the ServiceGroup target scope. This is additive activation in an existing version, not a publication event; tracked-resource PATCH requirements are not inferred for this extension resource.",
           "sourceLinks": [
             {
               "path": "specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp",
@@ -8460,39 +8455,6 @@
             }
           ],
           "blockers": []
-        },
-        {
-          "semanticIntentId": "semantic-d08f6ace8d7db6c9",
-          "reviewUnitId": "semantic-d08f6ace8d7db6c9",
-          "applicableGuidance": [],
-          "sourceChangeIds": [
-            "source-38b80a54388355f6"
-          ],
-          "hunkIds": [
-            "hunk-7bcf5c4b3bf95082"
-          ],
-          "declarationIds": [],
-          "decision": "no-applicable-guidance",
-          "actual": "Only explanatory comments about version carry-forward are changed.",
-          "rationale": "The completed official search does not impose API design requirements on source-only explanatory prose.",
-          "gap": "The completed official search does not impose API design requirements on source-only explanatory prose.",
-          "sourceLinks": [],
-          "codeSnippets": [
-            {
-              "path": "specification/relationships/resource-manager/Microsoft.Relationships/Relationships/main.tsp",
-              "hunkId": "hunk-7bcf5c4b3bf95082",
-              "lines": [
-                "- * version was published. Introduce them from 2026-03-01-preview (this preview",
-                "- * version has not shipped to customers yet); 2023-09-01-preview remains",
-                "- * unchanged. Uses Extension.ExternalResource to define explicit tenant-level",
-                "- * ServiceGroup paths",
-                "+ * version was initially published. Introduce them from 2026-03-01-preview and",
-                "+ * carry them forward into 2026-08-01; 2023-09-01-preview remains unchanged.",
-                "+ * Uses Extension.ExternalResource to define explicit tenant-level ServiceGroup paths"
-              ]
-            }
-          ],
-          "blockers": []
         }
       ],
       "findings": [],
@@ -8511,26 +8473,26 @@
         "missingDeclarationCount": 0,
         "unassessedIntentIds": [],
         "notApplicableIntentIds": [
-          "semantic-067744c21fa97baf",
-          "semantic-9ae0588a22e4b766",
-          "semantic-d08f6ace8d7db6c9"
+          "semantic-955d241af17e81fc",
+          "semantic-9f14082f7056ca15",
+          "semantic-fee638e507a75464"
         ]
       },
       "intentAssessments": [
         {
-          "reviewUnitId": "semantic-067744c21fa97baf",
+          "reviewUnitId": "semantic-955d241af17e81fc",
           "status": "not-applicable",
           "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
           "declarations": []
         },
         {
-          "reviewUnitId": "semantic-9ae0588a22e4b766",
+          "reviewUnitId": "semantic-9f14082f7056ca15",
           "status": "not-applicable",
           "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
           "declarations": []
         },
         {
-          "reviewUnitId": "semantic-d08f6ace8d7db6c9",
+          "reviewUnitId": "semantic-fee638e507a75464",
           "status": "not-applicable",
           "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
           "declarations": []
@@ -8763,8 +8725,8 @@
   "inputAccounting": {
     "budgetTier": "small",
     "budgetBytes": 131072,
-    "bytes": 15907,
-    "estimatedTokens": 3977,
+    "bytes": 15948,
+    "estimatedTokens": 3987,
     "retained": {
       "evidenceSets": 5,
       "facts": 0,
@@ -8789,25 +8751,17 @@
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 761201,
+      "documentBytesFetched": 63980,
       "guidanceExcerptsRetained": 3,
-      "guidanceExcerptBytesRetained": 379
+      "guidanceExcerptBytesRetained": 826
     }
   },
   "timings": {
-    "metadataMs": 3172,
-    "fetchMs": 142,
-    "scopeDiscoveryMs": 71,
-    "setupExcludingFetchMs": 13261,
-    "comparisonMs": 120,
-    "changeDiscoveryMs": 94,
-    "workspacePreparationMs": 9597,
-    "projectDiscoveryMs": 13,
-    "totalMs": 244484,
-    "semanticAnalysisMs": 315,
-    "restAnalysisMs": 25,
-    "downstreamAnalysisMs": 275,
-    "semanticContextPolicyMs": 3,
-    "documentQualityAnalysisMs": 1
+    "semanticAnalysisMs": 234,
+    "restAnalysisMs": 14,
+    "downstreamAnalysisMs": 191,
+    "semanticContextPolicyMs": 1,
+    "documentQualityAnalysisMs": 1,
+    "replayAnalysisMs": 811
   }
 }

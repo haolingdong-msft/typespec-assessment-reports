@@ -627,15 +627,26 @@ body {
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">4 intents<br>8 operations<br>2 Added, 2 Modified, 0 Removed</div></a>
 <a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>4/4 intents assessed</div></a>
-<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
-<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">0 findings</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Not assessed<br>0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Not assessed<br>0 findings</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>3 declarations checked</div></a>
 </div></div></header>
 <details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">4 intents · 2 added · 2 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-0691daab7184d7e0"><summary><div class="report-card-title"><strong>Add cloud endpoint update support</strong><small>Add a 2025-12-01 cloud endpoint PATCH operation and update request models for change enumeration interval configuration.</small></div><div class="report-badges"><span class="report-badge add">add</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp</div><pre><span class="context">   nextLink?: string;</span>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">4 intents · 2 added · 2 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-4085a6fa716bb544"><summary><div class="report-card-title"><strong>Publish Storage Sync API version 2025-12-01</strong><small>Add the stable 2025-12-01 member to Versions after 2022-09-01. This version-declaration-only group establishes the new API selector; feature additions and their activation decorators remain in their supplied operation and model groups.</small></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 7 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>property-contract</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/main.tsp</div><pre><span class="context">    * The 2022-09-01 API version.</span>
+<span class="context">    */</span>
+<span class="context">   v2022_09_01: &quot;2022-09-01&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  /**</span>
+<span class="add">+   * The 2025-12-01 API version.</span>
+<span class="add">+   */</span>
+<span class="add">+  v2025_12_01: &quot;2025-12-01&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> interface Operations {</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/39739b52a45585edde28e43753cfc30c5aa8aa42/specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/main.tsp#L44-L54">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/main.tsp:41</a></p></details><details class="report-subdetails" id="intent-semantic-4085a6fa716bb544-operations"><summary>Affected operations (7)</summary><details class="operation"><summary><strong>CloudEndpoints_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.changeEnumerationIntervalDays</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.changeEnumerationIntervalDays</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>CloudEndpoints_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.changeEnumerationIntervalDays</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>CloudEndpoints_ListBySyncGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ServerEndpoints_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints/{serverEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ServerEndpoints_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints/{serverEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ServerEndpoints_ListBySyncGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ServerEndpoints_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints/{serverEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-6074e217e84aaea9"><summary><div class="report-card-title"><strong>Add CloudEndpoint update operation and patch parameters</strong><small>Add the CloudEndpoint ARM update lifecycle operation through ArmCustomPatchSync, with an optional properties envelope and optional changeEnumerationIntervalDays constrained to 1–20. The 2025-12-01 activation decorators accompany the new operation and patch models. Responses support immediate CloudEndpoint results or accepted LRO responses with polling headers, Location final-state handling, Retry-After, and optional request-correlation headers.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 8 declaration/source facts; 4 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>behavior:lro</code>; <code>feature:CloudEndpoint</code></p><details class="report-subdetails"><summary>Change facts (8)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>requestId</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>CloudEndpointUpdateParameters.properties</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>CloudEndpoints.update</code></td><td>operation</td><td>add</td><td>lro, operation, optionality, property-contract, version-activation</td></tr><tr><td><code>CloudEndpointUpdateParameters</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>correlationRequestId</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>CloudEndpoints</code></td><td>type</td><td>modify</td><td>lro, optionality, property-contract, version-activation</td></tr><tr><td><code>CloudEndpointUpdateProperties.changeEnumerationIntervalDays</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>CloudEndpointUpdateProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp</div><pre><span class="context">   nextLink?: string;</span>
 <span class="context"> }</span>
 <span class="context"> </span>
 <span class="add">+/**</span>
@@ -713,7 +724,14 @@ body {
 <span class="context">   /**</span>
 <span class="context">    * Delete a given CloudEndpoint.</span>
 <span class="context">    */</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/39739b52a45585edde28e43753cfc30c5aa8aa42/specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp#L1092-L1097">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp:1088</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/39739b52a45585edde28e43753cfc30c5aa8aa42/specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/CloudEndpoint.tsp#L31-L327">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/CloudEndpoint.tsp:30</a></p></details><details class="report-subdetails" id="intent-semantic-0691daab7184d7e0-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>CloudEndpoints_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-5e3a84120ea3af7b"><summary><div class="report-card-title"><strong>Add cloud and server endpoint status details</strong><small>Add optional cloud endpoint enumeration settings and read-only server endpoint sync metrics and warning details in 2025-12-01.</small></div><div class="report-badges"><span class="report-badge add">add</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp</div><pre><span class="context"> import &quot;@typespec/rest&quot;;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/39739b52a45585edde28e43753cfc30c5aa8aa42/specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp#L1092-L1097">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp:1088</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/39739b52a45585edde28e43753cfc30c5aa8aa42/specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/CloudEndpoint.tsp#L31-L327">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/CloudEndpoint.tsp:30</a></p></details><details class="report-subdetails" id="intent-semantic-6074e217e84aaea9-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>CloudEndpoints_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-f89727829ea733a5"><summary><div class="report-card-title"><strong>Enable read-only status schemas in AutoRest generation</strong><small>Set use-read-only-status-schema to true in the AutoRest emitter configuration. This changes generation configuration, not a version declaration or an independently identified resource operation; the supplied evidence does not map its status-schema effects to a before/after public contract.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">generation-configuration</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:tspconfig.yaml</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>generation-configuration</td><td>modify</td><td></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/tspconfig.yaml</div><pre><span class="context">     output-file: &quot;{version-status}/{version}/storagesync.json&quot;</span>
+<span class="context">     examples-dir: &quot;{project-root}/examples&quot;</span>
+<span class="context">     arm-types-dir: &quot;{project-root}/../../../../common-types/resource-management&quot;</span>
+<span class="add">+    use-read-only-status-schema: true</span>
+<span class="context">     emit-lro-options: &quot;all&quot;</span>
+<span class="context">   &quot;@azure-tools/typespec-python&quot;:</span>
+<span class="context">     service-dir: &quot;sdk/storage&quot;</span>
+<span class="context"></span></pre></div><p class="sources"><code>specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/tspconfig.yaml</code></p></details><details class="report-subdetails" id="intent-semantic-f89727829ea733a5-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-fe523cf4bcf2ddc0"><summary><div class="report-card-title"><strong>Extend CloudEndpoint and server-sync models</strong><small>In the supplied models.tsp group, add the optional 1–20 day CloudEndpoint change-enumeration interval and optional read-only ServerEndpointSyncActivityStatus progress, remaining-count, throughput, large-file, and warning fields. The warning union permits arbitrary strings alongside NoWarning and BlockedByLargeFile. These model additions activate at 2025-12-01; their decorators support the features rather than forming another publication group.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 19 declaration/source facts; 4 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>source:source-98901e170908b09f</code></p><details class="report-subdetails"><summary>Change facts (19)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>ServerEndpointSyncActivityStatus.remainingDeleteCount</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.remainingDirectoryCount</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.remainingLogicalSizeBytes</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>CloudEndpointProperties</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.isRemainingFinal</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncSessionWarningType.BlockedByLargeFile</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.inProgressLargeFileSizeBytes</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>CloudEndpointCreateParametersProperties.changeEnumerationIntervalDays</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncSessionWarningType.NoWarning</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>CloudEndpointProperties.changeEnumerationIntervalDays</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.inProgressLargeFilePercentComplete</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncSessionWarningType</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.recentMegabytesPerSecond</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.inProgressLargeFilePath</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.recentItemsPerSecond</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.remainingFileCount</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ServerEndpointSyncActivityStatus.warning</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>CloudEndpointCreateParametersProperties</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp</div><pre><span class="context"> import &quot;@typespec/rest&quot;;</span>
 <span class="context"> import &quot;@typespec/http&quot;;</span>
 <span class="add">+import &quot;@typespec/versioning&quot;;</span>
 <span class="context"> import &quot;@azure-tools/typespec-azure-core&quot;;</span>
@@ -853,34 +871,16 @@ body {
 <span class="context"> }</span>
 <span class="context"> </span>
 <span class="context"> /**</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/39739b52a45585edde28e43753cfc30c5aa8aa42/specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp#L808-L836">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp:805</a></p></details><details class="report-subdetails" id="intent-semantic-5e3a84120ea3af7b-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>CloudEndpoints_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-9fcd9233ea4562fc"><summary><div class="report-card-title"><strong>Publish the 2025-12-01 stable API</strong><small>Add the 2025-12-01 stable API after 2022-09-01.</small></div><div class="report-badges"><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/main.tsp</div><pre><span class="context">    * The 2022-09-01 API version.</span>
-<span class="context">    */</span>
-<span class="context">   v2022_09_01: &quot;2022-09-01&quot;,</span>
-<span class="add">+</span>
-<span class="add">+  /**</span>
-<span class="add">+   * The 2025-12-01 API version.</span>
-<span class="add">+   */</span>
-<span class="add">+  v2025_12_01: &quot;2025-12-01&quot;,</span>
-<span class="context"> }</span>
-<span class="context"> </span>
-<span class="context"> interface Operations {</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/39739b52a45585edde28e43753cfc30c5aa8aa42/specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/main.tsp#L44-L54">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/main.tsp:41</a></p></details><details class="report-subdetails" id="intent-semantic-9fcd9233ea4562fc-operations"><summary>Affected operations (7)</summary><details class="operation"><summary><strong>CloudEndpoints_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.changeEnumerationIntervalDays</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.changeEnumerationIntervalDays</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>CloudEndpoints_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.changeEnumerationIntervalDays</strong></td><td><pre>not present</pre></td><td><pre>integer int32 (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>CloudEndpoints_ListBySyncGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ServerEndpoints_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints/{serverEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ServerEndpoints_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints/{serverEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ServerEndpoints_ListBySyncGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>ServerEndpoints_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/serverEndpoints/{serverEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-ccf334d9af7d4d07"><summary><div class="report-card-title"><strong>Emit dedicated read-only status schemas</strong><small>Enable the AutoRest emitter option for read-only status schemas. Deterministic REST and downstream projections show no incompatible contract change.</small></div><div class="report-badges"><span class="report-badge modify">modify</span><span class="report-badge">generation-configuration</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/tspconfig.yaml</div><pre><span class="context">     output-file: &quot;{version-status}/{version}/storagesync.json&quot;</span>
-<span class="context">     examples-dir: &quot;{project-root}/examples&quot;</span>
-<span class="context">     arm-types-dir: &quot;{project-root}/../../../../common-types/resource-management&quot;</span>
-<span class="add">+    use-read-only-status-schema: true</span>
-<span class="context">     emit-lro-options: &quot;all&quot;</span>
-<span class="context">   &quot;@azure-tools/typespec-python&quot;:</span>
-<span class="context">     service-dir: &quot;sdk/storage&quot;</span>
-<span class="context"></span></pre></div><p class="sources"><code>specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/tspconfig.yaml</code></p></details><details class="report-subdetails" id="intent-semantic-ccf334d9af7d4d07-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details></section>
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">4 of 4 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-ccf334d9af7d4d07">Emit dedicated read-only status schemas</a>.</p></section>
-<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
-<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/39739b52a45585edde28e43753cfc30c5aa8aa42/specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp#L808-L836">specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp:805</a></p></details><details class="report-subdetails" id="intent-semantic-fe523cf4bcf2ddc0-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>CloudEndpoints_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</code><span>2025-12-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/syncGroups/{syncGroupName}/cloudEndpoints/{cloudEndpointName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">4 of 4 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-f89727829ea733a5">Enable read-only status schemas in AutoRest generation</a>.</p></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">REST breaking changes were not fully assessed.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">Downstream breaking changes were not fully assessed.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 3 declarations checked</p></section>
-<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>The AutoRest use-read-only-status-schema configuration hunk has no mapped before/after contract evidence; its REST and downstream impact cannot be completed from the bounded replay input.</li><li>The only supplied change is the AutoRest option use-read-only-status-schema: true, with no mapped operation or before/after status-schema facts. That line alone cannot establish whether any existing request, response, or generated public member changes incompatibly. Do not invent a candidate or infer contract equivalence from this unmapped configuration change.</li></ul>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync</code></td><td>new-api-version</td><td><code>39739b52a45585edde28e43753cfc30c5aa8aa42@2022-09-01</code><br><small>current · previous-latest-stable</small></td><td><code>39739b52a45585edde28e43753cfc30c5aa8aa42@2025-12-01</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/39064">#39064</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/">Add stable after stable</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/">Add stable after stable</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
   &quot;status&quot;: &quot;passed&quot;,
   &quot;coverage&quot;: {
     &quot;semanticIntentCount&quot;: 4,
@@ -902,7 +902,7 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
+        &quot;selectionRationale&quot;: &quot;Existing versioned ARM API adds an operation and model properties; API evolution directly governs these additive, version-activated changes.&quot;
       },
       {
         &quot;rank&quot;: 2,
@@ -916,7 +916,7 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
+        &quot;selectionRationale&quot;: &quot;Versioning and enum ordering apply to the added stable version member in this ARM service.&quot;
       },
       {
         &quot;rank&quot;: 3,
@@ -930,10 +930,52 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
+        &quot;selectionRationale&quot;: &quot;The supplied artifact comparison adds stable 2025-12-01 after stable 2022-09-01.&quot;
       },
       {
         &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The new CloudEndpoint update uses an ARM lifecycle operation template, directly matching resource-operation addition.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM operation-template signatures apply to the added update; the catalog description does not name ArmCustomPatchSync exactly.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The new ARM update includes an accepted LRO response with polling, Location and Retry-After headers.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
         &quot;catalogOrder&quot;: 21,
         &quot;title&quot;: &quot;Models&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
@@ -944,217 +986,175 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;
+        &quot;selectionRationale&quot;: &quot;Optional properties and newly added patch models match shared TypeSpec model authoring and additive composition.&quot;
       },
       {
-        &quot;rank&quot;: 5,
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Enum and named-value guidance relates to the added Versions enum member; the feature&#39;s warning values are an extensible union, not an enum.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The additive features apply @added and property decorators in TypeSpec declarations.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;New read-only visibility and numeric value constraints match built-in decorator guidance; the catalog does not name those changed decorators exactly.&quot;
+      },
+      {
+        &quot;rank&quot;: 11,
         &quot;catalogOrder&quot;: 3,
         &quot;title&quot;: &quot;Add preview after preview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Versioning category applies, but this comparison is stable-to-stable, not preview-to-preview.&quot;
       },
       {
-        &quot;rank&quot;: 6,
+        &quot;rank&quot;: 12,
         &quot;catalogOrder&quot;: 4,
         &quot;title&quot;: &quot;Add stable after preview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Versioning category applies, but the baseline is stable rather than preview.&quot;
       },
       {
-        &quot;rank&quot;: 7,
+        &quot;rank&quot;: 13,
         &quot;catalogOrder&quot;: 5,
         &quot;title&quot;: &quot;Add preview after stable&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 8,
-        &quot;catalogOrder&quot;: 7,
-        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 9,
-        &quot;catalogOrder&quot;: 8,
-        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 10,
-        &quot;catalogOrder&quot;: 9,
-        &quot;title&quot;: &quot;Private endpoints&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 11,
-        &quot;catalogOrder&quot;: 10,
-        &quot;title&quot;: &quot;Private links&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 12,
-        &quot;catalogOrder&quot;: 11,
-        &quot;title&quot;: &quot;Network security perimeter&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 13,
-        &quot;catalogOrder&quot;: 12,
-        &quot;title&quot;: &quot;ARM resource operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Versioning category applies, but the target is stable rather than preview.&quot;
       },
       {
         &quot;rank&quot;: 14,
-        &quot;catalogOrder&quot;: 13,
-        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 15,
         &quot;catalogOrder&quot;: 14,
         &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Resource lifecycle semantics apply to ARM update, but none of the catalog&#39;s exact named decorators or resource associations changes here.&quot;
       },
       {
-        &quot;rank&quot;: 16,
+        &quot;rank&quot;: 15,
         &quot;catalogOrder&quot;: 15,
         &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM lifecycle decorators are relevant context; the changed source uses a template rather than any exact decorator listed by this entry.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Models category and ARM plane match; common-type exposure and common-definition versioning are unchanged.&quot;
       },
       {
         &quot;rank&quot;: 17,
-        &quot;catalogOrder&quot;: 16,
-        &quot;title&quot;: &quot;ARM long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Model value constraints are relevant category context, but no custom scalar declaration is added.&quot;
       },
       {
         &quot;rank&quot;: 18,
-        &quot;catalogOrder&quot;: 17,
-        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;Decorator category is relevant, but no changed @operationId or other OpenAPI decorator is supplied.&quot;
       },
       {
         &quot;rank&quot;: 19,
-        &quot;catalogOrder&quot;: 18,
-        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM decorator category matches broadly; provider namespace is unchanged.&quot;
       },
       {
         &quot;rank&quot;: 20,
@@ -1162,111 +1162,111 @@ body {
         &quot;title&quot;: &quot;TypeSpec pagination&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
+          &quot;exactSymbol&quot;: 4,
           &quot;patternCategory&quot;: 0,
           &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 4
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;The compact operation profile includes the exact @nextLink symbol, but it is contextual carry-through rather than changed data-plane pagination.&quot;
       },
       {
         &quot;rank&quot;: 21,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;catalogOrder&quot;: 17,
+        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
+          &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 3
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;LRO category overlaps, but this service uses ARM lifecycle and response templates, not an Azure.Core data-plane operation pattern.&quot;
       },
       {
         &quot;rank&quot;: 22,
-        &quot;catalogOrder&quot;: 22,
-        &quot;title&quot;: &quot;Enums&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM resource modeling is plane-relevant, but no resource type is being added or reclassified.&quot;
       },
       {
         &quot;rank&quot;: 23,
-        &quot;catalogOrder&quot;: 23,
-        &quot;title&quot;: &quot;Scalars&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;catalogOrder&quot;: 8,
+        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no extension resource or Extension template change is supplied.&quot;
       },
       {
         &quot;rank&quot;: 24,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but private endpoint resources are not part of the changes.&quot;
       },
       {
         &quot;rank&quot;: 25,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but private link resources are not part of the changes.&quot;
       },
       {
         &quot;rank&quot;: 26,
-        &quot;catalogOrder&quot;: 26,
-        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no network security perimeter configuration changes are supplied.&quot;
       },
       {
         &quot;rank&quot;: 27,
-        &quot;catalogOrder&quot;: 27,
-        &quot;title&quot;: &quot;Change provider namespace&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no ARM paging parameter or list operation change is supplied.&quot;
       },
       {
         &quot;rank&quot;: 28,
@@ -1276,14 +1276,28 @@ body {
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no Azure Portal experience customization changes are supplied.&quot;
       },
       {
         &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;Directives are shared TypeSpec guidance, but no changed suppression or directive is supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
         &quot;catalogOrder&quot;: 29,
         &quot;title&quot;: &quot;Content negotiation&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
@@ -1294,21 +1308,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
-      },
-      {
-        &quot;rank&quot;: 30,
-        &quot;catalogOrder&quot;: 30,
-        &quot;title&quot;: &quot;Directives&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;No Azure.Core content-negotiation or typed Accept-header change is supplied.&quot;
       },
       {
         &quot;rank&quot;: 31,
@@ -1322,7 +1322,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;This document is less directly applicable to the selected changes than the four fetched entries.&quot;
+        &quot;selectionRationale&quot;: &quot;No changed OpenAPI decorator suppression or Azure.Core no-openapi warning is supplied.&quot;
       }
     ],
     &quot;documents&quot;: [
@@ -1338,52 +1338,59 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
+        &quot;selectionRationale&quot;: &quot;Existing versioned ARM API adds an operation and model properties; API evolution directly governs these additive, version-activated changes.&quot;,
         &quot;guidance&quot;: [
           {
+            &quot;section&quot;: &quot;Declaring Versions&quot;,
+            &quot;excerpt&quot;: &quot;Define your API versions in an enum. For each version, specify dependencies and common types as needed.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;Versions&quot;,
+              &quot;@versioned&quot;,
+              &quot;@armCommonTypesVersion&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-808fa2c22a3a35e1&quot;
+            ]
+          },
+          {
             &quot;section&quot;: &quot;Versioning Decorators&quot;,
-            &quot;excerpt&quot;: &quot;Add new models, properties, or operations in a specific version using the appropriate versioning decorators.&quot;,
+            &quot;excerpt&quot;: &quot;You can add new models, properties, or operations in a specific version and all subsequent versions using the `@added` decorator.&quot;,
             &quot;queryTerms&quot;: [
               &quot;@added&quot;,
-              &quot;@madeOptional&quot;,
-              &quot;preview&quot;
+              &quot;CloudEndpoints.update&quot;,
+              &quot;CloudEndpointUpdateParameters&quot;,
+              &quot;ServerEndpointSyncActivityStatus&quot;
             ],
             &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
               &quot;declaration-13e730bbf8bc873f&quot;,
               &quot;declaration-1b46ad68ec130a6f&quot;,
-              &quot;declaration-2d56e7a1aa2ffce3&quot;,
               &quot;declaration-31b036ace1d9c451&quot;,
               &quot;declaration-38969c2ff96679a7&quot;,
-              &quot;declaration-3aeca30c123d011b&quot;,
               &quot;declaration-412bc121fa2ee2e7&quot;,
               &quot;declaration-42e998692795399a&quot;,
               &quot;declaration-5820d0d2defbec68&quot;,
               &quot;declaration-58d398f253097a53&quot;,
               &quot;declaration-5c51df6cb1916a04&quot;,
               &quot;declaration-6fdb56c6fed09929&quot;,
-              &quot;declaration-808fa2c22a3a35e1&quot;,
               &quot;declaration-8155a8e4276d28f2&quot;,
               &quot;declaration-85023ac5089d9063&quot;,
               &quot;declaration-856bd75866ef1f74&quot;,
-              &quot;declaration-898d870b66575277&quot;,
               &quot;declaration-8c519cf18eeacefa&quot;,
               &quot;declaration-b5e27de8a2ef5824&quot;,
               &quot;declaration-b96c037d6bbbf5be&quot;,
               &quot;declaration-d116053b80445c8a&quot;,
               &quot;declaration-d1b22847f281f1e2&quot;,
               &quot;declaration-e2b5f46e92e5d359&quot;,
-              &quot;declaration-e6c3c6efbb49b9ee&quot;,
-              &quot;declaration-e72556c5929e2a44&quot;,
               &quot;declaration-f1002bdee146dd77&quot;,
-              &quot;declaration-f257bdb848112ea8&quot;,
-              &quot;declaration-f556e8c7794b0305&quot;
+              &quot;declaration-f257bdb848112ea8&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:5bcd9f3d8f35ef4f7b5bc755389766c723d05200acf250eff4b3a815af65bfa3&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-27T04:49:31.855Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2&quot;
       },
       {
         &quot;rank&quot;: 2,
@@ -1397,15 +1404,15 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
+        &quot;selectionRationale&quot;: &quot;Versioning and enum ordering apply to the added stable version member in this ARM service.&quot;,
         &quot;guidance&quot;: [
           {
             &quot;section&quot;: &quot;Preview Versioning Rules for All Azure APIs&quot;,
-            &quot;excerpt&quot;: &quot;Mark changes from the latest stable with appropriate versioning decorators using the preview version as the argument.&quot;,
+            &quot;excerpt&quot;: &quot;The [`@azure-tools/typespec-azure-resource-manager/version-progression`](/typespec-azure/docs/libraries/azure-resource-manager/rules/version-progression/) linter rule helps enforce that every api-version uses a unique `YYYY-MM-DD` date and that versions are declared in strictly increasing chronological order from top to bottom of the `Versions` enum.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;latest stable&quot;,
-              &quot;preview&quot;,
-              &quot;versioning&quot;
+              &quot;Versions&quot;,
+              &quot;2022-09-01&quot;,
+              &quot;2025-12-01&quot;
             ],
             &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
@@ -1414,8 +1421,8 @@ body {
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:5e72a1d09c1662bda04e0c31a0d6a8338c0f231c64d0c38f246431f0147027a2&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-27T04:49:32.913Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:2aeadb30f0b22daa0b3aaed66c02786b479d3b63331dab61409d77f5b9452765&quot;
       },
       {
         &quot;rank&quot;: 3,
@@ -1429,58 +1436,50 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
+        &quot;selectionRationale&quot;: &quot;The supplied artifact comparison adds stable 2025-12-01 after stable 2022-09-01.&quot;,
         &quot;guidance&quot;: [
           {
             &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
-            &quot;excerpt&quot;: &quot;When adding a new stable API version, add new types and operations in the new stable and mark additions, removals, renames, and other modifications with appropriate versioning decorators.&quot;,
+            &quot;excerpt&quot;: &quot;Add a new version to the `Versions` enum in your spec for the new stable api-version.\nIf any types are added, renamed, or otherwise modified in the new version, mark them with the appropriate versioning decorator&quot;,
             &quot;queryTerms&quot;: [
-              &quot;new stable&quot;,
+              &quot;Versions&quot;,
+              &quot;2025-12-01&quot;,
+              &quot;stable&quot;,
               &quot;@added&quot;,
-              &quot;@removed&quot;
+              &quot;CloudEndpointUpdateProperties&quot;,
+              &quot;ServerEndpointSyncSessionWarningType&quot;
             ],
             &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-13e730bbf8bc873f&quot;,
               &quot;declaration-1b46ad68ec130a6f&quot;,
-              &quot;declaration-2d56e7a1aa2ffce3&quot;,
               &quot;declaration-31b036ace1d9c451&quot;,
               &quot;declaration-38969c2ff96679a7&quot;,
-              &quot;declaration-3aeca30c123d011b&quot;,
               &quot;declaration-412bc121fa2ee2e7&quot;,
               &quot;declaration-42e998692795399a&quot;,
               &quot;declaration-5820d0d2defbec68&quot;,
-              &quot;declaration-58d398f253097a53&quot;,
               &quot;declaration-5c51df6cb1916a04&quot;,
               &quot;declaration-6fdb56c6fed09929&quot;,
               &quot;declaration-808fa2c22a3a35e1&quot;,
               &quot;declaration-8155a8e4276d28f2&quot;,
               &quot;declaration-85023ac5089d9063&quot;,
               &quot;declaration-856bd75866ef1f74&quot;,
-              &quot;declaration-898d870b66575277&quot;,
               &quot;declaration-8c519cf18eeacefa&quot;,
-              &quot;declaration-b5e27de8a2ef5824&quot;,
               &quot;declaration-b96c037d6bbbf5be&quot;,
               &quot;declaration-d116053b80445c8a&quot;,
               &quot;declaration-d1b22847f281f1e2&quot;,
-              &quot;declaration-e2b5f46e92e5d359&quot;,
-              &quot;declaration-e6c3c6efbb49b9ee&quot;,
-              &quot;declaration-e72556c5929e2a44&quot;,
-              &quot;declaration-f1002bdee146dd77&quot;,
-              &quot;declaration-f257bdb848112ea8&quot;,
-              &quot;declaration-f556e8c7794b0305&quot;
+              &quot;declaration-e2b5f46e92e5d359&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00.000Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:2003431db8a41ec16628e128ab5876f84385bed359c16ee5de1456ba8d32400b&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-27T04:49:29.708Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:360e70035a3a842de1d54ffd5d76e673bfa9b4da9e8a958f60fa906429abd54f&quot;
       },
       {
         &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
@@ -1488,75 +1487,78 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;This official guidance directly covers the selected ARM API evolution and declaration category.&quot;,
+        &quot;selectionRationale&quot;: &quot;The new CloudEndpoint update uses an ARM lifecycle operation template, directly matching resource-operation addition.&quot;,
         &quot;guidance&quot;: [
           {
-            &quot;section&quot;: &quot;Optional properties&quot;,
-            &quot;excerpt&quot;: &quot;Properties can be designated as optional by using the ? symbol.&quot;,
+            &quot;section&quot;: &quot;Resource Update Operations (PATCH)&quot;,
+            &quot;excerpt&quot;: &quot;The `ArmCustomPatch*` templates are the recommended choice for PATCH operations. They take the resource type and your custom PATCH request type as parameters, giving you full control over the PATCH schema.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;optional properties&quot;,
-              &quot;tokenId&quot;,
-              &quot;identity&quot;
+              &quot;ArmCustomPatchSync&quot;,
+              &quot;CloudEndpoint&quot;,
+              &quot;CloudEndpointUpdateParameters&quot;
             ],
-            &quot;examples&quot;: [
-              &quot;model Dog { address?: string; }&quot;
-            ],
+            &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
               &quot;declaration-13e730bbf8bc873f&quot;,
+              &quot;declaration-58d398f253097a53&quot;,
+              &quot;declaration-b5e27de8a2ef5824&quot;,
+              &quot;declaration-f1002bdee146dd77&quot;,
+              &quot;declaration-f257bdb848112ea8&quot;
+            ]
+          },
+          {
+            &quot;section&quot;: &quot;Properties That Are Never Directly Set by the User&quot;,
+            &quot;excerpt&quot;: &quot;You want to make sure that these properties are marked so that they will appear in responses and not requests. this is done using the `@visibility(Lifecycle.Read)` decorator instance:&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@visibility(Lifecycle.Read)&quot;,
+              &quot;ServerEndpointSyncActivityStatus&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
               &quot;declaration-1b46ad68ec130a6f&quot;,
-              &quot;declaration-2d56e7a1aa2ffce3&quot;,
               &quot;declaration-31b036ace1d9c451&quot;,
               &quot;declaration-38969c2ff96679a7&quot;,
-              &quot;declaration-3aeca30c123d011b&quot;,
               &quot;declaration-412bc121fa2ee2e7&quot;,
               &quot;declaration-42e998692795399a&quot;,
               &quot;declaration-5820d0d2defbec68&quot;,
-              &quot;declaration-58d398f253097a53&quot;,
               &quot;declaration-5c51df6cb1916a04&quot;,
               &quot;declaration-6fdb56c6fed09929&quot;,
               &quot;declaration-8155a8e4276d28f2&quot;,
               &quot;declaration-85023ac5089d9063&quot;,
               &quot;declaration-856bd75866ef1f74&quot;,
-              &quot;declaration-898d870b66575277&quot;,
               &quot;declaration-8c519cf18eeacefa&quot;,
-              &quot;declaration-b5e27de8a2ef5824&quot;,
               &quot;declaration-b96c037d6bbbf5be&quot;,
               &quot;declaration-d116053b80445c8a&quot;,
               &quot;declaration-d1b22847f281f1e2&quot;,
-              &quot;declaration-e2b5f46e92e5d359&quot;,
-              &quot;declaration-e6c3c6efbb49b9ee&quot;,
-              &quot;declaration-e72556c5929e2a44&quot;,
-              &quot;declaration-f1002bdee146dd77&quot;,
-              &quot;declaration-f257bdb848112ea8&quot;,
-              &quot;declaration-f556e8c7794b0305&quot;
+              &quot;declaration-e2b5f46e92e5d359&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-28T00:00:00Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:1a90dd13f99521e5c806072a6285307119be6bdca67a6ea6bc66534d79e329ab&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-27T04:49:30.775Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:c647a4908a0d0e74803347a5e4956b56986a684344b8c67a3b3f7f37c67558d7&quot;
       }
     ]
   },
   &quot;intentAssessments&quot;: [
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-0691daab7184d7e0&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-4085a6fa716bb544&quot;,
       &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     },
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-5e3a84120ea3af7b&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-6074e217e84aaea9&quot;,
       &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     },
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-9fcd9233ea4562fc&quot;,
-      &quot;decision&quot;: &quot;applicable-pass&quot;,
-      &quot;blockers&quot;: []
-    },
-    {
-      &quot;semanticIntentId&quot;: &quot;semantic-ccf334d9af7d4d07&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-f89727829ea733a5&quot;,
       &quot;decision&quot;: &quot;no-applicable-guidance&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-fe523cf4bcf2ddc0&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     }
   ],
@@ -1566,26 +1568,18 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/CloudEndpoint.tsp</code> (committed)</li><li><code>specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/main.tsp</code> (committed)</li><li><code>specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/models.tsp</code> (committed)</li><li><code>specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync/tspconfig.yaml</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 3503,
-    &quot;fetchMs&quot;: 136,
-    &quot;scopeDiscoveryMs&quot;: 76,
-    &quot;setupExcludingFetchMs&quot;: 14012,
-    &quot;comparisonMs&quot;: 128,
-    &quot;changeDiscoveryMs&quot;: 94,
-    &quot;workspacePreparationMs&quot;: 9637,
-    &quot;projectDiscoveryMs&quot;: 38,
-    &quot;totalMs&quot;: 251595,
-    &quot;semanticAnalysisMs&quot;: 149,
-    &quot;restAnalysisMs&quot;: 54,
-    &quot;downstreamAnalysisMs&quot;: 1785,
-    &quot;semanticContextPolicyMs&quot;: 193,
-    &quot;documentQualityAnalysisMs&quot;: 1
+    &quot;semanticAnalysisMs&quot;: 158,
+    &quot;restAnalysisMs&quot;: 55,
+    &quot;downstreamAnalysisMs&quot;: 1754,
+    &quot;semanticContextPolicyMs&quot;: 170,
+    &quot;documentQualityAnalysisMs&quot;: 1,
+    &quot;replayAnalysisMs&quot;: 2512
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;small&quot;,
     &quot;budgetBytes&quot;: 131072,
-    &quot;bytes&quot;: 28405,
-    &quot;estimatedTokens&quot;: 7102,
+    &quot;bytes&quot;: 28381,
+    &quot;estimatedTokens&quot;: 7096,
     &quot;retained&quot;: {
       &quot;evidenceSets&quot;: 7,
       &quot;facts&quot;: 0,
@@ -1610,15 +1604,15 @@ body {
     &quot;inference&quot;: {
       &quot;requestCount&quot;: 1,
       &quot;inferredCandidateCount&quot;: 0,
-      &quot;noImpactCount&quot;: 1,
-      &quot;blockedCount&quot;: 0
+      &quot;noImpactCount&quot;: 0,
+      &quot;blockedCount&quot;: 1
     },
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 677182,
-      &quot;guidanceExcerptsRetained&quot;: 4,
-      &quot;guidanceExcerptBytesRetained&quot;: 475
+      &quot;documentBytesFetched&quot;: 43593,
+      &quot;guidanceExcerptsRetained&quot;: 6,
+      &quot;guidanceExcerptBytesRetained&quot;: 1184
     }
   }
 }</pre>

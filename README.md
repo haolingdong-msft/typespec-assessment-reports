@@ -6,7 +6,7 @@ Static GitHub Pages dashboard for 34 Azure REST API specification assessments: t
 - 10 cases without observed regeneration in the October 8, 2026 snapshot
 - Each dashboard row includes the PR merge date, release-plan association, SDK regeneration, assessed SDK breaking-change, GitHub SDK breaking-change labels, final dimension outcomes, coordinator time, and bounded Agent-input size when recorded
 - Each report includes rendered HTML and structured `assessment.json`
-- Mandatory verification rows include observed E2E wall time reconstructed from actual phase boundaries; it includes intervening waits and is not presented as a clean benchmark
+- The 11 refreshed cases use hash-verified frozen preparation/compiler artifacts, fresh bounded judgment, and guarded finalization. Replay wall time includes actual waits and is not fresh-compilation E2E; historical timing evidence is retained separately
 
 The attribution-driven additions are:
 
@@ -20,7 +20,11 @@ The additional mandatory verification reports are:
 
 These additions are outside the original sample and do not change its 20/10 sampling split. Release-plan and regeneration associations remain unverified where shown and are not inherited from other PRs.
 
+The [combined view of all 11 refreshed reports](https://haolingdong-msft.github.io/typespec-assessment-reports/combined.html) has top PR anchor navigation and continuously displays every complete report. Each section retains its individual HTML/JSON links. Unresolved contract evidence is explicitly not assessed rather than counted as compatible.
+
 Machine-readable supporting artifacts:
+
+- [Before/after semantic intents, findings, and fresh decision rationales](https://haolingdong-msft.github.io/typespec-assessment-reports/refresh-comparison.json)
 
 - [Core and mandatory-verification performance](https://haolingdong-msft.github.io/typespec-assessment-reports/core-performance.json)
 - [Core and verification-report publication manifest](https://haolingdong-msft.github.io/typespec-assessment-reports/publication-manifest.json)

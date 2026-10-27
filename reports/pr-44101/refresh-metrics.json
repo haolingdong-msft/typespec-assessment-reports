@@ -1,0 +1,83 @@
+{
+  "pr": 44101,
+  "kind": "frozen-preparation-replay",
+  "startedAt": "2026-10-27T04:21:28.947Z",
+  "readyAt": "2026-10-27T04:21:30.212Z",
+  "replayCoordinatorTimeMs": 1265,
+  "freshPreparation": false,
+  "freshCompilation": false,
+  "freshEndToEndExecutionTimeMs": null,
+  "status": "guarded-finalization-succeeded",
+  "phases": [
+    {
+      "phase": "materialization",
+      "startedAt": "2026-10-27T04:26:23.6032546+00:00",
+      "completedAt": "2026-10-27T04:26:23.8684052+00:00",
+      "wallDurationMs": 258,
+      "internalDurationMs": 64,
+      "exitCode": 0
+    },
+    {
+      "phase": "guarded-finalization",
+      "startedAt": "2026-10-27T04:26:28.8332310+00:00",
+      "completedAt": "2026-10-27T04:26:29.3004787+00:00",
+      "wallDurationMs": 460,
+      "internalDurationMs": 105,
+      "exitCode": 0
+    }
+  ],
+  "coverage": {
+    "semanticIntentCount": 6,
+    "publicationIntentCount": 1,
+    "restCandidateCount": 0,
+    "downstreamCandidateCount": 8,
+    "downstreamRejectedCandidateCount": 8,
+    "inferenceRequestCount": 8,
+    "inferenceNoImpactCount": 6,
+    "inferenceBlockedCount": 2,
+    "guidelinesAssessedIntentCount": 6,
+    "guidelinesFindingCount": 1,
+    "documentationEligibleDeclarationCount": 10,
+    "documentedDeclarationCount": 10,
+    "documentationFindingCount": 0
+  },
+  "retrievalProvenance": {
+    "bodyDefinition": "exact UTF-8 web_fetch tool result.content including URL header and any truncation notice",
+    "source": "matching current-agent tool.execution_complete events",
+    "interactionId": "47cae225-2661-496e-8b21-6f0c5c4f851a",
+    "toolCallIds": [
+      "call_noEdWuhDbZUuwJwhKKtPIlH6",
+      "call_uu4jiUNHmk4nkoakKz21uKbV",
+      "call_OzLErD2JveRg6QgLfCXNfRr8",
+      "call_dJhplwgfQG74cjSc7Tb4fEb5"
+    ],
+    "fetchedDocumentCount": 4,
+    "failedRetrievalCount": 0,
+    "truncatedDocumentCount": 1,
+    "continuationFetchCount": 0
+  },
+  "comparisonWithPriorReport": {
+    "priorRootName": "core-final-44101",
+    "readAfterFreshJudgmentAndSuccessfulFinalization": true,
+    "semanticIntentCount": "6 -> 6",
+    "publicationIntentCount": "1 -> 1",
+    "restFindingCount": "0 -> 0",
+    "downstreamFindingCount": "1 -> 0",
+    "guidelinesFindingCount": "0 -> 1",
+    "documentationFindingCount": "0 -> 0",
+    "safety": "failed -> not-assessed",
+    "limits": "0 -> 4 appendix entries, including 2 unresolved inference results",
+    "explanation": "Fresh bounded judgment leaves language-specific Python/C# compatibility unresolved rather than claiming demonstrated generated member identities, and reports the missing previewVersion marker against newly fetched official guidance."
+  },
+  "publication": "Parent-owned; no server or publication action performed.",
+  "initialFinalizedAt": "2026-10-27T04:26:29.269Z",
+  "initialReplayWallTimeMs": 300322,
+  "agentDecisionAt": "2026-10-27T04:26:13.492Z",
+  "finalRevisionVerification": {
+    "startedAt": "2026-10-27T04:51:40.532Z",
+    "completedAt": "2026-10-27T04:51:40.802Z",
+    "durationMs": 270,
+    "finalizationMs": 0,
+    "restDiagnosticsChanged": false
+  }
+}

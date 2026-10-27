@@ -1,0 +1,118 @@
+{
+  "pr": 44920,
+  "kind": "frozen-preparation-replay",
+  "startedAt": "2026-10-27T04:15:01.460Z",
+  "readyAt": "2026-10-27T04:15:06.968Z",
+  "replayCoordinatorTimeMs": 5508,
+  "freshPreparation": false,
+  "freshCompilation": false,
+  "freshEndToEndExecutionTimeMs": null,
+  "completedAt": "2026-10-27T04:17:44.833Z",
+  "replayThroughFinalizationWallMs": 163373,
+  "phaseBoundaries": {
+    "preparing": {
+      "startedAt": "2026-10-27T04:15:03.783Z",
+      "endedAt": "2026-10-27T04:15:07.026Z"
+    },
+    "awaiting-agent-judgment": {
+      "startedAt": "2026-10-27T04:15:07.026Z",
+      "endedAt": "2026-10-27T04:17:44.381Z"
+    },
+    "materializing-agent-results": {
+      "startedAt": "2026-10-27T04:17:44.381Z",
+      "endedAt": "2026-10-27T04:17:44.419Z"
+    },
+    "awaiting-finalization": {
+      "startedAt": "2026-10-27T04:17:44.419Z",
+      "endedAt": "2026-10-27T04:17:44.729Z"
+    },
+    "agent-artifacts-written": {
+      "startedAt": "2026-10-27T04:17:44.729Z",
+      "endedAt": "2026-10-27T04:17:44.747Z"
+    },
+    "finalizing": {
+      "startedAt": "2026-10-27T04:17:44.747Z",
+      "endedAt": "2026-10-27T04:17:44.833Z"
+    },
+    "complete": {
+      "startedAt": "2026-10-27T04:17:44.833Z",
+      "endedAt": "2026-10-27T04:17:44.833Z"
+    }
+  },
+  "phaseWallMs": {
+    "preparing": 3243,
+    "awaiting-agent-judgment": 157355,
+    "materializing-agent-results": 38,
+    "awaiting-finalization": 310,
+    "agent-artifacts-written": 18,
+    "finalizing": 86,
+    "complete": 0
+  },
+  "materializationCliMs": 53,
+  "finalizationCliMs": 103,
+  "guardedFinalization": "success",
+  "fetchedDocumentRetrieval": {
+    "startedAt": "2026-10-27T04:15:54.512Z",
+    "completedAt": "2026-10-27T04:15:59.640Z",
+    "wallMs": 5128,
+    "retrievedCount": 4,
+    "failedCount": 0,
+    "maxLengthPerFetch": 20000,
+    "truncatedBodies": 0,
+    "hashScope": "Exact UTF-8 web_fetch tool-result content, including Contents-of prefix, captured from matching agent events without refetch",
+    "sessionEvents": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\events.jsonl",
+    "agentId": "cb72723c-bb54-4690-af98-b331b7595171",
+    "resultEventIds": [
+      "66e31911-42fc-4776-a13c-aada4131f5c4",
+      "4b6820f4-60ff-4ff5-87ce-0cd5e364319c",
+      "51aae6df-43a7-4039-8933-d3ea83c6c3d9",
+      "3de8df65-665b-409a-810d-73c7599cd7c6"
+    ]
+  },
+  "counts": {
+    "semanticIntents": 3,
+    "publicationIntents": 1,
+    "normalIntents": 2,
+    "restCandidates": 0,
+    "downstreamCandidates": 1,
+    "inferenceRequestsResolved": 3,
+    "inferredCandidates": 0,
+    "guidelinesAssessed": 3,
+    "guidelinesFindings": 0,
+    "documentationEligibleDeclarations": 0,
+    "documentationFindings": 0,
+    "restFindings": 0,
+    "downstreamFindings": 1
+  },
+  "priorReportComparison": {
+    "comparedAfterFreshJudgment": true,
+    "previousRoot": "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920",
+    "candidateDispositionChanges": 0,
+    "findingSeverityChanges": [
+      {
+        "candidateId": "downstream-edba0552660320ae",
+        "previous": "high",
+        "current": "medium",
+        "reason": "Optional request member relaxes construction; output consumers must handle absent tokenId. No universal source/binary or construction break is asserted."
+      }
+    ],
+    "dimensionStatusChanges": []
+  },
+  "limitations": [
+    "Frozen compiler artifacts were replayed and verified; no fresh compilation or current-HEAD service behavior was assessed.",
+    "The bounded AutoRest facts contain unresolved ApiVersionParameter, ResourceGroupNameParameter, SubscriptionIdParameter and external identity/error schema references. REST conclusions cover represented changes, not independently resolved shared definitions.",
+    "Four official documents were fetched once at max_length 20000, with no truncation marker in any returned body. Provenance hashes and byte counts cover exact UTF-8 web_fetch tool-result content captured from this agent's session events, including its Contents-of prefix, not raw server HTML.",
+    "The shared Guidelines search covers versioning patterns; it does not establish runtime managed-identity authorization, conditional authType enforcement, unchanged preview-marker placement, or example/README maintenance."
+  ],
+  "originalProvenanceHashesRetained": true,
+  "initialFinalizedAt": "2026-10-27T04:17:44.833Z",
+  "initialReplayWallTimeMs": 163373,
+  "agentDecisionAt": "2026-10-27T04:17:37.726Z",
+  "finalRevisionVerification": {
+    "startedAt": "2026-10-27T04:51:39.967Z",
+    "completedAt": "2026-10-27T04:51:40.438Z",
+    "durationMs": 471,
+    "finalizationMs": 87,
+    "restDiagnosticsChanged": false
+  }
+}
