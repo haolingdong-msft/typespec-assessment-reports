@@ -6,6 +6,7 @@ Static GitHub Pages dashboard for 34 Azure REST API specification assessments: t
 - 10 cases without observed regeneration in the October 8, 2026 snapshot
 - Each dashboard row includes the PR merge date, release-plan association, SDK regeneration, assessed SDK breaking-change, GitHub SDK breaking-change labels, final dimension outcomes, coordinator time, and bounded Agent-input size when recorded
 - Each report includes rendered HTML and structured `assessment.json`
+- Mandatory verification rows include observed E2E wall time reconstructed from actual phase boundaries; it includes intervening waits and is not presented as a clean benchmark
 
 The attribution-driven additions are:
 
@@ -31,3 +32,4 @@ The SDK breaking-change flag is derived from the assessment downstream SDK resul
 The regeneration flag is based on the [Python Azure SDK AutoPR regeneration analysis snapshot](https://gist.github.com/msyyc/d3e190c9bc22c16ce540f1d925f95d57#file-regeneration-events-csv) through October 8, 2026.
 
 Release-plan links use the mappings in the [30-case assessment sample](https://github.com/Azure/azure-sdk-tools/issues/17343#issuecomment-6310632825). Search by release-plan ID to find its assessment.
+
