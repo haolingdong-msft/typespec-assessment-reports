@@ -373,6 +373,44 @@
 .report-type-impact h4 {
   margin: 0 0 5px;
 }
+.report-model-change h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 9px;
+}
+.report-model-evidence {
+  margin-top: 16px;
+  padding-top: 11px;
+  border-top: 1px solid var(--line);
+}
+.report-model-evidence > summary {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 12px;
+}
+.report-model-evidence > .report-type-impact:first-of-type {
+  border-top: 0;
+}
+.report-model-change .report-reference-path {
+  grid-template-columns: 110px minmax(0, 1fr) max-content;
+}
+.report-model-change .report-reference-path code {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-model-scope {
+  margin-bottom: 0;
+}
+@media (max-width: 650px) {
+  .report-model-change .report-reference-path {
+    grid-template-columns: 1fr auto;
+  }
+  .report-model-change .report-reference-path code {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
+}
 .report-guideline-section {
   min-width: 0;
   overflow-wrap: anywhere;
