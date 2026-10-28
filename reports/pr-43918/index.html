@@ -165,6 +165,89 @@
   background: #fef3c7;
   color: #92400e;
 }
+.report-badge.neutral {
+  background: #edf2f8;
+  color: #405c7c;
+}
+.report-method-signature {
+  margin: 14px 0 18px;
+}
+.report-signature-lines {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+.report-signature-lines > div {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 10px;
+  padding: 9px 12px;
+  background: color-mix(in srgb, var(--panel) 95%, var(--accent));
+}
+.report-signature-lines > div + div {
+  border-top: 1px solid var(--line);
+}
+.report-signature-lines span,
+.report-chain-label,
+.report-chain-detail {
+  color: var(--muted);
+  font-size: 11px;
+}
+.report-signature-lines code {
+  font-size: 12px;
+}
+.report-reference-chain {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--panel) 98%, var(--accent));
+}
+.report-reference-chain ol {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.report-reference-chain li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  min-height: 28px;
+  padding: 3px 0 3px min(calc(var(--reference-depth) * 20px), 35%);
+}
+.report-reference-chain li:not(:first-child)::before {
+  content: "\21B3";
+  color: var(--muted);
+}
+.report-reference-chain code {
+  min-width: 0;
+  font-size: 12px;
+}
+.report-path-scope {
+  margin: 9px 0 12px;
+  padding: 9px 12px;
+  border-left: 3px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 96%, var(--accent));
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 650px) {
+  .report-reference-chain li {
+    padding-left: min(calc(var(--reference-depth) * 10px), 25%);
+  }
+  .report-signature-lines > div {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 6px;
+    padding: 8px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-badge.neutral {
+    background: #27374d;
+    color: #c3d4ea;
+  }
+}
 .report-table-wrap {
   max-width: 100%;
   overflow-x: auto;
@@ -721,7 +804,7 @@ body {
 <span class="context">   @doc(&quot;The mesh member state.&quot;)</span>
 <span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp#L18-L30">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp:15</a></p></details><details class="report-subdetails" id="intent-semantic-db14dcf83da2ac67-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details></section>
 <section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">5 of 5 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
-<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty"><strong>Cross-version REST scope:</strong> 2025-03-01 to 2026-06-01. For these projects, findings assess migration between API versions, not a change to an existing version at a fixed API-version selector. Compiling an old-version projection does not prove that its previously published contract was preserved. Source commits and comparison roles are recorded in the appendix.</div><div class="report-empty">No confirmed REST breaking changes.</div></section>
 <section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 0 declarations checked</p></section>
 <section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
