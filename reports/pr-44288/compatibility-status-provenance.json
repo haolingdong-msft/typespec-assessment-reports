@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "kind": "compatibility-verdict-coverage-separation",
+  "pr": 44288,
+  "generatedAt": "2026-10-28T09:23:27.612Z",
+  "previousPublicationCommit": "b4a08721d3faf59b15ec517ca2e18dd6b04f2d05",
+  "sourceAssessmentSha256": "1bc1500b018ad6fc6deaf2c591bf4d3f71548a4f7c13c96275914b0b593b66c0",
+  "assessmentJsonSha256": "cd16a9ccf24ef485754963c2607b0db4d1a42cca08ebfb9b4e83bd0e32e14384",
+  "assessmentHtmlSha256": "9e5cf928d01591ef4e3b94cf8d89ab01ecdee66ff9c51459c9584560a93c689d",
+  "evidenceHash": "abc9b9ac917e60ee780fba28876e30e3834b5a6cda2970d552c217ccc9767f00",
+  "findingsChanged": false,
+  "blockersChanged": false,
+  "judgmentsChanged": false,
+  "rest": {
+    "status": "failed",
+    "rejectedCandidateCount": 1,
+    "blockers": [
+      {
+        "code": "autorest-contract-unresolved",
+        "projectId": "project-1a17ac3fb584",
+        "message": "Changed AutoRest contracts for 2 operations in project-1a17ac3fb584 contain unresolved schema or parameter references (HorizonDbPrivateEndpointConnections_Delete, HorizonDbPrivateEndpointConnections_Update). Their effective compatibility cannot be established from placeholder references."
+      }
+    ],
+    "verdict": "failed",
+    "coverage": "partial"
+  },
+  "downstream": {
+    "status": "failed",
+    "verdict": "failed",
+    "coverage": "complete",
+    "findingCount": 4,
+    "blockerCount": 0
+  },
+  "safety": {
+    "scope": "rest-and-downstream-only",
+    "status": "failed",
+    "verdict": "failed",
+    "coverage": "partial"
+  }
+}

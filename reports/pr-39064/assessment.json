@@ -63,7 +63,9 @@
   "confidence": "low",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "not-assessed"
+    "status": "not-assessed",
+    "verdict": "unknown",
+    "coverage": "blocked"
   },
   "dimensions": {
     "semantic": {
@@ -13988,7 +13990,9 @@
           ],
           "message": "The only supplied change is the AutoRest option use-read-only-status-schema: true, with no mapped operation or before/after status-schema facts. That line alone cannot establish whether any existing request, response, or generated public member changes incompatibly. Do not invent a candidate or infer contract equivalence from this unmapped configuration change."
         }
-      ]
+      ],
+      "verdict": "unknown",
+      "coverage": "blocked"
     },
     "downstream": {
       "status": "not-assessed",
@@ -14008,7 +14012,9 @@
           ],
           "message": "The only supplied change is the AutoRest option use-read-only-status-schema: true, with no mapped operation or before/after status-schema facts. That line alone cannot establish whether any existing request, response, or generated public member changes incompatibly. Do not invent a candidate or infer contract equivalence from this unmapped configuration change."
         }
-      ]
+      ],
+      "verdict": "unknown",
+      "coverage": "blocked"
     },
     "compliance": {
       "status": "passed",
@@ -15430,7 +15436,14 @@
     "inference": "inference.json",
     "complianceSearchEvidence": "compliance-search-evidence.json",
     "judgment": "assessment-judgment.json",
-    "preparationManifest": "preparation-manifest.json"
+    "preparationManifest": "preparation-manifest.json",
+    "compatibilityStatusModel": {
+      "schemaVersion": 1,
+      "appliedAt": "2026-10-28T09:23:27.612Z",
+      "sourceAssessmentSha256": "1d14e616ad77212845e73703612a887365f2edb5e510b209e887745fe0acf28b",
+      "findingsChanged": false,
+      "blockersChanged": false
+    }
   },
   "inputAccounting": {
     "budgetTier": "small",

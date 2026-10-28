@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "kind": "compatibility-verdict-coverage-separation",
+  "pr": 39064,
+  "generatedAt": "2026-10-28T09:23:27.612Z",
+  "previousPublicationCommit": "b4a08721d3faf59b15ec517ca2e18dd6b04f2d05",
+  "sourceAssessmentSha256": "1d14e616ad77212845e73703612a887365f2edb5e510b209e887745fe0acf28b",
+  "assessmentJsonSha256": "227e6614cfb8ace4789d4fa3969deaaea5fcbdae6f05f5ccffcc086ba94bbc4d",
+  "assessmentHtmlSha256": "c5a5c00cc0347657cf5c5e599b17c18516552704e24d001b040f3249a4706039",
+  "evidenceHash": "17d0c8ef31f15a2387e4050689d3c6b0f785cc45b3521f32e0af46e7c45219ca",
+  "findingsChanged": false,
+  "blockersChanged": false,
+  "judgmentsChanged": false,
+  "rest": {
+    "status": "not-assessed",
+    "rejectedCandidateCount": 0,
+    "blockers": [
+      {
+        "code": "inference-blocked",
+        "reviewUnitId": "semantic-f89727829ea733a5",
+        "hunkId": "hunk-e0d895060efaaf5e",
+        "allowedDimensions": [
+          "rest",
+          "downstream"
+        ],
+        "message": "The only supplied change is the AutoRest option use-read-only-status-schema: true, with no mapped operation or before/after status-schema facts. That line alone cannot establish whether any existing request, response, or generated public member changes incompatibly. Do not invent a candidate or infer contract equivalence from this unmapped configuration change."
+      }
+    ],
+    "verdict": "unknown",
+    "coverage": "blocked"
+  },
+  "downstream": {
+    "status": "not-assessed",
+    "verdict": "unknown",
+    "coverage": "blocked",
+    "findingCount": 0,
+    "blockerCount": 1
+  },
+  "safety": {
+    "scope": "rest-and-downstream-only",
+    "status": "not-assessed",
+    "verdict": "unknown",
+    "coverage": "blocked"
+  }
+}

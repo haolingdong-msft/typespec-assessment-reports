@@ -60,7 +60,9 @@
   "confidence": "medium",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "not-assessed"
+    "status": "failed",
+    "verdict": "failed",
+    "coverage": "partial"
   },
   "dimensions": {
     "semantic": {
@@ -2515,7 +2517,7 @@
       "blockers": []
     },
     "rest": {
-      "status": "not-assessed",
+      "status": "failed",
       "findings": [
         {
           "id": "rest-320869014d4b2b8c",
@@ -5907,7 +5909,9 @@
           "projectId": "project-1a17ac3fb584",
           "message": "Changed AutoRest contracts for 2 operations in project-1a17ac3fb584 contain unresolved schema or parameter references (HorizonDbPrivateEndpointConnections_Delete, HorizonDbPrivateEndpointConnections_Update). Their effective compatibility cannot be established from placeholder references."
         }
-      ]
+      ],
+      "verdict": "failed",
+      "coverage": "partial"
     },
     "downstream": {
       "status": "failed",
@@ -17077,7 +17081,9 @@
         }
       ],
       "rejectedCandidateCount": 3,
-      "blockers": []
+      "blockers": [],
+      "verdict": "failed",
+      "coverage": "complete"
     },
     "compliance": {
       "status": "failed",
@@ -18047,7 +18053,14 @@
     "documentQuality": "dimensions/document-quality-input.json",
     "complianceSearchEvidence": "compliance-search-evidence.json",
     "judgment": "assessment-judgment.json",
-    "preparationManifest": "preparation-manifest.json"
+    "preparationManifest": "preparation-manifest.json",
+    "compatibilityStatusModel": {
+      "schemaVersion": 1,
+      "appliedAt": "2026-10-28T09:23:27.612Z",
+      "sourceAssessmentSha256": "1bc1500b018ad6fc6deaf2c591bf4d3f71548a4f7c13c96275914b0b593b66c0",
+      "findingsChanged": false,
+      "blockersChanged": false
+    }
   },
   "inputAccounting": {
     "budgetTier": "small",

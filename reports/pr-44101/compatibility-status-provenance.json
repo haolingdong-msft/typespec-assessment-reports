@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "kind": "compatibility-verdict-coverage-separation",
+  "pr": 44101,
+  "generatedAt": "2026-10-28T09:23:27.612Z",
+  "previousPublicationCommit": "b4a08721d3faf59b15ec517ca2e18dd6b04f2d05",
+  "sourceAssessmentSha256": "a11c3a692592419e16b8edb250f1bb577380eb14062822c55e62c06e86b14e5a",
+  "assessmentJsonSha256": "210c21dc138487a11d31b6ecbf8a2bdfed8a6a5df01b63aedcb15d97756ca54a",
+  "assessmentHtmlSha256": "dd72d83f56522add0298e3145ac76f12b7f5d44ae168868644e36e0aff20205f",
+  "evidenceHash": "4793cbe1fda31bfc2a6c53751bb8a81a14c348eb5214e386227a415b577f32c1",
+  "findingsChanged": false,
+  "blockersChanged": false,
+  "judgmentsChanged": false,
+  "rest": {
+    "status": "not-assessed",
+    "rejectedCandidateCount": 0,
+    "blockers": [
+      {
+        "code": "inference-blocked",
+        "reviewUnitId": "semantic-ea6598f433a523f6",
+        "hunkId": "hunk-47db074bf2ab9b6b",
+        "allowedDimensions": [
+          "rest",
+          "downstream"
+        ],
+        "message": "The Python-scoped @clientName edits can change generated enum member identities, so they cannot be treated as nonbreaking decorator noise. The frozen neutral evidence provides neither baseline Python NetworkApiVersion member names nor its availability in the selected stable public SDK; an existing-member rename cannot be established or excluded."
+      },
+      {
+        "code": "inference-blocked",
+        "reviewUnitId": "semantic-ea6598f433a523f6",
+        "hunkId": "hunk-b81c862dd18a28e0",
+        "allowedDimensions": [
+          "rest",
+          "downstream"
+        ],
+        "message": "C# @alternateType can change subscriptionId from a string-facing member to Guid?, and the @clientName edits can rename response type members. Neutral facts still report string/type and do not establish actual baseline C# names, generated member equivalence, or UUID consumption. Language-specific before/after evidence is required; the wrapper-equivalence exception is not assumed."
+      }
+    ],
+    "verdict": "unknown",
+    "coverage": "blocked"
+  },
+  "downstream": {
+    "status": "not-assessed",
+    "verdict": "unknown",
+    "coverage": "partial",
+    "findingCount": 0,
+    "blockerCount": 2
+  },
+  "safety": {
+    "scope": "rest-and-downstream-only",
+    "status": "not-assessed",
+    "verdict": "unknown",
+    "coverage": "partial"
+  }
+}

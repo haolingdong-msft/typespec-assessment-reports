@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "kind": "compatibility-verdict-coverage-separation",
+  "pr": 46679,
+  "generatedAt": "2026-10-28T09:23:27.612Z",
+  "previousPublicationCommit": "b4a08721d3faf59b15ec517ca2e18dd6b04f2d05",
+  "sourceAssessmentSha256": "45f05623ac214575f94bd651c4cbf904d4b97c70c374c5a4c3c7232015ba4219",
+  "assessmentJsonSha256": "74894c07d0e2e3c8b9b3e946fd27c7da1c0db395e13d8c39e8f47e98f4c5b639",
+  "assessmentHtmlSha256": "f1b40a3d5f44b815e7860f63362d4f22b041832b4f1444b72170e1dfb7c7b3f0",
+  "evidenceHash": "66b500f4e5829e21502be336bfaade1bde305a55ced1449d30c1bc3ed940d395",
+  "findingsChanged": false,
+  "blockersChanged": false,
+  "judgmentsChanged": false,
+  "rest": {
+    "status": "failed",
+    "rejectedCandidateCount": 42,
+    "blockers": [
+      {
+        "code": "autorest-contract-unresolved",
+        "projectId": "project-0b8d0c5d536b",
+        "message": "Changed AutoRest contracts for 1 operations in project-0b8d0c5d536b contain unresolved schema or parameter references (CloudAccounts_Update). Their effective compatibility cannot be established from placeholder references."
+      }
+    ],
+    "verdict": "failed",
+    "coverage": "partial"
+  },
+  "downstream": {
+    "status": "failed",
+    "verdict": "failed",
+    "coverage": "partial",
+    "findingCount": 12,
+    "blockerCount": 1
+  },
+  "safety": {
+    "scope": "rest-and-downstream-only",
+    "status": "failed",
+    "verdict": "failed",
+    "coverage": "partial"
+  }
+}

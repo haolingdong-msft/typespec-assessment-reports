@@ -77,7 +77,9 @@
   "confidence": "medium",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "not-assessed"
+    "status": "failed",
+    "verdict": "failed",
+    "coverage": "partial"
   },
   "dimensions": {
     "semantic": {
@@ -14070,7 +14072,7 @@
       "blockers": []
     },
     "rest": {
-      "status": "not-assessed",
+      "status": "failed",
       "findings": [
         {
           "id": "rest-4be126e269abccb8",
@@ -62375,10 +62377,12 @@
           "projectId": "project-0b8d0c5d536b",
           "message": "Changed AutoRest contracts for 1 operations in project-0b8d0c5d536b contain unresolved schema or parameter references (CloudAccounts_Update). Their effective compatibility cannot be established from placeholder references."
         }
-      ]
+      ],
+      "verdict": "failed",
+      "coverage": "partial"
     },
     "downstream": {
-      "status": "not-assessed",
+      "status": "failed",
       "findings": [
         {
           "id": "downstream-0e6e3eb616d8da21",
@@ -95091,7 +95095,9 @@
           ],
           "message": "The option is TypeScript-emitter-specific. Retained neutral TCGC/AutoRest artifacts do not establish the resulting generated TypeScript model names, exports, or import paths, so concrete language-specific compatibility remains unverified. This SDK-only uncertainty is restricted to downstream and must not block REST."
         }
-      ]
+      ],
+      "verdict": "failed",
+      "coverage": "partial"
     },
     "compliance": {
       "status": "passed",
@@ -96423,7 +96429,14 @@
     "inference": "inference.json",
     "complianceSearchEvidence": "compliance-search-evidence.json",
     "judgment": "assessment-judgment.json",
-    "preparationManifest": "preparation-manifest.json"
+    "preparationManifest": "preparation-manifest.json",
+    "compatibilityStatusModel": {
+      "schemaVersion": 1,
+      "appliedAt": "2026-10-28T09:23:27.612Z",
+      "sourceAssessmentSha256": "45f05623ac214575f94bd651c4cbf904d4b97c70c374c5a4c3c7232015ba4219",
+      "findingsChanged": false,
+      "blockersChanged": false
+    }
   },
   "inputAccounting": {
     "budgetTier": "medium",

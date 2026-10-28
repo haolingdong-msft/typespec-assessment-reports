@@ -65,7 +65,9 @@
   "confidence": "low",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "not-assessed"
+    "status": "not-assessed",
+    "verdict": "unknown",
+    "coverage": "partial"
   },
   "dimensions": {
     "semantic": {
@@ -34257,7 +34259,9 @@
           ],
           "message": "C# @alternateType can change subscriptionId from a string-facing member to Guid?, and the @clientName edits can rename response type members. Neutral facts still report string/type and do not establish actual baseline C# names, generated member equivalence, or UUID consumption. Language-specific before/after evidence is required; the wrapper-equivalence exception is not assumed."
         }
-      ]
+      ],
+      "verdict": "unknown",
+      "coverage": "blocked"
     },
     "downstream": {
       "status": "not-assessed",
@@ -35223,7 +35227,9 @@
           ],
           "message": "C# @alternateType can change subscriptionId from a string-facing member to Guid?, and the @clientName edits can rename response type members. Neutral facts still report string/type and do not establish actual baseline C# names, generated member equivalence, or UUID consumption. Language-specific before/after evidence is required; the wrapper-equivalence exception is not assumed."
         }
-      ]
+      ],
+      "verdict": "unknown",
+      "coverage": "partial"
     },
     "compliance": {
       "status": "failed",
@@ -37087,7 +37093,14 @@
     "inference": "inference.json",
     "complianceSearchEvidence": "compliance-search-evidence.json",
     "judgment": "assessment-judgment.json",
-    "preparationManifest": "preparation-manifest.json"
+    "preparationManifest": "preparation-manifest.json",
+    "compatibilityStatusModel": {
+      "schemaVersion": 1,
+      "appliedAt": "2026-10-28T09:23:27.612Z",
+      "sourceAssessmentSha256": "a11c3a692592419e16b8edb250f1bb577380eb14062822c55e62c06e86b14e5a",
+      "findingsChanged": false,
+      "blockersChanged": false
+    }
   },
   "inputAccounting": {
     "budgetTier": "medium",
