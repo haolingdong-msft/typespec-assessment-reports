@@ -1,7 +1,14 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TypeSpec Assessment Reports</title><style>
 :root{--bg:#f6f8fa;--card:#fff;--text:#1f2328;--muted:#59636e;--border:#d0d7de;--blue:#0969da;--green:#1a7f37;--red:#cf222e;--yellow:#9a6700}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{background:#24292f;color:white;padding:28px 24px}header .wrap,main{max-width:1640px;margin:auto}h1{margin:0 0 6px;font-size:28px}header p{margin:0;color:#c9d1d9}main{padding:24px}.stats{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:12px;margin-bottom:20px}.stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}.stat strong{display:block;font-size:24px}.stat span{color:var(--muted)}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}input,select{background:white;border:1px solid var(--border);border-radius:6px;padding:9px 12px;font:inherit}input{flex:1;min-width:260px}.table-wrap{overflow:auto;background:white;border:1px solid var(--border);border-radius:10px}table{width:100%;border-collapse:collapse;min-width:1580px}th,td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}th{background:#f6f8fa;position:sticky;top:0}tr:hover{background:#f6f8fa}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.badge{display:inline-block;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:600;white-space:nowrap}.passed,.break-no{background:#dafbe1;color:var(--green)}.failed,.break-yes{background:#ffebe9;color:var(--red)}.not-assessed,.break-not-assessed{background:#fff8c5;color:var(--yellow)}.not-applicable,.unknown,.regen-no{background:#eaeef2;color:var(--muted)}.regen-yes{background:#ddf4ff;color:var(--blue)}.small{color:var(--muted);font-size:12px;max-width:250px}.actions a{margin-right:10px;white-space:nowrap}footer{max-width:1640px;margin:0 auto;padding:0 24px 32px;color:var(--muted)}@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}header{padding:22px 16px}main{padding:16px}}
+.performance-panel{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:20px}.performance-panel h2{margin:0 0 12px;font-size:18px}.performance-summary{display:flex;flex-wrap:wrap;gap:16px 40px}.performance-summary strong{display:block;font-size:24px;font-variant-numeric:tabular-nums}.performance-summary span{color:var(--muted)}.performance-panel p{max-width:none}.performance-panel summary{cursor:pointer;color:var(--blue)}.performance-table{max-width:640px;margin-top:12px}.performance-table table{min-width:0}.performance-table td:not(:first-child),.performance-cell strong{white-space:nowrap;font-variant-numeric:tabular-nums}.performance-cell{min-width:150px}.performance-cell>div+div{margin-top:8px}
 </style></head><body><header><div class="wrap"><h1>TypeSpec Assessment Reports</h1><p>Nine core assessments at a glance. All other reports remain available in the archive.</p></div></header><main><section class="stats"><div class="stat"><strong>9</strong><span>Reports</span></div><div class="stat"><strong>4</strong><span>Safety passed</span></div><div class="stat"><strong>1</strong><span>Safety failed</span></div><div class="stat"><strong>4</strong><span>Not assessed</span></div><div class="stat"><strong>26</strong><span>Total findings</span></div></section>
+<section class="performance-panel" aria-labelledby="performance-title">
+<h2 id="performance-title">Assessment performance</h2>
+<div class="performance-summary"><div><strong id="median-coordinator">Not recorded</strong><span>Median coordinator time</span><div class="small" id="coordinator-coverage"></div></div><div><strong id="median-first-report">Not recorded</strong><span>Median time to first finalized report</span><div class="small" id="first-report-coverage"></div></div></div>
+<p class="small">Recorded timings for the nine core assessments, independent of dashboard filters. Frozen-preparation replays reuse saved compiler artifacts: coordinator time covers the replay coordinator; time to first finalized report covers replay invocation through initial guarded finalization, including judgment and actual waits. These are not fresh-compilation E2E timings or measurements of the latest display-only refresh. <a href="core-performance.json">Timing evidence and methodology</a></p>
+<details><summary>Per-PR timings (9 core reports)</summary><div class="table-wrap performance-table"><table><thead><tr><th scope="col">Spec PR</th><th scope="col">Coordinator</th><th scope="col">Time to first finalized report</th></tr></thead><tbody id="performance-rows"></tbody></table></div></details>
+</section>
 <p><a href="combined.html"><strong>Combined view: 9 core reports</strong></a> &middot; <a href="archive.html">Archive: 25 reports</a> &middot; <a href="refresh-comparison.json">Before/after intents and findings</a></p>
 <p class="small" style="max-width:none">Changelog columns show whether the linked release entry lists breaking changes, not GitHub labels or a compatibility guarantee. Reference-only mappings and unmerged SDK PRs are marked; initial releases are not backward-compatibility comparisons. <a href="changelog-evidence.json">Changelog evidence</a></p>
 <div class="toolbar"><input id="search" placeholder="Search PR, service, release plan, status, or label"><select id="group"><option value="">All regeneration flags</option><option value="Regenerated SDK PR">Yes - regenerated</option><option value="No regeneration observed">No - not observed</option><option value="Association unverified">Unknown - association unverified</option><option value="Mandatory verification case">Mandatory verification</option></select><select id="breaking"><option value="">All SDK breaking-change flags</option><option value="yes">Yes - detected</option><option value="no">No - none detected</option><option value="not-assessed">Not assessed</option></select><select id="python-changelog" aria-label="Python changelog breaking changes"><option value="">All Python changelog results</option><option value="listed">Yes - breaking changes listed</option><option value="not-listed">No - none listed</option><option value="initial-release">Initial release</option><option value="unverified">Unverified</option></select><select id="java-changelog" aria-label="Java changelog breaking changes"><option value="">All Java changelog results</option><option value="listed">Yes - breaking changes listed</option><option value="not-listed">No - none listed</option><option value="initial-release">Initial release</option><option value="unverified">Unverified</option></select><select id="safety"><option value="">All safety statuses</option><option value="passed">Passed</option><option value="failed">Failed</option><option value="not-assessed">Not assessed</option></select></div>
@@ -19,6 +26,58 @@ function searchText(row){
   const {sdkBreakingChangeLabelFlag,sdkBreakingChangeLabels,...visible}=row;
   return JSON.stringify(visible).toLowerCase();
 }
-function duration(v){if(v==null)return 'Not instrumented';if(v<1000)return `${v} ms`;const s=v/1000;if(s<60)return `${s.toFixed(1)} s`;return `${(s/60).toFixed(1)} min`}function bytes(v){if(v==null)return 'n/a';return v<1024?`${v} B`:v<1048576?`${(v/1024).toFixed(1)} KiB`:`${(v/1048576).toFixed(1)} MiB`}function render(){const q=document.querySelector('#search').value.toLowerCase(),g=document.querySelector('#group').value,b=document.querySelector('#breaking').value,p=document.querySelector('#python-changelog').value,j=document.querySelector('#java-changelog').value,s=document.querySelector('#safety').value;const filtered=data.filter(r=>(!q||searchText(r).includes(q))&&(!g||r.group===g)&&(!b||r.sdkBreakingChangesFlag===b)&&(!p||r.changelog.python.status===p)&&(!j||r.changelog.java.status===j)&&(!s||r.safety===s));document.querySelector('#rows').innerHTML=filtered.map(r=>`<tr><td><a href="${r.prUrl}"><strong>Azure/azure-rest-api-specs#${r.pr}</strong></a><div class="small">${esc(r.title)}</div></td><td><time datetime="${esc(r.mergedAt)}">${esc(r.mergedDate)}</time></td><td>${r.releasePlanUrl?`<a href="${esc(r.releasePlanUrl)}">${esc(r.releasePlanId)}</a>`:'<span class="small">Unverified</span>'}</td><td>${regenFlag(r.regenerationFlag)}<div class="small">${esc(r.group)}</div></td><td>${breakingFlag(r.sdkBreakingChangesFlag)}<div class="small">${r.downstreamFindings} downstream findings</div></td><td>${changelogCell(r.changelog.python)}</td><td>${changelogCell(r.changelog.java)}</td><td>${badge(r.safety)}<div class="small">${esc(r.confidence)} confidence</div></td><td>${badge(r.rest)} ${r.restFindings||''}</td><td>${badge(r.downstream)} ${r.downstreamFindings||''}</td><td>${badge(r.guidelines)} ${r.guidelineFindings||''}</td><td>${badge(r.documentation)} ${r.documentationFindings||''}</td><td><strong>${r.findings}</strong>${r.blockers?`<div class="small">${r.blockers} blockers</div>`:''}</td><td>${r.performance?`<strong>${duration(r.performance.coordinatorTimeMs)}</strong><div class="small">Coordinator${r.performance.observedE2eWallMs!=null?' · observed E2E '+duration(r.performance.observedE2eWallMs):' · E2E not instrumented'}</div>`:'<span class="small">Historical run</span>'}</td><td>${r.performance?`<strong>${bytes(r.performance.boundedAgentInputBytes)}</strong><div class="small">${bytes(r.performance.physicalModelInputBytes)} physical · ~${r.performance.estimatedTokens.toLocaleString()} tokens</div>`:'<span class="small">Not recorded</span>'}</td><td class="actions"><a href="${r.reportUrl}">HTML</a><a href="${r.jsonUrl}">JSON</a></td></tr>`).join('')}for(const id of ['search','group','breaking','python-changelog','java-changelog','safety'])document.querySelector('#'+id).addEventListener('input',render);render();</script></body></html>
-
-
+function duration(v){
+  if(v==null)return 'Not recorded';
+  if(!Number.isFinite(v)||v<0)throw new RangeError('Invalid recorded duration: '+v);
+  if(v<60000)return `${(v/1000).toFixed(2)} s`;
+  const seconds=Math.round(v/1000);
+  return `${Math.floor(seconds/60)}m ${String(seconds%60).padStart(2,'0')}s`;
+}
+function median(values){
+  if(!values.length)return null;
+  const sorted=[...values].sort((a,b)=>a-b),middle=Math.floor(sorted.length/2);
+  return sorted.length%2?sorted[middle]:(sorted[middle-1]+sorted[middle])/2;
+}
+function replayPerformance(row){
+  return row.performance?.kind==='frozen-preparation-replay'?row.performance:null;
+}
+function performanceCell(row){
+  const p=replayPerformance(row);
+  if(!p)return '<span class="small">Replay timing not recorded</span>';
+  return `<div><strong>${duration(p?.replayCoordinatorTimeMs)}</strong><div class="small">Coordinator</div></div><div><strong>${duration(p?.replayWallTimeMs)}</strong><div class="small">First finalized report</div></div><div class="small">Frozen-preparation replay</div>`;
+}
+function renderPerformance(){
+  const coordinator=[],firstReport=[];
+  document.querySelector('#performance-rows').innerHTML=data.map(row=>{
+    const p=replayPerformance(row),c=p?.replayCoordinatorTimeMs,w=p?.replayWallTimeMs;
+    const coordinatorText=duration(c),firstReportText=duration(w);
+    if(c!=null)coordinator.push(c);
+    if(w!=null)firstReport.push(w);
+    return `<tr><td><a href="${esc(row.reportUrl)}">#${row.pr}</a></td><td>${coordinatorText}</td><td>${firstReportText}</td></tr>`;
+  }).join('');
+  document.querySelector('#median-coordinator').textContent=duration(median(coordinator));
+  document.querySelector('#median-first-report').textContent=duration(median(firstReport));
+  document.querySelector('#coordinator-coverage').textContent=`${coordinator.length} / ${data.length} core reports timed`;
+  document.querySelector('#first-report-coverage').textContent=`${firstReport.length} / ${data.length} core reports timed`;
+}
+function bytes(v){if(v==null)return 'n/a';return v<1024?`${v} B`:v<1048576?`${(v/1024).toFixed(1)} KiB`:`${(v/1048576).toFixed(1)} MiB`}
+function render(){
+  const q=document.querySelector('#search').value.toLowerCase(),g=document.querySelector('#group').value,b=document.querySelector('#breaking').value,p=document.querySelector('#python-changelog').value,j=document.querySelector('#java-changelog').value,s=document.querySelector('#safety').value;
+  const filtered=data.filter(r=>(!q||searchText(r).includes(q))&&(!g||r.group===g)&&(!b||r.sdkBreakingChangesFlag===b)&&(!p||r.changelog.python.status===p)&&(!j||r.changelog.java.status===j)&&(!s||r.safety===s));
+  document.querySelector('#rows').innerHTML=filtered.map(r=>`<tr>
+<td><a href="${r.prUrl}"><strong>Azure/azure-rest-api-specs#${r.pr}</strong></a><div class="small">${esc(r.title)}</div></td>
+<td><time datetime="${esc(r.mergedAt)}">${esc(r.mergedDate)}</time></td>
+<td>${r.releasePlanUrl?`<a href="${esc(r.releasePlanUrl)}">${esc(r.releasePlanId)}</a>`:'<span class="small">Unverified</span>'}</td>
+<td>${regenFlag(r.regenerationFlag)}<div class="small">${esc(r.group)}</div></td>
+<td>${breakingFlag(r.sdkBreakingChangesFlag)}<div class="small">${r.downstreamFindings} downstream findings</div></td>
+<td>${changelogCell(r.changelog.python)}</td><td>${changelogCell(r.changelog.java)}</td>
+<td>${badge(r.safety)}<div class="small">${esc(r.confidence)} confidence</div></td>
+<td>${badge(r.rest)} ${r.restFindings||''}</td><td>${badge(r.downstream)} ${r.downstreamFindings||''}</td>
+<td>${badge(r.guidelines)} ${r.guidelineFindings||''}</td><td>${badge(r.documentation)} ${r.documentationFindings||''}</td>
+<td><strong>${r.findings}</strong>${r.blockers?`<div class="small">${r.blockers} blockers</div>`:''}</td>
+<td class="performance-cell">${performanceCell(r)}</td>
+<td>${r.performance?`<strong>${bytes(r.performance.boundedAgentInputBytes)}</strong><div class="small">${bytes(r.performance.physicalModelInputBytes)} physical · ~${r.performance.estimatedTokens.toLocaleString()} tokens</div>`:'<span class="small">Not recorded</span>'}</td>
+<td class="actions"><a href="${r.reportUrl}">HTML</a><a href="${r.jsonUrl}">JSON</a></td></tr>`).join('');
+}
+for(const id of ['search','group','breaking','python-changelog','java-changelog','safety'])document.querySelector('#'+id).addEventListener('input',render);
+renderPerformance();render();</script></body></html>

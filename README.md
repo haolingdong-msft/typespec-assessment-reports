@@ -8,9 +8,11 @@ The complete retained collection contains 34 assessments: the original 30-case P
 
 - 20 cases with observed Python SDK AutoPR regeneration
 - 10 cases without observed regeneration in the October 8, 2026 snapshot
-- Each dashboard row includes the PR merge date, release-plan association, SDK regeneration, assessed SDK breaking-change, separate Python/Java changelog results and release-entry links, final dimension outcomes, coordinator time, and bounded Agent-input size when recorded
+- Each dashboard row includes the PR merge date, release-plan association, SDK regeneration, assessed SDK breaking-change, separate Python/Java changelog results and release-entry links, final dimension outcomes, replay coordinator time, time to first finalized report, and bounded Agent-input size when recorded
 - Each report includes rendered HTML and structured `assessment.json`
 - The 11 refreshed cases use hash-verified frozen preparation/compiler artifacts, fresh bounded judgment, and guarded finalization. Replay wall time includes actual waits and is not fresh-compilation E2E; historical timing evidence is retained separately
+
+The dashboard's **Assessment performance** panel shows medians and an expandable per-PR timing table for the nine core reports, independent of dashboard filters. Coordinator time uses `replayCoordinatorTimeMs`; time to first finalized report uses `replayWallTimeMs`, measured from replay invocation through initial guarded finalization, including judgment and actual waits. Each median includes only recorded values and shows its timing coverage. Missing timings are labeled `Not recorded`, never zero. These timings reuse saved compiler artifacts: they do not measure fresh-compilation E2E or the later display-only report refresh. The [performance JSON](https://haolingdong-msft.github.io/typespec-assessment-reports/core-performance.json) retains the full nine-core and two-additional-verification cohort and methodology.
 
 The attribution-driven additions are:
 
