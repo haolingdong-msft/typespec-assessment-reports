@@ -2559,7 +2559,7 @@
         }
       },
       "after": {
-        "generatedAt": "2026-10-27T04:51:43.104Z",
+        "generatedAt": "2026-10-28T05:50:14.159Z",
         "safety": "not-assessed",
         "confidence": "medium",
         "intents": 2,
@@ -2567,15 +2567,15 @@
         "dimensions": {
           "rest": {
             "status": "not-assessed",
-            "findings": 0
+            "findings": 7
           },
           "downstream": {
             "status": "not-assessed",
             "findings": 12
           },
           "compliance": {
-            "status": "failed",
-            "findings": 1
+            "status": "passed",
+            "findings": 0
           },
           "documentQuality": {
             "status": "passed",
@@ -2587,7 +2587,15 @@
       "changedFindingIds": {
         "rest": {
           "removed": [],
-          "added": []
+          "added": [
+            "rest-4be126e269abccb8",
+            "rest-4dcb8425a42f52e3",
+            "rest-727cf0ffc9e05c19",
+            "rest-95969aa255c541ee",
+            "rest-aa5abafe7cc61b3e",
+            "rest-d1ee6a449ad8ad3b",
+            "rest-dca644333fa869ac"
+          ]
         },
         "downstream": {
           "removed": [
@@ -2599,9 +2607,7 @@
           "removed": [
             "compliance-f22c7283e79c6b41"
           ],
-          "added": [
-            "compliance-4cf57b3170d347fc"
-          ]
+          "added": []
         },
         "documentQuality": {
           "removed": [],
@@ -2628,7 +2634,7 @@
       "newIntents": [
         {
           "id": "semantic-057b71aa4ba5a4ad",
-          "title": "Revise Commvault resource contracts and activation inputs in main.tsp",
+          "title": "Evolve Commvault contracts for the August preview",
           "intentType": "normal",
           "groupingEvidence": {
             "kind": "deterministic-coherent-change",
@@ -2654,7 +2660,7 @@
         },
         {
           "id": "semantic-6589f8fe6a4ae343",
-          "title": "Enable visibility-based model splitting for TypeScript generation",
+          "title": "Split TypeScript SDK models by lifecycle visibility",
           "intentType": "normal",
           "groupingEvidence": {
             "kind": "deterministic-coherent-change",
@@ -2668,16 +2674,19 @@
         }
       ],
       "limits": [
-        "The TypeScript visibility-split emitter option cannot be evaluated for concrete generated TypeScript names, exports, or import-path compatibility from neutral TCGC/AutoRest artifacts.",
         {
           "code": "inference-blocked",
           "reviewUnitId": "semantic-6589f8fe6a4ae343",
           "hunkId": "hunk-8b9abc3139b1cba0",
           "allowedDimensions": [
-            "rest",
             "downstream"
           ],
-          "message": "The visibility-splitting option is TypeScript-emitter-specific. Neutral TCGC/AutoRest evidence does not establish the resulting generated TypeScript model names, exports, or import paths. No language-specific break or equivalence can be claimed from this bounded evidence."
+          "message": "The option is TypeScript-emitter-specific. Retained neutral TCGC/AutoRest artifacts do not establish the resulting generated TypeScript model names, exports, or import paths, so concrete language-specific compatibility remains unverified. This SDK-only uncertainty is restricted to downstream and must not block REST."
+        },
+        {
+          "code": "autorest-contract-unresolved",
+          "projectId": "project-0b8d0c5d536b",
+          "message": "Changed AutoRest contracts for 1 operations in project-0b8d0c5d536b contain unresolved schema or parameter references (CloudAccounts_Update). Their effective compatibility cannot be established from placeholder references."
         }
       ],
       "comparison": {
@@ -2739,126 +2748,379 @@
         }
       ],
       "currentDecisions": {
-        "rest": [],
+        "rest": [
+          {
+            "candidateId": "rest-03783a66bdcf9517",
+            "decision": "reject",
+            "rationale": "numberOfProtectedItems becomes guaranteed in list responses. Old consumers already accepted a response containing it; stronger response presence is not a new request obligation or a lost response guarantee."
+          },
+          {
+            "candidateId": "rest-089e8c1a4d1b0e16",
+            "decision": "reject",
+            "rationale": "protectionStatus becomes guaranteed in list responses while its wire type and values remain accepted by old consumers. This strengthens the response contract rather than breaking it."
+          },
+          {
+            "candidateId": "rest-195132148aa247bf",
+            "decision": "reject",
+            "rationale": "The baseline response-reused schema marks backupAdminOnCcaCreate with create-only mutability. It was not a readable response property, so this response occurrence does not establish a lost response field; its create-request removal is judged separately."
+          },
+          {
+            "candidateId": "rest-1e5c326be52b1167",
+            "decision": "reject",
+            "rationale": "Requiring roleName in the 200 response strengthens output presence. Existing consumers of the formerly optional response member can still consume every target response."
+          },
+          {
+            "candidateId": "rest-2b30077046cb4b8e",
+            "decision": "reject",
+            "rationale": "numberOfProtectedItems becomes guaranteed in the 200 response. This read-only output guarantee does not invalidate an old request or remove an old readable response field."
+          },
+          {
+            "candidateId": "rest-2c0d20db4470e176",
+            "decision": "reject",
+            "rationale": "protectionStatus becomes guaranteed in the 200 response. Its unchanged value contract with stronger output presence is compatible for old REST consumers."
+          },
+          {
+            "candidateId": "rest-336786fd6a896416",
+            "decision": "reject",
+            "rationale": "backupAdminOnCcaCreate has baseline create-only mutability, including in the shared LinkSaaS response schema. Removing it here is not evidence that a readable response field disappeared."
+          },
+          {
+            "candidateId": "rest-37bcc3417716415e",
+            "decision": "reject",
+            "rationale": "entities becomes guaranteed in the GET response. Old consumers already allowed this array to be present; the stricter output guarantee does not add a request requirement."
+          },
+          {
+            "candidateId": "rest-3ab97a9fe08b0b37",
+            "decision": "reject",
+            "rationale": "numberOfProtectedItems becomes guaranteed in the 201 response. Strengthening presence of this read-only result member is not a REST migration break."
+          },
+          {
+            "candidateId": "rest-3dd7fd1a1f8cdbbe",
+            "decision": "reject",
+            "rationale": "roleName becomes guaranteed in the 201 response without changing its accepted wire values. Target responses remain within the old response contract."
+          },
+          {
+            "candidateId": "rest-4be126e269abccb8",
+            "decision": "approve",
+            "severity": "high",
+            "rationale": "RoleMappings_CreateOrUpdate now requires entities in each supplied role assignment. A July request containing a role assignment without entities no longer satisfies the August request schema. This is a cross-version migration incompatibility, not proof of an existing-version regression."
+          },
+          {
+            "candidateId": "rest-4dcb8425a42f52e3",
+            "decision": "approve",
+            "severity": "high",
+            "rationale": "RoleMappings_CreateOrUpdate changes roleName from optional to required in each role assignment. Existing July request bodies that omit it must change when migrating to August."
+          },
+          {
+            "candidateId": "rest-5069c0328d6edbf7",
+            "decision": "reject",
+            "rationale": "protectionStatus becomes guaranteed in the GET response. An old consumer can accept the stronger output guarantee; there is no corresponding input requirement because the field is read-only."
+          },
+          {
+            "candidateId": "rest-588bbd3b0cd1534f",
+            "decision": "reject",
+            "rationale": "Both AutoRest schemas mark numberOfProtectedItems readOnly. Its required-array change in the reused resource schema does not require clients to submit this output-only property in a create request."
+          },
+          {
+            "candidateId": "rest-5aebe78825721517",
+            "decision": "reject",
+            "rationale": "multiPersonAuthorizationOnCcaCreate is create-only in the baseline shared schema, not a readable LinkSaaS response property. The create-input removal is assessed separately."
+          },
+          {
+            "candidateId": "rest-652c92f0c07aa155",
+            "decision": "reject",
+            "rationale": "The baseline list schema marks multiPersonAuthorizationOnCcaCreate create-only. Its disappearance from this response-reused schema does not remove a field from the effective read contract."
+          },
+          {
+            "candidateId": "rest-6bc763cc1332ae91",
+            "decision": "reject",
+            "rationale": "entities becomes guaranteed in each listed role assignment. This narrows server outputs to values the old response schema already accepted and does not invalidate old REST consumers."
+          },
+          {
+            "candidateId": "rest-71e34a3f9659b3c3",
+            "decision": "reject",
+            "rationale": "multiPersonAuthorizationOnCcaCreate is excluded from read visibility by baseline create-only mutability. This subscription-list occurrence is not an independently removed response field."
+          },
+          {
+            "candidateId": "rest-727cf0ffc9e05c19",
+            "decision": "approve",
+            "severity": "medium",
+            "rationale": "CloudAccounts_CreateOrUpdate removes the documented create-only backupAdminOnCcaCreate input. Existing provisioning workflows lose their declared way to supply that administrator and must migrate to the replacement role-assignment model; unknown-property acceptance is not established by this contract."
+          },
+          {
+            "candidateId": "rest-77d8c5e7ebd23a11",
+            "decision": "reject",
+            "rationale": "The removed multiPersonAuthorizationOnCcaCreate member is create-only in the baseline schema. Its appearance under the 201 shared model did not make it a readable response contract member."
+          },
+          {
+            "candidateId": "rest-79180d373d2e97ce",
+            "decision": "reject",
+            "rationale": "Baseline create-only mutability excludes multiPersonAuthorizationOnCcaCreate from readable 200 output. Its actual loss of create-input capability is covered by the request candidate, not this response occurrence."
+          },
+          {
+            "candidateId": "rest-8135fa6a100f8e06",
+            "decision": "reject",
+            "rationale": "The 200 response entities array acquires minItems: 1. Restricting server output from possibly empty to nonempty does not introduce a response value rejected by the old contract; the same constraint on requests is judged separately."
+          },
+          {
+            "candidateId": "rest-81c19d1689051e70",
+            "decision": "reject",
+            "rationale": "multiPersonAuthorizationOnCcaCreate was create-only, not readable in the baseline PATCH result. This shared-schema removal does not prove a response compatibility loss."
+          },
+          {
+            "candidateId": "rest-903785c45e5a50df",
+            "decision": "reject",
+            "rationale": "backupAdminOnCcaCreate has baseline create-only mutability. It was not a readable subscription-list response property, so this occurrence does not establish a REST output break."
+          },
+          {
+            "candidateId": "rest-95969aa255c541ee",
+            "decision": "approve",
+            "severity": "high",
+            "rationale": "ActivateResource removes the required serialized request key saaSGuid. A caller sending the July payload cannot carry that required identifier under the August contract without changing the key to saasGuid. This is substantive wire migration impact, not api-version-selector noise."
+          },
+          {
+            "candidateId": "rest-9eaa8670b4528216",
+            "decision": "reject",
+            "rationale": "lastBackUpTime remains readOnly in both emitted contracts. Requiredness in the reused resource schema strengthens returned data but does not impose a new client-supplied create field."
+          },
+          {
+            "candidateId": "rest-a035d0e065f0987a",
+            "decision": "reject",
+            "rationale": "lastBackUpTime becomes guaranteed in the 200 response. The same read-only wire value was already accepted by old consumers; stronger output presence is compatible."
+          },
+          {
+            "candidateId": "rest-a466d2ce7886bad6",
+            "decision": "reject",
+            "rationale": "protectionStatus is explicitly readOnly in baseline and target AutoRest schemas. Making it required does not create an effective request-body obligation for clients."
+          },
+          {
+            "candidateId": "rest-a6f4e1fef870dbc8",
+            "decision": "reject",
+            "rationale": "minItems: 1 narrows the GET response entities array to nonempty results already accepted by the old response contract. It does not require an old client to send additional input."
+          },
+          {
+            "candidateId": "rest-aa52346cea84cc45",
+            "decision": "reject",
+            "rationale": "backupAdminOnCcaCreate is create-only in the baseline shared resource schema and therefore not an effective readable 201 response field. Its provisioning-input removal has a separate finding."
+          },
+          {
+            "candidateId": "rest-aa5abafe7cc61b3e",
+            "decision": "approve",
+            "severity": "medium",
+            "rationale": "RoleMappings_CreateOrUpdate adds minItems: 1 to request roles[].entities. A previously valid explicitly empty entities array is no longer valid in August, independently of the separate change requiring the property to be present."
+          },
+          {
+            "candidateId": "rest-add0638558325ec9",
+            "decision": "reject",
+            "rationale": "The apparent PATCH object-to-intersection change includes an unresolved common-types Resource reference in the target. An allOf normalization change alone does not prove lost accepted requests. Do not approve an unestablished break or declare compatibility: the separate autorest-contract-unresolved REST blocker retains this coverage gap."
+          },
+          {
+            "candidateId": "rest-b0aa8dc4285df03e",
+            "decision": "reject",
+            "rationale": "lastBackUpTime becomes guaranteed in the GET response, preserving its scalar wire representation. This strengthens the read contract and does not invalidate an existing request."
+          },
+          {
+            "candidateId": "rest-c087a0b510017e9b",
+            "decision": "reject",
+            "rationale": "numberOfProtectedItems becomes guaranteed in the GET response. The old optional response contract already permitted this unchanged member to be present."
+          },
+          {
+            "candidateId": "rest-d1ee6a449ad8ad3b",
+            "decision": "approve",
+            "severity": "high",
+            "rationale": "ActivateResource adds required request property saasGuid. A July request using saaSGuid lacks this new required key and must be rewritten to migrate to August. The addition and removal are the two documented sides of the wire-name replacement."
+          },
+          {
+            "candidateId": "rest-d1fec7d8a1adc332",
+            "decision": "reject",
+            "rationale": "Baseline backupAdminOnCcaCreate is create-only, not a readable PATCH-result property. This response-reused schema occurrence does not prove a lost REST response member."
+          },
+          {
+            "candidateId": "rest-d219ccf8a29d7b73",
+            "decision": "reject",
+            "rationale": "The baseline GET schema marks multiPersonAuthorizationOnCcaCreate create-only. Its removal does not change the effective read response; its create-request loss is assessed separately."
+          },
+          {
+            "candidateId": "rest-d30738cbedeb2975",
+            "decision": "reject",
+            "rationale": "protectionStatus becomes guaranteed in the 201 response with the same wire values. Stronger response presence is compatible with old consumers."
+          },
+          {
+            "candidateId": "rest-dca644333fa869ac",
+            "decision": "approve",
+            "severity": "medium",
+            "rationale": "CloudAccounts_CreateOrUpdate removes the documented create-only multiPersonAuthorizationOnCcaCreate input. A provisioning workflow using that field must migrate to the replacement role-assignment representation; the emitted contract no longer promises the old input's behavior."
+          },
+          {
+            "candidateId": "rest-e00b70d2eca5ca32",
+            "decision": "reject",
+            "rationale": "roleName becomes guaranteed in the GET response. Existing consumers already accepted responses carrying that unchanged enum-valued field, so this is not an output incompatibility."
+          },
+          {
+            "candidateId": "rest-e1f6e05fed308a9f",
+            "decision": "reject",
+            "rationale": "lastBackUpTime becomes guaranteed in the 201 response. This read-only output guarantee does not introduce an invalid target response for old consumers."
+          },
+          {
+            "candidateId": "rest-e34bda6a42644887",
+            "decision": "reject",
+            "rationale": "roleName becomes guaranteed in listed role assignments. Requiring the server to include a formerly optional result member strengthens rather than weakens its response guarantee."
+          },
+          {
+            "candidateId": "rest-eafb3445ecc72856",
+            "decision": "reject",
+            "rationale": "backupAdminOnCcaCreate has baseline create-only mutability, including in the reused resource-group list schema. Its removal here is not an effective readable response-field removal."
+          },
+          {
+            "candidateId": "rest-ece131b4fa5d2382",
+            "decision": "reject",
+            "rationale": "entities becomes guaranteed in the 200 response. This is a stronger server-output guarantee, not an additional input requirement for an existing REST caller."
+          },
+          {
+            "candidateId": "rest-f2a38c979c012215",
+            "decision": "reject",
+            "rationale": "entities becomes guaranteed in the 201 response. Old consumers can still process the same array values; stronger output presence is compatible."
+          },
+          {
+            "candidateId": "rest-f370dd2f2b116935",
+            "decision": "reject",
+            "rationale": "minItems: 1 narrows listed response entities arrays to nonempty values. These outputs were already allowed by the old schema; the corresponding request restriction is separately approved."
+          },
+          {
+            "candidateId": "rest-f509fff4e1da545b",
+            "decision": "reject",
+            "rationale": "backupAdminOnCcaCreate was create-only in the baseline shared schema, not readable in a 200 response. The actual provisioning input loss is assessed by its request candidate."
+          },
+          {
+            "candidateId": "rest-f8df6da277547a13",
+            "decision": "reject",
+            "rationale": "The 201 response entities array changes from permitting empty to requiring at least one item. This strengthens server output without introducing a value outside the old response schema."
+          },
+          {
+            "candidateId": "rest-fd674ee805386c91",
+            "decision": "reject",
+            "rationale": "lastBackUpTime becomes guaranteed in list responses while retaining its read-only integer representation. This is not a lost response guarantee or new client input obligation."
+          }
+        ],
         "downstream": [
           {
             "candidateId": "downstream-0e6e3eb616d8da21",
             "decision": "approve",
             "severity": "high",
-            "rationale": "The public, reachable CloudAccountUpdate request model disappears when update switches to CloudAccount. Existing callers referring to that request type cannot keep using it. This is not a proven equivalent response-wrapper rename: the request parameter changes nominal type and the supplied old envelope includes tags whereas the target CloudAccount member inventory does not."
+            "rationale": "The baseline exposes the public reachable CloudAccountUpdate model through ResourceUpdateModel, but the target neutral SDK surface no longer contains that type identity. Existing SDK code naming or constructing that update model loses its declared public surface; no specific language signature is inferred."
           },
           {
             "candidateId": "downstream-259d2e64761ab7b7",
             "decision": "approve",
             "severity": "high",
-            "rationale": "CloudAccounts.update changes the existing properties parameter type from CloudAccountUpdate to CloudAccount. The name/order/requiredness, LRO kind, result, route, and final-state-via remain unchanged, but callers passing the previous request-model type must migrate. Do not describe this as an added parameter or a changed polling contract."
+            "rationale": "The public CloudAccounts.update method changes its required properties parameter type from CloudAccountUpdate to CloudAccount. Existing calls passing the old sparse update model no longer match the same neutral SDK parameter contract."
           },
           {
             "candidateId": "downstream-2683d0d6d99d505f",
             "decision": "approve",
             "severity": "high",
-            "rationale": "The existing public RoleAssignment.roleName member changes from optional to required on a model reachable through request as well as response roots. Callers constructing role assignments without roleName no longer satisfy the generated input contract."
+            "rationale": "Public RoleAssignment.roleName changes from optional to required. Existing SDK model values or constructions omitting it no longer satisfy the target model contract."
           },
           {
             "candidateId": "downstream-3066918b12d060c9",
             "decision": "approve",
             "severity": "high",
-            "rationale": "The existing public RoleAssignment.entities member changes from optional to required. Its supplied request reachability makes previously valid input-model construction that omitted entities incompatible; this is not merely an additive output property."
+            "rationale": "Public RoleAssignment.entities changes from optional to required. Existing SDK model values or constructions that omit the collection no longer satisfy the target required-property contract."
           },
           {
             "candidateId": "downstream-59595748dd92f909",
             "decision": "approve",
             "severity": "medium",
-            "rationale": "The existing public ProtectionGroupProperties.lastBackUpTime property changes SDK optionality from optional to required. The source marks it read-only, so this is not a newly required service request input. It nevertheless changes the exposed neutral model member contract used by typed consumers and model construction, rather than only adding a response member."
+            "rationale": "The normalized public ProtectionGroupProperties model changes lastBackUpTime from optional to required. Existing model values and typed fixtures omitting it no longer satisfy that public model contract. This is SDK model-shape impact, not a claim that the read-only REST field must be sent in requests."
           },
           {
             "candidateId": "downstream-659e6be6239072c5",
             "decision": "approve",
             "severity": "medium",
-            "rationale": "The existing public ProtectionGroupProperties.numberOfProtectedItems property changes from optional to required. Preserve its read-only direction: the identified SDK incompatibility is the existing member's optionality/type contract, not a requirement for callers to send a server-computed value."
+            "rationale": "The normalized public ProtectionGroupProperties model makes numberOfProtectedItems required. Existing model values and typed fixtures that omit the previously optional member lose compatibility with this required-property shape; no language-specific constructor is asserted."
           },
           {
             "candidateId": "downstream-7694e4fa17018561",
             "decision": "reject",
-            "rationale": "Both RoleName facts remain public and reachable with the same extensible union-as-enum members and serialized values. The supplied difference is usage metadata (262 to 10502); that alone does not demonstrate removal, reduced access, a renamed member, or an incompatible enum shape."
+            "rationale": "RoleName remains public and reachable with the same enum values and extensibility. Only usage flags change from 262 to 10502; that metadata delta does not establish lost SDK availability or a source-compatibility break."
           },
           {
             "candidateId": "downstream-7b38bbfc58e5e32c",
             "decision": "approve",
             "severity": "high",
-            "rationale": "ActivateSaaSParameterRequest is a reachable input to SaaSOperationGroup.activateResource. The newly required saasGuid member has a distinct SDK/serialized identity from the former saaSGuid, so old input construction does not supply the new required member. This is the addition side of the identifier rename, not an output-only addition."
+            "rationale": "The public activation request model adds required saasGuid. Existing SDK request model values using only the previous saaSGuid member must change to satisfy the target required-property contract."
           },
           {
             "candidateId": "downstream-7f5025a7c3dab075",
             "decision": "approve",
             "severity": "high",
-            "rationale": "The existing public CloudAccountProperties.multiPersonAuthorizationOnCcaCreate input member is removed in the selected target version. Callers setting that create input lose the SDK member; keeping other CloudAccount methods does not preserve this property access."
+            "rationale": "CloudAccountProperties removes public multiPersonAuthorizationOnCcaCreate. Existing SDK code assigning or reading that declared model member loses its public property and must migrate to the role-assignment representation."
           },
           {
             "candidateId": "downstream-8be9d0b9df1f09eb",
             "decision": "approve",
             "severity": "high",
-            "rationale": "The public CloudAccountUpdateProperties model disappears from the target normalized model set as the update request changes to the resource-shaped CloudAccount. Existing SDK code naming the old update-properties type is not preserved. The evidence does not establish an identity-preserving generated response-wrapper transformation."
+            "rationale": "The baseline public reachable CloudAccountUpdateProperties model disappears from the target neutral SDK surface. Existing SDK references to that update-properties type no longer have the same public model identity available."
           },
           {
             "candidateId": "downstream-b903ae884de1a72e",
             "decision": "approve",
             "severity": "high",
-            "rationale": "The existing public CloudAccountProperties.backupAdminOnCcaCreate input member is removed. Code configuring it during CloudAccount creation must migrate; this is a source-visible member removal even though the enclosing resource methods remain available."
+            "rationale": "CloudAccountProperties removes public backupAdminOnCcaCreate. Existing SDK model construction or member access using that property must change; optional replacement properties do not preserve the removed member."
           },
           {
             "candidateId": "downstream-c3b1f9f6a00a1aa6",
             "decision": "reject",
-            "rationale": "RoleAssignment remains public and reachable on both sides. A usage-bit change from 262 to 10502 does not independently prove lost public availability. Its actual roleName/entities requiredness changes are judged through their dedicated property candidates rather than duplicated as a generic public-surface loss."
+            "rationale": "RoleAssignment remains public and reachable. Its usage-bit change alone is not lost availability. The concrete optional-to-required property changes are assessed independently and must not be duplicated as an unproved public-surface removal."
           },
           {
             "candidateId": "downstream-e0616bd4d9fb78c1",
             "decision": "approve",
             "severity": "high",
-            "rationale": "The existing required ActivateSaaSParameterRequest.saaSGuid member is removed and replaced with saasGuid, including a changed serialized name. Existing callers using the old member no longer compile or construct the same input shape; this is not a case-only metadata difference."
+            "rationale": "The public ActivateSaaSParameterRequest model removes saaSGuid and uses differently cased saasGuid. Existing SDK code naming the old member loses that member and must migrate; this is not merely an unchanged type with a different usage flag."
           },
           {
             "candidateId": "downstream-f419511929235c13",
             "decision": "approve",
             "severity": "medium",
-            "rationale": "The existing public ProtectionGroupProperties.protectionStatus SDK member changes from optional to required. It remains a read-only service value, but its exposed model optionality changes for typed SDK consumers. Do not present this as a newly mandatory REST request property."
+            "rationale": "The normalized public ProtectionGroupProperties model makes protectionStatus required. Existing model values or typed fixtures omitting it no longer satisfy the public required-property shape, independently of the compatible stronger REST response guarantee."
           }
         ],
         "inference": [
           {
             "requestId": "inference-request-e439b109e8f390f3",
             "decision": "no-impact",
-            "rationale": "The three read-only ProtectionGroup member optionality transitions already have dedicated downstream candidates, all judged above. @madeRequired describes their version applicability. No distinct additional wire or SDK candidate is established by this hunk beyond those supplied differences.",
+            "rationale": "No additional candidate beyond the supplied protection-field requiredness candidates is established. REST must account for read-only visibility and response direction; neutral SDK required-property changes are independently judged. This is not a whole-PR compatibility pass.",
             "candidates": []
           },
           {
             "requestId": "inference-request-f3d743b11df0b80a",
             "decision": "no-impact",
-            "rationale": "This hunk introduces the preview version and its LiftrBase dependency selection. Operations is unchanged diff context. Effective compiler deltas are assessed separately; the version declaration by itself does not establish an additional caller-visible incompatibility.",
+            "rationale": "The new preview enum member, preview marker and LiftrBase dependency pin provide version context, not an independent compatibility break. Substantive cross-version contract candidates remain in judgment; no blanket new-version exclusion is applied.",
             "candidates": []
           },
           {
             "requestId": "inference-request-3a970bde575b4c53",
             "decision": "no-impact",
-            "rationale": "The roleName/entities requiredness transitions have supplied property candidates. The removed/renamed oldEntities and added entities express the version-specific replacement, with minItems(1) supporting the new input constraint. The permitted evidence does not establish a separate additional generated-SDK member change or mapped AutoRest operation candidate beyond the supplied contract changes, so do not duplicate them.",
+            "rationale": "The supplied roleName/entities requiredness and entities cardinality candidates cover the concrete changed contracts. Separate old/new entities declarations version the constraint; no additional independently evidenced finding is needed.",
             "candidates": []
           },
           {
             "requestId": "inference-request-363e36676bab1eff",
             "decision": "no-impact",
-            "rationale": "The removed backupAdminOnCcaCreate and multiPersonAuthorizationOnCcaCreate members already have supplied candidates. company and roleAssignmentsOnCcaCreate are optional additions; their addition alone does not break existing input construction. Requiredness inside the reachable RoleAssignment model is judged separately.",
+            "rationale": "The supplied candidates cover removal of the two create-time administrator inputs and corresponding public SDK properties. Adding optional company and roleAssignmentsOnCcaCreate properties does not itself establish another break or preserve the removed inputs.",
             "candidates": []
           },
           {
             "requestId": "inference-request-271661a5ebc1e09e",
             "decision": "no-impact",
-            "rationale": "@@typeChangedFrom preserves the old-version projection of the update parameter while the target version uses the changed type. The update parameter and removed request-model identities already have supplied candidates. The augment statement is supporting version metadata, not an additional standalone breaking change.",
+            "rationale": "The typeChangedFrom metadata expresses the old PATCH parameter projection but does not independently prove another break or prove preservation of the previously published contract. The SDK parameter/type candidates and deterministic unresolved AutoRest PATCH blocker retain the actual impacts and uncertainty.",
             "candidates": []
           },
           {
-            "requestId": "inference-request-a4b53250290374a9",
+            "requestId": "inference-request-c72242a387ff589c",
             "decision": "blocked",
-            "rationale": "The visibility-splitting option is TypeScript-emitter-specific. Neutral TCGC/AutoRest evidence does not establish the resulting generated TypeScript model names, exports, or import paths. No language-specific break or equivalence can be claimed from this bounded evidence.",
+            "rationale": "The option is TypeScript-emitter-specific. Retained neutral TCGC/AutoRest artifacts do not establish the resulting generated TypeScript model names, exports, or import paths, so concrete language-specific compatibility remains unverified. This SDK-only uncertainty is restricted to downstream and must not block REST.",
             "candidates": []
           }
         ],
@@ -2871,43 +3133,128 @@
                 "guidanceSection": "@madeRequired and @madeOptional"
               },
               {
+                "catalogId": "catalog-entry-83f1950ab30a",
+                "guidanceSection": "Adding Decoration to an Existing Type"
+              },
+              {
                 "catalogId": "catalog-entry-34576693a517",
                 "guidanceSection": "Preview Versioning Rules for All Azure APIs"
               },
               {
-                "catalogId": "catalog-entry-214f81e83b41",
-                "guidanceSection": "Making Changes to your TypeSpec spec"
+                "catalogId": "catalog-entry-c82149ce74e4",
+                "guidanceSection": "@visibility"
               },
               {
-                "catalogId": "catalog-entry-343169f704cd",
-                "guidanceSection": "Resource Update Operations (PATCH)"
+                "catalogId": "catalog-entry-c82149ce74e4",
+                "guidanceSection": "@minItems"
               }
             ],
             "declarationNames": [
-              "CloudAccounts.update",
               "Versions",
               "RoleAssignment.roleName",
               "RoleAssignment.entities",
+              "RoleAssignment.oldEntities",
               "ProtectionGroupProperties.lastBackUpTime",
               "ProtectionGroupProperties.numberOfProtectedItems",
               "ProtectionGroupProperties.protectionStatus"
             ],
-            "decision": "applicable-fail",
-            "title": "Retain an explicit request model for CloudAccount PATCH",
-            "severity": "medium",
-            "expected": "The fetched ARM guidance recommends a specific PATCH request model with ArmCustomPatch* rather than ArmResourcePatch*, because implicit Lifecycle.Update filtering in AutoRest is not reproduced by SDK generation. Version decorators separately describe when contract changes apply.",
-            "actual": "CloudAccounts.update replaces the custom PATCH request-model template with ArmResourcePatchAsync<CloudAccount>; the supplied neutral SDK facts consequently use CloudAccount rather than CloudAccountUpdate. The same coarse group adds the preview version and version-scoped model/property changes.",
-            "rationale": "The changed PATCH template is a concrete mismatch with the fetched SDK-safe modeling recommendation, not a claim that every preview contract change is forbidden. Requiredness decorators and version publication metadata do not remedy the implicit request-model filtering problem. Keep the finding at this intent scope rather than manufacturing findings for each mapped operation."
+            "decision": "applicable-pass",
+            "expected": "Represent version-specific requiredness and decorator changes explicitly, mark only the newest active preview, and interpret lifecycle visibility and array constraints according to their declared semantics.",
+            "actual": "The August preview is the final Versions member and the sole previewVersion-marked member. Changed requiredness is gated with madeRequired; the old/new entities pair versions the nonempty-array constraint. Read-only protection fields and create-only administrator fields have distinct lifecycle roles.",
+            "rationale": "The changed declarations follow the fetched versioning and visibility guidance; no violation is established under that guidance. Confirmed July-to-August migration incompatibilities remain REST/SDK findings, not automatic failures of versioning syntax. This judgment does not prove preservation of the previously published July contract or resolve the separate PATCH schema limit."
           },
           {
             "reviewUnitId": "semantic-6589f8fe6a4ae343",
             "applicableGuidance": [],
             "declarationNames": [],
             "decision": "no-applicable-guidance",
-            "actual": "The TypeScript emitter option experimental-split-models-by-visibility is enabled; no TypeSpec declaration is changed by this configuration hunk.",
-            "rationale": "The four fetched documents govern API versioning and ARM resource-operation modeling, not the experimental TypeScript emitter option. Search completed, but these documents provide no governing requirement for this configuration change. This completed Guidelines search is distinct from the explicitly limited language-specific SDK inference."
+            "actual": "The intent changes one TypeScript emitter configuration option and has no eligible TypeSpec declarations.",
+            "rationale": "The shared ranked four-document search supplies versioning, built-in decorator and directive guidance, none of which governs this emitter-specific split-model option. Completed search with no governing guidance is assessed, not a fabricated guideline blocker or proof of SDK compatibility."
           }
         ]
+      },
+      "latestReassessment": {
+        "previousPublicationCommit": "e220a8f38ba4f3419fd8a5db04b3f618bdfe8cb7",
+        "previousAssessmentSha256": "3ea1fa4de7e18f729783b14ad56162822320a2873fe832970075629f99b8c3f6",
+        "before": {
+          "generatedAt": "2026-10-27T04:51:43.104Z",
+          "safety": "not-assessed",
+          "confidence": "medium",
+          "intents": 2,
+          "publicationIntents": 0,
+          "dimensions": {
+            "rest": {
+              "status": "not-assessed",
+              "findings": 0
+            },
+            "downstream": {
+              "status": "not-assessed",
+              "findings": 12
+            },
+            "compliance": {
+              "status": "failed",
+              "findings": 1
+            },
+            "documentQuality": {
+              "status": "passed",
+              "findings": 0
+            }
+          }
+        },
+        "after": {
+          "generatedAt": "2026-10-28T05:50:14.159Z",
+          "safety": "not-assessed",
+          "confidence": "medium",
+          "intents": 2,
+          "publicationIntents": 0,
+          "dimensions": {
+            "rest": {
+              "status": "not-assessed",
+              "findings": 7
+            },
+            "downstream": {
+              "status": "not-assessed",
+              "findings": 12
+            },
+            "compliance": {
+              "status": "passed",
+              "findings": 0
+            },
+            "documentQuality": {
+              "status": "passed",
+              "findings": 0
+            }
+          }
+        },
+        "changedFindingIds": {
+          "rest": {
+            "removed": [],
+            "added": [
+              "rest-4be126e269abccb8",
+              "rest-4dcb8425a42f52e3",
+              "rest-727cf0ffc9e05c19",
+              "rest-95969aa255c541ee",
+              "rest-aa5abafe7cc61b3e",
+              "rest-d1ee6a449ad8ad3b",
+              "rest-dca644333fa869ac"
+            ]
+          },
+          "downstream": {
+            "removed": [],
+            "added": []
+          },
+          "compliance": {
+            "removed": [
+              "compliance-4cf57b3170d347fc"
+            ],
+            "added": []
+          },
+          "documentQuality": {
+            "removed": [],
+            "added": []
+          }
+        },
+        "reason": "Restore substantive new-api-version REST judgment and scope SDK-only inference to downstream. Fresh bounded judgment and shared guideline search were rerun against hash-verified retained compiler artifacts."
       }
     },
     {
@@ -5403,5 +5750,6 @@
         ]
       }
     }
-  ]
+  ],
+  "latestAssessmentUpdatedAt": "2026-10-28T05:54:32.063Z"
 }
