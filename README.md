@@ -8,7 +8,7 @@ The complete retained collection contains 34 assessments: the original 30-case P
 
 - 20 cases with observed Python SDK AutoPR regeneration
 - 10 cases without observed regeneration in the October 8, 2026 snapshot
-- Each dashboard row includes the PR merge date, release-plan association, SDK regeneration, assessed SDK breaking-change, GitHub SDK breaking-change labels, final dimension outcomes, coordinator time, and bounded Agent-input size when recorded
+- Each dashboard row includes the PR merge date, release-plan association, SDK regeneration, assessed SDK breaking-change, separate Python/Java changelog results and release-entry links, final dimension outcomes, coordinator time, and bounded Agent-input size when recorded
 - Each report includes rendered HTML and structured `assessment.json`
 - The 11 refreshed cases use hash-verified frozen preparation/compiler artifacts, fresh bounded judgment, and guarded finalization. Replay wall time includes actual waits and is not fresh-compilation E2E; historical timing evidence is retained separately
 
@@ -30,12 +30,17 @@ Machine-readable supporting artifacts:
 
 - [Nine active dashboard rows](https://haolingdong-msft.github.io/typespec-assessment-reports/reports.json)
 - [25 archived dashboard rows](https://haolingdong-msft.github.io/typespec-assessment-reports/archive-reports.json)
+- [Pinned Python/Java changelog evidence](https://haolingdong-msft.github.io/typespec-assessment-reports/changelog-evidence.json)
 - [Before/after semantic intents, findings, and fresh decision rationales](https://haolingdong-msft.github.io/typespec-assessment-reports/refresh-comparison.json)
 
 - [Core and mandatory-verification performance](https://haolingdong-msft.github.io/typespec-assessment-reports/core-performance.json)
 - [Core and verification-report publication manifest](https://haolingdong-msft.github.io/typespec-assessment-reports/publication-manifest.json)
 
-The SDK breaking-change label flag is `Yes` when the PR has one or more language-specific `BreakingChange-*-Sdk` labels, including approved variants.
+The Python and Java changelog columns show whether the linked, commit-pinned SDK release entry lists **Breaking Changes**, independently of the assessment result. `Yes` means listed, `No` means none listed, `Initial release` means there is no previous package to compare, and `Unverified` means the dashboard has no verified changelog association for that case. No changelog entry is not evidence of compatibility.
+
+Reference-only SDK associations are marked explicitly rather than presented as isolated releases of the spec PR. Closed, unmerged SDK PRs are not shipped-release evidence. Cumulative release notes can include changes introduced by earlier spec PRs, and a documented change can be compatible in a particular language. The Java entry for Azure/azure-rest-api-specs#44920 explicitly describes a validation relaxation, not a Java source/binary break. Archived rows without linked changelog evidence show `Unverified`.
+
+GitHub SDK breaking-change labels are retained only in historical metadata; they are not displayed, filtered, or used to derive changelog results.
 
 The SDK breaking-change flag is derived from the assessment downstream SDK result: `Yes` for failed findings, `No` for an assessed pass, and `Not assessed` when comparison was blocked.
 
