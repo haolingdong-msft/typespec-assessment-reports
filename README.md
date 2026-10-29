@@ -38,6 +38,14 @@ Verify that the committed artifact is valid and current:
 node scripts/generate-alignment-data.mjs --check
 ```
 
+The main dashboard loads `alignment-data.json` at runtime, so publish the
+generated artifact and `index.html` together. Validate their data contract and
+the dashboard's inline JavaScript before publishing:
+
+```shell
+node scripts/check-dashboard.mjs
+```
+
 The full structured result for PR #44988 is published as
 `assessment.json.gz` because the uncompressed report exceeds GitHub's
 per-file size limit.
