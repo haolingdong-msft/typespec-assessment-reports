@@ -1,8 +1,8 @@
 # TypeSpec Assessment Reports
 
-The [main dashboard](https://haolingdong-msft.github.io/typespec-assessment-reports/) and [combined view](https://haolingdong-msft.github.io/typespec-assessment-reports/combined.html) highlight **nine core assessments**: Azure/azure-rest-api-specs#44288, Azure/azure-rest-api-specs#44920, Azure/azure-rest-api-specs#44101, Azure/azure-rest-api-specs#44557, Azure/azure-rest-api-specs#46008, Azure/azure-rest-api-specs#43918, Azure/azure-rest-api-specs#43757, Azure/azure-rest-api-specs#39064, and Azure/azure-rest-api-specs#46679.
+The [main dashboard](https://haolingdong-msft.github.io/typespec-assessment-reports/) lists all **34 assessments** and provides a per-PR downstream breaking-change alignment analysis against pinned Python and Java SDK changelog evidence. The alignment view distinguishes **Aligned**, **Expected difference**, and **Cannot determine**, including language-specific generation effects, aggregate SDK releases, initial packages, and unverified associations.
 
-The other **25 assessments are archived**, not deleted. Use the [archive dashboard](https://haolingdong-msft.github.io/typespec-assessment-reports/archive.html) to search them. Every existing individual HTML/JSON report URL remains unchanged.
+The previous operational table is preserved at [Operational details](https://haolingdong-msft.github.io/typespec-assessment-reports/operations.html). The [combined view](https://haolingdong-msft.github.io/typespec-assessment-reports/combined.html) continues to highlight the nine core assessments, and the [archive dashboard](https://haolingdong-msft.github.io/typespec-assessment-reports/archive.html) remains available. Every existing individual HTML/JSON report URL is unchanged.
 
 The complete retained collection contains 34 assessments: the original 30-case Python SDK regeneration experiment, two attribution-driven additions, and two mandatory optimization-verification reports.
 

@@ -1,84 +1,1587 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TypeSpec Assessment Reports</title><style>
-:root{--bg:#f6f8fa;--card:#fff;--text:#1f2328;--muted:#59636e;--border:#d0d7de;--blue:#0969da;--green:#1a7f37;--red:#cf222e;--yellow:#9a6700}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}header{background:#24292f;color:white;padding:28px 24px}header .wrap,main{max-width:1640px;margin:auto}h1{margin:0 0 6px;font-size:28px}header p{margin:0;color:#c9d1d9}main{padding:24px}.stats{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:12px;margin-bottom:20px}.stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px}.stat strong{display:block;font-size:24px}.stat span{color:var(--muted)}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}input,select{background:white;border:1px solid var(--border);border-radius:6px;padding:9px 12px;font:inherit}input{flex:1;min-width:260px}.table-wrap{overflow:auto;background:white;border:1px solid var(--border);border-radius:10px}table{width:100%;border-collapse:collapse;min-width:1580px}th,td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}th{background:#f6f8fa;position:sticky;top:0}tr:hover{background:#f6f8fa}a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.badge{display:inline-block;border-radius:999px;padding:2px 8px;font-size:12px;font-weight:600;white-space:nowrap}.passed,.break-no{background:#dafbe1;color:var(--green)}.failed,.break-yes{background:#ffebe9;color:var(--red)}.not-assessed,.break-not-assessed{background:#fff8c5;color:var(--yellow)}.not-applicable,.unknown,.regen-no{background:#eaeef2;color:var(--muted)}.regen-yes{background:#ddf4ff;color:var(--blue)}.small{color:var(--muted);font-size:12px;max-width:250px}.actions a{margin-right:10px;white-space:nowrap}footer{max-width:1640px;margin:0 auto;padding:0 24px 32px;color:var(--muted)}@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}header{padding:22px 16px}main{padding:16px}}
-.performance-panel{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:20px}.performance-panel h2{margin:0 0 12px;font-size:18px}.performance-summary{display:flex;flex-wrap:wrap;gap:16px 40px}.performance-summary strong{display:block;font-size:24px;font-variant-numeric:tabular-nums}.performance-summary span{color:var(--muted)}.performance-panel p{max-width:none}.performance-panel summary{cursor:pointer;color:var(--blue)}.performance-table{max-width:640px;margin-top:12px}.performance-table table{min-width:0}.performance-table td:not(:first-child),.performance-cell strong{white-space:nowrap;font-variant-numeric:tabular-nums}.performance-cell{min-width:150px}.performance-cell>div+div{margin-top:8px}
-</style></head><body><header><div class="wrap"><h1>TypeSpec Assessment Reports</h1><p>Nine core assessments at a glance. All other reports remain available in the archive.</p></div></header><main><section class="stats"><div class="stat"><strong>9</strong><span>Reports</span></div><div class="stat"><strong>4</strong><span>Safety passed</span></div><div class="stat"><strong>3</strong><span>Safety failed</span></div><div class="stat"><strong>2</strong><span>Not assessed</span></div><div class="stat"><strong>26</strong><span>Total findings</span></div></section>
-<section class="performance-panel" aria-labelledby="performance-title">
-<h2 id="performance-title">Assessment performance</h2>
-<div class="performance-summary"><div><strong id="median-coordinator">Not recorded</strong><span>Median coordinator time</span><div class="small" id="coordinator-coverage"></div></div><div><strong id="median-first-report">Not recorded</strong><span>Median time to first finalized report</span><div class="small" id="first-report-coverage"></div></div></div>
-<p class="small">Recorded timings for the nine core assessments, independent of dashboard filters. Frozen-preparation replays reuse saved compiler artifacts: coordinator time covers the replay coordinator; time to first finalized report covers replay invocation through initial guarded finalization, including judgment and actual waits. These are not fresh-compilation E2E timings or measurements of the latest display-only refresh. <a href="core-performance.json">Timing evidence and methodology</a></p>
-<details><summary>Per-PR timings (9 core reports)</summary><div class="table-wrap performance-table"><table><thead><tr><th scope="col">Spec PR</th><th scope="col">Coordinator</th><th scope="col">Time to first finalized report</th></tr></thead><tbody id="performance-rows"></tbody></table></div></details>
-</section>
-<p><a href="combined.html"><strong>Combined view: 9 core reports</strong></a> &middot; <a href="archive.html">Archive: 25 reports</a> &middot; <a href="refresh-comparison.json">Before/after intents and findings</a></p>
-<p class="small" style="max-width:none">Changelog columns show whether the linked release entry lists breaking changes, not GitHub labels or a compatibility guarantee. Reference-only mappings and unmerged SDK PRs are marked; initial releases are not backward-compatibility comparisons. <a href="changelog-evidence.json">Changelog evidence</a></p>
-<div class="toolbar"><input id="search" placeholder="Search PR, service, release plan, status, or label"><select id="group"><option value="">All regeneration flags</option><option value="Regenerated SDK PR">Yes - regenerated</option><option value="No regeneration observed">No - not observed</option><option value="Association unverified">Unknown - association unverified</option><option value="Mandatory verification case">Mandatory verification</option></select><select id="breaking"><option value="">All SDK breaking-change flags</option><option value="yes">Yes - detected</option><option value="no">No - none detected</option><option value="not-assessed">Not assessed</option></select><select id="python-changelog" aria-label="Python changelog breaking changes"><option value="">All Python changelog results</option><option value="listed">Yes - breaking changes listed</option><option value="not-listed">No - none listed</option><option value="initial-release">Initial release</option><option value="unverified">Unverified</option></select><select id="java-changelog" aria-label="Java changelog breaking changes"><option value="">All Java changelog results</option><option value="listed">Yes - breaking changes listed</option><option value="not-listed">No - none listed</option><option value="initial-release">Initial release</option><option value="unverified">Unverified</option></select><select id="safety"><option value="">All safety statuses</option><option value="passed">Passed</option><option value="failed">Failed</option><option value="not-assessed">Not assessed</option></select></div>
-<div class="table-wrap"><table><thead><tr><th>Spec PR</th><th>Merged</th><th>Release plan</th><th>SDK regeneration</th><th>SDK breaking changes</th><th>Python changelog<div class="small">Breaking changes listed</div></th><th>Java changelog<div class="small">Breaking changes listed</div></th><th>Safety</th><th>REST</th><th>SDK</th><th>Guidelines</th><th>Documentation</th><th>Findings</th><th>Performance</th><th>Agent input</th><th>Reports</th></tr></thead><tbody id="rows"></tbody></table></div></main><footer>Regeneration flags use the October 8, 2026 Python SDK AutoPR snapshot. Attribution-driven additions and mandatory verification reports are outside the original sample; unverified release-plan and regeneration associations are not inherited from other PRs. Core performance and provenance: <a href="core-performance.json">performance JSON</a> · <a href="publication-manifest.json">publication manifest</a>. The 9 core cases are hash-verified frozen-preparation replays; replay timing is not fresh-compilation E2E.</footer>
-<script>const data=[{"pr":39064,"prUrl":"https://github.com/Azure/azure-rest-api-specs/pull/39064","title":"specification/storagesync/resource-manager/Microsoft.StorageSync/StorageSync","group":"No regeneration observed","regenerationFlag":false,"safety":"not-assessed","confidence":"low","rest":"not-assessed","restFindings":0,"downstream":"not-assessed","downstreamFindings":0,"guidelines":"passed","guidelineFindings":0,"documentation":"passed","documentationFindings":0,"blockers":2,"findings":0,"sdkBreakingChangesFlag":"not-assessed","sdkBreakingChangeLabelFlag":true,"sdkBreakingChangeLabels":["BreakingChange-Go-Sdk-Approved","BreakingChange-JavaScript-Sdk-Approved","BreakingChange-Python-Sdk-Approved"],"reportUrl":"reports/pr-39064/","jsonUrl":"reports/pr-39064/assessment.json","generatedAt":"2026-10-27T04:50:56.191Z","mergedAt":"2026-08-13T19:08:39Z","mergedDate":"2026-08-13","releasePlanId":36034,"releasePlanUrl":"https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=36034","performance":{"kind":"frozen-preparation-replay","freshPreparation":false,"freshCompilation":false,"executionTimeMs":null,"coordinatorTimeMs":null,"agentPhaseTimeMs":null,"freshEndToEndExecutionTimeMs":null,"replayCoordinatorTimeMs":2512,"replayWallTimeMs":181885,"observedAgentDecisionLatencyMs":164914,"finalRevisionReconciliationTimeMs":289,"materializationTimeMs":56,"guardedFinalizationTimeMs":115,"timingCoverage":"instrumented-frozen-preparation-replay; compact-file decision boundary is diagnostic; no fresh compile E2E","physicalModelInputBytes":39027,"boundedAgentInputBytes":28381,"estimatedTokens":7096,"semanticIntents":4,"restCandidates":0,"downstreamCandidates":0,"inferenceRequests":1,"restFindings":0,"downstreamFindings":0,"guidelineFindings":0,"documentationFindings":0},"refreshKind":"frozen-preparation-replay","classificationVersion":3,"combinedUrl":"combined.html#pr-39064","changelog":{"python":{"evidenceId":"changelog-39064-python","status":"not-listed","breakingChangesListed":false,"association":"mapped-release","version":"2.1.0","url":"https://github.com/Azure/azure-sdk-for-python/blob/1b58e985a6c9de2f57ce9dd6c19e55db5425a44f/sdk/storage/azure-mgmt-storagesync/CHANGELOG.md#L3-L24","note":"No breaking changes are listed in this release entry."},"java":{"evidenceId":"changelog-39064-java","status":"initial-release","breakingChangesListed":false,"association":"mapped-release","version":"1.0.0","url":"https://github.com/Azure/azure-sdk-for-java/blob/83e503e01bafb07287ad4c55ffcce74a94369fa3/sdk/storagesync/azure-resourcemanager-storagesync/CHANGELOG.md#L3-L9","note":"Initial package release; no previous Java package to compare."}},"safetyVerdict":"unknown","safetyCoverage":"blocked","restVerdict":"unknown","restCoverage":"blocked","downstreamVerdict":"unknown","downstreamCoverage":"blocked"},{"pr":43757,"prUrl":"https://github.com/Azure/azure-rest-api-specs/pull/43757","title":"specification/storagecache/resource-manager/Microsoft.StorageCache/StorageCache","group":"Regenerated SDK PR","regenerationFlag":true,"safety":"passed","confidence":"medium","rest":"passed","restFindings":0,"downstream":"passed","downstreamFindings":0,"guidelines":"passed","guidelineFindings":0,"documentation":"failed","documentationFindings":1,"blockers":2,"findings":1,"sdkBreakingChangesFlag":"no","sdkBreakingChangeLabelFlag":false,"sdkBreakingChangeLabels":[],"reportUrl":"reports/pr-43757/","jsonUrl":"reports/pr-43757/assessment.json","generatedAt":"2026-10-27T04:46:33.803Z","mergedAt":"2026-08-17T21:09:38Z","mergedDate":"2026-08-17","releasePlanId":36107,"releasePlanUrl":"https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=36107","performance":{"kind":"frozen-preparation-replay","freshPreparation":false,"freshCompilation":false,"executionTimeMs":null,"coordinatorTimeMs":null,"agentPhaseTimeMs":null,"freshEndToEndExecutionTimeMs":null,"replayCoordinatorTimeMs":5763,"replayWallTimeMs":259765,"observedAgentDecisionLatencyMs":242455,"finalRevisionReconciliationTimeMs":321,"materializationTimeMs":52,"guardedFinalizationTimeMs":96,"timingCoverage":"instrumented-frozen-preparation-replay; compact-file decision boundary is diagnostic; no fresh compile E2E","physicalModelInputBytes":51609,"boundedAgentInputBytes":34735,"estimatedTokens":8684,"semanticIntents":3,"restCandidates":0,"downstreamCandidates":0,"inferenceRequests":2,"restFindings":0,"downstreamFindings":0,"guidelineFindings":0,"documentationFindings":1},"refreshKind":"frozen-preparation-replay","classificationVersion":3,"combinedUrl":"combined.html#pr-43757","changelog":{"python":{"evidenceId":"changelog-43757-python","status":"not-listed","breakingChangesListed":false,"association":"mapped-release","version":"4.1.0","url":"https://github.com/Azure/azure-sdk-for-python/blob/2d85158659f558602c2b0ef87c7196b0568bc7d0/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md#L3-L19","note":"No breaking changes are listed in this release entry."},"java":{"evidenceId":"changelog-43757-java","status":"not-listed","breakingChangesListed":false,"association":"mapped-release","version":"1.3.0","url":"https://github.com/Azure/azure-sdk-for-java/blob/3d03eade0a40e4bf958de781c8b8f11897d188a2/sdk/storagecache/azure-resourcemanager-storagecache/CHANGELOG.md#L3-L39","note":"No breaking changes are listed in this release entry."}}},{"pr":43918,"prUrl":"https://github.com/Azure/azure-rest-api-specs/pull/43918","title":"specification/containerservice/resource-manager/Microsoft.ContainerService/fleet","group":"No regeneration observed","regenerationFlag":false,"safety":"passed","confidence":"medium","rest":"passed","restFindings":0,"downstream":"passed","downstreamFindings":0,"guidelines":"passed","guidelineFindings":0,"documentation":"not-applicable","documentationFindings":0,"blockers":0,"findings":0,"sdkBreakingChangesFlag":"no","sdkBreakingChangeLabelFlag":true,"sdkBreakingChangeLabels":["BreakingChange-Go-Sdk-Approved","BreakingChange-Python-Sdk-Approved","BreakingChange-Go-Sdk","BreakingChange-Python-Sdk"],"reportUrl":"reports/pr-43918/","jsonUrl":"reports/pr-43918/assessment.json","generatedAt":"2026-10-27T04:40:28.950Z","mergedAt":"2026-08-03T02:42:26Z","mergedDate":"2026-08-03","releasePlanId":35774,"releasePlanUrl":"https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=35774","performance":{"kind":"frozen-preparation-replay","freshPreparation":false,"freshCompilation":false,"executionTimeMs":null,"coordinatorTimeMs":null,"agentPhaseTimeMs":null,"freshEndToEndExecutionTimeMs":null,"replayCoordinatorTimeMs":2027,"replayWallTimeMs":160762,"observedAgentDecisionLatencyMs":147945,"finalRevisionReconciliationTimeMs":273,"materializationTimeMs":49,"guardedFinalizationTimeMs":95,"timingCoverage":"instrumented-frozen-preparation-replay; compact-file decision boundary is diagnostic; no fresh compile E2E","physicalModelInputBytes":42830,"boundedAgentInputBytes":29873,"estimatedTokens":7469,"semanticIntents":5,"restCandidates":0,"downstreamCandidates":0,"inferenceRequests":0,"restFindings":0,"downstreamFindings":0,"guidelineFindings":0,"documentationFindings":0},"refreshKind":"frozen-preparation-replay","classificationVersion":3,"combinedUrl":"combined.html#pr-43918","changelog":{"python":{"evidenceId":"changelog-43918-python","status":"listed","breakingChangesListed":true,"association":"mapped-release","version":"4.0.0","url":"https://github.com/Azure/azure-sdk-for-python/blob/a4d46822ef348e6046a974896c2c0cb3798df0d4/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md#L3-L110","note":"Cumulative SDK release notes; not all changes originate in this spec PR."},"java":{"evidenceId":"changelog-43918-java","status":"listed","breakingChangesListed":true,"association":"mapped-release","version":"1.3.0","url":"https://github.com/Azure/azure-sdk-for-java/blob/d71816d7db44736e8897f350b38c3057938acad7/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md#L3-L335","note":"Cumulative SDK release notes; not all changes originate in this spec PR."}}},{"pr":44101,"prUrl":"https://github.com/Azure/azure-rest-api-specs/pull/44101","title":"specification/compute/resource-manager/Microsoft.Compute/Bulkactions","group":"Association unverified","regenerationFlag":null,"sampleOrigin":"Attribution-driven core substitution outside the original sample","sdkBreakingChangeLabelFlag":false,"sdkBreakingChangeLabels":[],"mergedAt":"2026-07-06T19:18:26Z","mergedDate":"2026-07-06","releasePlanId":null,"releasePlanUrl":null,"jsonUrl":"reports/pr-44101/assessment.json","downstream":"not-assessed","downstreamFindings":0,"findings":1,"guidelines":"failed","sdkBreakingChangesFlag":"not-assessed","safety":"not-assessed","reportUrl":"reports/pr-44101/","confidence":"low","guidelineFindings":1,"blockers":4,"generatedAt":"2026-10-27T04:26:29.232Z","rest":"not-assessed","documentation":"passed","performance":{"kind":"frozen-preparation-replay","freshPreparation":false,"freshCompilation":false,"executionTimeMs":null,"coordinatorTimeMs":null,"agentPhaseTimeMs":null,"freshEndToEndExecutionTimeMs":null,"replayCoordinatorTimeMs":1265,"replayWallTimeMs":300322,"observedAgentDecisionLatencyMs":283280,"finalRevisionReconciliationTimeMs":270,"materializationTimeMs":64,"guardedFinalizationTimeMs":105,"timingCoverage":"instrumented-frozen-preparation-replay; compact-file decision boundary is diagnostic; no fresh compile E2E","physicalModelInputBytes":232800,"boundedAgentInputBytes":155745,"estimatedTokens":38937,"semanticIntents":6,"restCandidates":0,"downstreamCandidates":8,"inferenceRequests":8,"restFindings":0,"downstreamFindings":0,"guidelineFindings":1,"documentationFindings":0},"documentationFindings":0,"restFindings":0,"refreshKind":"frozen-preparation-replay","classificationVersion":3,"combinedUrl":"combined.html#pr-44101","changelog":{"python":{"evidenceId":"changelog-44101-python","status":"unverified","breakingChangesListed":null,"association":"unverified","version":null,"url":null,"note":"No independently verified Python SDK release association; do not inherit another spec PR's changelog result."},"java":{"evidenceId":"changelog-44101-java","status":"listed","breakingChangesListed":true,"association":"attribution-reference","version":"1.0.0-beta.2","url":"https://github.com/Azure/azure-sdk-for-java/blob/d8de280c22558371ba175c39b916b7f30f285439/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md#L3-L530","note":"Reference only; not an independently mapped SDK release for this spec PR."}},"safetyVerdict":"unknown","safetyCoverage":"partial","restVerdict":"unknown","restCoverage":"blocked","downstreamVerdict":"unknown","downstreamCoverage":"partial"},{"pr":44288,"prUrl":"https://github.com/Azure/azure-rest-api-specs/pull/44288","title":"specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb","group":"Association unverified","regenerationFlag":null,"sampleOrigin":"Attribution-driven addition outside the original sample","safety":"failed","confidence":"medium","rest":"failed","restFindings":4,"downstream":"failed","downstreamFindings":4,"guidelines":"failed","guidelineFindings":1,"documentation":"not-applicable","documentationFindings":0,"blockers":1,"findings":9,"sdkBreakingChangesFlag":"yes","sdkBreakingChangeLabelFlag":false,"sdkBreakingChangeLabels":[],"reportUrl":"reports/pr-44288/","jsonUrl":"reports/pr-44288/assessment.json","generatedAt":"2026-10-27T04:51:39.839Z","mergedAt":"2026-06-30T00:02:13Z","mergedDate":"2026-06-30","releasePlanId":null,"releasePlanUrl":null,"performance":{"kind":"frozen-preparation-replay","freshPreparation":false,"freshCompilation":false,"executionTimeMs":null,"coordinatorTimeMs":null,"agentPhaseTimeMs":null,"freshEndToEndExecutionTimeMs":null,"replayCoordinatorTimeMs":1321,"replayWallTimeMs":247799,"observedAgentDecisionLatencyMs":234656,"finalRevisionReconciliationTimeMs":767,"materializationTimeMs":60,"guardedFinalizationTimeMs":82,"timingCoverage":"instrumented-frozen-preparation-replay; compact-file decision boundary is diagnostic; no fresh compile E2E","physicalModelInputBytes":58085,"boundedAgentInputBytes":40090,"estimatedTokens":10023,"semanticIntents":1,"restCandidates":5,"downstreamCandidates":7,"inferenceRequests":0,"restFindings":4,"downstreamFindings":4,"guidelineFindings":1,"documentationFindings":0},"refreshKind":"frozen-preparation-replay","classificationVersion":3,"combinedUrl":"combined.html#pr-44288","changelog":{"python":{"evidenceId":"changelog-44288-python","status":"listed","breakingChangesListed":true,"association":"attribution-reference","version":"1.0.0b2","url":"https://github.com/Azure/azure-sdk-for-python/blob/0ebb7a0b359daca1a27826dc0b72a4ee99c0d168/sdk/horizondb/azure-mgmt-horizondb/CHANGELOG.md#L3-L43","note":"Reference only; not an independently mapped SDK release for this spec PR."},"java":{"evidenceId":"changelog-44288-java","status":"listed","breakingChangesListed":true,"association":"attribution-reference","version":"1.0.0-beta.2","url":"https://github.com/Azure/azure-sdk-for-java/blob/0fbeae2758a5c57823006edc4e04c33c10e30f43/sdk/horizondb/azure-resourcemanager-horizondb/CHANGELOG.md#L3-L130","note":"Reference only; not an independently mapped SDK release for this spec PR."}},"safetyVerdict":"failed","safetyCoverage":"partial","restVerdict":"failed","restCoverage":"partial","downstreamVerdict":"failed","downstreamCoverage":"complete"},{"pr":44557,"prUrl":"https://github.com/Azure/azure-rest-api-specs/pull/44557","title":"specification/mongocluster/resource-manager/Microsoft.DocumentDB/MongoCluster","group":"No regeneration observed","regenerationFlag":false,"safety":"passed","confidence":"high","rest":"passed","restFindings":0,"downstream":"passed","downstreamFindings":0,"guidelines":"failed","guidelineFindings":1,"documentation":"not-applicable","documentationFindings":0,"blockers":0,"findings":1,"sdkBreakingChangesFlag":"no","sdkBreakingChangeLabelFlag":false,"sdkBreakingChangeLabels":[],"reportUrl":"reports/pr-44557/","jsonUrl":"reports/pr-44557/assessment.json","generatedAt":"2026-10-27T04:32:23.116Z","mergedAt":"2026-07-28T10:40:13Z","mergedDate":"2026-07-28","releasePlanId":35659,"releasePlanUrl":"https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=35659","performance":{"kind":"frozen-preparation-replay","freshPreparation":false,"freshCompilation":false,"executionTimeMs":null,"coordinatorTimeMs":null,"agentPhaseTimeMs":null,"freshEndToEndExecutionTimeMs":null,"replayCoordinatorTimeMs":5206,"replayWallTimeMs":136990,"observedAgentDecisionLatencyMs":124862,"finalRevisionReconciliationTimeMs":246,"materializationTimeMs":44,"guardedFinalizationTimeMs":84,"timingCoverage":"instrumented-frozen-preparation-replay; compact-file decision boundary is diagnostic; no fresh compile E2E","physicalModelInputBytes":15991,"boundedAgentInputBytes":11018,"estimatedTokens":2755,"semanticIntents":2,"restCandidates":0,"downstreamCandidates":0,"inferenceRequests":0,"restFindings":0,"downstreamFindings":0,"guidelineFindings":1,"documentationFindings":0},"refreshKind":"frozen-preparation-replay","classificationVersion":3,"combinedUrl":"combined.html#pr-44557","changelog":{"python":{"evidenceId":"changelog-44557-python","status":"not-listed","breakingChangesListed":false,"association":"mapped-release","version":"1.3.0b1","url":"https://github.com/Azure/azure-sdk-for-python/blob/d985f172a2d8fe96f318147698a364e97fd822d2/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md#L3-L8","note":"No breaking changes are listed in this release entry."},"java":{"evidenceId":"changelog-44557-java","status":"not-listed","breakingChangesListed":false,"association":"mapped-release","version":"1.3.0-beta.1","url":"https://github.com/Azure/azure-sdk-for-java/blob/86c5cd5d4773c5e8b8cc9ec306c43d63dbeaa910/sdk/mongocluster/azure-resourcemanager-mongocluster/CHANGELOG.md#L3-L12","note":"No breaking changes are listed in this release entry."}}},{"pr":44920,"prUrl":"https://github.com/Azure/azure-rest-api-specs/pull/44920","title":"specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry","group":"No regeneration observed","regenerationFlag":false,"safety":"failed","confidence":"medium","rest":"passed","restFindings":0,"downstream":"failed","downstreamFindings":1,"guidelines":"passed","guidelineFindings":0,"documentation":"not-applicable","documentationFindings":0,"blockers":4,"findings":1,"sdkBreakingChangesFlag":"yes","sdkBreakingChangeLabelFlag":false,"sdkBreakingChangeLabels":[],"reportUrl":"reports/pr-44920/","jsonUrl":"reports/pr-44920/assessment.json","generatedAt":"2026-10-27T04:51:40.398Z","mergedAt":"2026-09-06T23:10:03Z","mergedDate":"2026-09-06","releasePlanId":36426,"releasePlanUrl":"https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=36426","performance":{"kind":"frozen-preparation-replay","freshPreparation":false,"freshCompilation":false,"executionTimeMs":null,"coordinatorTimeMs":null,"agentPhaseTimeMs":null,"freshEndToEndExecutionTimeMs":null,"replayCoordinatorTimeMs":5508,"replayWallTimeMs":163373,"observedAgentDecisionLatencyMs":150758,"finalRevisionReconciliationTimeMs":471,"materializationTimeMs":53,"guardedFinalizationTimeMs":87,"timingCoverage":"instrumented-frozen-preparation-replay; compact-file decision boundary is diagnostic; no fresh compile E2E","physicalModelInputBytes":92055,"boundedAgentInputBytes":54127,"estimatedTokens":13532,"semanticIntents":3,"restCandidates":0,"downstreamCandidates":1,"inferenceRequests":3,"restFindings":0,"downstreamFindings":1,"guidelineFindings":0,"documentationFindings":0},"refreshKind":"frozen-preparation-replay","classificationVersion":3,"combinedUrl":"combined.html#pr-44920","changelog":{"python":{"evidenceId":"changelog-44920-python","status":"listed","breakingChangesListed":true,"association":"mapped-release","version":"15.1.0b3","url":"https://github.com/Azure/azure-sdk-for-python/blob/ba4a9cb307f5f4159071f79019d78260ab0647e6/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md#L3-L23","note":"Breaking changes are listed in this release entry."},"java":{"evidenceId":"changelog-44920-java","status":"listed","breakingChangesListed":true,"association":"mapped-release","version":"2.56.0-beta.3","url":"https://github.com/Azure/azure-sdk-for-java/blob/190c951ea54881396494b54de36a879f91ed04f3/sdk/containerregistry/azure-resourcemanager-containerregistry/CHANGELOG.md#L3-L46","note":"Validation relaxation; explicitly not a Java source/binary break."}}},{"pr":46008,"prUrl":"https://github.com/Azure/azure-rest-api-specs/pull/46008","title":"specification/relationships/resource-manager/Microsoft.Relationships/Relationships","group":"Regenerated SDK PR","regenerationFlag":true,"safety":"passed","confidence":"high","rest":"passed","restFindings":0,"downstream":"passed","downstreamFindings":0,"guidelines":"passed","guidelineFindings":0,"documentation":"not-applicable","documentationFindings":0,"blockers":0,"findings":0,"sdkBreakingChangesFlag":"no","sdkBreakingChangeLabelFlag":true,"sdkBreakingChangeLabels":["BreakingChange-Python-Sdk-Approved","BreakingChange-Python-Sdk"],"reportUrl":"reports/pr-46008/","jsonUrl":"reports/pr-46008/assessment.json","generatedAt":"2026-10-27T04:36:42.556Z","mergedAt":"2026-09-03T05:09:01Z","mergedDate":"2026-09-03","releasePlanId":35597,"releasePlanUrl":"https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=35597","performance":{"kind":"frozen-preparation-replay","freshPreparation":false,"freshCompilation":false,"executionTimeMs":null,"coordinatorTimeMs":null,"agentPhaseTimeMs":null,"freshEndToEndExecutionTimeMs":null,"replayCoordinatorTimeMs":811,"replayWallTimeMs":190068,"observedAgentDecisionLatencyMs":182896,"finalRevisionReconciliationTimeMs":223,"materializationTimeMs":41,"guardedFinalizationTimeMs":68,"timingCoverage":"instrumented-frozen-preparation-replay; compact-file decision boundary is diagnostic; no fresh compile E2E","physicalModelInputBytes":22432,"boundedAgentInputBytes":15948,"estimatedTokens":3987,"semanticIntents":3,"restCandidates":0,"downstreamCandidates":0,"inferenceRequests":0,"restFindings":0,"downstreamFindings":0,"guidelineFindings":0,"documentationFindings":0},"refreshKind":"frozen-preparation-replay","classificationVersion":3,"combinedUrl":"combined.html#pr-46008","changelog":{"python":{"evidenceId":"changelog-46008-python","status":"listed","breakingChangesListed":true,"association":"mapped-release","version":"1.0.0","url":"https://github.com/Azure/azure-sdk-for-python/blob/28d7e5eb5c0ed8331ad0786aba1e00c8b1294f46/sdk/relationships/azure-mgmt-relationships/CHANGELOG.md#L3-L21","note":"Cumulative SDK release notes; not all changes originate in this spec PR."},"java":{"evidenceId":"changelog-46008-java","status":"listed","breakingChangesListed":true,"association":"mapped-release","version":"1.0.0","url":"https://github.com/Azure/azure-sdk-for-java/blob/29ef7d99eb2169947d820881807fe98e95ef283a/sdk/relationships/azure-resourcemanager-relationships/CHANGELOG.md#L3-L57","note":"Cumulative SDK release notes; not all changes originate in this spec PR."}}},{"pr":46679,"prUrl":"https://github.com/Azure/azure-rest-api-specs/pull/46679","title":"specification/liftrcommvault/Commvault.ContentStore.Management","group":"Regenerated SDK PR","regenerationFlag":true,"safety":"failed","confidence":"medium","rest":"failed","restFindings":7,"downstream":"failed","downstreamFindings":12,"guidelines":"passed","guidelineFindings":0,"documentation":"passed","documentationFindings":0,"blockers":2,"findings":19,"sdkBreakingChangesFlag":"yes","sdkBreakingChangeLabelFlag":false,"sdkBreakingChangeLabels":[],"reportUrl":"reports/pr-46679/","jsonUrl":"reports/pr-46679/assessment.json","generatedAt":"2026-10-28T05:50:14.159Z","mergedAt":"2026-09-28T12:27:49Z","mergedDate":"2026-09-28","releasePlanId":36688,"releasePlanUrl":"https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=36688","performance":{"kind":"frozen-preparation-replay","freshPreparation":false,"freshCompilation":false,"executionTimeMs":null,"coordinatorTimeMs":null,"agentPhaseTimeMs":null,"freshEndToEndExecutionTimeMs":null,"replayCoordinatorTimeMs":1848,"replayWallTimeMs":695647,"observedAgentDecisionLatencyMs":671872,"finalRevisionReconciliationTimeMs":null,"materializationTimeMs":79,"guardedFinalizationTimeMs":146,"timingCoverage":"instrumented-frozen-preparation-replay; compact-file decision boundary is diagnostic; no fresh compile E2E","physicalModelInputBytes":253362,"boundedAgentInputBytes":164945,"estimatedTokens":41237,"semanticIntents":2,"restCandidates":49,"downstreamCandidates":14,"inferenceRequests":6,"restFindings":7,"downstreamFindings":12,"guidelineFindings":0,"documentationFindings":0},"refreshKind":"frozen-preparation-replay","classificationVersion":3,"combinedUrl":"combined.html#pr-46679","changelog":{"python":{"evidenceId":"changelog-46679-python","status":"listed","breakingChangesListed":true,"association":"mapped-release","version":"1.0.0b2","url":"https://github.com/Azure/azure-sdk-for-python/blob/1d5c0729ac5851d692f84537f65d86df1f985cc4/sdk/commvaultcontentstore/azure-mgmt-commvaultcontentstore/CHANGELOG.md#L3-L30","note":"SDK PR closed without merging; not shipped-release evidence.","sdkPrState":"closed","sdkPrMerged":false,"sdkPrUrl":"https://github.com/Azure/azure-sdk-for-python/pull/49234"},"java":{"evidenceId":"changelog-46679-java","status":"listed","breakingChangesListed":true,"association":"mapped-release","version":"1.0.0-beta.2","url":"https://github.com/Azure/azure-sdk-for-java/blob/cf933c24ed9c761566a5dd061effed8fe66c3dd1/sdk/commvaultcontentstore/azure-resourcemanager-commvaultcontentstore/CHANGELOG.md#L3-L82","note":"SDK PR closed without merging; not shipped-release evidence.","sdkPrState":"closed","sdkPrMerged":false,"sdkPrUrl":"https://github.com/Azure/azure-sdk-for-java/pull/50603"}},"safetyVerdict":"failed","safetyCoverage":"partial","restVerdict":"failed","restCoverage":"partial","downstreamVerdict":"failed","downstreamCoverage":"partial"}];function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function badge(v){return `<span class="badge ${esc(v)}">${esc(v)}</span>`}function regenFlag(v){return v===true?'<span class="badge regen-yes">Yes</span>':v===false?'<span class="badge regen-no">No</span>':'<span class="badge unknown">Unknown</span>'}function breakingFlag(v){return `<span class="badge break-${esc(v)}">${v==='yes'?'Yes':v==='no'?'No':'Not assessed'}</span>`}
-function changelogCell(entry){
-  const names={listed:"Yes","not-listed":"No","initial-release":"Initial release",unverified:"Unverified"};
-  const styles={listed:"failed","not-listed":"passed","initial-release":"not-applicable",unverified:"not-assessed"};
-  if(!Object.hasOwn(names,entry.status))throw new Error("Unsupported changelog status: "+entry.status);
-  const qualifier=entry.association==="attribution-reference"?" \u00b7 reference":entry.sdkPrState==="closed"&&entry.sdkPrMerged===false?" \u00b7 unmerged":"";
-  const link=entry.url?'<div><a href="'+esc(entry.url)+'">'+esc(entry.version)+' changelog</a></div>':"";
-  return '<span class="badge '+styles[entry.status]+'">'+names[entry.status]+qualifier+'</span>'+link+'<div class="small">'+esc(entry.note)+'</div>';
-}
-function searchText(row){
-  const {sdkBreakingChangeLabelFlag,sdkBreakingChangeLabels,...visible}=row;
-  return JSON.stringify(visible).toLowerCase();
-}
-function duration(v){
-  if(v==null)return 'Not recorded';
-  if(!Number.isFinite(v)||v<0)throw new RangeError('Invalid recorded duration: '+v);
-  if(v<60000)return `${(v/1000).toFixed(2)} s`;
-  const seconds=Math.round(v/1000);
-  return `${Math.floor(seconds/60)}m ${String(seconds%60).padStart(2,'0')}s`;
-}
-function median(values){
-  if(!values.length)return null;
-  const sorted=[...values].sort((a,b)=>a-b),middle=Math.floor(sorted.length/2);
-  return sorted.length%2?sorted[middle]:(sorted[middle-1]+sorted[middle])/2;
-}
-function replayPerformance(row){
-  return row.performance?.kind==='frozen-preparation-replay'?row.performance:null;
-}
-function performanceCell(row){
-  const p=replayPerformance(row);
-  if(!p)return '<span class="small">Replay timing not recorded</span>';
-  return `<div><strong>${duration(p?.replayCoordinatorTimeMs)}</strong><div class="small">Coordinator</div></div><div><strong>${duration(p?.replayWallTimeMs)}</strong><div class="small">First finalized report</div></div><div class="small">Frozen-preparation replay</div>`;
-}
-function renderPerformance(){
-  const coordinator=[],firstReport=[];
-  document.querySelector('#performance-rows').innerHTML=data.map(row=>{
-    const p=replayPerformance(row),c=p?.replayCoordinatorTimeMs,w=p?.replayWallTimeMs;
-    const coordinatorText=duration(c),firstReportText=duration(w);
-    if(c!=null)coordinator.push(c);
-    if(w!=null)firstReport.push(w);
-    return `<tr><td><a href="${esc(row.reportUrl)}">#${row.pr}</a></td><td>${coordinatorText}</td><td>${firstReportText}</td></tr>`;
-  }).join('');
-  document.querySelector('#median-coordinator').textContent=duration(median(coordinator));
-  document.querySelector('#median-first-report').textContent=duration(median(firstReport));
-  document.querySelector('#coordinator-coverage').textContent=`${coordinator.length} / ${data.length} core reports timed`;
-  document.querySelector('#first-report-coverage').textContent=`${firstReport.length} / ${data.length} core reports timed`;
-}
-function coverage(v){return v?`<div class="small">${esc(v==='blocked'?'coverage blocked':`${v.replaceAll('-', ' ')} coverage`)}</div>`:''}
-function bytes(v){if(v==null)return 'n/a';return v<1024?`${v} B`:v<1048576?`${(v/1024).toFixed(1)} KiB`:`${(v/1048576).toFixed(1)} MiB`}
-function render(){
-  const q=document.querySelector('#search').value.toLowerCase(),g=document.querySelector('#group').value,b=document.querySelector('#breaking').value,p=document.querySelector('#python-changelog').value,j=document.querySelector('#java-changelog').value,s=document.querySelector('#safety').value;
-  const filtered=data.filter(r=>(!q||searchText(r).includes(q))&&(!g||r.group===g)&&(!b||r.sdkBreakingChangesFlag===b)&&(!p||r.changelog.python.status===p)&&(!j||r.changelog.java.status===j)&&(!s||r.safety===s));
-  document.querySelector('#rows').innerHTML=filtered.map(r=>`<tr>
-<td><a href="${r.prUrl}"><strong>Azure/azure-rest-api-specs#${r.pr}</strong></a><div class="small">${esc(r.title)}</div></td>
-<td><time datetime="${esc(r.mergedAt)}">${esc(r.mergedDate)}</time></td>
-<td>${r.releasePlanUrl?`<a href="${esc(r.releasePlanUrl)}">${esc(r.releasePlanId)}</a>`:'<span class="small">Unverified</span>'}</td>
-<td>${regenFlag(r.regenerationFlag)}<div class="small">${esc(r.group)}</div></td>
-<td>${breakingFlag(r.sdkBreakingChangesFlag)}<div class="small">${r.downstreamFindings} downstream findings</div></td>
-<td>${changelogCell(r.changelog.python)}</td><td>${changelogCell(r.changelog.java)}</td>
-<td>${badge(r.safety)}${coverage(r.safetyCoverage)}<div class="small">${esc(r.confidence)} confidence</div></td>
-<td>${badge(r.rest)} ${r.restFindings||''}${coverage(r.restCoverage)}</td><td>${badge(r.downstream)} ${r.downstreamFindings||''}${coverage(r.downstreamCoverage)}</td>
-<td>${badge(r.guidelines)} ${r.guidelineFindings||''}</td><td>${badge(r.documentation)} ${r.documentationFindings||''}</td>
-<td><strong>${r.findings}</strong>${r.blockers?`<div class="small">${r.blockers} blockers</div>`:''}</td>
-<td class="performance-cell">${performanceCell(r)}</td>
-<td>${r.performance?`<strong>${bytes(r.performance.boundedAgentInputBytes)}</strong><div class="small">${bytes(r.performance.physicalModelInputBytes)} physical · ~${r.performance.estimatedTokens.toLocaleString()} tokens</div>`:'<span class="small">Not recorded</span>'}</td>
-<td class="actions"><a href="${r.reportUrl}">HTML</a><a href="${r.jsonUrl}">JSON</a></td></tr>`).join('');
-}
-for(const id of ['search','group','breaking','python-changelog','java-changelog','safety'])document.querySelector('#'+id).addEventListener('input',render);
-renderPerformance();render();</script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TypeSpec Assessment Reports</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f6f8fa;
+      --surface: #ffffff;
+      --surface-subtle: #f6f8fa;
+      --surface-emphasis: #24292f;
+      --border: #d0d7de;
+      --border-muted: #d8dee4;
+      --text: #1f2328;
+      --muted: #59636e;
+      --link: #0969da;
+      --green: #1a7f37;
+      --green-bg: #dafbe1;
+      --blue: #0969da;
+      --blue-bg: #ddf4ff;
+      --purple: #8250df;
+      --purple-bg: #fbefff;
+      --amber: #9a6700;
+      --amber-bg: #fff8c5;
+      --red: #cf222e;
+      --red-bg: #ffebe9;
+      --shadow: 0 1px 2px rgba(31, 35, 40, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button, input { font: inherit; }
+
+    .topbar {
+      background: var(--surface-emphasis);
+      color: #fff;
+      padding: 18px 24px;
+    }
+
+    .topbar-inner,
+    main {
+      width: min(1480px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border: 1px solid #6e7781;
+      border-radius: 9px;
+      background: #32383f;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.25;
+    }
+
+    .brand p {
+      margin: 2px 0 0;
+      color: #b6bec7;
+      font-size: 12px;
+    }
+
+    .mock-badge {
+      border: 1px solid #6e7781;
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: #d8dee4;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-button {
+      cursor: pointer;
+      border: 1px solid #6e7781;
+      border-radius: 7px;
+      padding: 7px 10px;
+      background: transparent;
+      color: #d8dee4;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .nav-button:hover,
+    .nav-button.active {
+      border-color: #fff;
+      background: #fff;
+      color: #24292f;
+    }
+
+    main { padding: 28px 0 48px; }
+
+    .hidden { display: none !important; }
+
+    .home-hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 20px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .home-hero h2 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: -0.4px;
+    }
+
+    .home-hero p:last-child {
+      max-width: 720px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 7px;
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .primary-button {
+      border: 1px solid #1f883d;
+      background: #1f883d;
+      color: #fff;
+    }
+
+    .primary-button:hover {
+      background: #1a7f37;
+      text-decoration: none;
+    }
+
+    .secondary-button {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .secondary-button:hover {
+      background: var(--surface-subtle);
+      text-decoration: none;
+    }
+
+    .index-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 10px;
+    }
+
+    .index-header h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .index-header span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .report-index {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .index-row {
+      display: grid;
+      grid-template-columns: minmax(210px, 0.9fr) minmax(150px, 0.55fr) minmax(330px, 1.35fr) minmax(260px, 0.8fr);
+      align-items: center;
+      gap: 16px;
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border-muted);
+    }
+
+    .index-row:last-child { border-bottom: 0; }
+    .index-row:hover { background: #fbfcfd; }
+
+    .index-pr {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      margin-bottom: 3px;
+    }
+
+    .index-pr a {
+      font-size: 16px;
+      font-weight: 750;
+    }
+
+    .index-service {
+      color: var(--muted);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .verdict {
+      display: inline-flex;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 750;
+      text-transform: capitalize;
+    }
+
+    .verdict.passed { color: var(--green); background: var(--green-bg); }
+    .verdict.failed { color: var(--red); background: var(--red-bg); }
+    .verdict.unknown { color: var(--amber); background: var(--amber-bg); }
+
+    .index-status {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .index-findings {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .index-finding {
+      min-width: 0;
+      padding: 7px 8px;
+      border: 1px solid var(--border-muted);
+      border-radius: 7px;
+      background: var(--surface-subtle);
+    }
+
+    .index-finding strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.1;
+    }
+
+    .index-finding span {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .index-finding.has-findings {
+      border-color: #ffcecb;
+      background: var(--red-bg);
+    }
+
+    .index-actions {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .analysis-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .analysis-heading button { flex: 0 0 auto; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.75fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero-copy,
+    .insight {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy { padding: 24px; }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero h2 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.25;
+      letter-spacing: -0.4px;
+    }
+
+    .hero-copy > p:last-child {
+      max-width: 760px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .insight {
+      padding: 20px;
+      border-left: 4px solid var(--blue);
+    }
+
+    .insight h3 {
+      margin: 0 0 8px;
+      font-size: 15px;
+    }
+
+    .insight p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .insight strong { color: var(--text); }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .summary-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 104px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .summary-card::before {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      content: "";
+      background: var(--tone);
+    }
+
+    .summary-card strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 26px;
+      line-height: 1.1;
+    }
+
+    .summary-card span {
+      display: block;
+      font-weight: 650;
+    }
+
+    .summary-card small {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+    }
+
+    .summary-card.aligned { --tone: var(--green); }
+    .summary-card.expected { --tone: var(--blue); }
+    .summary-card.unknown { --tone: var(--amber); }
+
+    .controls {
+      position: sticky;
+      z-index: 4;
+      top: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(246, 248, 250, 0.94);
+      backdrop-filter: blur(8px);
+    }
+
+    .search {
+      min-width: 240px;
+      flex: 1;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.14);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .filter {
+      cursor: pointer;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .filter:hover { background: var(--surface-subtle); }
+    .filter.active {
+      border-color: #24292f;
+      background: #24292f;
+      color: #fff;
+    }
+
+    .result-count {
+      margin: 0 0 10px 2px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .report-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .report-card {
+      display: grid;
+      grid-template-columns: minmax(230px, 0.78fr) minmax(340px, 1.15fr) minmax(300px, 1fr);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .report-card:hover {
+      border-color: #afb8c1;
+      box-shadow: 0 3px 12px rgba(31, 35, 40, 0.08);
+    }
+
+    .report-card.hidden { display: none; }
+
+    .identity,
+    .assessment,
+    .comparison {
+      min-width: 0;
+      padding: 18px;
+    }
+
+    .identity,
+    .assessment {
+      border-right: 1px solid var(--border-muted);
+    }
+
+    .pr-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .pr-link {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .service {
+      min-height: 42px;
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .category {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 100%;
+      padding: 4px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .category::before {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      content: "";
+      background: currentColor;
+    }
+
+    .category.aligned { color: var(--green); background: var(--green-bg); }
+    .category.expected { color: var(--blue); background: var(--blue-bg); }
+    .category.unknown { color: var(--amber); background: var(--amber-bg); }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+      font-size: 12px;
+      font-weight: 650;
+    }
+
+    .reason-category {
+      display: inline-block;
+      margin-top: 2px;
+      padding: 3px 8px;
+      border: 1px solid #d8c8f7;
+      border-radius: 999px;
+      background: var(--purple-bg);
+      color: var(--purple);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .section-label {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .finding-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .finding {
+      padding: 10px;
+      border: 1px solid var(--border-muted);
+      border-radius: 8px;
+      background: var(--surface-subtle);
+    }
+
+    .finding strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .finding span {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .finding.has-findings {
+      border-color: #ffcecb;
+      background: var(--red-bg);
+    }
+
+    .finding.has-findings strong { color: var(--red); }
+
+    .coverage-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-muted);
+    }
+
+    .coverage-row span:first-child {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .coverage {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--surface-subtle);
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .coverage.complete { color: var(--green); background: var(--green-bg); }
+    .coverage.partial { color: var(--amber); background: var(--amber-bg); }
+    .coverage.blocked { color: var(--red); background: var(--red-bg); }
+    .coverage.legacy { color: var(--muted); background: var(--surface-subtle); }
+
+    .sdk-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .sdk {
+      padding: 10px;
+      border: 1px solid var(--border-muted);
+      border-radius: 8px;
+    }
+
+    .sdk-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .sdk-head strong { font-size: 12px; }
+
+    .sdk-state {
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 750;
+      white-space: nowrap;
+    }
+
+    .sdk-state.breaking { color: var(--red); background: var(--red-bg); }
+    .sdk-state.clear { color: var(--green); background: var(--green-bg); }
+    .sdk-state.initial { color: var(--amber); background: var(--amber-bg); }
+    .sdk-state.unverified { color: var(--muted); background: var(--surface-subtle); }
+
+    .sdk a { font-size: 12px; font-weight: 650; }
+    .sdk-note { color: var(--muted); font-size: 11px; }
+
+    .outcome {
+      margin: 0 0 8px;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .outcome.aligned { color: var(--green); }
+    .outcome.expected { color: var(--blue); }
+    .outcome.unknown { color: var(--amber); }
+
+    .reason {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .included-prs {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-muted);
+    }
+
+    .included-prs > span {
+      margin-right: 2px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .included-prs a {
+      padding: 3px 8px;
+      border: 1px solid #b6d7f5;
+      border-radius: 999px;
+      background: var(--blue-bg);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .empty {
+      display: none;
+      padding: 40px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer {
+      padding: 24px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 1080px) {
+      .hero { grid-template-columns: 1fr; }
+      .report-card { grid-template-columns: 1fr; }
+      .identity, .assessment { border-right: 0; border-bottom: 1px solid var(--border-muted); }
+      .index-row { grid-template-columns: 1fr 1fr; }
+      .index-actions { justify-content: flex-start; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar { padding: 16px; }
+      .topbar-inner, main { width: min(100% - 20px, 1480px); }
+      main { padding-top: 16px; }
+      .brand-row { align-items: flex-start; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); }
+      .controls { align-items: stretch; flex-direction: column; }
+      .finding-grid { grid-template-columns: repeat(2, 1fr); }
+      .sdk-grid { grid-template-columns: 1fr; }
+      .brand-row, .home-hero { align-items: flex-start; flex-direction: column; }
+      .top-actions { flex-wrap: wrap; }
+      .index-row { grid-template-columns: 1fr; }
+      .index-findings { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-row">
+        <div class="brand">
+          <div class="brand-mark">TS</div>
+          <div>
+            <h1>TypeSpec Assessment Reports</h1>
+            <p>Assessment findings compared with generated SDK changelogs</p>
+          </div>
+        </div>
+        <div class="top-actions">
+          <button class="nav-button active" id="nav-reports">Assessment reports</button>
+          <button class="nav-button" id="nav-analysis">Downstream analysis</button>
+          <a class="nav-button" href="operations.html">Operational details</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="view" id="reports-view">
+      <section class="home-hero">
+        <div>
+          <p class="eyebrow">Assessment report index</p>
+          <h2>TypeSpec assessment reports</h2>
+          <p>
+            Browse every assessed spec PR, its overall verdict and coverage, and the finding count
+            for each assessment dimension.
+          </p>
+        </div>
+        <button class="primary-button" id="open-all-analysis">Downstream breaking changes analysis</button>
+      </section>
+
+      <div class="index-header">
+        <h3>All assessment reports</h3>
+        <span>34 reports</span>
+      </div>
+      <section class="report-index" id="report-index"></section>
+    </section>
+
+    <section class="view hidden" id="analysis-view">
+      <div class="analysis-heading">
+        <button class="secondary-button" id="back-to-reports">&larr; All assessment reports</button>
+        <button class="secondary-button hidden" id="show-all-analysis">Show all downstream analysis</button>
+      </div>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Downstream breaking changes alignment analysis</p>
+          <h2>Do assessment findings align with Python and Java SDK breaking changes?</h2>
+          <p>
+            Compare one spec PR's downstream findings with generated SDK changelogs, then explain
+            language-specific effects and release-level changes from other spec PRs.
+          </p>
+        </div>
+        <aside class="insight">
+          <h3>Primary expected difference</h3>
+          <p>
+            <strong>An SDK release may contain changes from multiple spec PRs.</strong>
+            Assessment evaluates one PR, so historical SDK breaking items may correctly be absent
+            from that PR's findings.
+          </p>
+        </aside>
+      </section>
+
+      <section class="summary-grid" id="alignment-summary" aria-label="Alignment summary">
+        <article class="summary-card aligned">
+          <strong>11</strong>
+          <span>Aligned</span>
+          <small>Assessment and SDK evidence agree</small>
+        </article>
+        <article class="summary-card expected">
+          <strong>14</strong>
+          <span>Expected differences</span>
+          <small>Language-specific generation and aggregated SDK releases</small>
+        </article>
+        <article class="summary-card unknown">
+          <strong>9</strong>
+          <span>Cannot determine</span>
+          <small>Blocked assessment or no defensible SDK release mapping</small>
+        </article>
+      </section>
+
+      <section class="controls" id="analysis-controls" aria-label="Report filters">
+        <input class="search" id="search" type="search" placeholder="Search PR, service, category, or reason">
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all">All 34</button>
+          <button class="filter" data-filter="aligned">Aligned</button>
+          <button class="filter" data-filter="expected">Expected difference</button>
+          <button class="filter" data-filter="unknown">Cannot determine</button>
+        </div>
+      </section>
+
+      <p class="result-count" id="result-count">Showing 34 of 34 reports</p>
+      <section class="report-list" id="report-list"></section>
+      <div class="empty" id="empty">No reports match the current filters.</div>
+    </section>
+
+    <footer>
+      Alignment evidence uses pinned Python and Java changelog entries and preserves initial, unmerged, and unverified release states.
+      <a href="operations.html">Operational details</a> ·
+      <a href="combined.html">Combined core reports</a> ·
+      <a href="publication-manifest.json">Publication provenance</a>
+    </footer>
+  </main>
+
+  <script>
+    const reports = [
+      {
+        pr: 44288,
+        service: "Microsoft.HorizonDb / HorizonDb",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "complete",
+        findings: { rest: 4, sdk: 4, guidelines: 1, documentation: 0 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/0ebb7a0b359daca1a27826dc0b72a4ee99c0d168/sdk/horizondb/azure-mgmt-horizondb/CHANGELOG.md#L3-L43" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/0fbeae2758a5c57823006edc4e04c33c10e30f43/sdk/horizondb/azure-resourcemanager-horizondb/CHANGELOG.md#L3-L130" },
+        reason: "Assessment and SDK changelogs identify the clusterName and result-model breaking changes. The SDK release also carries later changes, but the relevant findings align."
+      },
+      {
+        pr: 46679,
+        service: "Commvault.ContentStore.Management",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "partial",
+        findings: { rest: 7, sdk: 12, guidelines: 0, documentation: 0 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/1d5c0729ac5851d692f84537f65d86df1f985cc4/sdk/commvaultcontentstore/azure-mgmt-commvaultcontentstore/CHANGELOG.md#L3-L30" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/cf933c24ed9c761566a5dd061effed8fe66c3dd1/sdk/commvaultcontentstore/azure-resourcemanager-commvaultcontentstore/CHANGELOG.md#L3-L82" },
+        reason: "Assessment and SDK changelogs identify the model and property breaks. Both SDK PRs were closed without merging, so this is generated-surface evidence rather than shipped-package evidence."
+      },
+      {
+        pr: 44332,
+        service: "Microsoft.HorizonDb / HorizonDb",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 1, guidelines: 1, documentation: 1 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/0ebb7a0b359daca1a27826dc0b72a4ee99c0d168/sdk/horizondb/azure-mgmt-horizondb/CHANGELOG.md#L3-L43" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/0fbeae2758a5c57823006edc4e04c33c10e30f43/sdk/horizondb/azure-resourcemanager-horizondb/CHANGELOG.md#L3-L130" },
+        relatedPrs: [
+          { number: 44288, label: "Earlier clusterName change" }
+        ],
+        reason: "Assessment reports the removal of the private-endpoint update method. Python and Java list the corresponding update rename or replacement. Additional delete-signature changes came from earlier #44288, while helper-model removals are grouped under the same root method change."
+      },
+      {
+        pr: 44920,
+        service: "Microsoft.ContainerRegistry / ContainerRegistry",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 1, guidelines: 0, documentation: 0 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/ba4a9cb307f5f4159071f79019d78260ab0647e6/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md#L3-L23" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/190c951ea54881396494b54de36a879f91ed04f3/sdk/containerregistry/azure-resourcemanager-containerregistry/CHANGELOG.md#L3-L46" },
+        reason: "Assessment and Java align on tokenId becoming optional. Python reports the same change plus additional Python-specific TypedDict removals."
+      },
+      {
+        pr: 44101,
+        service: "Microsoft.Compute / Bulkactions",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Language-specific breaking change",
+        outcome: "Partially aligned; difference expected",
+        coverage: "partial",
+        findings: { rest: 0, sdk: 0, guidelines: 1, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/bfa76d9b21fe24ebd8d44cc6c22de354ac4c0a6b/sdk/compute/azure-mgmt-compute-bulkaction/CHANGELOG.md#L3-L249" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/d8de280c22558371ba175c39b916b7f30f285439/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md#L3-L530" },
+        reason: "Python reports no breaking change. Java changes ResourceOperation from a class to an interface because the model becomes a paged-operation item, a Java Fluent-specific generation effect."
+      },
+      {
+        pr: 44524,
+        service: "Microsoft.Compute / Bulkactions",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Language-specific and aggregated SDK changes",
+        outcome: "Partially aligned; difference expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 3, guidelines: 0, documentation: 6 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/bfa76d9b21fe24ebd8d44cc6c22de354ac4c0a6b/sdk/compute/azure-mgmt-compute-bulkaction/CHANGELOG.md#L3-L249" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/d8de280c22558371ba175c39b916b7f30f285439/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md#L3-L530" },
+        relatedPrs: [
+          { number: 44101, label: "Earlier paging trigger" }
+        ],
+        reason: "Python lists no breaking change. Java's ResourceOperation class-to-interface break was triggered by earlier #44101. The #44524 assessment findings are C# customizations and an inferred error-model replacement, so they are not expected to appear consistently in Python or Java changelogs."
+      },
+      {
+        pr: 46008,
+        service: "Microsoft.Relationships / Relationships",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "SDK release contains changes from multiple spec PRs",
+        outcome: "Not aligned, but the difference is expected",
+        relatedPrs: [
+          { number: 44941, label: "2026-03-01-preview" },
+          { number: 45024, label: "2026-08-01 stable" }
+        ],
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/28d7e5eb5c0ed8331ad0786aba1e00c8b1294f46/sdk/relationships/azure-mgmt-relationships/CHANGELOG.md#L3-L21" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/29ef7d99eb2169947d820881807fe98e95ef283a/sdk/relationships/azure-resourcemanager-relationships/CHANGELOG.md#L3-L57" },
+        reason: "The SDK breaking items were introduced by earlier spec changes. The SDK release aggregates multiple spec PRs, while assessment evaluates only #46008."
+      },
+      {
+        pr: 43918,
+        service: "Microsoft.ContainerService / Fleet",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "SDK release contains changes from multiple spec PRs",
+        outcome: "Not aligned, but the difference is expected",
+        relatedPrs: [
+          { number: 35829, label: "2025-04-01-preview" },
+          { number: 38919, label: "2025-08-01-preview" },
+          { number: 39498, label: "2026-02-01-preview" }
+        ],
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/a4d46822ef348e6046a974896c2c0cb3798df0d4/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md#L3-L110" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/d71816d7db44736e8897f350b38c3057938acad7/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md#L3-L335" },
+        reason: "The stable SDK release repeats breaking items already recorded in earlier beta releases. Those items were not introduced by #43918."
+      },
+      {
+        pr: 44557,
+        service: "Microsoft.DocumentDB / MongoCluster",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 1, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/d985f172a2d8fe96f318147698a364e97fd822d2/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md#L3-L8" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/86c5cd5d4773c5e8b8cc9ec306c43d63dbeaa910/sdk/mongocluster/azure-resourcemanager-mongocluster/CHANGELOG.md#L3-L12" },
+        reason: "Assessment reports no downstream breaking changes, and neither SDK changelog lists a breaking change."
+      },
+      {
+        pr: 43757,
+        service: "Microsoft.StorageCache / StorageCache",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 1 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/2d85158659f558602c2b0ef87c7196b0568bc7d0/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md#L3-L19" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/3d03eade0a40e4bf958de781c8b8f11897d188a2/sdk/storagecache/azure-resourcemanager-storagecache/CHANGELOG.md#L3-L39" },
+        reason: "Assessment reports no downstream breaking changes, and the SDK changelogs contain only additive operations and models."
+      },
+      {
+        pr: 39064,
+        service: "Microsoft.StorageSync / StorageSync",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "blocked",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/1b58e985a6c9de2f57ce9dd6c19e55db5425a44f/sdk/storage/azure-mgmt-storagesync/CHANGELOG.md#L3-L24" },
+        java: { state: "initial", label: "Initial release", url: "https://github.com/Azure/azure-sdk-for-java/blob/83e503e01bafb07287ad4c55ffcce74a94369fa3/sdk/storagesync/azure-resourcemanager-storagesync/CHANGELOG.md#L3-L9" },
+        reason: "Neither assessment nor the available SDK changelogs report a breaking change. Java is an initial release, so historical comparison is limited, but the observed evidence is aligned."
+      },
+      {
+        pr: 42373,
+        service: "Microsoft.Network / FrontDoor",
+        category: "unknown",
+        categoryLabel: "Cannot determine",
+        outcome: "Cannot determine",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "unverified", label: "Unverified", url: null },
+        java: { state: "unverified", label: "Unverified", url: null },
+        reason: "Assessment reports no downstream break, but no Python or Java management SDK release could be mapped to API 2026-04-01. The visible SDK releases predate this spec PR."
+      },
+      {
+        pr: 43855,
+        service: "Microsoft.Consumption / Consumption",
+        category: "unknown",
+        categoryLabel: "Cannot determine",
+        outcome: "Cannot determine",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 3, guidelines: 0, documentation: 0 },
+        python: { state: "unverified", label: "Unverified", url: null },
+        java: { state: "unverified", label: "Unverified", url: null },
+        reason: "The three assessment findings are C#-only ResourceIdentifier alternate types. No defensible Python or Java SDK release mapping was found for API 2026-06-01."
+      },
+      {
+        pr: 44200,
+        service: "Microsoft.ServiceNetworking / ServiceNetworking",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Language-specific breaking change",
+        outcome: "Not aligned, but the difference is expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/140d0982fc0a1465305a4c2985b35042b6944729/sdk/servicenetworking/azure-mgmt-servicenetworking/CHANGELOG.md#L3-L36" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/f8084ee3a9ec07f356869c1ed70cb9ef49965b95/sdk/servicenetworking/azure-resourcemanager-servicenetworking/CHANGELOG.md#L3-L176" },
+        reason: "Python is additive. Java records Fluent-surface removals, mainly validate methods and update-wrapper changes, that are not represented by the neutral downstream contract."
+      },
+      {
+        pr: 44334,
+        service: "Microsoft.CognitiveServices / CognitiveServices",
+        category: "unknown",
+        categoryLabel: "Cannot determine",
+        outcome: "Cannot determine",
+        coverage: "blocked",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 1 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/bf9360453675665e83e43f9390b1b6c8dc83422b/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md#L3-L45" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/33636956ee8b13fe21cd8af7b21da46325d69d01/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md#L3-L161" },
+        relatedPrs: [
+          { number: 44323, label: "Earlier API change" },
+          { number: 44956, label: "Later API change" },
+          { number: 45210, label: "Later API change" }
+        ],
+        reason: "The assessment was blocked. Both SDK releases compare against an earlier package and aggregate intervening spec changes, so their breaking sections cannot be attributed to #44334 alone."
+      },
+      {
+        pr: 44384,
+        service: "Microsoft.Storage / Storage",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Assessment inference not reflected in emitted SDKs",
+        outcome: "Not aligned, but the difference is explained",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 1, guidelines: 2, documentation: 2 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/5e61bd8058660ee4222c2442f31c9dc5e30d937a/sdk/storage/azure-mgmt-storage/CHANGELOG.md#L3-L35" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/a638d29e68f842319c51b0d517bcde34f4efdcc1/sdk/storage/azure-resourcemanager-storage/CHANGELOG.md#L3-L55" },
+        reason: "Assessment inferred that Encryption was renamed. Both emitted SDKs retain Encryption and add StorageAccountEncryption, so the inferred replacement is not corroborated by Python or Java."
+      },
+      {
+        pr: 44586,
+        service: "Microsoft.Fabric / Fabric",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Language-specific breaking change",
+        outcome: "Not aligned, but the difference is expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 1, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/fab454804876c4c01c1b36147828451f8c96a39e/sdk/fabric/azure-mgmt-fabric/CHANGELOG.md#L3-L15" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/2415d1810550ae5fe88b09805b066b667b2182ab/sdk/fabric/azure-resourcemanager-fabric/CHANGELOG.md#L3-L61" },
+        reason: "Python is additive. Every Java breaking item is a removed generated validate method; the feature models and operations themselves are additions."
+      },
+      {
+        pr: 44598,
+        service: "Microsoft.ContainerService / AKS",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 1 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/47f00357aad66da1ad32bb8c752759c7b9a8cfe4/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md#L3-L16" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/c860595433b2ca8135ab0fa953b6cdad98c4cf5c/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md#L3-L31" },
+        reason: "Python and Java publish additive stable and preview releases with no breaking section, matching the assessment's zero downstream-breaking findings."
+      },
+      {
+        pr: 44750,
+        service: "Microsoft.EventHub / Event Hubs",
+        category: "unknown",
+        categoryLabel: "Cannot determine",
+        outcome: "Cannot determine",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 2 },
+        python: { state: "unverified", label: "Unverified", url: null },
+        java: { state: "unverified", label: "Unverified", url: null },
+        reason: "No defensible Python or Java management SDK release association was found for API 2026-07-01-preview."
+      },
+      {
+        pr: 44842,
+        service: "Microsoft.Migrate / Waves",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Initial SDK release",
+        outcome: "Not aligned, but the difference is expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 2, guidelines: 8, documentation: 0 },
+        python: { state: "initial", label: "Initial release", url: "https://github.com/Azure/azure-sdk-for-python/blob/2f6a18451dd0837ecfbd34858f400acc6ae30f0e/sdk/migrate/azure-mgmt-migrate/CHANGELOG.md#L3-L7" },
+        java: { state: "initial", label: "Initial release", url: "https://github.com/Azure/azure-sdk-for-java/blob/f5d28ea9ae9b87b139081be2fed6685aeb89c56e/sdk/migrate/azure-resourcemanager-migrate/CHANGELOG.md#L3-L8" },
+        reason: "Assessment identifies two removed response properties. Both SDK packages are initial releases, so no previous published SDK surface exists for the changelog to describe as breaking."
+      },
+      {
+        pr: 44882,
+        service: "NewRelic.Observability / New Relic",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Language and generator migration",
+        outcome: "Not aligned, but the difference is expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 1, documentation: 0 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/696f6942aca6e45fac55105bec821817c234182a/sdk/newrelicobservability/azure-mgmt-newrelicobservability/CHANGELOG.md#L3-L49" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/1572763d3909bad07e84e27416d245ec76a5a2e1/sdk/newrelicobservability/azure-resourcemanager-newrelicobservability/CHANGELOG.md#L3-L215" },
+        reason: "The SDK breaking notes are dominated by Python hybrid-model and keyword-only changes plus Java validation and representation changes, rather than a neutral TCGC contract change in this PR."
+      },
+      {
+        pr: 44988,
+        service: "Microsoft.Network / Network and VMSS",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Language-specific and aggregated SDK changes",
+        outcome: "Partially aligned; difference expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 9, guidelines: 1, documentation: 4 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/ee4b31ff1a7e235cf7a8d176529829d0cce5781d/sdk/network/azure-mgmt-network/CHANGELOG.md#L3-L111" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/95490d336a28001cb8d4c15133fea6d9a3dbc84a/sdk/network/azure-resourcemanager-network/CHANGELOG.md#L3-L129" },
+        relatedPrs: [
+          { number: 44613, label: "Earlier initial-version PR" }
+        ],
+        reason: "Python directly records the ServiceGateways update-method renames corresponding to assessed LRO changes. Java reports only additions. The Python release also includes the earlier initial-version PR #44613."
+      },
+      {
+        pr: 45167,
+        service: "Microsoft.NetworkCloud / NetworkCloud",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Language-specific breaking change",
+        outcome: "Not aligned, but the difference is expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/db9e8a88bfe35500d5038424b1e7cfd6714b0386/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md#L3-L22" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/44d3bd6299c6ac1ce499d32f5bcff8a6472e6828/sdk/networkcloud/azure-resourcemanager-networkcloud/CHANGELOG.md#L3-L68" },
+        reason: "Java reports three Fluent definition-stage removals while Python reports no break. These Java builder-surface changes are not represented by the neutral downstream assessment."
+      },
+      {
+        pr: 45197,
+        service: "Microsoft.RedHatOpenShift / HCP OpenShift",
+        category: "unknown",
+        categoryLabel: "Cannot determine",
+        outcome: "Cannot determine",
+        coverage: "blocked",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "initial", label: "Initial release", url: "https://github.com/Azure/azure-sdk-for-python/blob/ec9dd7540bf61e463e70a112af572587f3261bba/sdk/redhatopenshifthcp/azure-mgmt-redhatopenshifthcp/CHANGELOG.md#L3-L7" },
+        java: { state: "initial", label: "Initial release", url: "https://github.com/Azure/azure-sdk-for-java/blob/097862362e1c37402a79c31e23a062437e37abee/sdk/redhatopenshifthcp/azure-resourcemanager-redhatopenshifthcp/CHANGELOG.md#L3-L10" },
+        relatedPrs: [
+          { number: 45624, label: "Later 2026-09-01-preview" }
+        ],
+        reason: "The assessment was blocked. Both initial SDKs were generated after #45624 for a later API version, not for the assessed 2026-06-30-preview surface alone."
+      },
+      {
+        pr: 45348,
+        service: "Microsoft.DeviceRegistry / DeviceRegistry",
+        category: "unknown",
+        categoryLabel: "Cannot determine",
+        outcome: "Cannot determine",
+        coverage: "partial",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/57cb3ee759f087c9bc9d252ded3fa4c27b7dd8ec/sdk/deviceregistry/azure-mgmt-deviceregistry/CHANGELOG.md#L3-L90" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/28a6f536c6446c106fc57589a67e16f6c6093db5/sdk/deviceregistry/azure-resourcemanager-deviceregistry/CHANGELOG.md#L3-L314" },
+        relatedPrs: [
+          { number: 45288, label: "Aggregate parent merge" }
+        ],
+        reason: "The SDK PRs emit stable 2026-11-01 from aggregate parent #45288, while the assessment isolates a 2026-11-02-preview child fix. The SDK breaking sections cannot be attributed to #45348 alone."
+      },
+      {
+        pr: 45395,
+        service: "Napster / Companion API",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 1, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/cb09a36f9561fadd907d40cca945c586993af7c7/sdk/napsteromniagentapi/azure-mgmt-napsteromniagentapi/CHANGELOG.md#L3-L8" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/684681dba8cbe4e3867d110f72d067fe82989854/sdk/napsteromniagentapi/azure-resourcemanager-napsteromniagentapi/CHANGELOG.md#L3-L10" },
+        reason: "Both exact-API generated changelogs contain no breaking changes, matching the assessment. The SDK PRs are not both merged, so this is generated rather than fully shipped evidence."
+      },
+      {
+        pr: 45458,
+        service: "Microsoft.Security / ServiceEntitlements",
+        category: "unknown",
+        categoryLabel: "Cannot determine",
+        outcome: "Cannot determine",
+        coverage: "blocked",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "unverified", label: "Unavailable", url: null },
+        java: { state: "unverified", label: "Unavailable", url: null },
+        reason: "The spec project has no Python or Java emitter configuration, no downstream package surface was found, and the assessment was blocked."
+      },
+      {
+        pr: 45608,
+        service: "Microsoft.SecurityInsights / SecurityInsights",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Language-specific and aggregated SDK changes",
+        outcome: "Not aligned, but the difference is expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 10, guidelines: 0, documentation: 0 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/securityinsight/azure-mgmt-securityinsight/CHANGELOG.md#L3-L15" },
+        java: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/securityinsights/azure-resourcemanager-securityinsights/CHANGELOG.md#L13-L47" },
+        relatedPrs: [
+          { number: 40252, label: "Earlier API work" },
+          { number: 45433, label: "Stable spec merge" },
+          { number: 45615, label: "Java configuration" }
+        ],
+        reason: "All ten assessment findings are C# client-name or alternate-type changes, so they are not expected in Python or Java. The SDK releases also aggregate other API-version and migration changes."
+      },
+      {
+        pr: 45678,
+        service: "Microsoft.ContainerService / Fleet",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Runtime behavior not represented in changelog",
+        outcome: "Not aligned, but the difference is expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 1, guidelines: 1, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md#L3-L55" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md#L13-L155" },
+        reason: "The assessment finding concerns an LRO final-state GET destination. That is runtime polling behavior, not a public type or signature change normally listed in generated SDK changelogs."
+      },
+      {
+        pr: 45714,
+        service: "Oracle.Database / OracleDatabase",
+        category: "expected",
+        categoryLabel: "Expected difference",
+        reasonCategory: "Language-specific mitigation",
+        outcome: "Partially aligned; difference expected",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 6, guidelines: 2, documentation: 5 },
+        python: { state: "breaking", label: "Breaking listed", url: "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/oracledatabase/azure-mgmt-oracledatabase/CHANGELOG.md#L3-L124" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/oracledatabase/azure-resourcemanager-oracledatabase/CHANGELOG.md#L13-L270" },
+        relatedPrs: [
+          { number: 46662, label: "Java compatibility mitigation" }
+        ],
+        reason: "Python confirms the hostname and scanDnsName removals found by the assessment. Java was generated after #46662 deliberately preserved those members, so no Java breaking changes remained."
+      },
+      {
+        pr: 45760,
+        service: "Microsoft.ServiceFabric / Managed Clusters",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/servicefabricmanagedclusters/azure-mgmt-servicefabricmanagedclusters/CHANGELOG.md#L3-L7" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/servicefabricmanagedclusters/azure-resourcemanager-servicefabricmanagedclusters/CHANGELOG.md#L13-L17" },
+        reason: "The PR only adds C# names intended to preserve .NET compatibility. Python and Java regeneration entries contain no breaking section."
+      },
+      {
+        pr: 45794,
+        service: "Microsoft.EdgeOperator / SystemReadiness",
+        category: "unknown",
+        categoryLabel: "Cannot determine",
+        outcome: "Cannot determine",
+        coverage: "blocked",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "initial", label: "Initial release", url: "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/edgeoperator/azure-mgmt-edgeoperator/CHANGELOG.md#L3-L7" },
+        java: { state: "initial", label: "Initial release", url: "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/edgeoperator/azure-resourcemanager-edgeoperator/CHANGELOG.md#L3-L8" },
+        reason: "Both SDKs are initial releases, but the assessment was blocked by unavailable compiler, AutoRest, and TCGC baselines. There is no assessed downstream result to compare."
+      },
+      {
+        pr: 46075,
+        service: "Microsoft.StorageDiscovery / StorageDiscovery",
+        category: "aligned",
+        categoryLabel: "Aligned",
+        outcome: "Aligned",
+        coverage: "complete",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/storagediscovery/azure-mgmt-storagediscovery/CHANGELOG.md#L3-L17" },
+        java: { state: "clear", label: "No breaking", url: "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/storagediscovery/azure-resourcemanager-storagediscovery/CHANGELOG.md#L13-L46" },
+        reason: "Both changelogs contain additive capability models and properties only, matching the assessment's zero downstream-breaking findings."
+      },
+      {
+        pr: 46429,
+        service: "Microsoft.DeviceUpdate / Device Registry",
+        category: "unknown",
+        categoryLabel: "Cannot determine",
+        outcome: "Cannot determine",
+        coverage: "blocked",
+        findings: { rest: 0, sdk: 0, guidelines: 0, documentation: 0 },
+        python: { state: "initial", label: "Initial, open PR", url: "https://github.com/Azure/azure-sdk-for-python/blob/5b1b9b0239a817a2f598e483dd2701c950f508a1/sdk/deviceregistry/azure-mgmt-deviceregistrysoftwareupdate/CHANGELOG.md#L3-L7" },
+        java: { state: "initial", label: "Initial, open PR", url: "https://github.com/Azure/azure-sdk-for-java/blob/c33edd18a14fd29ee4be096d0c22baf20c5adc00/sdk/deviceregistry/azure-resourcemanager-deviceregistry-softwareupdate/CHANGELOG.md#L3-L8" },
+        reason: "The assessment was blocked, and neither SDK PR is merged or published. The exact generated mappings are provisional initial-release evidence only."
+      }
+    ];
+
+    const assessmentStates = {
+      44288: { verdict: "failed", coverage: "partial" },
+      46679: { verdict: "failed", coverage: "partial" },
+      44332: { verdict: "failed", coverage: "complete" },
+      44920: { verdict: "failed", coverage: "complete" },
+      44101: { verdict: "unknown", coverage: "partial" },
+      44524: { verdict: "failed", coverage: "complete" },
+      46008: { verdict: "passed", coverage: "complete" },
+      43918: { verdict: "passed", coverage: "complete" },
+      44557: { verdict: "failed", coverage: "complete" },
+      43757: { verdict: "failed", coverage: "complete" },
+      39064: { verdict: "unknown", coverage: "blocked" },
+      42373: { verdict: "passed", coverage: "complete" },
+      43855: { verdict: "failed", coverage: "complete" },
+      44200: { verdict: "passed", coverage: "complete" },
+      44334: { verdict: "unknown", coverage: "blocked" },
+      44384: { verdict: "failed", coverage: "complete" },
+      44586: { verdict: "passed", coverage: "complete" },
+      44598: { verdict: "passed", coverage: "complete" },
+      44750: { verdict: "passed", coverage: "complete" },
+      44842: { verdict: "failed", coverage: "complete" },
+      44882: { verdict: "passed", coverage: "complete" },
+      44988: { verdict: "failed", coverage: "complete" },
+      45167: { verdict: "passed", coverage: "complete" },
+      45197: { verdict: "unknown", coverage: "blocked" },
+      45348: { verdict: "unknown", coverage: "partial" },
+      45395: { verdict: "passed", coverage: "complete" },
+      45458: { verdict: "unknown", coverage: "blocked" },
+      45608: { verdict: "failed", coverage: "complete" },
+      45678: { verdict: "failed", coverage: "complete" },
+      45714: { verdict: "failed", coverage: "complete" },
+      45760: { verdict: "passed", coverage: "complete" },
+      45794: { verdict: "unknown", coverage: "blocked" },
+      46075: { verdict: "passed", coverage: "complete" },
+      46429: { verdict: "unknown", coverage: "blocked" }
+    };
+
+    const legacyReportPrs = new Set([
+      42373, 43855, 44200, 44334, 44384, 44586, 44598, 44750,
+      44842, 44882, 44988, 45167, 45197, 45348, 45395, 45458,
+      45608, 45678, 45714, 45760, 45794, 46075, 46429
+    ]);
+
+    const reportsView = document.querySelector("#reports-view");
+    const analysisView = document.querySelector("#analysis-view");
+    const reportIndex = document.querySelector("#report-index");
+    const reportList = document.querySelector("#report-list");
+    const search = document.querySelector("#search");
+    const resultCount = document.querySelector("#result-count");
+    const empty = document.querySelector("#empty");
+    const showAllAnalysis = document.querySelector("#show-all-analysis");
+    const alignmentSummary = document.querySelector("#alignment-summary");
+    const analysisControls = document.querySelector("#analysis-controls");
+    let activeFilter = "all";
+    let focusedPr = null;
+
+    const esc = (value) => String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;");
+
+    function findingTile(label, value) {
+      return `
+        <div class="finding ${value > 0 ? "has-findings" : ""}">
+          <strong>${value}</strong>
+          <span>${esc(label)}</span>
+        </div>`;
+    }
+
+    function sdkTile(language, sdk) {
+      return `
+        <div class="sdk">
+          <div class="sdk-head">
+            <strong>${esc(language)}</strong>
+            <span class="sdk-state ${sdk.state}">${esc(sdk.label)}</span>
+          </div>
+          ${sdk.url
+            ? `<a href="${sdk.url}" target="_blank" rel="noreferrer">Open changelog</a>`
+            : `<span class="sdk-note">No verified changelog</span>`}
+        </div>`;
+    }
+
+    function indexFinding(label, value) {
+      return `
+        <div class="index-finding ${value > 0 ? "has-findings" : ""}">
+          <strong>${value}</strong>
+          <span>${esc(label)}</span>
+        </div>`;
+    }
+
+    function renderIndex() {
+      reportIndex.innerHTML = reports.map((report) => {
+        const state = assessmentStates[report.pr];
+        const isLegacy = legacyReportPrs.has(report.pr);
+        return `
+          <article class="index-row">
+            <div>
+              <div class="index-pr">
+                <a href="https://github.com/Azure/azure-rest-api-specs/pull/${report.pr}" target="_blank" rel="noreferrer">#${report.pr}</a>
+              </div>
+              <div class="index-service">${esc(report.service)}</div>
+            </div>
+            <div class="index-status">
+              <span class="verdict ${state.verdict}">${esc(state.verdict)}</span>
+              <span class="coverage ${isLegacy ? "legacy" : state.coverage}">
+                ${isLegacy ? "legacy report" : `${esc(state.coverage)} coverage`}
+              </span>
+            </div>
+            <div class="index-findings">
+              ${indexFinding("REST", report.findings.rest)}
+              ${indexFinding("SDK", report.findings.sdk)}
+              ${indexFinding("Guidelines", report.findings.guidelines)}
+              ${indexFinding("Docs", report.findings.documentation)}
+            </div>
+            <div class="index-actions">
+              <a class="secondary-button" href="https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-${report.pr}/" target="_blank" rel="noreferrer">Open assessment</a>
+              <button class="primary-button" data-analysis-pr="${report.pr}">View downstream analysis</button>
+            </div>
+          </article>`;
+      }).join("");
+    }
+
+    function render() {
+      const query = search.value.trim().toLowerCase();
+      const visible = reports.filter((report) => {
+        const focusMatch = focusedPr === null || report.pr === focusedPr;
+        const categoryMatch = activeFilter === "all" || report.category === activeFilter;
+        const haystack = [
+          report.pr,
+          report.service,
+          report.categoryLabel,
+          report.reasonCategory || "",
+          ...(report.relatedPrs || []).flatMap((pr) => [pr.number, pr.label]),
+          report.outcome,
+          report.reason
+        ].join(" ").toLowerCase();
+        return focusMatch && categoryMatch && (!query || haystack.includes(query));
+      });
+
+      reportList.innerHTML = visible.map((report) => `
+        <article class="report-card" data-category="${report.category}" data-pr="${report.pr}">
+          <section class="identity">
+            <div class="pr-line">
+              <a class="pr-link" href="https://github.com/Azure/azure-rest-api-specs/pull/${report.pr}" target="_blank" rel="noreferrer">#${report.pr}</a>
+              <span class="category ${report.category}">${esc(report.categoryLabel)}</span>
+            </div>
+            <p class="service">${esc(report.service)}</p>
+            ${report.reasonCategory ? `<span class="reason-category">${esc(report.reasonCategory)}</span>` : ""}
+            <div class="links">
+              <a href="https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-${report.pr}/" target="_blank" rel="noreferrer">Assessment report</a>
+              <a href="https://github.com/Azure/azure-rest-api-specs/pull/${report.pr}" target="_blank" rel="noreferrer">Spec PR</a>
+            </div>
+          </section>
+
+          <section class="assessment">
+            <p class="section-label">Assessment findings</p>
+            <div class="finding-grid">
+              ${findingTile("REST", report.findings.rest)}
+              ${findingTile("SDK", report.findings.sdk)}
+              ${findingTile("Guidelines", report.findings.guidelines)}
+              ${findingTile("Documentation", report.findings.documentation)}
+            </div>
+            <div class="coverage-row">
+              <span>Assessment coverage</span>
+              <span class="coverage ${legacyReportPrs.has(report.pr) ? "legacy" : report.coverage}">
+                ${legacyReportPrs.has(report.pr) ? "not recorded (legacy)" : esc(report.coverage)}
+              </span>
+            </div>
+          </section>
+
+          <section class="comparison">
+            <p class="section-label">SDK changelog comparison</p>
+            <div class="sdk-grid">
+              ${sdkTile("Python", report.python)}
+              ${sdkTile("Java", report.java)}
+            </div>
+            <p class="outcome ${report.category}">${esc(report.outcome)}</p>
+            <p class="reason">${esc(report.reason)}</p>
+            ${report.relatedPrs?.length ? `
+              <div class="included-prs">
+                <span>Included spec PRs</span>
+                ${report.relatedPrs.map((pr) => `
+                  <a href="https://github.com/Azure/azure-rest-api-specs/pull/${pr.number}" target="_blank" rel="noreferrer">#${pr.number} ${esc(pr.label)}</a>
+                `).join("")}
+              </div>
+            ` : ""}
+          </section>
+        </article>
+      `).join("");
+
+      resultCount.textContent = focusedPr === null
+        ? `Showing ${visible.length} of ${reports.length} reports`
+        : `Downstream alignment analysis for PR #${focusedPr}`;
+      empty.style.display = visible.length ? "none" : "block";
+      showAllAnalysis.classList.toggle("hidden", focusedPr === null);
+      alignmentSummary.classList.toggle("hidden", focusedPr !== null);
+      analysisControls.classList.toggle("hidden", focusedPr !== null);
+    }
+
+    function showView(name, pr = null) {
+      const showReports = name === "reports";
+      focusedPr = showReports ? null : pr;
+      reportsView.classList.toggle("hidden", !showReports);
+      analysisView.classList.toggle("hidden", showReports);
+      document.querySelector("#nav-reports").classList.toggle("active", showReports);
+      document.querySelector("#nav-analysis").classList.toggle("active", !showReports);
+
+      if (!showReports) {
+        activeFilter = "all";
+        search.value = "";
+        document.querySelectorAll(".filter").forEach((item) => {
+          item.classList.toggle("active", item.dataset.filter === "all");
+        });
+        render();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    document.querySelector("#filters").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-filter]");
+      if (!button) return;
+      activeFilter = button.dataset.filter;
+      document.querySelectorAll(".filter").forEach((item) => item.classList.toggle("active", item === button));
+      render();
+    });
+
+    reportIndex.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-analysis-pr]");
+      if (!button) return;
+      showView("analysis", Number(button.dataset.analysisPr));
+    });
+
+    document.querySelector("#nav-reports").addEventListener("click", () => showView("reports"));
+    document.querySelector("#nav-analysis").addEventListener("click", () => showView("analysis"));
+    document.querySelector("#open-all-analysis").addEventListener("click", () => showView("analysis"));
+    document.querySelector("#back-to-reports").addEventListener("click", () => showView("reports"));
+    showAllAnalysis.addEventListener("click", () => showView("analysis"));
+    search.addEventListener("input", render);
+    renderIndex();
+    render();
+  </script>
+</body>
+</html>
