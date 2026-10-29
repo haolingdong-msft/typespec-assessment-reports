@@ -165,6 +165,92 @@
   background: #fef3c7;
   color: #92400e;
 }
+.report-badge.neutral {
+  background: #edf2f8;
+  color: #405c7c;
+}
+.report-badge.coverage {
+  text-transform: none;
+}
+.report-method-signature {
+  margin: 14px 0 18px;
+}
+.report-signature-lines {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+.report-signature-lines > div {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 10px;
+  padding: 9px 12px;
+  background: color-mix(in srgb, var(--panel) 95%, var(--accent));
+}
+.report-signature-lines > div + div {
+  border-top: 1px solid var(--line);
+}
+.report-signature-lines span,
+.report-chain-label,
+.report-chain-detail {
+  color: var(--muted);
+  font-size: 11px;
+}
+.report-signature-lines code {
+  font-size: 12px;
+}
+.report-reference-chain {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--panel) 98%, var(--accent));
+}
+.report-reference-chain ol {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.report-reference-chain li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  min-height: 28px;
+  padding: 3px 0 3px min(calc(var(--reference-depth) * 20px), 35%);
+}
+.report-reference-chain li:not(:first-child)::before {
+  content: "\21B3";
+  color: var(--muted);
+}
+.report-reference-chain code {
+  min-width: 0;
+  font-size: 12px;
+}
+.report-path-scope {
+  margin: 9px 0 12px;
+  padding: 9px 12px;
+  border-left: 3px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 96%, var(--accent));
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 650px) {
+  .report-reference-chain li {
+    padding-left: min(calc(var(--reference-depth) * 10px), 25%);
+  }
+  .report-signature-lines > div {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 6px;
+    padding: 8px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-badge.neutral {
+    background: #27374d;
+    color: #c3d4ea;
+  }
+}
 .report-table-wrap {
   max-width: 100%;
   overflow-x: auto;
@@ -289,6 +375,44 @@
 }
 .report-type-impact h4 {
   margin: 0 0 5px;
+}
+.report-model-change h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 9px;
+}
+.report-model-evidence {
+  margin-top: 16px;
+  padding-top: 11px;
+  border-top: 1px solid var(--line);
+}
+.report-model-evidence > summary {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 12px;
+}
+.report-model-evidence > .report-type-impact:first-of-type {
+  border-top: 0;
+}
+.report-model-change .report-reference-path {
+  grid-template-columns: 110px minmax(0, 1fr) max-content;
+}
+.report-model-change .report-reference-path code {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-model-scope {
+  margin-bottom: 0;
+}
+@media (max-width: 650px) {
+  .report-model-change .report-reference-path {
+    grid-template-columns: 1fr auto;
+  }
+  .report-model-change .report-reference-path code {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
 }
 .report-guideline-section {
   min-width: 0;
@@ -627,8 +751,8 @@ body {
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">0 intents<br>0 operations<br>0 Added, 0 Modified, 0 Removed</div></a>
 <a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">Not assessed<br>0 findings<br>0/0 intents assessed</div></a>
-<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Not assessed<br>0 findings</div></a>
-<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Not assessed<br>0 findings</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Verdict unknown<br>0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Verdict unknown<br>0 findings</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>Assessment count unavailable</div></a>
 </div></div></header>
 <details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
@@ -637,10 +761,10 @@ body {
 <main class="container">
 <section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">0 intents · 0 added · 0 modified · 0 removed</span></div></div><div class="report-empty">No semantic intents.</div></section>
 <section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 findings</span></div></div><p class="report-small">0 of 0 semantic intents assessed · 0 documents selected</p><div class="report-empty">Azure Guidelines could not be fully assessed.</div></section>
-<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">REST breaking changes were not fully assessed.</div></section>
-<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">Downstream breaking changes were not fully assessed.</div></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No REST compatibility verdict is available for the covered scope.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream compatibility verdict is available for the covered scope.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Does the TypeSpec compiler return a nonempty effective document? Examples, external documentation, and agent execution are not assessed.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · Assessment count unavailable</p></section>
-<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>ENOENT: no such file or directory, scandir &#39;C:\workspace\documents\pr-45794\worktrees\base\specification\edgeoperator\resource-manager\Microsoft.EdgeOperator\SystemReadiness&#39;</li><li>Semantic assessment requires successful TypeSpec compiler source indexing.</li><li>Baseline and target AutoRest artifacts are required for project-8f4a1730f7b4.</li><li>Baseline and target TCGC artifacts are required for project-8f4a1730f7b4.</li></ul>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>ENOENT: no such file or directory, scandir &#39;C:\Users\haolingdong\.copilot\session-state\ba802ec3-9103-44d6-a81f-f49cea99ac6e\files\full-dashboard-reassessment\pr-45794\worktrees\base\specification\edgeoperator\resource-manager\Microsoft.EdgeOperator\SystemReadiness&#39;</li><li>Semantic assessment requires successful TypeSpec compiler source indexing.</li><li>Baseline and target AutoRest artifacts are required for project-8f4a1730f7b4.</li><li>Baseline and target TCGC artifacts are required for project-8f4a1730f7b4.</li></ul>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/edgeoperator/resource-manager/Microsoft.EdgeOperator/SystemReadiness</code></td><td>legacy</td><td><code>1c12250bfef95ae48005ba6ea9299cf29c1f5b3d@unversioned</code><br><small>base · legacy-selection</small></td><td><code>302f60196ed947128acabc64b558237750017b80@unversioned</code><br><small>current · legacy-selection</small></td><td>n/a / n/a</td><td>n/a / n/a</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/45794">#45794</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
@@ -658,7 +782,7 @@ body {
     {
       &quot;code&quot;: &quot;api-version-resolution-failed&quot;,
       &quot;projectId&quot;: &quot;project-8f4a1730f7b4&quot;,
-      &quot;message&quot;: &quot;ENOENT: no such file or directory, scandir &#39;C:\\workspace\\documents\\pr-45794\\worktrees\\base\\specification\\edgeoperator\\resource-manager\\Microsoft.EdgeOperator\\SystemReadiness&#39;&quot;
+      &quot;message&quot;: &quot;ENOENT: no such file or directory, scandir &#39;C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45794\\worktrees\\base\\specification\\edgeoperator\\resource-manager\\Microsoft.EdgeOperator\\SystemReadiness&#39;&quot;
     },
     {
       &quot;code&quot;: &quot;typespec-compiler-source-index-unavailable&quot;,
@@ -676,18 +800,19 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/edgeoperator/resource-manager/Microsoft.EdgeOperator/SystemReadiness/main.tsp</code> (committed)</li><li><code>specification/edgeoperator/resource-manager/Microsoft.EdgeOperator/SystemReadiness/systemReadiness.tsp</code> (committed)</li><li><code>specification/edgeoperator/resource-manager/Microsoft.EdgeOperator/SystemReadiness/tspconfig.yaml</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 1827,
-    &quot;fetchMs&quot;: 161,
-    &quot;scopeDiscoveryMs&quot;: 67,
-    &quot;setupExcludingFetchMs&quot;: 5905,
-    &quot;comparisonMs&quot;: 105,
-    &quot;changeDiscoveryMs&quot;: 78,
-    &quot;workspacePreparationMs&quot;: 3627,
-    &quot;projectDiscoveryMs&quot;: 8,
-    &quot;totalMs&quot;: 113254,
-    &quot;semanticAnalysisMs&quot;: 7,
-    &quot;restAnalysisMs&quot;: 6,
+    &quot;metadataMs&quot;: 2227,
+    &quot;fetchMs&quot;: 203,
+    &quot;scopeDiscoveryMs&quot;: 134,
+    &quot;setupExcludingFetchMs&quot;: 12065,
+    &quot;comparisonMs&quot;: 166,
+    &quot;changeDiscoveryMs&quot;: 149,
+    &quot;workspacePreparationMs&quot;: 9083,
+    &quot;projectDiscoveryMs&quot;: 10,
+    &quot;totalMs&quot;: 157841,
+    &quot;semanticAnalysisMs&quot;: 2,
+    &quot;restAnalysisMs&quot;: 3,
     &quot;downstreamAnalysisMs&quot;: 3,
+    &quot;semanticContextPolicyMs&quot;: 2,
     &quot;documentQualityAnalysisMs&quot;: 0
   }
 }</pre>

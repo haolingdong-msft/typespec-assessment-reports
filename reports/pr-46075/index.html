@@ -165,6 +165,92 @@
   background: #fef3c7;
   color: #92400e;
 }
+.report-badge.neutral {
+  background: #edf2f8;
+  color: #405c7c;
+}
+.report-badge.coverage {
+  text-transform: none;
+}
+.report-method-signature {
+  margin: 14px 0 18px;
+}
+.report-signature-lines {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+.report-signature-lines > div {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 10px;
+  padding: 9px 12px;
+  background: color-mix(in srgb, var(--panel) 95%, var(--accent));
+}
+.report-signature-lines > div + div {
+  border-top: 1px solid var(--line);
+}
+.report-signature-lines span,
+.report-chain-label,
+.report-chain-detail {
+  color: var(--muted);
+  font-size: 11px;
+}
+.report-signature-lines code {
+  font-size: 12px;
+}
+.report-reference-chain {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--panel) 98%, var(--accent));
+}
+.report-reference-chain ol {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.report-reference-chain li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  min-height: 28px;
+  padding: 3px 0 3px min(calc(var(--reference-depth) * 20px), 35%);
+}
+.report-reference-chain li:not(:first-child)::before {
+  content: "\21B3";
+  color: var(--muted);
+}
+.report-reference-chain code {
+  min-width: 0;
+  font-size: 12px;
+}
+.report-path-scope {
+  margin: 9px 0 12px;
+  padding: 9px 12px;
+  border-left: 3px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 96%, var(--accent));
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 650px) {
+  .report-reference-chain li {
+    padding-left: min(calc(var(--reference-depth) * 10px), 25%);
+  }
+  .report-signature-lines > div {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 6px;
+    padding: 8px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-badge.neutral {
+    background: #27374d;
+    color: #c3d4ea;
+  }
+}
 .report-table-wrap {
   max-width: 100%;
   overflow-x: auto;
@@ -289,6 +375,44 @@
 }
 .report-type-impact h4 {
   margin: 0 0 5px;
+}
+.report-model-change h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 9px;
+}
+.report-model-evidence {
+  margin-top: 16px;
+  padding-top: 11px;
+  border-top: 1px solid var(--line);
+}
+.report-model-evidence > summary {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 12px;
+}
+.report-model-evidence > .report-type-impact:first-of-type {
+  border-top: 0;
+}
+.report-model-change .report-reference-path {
+  grid-template-columns: 110px minmax(0, 1fr) max-content;
+}
+.report-model-change .report-reference-path code {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-model-scope {
+  margin-bottom: 0;
+}
+@media (max-width: 650px) {
+  .report-model-change .report-reference-path {
+    grid-template-columns: 1fr auto;
+  }
+  .report-model-change .report-reference-path code {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
 }
 .report-guideline-section {
   min-width: 0;
@@ -622,862 +746,71 @@ body {
 }
 
 </style></head><body>
-<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>3 TypeSpec changes for StorageDiscovery</h1>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>TypeSpec assessment: specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery</h1>
 <p class="hero-meta">TypeSpec source diff: <code>3f5dec1b194951790d084f61e43375bd34c04055</code> → <code>6b17fb188503b699ef03db0f5740b02f8efb8738</code></p>
 <div class="summary-grid">
-<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">3 intents<br>1 operations<br>0 Added, 3 Modified, 0 Removed</div></a>
-<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>2/2 intents assessed</div></a>
-<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
-<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">0 findings</div></a>
-<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>8 declarations checked</div></a>
+<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">0 intents<br>0 operations<br>0 Added, 0 Modified, 0 Removed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">Not assessed<br>0 findings<br>0/0 intents assessed</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Verdict unknown<br>0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Verdict unknown<br>0 findings</div></a>
+<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>Assessment count unavailable</div></a>
 </div></div></header>
 <details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">3 intents · 0 added · 3 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-1e3885a35b58c662"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 0 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/main.tsp</div><pre><span class="context"> </span>
-<span class="context"> using Azure.ResourceManager;</span>
-<span class="context"> using TypeSpec.Versioning;</span>
-<span class="add">+using Azure.Core;</span>
-<span class="context"> </span>
-<span class="context"> /**</span>
-<span class="context">  * The Azure Storage Discovery Management API.</span>
-<span class="context"></span></pre></div><p class="sources"><code>specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/main.tsp</code></p></details><details class="report-subdetails" id="intent-semantic-1e3885a35b58c662-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-59c6c6f28393a9c9"><summary><div class="report-card-title"><strong>Add preview workspace capability configuration</strong><small>Adds version-gated Azure Blob Storage capability models and an optional capabilities update property for the ARM Storage Discovery workspace update lifecycle operation in 2026-10-01-preview; prior version contracts remain unchanged.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/workspace.tsp</div><pre><span class="context">   @doc(&quot;The description of the storage discovery workspace&quot;)</span>
-<span class="context">   description?: string;</span>
-<span class="context"> </span>
-<span class="add">+  @doc(&quot;The capabilities configured for the storage discovery workspace.&quot;)</span>
-<span class="add">+  @added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+  capabilities?: StorageDiscoveryCapabilities;</span>
-<span class="add">+</span>
-<span class="context">   @doc(&quot;The view level storage discovery data estate&quot;)</span>
-<span class="context">   workspaceRoots: Azure.Core.armResourceIdentifier&lt;[</span>
-<span class="context">     {</span></pre></div><div class="diff"><div class="diff-path">specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/workspace.tsp</div><pre><span class="context"> }</span>
-<span class="context"> </span>
-<span class="context"> model StorageDiscoveryWorkspacePropertiesUpdate</span>
-<span class="remove">-  is UpdateableProperties&lt;OptionalProperties&lt;OmitDefaults&lt;StorageDiscoveryWorkspaceProperties&gt;&gt;&gt;;</span>
-<span class="add">+  is UpdateableProperties&lt;OptionalProperties&lt;OmitDefaults&lt;OmitProperties&lt;</span>
-<span class="add">+    StorageDiscoveryWorkspaceProperties,</span>
-<span class="add">+    &quot;capabilities&quot;</span>
-<span class="add">+  &gt;&gt;&gt;&gt; {</span>
-<span class="add">+  @doc(&quot;The capabilities configured for the storage discovery workspace.&quot;)</span>
-<span class="add">+  @added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+  capabilities?: StorageDiscoveryCapabilitiesUpdate;</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+/**</span>
-<span class="add">+ * The capabilities that can be updated for a storage discovery workspace.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+model StorageDiscoveryCapabilitiesUpdate {</span>
-<span class="add">+  @doc(&quot;The Azure Blob Storage capability configuration to update.&quot;)</span>
-<span class="add">+  azureBlobStorage?: AzureBlobStorageCapabilityUpdate;</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+/**</span>
-<span class="add">+ * The Azure Blob Storage capability configuration that can be updated.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+model AzureBlobStorageCapabilityUpdate {</span>
-<span class="add">+  @doc(&quot;The capacity details configuration to update for Azure Blob Storage.&quot;)</span>
-<span class="add">+  capacityDetails?: CapacityDetailsUpdate;</span>
-<span class="add">+</span>
-<span class="add">+  @doc(&quot;The prefix definitions to update for Azure Blob Storage.&quot;)</span>
-<span class="add">+  @identifiers(#[])</span>
-<span class="add">+  prefixDefinitions?: PrefixDefinitionUpdate[];</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+/**</span>
-<span class="add">+ * The capacity details configuration that can be updated.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+model CapacityDetailsUpdate {</span>
-<span class="add">+  @doc(&quot;The enablement status to update for the capacity details capability.&quot;)</span>
-<span class="add">+  status?: CapabilityStatus;</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+/**</span>
-<span class="add">+ * A prefix definition that can be updated.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+model PrefixDefinitionUpdate is OptionalProperties&lt;PrefixDefinition&gt;;</span>
-<span class="context"> </span>
-<span class="context"> model StorageDiscoveryWorkspaceUpdate</span>
-<span class="context">   is UpdateableProperties&lt;OptionalProperties&lt;OmitDefaults&lt;OmitProperties&lt;</span></pre></div><div class="diff"><div class="diff-path">specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/workspace.tsp</div><pre><span class="context">   ...ArmTagsProperty;</span>
-<span class="context"> }</span>
-<span class="context"> </span>
-<span class="add">+/**</span>
-<span class="add">+ * The capabilities configured for a storage discovery workspace.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+model StorageDiscoveryCapabilities {</span>
-<span class="add">+  @doc(&quot;The Azure Blob Storage capability configuration for the storage discovery workspace.&quot;)</span>
-<span class="add">+  azureBlobStorage: AzureBlobStorageCapability;</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+/**</span>
-<span class="add">+ * The Azure Blob Storage capability configuration.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+model AzureBlobStorageCapability {</span>
-<span class="add">+  @doc(&quot;The capacity details configuration for Azure Blob Storage.&quot;)</span>
-<span class="add">+  capacityDetails: CapacityDetails;</span>
-<span class="add">+</span>
-<span class="add">+  @doc(&quot;The prefix definitions that scope the capacity details to specific storage accounts, containers, and prefixes.&quot;)</span>
-<span class="add">+  @identifiers(#[])</span>
-<span class="add">+  prefixDefinitions?: PrefixDefinition[];</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+/**</span>
-<span class="add">+ * The capacity details configuration.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+model CapacityDetails {</span>
-<span class="add">+  @doc(&quot;The enablement status of the capacity details capability.&quot;)</span>
-<span class="add">+  status: CapabilityStatus;</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+/**</span>
-<span class="add">+ * The enablement status of a storage discovery capability.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+union CapabilityStatus {</span>
-<span class="add">+  @doc(&quot;The capability is enabled.&quot;)</span>
-<span class="add">+  Enabled: &quot;Enabled&quot;,</span>
-<span class="add">+</span>
-<span class="add">+  @doc(&quot;The capability is disabled.&quot;)</span>
-<span class="add">+  Disabled: &quot;Disabled&quot;,</span>
-<span class="add">+</span>
-<span class="add">+  string,</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="add">+/**</span>
-<span class="add">+ * A prefix definition that scopes capacity details to a specific storage account, container, and prefix.</span>
-<span class="add">+ */</span>
-<span class="add">+@added(ApiVersion.v2026_10_01_preview)</span>
-<span class="add">+model PrefixDefinition {</span>
-<span class="add">+  @doc(&quot;The name of the storage account.&quot;)</span>
-<span class="add">+  @minLength(3)</span>
-<span class="add">+  @maxLength(24)</span>
-<span class="add">+  @pattern(&quot;^[a-z0-9]{3,24}$&quot;)</span>
-<span class="add">+  storageAccountName: string;</span>
-<span class="add">+</span>
-<span class="add">+  @doc(&quot;The name of the blob container within the storage account.&quot;)</span>
-<span class="add">+  @minLength(3)</span>
-<span class="add">+  @maxLength(63)</span>
-<span class="add">+  @pattern(&quot;^[a-z0-9]([a-z0-9]|(-(?!-))){1,61}[a-z0-9]$&quot;)</span>
-<span class="add">+  containerName: string;</span>
-<span class="add">+</span>
-<span class="add">+  @doc(&quot;The blob prefix within the container to scope capacity details to. An empty value scopes to the entire container. Must not start with a &#39;/&#39;.&quot;)</span>
-<span class="add">+  @maxLength(1024)</span>
-<span class="add">+  prefix?: string;</span>
-<span class="add">+}</span>
-<span class="add">+</span>
-<span class="context"> /**</span>
-<span class="context">  * Storage Discovery Resource Type</span>
-<span class="context">  */</span></pre></div><div class="diff"><div class="diff-path">specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/workspace.tsp</div><pre><span class="context"> interface StorageDiscoveryWorkspaces {</span>
-<span class="context">   get is ArmResourceRead&lt;StorageDiscoveryWorkspace&gt;;</span>
-<span class="context">   createOrUpdate is ArmResourceCreateOrReplaceSync&lt;StorageDiscoveryWorkspace&gt;;</span>
-<span class="add">+</span>
-<span class="add">+  @sharedRoute</span>
-<span class="context">   update is ArmCustomPatchSync&lt;</span>
-<span class="context">     StorageDiscoveryWorkspace,</span>
-<span class="context">     StorageDiscoveryWorkspaceUpdate</span>
-<span class="context">   &gt;;</span>
-<span class="add">+</span>
-<span class="context">   delete is ArmResourceDeleteSync&lt;StorageDiscoveryWorkspace&gt;;</span>
-<span class="context">   listByResourceGroup is ArmResourceListByParent&lt;StorageDiscoveryWorkspace&gt;;</span>
-<span class="context">   listBySubscription is ArmListBySubscription&lt;StorageDiscoveryWorkspace&gt;;</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/6b17fb188503b699ef03db0f5740b02f8efb8738/specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/workspace.tsp#L20-L46">specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/workspace.tsp:17</a></p></details><details class="report-subdetails" id="intent-semantic-59c6c6f28393a9c9-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>StorageDiscoveryWorkspaces_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageDiscovery/storageDiscoveryWorkspaces/{storageDiscoveryWorkspaceName}</code><span>2026-10-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.capabilities</strong></td><td><pre>not present</pre></td><td><pre>StorageDiscoveryCapabilitiesUpdate (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.capabilities</strong></td><td><pre>not present</pre></td><td><pre>StorageDiscoveryCapabilities (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-8ea9b3b5477d8da2"><summary><div class="report-card-title"><strong>Publish 2026-10-01-preview API version</strong><small>Adds the 2026-10-01-preview API version as the active preview with ARM common-types v5; the version has no directly owned operations and propagates the separately assessed capability changes.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/versions.tsp</div><pre><span class="context"> </span>
-<span class="context">   @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5)</span>
-<span class="context">   v2025_09_01: &quot;2025-09-01&quot;,</span>
-<span class="add">+</span>
-<span class="add">+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5)</span>
-<span class="add">+  @Azure.Core.previewVersion</span>
-<span class="add">+  v2026_10_01_preview: &quot;2026-10-01-preview&quot;,</span>
-<span class="context"> }</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/6b17fb188503b699ef03db0f5740b02f8efb8738/specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/versions.tsp#L10-L20">specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/versions.tsp:10</a></p></details><details class="report-subdetails" id="intent-semantic-8ea9b3b5477d8da2-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details></section>
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">2 of 2 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
-<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
-<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
-<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 8 declarations checked</p></section>
-<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
-<h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery</code></td><td>new-api-version</td><td><code>6b17fb188503b699ef03db0f5740b02f8efb8738@2025-09-01</code><br><small>current · previous-latest-stable</small></td><td><code>6b17fb188503b699ef03db0f5740b02f8efb8738@2026-10-01-preview</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">0 intents · 0 added · 0 modified · 0 removed</span></div></div><div class="report-empty">No semantic intents.</div></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 findings</span></div></div><p class="report-small">0 of 0 semantic intents assessed · 0 documents selected</p><div class="report-empty">Azure Guidelines could not be fully assessed.</div></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No REST compatibility verdict is available for the covered scope.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">not assessed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream compatibility verdict is available for the covered scope.</div></section>
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Does the TypeSpec compiler return a nonempty effective document? Examples, external documentation, and agent execution are not assessed.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · Assessment count unavailable</p></section>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Unable to resolve API versions from the versioned TypeSpec project.</li><li>Baseline and target AutoRest artifacts are required for project-103c4b71e646.</li><li>Baseline and target AutoRest artifacts are required for project-103c4b71e646.</li><li>Baseline and target TCGC artifacts are required for project-103c4b71e646.</li></ul>
+<h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery</code></td><td>legacy</td><td><code>3f5dec1b194951790d084f61e43375bd34c04055@unversioned</code><br><small>base · legacy-selection</small></td><td><code>6b17fb188503b699ef03db0f5740b02f8efb8738@unversioned</code><br><small>current · legacy-selection</small></td><td>n/a / n/a</td><td>n/a / n/a</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/46075">#46075</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
-  &quot;status&quot;: &quot;passed&quot;,
+<div class="panel">No guidance fetched.</div><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;not-assessed&quot;,
   &quot;coverage&quot;: {
-    &quot;semanticIntentCount&quot;: 2,
-    &quot;assessedIntentCount&quot;: 2,
-    &quot;selectedDocumentCount&quot;: 4,
+    &quot;semanticIntentCount&quot;: 0,
+    &quot;assessedIntentCount&quot;: 0,
+    &quot;selectedDocumentCount&quot;: 0,
     &quot;unassessedIntentIds&quot;: []
   },
-  &quot;sharedSearch&quot;: {
-    &quot;catalogRanking&quot;: [
-      {
-        &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 1,
-        &quot;title&quot;: &quot;Evolving APIs&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning guidance matches added version-gated ARM models, properties, and operation behavior.&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 2,
-        &quot;title&quot;: &quot;Versioning overview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning overview governs the new active preview and version decoration.&quot;
-      },
-      {
-        &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 5,
-        &quot;title&quot;: &quot;Add preview after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;This is the exact preview-after-stable transition used by the ARM service.&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Model guidance matches the added capability and update models.&quot;
-      },
-      {
-        &quot;rank&quot;: 5,
-        &quot;catalogOrder&quot;: 22,
-        &quot;title&quot;: &quot;Enums&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Enum guidance matches the added API version enum member and capability union values.&quot;
-      },
-      {
-        &quot;rank&quot;: 6,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Decorator guidance relates to @added, @previewVersion, @doc, and @sharedRoute changes.&quot;
-      },
-      {
-        &quot;rank&quot;: 7,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Built-in decorator guidance relates to documentation decorators on added declarations.&quot;
-      },
-      {
-        &quot;rank&quot;: 8,
-        &quot;catalogOrder&quot;: 3,
-        &quot;title&quot;: &quot;Add preview after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning category matches, but the change is preview after stable rather than preview after preview.&quot;
-      },
-      {
-        &quot;rank&quot;: 9,
-        &quot;catalogOrder&quot;: 4,
-        &quot;title&quot;: &quot;Add stable after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning category matches, but the change does not add a stable version after preview.&quot;
-      },
-      {
-        &quot;rank&quot;: 10,
-        &quot;catalogOrder&quot;: 6,
-        &quot;title&quot;: &quot;Add stable after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning category matches, but the change does not add a stable version after stable.&quot;
-      },
-      {
-        &quot;rank&quot;: 11,
-        &quot;catalogOrder&quot;: 7,
-        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM resource modeling is related, but no new resource type is introduced.&quot;
-      },
-      {
-        &quot;rank&quot;: 12,
-        &quot;catalogOrder&quot;: 12,
-        &quot;title&quot;: &quot;ARM resource operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM resource-operation guidance relates to the workspace update operation, though no operation is added.&quot;
-      },
-      {
-        &quot;rank&quot;: 13,
-        &quot;catalogOrder&quot;: 13,
-        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM interface templates relate to the existing update operation, but its template is not replaced.&quot;
-      },
-      {
-        &quot;rank&quot;: 14,
-        &quot;catalogOrder&quot;: 14,
-        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Resource semantics relate to the workspace lifecycle role, without changed resource decorators.&quot;
-      },
-      {
-        &quot;rank&quot;: 15,
-        &quot;catalogOrder&quot;: 15,
-        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM lifecycle decorators are relevant context, but none is directly changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 16,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM common types are referenced by the new version, but no common type definition is authored.&quot;
-      },
-      {
-        &quot;rank&quot;: 17,
-        &quot;catalogOrder&quot;: 8,
-        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM document, but the change is not an extension-resource definition.&quot;
-      },
-      {
-        &quot;rank&quot;: 18,
-        &quot;catalogOrder&quot;: 9,
-        &quot;title&quot;: &quot;Private endpoints&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM document, but no private endpoint resource is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 19,
-        &quot;catalogOrder&quot;: 10,
-        &quot;title&quot;: &quot;Private links&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM document, but no private link resource is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 20,
-        &quot;catalogOrder&quot;: 11,
-        &quot;title&quot;: &quot;Network security perimeter&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM document, but no network security perimeter resource is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 21,
-        &quot;catalogOrder&quot;: 16,
-        &quot;title&quot;: &quot;ARM long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM document, but no long-running operation behavior changes.&quot;
-      },
-      {
-        &quot;rank&quot;: 22,
-        &quot;catalogOrder&quot;: 18,
-        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM document, but no paging parameter or response changes.&quot;
-      },
-      {
-        &quot;rank&quot;: 23,
-        &quot;catalogOrder&quot;: 23,
-        &quot;title&quot;: &quot;Scalars&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;General TypeSpec guidance, but no scalar is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 24,
-        &quot;catalogOrder&quot;: 26,
-        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;No OpenAPI-specific decorator is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 25,
-        &quot;catalogOrder&quot;: 27,
-        &quot;title&quot;: &quot;Change provider namespace&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM document, but the provider namespace is unchanged.&quot;
-      },
-      {
-        &quot;rank&quot;: 26,
-        &quot;catalogOrder&quot;: 28,
-        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM document, but no portal default experience is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 27,
-        &quot;catalogOrder&quot;: 30,
-        &quot;title&quot;: &quot;Directives&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;No warning suppression directive is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 28,
-        &quot;catalogOrder&quot;: 31,
-        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;No OpenAPI decorator suppression is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 29,
-        &quot;catalogOrder&quot;: 17,
-        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No Azure.Core long-running operation construct changes.&quot;
-      },
-      {
-        &quot;rank&quot;: 30,
-        &quot;catalogOrder&quot;: 19,
-        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;Data-plane pagination does not apply to this ARM update change.&quot;
-      },
-      {
-        &quot;rank&quot;: 31,
-        &quot;catalogOrder&quot;: 29,
-        &quot;title&quot;: &quot;Content negotiation&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No content-negotiation behavior is changed.&quot;
-      }
-    ],
-    &quot;documents&quot;: [
-      {
-        &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 1,
-        &quot;title&quot;: &quot;Evolving APIs&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning guidance matches added version-gated ARM models, properties, and operation behavior.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Versioning Decorators&quot;,
-            &quot;excerpt&quot;: &quot;You can add new models, properties, or operations in a specific version and all subsequent versions using the @added decorator.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@added&quot;,
-              &quot;models&quot;,
-              &quot;properties&quot;,
-              &quot;operations&quot;,
-              &quot;version&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;@added(Versions.v2) model Employee { name?: string; }&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-2d89d3f35b0c92af&quot;,
-              &quot;declaration-582be7073c5f5132&quot;,
-              &quot;declaration-7d1070a584c7a615&quot;,
-              &quot;declaration-b11b5f3e1f8780ac&quot;,
-              &quot;declaration-f25d3dd9a35a5565&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T09:28:23.946178Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:5f09dd0f1148607ec8c1f2686c27e5172d716b9d3aacedc8eac1f284a20ba9d8&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 2,
-        &quot;title&quot;: &quot;Versioning overview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning overview governs the new active preview and version decoration.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Preview Versioning Rules for All Azure APIs&quot;,
-            &quot;excerpt&quot;: &quot;Always make the last enum value the preview and apply @previewVersion to it; mark changes from the latest stable with appropriate versioning decorators.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@previewVersion&quot;,
-              &quot;last enum value&quot;,
-              &quot;latest stable&quot;,
-              &quot;versioning decorators&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-f40ca7dce6eb0c04&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T09:28:23.946178Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:d8cc1bab5f44ac4d2b0f29b1477030b95d77b7bf6cfb6f3106945a49d30b3002&quot;
-      },
-      {
-        &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 5,
-        &quot;title&quot;: &quot;Add preview after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;This is the exact preview-after-stable transition used by the ARM service.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
-            &quot;excerpt&quot;: &quot;Add a new preview version, decorate it with @previewVersion, and mark added, renamed, or modified types with the appropriate versioning decorator.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;preview after stable&quot;,
-              &quot;@previewVersion&quot;,
-              &quot;@added&quot;,
-              &quot;modified types&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;@Azure.Core.previewVersion `2026-01-01-preview`&quot;,
-              &quot;@added(Versions.`2026-01-01-preview`) model Foo {}&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-2d89d3f35b0c92af&quot;,
-              &quot;declaration-582be7073c5f5132&quot;,
-              &quot;declaration-7d1070a584c7a615&quot;,
-              &quot;declaration-b11b5f3e1f8780ac&quot;,
-              &quot;declaration-f25d3dd9a35a5565&quot;,
-              &quot;declaration-f40ca7dce6eb0c04&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T09:28:23.946178Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:765fd79c0d83aeb9bef013ae4ce0f9b99217db9f627e6a2234106fcdd3cfb05f&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Model guidance matches the added capability and update models.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Optional properties&quot;,
-            &quot;excerpt&quot;: &quot;Properties can be designated as optional by using the ? symbol.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;model&quot;,
-              &quot;property&quot;,
-              &quot;optional&quot;,
-              &quot;?&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;model Dog { address?: string; }&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-2d89d3f35b0c92af&quot;,
-              &quot;declaration-582be7073c5f5132&quot;,
-              &quot;declaration-7d1070a584c7a615&quot;,
-              &quot;declaration-b11b5f3e1f8780ac&quot;,
-              &quot;declaration-f25d3dd9a35a5565&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T09:28:53.776496Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:4c5c4f0269c8587cd237434a2d60feda872c0faa1d5158e1bb9c5c720c610176&quot;
-      }
-    ]
-  },
-  &quot;intentAssessments&quot;: [
+  &quot;intentAssessments&quot;: [],
+  &quot;retrievalFailures&quot;: [],
+  &quot;blockers&quot;: [
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-59c6c6f28393a9c9&quot;,
-      &quot;decision&quot;: &quot;applicable-pass&quot;,
-      &quot;blockers&quot;: []
+      &quot;code&quot;: &quot;api-version-resolution-failed&quot;,
+      &quot;projectId&quot;: &quot;project-103c4b71e646&quot;,
+      &quot;message&quot;: &quot;Unable to resolve API versions from the versioned TypeSpec project.&quot;
     },
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-8ea9b3b5477d8da2&quot;,
-      &quot;decision&quot;: &quot;applicable-pass&quot;,
-      &quot;blockers&quot;: []
+      &quot;code&quot;: &quot;autorest-artifacts-unavailable&quot;,
+      &quot;projectId&quot;: &quot;project-103c4b71e646&quot;,
+      &quot;message&quot;: &quot;Baseline and target AutoRest artifacts are required for project-103c4b71e646.&quot;
     }
-  ],
-  &quot;retrievalFailures&quot;: [],
-  &quot;blockers&quot;: []
+  ]
 }</pre></details>
 <h3>Changed files</h3><ul><li><code>specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/main.tsp</code> (committed)</li><li><code>specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/versions.tsp</code> (committed)</li><li><code>specification/storagediscovery/resource-manager/Microsoft.StorageDiscovery/StorageDiscovery/workspace.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 2035,
-    &quot;fetchMs&quot;: 140,
-    &quot;scopeDiscoveryMs&quot;: 65,
-    &quot;setupExcludingFetchMs&quot;: 6139,
-    &quot;comparisonMs&quot;: 127,
-    &quot;changeDiscoveryMs&quot;: 96,
-    &quot;workspacePreparationMs&quot;: 3594,
-    &quot;projectDiscoveryMs&quot;: 16,
-    &quot;totalMs&quot;: 277695,
-    &quot;semanticAnalysisMs&quot;: 54,
-    &quot;restAnalysisMs&quot;: 45,
-    &quot;downstreamAnalysisMs&quot;: 665,
-    &quot;documentQualityAnalysisMs&quot;: 1
-  },
-  &quot;inputAccounting&quot;: {
-    &quot;budgetTier&quot;: &quot;small&quot;,
-    &quot;budgetBytes&quot;: 131072,
-    &quot;bytes&quot;: 14011,
-    &quot;estimatedTokens&quot;: 3503,
-    &quot;retained&quot;: {
-      &quot;evidenceSets&quot;: 4,
-      &quot;facts&quot;: 0,
-      &quot;semanticReviewUnits&quot;: 2,
-      &quot;restCandidates&quot;: 0,
-      &quot;downstreamCandidates&quot;: 0,
-      &quot;downstreamRootCauses&quot;: 0,
-      &quot;complianceSearchRequests&quot;: 2,
-      &quot;inferenceRequests&quot;: 1
-    },
-    &quot;omittedRedundant&quot;: {
-      &quot;rawEmitterArtifacts&quot;: true,
-      &quot;compilerLogs&quot;: true,
-      &quot;unchangedInventories&quot;: true,
-      &quot;unreferencedFacts&quot;: true,
-      &quot;unreferencedDeterministicFacts&quot;: true,
-      &quot;sourceChanges&quot;: true,
-      &quot;repeatedDeclarationIds&quot;: true,
-      &quot;repeatedReviewUnitEvidence&quot;: true
-    },
-    &quot;inference&quot;: {
-      &quot;requestCount&quot;: 1,
-      &quot;inferredCandidateCount&quot;: 0,
-      &quot;noImpactCount&quot;: 1,
-      &quot;blockedCount&quot;: 0
-    },
-    &quot;compliance&quot;: {
-      &quot;catalogEntriesScored&quot;: 31,
-      &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 1016,
-      &quot;guidanceExcerptsRetained&quot;: 4,
-      &quot;guidanceExcerptBytesRetained&quot;: 488
-    }
+    &quot;metadataMs&quot;: 1791,
+    &quot;fetchMs&quot;: 154,
+    &quot;scopeDiscoveryMs&quot;: 76,
+    &quot;setupExcludingFetchMs&quot;: 13652,
+    &quot;comparisonMs&quot;: 148,
+    &quot;changeDiscoveryMs&quot;: 109,
+    &quot;workspacePreparationMs&quot;: 11306,
+    &quot;projectDiscoveryMs&quot;: 24,
+    &quot;totalMs&quot;: 159656,
+    &quot;semanticAnalysisMs&quot;: 2,
+    &quot;restAnalysisMs&quot;: 1,
+    &quot;downstreamAnalysisMs&quot;: 2,
+    &quot;semanticContextPolicyMs&quot;: 1,
+    &quot;documentQualityAnalysisMs&quot;: 0
   }
 }</pre>
-<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+<p><strong>Provenance:</strong> preparation-manifest.json</p></div></details></section>
 </main>
 <script>
 function revealHashTarget() {

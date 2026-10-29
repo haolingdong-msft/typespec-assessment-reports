@@ -169,6 +169,9 @@
   background: #edf2f8;
   color: #405c7c;
 }
+.report-badge.coverage {
+  text-transform: none;
+}
 .report-method-signature {
   margin: 14px 0 18px;
 }
@@ -748,22 +751,22 @@ body {
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">5 intents<br>17 operations<br>0 Added, 5 Modified, 0 Removed</div></a>
 <a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>5/5 intents assessed</div></a>
-<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
-<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">0 findings</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Complete coverage<br>0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Complete coverage<br>0 findings</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>0 declarations checked</div></a>
 </div></div></header>
 <details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">5 intents · 0 added · 5 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-40f969cf96537930"><summary><div class="report-card-title"><strong>Exclude Fleet member mesh properties from the new stable API</strong><small>fleetmember.tsp adds @removed(Versions.v2026_06_01) to the mesh-properties feature of FleetMemberProperties. This changes feature applicability in Fleet member create, get and update contracts without removing the Fleet member resource itself.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 2 declaration/source facts; 1 source hunks; 3 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:fleetmember</code></p><details class="report-subdetails"><summary>Change facts (2)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>FleetMemberProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>FleetMemberProperties.meshProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp</div><pre><span class="context">   status?: FleetMemberStatus;</span>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">5 intents · 0 added · 5 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-40f969cf96537930"><summary><div class="report-card-title"><strong>Modify FleetMemberProperties, FleetMemberProperties.meshProperties</strong><small>Modify covers 2 change facts (type) across 2 declarations and 3 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 2 declaration/source facts; 1 source hunks; 3 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:fleetmember</code></p><details class="report-subdetails"><summary>Change facts (2)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>FleetMemberProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>FleetMemberProperties.meshProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp</div><pre><span class="context">   status?: FleetMemberStatus;</span>
 <span class="context"> </span>
 <span class="context">   @added(Versions.v2026_03_02_preview)</span>
 <span class="add">+  @removed(Versions.v2026_06_01)</span>
 <span class="context">   @visibility(Lifecycle.Read)</span>
 <span class="context">   @doc(&quot;The Mesh Member Properties associated with this Fleet Member.&quot;)</span>
 <span class="context">   meshProperties?: MeshProperties;</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp#L39-L74">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp:38</a></p></details><details class="report-subdetails" id="intent-semantic-40f969cf96537930-operations"><summary>Affected operations (3)</summary><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-7f10174c2080c2d5"><summary><div class="report-card-title"><strong>Publish Fleet API version 2026-06-01</strong><small>main.tsp appends the stable 2026-06-01 Versions member with documentation and ARM common-types v5. This version-declaration-only group exposes the selected stable projection; its 17 changed operation signals do not establish 17 new operations or absorb the separately owned mesh feature changes.</small></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 17 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>common-type-version, property-contract</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp</div><pre><span class="context">   @doc(&quot;Azure Kubernetes Fleet Manager api version 2026-03-02-preview.&quot;)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp#L39-L74">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp:38</a></p></details><details class="report-subdetails" id="intent-semantic-40f969cf96537930-operations"><summary>Affected operations (3)</summary><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-7f10174c2080c2d5"><summary><div class="report-card-title"><strong>Modify Versions</strong><small>Modify covers 1 change facts (versioning) across 1 declarations and 17 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 17 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>common-type-version, property-contract</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp</div><pre><span class="context">   @doc(&quot;Azure Kubernetes Fleet Manager api version 2026-03-02-preview.&quot;)</span>
 <span class="context">   @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5)</span>
 <span class="context">   v2026_03_02_preview: &quot;2026-03-02-preview&quot;,</span>
 <span class="add">+</span>
@@ -771,14 +774,14 @@ body {
 <span class="add">+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5)</span>
 <span class="add">+  v2026_06_01: &quot;2026-06-01&quot;,</span>
 <span class="context"> }</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp#L29-L77">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp:28</a></p></details><details class="report-subdetails" id="intent-semantic-7f10174c2080c2d5-operations"><summary>Affected operations (17)</summary><p class="report-small">Showing 10 operation cards; the remaining 7 are listed below.</p><details class="operation"><summary><strong>AutoUpgradeProfiles_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>AutoUpgradeProfiles_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>AutoUpgradeProfiles_ListByFleet</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_ListByFleet</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetMembers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>Fleets_ListBySubscription</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/fleets</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetUpdateStrategies_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetUpdateStrategies_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (7)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies">FleetUpdateStrategies_ListByFleet (GET, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}">UpdateRuns_CreateOrUpdate (PUT, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}">UpdateRuns_Get (GET, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns">UpdateRuns_ListByFleet (GET, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/skip">UpdateRuns_Skip (POST, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/start">UpdateRuns_Start (POST, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/stop">UpdateRuns_Stop (POST, 2026-06-01)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-c60ec0a41694e87f"><summary><div class="report-card-title"><strong>Exclude label-based member selection from the new stable API</strong><small>selector.tsp marks MemberSelector as removed from 2026-06-01 after its 2026-03-02-preview introduction. The grouped model and byLabel property describe version applicability of member selection; no affected operation is mapped in this bounded scope.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 2 declaration/source facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:selector</code></p><details class="report-subdetails"><summary>Change facts (2)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>MemberSelector.byLabel</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>MemberSelector</code></td><td>type</td><td>modify</td><td>version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp</div><pre><span class="context"> </span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp#L29-L77">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp:28</a></p></details><details class="report-subdetails" id="intent-semantic-7f10174c2080c2d5-operations"><summary>Affected operations (17)</summary><p class="report-small">Showing 10 operation cards; the remaining 7 are listed below.</p><details class="operation"><summary><strong>AutoUpgradeProfiles_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>AutoUpgradeProfiles_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>AutoUpgradeProfiles_ListByFleet</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_ListByFleet</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetMembers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>Fleets_ListBySubscription</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/fleets</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetUpdateStrategies_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetUpdateStrategies_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (7)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies">FleetUpdateStrategies_ListByFleet (GET, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}">UpdateRuns_CreateOrUpdate (PUT, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}">UpdateRuns_Get (GET, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns">UpdateRuns_ListByFleet (GET, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/skip">UpdateRuns_Skip (POST, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/start">UpdateRuns_Start (POST, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/stop">UpdateRuns_Stop (POST, 2026-06-01)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-c60ec0a41694e87f"><summary><div class="report-card-title"><strong>Modify MemberSelector, MemberSelector.byLabel</strong><small>Modify covers 2 change facts (type) across 2 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 2 declaration/source facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:selector</code></p><details class="report-subdetails"><summary>Change facts (2)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>MemberSelector.byLabel</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>MemberSelector</code></td><td>type</td><td>modify</td><td>version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp</div><pre><span class="context"> </span>
 <span class="context"> @doc(&quot;Select members of a fleet.&quot;)</span>
 <span class="context"> @added(Versions.v2026_03_02_preview)</span>
 <span class="add">+@removed(Versions.v2026_06_01)</span>
 <span class="context"> model MemberSelector {</span>
 <span class="context">   @doc(&quot;Kubernetes-style label selector for selecting Fleet members, e.g. `env=production`.&quot;)</span>
 <span class="context">   @maxLength(512)</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp#L9-L14">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp:6</a></p></details><details class="report-subdetails" id="intent-semantic-c60ec0a41694e87f-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-ce182d340902ecb0"><summary><div class="report-card-title"><strong>Exclude cluster mesh profile declarations from the new stable API</strong><small>clustermeshprofile.tsp adds 2026-06-01 removal gates across the grouped cluster mesh profile resource, operation interface and supporting state declarations. @resource and @parentResource(Fleet) identify a Fleet child-resource association, but no affected operation is mapped; the supplied evidence does not establish additional lifecycle requirements.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 11 declaration/source facts; 6 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:clustermeshprofile</code></p><details class="report-subdetails"><summary>Change facts (11)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>ClusterMeshProfileProvisioningState</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>clusterMeshProfileName</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshProfileProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>ClusterMeshProfile.name</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshProfileStatus.state</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshProfiles.get</code></td><td>operation</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshState</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>ClusterMeshProfileProperties.provisioningState</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshProfiles</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>ClusterMeshProfileStatus</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>ClusterMeshProfile</code></td><td>type</td><td>modify</td><td>version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> </span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp#L9-L14">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp:6</a></p></details><details class="report-subdetails" id="intent-semantic-c60ec0a41694e87f-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-ce182d340902ecb0"><summary><div class="report-card-title"><strong>Modify ClusterMeshProfile, ClusterMeshProfile.name, ClusterMeshProfileProperties</strong><small>Modify covers 11 change facts (operation, type) across 11 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 11 declaration/source facts; 6 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:clustermeshprofile</code></p><details class="report-subdetails"><summary>Change facts (11)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>ClusterMeshProfileProvisioningState</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>clusterMeshProfileName</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshProfileProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>ClusterMeshProfile.name</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshProfileStatus.state</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshProfiles.get</code></td><td>operation</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshState</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>ClusterMeshProfileProperties.provisioningState</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>ClusterMeshProfiles</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>ClusterMeshProfileStatus</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>ClusterMeshProfile</code></td><td>type</td><td>modify</td><td>version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> </span>
 <span class="context"> @doc(&quot;A cluster mesh profile stores the general information about the mesh.&quot;)</span>
 <span class="context"> @added(Versions.v2026_03_02_preview)</span>
 <span class="add">+@removed(Versions.v2026_06_01)</span>
@@ -815,7 +818,7 @@ body {
 <span class="context"> @armResourceOperations</span>
 <span class="context"> interface ClusterMeshProfiles {</span>
 <span class="context">   get is ArmResourceRead&lt;ClusterMeshProfile&gt;;</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L17-L17">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp:12</a></p></details><details class="report-subdetails" id="intent-semantic-ce182d340902ecb0-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-db14dcf83da2ac67"><summary><div class="report-card-title"><strong>Exclude mesh member and Cilium types from the new stable API</strong><small>meshmember.tsp adds 2026-06-01 removal gates to MeshProperties, MeshMemberStatus, MeshMemberState and CiliumProperties with their grouped members. These gates bound the mesh member feature&#39;s version availability, with a Fleet member creation contract signal, rather than constituting another version publication.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 7 declaration/source facts; 4 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:meshmember</code></p><details class="report-subdetails"><summary>Change facts (7)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>CiliumProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>MeshMemberStatus</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>MeshMemberStatus.state</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>CiliumProperties.id</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>MeshMemberState</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>MeshProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>MeshProperties.ciliumProperties</code></td><td>type</td><td>modify</td><td></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context">   ]&gt;;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L17-L17">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp:12</a></p></details><details class="report-subdetails" id="intent-semantic-ce182d340902ecb0-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-db14dcf83da2ac67"><summary><div class="report-card-title"><strong>Modify CiliumProperties, CiliumProperties.id, MeshMemberState</strong><small>Modify covers 7 change facts (type) across 7 declarations and 1 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 7 declaration/source facts; 4 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:meshmember</code></p><details class="report-subdetails"><summary>Change facts (7)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>CiliumProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>MeshMemberStatus</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>MeshMemberStatus.state</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>CiliumProperties.id</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>MeshMemberState</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>MeshProperties</code></td><td>type</td><td>modify</td><td>version-activation</td></tr><tr><td><code>MeshProperties.ciliumProperties</code></td><td>type</td><td>modify</td><td></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context">   ]&gt;;</span>
 <span class="context"> </span>
 <span class="context"> @added(Versions.v2026_03_02_preview)</span>
 <span class="add">+@removed(Versions.v2026_06_01)</span>
@@ -842,14 +845,14 @@ body {
 <span class="context">   @doc(&quot;The mesh member state.&quot;)</span>
 <span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp#L18-L30">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp:15</a></p></details><details class="report-subdetails" id="intent-semantic-db14dcf83da2ac67-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details></section>
 <section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">5 of 5 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
-<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty"><strong>Cross-version REST scope:</strong> 2025-03-01 to 2026-06-01. For these projects, findings assess migration between API versions, not a change to an existing version at a fixed API-version selector. Compiling an old-version projection does not prove that its previously published contract was preserved. Source commits and comparison roles are recorded in the appendix.</div><div class="report-empty">No confirmed REST breaking changes.</div></section>
-<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty"><strong>Cross-version REST scope:</strong> 2025-03-01 to 2026-06-01. For these projects, findings assess migration between API versions, not a change to an existing version at a fixed API-version selector. Compiling an old-version projection does not prove that its previously published contract was preserved. Source commits and comparison roles are recorded in the appendix.</div><div class="report-empty">No confirmed REST breaking changes.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 0 declarations checked</p></section>
 <section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet</code></td><td>new-api-version</td><td><code>668c17e024727325842a75915dc6744197bc2300@2025-03-01</code><br><small>current · previous-latest-stable</small></td><td><code>668c17e024727325842a75915dc6744197bc2300@2026-06-01</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/43918">#43918</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/">Add stable after preview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/">ARM common types</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/">Add stable after stable</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/">ARM resource types and modeling</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
   &quot;status&quot;: &quot;passed&quot;,
   &quot;coverage&quot;: {
     &quot;semanticIntentCount&quot;: 5,
@@ -861,6 +864,20 @@ body {
     &quot;catalogRanking&quot;: [
       {
         &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because a stable-after-stable release should version each changed api element and include examples for the new version.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 1,
         &quot;title&quot;: &quot;Evolving APIs&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
@@ -871,94 +888,10 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Primary existing-API evolution guidance covers version-gated removal of ARM models, properties and operations and declaration of the new stable version.&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 2,
-        &quot;title&quot;: &quot;Versioning overview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Version ordering and preview/stable transition guidance apply to the Fleet version enum and feature applicability.&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.&quot;
       },
       {
         &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 4,
-        &quot;title&quot;: &quot;Add stable after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;The latest source version is preview and the added version is stable; excluding unpromoted preview features is directly relevant.&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;The new stable enum entry selects ARM common-types v5; common-model version management is relevant enough to check, without presuming a common-type definition is authored.&quot;
-      },
-      {
-        &quot;rank&quot;: 5,
-        &quot;catalogOrder&quot;: 3,
-        &quot;title&quot;: &quot;Add preview after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM versioning category is relevant, but this change adds stable rather than another preview after preview.&quot;
-      },
-      {
-        &quot;rank&quot;: 6,
-        &quot;catalogOrder&quot;: 5,
-        &quot;title&quot;: &quot;Add preview after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM versioning is relevant, but no preview-after-stable declaration is added.&quot;
-      },
-      {
-        &quot;rank&quot;: 7,
-        &quot;catalogOrder&quot;: 6,
-        &quot;title&quot;: &quot;Add stable after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;The comparison baseline is stable, but the latest source enum entry is preview, not the stable-after-stable scenario.&quot;
-      },
-      {
-        &quot;rank&quot;: 8,
         &quot;catalogOrder&quot;: 7,
         &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
@@ -966,69 +899,13 @@ body {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;ClusterMeshProfile has a Fleet child-resource association, but the edit gates existing declarations rather than defining a new resource shape.&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because arm resources should use the appropriate tracked, proxy, child, tenant, or extension pattern.&quot;
       },
       {
-        &quot;rank&quot;: 9,
-        &quot;catalogOrder&quot;: 12,
-        &quot;title&quot;: &quot;ARM resource operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;The operation interface category and ARM plane match; no lifecycle template implementation is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 10,
-        &quot;catalogOrder&quot;: 13,
-        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;An ARM operation interface is gated, but no exact template signature change is supplied.&quot;
-      },
-      {
-        &quot;rank&quot;: 11,
-        &quot;catalogOrder&quot;: 14,
-        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Resource and parent decorators provide resource semantics context; those decorators themselves are not the changed constructs.&quot;
-      },
-      {
-        &quot;rank&quot;: 12,
-        &quot;catalogOrder&quot;: 15,
-        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM resource semantics are contextual, without an exact changed lifecycle decorator in the supplied diff.&quot;
-      },
-      {
-        &quot;rank&quot;: 13,
+        &quot;rank&quot;: 4,
         &quot;catalogOrder&quot;: 21,
         &quot;title&quot;: &quot;Models&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
@@ -1036,223 +913,195 @@ body {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Model/property categories apply to ARM, but the change is version activation rather than composition, optionality or inheritance.&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.&quot;
       },
       {
-        &quot;rank&quot;: 14,
-        &quot;catalogOrder&quot;: 22,
-        &quot;title&quot;: &quot;Enums&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;A version enum member is added; generic service-facing enum modeling is less specific than version-transition guidance.&quot;
-      },
-      {
-        &quot;rank&quot;: 15,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Decorator usage is present, but generic decorator syntax is less specific than versioning behavior.&quot;
-      },
-      {
-        &quot;rank&quot;: 16,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Documentation and visibility decorators appear in context, without changed visibility or value constraints.&quot;
-      },
-      {
-        &quot;rank&quot;: 17,
-        &quot;catalogOrder&quot;: 26,
-        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Decorator category applies, but no OpenAPI-specific decorator or operationId is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 18,
-        &quot;catalogOrder&quot;: 27,
-        &quot;title&quot;: &quot;Change provider namespace&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM decorator category matches broadly; no provider namespace is edited.&quot;
-      },
-      {
-        &quot;rank&quot;: 19,
-        &quot;catalogOrder&quot;: 28,
-        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM resource/decorator context matches broadly but no Portal experience customization is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 20,
-        &quot;catalogOrder&quot;: 29,
-        &quot;title&quot;: &quot;Content negotiation&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
+          &quot;patternCategory&quot;: 0,
           &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 3
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Only the broad decorator category overlaps; there is no data-plane Accept/content-negotiation change.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 21,
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
         &quot;catalogOrder&quot;: 8,
         &quot;title&quot;: &quot;Specific extension resource sample&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM plane matches; no extension-resource template or scoped extension change is supplied.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 22,
+        &quot;rank&quot;: 10,
         &quot;catalogOrder&quot;: 9,
         &quot;title&quot;: &quot;Private endpoints&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM plane matches, but mesh connectivity is not evidence of private endpoint connection changes.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 23,
+        &quot;rank&quot;: 11,
         &quot;catalogOrder&quot;: 10,
         &quot;title&quot;: &quot;Private links&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No private-link resource feature is changed despite the ARM service plane.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 24,
+        &quot;rank&quot;: 12,
         &quot;catalogOrder&quot;: 11,
         &quot;title&quot;: &quot;Network security perimeter&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No network security perimeter configuration is supplied.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 25,
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
         &quot;catalogOrder&quot;: 16,
         &quot;title&quot;: &quot;ARM long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM plane matches but no LRO, polling or response-header change is supplied.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 26,
-        &quot;catalogOrder&quot;: 18,
-        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no top/skip paging parameter change is supplied.&quot;
-      },
-      {
-        &quot;rank&quot;: 27,
-        &quot;catalogOrder&quot;: 23,
-        &quot;title&quot;: &quot;Scalars&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;Generic scalar guidance can apply to ARM, but no custom scalar or primitive constraint is edited.&quot;
-      },
-      {
-        &quot;rank&quot;: 28,
-        &quot;catalogOrder&quot;: 30,
-        &quot;title&quot;: &quot;Directives&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;Generic directives apply to ARM but no warning suppression is supplied.&quot;
-      },
-      {
-        &quot;rank&quot;: 29,
+        &quot;rank&quot;: 18,
         &quot;catalogOrder&quot;: 17,
         &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
@@ -1263,10 +1112,24 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No Azure.Core data-plane asynchronous operation is changed.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 30,
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
         &quot;catalogOrder&quot;: 19,
         &quot;title&quot;: &quot;TypeSpec pagination&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
@@ -1277,7 +1140,147 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No data-plane paging construct is edited; aggregate list operation signals do not establish paging changes.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 31,
@@ -1291,12 +1294,70 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No no-openapi warning or suppression is supplied.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       }
     ],
     &quot;documents&quot;: [
       {
         &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because a stable-after-stable release should version each changed api element and include examples for the new version.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
+            &quot;excerpt&quot;: &quot;Add the new stable version and mark added, removed, renamed, or modified types with the appropriate versioning decorator.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;making&quot;,
+              &quot;changes&quot;,
+              &quot;to&quot;,
+              &quot;your&quot;,
+              &quot;typespec&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;A stable-after-stable release should version each changed API element and include examples for the new version.&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-10c99e2ec75d39e6&quot;,
+              &quot;declaration-11d57be73543b0c0&quot;,
+              &quot;declaration-1c31f0469cb0cd7d&quot;,
+              &quot;declaration-283bef717b2b5719&quot;,
+              &quot;declaration-3e5b74235786ff96&quot;,
+              &quot;declaration-459a7e46933ac80e&quot;,
+              &quot;declaration-5942d0948478a079&quot;,
+              &quot;declaration-65239c6da420aa84&quot;,
+              &quot;declaration-68dae696d436b320&quot;,
+              &quot;declaration-7c7baa9ff97789e5&quot;,
+              &quot;declaration-86673ad8069b9b54&quot;,
+              &quot;declaration-87312fd6a88ac8e7&quot;,
+              &quot;declaration-968d76245db82cd1&quot;,
+              &quot;declaration-af5a9606a5495ef4&quot;,
+              &quot;declaration-b370cfa51267c70c&quot;,
+              &quot;declaration-bf7721e82dfc9389&quot;,
+              &quot;declaration-c59c45e2dc2c6c09&quot;,
+              &quot;declaration-d0467938ab1e91f6&quot;,
+              &quot;declaration-d43efc23b65bdf01&quot;,
+              &quot;declaration-d599d84b7e2c4c32&quot;,
+              &quot;declaration-df2796b93b389513&quot;,
+              &quot;declaration-e3cddbff950f4095&quot;,
+              &quot;declaration-f691f7e74f7caf6d&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:11.041833Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:70a904d0e8c89b1310eff81cfdad9554ec0e94d597f4f139b174eb5d98da56b8&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 1,
         &quot;title&quot;: &quot;Evolving APIs&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
@@ -1307,102 +1368,17 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Primary existing-API evolution guidance covers version-gated removal of ARM models, properties and operations and declaration of the new stable version.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Declaring Versions&quot;,
-            &quot;excerpt&quot;: &quot;Define your API versions in an enum. For each version, specify dependencies and common types as needed.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;Versions&quot;,
-              &quot;@armCommonTypesVersion&quot;,
-              &quot;@versioned&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-10c99e2ec75d39e6&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;Versioning Decorators&quot;,
-            &quot;excerpt&quot;: &quot;To remove models, properties, or operations starting from a specific version, use the `@removed` decorator.\n\n*   The `version` argument is the version where the element is removed.\n*   The element will not be present in that version or any later versions.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@removed&quot;,
-              &quot;Versions.v2026_06_01&quot;,
-              &quot;models&quot;,
-              &quot;properties&quot;,
-              &quot;operations&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-459a7e46933ac80e&quot;,
-              &quot;declaration-7c7baa9ff97789e5&quot;,
-              &quot;declaration-86673ad8069b9b54&quot;,
-              &quot;declaration-87312fd6a88ac8e7&quot;,
-              &quot;declaration-968d76245db82cd1&quot;,
-              &quot;declaration-af5a9606a5495ef4&quot;,
-              &quot;declaration-b370cfa51267c70c&quot;,
-              &quot;declaration-c59c45e2dc2c6c09&quot;,
-              &quot;declaration-d0467938ab1e91f6&quot;,
-              &quot;declaration-d43efc23b65bdf01&quot;,
-              &quot;declaration-df2796b93b389513&quot;,
-              &quot;declaration-f691f7e74f7caf6d&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:38:36.097Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 2,
-        &quot;title&quot;: &quot;Versioning overview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Version ordering and preview/stable transition guidance apply to the Fleet version enum and feature applicability.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Preview Versioning Rules for All Azure APIs&quot;,
-            &quot;excerpt&quot;: &quot;The [`@azure-tools/typespec-azure-resource-manager/version-progression`](/typespec-azure/docs/libraries/azure-resource-manager/rules/version-progression/) linter rule helps enforce that every api-version uses a unique `YYYY-MM-DD` date and that versions are declared in strictly increasing chronological order from top to bottom of the `Versions` enum.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;Versions&quot;,
-              &quot;2026-06-01&quot;,
-              &quot;version-progression&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-10c99e2ec75d39e6&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;Common Version Transition Scenarios&quot;,
-            &quot;excerpt&quot;: &quot;The following document describes how to convert an existing multi-API TypeSpec spec with multiple previews into a spec with a single active preview. Note that this is not required, but it may significantly simplify the versioning decoration in your spec:&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;preview&quot;,
-              &quot;stable&quot;,
-              &quot;Versions&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-10c99e2ec75d39e6&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:38:37.167Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:2aeadb30f0b22daa0b3aaed66c02786b479d3b63331dab61409d77f5b9452765&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:10.671774Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c&quot;
       },
       {
         &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 4,
-        &quot;title&quot;: &quot;Add stable after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
@@ -1410,43 +1386,17 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The latest source version is preview and the added version is stable; excluding unpromoted preview features is directly relevant.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Introduction&quot;,
-            &quot;excerpt&quot;: &quot;When the last api-version in your TypeSpec spec is a preview, adding a new stable version means you must remove any preview types or other API changes from the preview and only leave those type changes that are now stable.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@removed&quot;,
-              &quot;@added&quot;,
-              &quot;2026-03-02-preview&quot;,
-              &quot;2026-06-01&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-459a7e46933ac80e&quot;,
-              &quot;declaration-7c7baa9ff97789e5&quot;,
-              &quot;declaration-86673ad8069b9b54&quot;,
-              &quot;declaration-87312fd6a88ac8e7&quot;,
-              &quot;declaration-968d76245db82cd1&quot;,
-              &quot;declaration-af5a9606a5495ef4&quot;,
-              &quot;declaration-b370cfa51267c70c&quot;,
-              &quot;declaration-c59c45e2dc2c6c09&quot;,
-              &quot;declaration-d0467938ab1e91f6&quot;,
-              &quot;declaration-d43efc23b65bdf01&quot;,
-              &quot;declaration-df2796b93b389513&quot;,
-              &quot;declaration-f691f7e74f7caf6d&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:38:38.242Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:eec57fd6f9c9698c96e85f131bbda8e19cf5bb1bd37d9ff945beb34606fb9416&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because arm resources should use the appropriate tracked, proxy, child, tenant, or extension pattern.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:12.408871Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:d3eb7225c2f499317611ae7d7226f8174f0b6b831b498fa53b93eb1687244c2f&quot;
       },
       {
         &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
@@ -1454,11 +1404,11 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The new stable enum entry selects ARM common-types v5; common-model version management is relevant enough to check, without presuming a common-type definition is authored.&quot;,
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.&quot;,
         &quot;guidance&quot;: [],
         &quot;noRelevantGuidance&quot;: true,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:38:39.306Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:aec0244b1b0dbafb7d280e40f54a3dc87701056c504e93ebd61cfd9ba3384ded&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:13.273479Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:efd56120d9598700d213c873b8e93962fc666eede836a6009d5439fee74f75ce&quot;
       }
     ]
   },
@@ -1495,12 +1445,20 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;semanticAnalysisMs&quot;: 1429,
-    &quot;restAnalysisMs&quot;: 50,
-    &quot;downstreamAnalysisMs&quot;: 8,
-    &quot;semanticContextPolicyMs&quot;: 176,
-    &quot;documentQualityAnalysisMs&quot;: 1,
-    &quot;replayAnalysisMs&quot;: 2027
+    &quot;metadataMs&quot;: 3247,
+    &quot;fetchMs&quot;: 625,
+    &quot;scopeDiscoveryMs&quot;: 662,
+    &quot;setupExcludingFetchMs&quot;: 1382790,
+    &quot;comparisonMs&quot;: 662,
+    &quot;changeDiscoveryMs&quot;: 438,
+    &quot;workspacePreparationMs&quot;: 1371271,
+    &quot;projectDiscoveryMs&quot;: 5015,
+    &quot;totalMs&quot;: 2634782,
+    &quot;semanticAnalysisMs&quot;: 3333,
+    &quot;restAnalysisMs&quot;: 107,
+    &quot;downstreamAnalysisMs&quot;: 14,
+    &quot;semanticContextPolicyMs&quot;: 365,
+    &quot;documentQualityAnalysisMs&quot;: 1
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;small&quot;,
@@ -1531,9 +1489,9 @@ body {
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 35651,
-      &quot;guidanceExcerptsRetained&quot;: 5,
-      &quot;guidanceExcerptBytesRetained&quot;: 1186
+      &quot;documentBytesFetched&quot;: 1764241,
+      &quot;guidanceExcerptsRetained&quot;: 1,
+      &quot;guidanceExcerptBytesRetained&quot;: 121
     }
   }
 }</pre>

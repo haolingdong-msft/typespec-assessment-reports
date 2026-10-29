@@ -819,10 +819,10 @@
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">Downstream breaking changes alignment analysis</p>
-          <h2>Do assessment findings align with Python and Java SDK breaking changes?</h2>
+          <h2>Earlier pinned assessment and SDK comparison</h2>
           <p>
-            Compare one spec PR's downstream findings with generated SDK changelogs, then explain
-            language-specific effects and release-level changes from other spec PRs.
+            This separate historical view was not reclassified from the fresh October 29 reassessment.
+            It compares the earlier assessment findings with pinned Python and Java SDK changelogs.
           </p>
         </div>
         <aside class="insight">
@@ -839,7 +839,7 @@
         <article class="summary-card aligned">
           <strong>11</strong>
           <span>Aligned</span>
-          <small>Assessment and SDK evidence agree</small>
+          <small>Earlier pinned assessment and SDK evidence agree</small>
         </article>
         <article class="summary-card expected">
           <strong>14</strong>
@@ -869,7 +869,7 @@
     </section>
 
     <footer>
-      Alignment evidence uses pinned Python and Java changelog entries and preserves initial, unmerged, and unverified release states.
+      This earlier alignment analysis uses pinned Python and Java changelog entries and preserves initial, unmerged, and unverified release states.
       <a href="operations.html">Operational details</a> ·
       <a href="combined.html">Combined core reports</a> ·
       <a href="publication-manifest.json">Publication provenance</a>
@@ -1340,47 +1340,352 @@
     ];
 
     const assessmentStates = {
-      44288: { verdict: "failed", coverage: "partial" },
-      46679: { verdict: "failed", coverage: "partial" },
-      44332: { verdict: "failed", coverage: "complete" },
-      44920: { verdict: "failed", coverage: "complete" },
-      44101: { verdict: "unknown", coverage: "partial" },
-      44524: { verdict: "failed", coverage: "complete" },
-      46008: { verdict: "passed", coverage: "complete" },
-      43918: { verdict: "passed", coverage: "complete" },
-      44557: { verdict: "failed", coverage: "complete" },
-      43757: { verdict: "failed", coverage: "complete" },
-      39064: { verdict: "unknown", coverage: "blocked" },
-      42373: { verdict: "passed", coverage: "complete" },
-      43855: { verdict: "failed", coverage: "complete" },
-      44200: { verdict: "passed", coverage: "complete" },
-      44334: { verdict: "unknown", coverage: "blocked" },
-      44384: { verdict: "failed", coverage: "complete" },
-      44586: { verdict: "passed", coverage: "complete" },
-      44598: { verdict: "passed", coverage: "complete" },
-      44750: { verdict: "passed", coverage: "complete" },
-      44842: { verdict: "failed", coverage: "complete" },
-      44882: { verdict: "passed", coverage: "complete" },
-      44988: { verdict: "failed", coverage: "complete" },
-      45167: { verdict: "passed", coverage: "complete" },
-      45197: { verdict: "unknown", coverage: "blocked" },
-      45348: { verdict: "unknown", coverage: "partial" },
-      45395: { verdict: "passed", coverage: "complete" },
-      45458: { verdict: "unknown", coverage: "blocked" },
-      45608: { verdict: "failed", coverage: "complete" },
-      45678: { verdict: "failed", coverage: "complete" },
-      45714: { verdict: "failed", coverage: "complete" },
-      45760: { verdict: "passed", coverage: "complete" },
-      45794: { verdict: "unknown", coverage: "blocked" },
-      46075: { verdict: "passed", coverage: "complete" },
-      46429: { verdict: "unknown", coverage: "blocked" }
+      "39064": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "42373": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "43757": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "43855": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "43918": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "44101": {
+        "verdict": "unknown",
+        "coverage": "partial"
+      },
+      "44200": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "44288": {
+        "verdict": "failed",
+        "coverage": "partial"
+      },
+      "44332": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "44334": {
+        "verdict": "unknown",
+        "coverage": "partial"
+      },
+      "44384": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "44524": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "44557": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "44586": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "44598": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "44750": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "44842": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "44882": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "44920": {
+        "verdict": "unknown",
+        "coverage": "partial"
+      },
+      "44988": {
+        "verdict": "failed",
+        "coverage": "complete"
+      },
+      "45167": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "45197": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "45348": {
+        "verdict": "unknown",
+        "coverage": "partial"
+      },
+      "45395": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "45458": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "45608": {
+        "verdict": "failed",
+        "coverage": "complete"
+      },
+      "45678": {
+        "verdict": "failed",
+        "coverage": "complete"
+      },
+      "45714": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "45760": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "45794": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "46008": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "46075": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "46429": {
+        "verdict": "unknown",
+        "coverage": "blocked"
+      },
+      "46679": {
+        "verdict": "failed",
+        "coverage": "partial"
+      }
     };
 
-    const legacyReportPrs = new Set([
-      42373, 43855, 44200, 44334, 44384, 44586, 44598, 44750,
-      44842, 44882, 44988, 45167, 45197, 45348, 45395, 45458,
-      45608, 45678, 45714, 45760, 45794, 46075, 46429
-    ]);
+    const freshFindings = {
+      "39064": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "42373": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "43757": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 1
+      },
+      "43855": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "43918": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44101": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44200": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44288": {
+        "rest": 2,
+        "sdk": 1,
+        "guidelines": 1,
+        "documentation": 0
+      },
+      "44332": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44334": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 1,
+        "documentation": 1
+      },
+      "44384": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44524": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44557": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44586": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 1,
+        "documentation": 0
+      },
+      "44598": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44750": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 2
+      },
+      "44842": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44882": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44920": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "44988": {
+        "rest": 6,
+        "sdk": 9,
+        "guidelines": 0,
+        "documentation": 4
+      },
+      "45167": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "45197": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "45348": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "45395": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "45458": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "45608": {
+        "rest": 0,
+        "sdk": 5,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "45678": {
+        "rest": 0,
+        "sdk": 1,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "45714": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "45760": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "45794": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "46008": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "46075": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "46429": {
+        "rest": 0,
+        "sdk": 0,
+        "guidelines": 0,
+        "documentation": 0
+      },
+      "46679": {
+        "rest": 49,
+        "sdk": 12,
+        "guidelines": 1,
+        "documentation": 0
+      }
+    };
+
+    const legacyReportPrs = new Set([]);
 
     const reportsView = document.querySelector("#reports-view");
     const analysisView = document.querySelector("#analysis-view");
@@ -1433,6 +1738,7 @@
     function renderIndex() {
       reportIndex.innerHTML = reports.map((report) => {
         const state = assessmentStates[report.pr];
+        const currentFindings = freshFindings[report.pr];
         const isLegacy = legacyReportPrs.has(report.pr);
         return `
           <article class="index-row">
@@ -1449,10 +1755,10 @@
               </span>
             </div>
             <div class="index-findings">
-              ${indexFinding("REST", report.findings.rest)}
-              ${indexFinding("SDK", report.findings.sdk)}
-              ${indexFinding("Guidelines", report.findings.guidelines)}
-              ${indexFinding("Docs", report.findings.documentation)}
+              ${indexFinding("REST", currentFindings.rest)}
+              ${indexFinding("SDK", currentFindings.sdk)}
+              ${indexFinding("Guidelines", currentFindings.guidelines)}
+              ${indexFinding("Docs", currentFindings.documentation)}
             </div>
             <div class="index-actions">
               <a class="secondary-button" href="https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-${report.pr}/" target="_blank" rel="noreferrer">Open assessment</a>

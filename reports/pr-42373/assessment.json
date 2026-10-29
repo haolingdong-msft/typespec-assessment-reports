@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T09:34:23.268Z",
+  "generatedAt": "2026-10-29T08:28:05.875Z",
   "title": "TypeSpec assessment: specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor",
   "repository": {
     "root": "C:\\workspace\\azure-rest-api-specs",
@@ -65,85 +65,77 @@
   "confidence": "high",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "passed"
+    "status": "passed",
+    "verdict": "passed",
+    "coverage": "complete"
   },
   "dimensions": {
     "semantic": {
       "status": "assessed",
       "items": [
         {
-          "id": "semantic-036c80092a0b7767",
+          "id": "semantic-a484520c6d77c276",
           "projectId": "project-bee79f4a1203",
           "projectIds": [
             "project-bee79f4a1203"
           ],
           "action": "modify",
           "changeKind": "modify",
+          "classificationVersion": 3,
+          "changeFacts": [
+            {
+              "id": "semantic-change-52b7bd9cb05ab883",
+              "sourceChangeId": "source-e6299813b8b66193",
+              "hunkIds": [
+                "hunk-ad2e9192ac31c805"
+              ],
+              "declarationIds": [
+                "declaration-2402e0a03df3680a",
+                "declaration-b05ec51f52b8b4a3"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-b05ec51f52b8b4a3"
+              ],
+              "afterDeclarationIds": [
+                "declaration-2402e0a03df3680a"
+              ],
+              "changeType": "versioning",
+              "declarationKind": "enum",
+              "qualifiedName": "Versions",
+              "action": "modify",
+              "facets": [
+                "property-contract"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-e6299813b8b66193",
+                "hunkIds": [
+                  "hunk-ad2e9192ac31c805"
+                ],
+                "declarationIds": [
+                  "declaration-2402e0a03df3680a",
+                  "declaration-b05ec51f52b8b4a3"
+                ]
+              }
+            }
+          ],
+          "changeTypes": [
+            "versioning"
+          ],
           "sourceChangeIds": [
-            "source-dc89abb2fe684647",
             "source-e6299813b8b66193"
           ],
           "hunkIds": [
-            "hunk-15457c6285f20947",
-            "hunk-32747b7c0c605c30",
-            "hunk-a5b47c949b332078",
-            "hunk-ad2e9192ac31c805",
-            "hunk-d416255f3549a4de"
+            "hunk-ad2e9192ac31c805"
           ],
           "declarationIds": [
-            "declaration-026bf9d2c4b637fc",
-            "declaration-06f464b5d93201c8",
             "declaration-2402e0a03df3680a",
-            "declaration-36be9cd9c8199995",
-            "declaration-4087bae62353aa10",
-            "declaration-44ead16a2efc5d2d",
-            "declaration-4a580d24ab6824b8",
-            "declaration-4d0fedd2f9090901",
-            "declaration-57deb4a5a8823181",
-            "declaration-5afd8ac23a4ca7ce",
-            "declaration-63aa866d3a43b277",
-            "declaration-832e13ec74a3f5c5",
-            "declaration-9b316ea48ec082ff",
-            "declaration-9c00c2a37b1a85a6",
-            "declaration-ab4a9e19611d9f13",
-            "declaration-aee9d10df1d299ee",
-            "declaration-b05ec51f52b8b4a3",
-            "declaration-b0716f5d74305915",
-            "declaration-c4662e6e5a3a5bbd",
-            "declaration-cc91ebef04cfa7e9",
-            "declaration-d207861f8511169c",
-            "declaration-d20fc39901cb666c",
-            "declaration-f96e3deeab2caa9b"
+            "declaration-b05ec51f52b8b4a3"
           ],
           "declarationNames": [
-            "ManagedRuleDefinition",
-            "ManagedRuleDefinition.paranoiaLevel",
-            "ManagedRuleSetDefinitionProperties",
-            "ManagedRuleSetDefinitionProperties.displayName",
-            "ManagedRuleSetDefinitionProperties.status",
-            "ManagedRuleSetStatus",
-            "ManagedRuleSetStatus.Deprecated",
-            "ManagedRuleSetStatus.GA",
-            "ManagedRuleSetStatus.Preview",
-            "ManagedRuleSetStatus.Supported",
-            "ParanoiaLevel",
-            "ParanoiaLevel.PL1",
-            "ParanoiaLevel.PL2",
-            "ParanoiaLevel.PL3",
-            "ParanoiaLevel.PL4",
-            "VariableName",
-            "VariableName.Asn",
-            "VariableName.Ja4",
             "Versions"
           ],
-          "ownedOperationIds": [
-            "ManagedRuleSets_List",
-            "Policies_CreateOrUpdate",
-            "Policies_Get",
-            "Policies_List",
-            "Policies_ListBySubscription",
-            "Policies_Update"
-          ],
+          "ownedOperationIds": [],
           "versionTransitionOperationIds": [
             "Endpoints_PurgeContent",
             "Experiments_CreateOrUpdate",
@@ -24901,25 +24893,424 @@
           "groupingEvidence": {
             "kind": "deterministic-coherent-change",
             "reasons": [
-              "small-new-version-change"
+              "governance:api-version",
+              "publication"
             ],
             "memberHunkIds": [
-              "hunk-15457c6285f20947",
-              "hunk-32747b7c0c605c30",
-              "hunk-a5b47c949b332078",
-              "hunk-ad2e9192ac31c805",
-              "hunk-d416255f3549a4de"
+              "hunk-ad2e9192ac31c805"
             ]
           },
-          "intentType": "normal",
-          "title": "Publish Front Door managed-rule metadata in API 2026-04-01",
-          "summary": "Adds the stable 2026-04-01 API version and versions new managed-rule response metadata, including rule-set status and display name, rule paranoia levels, and variable names. The changes propagate to ManagedRuleSets_List and policy operations without altering the existing 2025-11-01 contracts.",
+          "intentType": "api-version-publication",
+          "carryOverProof": {
+            "schemaVersion": 1,
+            "status": "partial",
+            "operations": [
+              {
+                "operationId": "Endpoints_PurgeContent",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-ce81dc7c04710f51",
+                "afterFactId": "operation-cd8473f3f84c9aab"
+              },
+              {
+                "operationId": "Experiments_CreateOrUpdate",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-83645dde40d7b247",
+                "afterFactId": "operation-bc556cb0733788d0"
+              },
+              {
+                "operationId": "Experiments_Delete",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-7de5e8d29c1c1e09",
+                "afterFactId": "operation-f99fd9034d12e498"
+              },
+              {
+                "operationId": "Experiments_Get",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-b49ceff72023dbc0",
+                "afterFactId": "operation-6170116449267864"
+              },
+              {
+                "operationId": "Experiments_ListByProfile",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-6fa24bb9352b7a70",
+                "afterFactId": "operation-27b3f051d6b1beeb"
+              },
+              {
+                "operationId": "Experiments_Update",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-98e7c90d586c456a",
+                "afterFactId": "operation-06dec5779b03ac19"
+              },
+              {
+                "operationId": "FrontDoorNameAvailability_Check",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-b3d455cd5f9e6dd8",
+                "afterFactId": "operation-e7d001371118a140"
+              },
+              {
+                "operationId": "FrontDoorNameAvailabilityWithSubscription_Check",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-ea3001654b61d3c5",
+                "afterFactId": "operation-3e42bb52102778ac"
+              },
+              {
+                "operationId": "FrontDoors_CreateOrUpdate",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-fc5836e40aad065c",
+                "afterFactId": "operation-b7e761bd114a9db6"
+              },
+              {
+                "operationId": "FrontDoors_Delete",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-26988a37ff772586",
+                "afterFactId": "operation-77c852f91255aac7"
+              },
+              {
+                "operationId": "FrontDoors_Get",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-de71af50bb9d9858",
+                "afterFactId": "operation-6e8e95aee60453f1"
+              },
+              {
+                "operationId": "FrontDoors_List",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-7a2d1d0a2b8e710f",
+                "afterFactId": "operation-4d7adf917b76d34c"
+              },
+              {
+                "operationId": "FrontDoors_ListByResourceGroup",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-c85a1549cee8b21d",
+                "afterFactId": "operation-261abe80f52f519e"
+              },
+              {
+                "operationId": "FrontDoors_ValidateCustomDomain",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-6a49810204f96d0a",
+                "afterFactId": "operation-b447230f4e36fd4e"
+              },
+              {
+                "operationId": "FrontendEndpoints_DisableHttps",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-05b0e4788e6154b1",
+                "afterFactId": "operation-e62712208056d329"
+              },
+              {
+                "operationId": "FrontendEndpoints_EnableHttps",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-0520af7b9b5e1ef2",
+                "afterFactId": "operation-592110427c01bdcd"
+              },
+              {
+                "operationId": "FrontendEndpoints_Get",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-aaf590c6855d6108",
+                "afterFactId": "operation-e83c6c9a67ac2b35"
+              },
+              {
+                "operationId": "FrontendEndpoints_ListByFrontDoor",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-393e4f637b316df2",
+                "afterFactId": "operation-a3bf9b658a5262fb"
+              },
+              {
+                "operationId": "ManagedRuleSets_List",
+                "rest": "different",
+                "downstream": "different",
+                "beforeFactId": "operation-e5ce37cf1dfaeb64",
+                "afterFactId": "operation-a83e0c50718cbe5f"
+              },
+              {
+                "operationId": "NetworkExperimentProfiles_CreateOrUpdate",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-4b717e3fa5f2590f",
+                "afterFactId": "operation-fa4539cfe1e246c3"
+              },
+              {
+                "operationId": "NetworkExperimentProfiles_Delete",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-54cd31207efcc8bc",
+                "afterFactId": "operation-6f0cc29bdca97126"
+              },
+              {
+                "operationId": "NetworkExperimentProfiles_Get",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-d33b0053f5ef50ef",
+                "afterFactId": "operation-240136f4c7a66e6f"
+              },
+              {
+                "operationId": "NetworkExperimentProfiles_List",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-c725e68a2b55a2c5",
+                "afterFactId": "operation-d5e6d38a88e95273"
+              },
+              {
+                "operationId": "NetworkExperimentProfiles_ListByResourceGroup",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-0cce50ca33a8d59f",
+                "afterFactId": "operation-250e71cc502d7733"
+              },
+              {
+                "operationId": "NetworkExperimentProfiles_Update",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-c03528dfc814f473",
+                "afterFactId": "operation-adcc9975eb49453a"
+              },
+              {
+                "operationId": "Policies_CreateOrUpdate",
+                "rest": "different",
+                "downstream": "different",
+                "beforeFactId": "operation-5341610b0791725f",
+                "afterFactId": "operation-0a75972701ea8e46"
+              },
+              {
+                "operationId": "Policies_Delete",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-138b5df52da93a63",
+                "afterFactId": "operation-b0c6169a1b4adbd5"
+              },
+              {
+                "operationId": "Policies_Get",
+                "rest": "different",
+                "downstream": "different",
+                "beforeFactId": "operation-f64e31892ceda04b",
+                "afterFactId": "operation-0f20b9b707e709d4"
+              },
+              {
+                "operationId": "Policies_List",
+                "rest": "different",
+                "downstream": "different",
+                "beforeFactId": "operation-e68eb2d1498bc66f",
+                "afterFactId": "operation-de339a8e54924789"
+              },
+              {
+                "operationId": "Policies_ListBySubscription",
+                "rest": "different",
+                "downstream": "different",
+                "beforeFactId": "operation-f4d604c5e3c2fa8c",
+                "afterFactId": "operation-3789fc5395d31e17"
+              },
+              {
+                "operationId": "Policies_Update",
+                "rest": "different",
+                "downstream": "different",
+                "beforeFactId": "operation-91a2efe82713999e",
+                "afterFactId": "operation-768acaeaa143f147"
+              },
+              {
+                "operationId": "PreconfiguredEndpoints_List",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-0c716d0b82e6e546",
+                "afterFactId": "operation-ba4c835e810f3bf2"
+              },
+              {
+                "operationId": "Reports_GetLatencyScorecards",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-0a8b890ea740e83d",
+                "afterFactId": "operation-6988ff09e600c8eb"
+              },
+              {
+                "operationId": "Reports_GetTimeseries",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-aeeea55bdc1578b8",
+                "afterFactId": "operation-60f8461d5326ee37"
+              },
+              {
+                "operationId": "RulesEngines_CreateOrUpdate",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-147305b625eaeb0e",
+                "afterFactId": "operation-6832845bd3c487ed"
+              },
+              {
+                "operationId": "RulesEngines_Delete",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-ccf2283ffd217803",
+                "afterFactId": "operation-5b3ba9b4c4b1103c"
+              },
+              {
+                "operationId": "RulesEngines_Get",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-4518a3f3c32f43bc",
+                "afterFactId": "operation-67fb94a956974f8a"
+              },
+              {
+                "operationId": "RulesEngines_ListByFrontDoor",
+                "rest": "equivalent",
+                "downstream": "equivalent",
+                "beforeFactId": "operation-3f3c87a78fd7c90b",
+                "afterFactId": "operation-d993ada49c8b7af8"
+              }
+            ],
+            "equivalentOperationIds": [
+              "Endpoints_PurgeContent",
+              "Experiments_CreateOrUpdate",
+              "Experiments_Delete",
+              "Experiments_Get",
+              "Experiments_ListByProfile",
+              "Experiments_Update",
+              "FrontDoorNameAvailabilityWithSubscription_Check",
+              "FrontDoorNameAvailability_Check",
+              "FrontDoors_CreateOrUpdate",
+              "FrontDoors_Delete",
+              "FrontDoors_Get",
+              "FrontDoors_List",
+              "FrontDoors_ListByResourceGroup",
+              "FrontDoors_ValidateCustomDomain",
+              "FrontendEndpoints_DisableHttps",
+              "FrontendEndpoints_EnableHttps",
+              "FrontendEndpoints_Get",
+              "FrontendEndpoints_ListByFrontDoor",
+              "NetworkExperimentProfiles_CreateOrUpdate",
+              "NetworkExperimentProfiles_Delete",
+              "NetworkExperimentProfiles_Get",
+              "NetworkExperimentProfiles_List",
+              "NetworkExperimentProfiles_ListByResourceGroup",
+              "NetworkExperimentProfiles_Update",
+              "Policies_Delete",
+              "PreconfiguredEndpoints_List",
+              "Reports_GetLatencyScorecards",
+              "Reports_GetTimeseries",
+              "RulesEngines_CreateOrUpdate",
+              "RulesEngines_Delete",
+              "RulesEngines_Get",
+              "RulesEngines_ListByFrontDoor"
+            ],
+            "differentOperationIds": [
+              "ManagedRuleSets_List",
+              "Policies_CreateOrUpdate",
+              "Policies_Get",
+              "Policies_List",
+              "Policies_ListBySubscription",
+              "Policies_Update"
+            ],
+            "unknownOperationIds": []
+          },
+          "contextPolicy": {
+            "schemaVersion": 1,
+            "rest": {
+              "mode": "agent",
+              "reason": "changed-or-unresolved-rest-scope",
+              "evidenceIds": [
+                "Endpoints_PurgeContent",
+                "Experiments_CreateOrUpdate",
+                "Experiments_Delete",
+                "Experiments_Get",
+                "Experiments_ListByProfile",
+                "Experiments_Update",
+                "FrontDoorNameAvailabilityWithSubscription_Check",
+                "FrontDoorNameAvailability_Check",
+                "FrontDoors_CreateOrUpdate",
+                "FrontDoors_Delete",
+                "FrontDoors_Get",
+                "FrontDoors_List",
+                "FrontDoors_ListByResourceGroup",
+                "FrontDoors_ValidateCustomDomain",
+                "FrontendEndpoints_DisableHttps",
+                "FrontendEndpoints_EnableHttps",
+                "FrontendEndpoints_Get",
+                "FrontendEndpoints_ListByFrontDoor",
+                "NetworkExperimentProfiles_CreateOrUpdate",
+                "NetworkExperimentProfiles_Delete",
+                "NetworkExperimentProfiles_Get",
+                "NetworkExperimentProfiles_List",
+                "NetworkExperimentProfiles_ListByResourceGroup",
+                "NetworkExperimentProfiles_Update",
+                "Policies_Delete",
+                "PreconfiguredEndpoints_List",
+                "Reports_GetLatencyScorecards",
+                "Reports_GetTimeseries",
+                "RulesEngines_CreateOrUpdate",
+                "RulesEngines_Delete",
+                "RulesEngines_Get",
+                "RulesEngines_ListByFrontDoor"
+              ]
+            },
+            "downstream": {
+              "mode": "agent",
+              "reason": "changed-or-unresolved-downstream-scope",
+              "evidenceIds": [
+                "Endpoints_PurgeContent",
+                "Experiments_CreateOrUpdate",
+                "Experiments_Delete",
+                "Experiments_Get",
+                "Experiments_ListByProfile",
+                "Experiments_Update",
+                "FrontDoorNameAvailabilityWithSubscription_Check",
+                "FrontDoorNameAvailability_Check",
+                "FrontDoors_CreateOrUpdate",
+                "FrontDoors_Delete",
+                "FrontDoors_Get",
+                "FrontDoors_List",
+                "FrontDoors_ListByResourceGroup",
+                "FrontDoors_ValidateCustomDomain",
+                "FrontendEndpoints_DisableHttps",
+                "FrontendEndpoints_EnableHttps",
+                "FrontendEndpoints_Get",
+                "FrontendEndpoints_ListByFrontDoor",
+                "NetworkExperimentProfiles_CreateOrUpdate",
+                "NetworkExperimentProfiles_Delete",
+                "NetworkExperimentProfiles_Get",
+                "NetworkExperimentProfiles_List",
+                "NetworkExperimentProfiles_ListByResourceGroup",
+                "NetworkExperimentProfiles_Update",
+                "Policies_Delete",
+                "PreconfiguredEndpoints_List",
+                "Reports_GetLatencyScorecards",
+                "Reports_GetTimeseries",
+                "RulesEngines_CreateOrUpdate",
+                "RulesEngines_Delete",
+                "RulesEngines_Get",
+                "RulesEngines_ListByFrontDoor"
+              ]
+            },
+            "guidelines": {
+              "mode": "agent",
+              "reason": "version-event-remains-guidelines-eligible"
+            },
+            "documentation": {
+              "mode": "deterministic",
+              "reason": "compiler-effective-documentation-check"
+            }
+          },
+          "title": "Modify Versions",
+          "summary": "Modify covers 1 change facts (versioning) across 1 declarations and 38 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
             "downstreamCandidateIds": [],
             "complianceSearchRequestIds": [
-              "compliance-search-93190f0934e584b1"
+              "compliance-search-ae9208f9fe7c0cbb"
             ],
             "relatedOperationIds": [
               "Endpoints_PurgeContent",
@@ -24962,10 +25353,914 @@
               "RulesEngines_ListByFrontDoor"
             ],
             "coveredHunkIds": [
+              "hunk-ad2e9192ac31c805"
+            ],
+            "uncoveredHunkIds": [],
+            "classifications": [
+              {
+                "hunkId": "hunk-ad2e9192ac31c805",
+                "status": "no-impact",
+                "reason": "declaration-mapped-and-contracts-compared",
+                "restCandidateIds": [],
+                "downstreamCandidateIds": []
+              }
+            ],
+            "gaps": []
+          },
+          "inferenceRequired": false,
+          "sources": [
+            {
+              "id": "source-e6299813b8b66193",
+              "path": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-ad2e9192ac31c805",
+                  "base": {
+                    "startLine": 52,
+                    "endLine": 55
+                  },
+                  "current": {
+                    "startLine": 52,
+                    "endLine": 60
+                  },
+                  "lines": [
+                    "    * The 2025-11-01 API version.",
+                    "    */",
+                    "   v2025_11_01: \"2025-11-01\",",
+                    "+",
+                    "+  /**",
+                    "+   * The 2026-04-01 API version.",
+                    "+   */",
+                    "+  v2026_04_01: \"2026-04-01\",",
+                    " }",
+                    ""
+                  ]
+                }
+              ],
+              "declarations": [
+                {
+                  "id": "declaration-b05ec51f52b8b4a3",
+                  "kind": "enum",
+                  "qualifiedName": "Versions",
+                  "decorators": [
+                    "@versioned(Versions)",
+                    "@armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v3)"
+                  ],
+                  "versionedMembers": [],
+                  "hunkIds": [
+                    "hunk-ad2e9192ac31c805"
+                  ],
+                  "source": {
+                    "revision": "base",
+                    "startLine": 42,
+                    "endLine": 55,
+                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/f2047bbdf9d14adf4655663e889be86e4b94db6b/specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp#L45-L55"
+                  },
+                  "compilerEvidence": {
+                    "kind": "semantic-type",
+                    "compilerTypeKind": "Enum",
+                    "sourceFile": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
+                    "position": {
+                      "start": 1312,
+                      "end": 1517
+                    },
+                    "referencedNames": []
+                  },
+                  "documentationPresent": true,
+                  "sourceSnippet": {
+                    "startLine": 42,
+                    "endLine": 55,
+                    "lines": [
+                      "/**",
+                      " * The available API versions.",
+                      " */",
+                      "enum Versions {",
+                      "  /**",
+                      "   * The 2025-10-01 API version.",
+                      "   */",
+                      "  v2025_10_01: \"2025-10-01\",",
+                      "",
+                      "  /**",
+                      "   * The 2025-11-01 API version.",
+                      "   */",
+                      "  v2025_11_01: \"2025-11-01\",",
+                      "}"
+                    ],
+                    "truncated": false
+                  }
+                },
+                {
+                  "id": "declaration-2402e0a03df3680a",
+                  "kind": "enum",
+                  "qualifiedName": "Versions",
+                  "decorators": [
+                    "@versioned(Versions)",
+                    "@armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v3)"
+                  ],
+                  "versionedMembers": [],
+                  "hunkIds": [
+                    "hunk-ad2e9192ac31c805"
+                  ],
+                  "source": {
+                    "revision": "current",
+                    "startLine": 42,
+                    "endLine": 60,
+                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/e3171c8854157922712424a844d7ac7b53ef2b95/specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp#L45-L60"
+                  },
+                  "compilerEvidence": {
+                    "kind": "semantic-type",
+                    "compilerTypeKind": "Enum",
+                    "sourceFile": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
+                    "position": {
+                      "start": 1312,
+                      "end": 1592
+                    },
+                    "referencedNames": []
+                  },
+                  "documentationPresent": true,
+                  "sourceSnippet": {
+                    "startLine": 42,
+                    "endLine": 60,
+                    "lines": [
+                      "/**",
+                      " * The available API versions.",
+                      " */",
+                      "enum Versions {",
+                      "  /**",
+                      "   * The 2025-10-01 API version.",
+                      "   */",
+                      "  v2025_10_01: \"2025-10-01\",",
+                      "",
+                      "  /**",
+                      "   * The 2025-11-01 API version.",
+                      "   */",
+                      "  v2025_11_01: \"2025-11-01\",",
+                      "",
+                      "  /**",
+                      "   * The 2026-04-01 API version.",
+                      "   */",
+                      "  v2026_04_01: \"2026-04-01\",",
+                      "}"
+                    ],
+                    "truncated": false
+                  }
+                }
+              ],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "ready",
+                "blockers": [],
+                "declarations": [
+                  {
+                    "declarationId": "declaration-2402e0a03df3680a",
+                    "qualifiedName": "Versions",
+                    "kind": "enum",
+                    "newDeclaration": false,
+                    "documentationPresent": true,
+                    "source": {
+                      "revision": "current",
+                      "startLine": 42,
+                      "endLine": 60,
+                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/e3171c8854157922712424a844d7ac7b53ef2b95/specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp#L45-L60"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "relatedFindings": {
+            "rest": [],
+            "downstream": [],
+            "typeImpact": []
+          }
+        },
+        {
+          "id": "semantic-d3413617388be82d",
+          "projectId": "project-bee79f4a1203",
+          "projectIds": [
+            "project-bee79f4a1203"
+          ],
+          "action": "modify",
+          "changeKind": "modify",
+          "classificationVersion": 3,
+          "changeFacts": [
+            {
+              "id": "semantic-change-01cee9c1749fdaa3",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-15457c6285f20947"
+              ],
+              "declarationIds": [
+                "declaration-06f464b5d93201c8",
+                "declaration-36be9cd9c8199995"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-06f464b5d93201c8"
+              ],
+              "afterDeclarationIds": [
+                "declaration-36be9cd9c8199995"
+              ],
+              "changeType": "type",
+              "declarationKind": "model",
+              "qualifiedName": "ManagedRuleDefinition",
+              "action": "modify",
+              "facets": [
+                "optionality",
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-15457c6285f20947"
+                ],
+                "declarationIds": [
+                  "declaration-06f464b5d93201c8",
+                  "declaration-36be9cd9c8199995"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-02675ae437bbcb79",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-44ead16a2efc5d2d"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-44ead16a2efc5d2d"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "ParanoiaLevel.PL2",
+              "action": "add",
+              "facets": [
+                "property-contract"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-44ead16a2efc5d2d"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-141552a6b7258808",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-9b316ea48ec082ff"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-9b316ea48ec082ff"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "ManagedRuleSetStatus.Deprecated",
+              "action": "add",
+              "facets": [
+                "property-contract"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-9b316ea48ec082ff"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-28642e25b708eb5d",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-aee9d10df1d299ee"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-aee9d10df1d299ee"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "ManagedRuleSetStatus.Supported",
+              "action": "add",
+              "facets": [
+                "property-contract"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-aee9d10df1d299ee"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-37a1befa1a40216b",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-15457c6285f20947"
+              ],
+              "declarationIds": [
+                "declaration-57deb4a5a8823181"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-57deb4a5a8823181"
+              ],
+              "changeType": "type",
+              "declarationKind": "property",
+              "qualifiedName": "ManagedRuleDefinition.paranoiaLevel",
+              "action": "add",
+              "facets": [
+                "optionality",
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-15457c6285f20947"
+                ],
+                "declarationIds": [
+                  "declaration-57deb4a5a8823181"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-4778929ea2e83d48",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-ab4a9e19611d9f13"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-ab4a9e19611d9f13"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "ParanoiaLevel.PL3",
+              "action": "add",
+              "facets": [
+                "property-contract"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-ab4a9e19611d9f13"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-538728124cc362f2",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-c4662e6e5a3a5bbd"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-c4662e6e5a3a5bbd"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "ParanoiaLevel.PL1",
+              "action": "add",
+              "facets": [
+                "property-contract"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-c4662e6e5a3a5bbd"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-693d9fba840d793d",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-63aa866d3a43b277"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-63aa866d3a43b277"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "ManagedRuleSetStatus.GA",
+              "action": "add",
+              "facets": [
+                "property-contract"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-63aa866d3a43b277"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-a61856f1f0ea4255",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-4a580d24ab6824b8"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-4a580d24ab6824b8"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "ManagedRuleSetStatus.Preview",
+              "action": "add",
+              "facets": [
+                "property-contract"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-4a580d24ab6824b8"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-a7179cc6b18b33cf",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-f96e3deeab2caa9b"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-f96e3deeab2caa9b"
+              ],
+              "changeType": "type",
+              "declarationKind": "union",
+              "qualifiedName": "ParanoiaLevel",
+              "action": "add",
+              "facets": [
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-f96e3deeab2caa9b"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-a988f82224a4f87b",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-a5b47c949b332078"
+              ],
+              "declarationIds": [
+                "declaration-026bf9d2c4b637fc",
+                "declaration-5afd8ac23a4ca7ce"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-5afd8ac23a4ca7ce"
+              ],
+              "afterDeclarationIds": [
+                "declaration-026bf9d2c4b637fc"
+              ],
+              "changeType": "type",
+              "declarationKind": "union",
+              "qualifiedName": "VariableName",
+              "action": "modify",
+              "facets": [
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-a5b47c949b332078"
+                ],
+                "declarationIds": [
+                  "declaration-026bf9d2c4b637fc",
+                  "declaration-5afd8ac23a4ca7ce"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-af16800efc708e51",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-d416255f3549a4de"
+              ],
+              "declarationIds": [
+                "declaration-d207861f8511169c"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-d207861f8511169c"
+              ],
+              "changeType": "type",
+              "declarationKind": "property",
+              "qualifiedName": "ManagedRuleSetDefinitionProperties.displayName",
+              "action": "add",
+              "facets": [
+                "optionality",
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-d416255f3549a4de"
+                ],
+                "declarationIds": [
+                  "declaration-d207861f8511169c"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-b137da18a6a9559e",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-4087bae62353aa10"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-4087bae62353aa10"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "ParanoiaLevel.PL4",
+              "action": "add",
+              "facets": [
+                "property-contract"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-4087bae62353aa10"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-b15108c71e8c2e32",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-a5b47c949b332078"
+              ],
+              "declarationIds": [
+                "declaration-b0716f5d74305915"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-b0716f5d74305915"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "VariableName.Ja4",
+              "action": "add",
+              "facets": [
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-a5b47c949b332078"
+                ],
+                "declarationIds": [
+                  "declaration-b0716f5d74305915"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-b6db1741562be6ea",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-32747b7c0c605c30"
+              ],
+              "declarationIds": [
+                "declaration-9c00c2a37b1a85a6"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-9c00c2a37b1a85a6"
+              ],
+              "changeType": "type",
+              "declarationKind": "union",
+              "qualifiedName": "ManagedRuleSetStatus",
+              "action": "add",
+              "facets": [
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-32747b7c0c605c30"
+                ],
+                "declarationIds": [
+                  "declaration-9c00c2a37b1a85a6"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-b834994c7a9d0e09",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-d416255f3549a4de"
+              ],
+              "declarationIds": [
+                "declaration-4d0fedd2f9090901",
+                "declaration-d20fc39901cb666c"
+              ],
+              "beforeDeclarationIds": [
+                "declaration-d20fc39901cb666c"
+              ],
+              "afterDeclarationIds": [
+                "declaration-4d0fedd2f9090901"
+              ],
+              "changeType": "type",
+              "declarationKind": "model",
+              "qualifiedName": "ManagedRuleSetDefinitionProperties",
+              "action": "modify",
+              "facets": [
+                "optionality",
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-d416255f3549a4de"
+                ],
+                "declarationIds": [
+                  "declaration-4d0fedd2f9090901",
+                  "declaration-d20fc39901cb666c"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-f1930b2be8b905cb",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-d416255f3549a4de"
+              ],
+              "declarationIds": [
+                "declaration-832e13ec74a3f5c5"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-832e13ec74a3f5c5"
+              ],
+              "changeType": "type",
+              "declarationKind": "property",
+              "qualifiedName": "ManagedRuleSetDefinitionProperties.status",
+              "action": "add",
+              "facets": [
+                "optionality",
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-d416255f3549a4de"
+                ],
+                "declarationIds": [
+                  "declaration-832e13ec74a3f5c5"
+                ]
+              }
+            },
+            {
+              "id": "semantic-change-f77f0315eb557198",
+              "sourceChangeId": "source-dc89abb2fe684647",
+              "hunkIds": [
+                "hunk-a5b47c949b332078"
+              ],
+              "declarationIds": [
+                "declaration-cc91ebef04cfa7e9"
+              ],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [
+                "declaration-cc91ebef04cfa7e9"
+              ],
+              "changeType": "type",
+              "declarationKind": "union-variant",
+              "qualifiedName": "VariableName.Asn",
+              "action": "add",
+              "facets": [
+                "property-contract",
+                "version-activation"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dc89abb2fe684647",
+                "hunkIds": [
+                  "hunk-a5b47c949b332078"
+                ],
+                "declarationIds": [
+                  "declaration-cc91ebef04cfa7e9"
+                ]
+              }
+            }
+          ],
+          "changeTypes": [
+            "type"
+          ],
+          "sourceChangeIds": [
+            "source-dc89abb2fe684647"
+          ],
+          "hunkIds": [
+            "hunk-15457c6285f20947",
+            "hunk-32747b7c0c605c30",
+            "hunk-a5b47c949b332078",
+            "hunk-d416255f3549a4de"
+          ],
+          "declarationIds": [
+            "declaration-026bf9d2c4b637fc",
+            "declaration-06f464b5d93201c8",
+            "declaration-36be9cd9c8199995",
+            "declaration-4087bae62353aa10",
+            "declaration-44ead16a2efc5d2d",
+            "declaration-4a580d24ab6824b8",
+            "declaration-4d0fedd2f9090901",
+            "declaration-57deb4a5a8823181",
+            "declaration-5afd8ac23a4ca7ce",
+            "declaration-63aa866d3a43b277",
+            "declaration-832e13ec74a3f5c5",
+            "declaration-9b316ea48ec082ff",
+            "declaration-9c00c2a37b1a85a6",
+            "declaration-ab4a9e19611d9f13",
+            "declaration-aee9d10df1d299ee",
+            "declaration-b0716f5d74305915",
+            "declaration-c4662e6e5a3a5bbd",
+            "declaration-cc91ebef04cfa7e9",
+            "declaration-d207861f8511169c",
+            "declaration-d20fc39901cb666c",
+            "declaration-f96e3deeab2caa9b"
+          ],
+          "declarationNames": [
+            "ManagedRuleDefinition",
+            "ManagedRuleDefinition.paranoiaLevel",
+            "ManagedRuleSetDefinitionProperties",
+            "ManagedRuleSetDefinitionProperties.displayName",
+            "ManagedRuleSetDefinitionProperties.status",
+            "ManagedRuleSetStatus",
+            "ManagedRuleSetStatus.Deprecated",
+            "ManagedRuleSetStatus.GA",
+            "ManagedRuleSetStatus.Preview",
+            "ManagedRuleSetStatus.Supported",
+            "ParanoiaLevel",
+            "ParanoiaLevel.PL1",
+            "ParanoiaLevel.PL2",
+            "ParanoiaLevel.PL3",
+            "ParanoiaLevel.PL4",
+            "VariableName",
+            "VariableName.Asn",
+            "VariableName.Ja4"
+          ],
+          "ownedOperationIds": [
+            "ManagedRuleSets_List",
+            "Policies_CreateOrUpdate",
+            "Policies_Get",
+            "Policies_List",
+            "Policies_ListBySubscription",
+            "Policies_Update"
+          ],
+          "versionTransitionOperationIds": [],
+          "sourceMappedOperationIds": [],
+          "publicationEligibleOperationIds": [],
+          "operations": [],
+          "operationIds": [],
+          "beforeFactIds": [],
+          "afterFactIds": [],
+          "changedAspects": [],
+          "groupingEvidence": {
+            "kind": "deterministic-coherent-change",
+            "reasons": [
+              "source:source-dc89abb2fe684647"
+            ],
+            "memberHunkIds": [
               "hunk-15457c6285f20947",
               "hunk-32747b7c0c605c30",
               "hunk-a5b47c949b332078",
-              "hunk-ad2e9192ac31c805",
+              "hunk-d416255f3549a4de"
+            ]
+          },
+          "intentType": "normal",
+          "carryOverProof": {
+            "schemaVersion": 1,
+            "status": "not-applicable",
+            "operations": [],
+            "equivalentOperationIds": [],
+            "differentOperationIds": [],
+            "unknownOperationIds": []
+          },
+          "contextPolicy": {
+            "schemaVersion": 1,
+            "rest": {
+              "mode": "agent",
+              "reason": "changed-or-unresolved-rest-scope",
+              "evidenceIds": []
+            },
+            "downstream": {
+              "mode": "agent",
+              "reason": "changed-or-unresolved-downstream-scope",
+              "evidenceIds": []
+            },
+            "guidelines": {
+              "mode": "agent",
+              "reason": "changed-design-facts-require-guidelines-assessment"
+            },
+            "documentation": {
+              "mode": "deterministic",
+              "reason": "compiler-effective-documentation-check"
+            }
+          },
+          "title": "Modify ManagedRuleDefinition, ManagedRuleDefinition.paranoiaLevel, ManagedRuleSetDefinitionProperties",
+          "summary": "Modify covers 18 change facts (type) across 18 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
+          "informational": false,
+          "deterministicCoverage": {
+            "restCandidateIds": [],
+            "downstreamCandidateIds": [],
+            "complianceSearchRequestIds": [
+              "compliance-search-af34164a556e2809"
+            ],
+            "relatedOperationIds": [],
+            "coveredHunkIds": [
+              "hunk-15457c6285f20947",
+              "hunk-32747b7c0c605c30",
+              "hunk-a5b47c949b332078",
               "hunk-d416255f3549a4de"
             ],
             "uncoveredHunkIds": [],
@@ -24986,13 +26281,6 @@
               },
               {
                 "hunkId": "hunk-a5b47c949b332078",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
-                "restCandidateIds": [],
-                "downstreamCandidateIds": []
-              },
-              {
-                "hunkId": "hunk-ad2e9192ac31c805",
                 "status": "no-impact",
                 "reason": "declaration-mapped-and-contracts-compared",
                 "restCandidateIds": [],
@@ -26592,168 +27880,6 @@
                   }
                 ]
               }
-            },
-            {
-              "id": "source-e6299813b8b66193",
-              "path": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
-              "status": "modified",
-              "origins": [
-                "committed"
-              ],
-              "hunks": [
-                {
-                  "id": "hunk-ad2e9192ac31c805",
-                  "base": {
-                    "startLine": 52,
-                    "endLine": 55
-                  },
-                  "current": {
-                    "startLine": 52,
-                    "endLine": 60
-                  },
-                  "lines": [
-                    "    * The 2025-11-01 API version.",
-                    "    */",
-                    "   v2025_11_01: \"2025-11-01\",",
-                    "+",
-                    "+  /**",
-                    "+   * The 2026-04-01 API version.",
-                    "+   */",
-                    "+  v2026_04_01: \"2026-04-01\",",
-                    " }",
-                    ""
-                  ]
-                }
-              ],
-              "declarations": [
-                {
-                  "id": "declaration-b05ec51f52b8b4a3",
-                  "kind": "enum",
-                  "qualifiedName": "Versions",
-                  "decorators": [
-                    "@versioned(Versions)",
-                    "@armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v3)"
-                  ],
-                  "versionedMembers": [],
-                  "hunkIds": [
-                    "hunk-ad2e9192ac31c805"
-                  ],
-                  "source": {
-                    "revision": "base",
-                    "startLine": 42,
-                    "endLine": 55,
-                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/f2047bbdf9d14adf4655663e889be86e4b94db6b/specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp#L45-L55"
-                  },
-                  "compilerEvidence": {
-                    "kind": "semantic-type",
-                    "compilerTypeKind": "Enum",
-                    "sourceFile": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
-                    "position": {
-                      "start": 1312,
-                      "end": 1517
-                    },
-                    "referencedNames": []
-                  },
-                  "documentationPresent": true,
-                  "sourceSnippet": {
-                    "startLine": 42,
-                    "endLine": 55,
-                    "lines": [
-                      "/**",
-                      " * The available API versions.",
-                      " */",
-                      "enum Versions {",
-                      "  /**",
-                      "   * The 2025-10-01 API version.",
-                      "   */",
-                      "  v2025_10_01: \"2025-10-01\",",
-                      "",
-                      "  /**",
-                      "   * The 2025-11-01 API version.",
-                      "   */",
-                      "  v2025_11_01: \"2025-11-01\",",
-                      "}"
-                    ],
-                    "truncated": false
-                  }
-                },
-                {
-                  "id": "declaration-2402e0a03df3680a",
-                  "kind": "enum",
-                  "qualifiedName": "Versions",
-                  "decorators": [
-                    "@versioned(Versions)",
-                    "@armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v3)"
-                  ],
-                  "versionedMembers": [],
-                  "hunkIds": [
-                    "hunk-ad2e9192ac31c805"
-                  ],
-                  "source": {
-                    "revision": "current",
-                    "startLine": 42,
-                    "endLine": 60,
-                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/e3171c8854157922712424a844d7ac7b53ef2b95/specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp#L45-L60"
-                  },
-                  "compilerEvidence": {
-                    "kind": "semantic-type",
-                    "compilerTypeKind": "Enum",
-                    "sourceFile": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
-                    "position": {
-                      "start": 1312,
-                      "end": 1592
-                    },
-                    "referencedNames": []
-                  },
-                  "documentationPresent": true,
-                  "sourceSnippet": {
-                    "startLine": 42,
-                    "endLine": 60,
-                    "lines": [
-                      "/**",
-                      " * The available API versions.",
-                      " */",
-                      "enum Versions {",
-                      "  /**",
-                      "   * The 2025-10-01 API version.",
-                      "   */",
-                      "  v2025_10_01: \"2025-10-01\",",
-                      "",
-                      "  /**",
-                      "   * The 2025-11-01 API version.",
-                      "   */",
-                      "  v2025_11_01: \"2025-11-01\",",
-                      "",
-                      "  /**",
-                      "   * The 2026-04-01 API version.",
-                      "   */",
-                      "  v2026_04_01: \"2026-04-01\",",
-                      "}"
-                    ],
-                    "truncated": false
-                  }
-                }
-              ],
-              "documentEvidence": {
-                "schemaVersion": 4,
-                "status": "ready",
-                "blockers": [],
-                "declarations": [
-                  {
-                    "declarationId": "declaration-2402e0a03df3680a",
-                    "qualifiedName": "Versions",
-                    "kind": "enum",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 42,
-                      "endLine": 60,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/e3171c8854157922712424a844d7ac7b53ef2b95/specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp#L45-L60"
-                    }
-                  }
-                ]
-              }
             }
           ],
           "relatedFindings": {
@@ -26774,12 +27900,16 @@
     },
     "rest": {
       "status": "passed",
+      "verdict": "passed",
+      "coverage": "complete",
       "findings": [],
       "rejectedCandidateCount": 0,
       "blockers": []
     },
     "downstream": {
       "status": "passed",
+      "verdict": "passed",
+      "coverage": "complete",
       "findings": [],
       "methodGroups": [],
       "typeImpacts": [],
@@ -26791,8 +27921,8 @@
       "status": "passed",
       "summary": "All Semantic intents match applicable fetched guidance.",
       "coverage": {
-        "semanticIntentCount": 1,
-        "assessedIntentCount": 1,
+        "semanticIntentCount": 2,
+        "assessedIntentCount": 2,
         "selectedDocumentCount": 4,
         "unassessedIntentIds": []
       },
@@ -26800,31 +27930,31 @@
         "catalogRanking": [
           {
             "rank": 1,
+            "catalogOrder": 6,
+            "title": "Add stable after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 10
+            },
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because a stable-after-stable release should version each changed api element and include examples for the new version."
+          },
+          {
+            "rank": 2,
             "catalogOrder": 1,
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 10
+              "total": 6
             },
-            "selectionRationale": "Directly covers adding and modifying versioned models and properties with @added in an existing ARM API."
-          },
-          {
-            "rank": 2,
-            "catalogOrder": 2,
-            "title": "Versioning overview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-            "score": {
-              "exactSymbol": 4,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 10
-            },
-            "selectionRationale": "Covers the Versions enum, chronological version progression, and stable API evolution."
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces."
           },
           {
             "rank": 3,
@@ -26832,13 +27962,13 @@
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 0,
-              "total": 9
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "Directly describes model properties, optionality, and model composition used by the changed declarations."
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts."
           },
           {
             "rank": 4,
@@ -26846,324 +27976,212 @@
             "title": "Enums",
             "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 0,
-              "total": 9
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "Directly describes enum declarations and named values used by the changed API models."
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because enum additions and values should reflect the intended service-facing contract."
           },
           {
             "rank": 5,
-            "catalogOrder": 24,
-            "title": "Decorators",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "catalogOrder": 2,
+            "title": "Versioning overview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
             "score": {
-              "exactSymbol": 4,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 9
+              "total": 0
             },
-            "selectionRationale": "The change uses versioning and visibility decorators, but more specific versioning documents rank higher."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 6,
-            "catalogOrder": 25,
-            "title": "Built-in decorators",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
-            "score": {
-              "exactSymbol": 4,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 9
-            },
-            "selectionRationale": "Names visibility constraints used by the read-only paranoiaLevel property, but versioning is the governing change pattern."
-          },
-          {
-            "rank": 7,
-            "catalogOrder": 6,
-            "title": "Add stable after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Matches the stable-after-stable transition, though it does not name the changed model and enum constructs."
-          },
-          {
-            "rank": 8,
-            "catalogOrder": 20,
-            "title": "ARM common types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "The new version declares an ARM common-types dependency, but it does not author or expose common-type definitions."
-          },
-          {
-            "rank": 9,
             "catalogOrder": 3,
             "title": "Add preview after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "Versioning guidance for ARM, but the change is stable-after-stable rather than preview-after-preview."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 10,
+            "rank": 7,
             "catalogOrder": 4,
             "title": "Add stable after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "Versioning guidance for ARM, but the prior version is stable rather than preview."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 11,
+            "rank": 8,
             "catalogOrder": 5,
             "title": "Add preview after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "Versioning guidance for ARM, but the new version is stable rather than preview."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 12,
-            "catalogOrder": 26,
-            "title": "OpenAPI decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Decorator category matches generally, but no OpenAPI-specific decorator is changed."
-          },
-          {
-            "rank": 13,
+            "rank": 9,
             "catalogOrder": 7,
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "Applies to ARM services generally, but no resource type or lifecycle template changes."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 14,
+            "rank": 10,
             "catalogOrder": 8,
             "title": "Specific extension resource sample",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM-specific, but no extension resource is added or modified."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 15,
+            "rank": 11,
             "catalogOrder": 9,
             "title": "Private endpoints",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM-specific, but the change does not involve private endpoint resources."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 16,
+            "rank": 12,
             "catalogOrder": 10,
             "title": "Private links",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM-specific, but the change does not involve private link resources."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 17,
+            "rank": 13,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM-specific, but no network security perimeter resource is involved."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 18,
+            "rank": 14,
             "catalogOrder": 12,
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM operation guidance is in-plane, but the change is confined to versioned response models and enums."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 19,
+            "rank": 15,
             "catalogOrder": 13,
             "title": "Azure.ResourceManager interface reference",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM template reference is not needed because no operation template changes."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 20,
+            "rank": 16,
             "catalogOrder": 14,
             "title": "TypeSpec.Rest decorators",
             "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "Resource semantics are not changed; supplied evidence maps only model and enum additions."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 21,
+            "rank": 17,
             "catalogOrder": 15,
             "title": "Azure.ResourceManager decorators",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM lifecycle decorators are not changed by this model-focused update."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 22,
+            "rank": 18,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM LRO behavior is unaffected."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 23,
-            "catalogOrder": 18,
-            "title": "Azure.ResourceManager data types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM paging parameters and list templates are unchanged."
-          },
-          {
-            "rank": 24,
-            "catalogOrder": 23,
-            "title": "Scalars",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "No scalar declaration is added or modified."
-          },
-          {
-            "rank": 25,
-            "catalogOrder": 27,
-            "title": "Change provider namespace",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "The ARM provider namespace is unchanged."
-          },
-          {
-            "rank": 26,
-            "catalogOrder": 28,
-            "title": "Azure Portal default experiences",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "Portal default experience configuration is not changed."
-          },
-          {
-            "rank": 27,
+            "rank": 19,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -27174,10 +28192,24 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Azure.Core data-plane LRO guidance does not apply to this ARM model change."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 28,
+            "rank": 20,
+            "catalogOrder": 18,
+            "title": "Azure.ResourceManager data types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 21,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -27188,7 +28220,105 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Data-plane pagination guidance does not apply to this ARM service."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 22,
+            "catalogOrder": 20,
+            "title": "ARM common types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 23,
+            "catalogOrder": 23,
+            "title": "Scalars",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 24,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 25,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 26,
+            "catalogOrder": 26,
+            "title": "OpenAPI decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 27,
+            "catalogOrder": 27,
+            "title": "Change provider namespace",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 28,
+            "catalogOrder": 28,
+            "title": "Azure Portal default experiences",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 29,
@@ -27202,7 +28332,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Azure.Core content negotiation guidance does not apply to this ARM model update."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 30,
@@ -27216,7 +28346,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No warning suppression directive is present in the supplied change evidence."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 31,
@@ -27230,175 +28360,81 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No OpenAPI decorator or no-openapi suppression is involved."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           }
         ],
         "documents": [
           {
             "rank": 1,
+            "catalogOrder": 6,
+            "title": "Add stable after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 10
+            },
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because a stable-after-stable release should version each changed api element and include examples for the new version.",
+            "guidance": [
+              {
+                "section": "Making Changes to your TypeSpec spec",
+                "excerpt": "Add the new stable version and mark added, removed, renamed, or modified types with the appropriate versioning decorator.",
+                "queryTerms": [
+                  "making",
+                  "changes",
+                  "to",
+                  "your",
+                  "typespec"
+                ],
+                "examples": [
+                  "A stable-after-stable release should version each changed API element and include examples for the new version."
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-026bf9d2c4b637fc",
+                  "declaration-2402e0a03df3680a",
+                  "declaration-36be9cd9c8199995",
+                  "declaration-4087bae62353aa10",
+                  "declaration-44ead16a2efc5d2d",
+                  "declaration-4a580d24ab6824b8",
+                  "declaration-4d0fedd2f9090901",
+                  "declaration-57deb4a5a8823181",
+                  "declaration-63aa866d3a43b277",
+                  "declaration-832e13ec74a3f5c5",
+                  "declaration-9b316ea48ec082ff",
+                  "declaration-9c00c2a37b1a85a6",
+                  "declaration-ab4a9e19611d9f13",
+                  "declaration-aee9d10df1d299ee",
+                  "declaration-b0716f5d74305915",
+                  "declaration-c4662e6e5a3a5bbd",
+                  "declaration-cc91ebef04cfa7e9",
+                  "declaration-d207861f8511169c",
+                  "declaration-f96e3deeab2caa9b"
+                ]
+              }
+            ],
+            "noRelevantGuidance": false,
+            "retrievedAt": "2026-10-29T08:26:11.041833Z",
+            "contentHash": "sha256:70a904d0e8c89b1310eff81cfdad9554ec0e94d597f4f139b174eb5d98da56b8"
+          },
+          {
+            "rank": 2,
             "catalogOrder": 1,
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 10
+              "total": 6
             },
-            "selectionRationale": "Directly covers adding and modifying versioned models and properties with @added in an existing ARM API.",
-            "guidance": [
-              {
-                "section": "Declaring Versions",
-                "excerpt": "Define API versions in an enum, link it to the namespace with @versioned, and specify dependencies and common types for each version.",
-                "queryTerms": [
-                  "Versions",
-                  "@versioned",
-                  "@armCommonTypesVersion"
-                ],
-                "examples": [
-                  "enum Versions { ... }",
-                  "@versioned(Versions) namespace Microsoft.ContosoProviderHub;"
-                ],
-                "applicableDeclarationIds": [
-                  "declaration-026bf9d2c4b637fc",
-                  "declaration-2402e0a03df3680a",
-                  "declaration-36be9cd9c8199995",
-                  "declaration-4087bae62353aa10",
-                  "declaration-44ead16a2efc5d2d",
-                  "declaration-4a580d24ab6824b8",
-                  "declaration-4d0fedd2f9090901",
-                  "declaration-57deb4a5a8823181",
-                  "declaration-63aa866d3a43b277",
-                  "declaration-832e13ec74a3f5c5",
-                  "declaration-9b316ea48ec082ff",
-                  "declaration-9c00c2a37b1a85a6",
-                  "declaration-ab4a9e19611d9f13",
-                  "declaration-aee9d10df1d299ee",
-                  "declaration-b0716f5d74305915",
-                  "declaration-c4662e6e5a3a5bbd",
-                  "declaration-cc91ebef04cfa7e9",
-                  "declaration-d207861f8511169c",
-                  "declaration-f96e3deeab2caa9b"
-                ]
-              },
-              {
-                "section": "Versioning Decorators",
-                "excerpt": "Add new models, properties, or operations in a specific version and subsequent versions with @added; the argument identifies the version where the element is introduced.",
-                "queryTerms": [
-                  "@added",
-                  "model",
-                  "property"
-                ],
-                "examples": [
-                  "@added(Versions.v2) model Employee { ... }",
-                  "@added(Versions.v3) city?: string;"
-                ],
-                "applicableDeclarationIds": [
-                  "declaration-026bf9d2c4b637fc",
-                  "declaration-2402e0a03df3680a",
-                  "declaration-36be9cd9c8199995",
-                  "declaration-4087bae62353aa10",
-                  "declaration-44ead16a2efc5d2d",
-                  "declaration-4a580d24ab6824b8",
-                  "declaration-4d0fedd2f9090901",
-                  "declaration-57deb4a5a8823181",
-                  "declaration-63aa866d3a43b277",
-                  "declaration-832e13ec74a3f5c5",
-                  "declaration-9b316ea48ec082ff",
-                  "declaration-9c00c2a37b1a85a6",
-                  "declaration-ab4a9e19611d9f13",
-                  "declaration-aee9d10df1d299ee",
-                  "declaration-b0716f5d74305915",
-                  "declaration-c4662e6e5a3a5bbd",
-                  "declaration-cc91ebef04cfa7e9",
-                  "declaration-d207861f8511169c",
-                  "declaration-f96e3deeab2caa9b"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-21T09:33:29.5118983Z",
-            "contentHash": "sha256:1a5af6c154f5a526ba3f6b1815091e533feb949fa65bad48535b04d20b137a9a"
-          },
-          {
-            "rank": 2,
-            "catalogOrder": 2,
-            "title": "Versioning overview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-            "score": {
-              "exactSymbol": 4,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 10
-            },
-            "selectionRationale": "Covers the Versions enum, chronological version progression, and stable API evolution.",
-            "guidance": [
-              {
-                "section": "How Versioning Works in TypeSpec",
-                "excerpt": "TypeSpec models changes in each new API version and works well when stable API versions evolve without breaking changes.",
-                "queryTerms": [
-                  "stable api-versions",
-                  "without breaking changes"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-026bf9d2c4b637fc",
-                  "declaration-2402e0a03df3680a",
-                  "declaration-36be9cd9c8199995",
-                  "declaration-4087bae62353aa10",
-                  "declaration-44ead16a2efc5d2d",
-                  "declaration-4a580d24ab6824b8",
-                  "declaration-4d0fedd2f9090901",
-                  "declaration-57deb4a5a8823181",
-                  "declaration-63aa866d3a43b277",
-                  "declaration-832e13ec74a3f5c5",
-                  "declaration-9b316ea48ec082ff",
-                  "declaration-9c00c2a37b1a85a6",
-                  "declaration-ab4a9e19611d9f13",
-                  "declaration-aee9d10df1d299ee",
-                  "declaration-b0716f5d74305915",
-                  "declaration-c4662e6e5a3a5bbd",
-                  "declaration-cc91ebef04cfa7e9",
-                  "declaration-d207861f8511169c",
-                  "declaration-f96e3deeab2caa9b"
-                ]
-              },
-              {
-                "section": "Common Version Transition Scenarios",
-                "excerpt": "The versioning guidance distinguishes the transition that adds a new stable version when the last version was stable.",
-                "queryTerms": [
-                  "stable after stable",
-                  "2026-04-01"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-026bf9d2c4b637fc",
-                  "declaration-2402e0a03df3680a",
-                  "declaration-36be9cd9c8199995",
-                  "declaration-4087bae62353aa10",
-                  "declaration-44ead16a2efc5d2d",
-                  "declaration-4a580d24ab6824b8",
-                  "declaration-4d0fedd2f9090901",
-                  "declaration-57deb4a5a8823181",
-                  "declaration-63aa866d3a43b277",
-                  "declaration-832e13ec74a3f5c5",
-                  "declaration-9b316ea48ec082ff",
-                  "declaration-9c00c2a37b1a85a6",
-                  "declaration-ab4a9e19611d9f13",
-                  "declaration-aee9d10df1d299ee",
-                  "declaration-b0716f5d74305915",
-                  "declaration-c4662e6e5a3a5bbd",
-                  "declaration-cc91ebef04cfa7e9",
-                  "declaration-d207861f8511169c",
-                  "declaration-f96e3deeab2caa9b"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-21T09:33:29.5795813Z",
-            "contentHash": "sha256:a8df1e8a9fd8527b5b7a615aa65e54328175f4063901d2ce964a8f9fb8ed24b6"
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-29T08:26:10.671774Z",
+            "contentHash": "sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c"
           },
           {
             "rank": 3,
@@ -27406,17 +28442,17 @@
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 0,
-              "total": 9
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "Directly describes model properties, optionality, and model composition used by the changed declarations.",
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-21T09:33:29.6378710Z",
-            "contentHash": "sha256:1a90dd13f99521e5c806072a6285307119be6bdca67a6ea6bc66534d79e329ab"
+            "retrievedAt": "2026-10-29T08:26:13.273479Z",
+            "contentHash": "sha256:efd56120d9598700d213c873b8e93962fc666eede836a6009d5439fee74f75ce"
           },
           {
             "rank": 4,
@@ -27424,56 +28460,87 @@
             "title": "Enums",
             "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 0,
-              "total": 9
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "Directly describes enum declarations and named values used by the changed API models.",
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because enum additions and values should reflect the intended service-facing contract.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-21T09:33:29.6873914Z",
-            "contentHash": "sha256:82f500cf27252f707e046e71410f6523ec8738a5e58961df337754efc560ac1a"
+            "retrievedAt": "2026-10-29T08:26:13.639056Z",
+            "contentHash": "sha256:1f9e0908df0bab349e3050a6433d6b423bea358deeff0b3c1cb782ea64dff586"
           }
         ]
       },
       "intentAssessments": [
         {
-          "semanticIntentId": "semantic-036c80092a0b7767",
-          "reviewUnitId": "semantic-036c80092a0b7767",
+          "semanticIntentId": "semantic-a484520c6d77c276",
+          "reviewUnitId": "semantic-a484520c6d77c276",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Declaring Versions"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-              "guidanceSection": "How Versioning Works in TypeSpec"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-              "guidanceSection": "Common Version Transition Scenarios"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
-            "source-dc89abb2fe684647",
             "source-e6299813b8b66193"
+          ],
+          "hunkIds": [
+            "hunk-ad2e9192ac31c805"
+          ],
+          "declarationIds": [
+            "declaration-2402e0a03df3680a"
+          ],
+          "decision": "applicable-pass",
+          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "sourceLinks": [
+            {
+              "path": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
+              "startLine": 42,
+              "endLine": 60,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/e3171c8854157922712424a844d7ac7b53ef2b95/specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp#L45-L60"
+            }
+          ],
+          "codeSnippets": [
+            {
+              "path": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
+              "hunkId": "hunk-ad2e9192ac31c805",
+              "lines": [
+                "+",
+                "+  /**",
+                "+   * The 2026-04-01 API version.",
+                "+   */",
+                "+  v2026_04_01: \"2026-04-01\","
+              ]
+            }
+          ],
+          "blockers": []
+        },
+        {
+          "semanticIntentId": "semantic-d3413617388be82d",
+          "reviewUnitId": "semantic-d3413617388be82d",
+          "applicableGuidance": [
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
+            }
+          ],
+          "sourceChangeIds": [
+            "source-dc89abb2fe684647"
           ],
           "hunkIds": [
             "hunk-15457c6285f20947",
             "hunk-32747b7c0c605c30",
             "hunk-a5b47c949b332078",
-            "hunk-ad2e9192ac31c805",
             "hunk-d416255f3549a4de"
           ],
           "declarationIds": [
             "declaration-026bf9d2c4b637fc",
-            "declaration-2402e0a03df3680a",
             "declaration-36be9cd9c8199995",
             "declaration-4087bae62353aa10",
             "declaration-44ead16a2efc5d2d",
@@ -27493,10 +28560,10 @@
             "declaration-f96e3deeab2caa9b"
           ],
           "decision": "applicable-pass",
-          "expected": "Append the new stable version to Versions, declare its ARM common-types dependency, and gate newly introduced models, enum-like values, and properties with @added so earlier stable contracts remain unchanged.",
-          "actual": "The change adds Versions.v2026_04_01 with an ARM common-types dependency and uses @added(Versions.v2026_04_01) for the new managed-rule status, paranoia-level, variable-name, and property surface. Deterministic comparison found no breaking REST or downstream SDK candidate.",
-          "rationale": "The supplied TypeSpec and compiled 2025-11-01 versus 2026-04-01 contracts follow the fetched versioning guidance: the new surface is isolated to the new stable version while prior contracts remain intact.",
-          "gap": "The supplied TypeSpec and compiled 2025-11-01 versus 2026-04-01 contracts follow the fetched versioning guidance: the new surface is isolated to the new stable version while prior contracts remain intact.",
+          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
             {
               "path": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/models.tsp",
@@ -27595,12 +28662,6 @@
               "startLine": 2506,
               "endLine": 2511,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/e3171c8854157922712424a844d7ac7b53ef2b95/specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/models.tsp#L2511-L2511"
-            },
-            {
-              "path": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
-              "startLine": 42,
-              "endLine": 60,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/e3171c8854157922712424a844d7ac7b53ef2b95/specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp#L45-L60"
             }
           ],
           "codeSnippets": [
@@ -27670,17 +28731,6 @@
                 "+  @visibility(Lifecycle.Read)",
                 "+  paranoiaLevel?: ParanoiaLevel;"
               ]
-            },
-            {
-              "path": "specification/frontdoor/resource-manager/Microsoft.Network/FrontDoor/main.tsp",
-              "hunkId": "hunk-ad2e9192ac31c805",
-              "lines": [
-                "+",
-                "+  /**",
-                "+   * The 2026-04-01 API version.",
-                "+   */",
-                "+  v2026_04_01: \"2026-04-01\","
-              ]
             }
           ],
           "blockers": []
@@ -27695,19 +28745,26 @@
       "status": "not-applicable",
       "summary": "No newly added operation, model, enum, or interface declarations require documentation completeness assessment.",
       "coverage": {
-        "semanticIntentCount": 1,
-        "assessedIntentCount": 1,
+        "semanticIntentCount": 2,
+        "assessedIntentCount": 2,
         "declarationCount": 0,
         "documentedDeclarationCount": 0,
         "missingDeclarationCount": 0,
         "unassessedIntentIds": [],
         "notApplicableIntentIds": [
-          "semantic-036c80092a0b7767"
+          "semantic-a484520c6d77c276",
+          "semantic-d3413617388be82d"
         ]
       },
       "intentAssessments": [
         {
-          "reviewUnitId": "semantic-036c80092a0b7767",
+          "reviewUnitId": "semantic-a484520c6d77c276",
+          "status": "not-applicable",
+          "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
+          "declarations": []
+        },
+        {
+          "reviewUnitId": "semantic-d3413617388be82d",
           "status": "not-applicable",
           "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
           "declarations": []
@@ -27755,15 +28812,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-42373\\worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\workspace\\documents\\pr-42373\\projects\\project-bee79f4a1203\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\projects\\project-bee79f4a1203\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2025-11-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 5052,
+            "durationMs": 58769,
             "configPath": "worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor\\tspconfig.yaml",
             "configHash": "9796bf20e1f81c1f8fb80b6bc4218feb9538973a826b55be9b49fda91db3af12",
             "logPath": "logs\\project-bee79f4a1203-baseline-autorest.log",
@@ -27787,16 +28844,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-42373\\worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\workspace\\documents\\pr-42373\\projects\\project-bee79f4a1203\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\projects\\project-bee79f4a1203\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\workspace\\documents\\pr-42373\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2025-11-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 5224,
+            "durationMs": 41997,
             "configPath": "worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor\\tspconfig.yaml",
             "configHash": "9796bf20e1f81c1f8fb80b6bc4218feb9538973a826b55be9b49fda91db3af12",
             "logPath": "logs\\project-bee79f4a1203-baseline-tcgc.log",
@@ -27824,15 +28881,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-42373\\worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\workspace\\documents\\pr-42373\\projects\\project-bee79f4a1203\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\projects\\project-bee79f4a1203\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-04-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 4985,
+            "durationMs": 34042,
             "configPath": "worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor\\tspconfig.yaml",
             "configHash": "9796bf20e1f81c1f8fb80b6bc4218feb9538973a826b55be9b49fda91db3af12",
             "logPath": "logs\\project-bee79f4a1203-target-autorest.log",
@@ -27856,16 +28913,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-42373\\worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\workspace\\documents\\pr-42373\\projects\\project-bee79f4a1203\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\projects\\project-bee79f4a1203\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\workspace\\documents\\pr-42373\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-42373\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-04-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 5430,
+            "durationMs": 18036,
             "configPath": "worktrees\\current\\specification\\frontdoor\\resource-manager\\Microsoft.Network\\FrontDoor\\tspconfig.yaml",
             "configHash": "9796bf20e1f81c1f8fb80b6bc4218feb9538973a826b55be9b49fda91db3af12",
             "logPath": "logs\\project-bee79f4a1203-target-tcgc.log",
@@ -27941,6 +28998,7 @@
   ],
   "blockers": [],
   "provenance": {
+    "contextPolicyVersion": 2,
     "modelInput": "model-input.json",
     "documentQuality": "dimensions/document-quality-input.json",
     "complianceSearchEvidence": "compliance-search-evidence.json",
@@ -27950,16 +29008,16 @@
   "inputAccounting": {
     "budgetTier": "small",
     "budgetBytes": 131072,
-    "bytes": 10731,
-    "estimatedTokens": 2683,
+    "bytes": 16544,
+    "estimatedTokens": 4136,
     "retained": {
-      "evidenceSets": 2,
+      "evidenceSets": 4,
       "facts": 0,
-      "semanticReviewUnits": 1,
+      "semanticReviewUnits": 2,
       "restCandidates": 0,
       "downstreamCandidates": 0,
       "downstreamRootCauses": 0,
-      "complianceSearchRequests": 1,
+      "complianceSearchRequests": 2,
       "inferenceRequests": 0
     },
     "omittedRedundant": {
@@ -27968,6 +29026,7 @@
       "unchangedInventories": true,
       "unreferencedFacts": true,
       "unreferencedDeterministicFacts": true,
+      "restCandidateEvidenceFacts": false,
       "sourceChanges": true,
       "repeatedDeclarationIds": true,
       "repeatedReviewUnitEvidence": true
@@ -27975,24 +29034,25 @@
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 1395593,
-      "guidanceExcerptsRetained": 4,
-      "guidanceExcerptBytesRetained": 539
+      "documentBytesFetched": 1403637,
+      "guidanceExcerptsRetained": 1,
+      "guidanceExcerptBytesRetained": 121
     }
   },
   "timings": {
-    "metadataMs": 1738,
-    "fetchMs": 10683,
-    "scopeDiscoveryMs": 60,
-    "setupExcludingFetchMs": 6345,
-    "comparisonMs": 97,
-    "changeDiscoveryMs": 72,
-    "workspacePreparationMs": 3957,
-    "projectDiscoveryMs": 37,
-    "totalMs": 87052,
-    "semanticAnalysisMs": 181,
-    "restAnalysisMs": 82,
-    "downstreamAnalysisMs": 1396,
-    "documentQualityAnalysisMs": 1
+    "metadataMs": 3599,
+    "fetchMs": 738,
+    "scopeDiscoveryMs": 558,
+    "setupExcludingFetchMs": 30624,
+    "comparisonMs": 519,
+    "changeDiscoveryMs": 430,
+    "workspacePreparationMs": 22754,
+    "projectDiscoveryMs": 1162,
+    "totalMs": 2605879,
+    "semanticAnalysisMs": 503,
+    "restAnalysisMs": 232,
+    "downstreamAnalysisMs": 3426,
+    "semanticContextPolicyMs": 678,
+    "documentQualityAnalysisMs": 5
   }
 }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T09:10:12.291Z",
+  "generatedAt": "2026-10-29T08:47:04.089Z",
   "title": "TypeSpec assessment: specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters",
   "repository": {
     "root": "C:\\workspace\\azure-rest-api-specs",
@@ -70,20 +70,232 @@
   "confidence": "high",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "passed"
+    "status": "passed",
+    "verdict": "passed",
+    "coverage": "complete"
   },
   "dimensions": {
     "semantic": {
       "status": "assessed",
       "items": [
         {
-          "id": "semantic-56b7083207ca23cc",
+          "id": "semantic-4bc408fb8b936108",
           "projectId": "project-331c7ace6fed",
           "projectIds": [
             "project-331c7ace6fed"
           ],
           "action": "modify",
           "changeKind": "modify",
+          "classificationVersion": 3,
+          "changeFacts": [
+            {
+              "id": "semantic-change-051c5e663bf9257a",
+              "sourceChangeId": "source-dd62df2e4b594ff3",
+              "hunkIds": [
+                "hunk-baa84a650e5982c5"
+              ],
+              "declarationIds": [],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [],
+              "changeType": "generation-configuration",
+              "action": "modify",
+              "facets": [],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-dd62df2e4b594ff3",
+                "hunkIds": [
+                  "hunk-baa84a650e5982c5"
+                ],
+                "declarationIds": []
+              }
+            }
+          ],
+          "changeTypes": [
+            "generation-configuration"
+          ],
+          "sourceChangeIds": [
+            "source-dd62df2e4b594ff3"
+          ],
+          "hunkIds": [
+            "hunk-baa84a650e5982c5"
+          ],
+          "declarationIds": [],
+          "declarationNames": [],
+          "ownedOperationIds": [],
+          "versionTransitionOperationIds": [],
+          "sourceMappedOperationIds": [],
+          "publicationEligibleOperationIds": [],
+          "operations": [],
+          "operationIds": [],
+          "beforeFactIds": [],
+          "afterFactIds": [],
+          "changedAspects": [],
+          "groupingEvidence": {
+            "kind": "deterministic-coherent-change",
+            "reasons": [],
+            "memberHunkIds": [
+              "hunk-baa84a650e5982c5"
+            ]
+          },
+          "intentType": "normal",
+          "carryOverProof": {
+            "schemaVersion": 1,
+            "status": "not-applicable",
+            "operations": [],
+            "equivalentOperationIds": [],
+            "differentOperationIds": [],
+            "unknownOperationIds": []
+          },
+          "contextPolicy": {
+            "schemaVersion": 1,
+            "rest": {
+              "mode": "agent",
+              "reason": "unresolved-source-coverage",
+              "evidenceIds": []
+            },
+            "downstream": {
+              "mode": "agent",
+              "reason": "unresolved-source-coverage",
+              "evidenceIds": []
+            },
+            "guidelines": {
+              "mode": "agent",
+              "reason": "changed-design-facts-require-guidelines-assessment"
+            },
+            "documentation": {
+              "mode": "deterministic",
+              "reason": "compiler-effective-documentation-check"
+            }
+          },
+          "title": "Retarget C# management generation",
+          "summary": "Changes the C# management emitter configuration from API version 2026-02-01 to 2026-05-01-preview without changing TypeSpec service declarations.",
+          "informational": false,
+          "deterministicCoverage": {
+            "restCandidateIds": [],
+            "downstreamCandidateIds": [],
+            "complianceSearchRequestIds": [
+              "compliance-search-7b4d425dd73c1a17"
+            ],
+            "relatedOperationIds": [],
+            "coveredHunkIds": [],
+            "uncoveredHunkIds": [
+              "hunk-baa84a650e5982c5"
+            ],
+            "classifications": [
+              {
+                "hunkId": "hunk-baa84a650e5982c5",
+                "status": "unknown",
+                "reason": "source-change-not-mapped-to-deterministic-contract-evidence",
+                "restCandidateIds": [],
+                "downstreamCandidateIds": []
+              }
+            ],
+            "gaps": [
+              {
+                "hunkId": "hunk-baa84a650e5982c5",
+                "reason": "source-change-not-mapped-to-deterministic-contract-evidence"
+              }
+            ]
+          },
+          "inferenceRequired": true,
+          "inferenceResults": [
+            {
+              "requestId": "inference-request-bb5bc434016c55e6",
+              "hunkId": "hunk-baa84a650e5982c5",
+              "decision": "no-impact",
+              "rationale": "Changing one C# emitter api-version selection does not itself change the REST contract and supplies no language-neutral SDK contract evidence.",
+              "candidateIds": []
+            }
+          ],
+          "sources": [
+            {
+              "id": "source-dd62df2e4b594ff3",
+              "path": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/tspconfig.yaml",
+              "status": "modified",
+              "origins": [
+                "committed"
+              ],
+              "hunks": [
+                {
+                  "id": "hunk-baa84a650e5982c5",
+                  "base": {
+                    "startLine": 15,
+                    "endLine": 21
+                  },
+                  "current": {
+                    "startLine": 15,
+                    "endLine": 21
+                  },
+                  "lines": [
+                    "   \"@azure-typespec/http-client-csharp-mgmt\":",
+                    "     namespace: \"Azure.ResourceManager.ServiceFabricManagedClusters\"",
+                    "     emitter-output-dir: \"{output-dir}/{service-dir}/{namespace}\"",
+                    "-    api-version: \"2026-02-01\"",
+                    "+    api-version: \"2026-05-01-preview\"",
+                    "   \"@azure-typespec/http-client-csharp-provisioning\":",
+                    "     namespace: \"Azure.Provisioning.ServiceFabricManagedClusters\"",
+                    "     emitter-output-dir: \"{output-dir}/{service-dir}/{namespace}\"",
+                    ""
+                  ]
+                }
+              ],
+              "declarations": [],
+              "documentEvidence": {
+                "schemaVersion": 4,
+                "status": "blocked",
+                "blockers": [
+                  {
+                    "revision": "current",
+                    "message": "Changed source was not available in a successfully compiled TypeSpec program."
+                  }
+                ],
+                "declarations": []
+              }
+            }
+          ],
+          "relatedFindings": {
+            "rest": [],
+            "downstream": [],
+            "typeImpact": []
+          }
+        },
+        {
+          "id": "semantic-86fad3d55140c1e4",
+          "projectId": "project-331c7ace6fed",
+          "projectIds": [
+            "project-331c7ace6fed"
+          ],
+          "action": "modify",
+          "changeKind": "modify",
+          "classificationVersion": 3,
+          "changeFacts": [
+            {
+              "id": "semantic-change-8885a4a1ae73e091",
+              "sourceChangeId": "source-4f08e25665d9b9cc",
+              "hunkIds": [
+                "hunk-f7784b57dcc9fa02"
+              ],
+              "declarationIds": [],
+              "beforeDeclarationIds": [],
+              "afterDeclarationIds": [],
+              "changeType": "sdk-customization",
+              "action": "modify",
+              "facets": [
+                "public-name"
+              ],
+              "evidenceRef": {
+                "artifact": "source/source-index.json",
+                "sourceChangeId": "source-4f08e25665d9b9cc",
+                "hunkIds": [
+                  "hunk-f7784b57dcc9fa02"
+                ],
+                "declarationIds": []
+              }
+            }
+          ],
+          "changeTypes": [
+            "sdk-customization"
+          ],
           "sourceChangeIds": [
             "source-4f08e25665d9b9cc"
           ],
@@ -111,14 +323,43 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add C# SDK naming customizations",
-          "summary": "Adds C#-specific client names for the managed maintenance-window POST operation and its request model. The change affects generated C# naming only; it does not alter the ARM wire contract or establish a language-neutral SDK surface change.",
+          "carryOverProof": {
+            "schemaVersion": 1,
+            "status": "not-applicable",
+            "operations": [],
+            "equivalentOperationIds": [],
+            "differentOperationIds": [],
+            "unknownOperationIds": []
+          },
+          "contextPolicy": {
+            "schemaVersion": 1,
+            "rest": {
+              "mode": "agent",
+              "reason": "unresolved-source-coverage",
+              "evidenceIds": []
+            },
+            "downstream": {
+              "mode": "agent",
+              "reason": "unresolved-source-coverage",
+              "evidenceIds": []
+            },
+            "guidelines": {
+              "mode": "agent",
+              "reason": "changed-design-facts-require-guidelines-assessment"
+            },
+            "documentation": {
+              "mode": "deterministic",
+              "reason": "compiler-effective-documentation-check"
+            }
+          },
+          "title": "Customize C# maintenance-window names",
+          "summary": "Adds C#-specific client names for the maintenance-window operation with content and its request model.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
             "downstreamCandidateIds": [],
             "complianceSearchRequestIds": [
-              "compliance-search-d647f5176aa11d99"
+              "compliance-search-51a25fbb3a60bcb0"
             ],
             "relatedOperationIds": [],
             "coveredHunkIds": [],
@@ -144,10 +385,10 @@
           "inferenceRequired": true,
           "inferenceResults": [
             {
-              "requestId": "inference-request-f96da3ed7fd39fc7",
+              "requestId": "inference-request-b2c0a266c24be8fc",
               "hunkId": "hunk-f7784b57dcc9fa02",
               "decision": "no-impact",
-              "rationale": "The added @@clientName statements only customize C# generated names. They do not change serialized requests or responses, and the bounded evidence does not establish a language-neutral downstream SDK contract change.",
+              "rationale": "The @@clientName changes are explicitly C#-specific and therefore do not establish a language-neutral generated SDK breaking change.",
               "candidateIds": []
             }
           ],
@@ -205,131 +446,6 @@
             "downstream": [],
             "typeImpact": []
           }
-        },
-        {
-          "id": "semantic-cb43806e77e5fd75",
-          "projectId": "project-331c7ace6fed",
-          "projectIds": [
-            "project-331c7ace6fed"
-          ],
-          "action": "modify",
-          "changeKind": "modify",
-          "sourceChangeIds": [
-            "source-dd62df2e4b594ff3"
-          ],
-          "hunkIds": [
-            "hunk-baa84a650e5982c5"
-          ],
-          "declarationIds": [],
-          "declarationNames": [],
-          "ownedOperationIds": [],
-          "versionTransitionOperationIds": [],
-          "sourceMappedOperationIds": [],
-          "publicationEligibleOperationIds": [],
-          "operations": [],
-          "operationIds": [],
-          "beforeFactIds": [],
-          "afterFactIds": [],
-          "changedAspects": [],
-          "groupingEvidence": {
-            "kind": "deterministic-coherent-change",
-            "reasons": [],
-            "memberHunkIds": [
-              "hunk-baa84a650e5982c5"
-            ]
-          },
-          "intentType": "normal",
-          "title": "Retarget the C# management emitter to an existing preview API",
-          "summary": "Changes the C# management emitter selection from API version 2026-02-01 to the already-defined 2026-05-01-preview version. This changes generation input selection, not the service's TypeSpec API declarations or REST contract.",
-          "informational": false,
-          "deterministicCoverage": {
-            "restCandidateIds": [],
-            "downstreamCandidateIds": [],
-            "complianceSearchRequestIds": [
-              "compliance-search-a49538a2a49eacf5"
-            ],
-            "relatedOperationIds": [],
-            "coveredHunkIds": [],
-            "uncoveredHunkIds": [
-              "hunk-baa84a650e5982c5"
-            ],
-            "classifications": [
-              {
-                "hunkId": "hunk-baa84a650e5982c5",
-                "status": "unknown",
-                "reason": "source-change-not-mapped-to-deterministic-contract-evidence",
-                "restCandidateIds": [],
-                "downstreamCandidateIds": []
-              }
-            ],
-            "gaps": [
-              {
-                "hunkId": "hunk-baa84a650e5982c5",
-                "reason": "source-change-not-mapped-to-deterministic-contract-evidence"
-              }
-            ]
-          },
-          "inferenceRequired": true,
-          "inferenceResults": [
-            {
-              "requestId": "inference-request-396739cce78d7015",
-              "hunkId": "hunk-baa84a650e5982c5",
-              "decision": "no-impact",
-              "rationale": "Changing an emitter's selected existing API version does not itself alter the REST contract or a language-neutral SDK declaration. No contract candidate is supported by the supplied hunk.",
-              "candidateIds": []
-            }
-          ],
-          "sources": [
-            {
-              "id": "source-dd62df2e4b594ff3",
-              "path": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/tspconfig.yaml",
-              "status": "modified",
-              "origins": [
-                "committed"
-              ],
-              "hunks": [
-                {
-                  "id": "hunk-baa84a650e5982c5",
-                  "base": {
-                    "startLine": 15,
-                    "endLine": 21
-                  },
-                  "current": {
-                    "startLine": 15,
-                    "endLine": 21
-                  },
-                  "lines": [
-                    "   \"@azure-typespec/http-client-csharp-mgmt\":",
-                    "     namespace: \"Azure.ResourceManager.ServiceFabricManagedClusters\"",
-                    "     emitter-output-dir: \"{output-dir}/{service-dir}/{namespace}\"",
-                    "-    api-version: \"2026-02-01\"",
-                    "+    api-version: \"2026-05-01-preview\"",
-                    "   \"@azure-typespec/http-client-csharp-provisioning\":",
-                    "     namespace: \"Azure.Provisioning.ServiceFabricManagedClusters\"",
-                    "     emitter-output-dir: \"{output-dir}/{service-dir}/{namespace}\"",
-                    ""
-                  ]
-                }
-              ],
-              "declarations": [],
-              "documentEvidence": {
-                "schemaVersion": 4,
-                "status": "blocked",
-                "blockers": [
-                  {
-                    "revision": "current",
-                    "message": "Changed source was not available in a successfully compiled TypeSpec program."
-                  }
-                ],
-                "declarations": []
-              }
-            }
-          ],
-          "relatedFindings": {
-            "rest": [],
-            "downstream": [],
-            "typeImpact": []
-          }
         }
       ],
       "sourceHunkIds": [
@@ -340,12 +456,16 @@
     },
     "rest": {
       "status": "passed",
+      "verdict": "passed",
+      "coverage": "complete",
       "findings": [],
       "rejectedCandidateCount": 0,
       "blockers": []
     },
     "downstream": {
       "status": "passed",
+      "verdict": "passed",
+      "coverage": "complete",
       "findings": [],
       "methodGroups": [],
       "typeImpacts": [],
@@ -370,13 +490,13 @@
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 6
+              "total": 10
             },
-            "selectionRationale": "Covers modifications to existing versioned ARM APIs, the closest guidance category for an emitter retargeted between existing versions."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
             "rank": 2,
@@ -384,86 +504,44 @@
             "title": "Versioning overview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
+              "changeContext": 0,
+              "total": 9
             },
-            "selectionRationale": "Covers ARM API versioning and preview-version context relevant to the selected emitter API version."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
             "rank": 3,
-            "catalogOrder": 5,
-            "title": "Add preview after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Matches the stable-to-preview version-selection context, although the preview version already exists."
-          },
-          {
-            "rank": 4,
             "catalogOrder": 24,
             "title": "Decorators",
             "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 6
+              "total": 8
             },
-            "selectionRationale": "Directly covers augment-decorator syntax used by the new @@clientName statements."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 7
+            },
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
             "rank": 5,
-            "catalogOrder": 3,
-            "title": "Add preview after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "Applies to ARM services, but the change does not add a preview after a preview."
-          },
-          {
-            "rank": 6,
-            "catalogOrder": 4,
-            "title": "Add stable after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "Applies to ARM services, but the change does not add a stable version after a preview."
-          },
-          {
-            "rank": 7,
-            "catalogOrder": 6,
-            "title": "Add stable after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "Applies to ARM services, but no stable-after-stable version addition occurs."
-          },
-          {
-            "rank": 8,
             "catalogOrder": 7,
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
@@ -474,66 +552,10 @@
               "changeContext": 0,
               "total": 2
             },
-            "selectionRationale": "ARM guidance, but no resource type is added or remodeled."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
-            "rank": 9,
-            "catalogOrder": 8,
-            "title": "Specific extension resource sample",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM guidance, but no extension resource is changed."
-          },
-          {
-            "rank": 10,
-            "catalogOrder": 9,
-            "title": "Private endpoints",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM guidance, but no private endpoint resource is changed."
-          },
-          {
-            "rank": 11,
-            "catalogOrder": 10,
-            "title": "Private links",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM guidance, but no private link resource is changed."
-          },
-          {
-            "rank": 12,
-            "catalogOrder": 11,
-            "title": "Network security perimeter",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM guidance, but no network security perimeter construct is changed."
-          },
-          {
-            "rank": 13,
+            "rank": 6,
             "catalogOrder": 12,
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
@@ -544,10 +566,10 @@
               "changeContext": 0,
               "total": 2
             },
-            "selectionRationale": "ARM operation guidance, but the operation contract is unchanged."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
-            "rank": 14,
+            "rank": 7,
             "catalogOrder": 13,
             "title": "Azure.ResourceManager interface reference",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
@@ -558,24 +580,10 @@
               "changeContext": 0,
               "total": 2
             },
-            "selectionRationale": "ARM interface reference, but no resource-operation template signature is changed."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
-            "rank": 15,
-            "catalogOrder": 14,
-            "title": "TypeSpec.Rest decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "Resource semantics apply to ARM, but no REST resource decorator is changed."
-          },
-          {
-            "rank": 16,
+            "rank": 8,
             "catalogOrder": 15,
             "title": "Azure.ResourceManager decorators",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
@@ -586,10 +594,10 @@
               "changeContext": 0,
               "total": 2
             },
-            "selectionRationale": "ARM decorator reference, but no ARM lifecycle decorator is changed."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
-            "rank": 17,
+            "rank": 9,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
@@ -600,10 +608,10 @@
               "changeContext": 0,
               "total": 2
             },
-            "selectionRationale": "ARM guidance, but no long-running-operation behavior is changed."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
-            "rank": 18,
+            "rank": 10,
             "catalogOrder": 18,
             "title": "Azure.ResourceManager data types",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
@@ -614,10 +622,10 @@
               "changeContext": 0,
               "total": 2
             },
-            "selectionRationale": "ARM data-type guidance, but no paging parameter or data type is changed."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
-            "rank": 19,
+            "rank": 11,
             "catalogOrder": 20,
             "title": "ARM common types",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
@@ -628,80 +636,10 @@
               "changeContext": 0,
               "total": 2
             },
-            "selectionRationale": "ARM model guidance, but no common type definition is changed."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
-            "rank": 20,
-            "catalogOrder": 21,
-            "title": "Models",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "General model guidance applies to ARM, but the request model's structure is unchanged."
-          },
-          {
-            "rank": 21,
-            "catalogOrder": 22,
-            "title": "Enums",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "General enum guidance applies to ARM, but no enum is changed."
-          },
-          {
-            "rank": 22,
-            "catalogOrder": 23,
-            "title": "Scalars",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "General scalar guidance applies to ARM, but no scalar is changed."
-          },
-          {
-            "rank": 23,
-            "catalogOrder": 25,
-            "title": "Built-in decorators",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "@clientName is not a built-in decorator and no built-in constraint or visibility decorator changes."
-          },
-          {
-            "rank": 24,
-            "catalogOrder": 26,
-            "title": "OpenAPI decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "No OpenAPI-specific decorator is changed."
-          },
-          {
-            "rank": 25,
+            "rank": 12,
             "catalogOrder": 27,
             "title": "Change provider namespace",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
@@ -712,10 +650,10 @@
               "changeContext": 0,
               "total": 2
             },
-            "selectionRationale": "ARM provider namespace configuration is unchanged."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
-            "rank": 26,
+            "rank": 13,
             "catalogOrder": 28,
             "title": "Azure Portal default experiences",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
@@ -726,24 +664,136 @@
               "changeContext": 0,
               "total": 2
             },
-            "selectionRationale": "ARM portal experience configuration is unchanged."
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes."
           },
           {
-            "rank": 27,
-            "catalogOrder": 30,
-            "title": "Directives",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/directives/",
+            "rank": 14,
+            "catalogOrder": 3,
+            "title": "Add preview after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "No suppression directive is changed."
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
           },
           {
-            "rank": 28,
+            "rank": 15,
+            "catalogOrder": 4,
+            "title": "Add stable after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 16,
+            "catalogOrder": 5,
+            "title": "Add preview after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 17,
+            "catalogOrder": 6,
+            "title": "Add stable after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 18,
+            "catalogOrder": 8,
+            "title": "Specific extension resource sample",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 19,
+            "catalogOrder": 9,
+            "title": "Private endpoints",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 20,
+            "catalogOrder": 10,
+            "title": "Private links",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 21,
+            "catalogOrder": 11,
+            "title": "Network security perimeter",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 22,
+            "catalogOrder": 14,
+            "title": "TypeSpec.Rest decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 23,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -754,10 +804,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Data-plane LRO guidance does not govern this ARM customization."
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
           },
           {
-            "rank": 29,
+            "rank": 24,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -768,10 +818,66 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Data-plane paging guidance does not apply to this ARM change."
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
           },
           {
-            "rank": 30,
+            "rank": 25,
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 26,
+            "catalogOrder": 22,
+            "title": "Enums",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 27,
+            "catalogOrder": 23,
+            "title": "Scalars",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 28,
+            "catalogOrder": 26,
+            "title": "OpenAPI decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 29,
             "catalogOrder": 29,
             "title": "Content negotiation",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/",
@@ -782,7 +888,21 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Azure.Core data-plane content negotiation guidance does not apply."
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
+          },
+          {
+            "rank": 30,
+            "catalogOrder": 30,
+            "title": "Directives",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/directives/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
           },
           {
             "rank": 31,
@@ -796,7 +916,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No Azure.Core no-openapi suppression or OpenAPI decorator change is present."
+            "selectionRationale": "No direct match to the bounded configuration or language-specific customization."
           }
         ],
         "documents": [
@@ -806,17 +926,17 @@
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 6
+              "total": 10
             },
-            "selectionRationale": "Covers modifications to existing versioned ARM APIs, the closest guidance category for an emitter retargeted between existing versions.",
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-21T09:09:19.833332Z",
-            "contentHash": "sha256:5faf5fd80807690729c00dab44ebcfa1d698166dfb0caefc516bdf325fcfd630"
+            "retrievedAt": "2026-10-29T08:47:03.419112Z",
+            "contentHash": "sha256:0d8b4cdfc6530a37d817dd54b61ff84bb90325014012aadf1a40ab4a7557fb82"
           },
           {
             "rank": 2,
@@ -824,60 +944,88 @@
             "title": "Versioning overview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
+              "changeContext": 0,
+              "total": 9
             },
-            "selectionRationale": "Covers ARM API versioning and preview-version context relevant to the selected emitter API version.",
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-21T09:09:19.833332Z",
-            "contentHash": "sha256:acbcbd1cf559e870fe0e916d7dc2fd6727cddc3dfcd7d292cb87b4513ca98527"
+            "retrievedAt": "2026-10-29T08:47:03.419112Z",
+            "contentHash": "sha256:689ffe0794e1e71480f70387f5afc6356505524a8ab621ec01c9d2e6bb868c50"
           },
           {
             "rank": 3,
-            "catalogOrder": 5,
-            "title": "Add preview after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Matches the stable-to-preview version-selection context, although the preview version already exists.",
-            "guidance": [],
-            "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-21T09:09:19.833332Z",
-            "contentHash": "sha256:d9343c0be39b4e9a928cb32d229aa33deb6599bdc70f146e8ee57271af2d9890"
-          },
-          {
-            "rank": 4,
             "catalogOrder": 24,
             "title": "Decorators",
             "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 6
+              "total": 8
             },
-            "selectionRationale": "Directly covers augment-decorator syntax used by the new @@clientName statements.",
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-21T09:09:19.833332Z",
-            "contentHash": "sha256:d4eafa90d52fe5784fc0abacfd82e2c8a6c7adae40dd302ba23fb401c7041404"
+            "retrievedAt": "2026-10-29T08:47:03.419112Z",
+            "contentHash": "sha256:551d5a1c7bce99dfbea1fe539fc5c595a5feed7b8bc680d2ce73c1673a97045b"
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 7
+            },
+            "selectionRationale": "Potentially related catalog entry was ranked against the emitter configuration and C#-specific customization changes.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-29T08:47:03.419112Z",
+            "contentHash": "sha256:4aa56dd32b5d0012f3de96bfd92cba9d17bbe81e8fa8bdc9f559499c012af79e"
           }
         ]
       },
       "intentAssessments": [
         {
-          "semanticIntentId": "semantic-56b7083207ca23cc",
-          "reviewUnitId": "semantic-56b7083207ca23cc",
+          "semanticIntentId": "semantic-4bc408fb8b936108",
+          "reviewUnitId": "semantic-4bc408fb8b936108",
+          "applicableGuidance": [],
+          "sourceChangeIds": [
+            "source-dd62df2e4b594ff3"
+          ],
+          "hunkIds": [
+            "hunk-baa84a650e5982c5"
+          ],
+          "declarationIds": [],
+          "decision": "no-applicable-guidance",
+          "actual": "The change is limited to emitter configuration or C#-specific client naming.",
+          "rationale": "The completed official-document search found no Azure API guideline governing this emitter selection or language-specific SDK naming customization.",
+          "gap": "The completed official-document search found no Azure API guideline governing this emitter selection or language-specific SDK naming customization.",
+          "sourceLinks": [],
+          "codeSnippets": [
+            {
+              "path": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/tspconfig.yaml",
+              "hunkId": "hunk-baa84a650e5982c5",
+              "lines": [
+                "-    api-version: \"2026-02-01\"",
+                "+    api-version: \"2026-05-01-preview\""
+              ]
+            }
+          ],
+          "blockers": []
+        },
+        {
+          "semanticIntentId": "semantic-86fad3d55140c1e4",
+          "reviewUnitId": "semantic-86fad3d55140c1e4",
           "applicableGuidance": [],
           "sourceChangeIds": [
             "source-4f08e25665d9b9cc"
@@ -887,9 +1035,9 @@
           ],
           "declarationIds": [],
           "decision": "no-applicable-guidance",
-          "actual": "The change adds C#-specific @@clientName augment decorators for an operation and request model without changing their TypeSpec API contracts.",
-          "rationale": "The fetched decorator document explains augment syntax but does not define Azure API-design requirements for language-specific SDK client names. The versioning documents do not govern this customization.",
-          "gap": "The fetched decorator document explains augment syntax but does not define Azure API-design requirements for language-specific SDK client names. The versioning documents do not govern this customization.",
+          "actual": "The change is limited to emitter configuration or C#-specific client naming.",
+          "rationale": "The completed official-document search found no Azure API guideline governing this emitter selection or language-specific SDK naming customization.",
+          "gap": "The completed official-document search found no Azure API guideline governing this emitter selection or language-specific SDK naming customization.",
           "sourceLinks": [],
           "codeSnippets": [
             {
@@ -906,34 +1054,6 @@
                 "+  \"ApplyMaintenanceWindowContent\",",
                 "+  \"csharp\"",
                 "+);"
-              ]
-            }
-          ],
-          "blockers": []
-        },
-        {
-          "semanticIntentId": "semantic-cb43806e77e5fd75",
-          "reviewUnitId": "semantic-cb43806e77e5fd75",
-          "applicableGuidance": [],
-          "sourceChangeIds": [
-            "source-dd62df2e4b594ff3"
-          ],
-          "hunkIds": [
-            "hunk-baa84a650e5982c5"
-          ],
-          "declarationIds": [],
-          "decision": "no-applicable-guidance",
-          "actual": "The change selects an already-declared preview API version for one C# management emitter and does not add or modify a Versions enum member or API declaration.",
-          "rationale": "The fetched versioning guidance governs adding and evolving API versions, not selecting an existing version in language-emitter configuration.",
-          "gap": "The fetched versioning guidance governs adding and evolving API versions, not selecting an existing version in language-emitter configuration.",
-          "sourceLinks": [],
-          "codeSnippets": [
-            {
-              "path": "specification/servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabricManagedClusters/tspconfig.yaml",
-              "hunkId": "hunk-baa84a650e5982c5",
-              "lines": [
-                "-    api-version: \"2026-02-01\"",
-                "+    api-version: \"2026-05-01-preview\""
               ]
             }
           ],
@@ -956,19 +1076,19 @@
         "missingDeclarationCount": 0,
         "unassessedIntentIds": [],
         "notApplicableIntentIds": [
-          "semantic-56b7083207ca23cc",
-          "semantic-cb43806e77e5fd75"
+          "semantic-4bc408fb8b936108",
+          "semantic-86fad3d55140c1e4"
         ]
       },
       "intentAssessments": [
         {
-          "reviewUnitId": "semantic-56b7083207ca23cc",
+          "reviewUnitId": "semantic-4bc408fb8b936108",
           "status": "not-applicable",
           "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
           "declarations": []
         },
         {
-          "reviewUnitId": "semantic-cb43806e77e5fd75",
+          "reviewUnitId": "semantic-86fad3d55140c1e4",
           "status": "not-applicable",
           "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
           "declarations": []
@@ -1016,15 +1136,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-45760\\worktrees\\base\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\worktrees\\base\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\workspace\\documents\\pr-45760\\projects\\project-331c7ace6fed\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\projects\\project-331c7ace6fed\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-05-01-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 7251,
+            "durationMs": 12948,
             "configPath": "worktrees\\base\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters\\tspconfig.yaml",
             "configHash": "4e2c0f4070847cec2612d40e42830e47487b79ca61600b93d39062229c1ea52e",
             "logPath": "logs\\project-331c7ace6fed-baseline-autorest.log",
@@ -1048,16 +1168,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-45760\\worktrees\\base\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\worktrees\\base\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\workspace\\documents\\pr-45760\\projects\\project-331c7ace6fed\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\projects\\project-331c7ace6fed\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\workspace\\documents\\pr-45760\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-05-01-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 7339,
+            "durationMs": 32440,
             "configPath": "worktrees\\base\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters\\tspconfig.yaml",
             "configHash": "4e2c0f4070847cec2612d40e42830e47487b79ca61600b93d39062229c1ea52e",
             "logPath": "logs\\project-331c7ace6fed-baseline-tcgc.log",
@@ -1085,15 +1205,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-45760\\worktrees\\current\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\worktrees\\current\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\workspace\\documents\\pr-45760\\projects\\project-331c7ace6fed\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\projects\\project-331c7ace6fed\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-05-01-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 7306,
+            "durationMs": 9426,
             "configPath": "worktrees\\current\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters\\tspconfig.yaml",
             "configHash": "41e94ccfcfff0ea3456d450a750d3f1f761c01e0bb3e6fb180789be6547cb63f",
             "logPath": "logs\\project-331c7ace6fed-target-autorest.log",
@@ -1117,16 +1237,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\workspace\\documents\\pr-45760\\worktrees\\current\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\worktrees\\current\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\workspace\\documents\\pr-45760\\projects\\project-331c7ace6fed\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\projects\\project-331c7ace6fed\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\workspace\\documents\\pr-45760\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45760\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-05-01-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 8196,
+            "durationMs": 8163,
             "configPath": "worktrees\\current\\specification\\servicefabricmanagedclusters\\resource-manager\\Microsoft.ServiceFabric\\ServiceFabricManagedClusters\\tspconfig.yaml",
             "configHash": "41e94ccfcfff0ea3456d450a750d3f1f761c01e0bb3e6fb180789be6547cb63f",
             "logPath": "logs\\project-331c7ace6fed-target-tcgc.log",
@@ -1212,6 +1332,7 @@
   ],
   "blockers": [],
   "provenance": {
+    "contextPolicyVersion": 2,
     "modelInput": "model-input.json",
     "documentQuality": "dimensions/document-quality-input.json",
     "inference": "inference.json",
@@ -1222,8 +1343,8 @@
   "inputAccounting": {
     "budgetTier": "small",
     "budgetBytes": 131072,
-    "bytes": 8321,
-    "estimatedTokens": 2081,
+    "bytes": 9751,
+    "estimatedTokens": 2438,
     "retained": {
       "evidenceSets": 2,
       "facts": 0,
@@ -1240,6 +1361,7 @@
       "unchangedInventories": true,
       "unreferencedFacts": true,
       "unreferencedDeterministicFacts": true,
+      "restCandidateEvidenceFacts": false,
       "sourceChanges": true,
       "repeatedDeclarationIds": true,
       "repeatedReviewUnitEvidence": true
@@ -1253,24 +1375,25 @@
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 840,
+      "documentBytesFetched": 477,
       "guidanceExcerptsRetained": 0,
       "guidanceExcerptBytesRetained": 0
     }
   },
   "timings": {
-    "metadataMs": 1962,
-    "fetchMs": 5804,
-    "scopeDiscoveryMs": 82,
-    "setupExcludingFetchMs": 21280,
-    "comparisonMs": 169,
-    "changeDiscoveryMs": 108,
-    "workspacePreparationMs": 18611,
-    "projectDiscoveryMs": 115,
-    "totalMs": 308776,
-    "semanticAnalysisMs": 69,
-    "restAnalysisMs": 92,
-    "downstreamAnalysisMs": 2937,
+    "metadataMs": 1903,
+    "fetchMs": 159,
+    "scopeDiscoveryMs": 71,
+    "setupExcludingFetchMs": 13194,
+    "comparisonMs": 167,
+    "changeDiscoveryMs": 111,
+    "workspacePreparationMs": 10652,
+    "projectDiscoveryMs": 85,
+    "totalMs": 219237,
+    "semanticAnalysisMs": 94,
+    "restAnalysisMs": 81,
+    "downstreamAnalysisMs": 2849,
+    "semanticContextPolicyMs": 2,
     "documentQualityAnalysisMs": 1
   }
 }

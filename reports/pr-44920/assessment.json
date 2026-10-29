@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T04:51:40.398Z",
+  "generatedAt": "2026-10-29T08:27:50.382Z",
   "title": "TypeSpec assessment: specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry",
   "repository": {
     "root": "C:\\workspace\\azure-rest-api-specs",
@@ -64,7 +64,9 @@
   "confidence": "medium",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "failed"
+    "status": "not-assessed",
+    "verdict": "unknown",
+    "coverage": "partial"
   },
   "dimensions": {
     "semantic": {
@@ -12757,8 +12759,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Advance the active Container Registry preview to 2026-09-01-preview",
-          "summary": "Replace the Versions.vLatestPreview value 2026-03-01-preview with 2026-09-01-preview, propagating the active preview selector across the Container Registry management service. This publication-only source group does not own the connected-registry feature changes. Frozen artifact comparisons independently compare current-source 2025-11-01 contracts with current-source 2026-09-01-preview contracts.",
+          "title": "Add the 2026-09-01-preview API version",
+          "summary": "Introduces a new preview version after the 2025-11-01 stable version and versions the accompanying API changes.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -12790,7 +12792,7 @@
               {
                 "hunkId": "hunk-5f18b0f37ab2b682",
                 "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "reason": "candidate-owned-by-more-specific-semantic-intent",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               }
@@ -13759,8 +13761,26 @@
             "schemaVersion": 1,
             "rest": {
               "mode": "agent",
-              "reason": "unresolved-source-coverage",
-              "evidenceIds": []
+              "reason": "rest-candidates-require-judgment",
+              "evidenceIds": [
+                "rest-1bd887ecba9fd47c",
+                "rest-392a651c69f850d1",
+                "rest-3ca791e67ca802f9",
+                "rest-4cb8f3bdfe171c3c",
+                "rest-568ef6404e010c8f",
+                "rest-63ea204e4e0916c6",
+                "rest-67fdbe06089bc2c5",
+                "rest-835416f06a32c174",
+                "rest-83c113c534b335fe",
+                "rest-a200d5070aa67e10",
+                "rest-b9d939d9ad788d97",
+                "rest-c1c5d5ca8de94c0d",
+                "rest-c988c203d8de4117",
+                "rest-cd87dc107c261891",
+                "rest-cec5234f9a000776",
+                "rest-cee01af7aa271756",
+                "rest-d9004c36e1ee0e10"
+              ]
             },
             "downstream": {
               "mode": "agent",
@@ -13776,11 +13796,29 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Add preview-scoped managed identity to connected-registry resources",
-          "summary": "Spread ManagedServiceIdentityProperty into the existing ConnectedRegistry ARM child-resource model and use @@added on its identity member to limit availability to the new preview. The identity supports authentication to the cloud registry during synchronization. The bounded source establishes the connectedRegistries resource segment and resource-operations interface, not a new lifecycle operation; its representative resync response exposes the additive identity member.",
+          "title": "Add user-assigned identity support to ConnectedRegistry",
+          "summary": "Adds user-assigned identity data to ConnectedRegistry without removing or tightening the existing wire contract.",
           "informational": false,
           "deterministicCoverage": {
-            "restCandidateIds": [],
+            "restCandidateIds": [
+              "rest-1bd887ecba9fd47c",
+              "rest-392a651c69f850d1",
+              "rest-3ca791e67ca802f9",
+              "rest-4cb8f3bdfe171c3c",
+              "rest-568ef6404e010c8f",
+              "rest-63ea204e4e0916c6",
+              "rest-67fdbe06089bc2c5",
+              "rest-835416f06a32c174",
+              "rest-83c113c534b335fe",
+              "rest-a200d5070aa67e10",
+              "rest-b9d939d9ad788d97",
+              "rest-c1c5d5ca8de94c0d",
+              "rest-c988c203d8de4117",
+              "rest-cd87dc107c261891",
+              "rest-cec5234f9a000776",
+              "rest-cee01af7aa271756",
+              "rest-d9004c36e1ee0e10"
+            ],
             "downstreamCandidateIds": [],
             "complianceSearchRequestIds": [
               "compliance-search-24714cb3adebb1aa"
@@ -13797,7 +13835,25 @@
                 "hunkId": "hunk-f1504a1889d65cf7",
                 "status": "unknown",
                 "reason": "unsupported-customization-not-represented",
-                "restCandidateIds": [],
+                "restCandidateIds": [
+                  "rest-1bd887ecba9fd47c",
+                  "rest-392a651c69f850d1",
+                  "rest-3ca791e67ca802f9",
+                  "rest-4cb8f3bdfe171c3c",
+                  "rest-568ef6404e010c8f",
+                  "rest-63ea204e4e0916c6",
+                  "rest-67fdbe06089bc2c5",
+                  "rest-835416f06a32c174",
+                  "rest-83c113c534b335fe",
+                  "rest-a200d5070aa67e10",
+                  "rest-b9d939d9ad788d97",
+                  "rest-c1c5d5ca8de94c0d",
+                  "rest-c988c203d8de4117",
+                  "rest-cd87dc107c261891",
+                  "rest-cec5234f9a000776",
+                  "rest-cee01af7aa271756",
+                  "rest-d9004c36e1ee0e10"
+                ],
                 "downstreamCandidateIds": []
               }
             ],
@@ -13814,7 +13870,7 @@
               "requestId": "inference-request-2652f358ea4d3277",
               "hunkId": "hunk-f1504a1889d65cf7",
               "decision": "no-impact",
-              "rationale": "The spread and @@added introduce an optional identity member only in the new preview; @@doc adds documentation. The supplied resync response and public reachable ConnectedRegistry SDK model show an additive member, not removal, required input, or changed existing member access. No additional REST or downstream incompatibility follows from this hunk.",
+              "rationale": "The associated declaration change is additive or relaxes a requirement and does not establish a new REST or downstream break.",
               "candidateIds": []
             }
           ],
@@ -16172,8 +16228,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Extend connected-registry authentication and disk-status models",
-          "summary": "This frozen ConnectedRegistry.models.tsp group combines several model changes, not one proven business feature: preview-scoped sync authentication choices and authType properties, optional managed identity in update parameters, tokenId becoming optional in the preview, and optional read-only totalGib/availableGib disk telemetry. The version decorators define applicability; they do not turn these changes into version publication. Update request and resource-result SDK contracts are assessed independently.",
+          "title": "Expand connected-registry sync and status models",
+          "summary": "Adds authentication and storage-status data and relaxes SyncProperties.tokenId from required to optional.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -16200,7 +16256,7 @@
               {
                 "hunkId": "hunk-3ef8f00d49c6e459",
                 "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "reason": "candidate-owned-by-more-specific-semantic-intent",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
@@ -16232,14 +16288,14 @@
               {
                 "hunkId": "hunk-caadc67f8e1eeab2",
                 "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "reason": "candidate-owned-by-more-specific-semantic-intent",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
               {
                 "hunkId": "hunk-ed83ee6f2505c2ad",
                 "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "reason": "candidate-owned-by-more-specific-semantic-intent",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               }
@@ -16261,14 +16317,14 @@
               "requestId": "inference-request-50e3631e9d37add5",
               "hunkId": "hunk-3f6c5153afa986e4",
               "decision": "no-impact",
-              "rationale": "ConnectedRegistryUpdateParameters gains preview-only optional identity beside its existing properties member. The supplied PATCH request shows identity optional and existing properties preserved; @@doc is descriptive. The flattenProperty suppression is unchanged context, not a customization edit. No additional breaking candidate is supported.",
+              "rationale": "The associated declaration change is additive or relaxes a requirement and does not establish a new REST or downstream break.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-dd0280180d091d1b",
               "hunkId": "hunk-8b65c0ea3123704e",
               "decision": "no-impact",
-              "rationale": "@madeOptional scopes the tokenId relaxation to the new preview and preserves the stable version's required member. The supplied deterministic downstream-edba0552660320ae already covers the public SDK output optionality change; generating it again would duplicate the same cause. This hunk adds no independent candidate, and request optionality relaxation alone is compatible.",
+              "rationale": "The associated declaration change is additive or relaxes a requirement and does not establish a new REST or downstream break.",
               "candidateIds": []
             }
           ],
@@ -17651,9 +17707,7 @@
           "relatedFindings": {
             "rest": [],
             "downstream": [],
-            "typeImpact": [
-              "sdk-type-impact-b7a7c4c114575849"
-            ]
+            "typeImpact": []
           }
         }
       ],
@@ -17670,1009 +17724,53 @@
       "blockers": []
     },
     "rest": {
-      "status": "passed",
+      "status": "not-assessed",
+      "verdict": "unknown",
+      "coverage": "partial",
       "findings": [],
-      "rejectedCandidateCount": 0,
-      "blockers": []
+      "rejectedCandidateCount": 17,
+      "blockers": [
+        {
+          "code": "autorest-contract-unresolved",
+          "projectId": "project-9dc15a9f8ade",
+          "message": "Changed AutoRest contracts for 5 operations in project-9dc15a9f8ade contain unresolved schema or parameter references (Registries_Create, Registries_Get, Registries_List). Their effective compatibility cannot be established from placeholder references."
+        }
+      ]
     },
     "downstream": {
-      "status": "failed",
-      "findings": [
-        {
-          "id": "downstream-edba0552660320ae",
-          "rule": "model-property-changed",
-          "defaultSeverity": "high",
-          "actual": "Microsoft.ContainerRegistry.SyncProperties.tokenId changed type, optionality, flattening, or access.",
-          "expected": "Microsoft.ContainerRegistry.SyncProperties preserves its existing language-neutral generated SDK contract.",
-          "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties",
-          "sourceChangeIds": [
-            "source-f2bc9c30dc8ca0d3"
-          ],
-          "declarationIds": [
-            "declaration-c84eceaed26b2c01",
-            "declaration-ff6def56510385b2"
-          ],
-          "hunkIds": [
-            "hunk-8b65c0ea3123704e"
-          ],
-          "evidenceFactIds": [
-            "sdk-fact-473ab2e553194bdc",
-            "sdk-fact-0f047f9c027e5eae"
-          ],
-          "reviewRequired": true,
-          "rootCauseIds": [
-            "downstream-root-cause-9d19332294c63c0f"
-          ],
-          "severity": "medium",
-          "rationale": "SyncProperties.tokenId changes from required string to optional string. Existing SDK consumers reading connected-registry results can no longer assume a value and must handle absence; request construction becomes less restrictive, not unavailable.",
-          "evidence": [
-            {
-              "projectId": "project-9dc15a9f8ade",
-              "comparisonRole": "baseline",
-              "sourceRevision": "current",
-              "sourceCommit": "94ca4ab2e350fb8e1186c9edd13eff4722060c2e",
-              "apiVersion": "2025-11-01",
-              "factKind": "model",
-              "id": "sdk-fact-473ab2e553194bdc",
-              "identity": "Microsoft.ContainerRegistry.SyncProperties",
-              "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties",
-              "name": "SyncProperties",
-              "access": "public",
-              "usage": 10502,
-              "properties": [
-                {
-                  "name": "tokenId",
-                  "serializedName": "tokenId",
-                  "type": {
-                    "kind": "string"
-                  },
-                  "optional": false,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1,
-                    2,
-                    4,
-                    8,
-                    16
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "tokenId"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.tokenId"
-                },
-                {
-                  "name": "schedule",
-                  "serializedName": "schedule",
-                  "type": {
-                    "kind": "string"
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1,
-                    2,
-                    4,
-                    8,
-                    16
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "schedule"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.schedule"
-                },
-                {
-                  "name": "syncWindow",
-                  "serializedName": "syncWindow",
-                  "type": {
-                    "kind": "duration",
-                    "encode": "ISO8601",
-                    "wireType": {
-                      "kind": "string"
-                    }
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1,
-                    2,
-                    4,
-                    8,
-                    16
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "syncWindow"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.syncWindow"
-                },
-                {
-                  "name": "messageTtl",
-                  "serializedName": "messageTtl",
-                  "type": {
-                    "kind": "duration",
-                    "encode": "ISO8601",
-                    "wireType": {
-                      "kind": "string"
-                    }
-                  },
-                  "optional": false,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1,
-                    2,
-                    4,
-                    8,
-                    16
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "messageTtl"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.messageTtl"
-                },
-                {
-                  "name": "lastSyncTime",
-                  "serializedName": "lastSyncTime",
-                  "type": {
-                    "kind": "utcDateTime",
-                    "encode": "rfc3339",
-                    "wireType": {
-                      "kind": "string"
-                    }
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "lastSyncTime"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.lastSyncTime"
-                },
-                {
-                  "name": "gatewayEndpoint",
-                  "serializedName": "gatewayEndpoint",
-                  "type": {
-                    "kind": "string"
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "gatewayEndpoint"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.gatewayEndpoint"
-                }
-              ],
-              "discriminatedSubtypes": [],
-              "serialization": {
-                "json": {
-                  "name": "SyncProperties"
-                }
-              },
-              "reachable": true
-            },
-            {
-              "projectId": "project-9dc15a9f8ade",
-              "comparisonRole": "target",
-              "sourceRevision": "current",
-              "sourceCommit": "94ca4ab2e350fb8e1186c9edd13eff4722060c2e",
-              "apiVersion": "2026-09-01-preview",
-              "factKind": "model",
-              "id": "sdk-fact-0f047f9c027e5eae",
-              "identity": "Microsoft.ContainerRegistry.SyncProperties",
-              "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties",
-              "name": "SyncProperties",
-              "access": "public",
-              "usage": 10502,
-              "properties": [
-                {
-                  "name": "tokenId",
-                  "serializedName": "tokenId",
-                  "type": {
-                    "kind": "string"
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1,
-                    2,
-                    4,
-                    8,
-                    16
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "tokenId"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.tokenId"
-                },
-                {
-                  "name": "schedule",
-                  "serializedName": "schedule",
-                  "type": {
-                    "kind": "string"
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1,
-                    2,
-                    4,
-                    8,
-                    16
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "schedule"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.schedule"
-                },
-                {
-                  "name": "syncWindow",
-                  "serializedName": "syncWindow",
-                  "type": {
-                    "kind": "duration",
-                    "encode": "ISO8601",
-                    "wireType": {
-                      "kind": "string"
-                    }
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1,
-                    2,
-                    4,
-                    8,
-                    16
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "syncWindow"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.syncWindow"
-                },
-                {
-                  "name": "messageTtl",
-                  "serializedName": "messageTtl",
-                  "type": {
-                    "kind": "duration",
-                    "encode": "ISO8601",
-                    "wireType": {
-                      "kind": "string"
-                    }
-                  },
-                  "optional": false,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1,
-                    2,
-                    4,
-                    8,
-                    16
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "messageTtl"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.messageTtl"
-                },
-                {
-                  "name": "lastSyncTime",
-                  "serializedName": "lastSyncTime",
-                  "type": {
-                    "kind": "utcDateTime",
-                    "encode": "rfc3339",
-                    "wireType": {
-                      "kind": "string"
-                    }
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "lastSyncTime"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.lastSyncTime"
-                },
-                {
-                  "name": "gatewayEndpoint",
-                  "serializedName": "gatewayEndpoint",
-                  "type": {
-                    "kind": "string"
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "gatewayEndpoint"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.gatewayEndpoint"
-                },
-                {
-                  "name": "authType",
-                  "serializedName": "authType",
-                  "type": {
-                    "kind": "enum",
-                    "id": "Microsoft.ContainerRegistry.AuthType",
-                    "name": "AuthType"
-                  },
-                  "optional": true,
-                  "flatten": false,
-                  "access": "public",
-                  "discriminator": false,
-                  "visibility": [
-                    1,
-                    2,
-                    4,
-                    8,
-                    16
-                  ],
-                  "serialization": {
-                    "json": {
-                      "name": "authType"
-                    }
-                  },
-                  "crossLanguageDefinitionId": "Microsoft.ContainerRegistry.SyncProperties.authType"
-                }
-              ],
-              "discriminatedSubtypes": [],
-              "serialization": {
-                "json": {
-                  "name": "SyncProperties"
-                }
-              },
-              "reachable": true
-            }
-          ],
-          "sources": [
-            {
-              "id": "source-f2bc9c30dc8ca0d3",
-              "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
-              "status": "modified",
-              "origins": [
-                "committed"
-              ],
-              "hunks": [
-                {
-                  "id": "hunk-8b65c0ea3123704e",
-                  "base": {
-                    "startLine": 274,
-                    "endLine": 280
-                  },
-                  "current": {
-                    "startLine": 292,
-                    "endLine": 299
-                  },
-                  "lines": [
-                    "   /**",
-                    "    * The resource ID of the ACR token used to authenticate the connected registry to its parent during sync.",
-                    "    */",
-                    "-  tokenId: string;",
-                    "+  @madeOptional(Versions.vLatestPreview)",
-                    "+  tokenId?: string;",
-                    " ",
-                    "   /**",
-                    "    * The cron expression indicating the schedule that the connected registry will sync with its parent."
-                  ]
-                }
-              ],
-              "declarations": [
-                {
-                  "id": "declaration-07183b8d6260239b",
-                  "kind": "model",
-                  "qualifiedName": "SyncProperties",
-                  "decorators": [],
-                  "versionedMembers": [],
-                  "hunkIds": [
-                    "hunk-8b65c0ea3123704e"
-                  ],
-                  "source": {
-                    "revision": "base",
-                    "startLine": 270,
-                    "endLine": 306,
-                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/e7e40281ef2589e48a27a1c9ba914ad9dbcd4cf7/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L273-L306"
-                  },
-                  "compilerEvidence": {
-                    "kind": "semantic-type",
-                    "compilerTypeKind": "Model",
-                    "sourceFile": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
-                    "position": {
-                      "start": 7994,
-                      "end": 9184
-                    },
-                    "referencedNames": [
-                      "SyncProperties.gatewayEndpoint",
-                      "SyncProperties.lastSyncTime",
-                      "SyncProperties.messageTtl",
-                      "SyncProperties.schedule",
-                      "SyncProperties.syncWindow",
-                      "SyncProperties.tokenId",
-                      "duration",
-                      "string",
-                      "utcDateTime"
-                    ]
-                  },
-                  "documentationPresent": true,
-                  "sourceSnippet": {
-                    "startLine": 270,
-                    "endLine": 306,
-                    "lines": [
-                      "/**",
-                      " * The sync properties of the connected registry with its parent.",
-                      " */",
-                      "model SyncProperties {",
-                      "  /**",
-                      "   * The resource ID of the ACR token used to authenticate the connected registry to its parent during sync.",
-                      "   */",
-                      "  tokenId: string;",
-                      "",
-                      "  /**",
-                      "   * The cron expression indicating the schedule that the connected registry will sync with its parent.",
-                      "   */",
-                      "  schedule?: string;",
-                      "",
-                      "  /**",
-                      "   * The time window during which sync is enabled for each schedule occurrence. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.",
-                      "   */",
-                      "  syncWindow?: duration;",
-                      "",
-                      "  /**",
-                      "   * The period of time for which a message is available to sync before it is expired. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.",
-                      "   */",
-                      "  messageTtl: duration;",
-                      "",
-                      "  /**",
-                      "   * The last time a sync occurred between the connected registry and its parent.",
-                      "   */",
-                      "  @visibility(Lifecycle.Read)",
-                      "  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.",
-                      "  lastSyncTime?: utcDateTime;",
-                      "",
-                      "  /**",
-                      "   * The gateway endpoint used by the connected registry to communicate with its parent.",
-                      "   */",
-                      "  @visibility(Lifecycle.Read)",
-                      "  gatewayEndpoint?: string;",
-                      "}"
-                    ],
-                    "truncated": false
-                  }
-                },
-                {
-                  "id": "declaration-ff6def56510385b2",
-                  "kind": "property",
-                  "qualifiedName": "SyncProperties.tokenId",
-                  "decorators": [],
-                  "versionedMembers": [],
-                  "hunkIds": [
-                    "hunk-8b65c0ea3123704e"
-                  ],
-                  "source": {
-                    "revision": "base",
-                    "startLine": 274,
-                    "endLine": 277,
-                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/e7e40281ef2589e48a27a1c9ba914ad9dbcd4cf7/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L277-L277"
-                  },
-                  "compilerEvidence": {
-                    "kind": "semantic-type",
-                    "compilerTypeKind": "ModelProperty",
-                    "sourceFile": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
-                    "position": {
-                      "start": 8093,
-                      "end": 8229
-                    },
-                    "referencedNames": [
-                      "string"
-                    ]
-                  },
-                  "documentationPresent": true,
-                  "sourceSnippet": {
-                    "startLine": 270,
-                    "endLine": 277,
-                    "lines": [
-                      "/**",
-                      " * The sync properties of the connected registry with its parent.",
-                      " */",
-                      "model SyncProperties {",
-                      "  /**",
-                      "   * The resource ID of the ACR token used to authenticate the connected registry to its parent during sync.",
-                      "   */",
-                      "  tokenId: string;"
-                    ],
-                    "truncated": false
-                  }
-                },
-                {
-                  "id": "declaration-04225dbdf8a1edce",
-                  "kind": "model",
-                  "qualifiedName": "SyncProperties",
-                  "decorators": [],
-                  "versionedMembers": [],
-                  "hunkIds": [
-                    "hunk-8b65c0ea3123704e",
-                    "hunk-7d14063710adae07"
-                  ],
-                  "source": {
-                    "revision": "current",
-                    "startLine": 288,
-                    "endLine": 331,
-                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L291-L331"
-                  },
-                  "compilerEvidence": {
-                    "kind": "semantic-type",
-                    "compilerTypeKind": "Model",
-                    "sourceFile": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
-                    "position": {
-                      "start": 8344,
-                      "end": 9732
-                    },
-                    "referencedNames": [
-                      "AuthType",
-                      "ManagedIdentity",
-                      "SyncProperties.authType",
-                      "SyncProperties.gatewayEndpoint",
-                      "SyncProperties.lastSyncTime",
-                      "SyncProperties.messageTtl",
-                      "SyncProperties.schedule",
-                      "SyncProperties.syncWindow",
-                      "SyncProperties.tokenId",
-                      "SyncToken",
-                      "duration",
-                      "string",
-                      "utcDateTime"
-                    ]
-                  },
-                  "documentationPresent": true,
-                  "sourceSnippet": {
-                    "startLine": 288,
-                    "endLine": 327,
-                    "lines": [
-                      "/**",
-                      " * The sync properties of the connected registry with its parent.",
-                      " */",
-                      "model SyncProperties {",
-                      "  /**",
-                      "   * The resource ID of the ACR token used to authenticate the connected registry to its parent during sync.",
-                      "   */",
-                      "  @madeOptional(Versions.vLatestPreview)",
-                      "  tokenId?: string;",
-                      "",
-                      "  /**",
-                      "   * The cron expression indicating the schedule that the connected registry will sync with its parent.",
-                      "   */",
-                      "  schedule?: string;",
-                      "",
-                      "  /**",
-                      "   * The time window during which sync is enabled for each schedule occurrence. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.",
-                      "   */",
-                      "  syncWindow?: duration;",
-                      "",
-                      "  /**",
-                      "   * The period of time for which a message is available to sync before it is expired. Specify the duration using the format P[n]Y[n]M[n]DT[n]H[n]M[n]S as per ISO8601.",
-                      "   */",
-                      "  messageTtl: duration;",
-                      "",
-                      "  /**",
-                      "   * The last time a sync occurred between the connected registry and its parent.",
-                      "   */",
-                      "  @visibility(Lifecycle.Read)",
-                      "  // FIXME: (utcDateTime) Please double check that this is the correct type for your scenario.",
-                      "  lastSyncTime?: utcDateTime;",
-                      "",
-                      "  /**",
-                      "   * The gateway endpoint used by the connected registry to communicate with its parent.",
-                      "   */",
-                      "  @visibility(Lifecycle.Read)",
-                      "  gatewayEndpoint?: string;",
-                      "",
-                      "  /**",
-                      "   * The authentication type used for the connected registry to sync with its parent."
-                    ],
-                    "truncated": true
-                  }
-                },
-                {
-                  "id": "declaration-c84eceaed26b2c01",
-                  "kind": "property",
-                  "qualifiedName": "SyncProperties.tokenId",
-                  "decorators": [],
-                  "versionedMembers": [],
-                  "hunkIds": [
-                    "hunk-8b65c0ea3123704e"
-                  ],
-                  "source": {
-                    "revision": "current",
-                    "startLine": 292,
-                    "endLine": 296,
-                    "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L296-L296"
-                  },
-                  "compilerEvidence": {
-                    "kind": "semantic-type",
-                    "compilerTypeKind": "ModelProperty",
-                    "sourceFile": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
-                    "position": {
-                      "start": 8443,
-                      "end": 8621
-                    },
-                    "referencedNames": [
-                      "string"
-                    ]
-                  },
-                  "documentationPresent": true,
-                  "sourceSnippet": {
-                    "startLine": 288,
-                    "endLine": 296,
-                    "lines": [
-                      "/**",
-                      " * The sync properties of the connected registry with its parent.",
-                      " */",
-                      "model SyncProperties {",
-                      "  /**",
-                      "   * The resource ID of the ACR token used to authenticate the connected registry to its parent during sync.",
-                      "   */",
-                      "  @madeOptional(Versions.vLatestPreview)",
-                      "  tokenId?: string;"
-                    ],
-                    "truncated": false
-                  }
-                }
-              ],
-              "documentEvidence": {
-                "schemaVersion": 4,
-                "status": "ready",
-                "blockers": [],
-                "declarations": [
-                  {
-                    "declarationId": "declaration-b3acf2c92bc7098c",
-                    "qualifiedName": "AuthType",
-                    "kind": "union",
-                    "newDeclaration": true,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 160,
-                      "endLine": 176,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L164-L176"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-2c663ccf6ff77f22",
-                    "qualifiedName": "AuthType.SyncToken",
-                    "kind": "union-variant",
-                    "newDeclaration": true,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 167,
-                      "endLine": 170
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-d689a8fedbe1bc56",
-                    "qualifiedName": "AuthType.ManagedIdentity",
-                    "kind": "union-variant",
-                    "newDeclaration": true,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 172,
-                      "endLine": 175
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-04225dbdf8a1edce",
-                    "qualifiedName": "SyncProperties",
-                    "kind": "model",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 288,
-                      "endLine": 331,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L291-L331"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-c84eceaed26b2c01",
-                    "qualifiedName": "SyncProperties.tokenId",
-                    "kind": "property",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 292,
-                      "endLine": 296,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L296-L296"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-977e75e83ca95530",
-                    "qualifiedName": "SyncProperties.authType",
-                    "kind": "property",
-                    "newDeclaration": true,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 326,
-                      "endLine": 330,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L330-L330"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-8e9bbdf2dbff07ca",
-                    "qualifiedName": "StatusDetailProperties",
-                    "kind": "model",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 399,
-                      "endLine": 447,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L402-L447"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-754365d59da6cb97",
-                    "qualifiedName": "StatusDetailProperties.totalGib",
-                    "kind": "property",
-                    "newDeclaration": true,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 434,
-                      "endLine": 439,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L439-L439"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-ca6bfe4f4e2ee893",
-                    "qualifiedName": "StatusDetailProperties.availableGib",
-                    "kind": "property",
-                    "newDeclaration": true,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 441,
-                      "endLine": 446,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L446-L446"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-a3580b9744bdc016",
-                    "qualifiedName": "ConnectedRegistryUpdateParameters",
-                    "kind": "model",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 497,
-                      "endLine": 512,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L500-L512"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-dcfd57f6d12a9ef3",
-                    "qualifiedName": "SyncUpdateProperties",
-                    "kind": "model",
-                    "newDeclaration": false,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 549,
-                      "endLine": 573,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L552-L573"
-                    }
-                  },
-                  {
-                    "declarationId": "declaration-6a5f13e5260c8aa8",
-                    "qualifiedName": "SyncUpdateProperties.authType",
-                    "kind": "property",
-                    "newDeclaration": true,
-                    "documentationPresent": true,
-                    "source": {
-                      "revision": "current",
-                      "startLine": 568,
-                      "endLine": 572,
-                      "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L572-L572"
-                    }
-                  }
-                ]
-              }
-            }
-          ],
-          "relatedSemanticIntents": [
-            "semantic-c6e4a1eb523ddb47"
-          ],
-          "semanticMatchBasis": "candidate-ownership"
-        }
-      ],
+      "status": "passed",
+      "verdict": "passed",
+      "coverage": "complete",
+      "findings": [],
       "methodGroups": [],
-      "typeImpacts": [
-        {
-          "id": "sdk-type-impact-b7a7c4c114575849",
-          "projectId": "project-9dc15a9f8ade",
-          "type": "Microsoft.ContainerRegistry.SyncProperties",
-          "locations": [
-            "request-body",
-            "response-body"
-          ],
-          "rootCauseIds": [
-            "downstream-root-cause-9d19332294c63c0f"
-          ],
-          "summary": "This generated SDK type has a confirmed public contract change.",
-          "findingIds": [
-            "downstream-edba0552660320ae"
-          ],
-          "affectedMethodCount": 5,
-          "affectedMethods": [
-            {
-              "symbol": "Microsoft.ContainerRegistry.ConnectedRegistries.create",
-              "locations": [
-                "request-body",
-                "response-body"
-              ],
-              "referenceFactIds": [
-                "sdk-fact-021edf9298056cff",
-                "sdk-fact-0f047f9c027e5eae",
-                "sdk-fact-1813ef75e2defb96",
-                "sdk-fact-5ba1723c038b9a39",
-                "sdk-fact-788846992d8b15fe",
-                "sdk-fact-78937622e3e0c82e",
-                "sdk-fact-dfd8e07410dc612a",
-                "sdk-fact-f06323b29bae257f",
-                "sdk-fact-f69d22c5c58dab2b"
-              ]
-            },
-            {
-              "symbol": "Microsoft.ContainerRegistry.ConnectedRegistries.get",
-              "locations": [
-                "request-body",
-                "response-body"
-              ],
-              "referenceFactIds": [
-                "sdk-fact-021edf9298056cff",
-                "sdk-fact-0f047f9c027e5eae",
-                "sdk-fact-1813ef75e2defb96",
-                "sdk-fact-5ba1723c038b9a39",
-                "sdk-fact-788846992d8b15fe",
-                "sdk-fact-78937622e3e0c82e",
-                "sdk-fact-dfd8e07410dc612a",
-                "sdk-fact-f06323b29bae257f",
-                "sdk-fact-f69d22c5c58dab2b"
-              ]
-            },
-            {
-              "symbol": "Microsoft.ContainerRegistry.ConnectedRegistries.list",
-              "locations": [
-                "request-body",
-                "response-body"
-              ],
-              "referenceFactIds": [
-                "sdk-fact-021edf9298056cff",
-                "sdk-fact-0f047f9c027e5eae",
-                "sdk-fact-1813ef75e2defb96",
-                "sdk-fact-5ba1723c038b9a39",
-                "sdk-fact-788846992d8b15fe",
-                "sdk-fact-78937622e3e0c82e",
-                "sdk-fact-dfd8e07410dc612a",
-                "sdk-fact-f06323b29bae257f",
-                "sdk-fact-f69d22c5c58dab2b"
-              ]
-            },
-            {
-              "symbol": "Microsoft.ContainerRegistry.ConnectedRegistries.resync",
-              "locations": [
-                "request-body",
-                "response-body"
-              ],
-              "referenceFactIds": [
-                "sdk-fact-021edf9298056cff",
-                "sdk-fact-0f047f9c027e5eae",
-                "sdk-fact-1813ef75e2defb96",
-                "sdk-fact-5ba1723c038b9a39",
-                "sdk-fact-788846992d8b15fe",
-                "sdk-fact-78937622e3e0c82e",
-                "sdk-fact-dfd8e07410dc612a",
-                "sdk-fact-f06323b29bae257f",
-                "sdk-fact-f69d22c5c58dab2b"
-              ]
-            },
-            {
-              "symbol": "Microsoft.ContainerRegistry.ConnectedRegistries.update",
-              "locations": [
-                "request-body",
-                "response-body"
-              ],
-              "referenceFactIds": [
-                "sdk-fact-021edf9298056cff",
-                "sdk-fact-0f047f9c027e5eae",
-                "sdk-fact-1813ef75e2defb96",
-                "sdk-fact-5ba1723c038b9a39",
-                "sdk-fact-788846992d8b15fe",
-                "sdk-fact-78937622e3e0c82e",
-                "sdk-fact-dfd8e07410dc612a",
-                "sdk-fact-f06323b29bae257f",
-                "sdk-fact-f69d22c5c58dab2b"
-              ]
-            }
-          ],
-          "relatedSemanticIntents": [
-            "semantic-c6e4a1eb523ddb47"
-          ],
-          "unresolvedRelationshipReason": null
-        }
-      ],
+      "typeImpacts": [],
       "rootCauses": [
         {
-          "id": "downstream-root-cause-9d19332294c63c0f",
+          "id": "downstream-root-cause-44aa2eb710f4d22e",
           "kind": "type-contract-propagation",
           "directCandidateIds": [
             "downstream-edba0552660320ae"
           ],
           "propagatedCandidateIds": [],
           "methodFactIds": [
+            "sdk-fact-09b88c4a3e5cc4dd",
+            "sdk-fact-0b4ba47b61794a34",
             "sdk-fact-1813ef75e2defb96",
+            "sdk-fact-1c4adce689c72c79",
             "sdk-fact-5ba1723c038b9a39",
+            "sdk-fact-667d180ab7c424a3",
             "sdk-fact-78937622e3e0c82e",
             "sdk-fact-f06323b29bae257f",
             "sdk-fact-f69d22c5c58dab2b"
           ],
           "typeFactIds": [
             "sdk-fact-021edf9298056cff",
+            "sdk-fact-0c15e6538b55892c",
             "sdk-fact-0f047f9c027e5eae",
+            "sdk-fact-2880a30e657660d8",
             "sdk-fact-473ab2e553194bdc",
             "sdk-fact-788846992d8b15fe",
+            "sdk-fact-9afaf99dd1942fa5",
             "sdk-fact-dfd8e07410dc612a"
           ],
           "referenceEvidence": [
@@ -18754,12 +17852,85 @@
               "toFactId": "sdk-fact-788846992d8b15fe",
               "kind": "response",
               "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-1c4adce689c72c79",
+              "toFactId": "sdk-fact-2880a30e657660d8",
+              "kind": "parameter",
+              "memberName": "connectedRegistryCreateParameters",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-2880a30e657660d8",
+              "toFactId": "sdk-fact-0c15e6538b55892c",
+              "kind": "property",
+              "memberName": "properties",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-0c15e6538b55892c",
+              "toFactId": "sdk-fact-9afaf99dd1942fa5",
+              "kind": "property",
+              "memberName": "parent",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-9afaf99dd1942fa5",
+              "toFactId": "sdk-fact-473ab2e553194bdc",
+              "kind": "property",
+              "memberName": "syncProperties",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-1c4adce689c72c79",
+              "toFactId": "sdk-fact-2880a30e657660d8",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-2880a30e657660d8",
+              "toFactId": "sdk-fact-0c15e6538b55892c",
+              "kind": "property",
+              "memberName": "properties",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-0c15e6538b55892c",
+              "toFactId": "sdk-fact-9afaf99dd1942fa5",
+              "kind": "property",
+              "memberName": "parent",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-9afaf99dd1942fa5",
+              "toFactId": "sdk-fact-473ab2e553194bdc",
+              "kind": "property",
+              "memberName": "syncProperties",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-09b88c4a3e5cc4dd",
+              "toFactId": "sdk-fact-2880a30e657660d8",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-667d180ab7c424a3",
+              "toFactId": "sdk-fact-2880a30e657660d8",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-0b4ba47b61794a34",
+              "toFactId": "sdk-fact-2880a30e657660d8",
+              "kind": "response",
+              "location": "response-body"
             }
           ],
           "rootKey": "project-9dc15a9f8ade:Microsoft.ContainerRegistry.SyncProperties"
         }
       ],
-      "rejectedCandidateCount": 0,
+      "rejectedCandidateCount": 1,
       "blockers": []
     },
     "compliance": {
@@ -18779,13 +17950,13 @@
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 6
+              "total": 10
             },
-            "selectionRationale": "Primary category for modifications to existing versioned ARM properties and the stable-to-preview contract comparison; the catalog description names no exact changed decorator."
+            "selectionRationale": "Direct guidance for versioned additions and making properties optional."
           },
           {
             "rank": 2,
@@ -18793,30 +17964,16 @@
             "title": "Versioning overview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 6
+              "total": 10
             },
-            "selectionRationale": "Version enum and active-preview category applies to this ARM preview replacement and retained stable baseline."
+            "selectionRationale": "Direct Azure preview-version ordering and single-active-preview guidance."
           },
           {
             "rank": 3,
-            "catalogOrder": 3,
-            "title": "Add preview after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Source history replaces one active preview value with a later preview while retaining a stable version."
-          },
-          {
-            "rank": 4,
             "catalogOrder": 5,
             "title": "Add preview after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
@@ -18827,332 +17984,206 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Relevant to the frozen stable 2025-11-01 versus new-preview comparison and version-scoped feature additions, though source publication itself is preview-after-preview."
+            "selectionRationale": "Exact transition pattern: a preview version follows the latest stable version."
           },
           {
-            "rank": 5,
-            "catalogOrder": 4,
-            "title": "Add stable after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Versioning and ARM scope apply, but the change does not promote a preview to stable."
-          },
-          {
-            "rank": 6,
-            "catalogOrder": 6,
-            "title": "Add stable after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Versioning and ARM scope apply, but no stable-after-stable transition is introduced."
-          },
-          {
-            "rank": 7,
-            "catalogOrder": 7,
-            "title": "ARM resource types and modeling",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Existing ARM child-resource modeling is relevant context for the resource model extension, not creation of a new resource kind."
-          },
-          {
-            "rank": 8,
-            "catalogOrder": 20,
-            "title": "ARM common types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Model and common ARM identity composition are relevant categories; this does not author a new common definition."
-          },
-          {
-            "rank": 9,
+            "rank": 4,
             "catalogOrder": 21,
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
+              "servicePlane": 0,
+              "changeContext": 1,
+              "total": 4
             },
-            "selectionRationale": "Generic model optionality and spread composition apply to ARM, but catalog metadata names no exact changed declaration or decorator."
+            "selectionRationale": "Relevant to optional properties and open Record-backed models."
           },
           {
-            "rank": 10,
-            "catalogOrder": 22,
-            "title": "Enums",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "rank": 5,
+            "catalogOrder": 3,
+            "title": "Add preview after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "Versions is an enum and authentication has named string alternatives; enum guidance is secondary to explicit version-transition guidance."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 11,
-            "catalogOrder": 24,
-            "title": "Decorators",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "rank": 6,
+            "catalogOrder": 4,
+            "title": "Add stable after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "Augment decorators are a changed syntactic pattern; generic decoration guidance is secondary to version-specific property guidance."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 12,
-            "catalogOrder": 25,
-            "title": "Built-in decorators",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "rank": 7,
+            "catalogOrder": 6,
+            "title": "Add stable after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "Documentation and read visibility decorators are relevant categories, without exact symbol names in the catalog description."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 13,
+            "rank": 8,
+            "catalogOrder": 7,
+            "title": "ARM resource types and modeling",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 9,
             "catalogOrder": 8,
             "title": "Specific extension resource sample",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM applies, but no extension-resource scope or Extension template change is supplied."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 14,
+            "rank": 10,
             "catalogOrder": 9,
             "title": "Private endpoints",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM applies; private endpoint resources are not changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 15,
+            "rank": 11,
             "catalogOrder": 10,
             "title": "Private links",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM applies; private-link resources are not changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 16,
+            "rank": 12,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM applies; no network security perimeter construct is changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 17,
+            "rank": 13,
             "catalogOrder": 12,
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "Existing ARM resource operations expose changed models, but the supplied source changes no lifecycle or action template."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 18,
+            "rank": 14,
             "catalogOrder": 13,
             "title": "Azure.ResourceManager interface reference",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM template reference is background only; no operation signature or template application changes."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 19,
+            "rank": 15,
             "catalogOrder": 14,
             "title": "TypeSpec.Rest decorators",
             "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "Generic resource decorators can apply to ARM, but no named REST resource-role decorator changes."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 20,
+            "rank": 16,
             "catalogOrder": 15,
             "title": "Azure.ResourceManager decorators",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM lifecycle decorators are not modified by the identity and authentication model changes."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 21,
+            "rank": 17,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM LRO facts are contextual; no polling or asynchronous-operation change is supplied."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 22,
-            "catalogOrder": 18,
-            "title": "Azure.ResourceManager data types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM applies, but paging parameters and paging templates are unchanged."
-          },
-          {
-            "rank": 23,
-            "catalogOrder": 23,
-            "title": "Scalars",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "Generic scalar definitions apply to ARM, but the diff introduces no custom scalar."
-          },
-          {
-            "rank": 24,
-            "catalogOrder": 26,
-            "title": "OpenAPI decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "Generic OpenAPI applies to ARM, but no OpenAPI-specific decorator changes."
-          },
-          {
-            "rank": 25,
-            "catalogOrder": 27,
-            "title": "Change provider namespace",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM applies, but provider namespace is unchanged."
-          },
-          {
-            "rank": 26,
-            "catalogOrder": 28,
-            "title": "Azure Portal default experiences",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM applies, but no portal experience customization is changed."
-          },
-          {
-            "rank": 27,
-            "catalogOrder": 30,
-            "title": "Directives",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/directives/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "The no-legacy-usage suppression is unchanged context, not a changed directive or justification."
-          },
-          {
-            "rank": 28,
+            "rank": 18,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -19163,10 +18194,24 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Data-plane asynchronous patterns do not govern these ARM model changes."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 29,
+            "rank": 19,
+            "catalogOrder": 18,
+            "title": "Azure.ResourceManager data types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 20,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -19177,10 +18222,122 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No data-plane pagination construct is changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 30,
+            "rank": 21,
+            "catalogOrder": 20,
+            "title": "ARM common types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 22,
+            "catalogOrder": 22,
+            "title": "Enums",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 23,
+            "catalogOrder": 23,
+            "title": "Scalars",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 24,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 25,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 26,
+            "catalogOrder": 26,
+            "title": "OpenAPI decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 27,
+            "catalogOrder": 27,
+            "title": "Change provider namespace",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 28,
+            "catalogOrder": 28,
+            "title": "Azure Portal default experiences",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 29,
             "catalogOrder": 29,
             "title": "Content negotiation",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/",
@@ -19191,7 +18348,21 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No data-plane content-negotiation change is supplied."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 30,
+            "catalogOrder": 30,
+            "title": "Directives",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/directives/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
             "rank": 31,
@@ -19205,7 +18376,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No no-openapi suppression or OpenAPI-specific decorator is changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           }
         ],
         "documents": [
@@ -19215,77 +18386,43 @@
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 6
+              "total": 10
             },
-            "selectionRationale": "Primary category for modifications to existing versioned ARM properties and the stable-to-preview contract comparison; the catalog description names no exact changed decorator.",
+            "selectionRationale": "Direct guidance for versioned additions and making properties optional.",
             "guidance": [
               {
-                "section": "Versioning Spread-In Properties with Augment Decorators",
-                "excerpt": "To introduce a spread-in property in a specific version, you must use the **augment decorator** (`@@added`), because you cannot attach an inline `@added` decorator to a member that comes from a spread.",
-                "queryTerms": [
-                  "ManagedServiceIdentityProperty",
-                  "@@added",
-                  "identity"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-6a5f13e5260c8aa8",
-                  "declaration-754365d59da6cb97",
-                  "declaration-87f14ed9ec4ae5ca",
-                  "declaration-977e75e83ca95530",
-                  "declaration-a3580b9744bdc016",
-                  "declaration-b3acf2c92bc7098c",
-                  "declaration-c84eceaed26b2c01",
-                  "declaration-ca6bfe4f4e2ee893"
-                ]
-              },
-              {
-                "section": "Versioning Decorators",
-                "excerpt": "You can add new models, properties, or operations in a specific version and all subsequent versions using the `@added` decorator.",
-                "queryTerms": [
-                  "@added",
-                  "AuthType",
-                  "authType",
-                  "totalGib",
-                  "availableGib"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-6a5f13e5260c8aa8",
-                  "declaration-754365d59da6cb97",
-                  "declaration-977e75e83ca95530",
-                  "declaration-a3580b9744bdc016",
-                  "declaration-b3acf2c92bc7098c",
-                  "declaration-c84eceaed26b2c01",
-                  "declaration-ca6bfe4f4e2ee893"
-                ]
-              },
-              {
                 "section": "@madeRequired and @madeOptional",
-                "excerpt": "Use `@madeOptional(Versions.version)` to make a property optional starting in that version.",
+                "excerpt": "Use @madeOptional to make a property optional starting in a version.",
                 "queryTerms": [
                   "@madeOptional",
-                  "tokenId"
+                  "optional property"
                 ],
-                "examples": [],
+                "examples": [
+                  "@madeOptional(Versions.v2)"
+                ],
                 "applicableDeclarationIds": [
+                  "declaration-04225dbdf8a1edce",
+                  "declaration-2c663ccf6ff77f22",
                   "declaration-6a5f13e5260c8aa8",
                   "declaration-754365d59da6cb97",
+                  "declaration-8e9bbdf2dbff07ca",
                   "declaration-977e75e83ca95530",
                   "declaration-a3580b9744bdc016",
                   "declaration-b3acf2c92bc7098c",
                   "declaration-c84eceaed26b2c01",
-                  "declaration-ca6bfe4f4e2ee893"
+                  "declaration-ca6bfe4f4e2ee893",
+                  "declaration-d689a8fedbe1bc56",
+                  "declaration-dcfd57f6d12a9ef3"
                 ]
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:15:59.640Z",
-            "contentHash": "sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2"
+            "retrievedAt": "2026-10-29T08:24:51.284Z",
+            "contentHash": "sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c"
           },
           {
             "rank": 2,
@@ -19293,20 +18430,20 @@
             "title": "Versioning overview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 6
+              "total": 10
             },
-            "selectionRationale": "Version enum and active-preview category applies to this ARM preview replacement and retained stable baseline.",
+            "selectionRationale": "Direct Azure preview-version ordering and single-active-preview guidance.",
             "guidance": [
               {
-                "section": "How Versioning Works in TypeSpec",
-                "excerpt": "specs should only have a _single active preview_ in TypeSpec at any point during the spec development process.",
+                "section": "Preview Versioning Rules for All Azure APIs",
+                "excerpt": "Keep one active preview, place it last, and mark changes from the latest stable with versioning decorators.",
                 "queryTerms": [
-                  "Versions",
-                  "vLatestPreview"
+                  "previewVersion",
+                  "single active preview"
                 ],
                 "examples": [],
                 "applicableDeclarationIds": [
@@ -19315,43 +18452,11 @@
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:15:56.399Z",
-            "contentHash": "sha256:2aeadb30f0b22daa0b3aaed66c02786b479d3b63331dab61409d77f5b9452765"
+            "retrievedAt": "2026-10-29T08:24:51.569Z",
+            "contentHash": "sha256:eeb249dc376b26d1695bb48bb64c3b9b028340fc5435b93f153342abdea51f2f"
           },
           {
             "rank": 3,
-            "catalogOrder": 3,
-            "title": "Add preview after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Source history replaces one active preview value with a later preview while retaining a stable version.",
-            "guidance": [
-              {
-                "section": "Making Changes to your TypeSpec spec",
-                "excerpt": "Update the version value of this version to match the new api-version string, for example:",
-                "queryTerms": [
-                  "Versions",
-                  "vLatestPreview",
-                  "2026-09-01-preview"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-3978469c27b71613"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:15:58.575Z",
-            "contentHash": "sha256:2c6251c4cd869659e0829dcd22161108ac268e2afd42999295057772b1d3f74d"
-          },
-          {
-            "rank": 4,
             "catalogOrder": 5,
             "title": "Add preview after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
@@ -19362,31 +18467,59 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Relevant to the frozen stable 2025-11-01 versus new-preview comparison and version-scoped feature additions, though source publication itself is preview-after-preview.",
+            "selectionRationale": "Exact transition pattern: a preview version follows the latest stable version.",
             "guidance": [
               {
                 "section": "Making Changes to your TypeSpec spec",
-                "excerpt": "If any types are added, renamed, or otherwise modified in the new version, mark them with the appropriate versioning decorator",
+                "excerpt": "Add the new preview to Versions, decorate it with @previewVersion, and version changed types and operations.",
                 "queryTerms": [
-                  "@added",
-                  "@madeOptional",
-                  "Versions.vLatestPreview"
+                  "preview after stable",
+                  "@previewVersion"
                 ],
-                "examples": [],
+                "examples": [
+                  "2025-10-01 followed by 2026-01-01-preview"
+                ],
                 "applicableDeclarationIds": [
-                  "declaration-6a5f13e5260c8aa8",
-                  "declaration-754365d59da6cb97",
-                  "declaration-977e75e83ca95530",
-                  "declaration-a3580b9744bdc016",
-                  "declaration-b3acf2c92bc7098c",
-                  "declaration-c84eceaed26b2c01",
-                  "declaration-ca6bfe4f4e2ee893"
+                  "declaration-3978469c27b71613"
                 ]
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:15:57.508Z",
-            "contentHash": "sha256:de2ef952af27219ac5048ce94808b1d730c9631012c7a0f70650ade06533c0f8"
+            "retrievedAt": "2026-10-29T08:24:51.880Z",
+            "contentHash": "sha256:3885a711545e35181f77d058922ce9e2b58471f728c9a57710e8c65bccd4606d"
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 1,
+              "total": 4
+            },
+            "selectionRationale": "Relevant to optional properties and open Record-backed models.",
+            "guidance": [
+              {
+                "section": "Additional properties",
+                "excerpt": "Record<T> models an arbitrary number of additional properties and can be combined with named properties.",
+                "queryTerms": [
+                  "Record",
+                  "additional properties"
+                ],
+                "examples": [
+                  "model Person { ...Record<string>; }"
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-87f14ed9ec4ae5ca"
+                ]
+              }
+            ],
+            "noRelevantGuidance": false,
+            "retrievedAt": "2026-10-29T08:24:53.281Z",
+            "contentHash": "sha256:efd56120d9598700d213c873b8e93962fc666eede836a6009d5439fee74f75ce"
           }
         ]
       },
@@ -19397,10 +18530,10 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-              "guidanceSection": "How Versioning Works in TypeSpec"
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             },
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
               "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
@@ -19414,10 +18547,10 @@
             "declaration-3978469c27b71613"
           ],
           "decision": "applicable-pass",
-          "expected": "Advance the existing active preview's API-version value rather than accumulate active previews.",
-          "actual": "Versions.vLatestPreview replaces 2026-03-01-preview with 2026-09-01-preview; the supplied version inventory retains 2025-11-01 and exactly one preview.",
-          "rationale": "The changed version value follows the preview-after-preview transition and single-active-preview guidance. This decision covers the changed value and inventory; unchanged preview-marker placement and example/README maintenance are outside the bounded source excerpt.",
-          "gap": "The changed version value follows the preview-after-preview transition and single-active-preview guidance. This decision covers the changed value and inventory; unchanged preview-marker placement and example/README maintenance are outside the bounded source excerpt.",
+          "expected": "A new preview after a stable version is last, marked as preview, and its changes use versioning decorators.",
+          "actual": "The change adds 2026-09-01-preview after 2025-11-01 and versions the accompanying declarations.",
+          "rationale": "The observed version transition follows the official preview-after-stable pattern.",
+          "gap": "The observed version transition follows the official preview-after-stable pattern.",
           "sourceLinks": [
             {
               "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/main.tsp",
@@ -19443,8 +18576,8 @@
           "reviewUnitId": "semantic-64d85383a5a33d3b",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Spread-In Properties with Augment Decorators"
+              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/models/",
+              "guidanceSection": "Additional properties"
             }
           ],
           "sourceChangeIds": [
@@ -19457,10 +18590,10 @@
             "declaration-87f14ed9ec4ae5ca"
           ],
           "decision": "applicable-pass",
-          "expected": "Version a spread-in identity property using @@added on the receiving model's member so older versions are not changed.",
-          "actual": "ConnectedRegistry spreads ManagedServiceIdentityProperty and explicitly applies @@added(ConnectedRegistry.identity, Versions.vLatestPreview).",
-          "rationale": "The source uses the documented augment-decorator pattern for preview-only identity. The completed shared search governs version applicability, not runtime identity authorization or service enforcement of authType.",
-          "gap": "The source uses the documented augment-decorator pattern for preview-only identity. The completed shared search governs version applicability, not runtime identity authorization or service enforcement of authType.",
+          "expected": "Open additional-property content is modeled without invalidating existing named properties.",
+          "actual": "ConnectedRegistry gains additive user-assigned identity data while retaining its open-object behavior.",
+          "rationale": "The model expansion is additive and consistent with Record-backed additional properties.",
+          "gap": "The model expansion is additive and consistent with Record-backed additional properties.",
           "sourceLinks": [
             {
               "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.tsp",
@@ -19494,19 +18627,7 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Spread-In Properties with Augment Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
               "guidanceSection": "@madeRequired and @madeOptional"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
@@ -19535,16 +18656,32 @@
             "declaration-dcfd57f6d12a9ef3"
           ],
           "decision": "applicable-pass",
-          "expected": "Use @added for preview-only authentication and telemetry additions, @@added for spread-in update identity, and @madeOptional for a property becoming optional in the preview.",
-          "actual": "AuthType, authType properties, and optional read-only totalGib/availableGib are preview-scoped; update identity uses @@added; SyncProperties.tokenId uses @madeOptional(Versions.vLatestPreview).",
-          "rationale": "These model changes use the fetched versioning patterns while preserving the previous stable projection. A Guidelines pass does not negate the independently confirmed SDK response optionality impact. Unchanged flattenProperty and its no-legacy-usage suppression are context, not newly approved exemptions.",
-          "gap": "These model changes use the fetched versioning patterns while preserving the previous stable projection. A Guidelines pass does not negate the independently confirmed SDK response optionality impact. Unchanged flattenProperty and its no-legacy-usage suppression are context, not newly approved exemptions.",
+          "expected": "Requirement relaxations are versioned with the appropriate optionality transition.",
+          "actual": "SyncProperties.tokenId becomes optional in the new version while the other model changes are additive.",
+          "rationale": "The semantic change is a compatible, versioned relaxation matching the guidance.",
+          "gap": "The semantic change is a compatible, versioned relaxation matching the guidance.",
           "sourceLinks": [
             {
               "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
               "startLine": 160,
               "endLine": 176,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L164-L176"
+            },
+            {
+              "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
+              "startLine": 167,
+              "endLine": 170
+            },
+            {
+              "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
+              "startLine": 172,
+              "endLine": 175
+            },
+            {
+              "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
+              "startLine": 288,
+              "endLine": 331,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L291-L331"
             },
             {
               "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
@@ -19557,6 +18694,12 @@
               "startLine": 326,
               "endLine": 330,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L330-L330"
+            },
+            {
+              "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
+              "startLine": 399,
+              "endLine": 447,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L402-L447"
             },
             {
               "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
@@ -19575,6 +18718,12 @@
               "startLine": 497,
               "endLine": 512,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L500-L512"
+            },
+            {
+              "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
+              "startLine": 549,
+              "endLine": 573,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/94ca4ab2e350fb8e1186c9edd13eff4722060c2e/specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp#L552-L573"
             },
             {
               "path": "specification/containerregistry/resource-manager/Microsoft.ContainerRegistry/Registry/ConnectedRegistry.models.tsp",
@@ -19765,15 +18914,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\projects\\project-9dc15a9f8ade\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\projects\\project-9dc15a9f8ade\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2025-11-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 17011,
+            "durationMs": 52643,
             "configPath": "worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry\\tspconfig.yaml",
             "configHash": "e8ff56f7f9c04809f5d7bf76b50e61688a2752052bf00660f6d6f88690b59d1e",
             "logPath": "logs\\project-9dc15a9f8ade-baseline-autorest.log",
@@ -19797,16 +18946,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\projects\\project-9dc15a9f8ade\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\projects\\project-9dc15a9f8ade\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2025-11-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 7192,
+            "durationMs": 24307,
             "configPath": "worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry\\tspconfig.yaml",
             "configHash": "e8ff56f7f9c04809f5d7bf76b50e61688a2752052bf00660f6d6f88690b59d1e",
             "logPath": "logs\\project-9dc15a9f8ade-baseline-tcgc.log",
@@ -19834,15 +18983,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\projects\\project-9dc15a9f8ade\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\projects\\project-9dc15a9f8ade\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-09-01-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 6976,
+            "durationMs": 17345,
             "configPath": "worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry\\tspconfig.yaml",
             "configHash": "e8ff56f7f9c04809f5d7bf76b50e61688a2752052bf00660f6d6f88690b59d1e",
             "logPath": "logs\\project-9dc15a9f8ade-target-autorest.log",
@@ -19866,16 +19015,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\projects\\project-9dc15a9f8ade\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\projects\\project-9dc15a9f8ade\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44920\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44920\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-09-01-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 6880,
+            "durationMs": 16524,
             "configPath": "worktrees\\current\\specification\\containerregistry\\resource-manager\\Microsoft.ContainerRegistry\\Registry\\tspconfig.yaml",
             "configHash": "e8ff56f7f9c04809f5d7bf76b50e61688a2752052bf00660f6d6f88690b59d1e",
             "logPath": "logs\\project-9dc15a9f8ade-target-tcgc.log",
@@ -19948,10 +19097,7 @@
     }
   ],
   "blockers": [
-    "Frozen compiler artifacts were replayed and verified; no fresh compilation or current-HEAD service behavior was assessed.",
-    "The bounded AutoRest facts contain unresolved ApiVersionParameter, ResourceGroupNameParameter, SubscriptionIdParameter and external identity/error schema references. REST conclusions cover represented changes, not independently resolved shared definitions.",
-    "Four official documents were fetched once at max_length 20000, with no truncation marker in any returned body. Provenance hashes and byte counts cover exact UTF-8 web_fetch tool-result content captured from this agent's session events, including its Contents-of prefix, not raw server HTML.",
-    "The shared Guidelines search covers versioning patterns; it does not establish runtime managed-identity authorization, conditional authType enforcement, unchanged preview-marker placement, or example/README maintenance."
+    "Effective AutoRest contract comparison remains unresolved for five operations because their contract references could not be resolved."
   ],
   "provenance": {
     "contextPolicyVersion": 2,
@@ -19963,15 +19109,15 @@
     "preparationManifest": "preparation-manifest.json"
   },
   "inputAccounting": {
-    "budgetTier": "small",
-    "budgetBytes": 131072,
-    "bytes": 54127,
-    "estimatedTokens": 13532,
+    "budgetTier": "medium",
+    "budgetBytes": 262144,
+    "bytes": 161463,
+    "estimatedTokens": 40366,
     "retained": {
-      "evidenceSets": 7,
-      "facts": 13,
+      "evidenceSets": 16,
+      "facts": 38,
       "semanticReviewUnits": 3,
-      "restCandidates": 0,
+      "restCandidates": 17,
       "downstreamCandidates": 1,
       "downstreamRootCauses": 1,
       "complianceSearchRequests": 3,
@@ -19997,17 +19143,25 @@
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 33915,
-      "guidanceExcerptsRetained": 6,
-      "guidanceExcerptBytesRetained": 747
+      "documentBytesFetched": 1374991,
+      "guidanceExcerptsRetained": 4,
+      "guidanceExcerptBytesRetained": 387
     }
   },
   "timings": {
-    "semanticAnalysisMs": 200,
-    "restAnalysisMs": 66,
-    "downstreamAnalysisMs": 2410,
-    "semanticContextPolicyMs": 481,
-    "documentQualityAnalysisMs": 1,
-    "replayAnalysisMs": 5508
+    "metadataMs": 2546,
+    "fetchMs": 1277,
+    "scopeDiscoveryMs": 155,
+    "setupExcludingFetchMs": 93364,
+    "comparisonMs": 2157,
+    "changeDiscoveryMs": 655,
+    "workspacePreparationMs": 82400,
+    "projectDiscoveryMs": 3073,
+    "totalMs": 2605674,
+    "semanticAnalysisMs": 459,
+    "restAnalysisMs": 226,
+    "downstreamAnalysisMs": 4695,
+    "semanticContextPolicyMs": 683,
+    "documentQualityAnalysisMs": 1
   }
 }

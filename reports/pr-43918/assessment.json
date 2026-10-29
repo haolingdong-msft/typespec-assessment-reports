@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T04:40:28.950Z",
+  "generatedAt": "2026-10-29T08:28:05.723Z",
   "title": "TypeSpec assessment: specification/containerservice/resource-manager/Microsoft.ContainerService/fleet",
   "repository": {
     "root": "C:\\workspace\\azure-rest-api-specs",
@@ -84,10 +84,12 @@
       }
     }
   ],
-  "confidence": "medium",
+  "confidence": "high",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "passed"
+    "status": "passed",
+    "verdict": "passed",
+    "coverage": "complete"
   },
   "dimensions": {
     "semantic": {
@@ -3110,8 +3112,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Exclude Fleet member mesh properties from the new stable API",
-          "summary": "fleetmember.tsp adds @removed(Versions.v2026_06_01) to the mesh-properties feature of FleetMemberProperties. This changes feature applicability in Fleet member create, get and update contracts without removing the Fleet member resource itself.",
+          "title": "Modify FleetMemberProperties, FleetMemberProperties.meshProperties",
+          "summary": "Modify covers 2 change facts (type) across 2 declarations and 3 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -14950,8 +14952,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Publish Fleet API version 2026-06-01",
-          "summary": "main.tsp appends the stable 2026-06-01 Versions member with documentation and ARM common-types v5. This version-declaration-only group exposes the selected stable projection; its 17 changed operation signals do not establish 17 new operations or absorb the separately owned mesh feature changes.",
+          "title": "Modify Versions",
+          "summary": "Modify covers 1 change facts (versioning) across 1 declarations and 17 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -15360,8 +15362,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Exclude label-based member selection from the new stable API",
-          "summary": "selector.tsp marks MemberSelector as removed from 2026-06-01 after its 2026-03-02-preview introduction. The grouped model and byLabel property describe version applicability of member selection; no affected operation is mapped in this bounded scope.",
+          "title": "Modify MemberSelector, MemberSelector.byLabel",
+          "summary": "Modify covers 2 change facts (type) across 2 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -16138,8 +16140,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Exclude cluster mesh profile declarations from the new stable API",
-          "summary": "clustermeshprofile.tsp adds 2026-06-01 removal gates across the grouped cluster mesh profile resource, operation interface and supporting state declarations. @resource and @parentResource(Fleet) identify a Fleet child-resource association, but no affected operation is mapped; the supplied evidence does not establish additional lifecycle requirements.",
+          "title": "Modify ClusterMeshProfile, ClusterMeshProfile.name, ClusterMeshProfileProperties",
+          "summary": "Modify covers 11 change facts (operation, type) across 11 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -19456,8 +19458,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Exclude mesh member and Cilium types from the new stable API",
-          "summary": "meshmember.tsp adds 2026-06-01 removal gates to MeshProperties, MeshMemberStatus, MeshMemberState and CiliumProperties with their grouped members. These gates bound the mesh member feature's version availability, with a Fleet member creation contract signal, rather than constituting another version publication.",
+          "title": "Modify CiliumProperties, CiliumProperties.id, MeshMemberState",
+          "summary": "Modify covers 7 change facts (type) across 7 declarations and 1 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -20579,12 +20581,16 @@
     },
     "rest": {
       "status": "passed",
+      "verdict": "passed",
+      "coverage": "complete",
       "findings": [],
       "rejectedCandidateCount": 0,
       "blockers": []
     },
     "downstream": {
       "status": "passed",
+      "verdict": "passed",
+      "coverage": "complete",
       "findings": [],
       "methodGroups": [],
       "typeImpacts": [],
@@ -20605,6 +20611,20 @@
         "catalogRanking": [
           {
             "rank": 1,
+            "catalogOrder": 6,
+            "title": "Add stable after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 10
+            },
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because a stable-after-stable release should version each changed api element and include examples for the new version."
+          },
+          {
+            "rank": 2,
             "catalogOrder": 1,
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
@@ -20615,94 +20635,10 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Primary existing-API evolution guidance covers version-gated removal of ARM models, properties and operations and declaration of the new stable version."
-          },
-          {
-            "rank": 2,
-            "catalogOrder": 2,
-            "title": "Versioning overview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Version ordering and preview/stable transition guidance apply to the Fleet version enum and feature applicability."
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces."
           },
           {
             "rank": 3,
-            "catalogOrder": 4,
-            "title": "Add stable after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "The latest source version is preview and the added version is stable; excluding unpromoted preview features is directly relevant."
-          },
-          {
-            "rank": 4,
-            "catalogOrder": 20,
-            "title": "ARM common types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "The new stable enum entry selects ARM common-types v5; common-model version management is relevant enough to check, without presuming a common-type definition is authored."
-          },
-          {
-            "rank": 5,
-            "catalogOrder": 3,
-            "title": "Add preview after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "ARM versioning category is relevant, but this change adds stable rather than another preview after preview."
-          },
-          {
-            "rank": 6,
-            "catalogOrder": 5,
-            "title": "Add preview after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "ARM versioning is relevant, but no preview-after-stable declaration is added."
-          },
-          {
-            "rank": 7,
-            "catalogOrder": 6,
-            "title": "Add stable after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "The comparison baseline is stable, but the latest source enum entry is preview, not the stable-after-stable scenario."
-          },
-          {
-            "rank": 8,
             "catalogOrder": 7,
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
@@ -20710,69 +20646,13 @@
               "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "ClusterMeshProfile has a Fleet child-resource association, but the edit gates existing declarations rather than defining a new resource shape."
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because arm resources should use the appropriate tracked, proxy, child, tenant, or extension pattern."
           },
           {
-            "rank": 9,
-            "catalogOrder": 12,
-            "title": "ARM resource operations",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "The operation interface category and ARM plane match; no lifecycle template implementation is changed."
-          },
-          {
-            "rank": 10,
-            "catalogOrder": 13,
-            "title": "Azure.ResourceManager interface reference",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "An ARM operation interface is gated, but no exact template signature change is supplied."
-          },
-          {
-            "rank": 11,
-            "catalogOrder": 14,
-            "title": "TypeSpec.Rest decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Resource and parent decorators provide resource semantics context; those decorators themselves are not the changed constructs."
-          },
-          {
-            "rank": 12,
-            "catalogOrder": 15,
-            "title": "Azure.ResourceManager decorators",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "ARM resource semantics are contextual, without an exact changed lifecycle decorator in the supplied diff."
-          },
-          {
-            "rank": 13,
+            "rank": 4,
             "catalogOrder": 21,
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
@@ -20780,223 +20660,195 @@
               "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "Model/property categories apply to ARM, but the change is version activation rather than composition, optionality or inheritance."
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts."
           },
           {
-            "rank": 14,
-            "catalogOrder": 22,
-            "title": "Enums",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "rank": 5,
+            "catalogOrder": 2,
+            "title": "Versioning overview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "A version enum member is added; generic service-facing enum modeling is less specific than version-transition guidance."
-          },
-          {
-            "rank": 15,
-            "catalogOrder": 24,
-            "title": "Decorators",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Decorator usage is present, but generic decorator syntax is less specific than versioning behavior."
-          },
-          {
-            "rank": 16,
-            "catalogOrder": 25,
-            "title": "Built-in decorators",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Documentation and visibility decorators appear in context, without changed visibility or value constraints."
-          },
-          {
-            "rank": 17,
-            "catalogOrder": 26,
-            "title": "OpenAPI decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Decorator category applies, but no OpenAPI-specific decorator or operationId is changed."
-          },
-          {
-            "rank": 18,
-            "catalogOrder": 27,
-            "title": "Change provider namespace",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "ARM decorator category matches broadly; no provider namespace is edited."
-          },
-          {
-            "rank": 19,
-            "catalogOrder": 28,
-            "title": "Azure Portal default experiences",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "ARM resource/decorator context matches broadly but no Portal experience customization is changed."
-          },
-          {
-            "rank": 20,
-            "catalogOrder": 29,
-            "title": "Content negotiation",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
+              "patternCategory": 0,
               "servicePlane": 0,
               "changeContext": 0,
-              "total": 3
+              "total": 0
             },
-            "selectionRationale": "Only the broad decorator category overlaps; there is no data-plane Accept/content-negotiation change."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 21,
+            "rank": 6,
+            "catalogOrder": 3,
+            "title": "Add preview after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 7,
+            "catalogOrder": 4,
+            "title": "Add stable after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 8,
+            "catalogOrder": 5,
+            "title": "Add preview after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 9,
             "catalogOrder": 8,
             "title": "Specific extension resource sample",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM plane matches; no extension-resource template or scoped extension change is supplied."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 22,
+            "rank": 10,
             "catalogOrder": 9,
             "title": "Private endpoints",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM plane matches, but mesh connectivity is not evidence of private endpoint connection changes."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 23,
+            "rank": 11,
             "catalogOrder": 10,
             "title": "Private links",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "No private-link resource feature is changed despite the ARM service plane."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 24,
+            "rank": 12,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "No network security perimeter configuration is supplied."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 25,
+            "rank": 13,
+            "catalogOrder": 12,
+            "title": "ARM resource operations",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 14,
+            "catalogOrder": 13,
+            "title": "Azure.ResourceManager interface reference",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 15,
+            "catalogOrder": 14,
+            "title": "TypeSpec.Rest decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 16,
+            "catalogOrder": 15,
+            "title": "Azure.ResourceManager decorators",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 17,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM plane matches but no LRO, polling or response-header change is supplied."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 26,
-            "catalogOrder": 18,
-            "title": "Azure.ResourceManager data types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM plane matches, but no top/skip paging parameter change is supplied."
-          },
-          {
-            "rank": 27,
-            "catalogOrder": 23,
-            "title": "Scalars",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "Generic scalar guidance can apply to ARM, but no custom scalar or primitive constraint is edited."
-          },
-          {
-            "rank": 28,
-            "catalogOrder": 30,
-            "title": "Directives",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/directives/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "Generic directives apply to ARM but no warning suppression is supplied."
-          },
-          {
-            "rank": 29,
+            "rank": 18,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -21007,10 +20859,24 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No Azure.Core data-plane asynchronous operation is changed."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 30,
+            "rank": 19,
+            "catalogOrder": 18,
+            "title": "Azure.ResourceManager data types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 20,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -21021,7 +20887,147 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No data-plane paging construct is edited; aggregate list operation signals do not establish paging changes."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 21,
+            "catalogOrder": 20,
+            "title": "ARM common types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 22,
+            "catalogOrder": 22,
+            "title": "Enums",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 23,
+            "catalogOrder": 23,
+            "title": "Scalars",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 24,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 25,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 26,
+            "catalogOrder": 26,
+            "title": "OpenAPI decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 27,
+            "catalogOrder": 27,
+            "title": "Change provider namespace",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 28,
+            "catalogOrder": 28,
+            "title": "Azure Portal default experiences",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 29,
+            "catalogOrder": 29,
+            "title": "Content negotiation",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 30,
+            "catalogOrder": 30,
+            "title": "Directives",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/directives/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 31,
@@ -21035,12 +21041,70 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No no-openapi warning or suppression is supplied."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           }
         ],
         "documents": [
           {
             "rank": 1,
+            "catalogOrder": 6,
+            "title": "Add stable after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 10
+            },
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because a stable-after-stable release should version each changed api element and include examples for the new version.",
+            "guidance": [
+              {
+                "section": "Making Changes to your TypeSpec spec",
+                "excerpt": "Add the new stable version and mark added, removed, renamed, or modified types with the appropriate versioning decorator.",
+                "queryTerms": [
+                  "making",
+                  "changes",
+                  "to",
+                  "your",
+                  "typespec"
+                ],
+                "examples": [
+                  "A stable-after-stable release should version each changed API element and include examples for the new version."
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-10c99e2ec75d39e6",
+                  "declaration-11d57be73543b0c0",
+                  "declaration-1c31f0469cb0cd7d",
+                  "declaration-283bef717b2b5719",
+                  "declaration-3e5b74235786ff96",
+                  "declaration-459a7e46933ac80e",
+                  "declaration-5942d0948478a079",
+                  "declaration-65239c6da420aa84",
+                  "declaration-68dae696d436b320",
+                  "declaration-7c7baa9ff97789e5",
+                  "declaration-86673ad8069b9b54",
+                  "declaration-87312fd6a88ac8e7",
+                  "declaration-968d76245db82cd1",
+                  "declaration-af5a9606a5495ef4",
+                  "declaration-b370cfa51267c70c",
+                  "declaration-bf7721e82dfc9389",
+                  "declaration-c59c45e2dc2c6c09",
+                  "declaration-d0467938ab1e91f6",
+                  "declaration-d43efc23b65bdf01",
+                  "declaration-d599d84b7e2c4c32",
+                  "declaration-df2796b93b389513",
+                  "declaration-e3cddbff950f4095",
+                  "declaration-f691f7e74f7caf6d"
+                ]
+              }
+            ],
+            "noRelevantGuidance": false,
+            "retrievedAt": "2026-10-29T08:26:11.041833Z",
+            "contentHash": "sha256:70a904d0e8c89b1310eff81cfdad9554ec0e94d597f4f139b174eb5d98da56b8"
+          },
+          {
+            "rank": 2,
             "catalogOrder": 1,
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
@@ -21051,102 +21115,17 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Primary existing-API evolution guidance covers version-gated removal of ARM models, properties and operations and declaration of the new stable version.",
-            "guidance": [
-              {
-                "section": "Declaring Versions",
-                "excerpt": "Define your API versions in an enum. For each version, specify dependencies and common types as needed.",
-                "queryTerms": [
-                  "Versions",
-                  "@armCommonTypesVersion",
-                  "@versioned"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-10c99e2ec75d39e6"
-                ]
-              },
-              {
-                "section": "Versioning Decorators",
-                "excerpt": "To remove models, properties, or operations starting from a specific version, use the `@removed` decorator.\n\n*   The `version` argument is the version where the element is removed.\n*   The element will not be present in that version or any later versions.",
-                "queryTerms": [
-                  "@removed",
-                  "Versions.v2026_06_01",
-                  "models",
-                  "properties",
-                  "operations"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-459a7e46933ac80e",
-                  "declaration-7c7baa9ff97789e5",
-                  "declaration-86673ad8069b9b54",
-                  "declaration-87312fd6a88ac8e7",
-                  "declaration-968d76245db82cd1",
-                  "declaration-af5a9606a5495ef4",
-                  "declaration-b370cfa51267c70c",
-                  "declaration-c59c45e2dc2c6c09",
-                  "declaration-d0467938ab1e91f6",
-                  "declaration-d43efc23b65bdf01",
-                  "declaration-df2796b93b389513",
-                  "declaration-f691f7e74f7caf6d"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:38:36.097Z",
-            "contentHash": "sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2"
-          },
-          {
-            "rank": 2,
-            "catalogOrder": 2,
-            "title": "Versioning overview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Version ordering and preview/stable transition guidance apply to the Fleet version enum and feature applicability.",
-            "guidance": [
-              {
-                "section": "Preview Versioning Rules for All Azure APIs",
-                "excerpt": "The [`@azure-tools/typespec-azure-resource-manager/version-progression`](/typespec-azure/docs/libraries/azure-resource-manager/rules/version-progression/) linter rule helps enforce that every api-version uses a unique `YYYY-MM-DD` date and that versions are declared in strictly increasing chronological order from top to bottom of the `Versions` enum.",
-                "queryTerms": [
-                  "Versions",
-                  "2026-06-01",
-                  "version-progression"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-10c99e2ec75d39e6"
-                ]
-              },
-              {
-                "section": "Common Version Transition Scenarios",
-                "excerpt": "The following document describes how to convert an existing multi-API TypeSpec spec with multiple previews into a spec with a single active preview. Note that this is not required, but it may significantly simplify the versioning decoration in your spec:",
-                "queryTerms": [
-                  "preview",
-                  "stable",
-                  "Versions"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-10c99e2ec75d39e6"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:38:37.167Z",
-            "contentHash": "sha256:2aeadb30f0b22daa0b3aaed66c02786b479d3b63331dab61409d77f5b9452765"
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-29T08:26:10.671774Z",
+            "contentHash": "sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c"
           },
           {
             "rank": 3,
-            "catalogOrder": 4,
-            "title": "Add stable after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
+            "catalogOrder": 7,
+            "title": "ARM resource types and modeling",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
@@ -21154,43 +21133,17 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "The latest source version is preview and the added version is stable; excluding unpromoted preview features is directly relevant.",
-            "guidance": [
-              {
-                "section": "Introduction",
-                "excerpt": "When the last api-version in your TypeSpec spec is a preview, adding a new stable version means you must remove any preview types or other API changes from the preview and only leave those type changes that are now stable.",
-                "queryTerms": [
-                  "@removed",
-                  "@added",
-                  "2026-03-02-preview",
-                  "2026-06-01"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-459a7e46933ac80e",
-                  "declaration-7c7baa9ff97789e5",
-                  "declaration-86673ad8069b9b54",
-                  "declaration-87312fd6a88ac8e7",
-                  "declaration-968d76245db82cd1",
-                  "declaration-af5a9606a5495ef4",
-                  "declaration-b370cfa51267c70c",
-                  "declaration-c59c45e2dc2c6c09",
-                  "declaration-d0467938ab1e91f6",
-                  "declaration-d43efc23b65bdf01",
-                  "declaration-df2796b93b389513",
-                  "declaration-f691f7e74f7caf6d"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:38:38.242Z",
-            "contentHash": "sha256:eec57fd6f9c9698c96e85f131bbda8e19cf5bb1bd37d9ff945beb34606fb9416"
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because arm resources should use the appropriate tracked, proxy, child, tenant, or extension pattern.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-29T08:26:12.408871Z",
+            "contentHash": "sha256:d3eb7225c2f499317611ae7d7226f8174f0b6b831b498fa53b93eb1687244c2f"
           },
           {
             "rank": 4,
-            "catalogOrder": 20,
-            "title": "ARM common types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
@@ -21198,11 +21151,11 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "The new stable enum entry selects ARM common-types v5; common-model version management is relevant enough to check, without presuming a common-type definition is authored.",
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-27T04:38:39.306Z",
-            "contentHash": "sha256:aec0244b1b0dbafb7d280e40f54a3dc87701056c504e93ebd61cfd9ba3384ded"
+            "retrievedAt": "2026-10-29T08:26:13.273479Z",
+            "contentHash": "sha256:efd56120d9598700d213c873b8e93962fc666eede836a6009d5439fee74f75ce"
           }
         ]
       },
@@ -21212,12 +21165,8 @@
           "reviewUnitId": "semantic-40f969cf96537930",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
-              "guidanceSection": "Introduction"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
@@ -21231,11 +21180,17 @@
             "declaration-65239c6da420aa84"
           ],
           "decision": "applicable-pass",
-          "expected": "Use a version-specific removal gate to exclude the feature from the stable projection without changing earlier API versions.",
-          "actual": "The mesh-properties feature receives @removed(Versions.v2026_06_01) in fleetmember.tsp.",
-          "rationale": "The supplied change follows @removed semantics and excludes the feature starting with the new stable version. It is not evidence that Fleet members themselves or earlier stable contracts are removed.",
-          "gap": "The supplied change follows @removed semantics and excludes the feature starting with the new stable version. It is not evidence that Fleet members themselves or earlier stable contracts are removed.",
+          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp",
+              "startLine": 38,
+              "endLine": 74,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp#L39-L74"
+            },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp",
               "startLine": 69,
@@ -21259,16 +21214,8 @@
           "reviewUnitId": "semantic-7f10174c2080c2d5",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Declaring Versions"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-              "guidanceSection": "Common Version Transition Scenarios"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
@@ -21281,10 +21228,10 @@
             "declaration-10c99e2ec75d39e6"
           ],
           "decision": "applicable-pass",
-          "expected": "Declare the new API version in chronological order and specify its required ARM common-types dependency.",
-          "actual": "Versions appends v2026_06_01 with value 2026-06-01, documentation and @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5), after 2026-03-02-preview.",
-          "rationale": "The new unique date follows the existing versions and selects common-types v5. The existing multi-preview history is not a new violation: the overview explicitly makes migration of an existing multi-API specification optional. Common-type authoring instructions do not require defining a new shared type merely to select v5.",
-          "gap": "The new unique date follows the existing versions and selects common-types v5. The existing multi-preview history is not a new violation: the overview explicitly makes migration of an existing multi-API specification optional. Common-type authoring instructions do not require defining a new shared type merely to select v5.",
+          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp",
@@ -21312,12 +21259,8 @@
           "reviewUnitId": "semantic-c60ec0a41694e87f",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
-              "guidanceSection": "Introduction"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
@@ -21331,16 +21274,21 @@
             "declaration-e3cddbff950f4095"
           ],
           "decision": "applicable-pass",
-          "expected": "Exclude the unpromoted member-selector type from the stable version with correctly scoped versioning.",
-          "actual": "MemberSelector has a 2026-03-02-preview introduction and gains @removed(Versions.v2026_06_01).",
-          "rationale": "The bounded interval retains the preview declaration while excluding it from the new stable projection, matching the documented version-removal mechanism. No operation association is supplied, so none is invented.",
-          "gap": "The bounded interval retains the preview declaration while excluding it from the new stable projection, matching the documented version-removal mechanism. No operation association is supplied, so none is invented.",
+          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp",
               "startLine": 6,
               "endLine": 14,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp#L9-L14"
+            },
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp",
+              "startLine": 10,
+              "endLine": 13
             }
           ],
           "codeSnippets": [
@@ -21359,12 +21307,8 @@
           "reviewUnitId": "semantic-ce182d340902ecb0",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
-              "guidanceSection": "Introduction"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
@@ -21392,10 +21336,10 @@
             "declaration-df2796b93b389513"
           ],
           "decision": "applicable-pass",
-          "expected": "Gate the unpromoted cluster mesh resource, operations and dependent state declarations out of the new stable version.",
-          "actual": "The clustermeshprofile.tsp group adds @removed(Versions.v2026_06_01) to existing preview-associated cluster mesh profile declarations.",
-          "rationale": "The gates apply the documented model/operation removal mechanism to the stable boundary while preserving earlier version applicability. Resource/parent decorators identify Fleet child-resource context; absent mapped lifecycle evidence does not justify a separate lifecycle finding.",
-          "gap": "The gates apply the documented model/operation removal mechanism to the stable boundary while preserving earlier version applicability. Resource/parent decorators identify Fleet child-resource context; absent mapped lifecycle evidence does not justify a separate lifecycle finding.",
+          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
@@ -21405,9 +21349,24 @@
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
+              "startLine": 19,
+              "endLine": 27
+            },
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
+              "startLine": 19,
+              "endLine": 27
+            },
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
               "startLine": 32,
               "endLine": 51,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L35-L51"
+            },
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
+              "startLine": 36,
+              "endLine": 38
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
@@ -21429,9 +21388,20 @@
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
+              "startLine": 87,
+              "endLine": 89
+            },
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
               "startLine": 104,
               "endLine": 133,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L107-L133"
+            },
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
+              "startLine": 108,
+              "endLine": 108,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L108-L108"
             }
           ],
           "codeSnippets": [
@@ -21485,12 +21455,8 @@
           "reviewUnitId": "semantic-db14dcf83da2ac67",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
-              "guidanceSection": "Introduction"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
@@ -21512,10 +21478,10 @@
             "declaration-f691f7e74f7caf6d"
           ],
           "decision": "applicable-pass",
-          "expected": "Exclude the unpromoted mesh member supporting types from the new stable projection using the version boundary.",
-          "actual": "The meshmember.tsp group adds @removed(Versions.v2026_06_01) to the mesh properties, member state/status and Cilium type declarations.",
-          "rationale": "The feature's type availability is bounded at the stable version using the documented removal semantics. Unchanged visibility or shape context is not itself a newly introduced design violation, and no removal from the chosen earlier stable contract is established.",
-          "gap": "The feature's type availability is bounded at the stable version using the documented removal semantics. Unchanged visibility or shape context is not itself a newly introduced design violation, and no removal from the chosen earlier stable contract is established.",
+          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
@@ -21525,9 +21491,19 @@
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
+              "startLine": 19,
+              "endLine": 21
+            },
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
               "startLine": 32,
               "endLine": 43,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp#L35-L43"
+            },
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
+              "startLine": 36,
+              "endLine": 38
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
@@ -21540,6 +21516,11 @@
               "startLine": 64,
               "endLine": 83,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp#L67-L83"
+            },
+            {
+              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
+              "startLine": 68,
+              "endLine": 70
             }
           ],
           "codeSnippets": [
@@ -21699,15 +21680,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\projects\\project-582be75b8d3d\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\projects\\project-582be75b8d3d\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2025-03-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 7086,
+            "durationMs": 38547,
             "configPath": "worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet\\tspconfig.yaml",
             "configHash": "6f24de68aff0fb020e80e339577d7d59d6f3e62fd707507cc0eabaf5e18e39a7",
             "logPath": "logs\\project-582be75b8d3d-baseline-autorest.log",
@@ -21731,16 +21712,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\projects\\project-582be75b8d3d\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\projects\\project-582be75b8d3d\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2025-03-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 8427,
+            "durationMs": 18032,
             "configPath": "worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet\\tspconfig.yaml",
             "configHash": "6f24de68aff0fb020e80e339577d7d59d6f3e62fd707507cc0eabaf5e18e39a7",
             "logPath": "logs\\project-582be75b8d3d-baseline-tcgc.log",
@@ -21768,15 +21749,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\projects\\project-582be75b8d3d\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\projects\\project-582be75b8d3d\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-06-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 6728,
+            "durationMs": 13173,
             "configPath": "worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet\\tspconfig.yaml",
             "configHash": "6f24de68aff0fb020e80e339577d7d59d6f3e62fd707507cc0eabaf5e18e39a7",
             "logPath": "logs\\project-582be75b8d3d-target-autorest.log",
@@ -21800,16 +21781,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\projects\\project-582be75b8d3d\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\projects\\project-582be75b8d3d\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-43918\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-06-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 6216,
+            "durationMs": 14401,
             "configPath": "worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet\\tspconfig.yaml",
             "configHash": "6f24de68aff0fb020e80e339577d7d59d6f3e62fd707507cc0eabaf5e18e39a7",
             "logPath": "logs\\project-582be75b8d3d-target-tcgc.log",
@@ -21965,17 +21946,25 @@
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 35651,
-      "guidanceExcerptsRetained": 5,
-      "guidanceExcerptBytesRetained": 1186
+      "documentBytesFetched": 1764241,
+      "guidanceExcerptsRetained": 1,
+      "guidanceExcerptBytesRetained": 121
     }
   },
   "timings": {
-    "semanticAnalysisMs": 1429,
-    "restAnalysisMs": 50,
-    "downstreamAnalysisMs": 8,
-    "semanticContextPolicyMs": 176,
-    "documentQualityAnalysisMs": 1,
-    "replayAnalysisMs": 2027
+    "metadataMs": 3247,
+    "fetchMs": 625,
+    "scopeDiscoveryMs": 662,
+    "setupExcludingFetchMs": 1382790,
+    "comparisonMs": 662,
+    "changeDiscoveryMs": 438,
+    "workspacePreparationMs": 1371271,
+    "projectDiscoveryMs": 5015,
+    "totalMs": 2634782,
+    "semanticAnalysisMs": 3333,
+    "restAnalysisMs": 107,
+    "downstreamAnalysisMs": 14,
+    "semanticContextPolicyMs": 365,
+    "documentQualityAnalysisMs": 1
   }
 }

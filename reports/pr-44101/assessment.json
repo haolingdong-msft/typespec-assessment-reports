@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T04:26:29.232Z",
+  "generatedAt": "2026-10-29T08:28:05.914Z",
   "title": "TypeSpec assessment: specification/compute/resource-manager/Microsoft.Compute/Bulkactions",
   "repository": {
     "root": "C:\\workspace\\azure-rest-api-specs",
@@ -62,7 +62,7 @@
       }
     }
   ],
-  "confidence": "low",
+  "confidence": "medium",
   "safety": {
     "scope": "rest-and-downstream-only",
     "status": "not-assessed",
@@ -9269,8 +9269,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Restore preview VM batch actions and add error management routes",
-          "summary": "The routes.tsp group reactivates bulk VM creation, flexible creation, and reimage collection actions in 2026-07-06-preview, and adds resource-group/location-scoped paged error retrieval and error acknowledgement. These are batch actions and error management endpoints, not evidence that every declaration in this file implements one business feature or a new tracked-resource lifecycle.",
+          "title": "Add VirtualMachineBulkOperations, VirtualMachineBulkOperations.bulkAcknowledgeOperationErrors, VirtualMachineBulkOperations.bulkCreate",
+          "summary": "Add covers 8 change facts (operation, type) across 8 declarations and 6 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -15082,8 +15082,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Publish the next Compute BulkActions preview version",
-          "summary": "The version-declaration-only main.tsp group appends 2026-07-06-preview after 2026-06-06 and selects ARM common types v6. The frozen artifact comparison uses these two versions from the same head source; feature changes and their activation decorators remain owned by their separate file groups.",
+          "title": "Modify Versions",
+          "summary": "Modify covers 1 change facts (versioning) across 1 declarations and 6 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -26449,8 +26449,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Extend batch request context, VM configuration, and error result models",
-          "summary": "The coarse models.tsp group contains several related but distinct additions: optional context-bearing resource alternatives, notification and VM allocation information, paged error/acknowledgement contracts, flexible minimum capacity, post-start agent verification, and GetInstanceView operation classification. It also versions relaxed resources inputs and loosely typed VM configuration passthrough. Preview decorators control applicability; file membership alone does not establish one feature.",
+          "title": "Add AcknowledgeBulkOperationErrorsRequest, AcknowledgeBulkOperationErrorsRequest.operationIds, AcknowledgeBulkOperationErrorsResponse",
+          "summary": "Add covers 50 change facts (type) across 50 declarations and 5 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -26627,36 +26627,36 @@
             {
               "requestId": "inference-request-e0889a1fdf2af0f5",
               "hunkId": "hunk-2c9bf26bdc7cb1bb",
-              "decision": "no-impact",
-              "rationale": "The delete request retains the existing resources input and makes it optional only from the preview using @madeOptional. The new optional resourcesWithContext alternative preserves the existing resources-only form. The deterministic SDK candidate already covers optionality; this source hunk establishes no additional breaking contract.",
+              "decision": "blocked",
+              "rationale": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-edef37c2f9bbd79d",
               "hunkId": "hunk-4b28cca4678bc269",
-              "decision": "no-impact",
-              "rationale": "The start request's Resources member retains its type and identity; @madeOptional preserves earlier requiredness and relaxes preview input. Adding a separately versioned optional context-bearing alternative does not invalidate existing resource-only requests, and the supplied SDK candidate covers the represented member change.",
+              "decision": "blocked",
+              "rationale": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-4b6822cf74b0daf3",
               "hunkId": "hunk-4fc38014414d7483",
-              "decision": "no-impact",
-              "rationale": "The deallocate request uses @madeOptional for preview-only input relaxation and @added for the optional resourcesWithContext alternative. Existing resources-only input remains valid, and the deterministic optionality candidate covers the represented SDK change without an additional incompatibility.",
+              "decision": "blocked",
+              "rationale": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-212b994f61d62905",
               "hunkId": "hunk-a57e2fa331d97734",
-              "decision": "no-impact",
-              "rationale": "The hibernate request retains resources and relaxes its requiredness in the preview while adding an optional context-bearing alternative. The previous resources-only request satisfies the stated exactly-one choice; its SDK optionality change already has a deterministic candidate.",
+              "decision": "blocked",
+              "rationale": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-120cdb95749034aa",
               "hunkId": "hunk-cb8912c4f3ca5778",
-              "decision": "no-impact",
-              "rationale": "The reimage request retains its Resources identity while making it optional and adding an optional preview context-bearing alternative. The supplied bulkReimage method is newly available relative to the selected stable artifact baseline; no preexisting stable method contract is shown to be invalidated.",
+              "decision": "blocked",
+              "rationale": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
               "candidateIds": []
             }
           ],
@@ -32568,8 +32568,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Set the Python SDK service output directory",
-          "summary": "The Python emitter configuration adds service-dir sdk/computebulkactions while retaining azure.mgmt.computebulkactions. This changes generation output placement, not a demonstrated public API identity or REST wire contract.",
+          "title": "Modify TypeSpec declarations",
+          "summary": "Modify covers 1 change facts (generation-configuration) across 0 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -32603,8 +32603,8 @@
             {
               "requestId": "inference-request-85863287cc6efec9",
               "hunkId": "hunk-74e4449f01c54c5e",
-              "decision": "no-impact",
-              "rationale": "service-dir changes generated Python file placement while keeping the configured public namespace. It changes no wire contract, client name, or demonstrated public/runtime SDK contract.",
+              "decision": "blocked",
+              "rationale": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
               "candidateIds": []
             }
           ],
@@ -32758,8 +32758,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Customize Python enum names and C# result members",
-          "summary": "client.tsp supplies explicit Python names for network API-version enum members, maps ResourceOperationDetails.subscriptionId to a C# UUID, and renames several C# response type members to ResourceTypeName. These are language-scoped SDK changes, not REST changes; the frozen neutral SDK evidence does not establish their complete before/after language-specific public surface.",
+          "title": "Modify TypeSpec declarations",
+          "summary": "Modify covers 1 change facts (sdk-customization) across 0 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -32803,17 +32803,17 @@
           "inferenceRequired": true,
           "inferenceResults": [
             {
-              "requestId": "inference-request-5f72c8b541d1c2ea",
+              "requestId": "inference-request-4b84c46f317f1185",
               "hunkId": "hunk-47db074bf2ab9b6b",
               "decision": "blocked",
-              "rationale": "The Python-scoped @clientName edits can change generated enum member identities, so they cannot be treated as nonbreaking decorator noise. The frozen neutral evidence provides neither baseline Python NetworkApiVersion member names nor its availability in the selected stable public SDK; an existing-member rename cannot be established or excluded.",
+              "rationale": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-72357ac8953cafab",
               "hunkId": "hunk-b81c862dd18a28e0",
               "decision": "blocked",
-              "rationale": "C# @alternateType can change subscriptionId from a string-facing member to Guid?, and the @clientName edits can rename response type members. Neutral facts still report string/type and do not establish actual baseline C# names, generated member equivalence, or UUID consumption. Language-specific before/after evidence is required; the wrapper-equivalence exception is not assumed.",
+              "rationale": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
               "candidateIds": []
             }
           ],
@@ -33756,8 +33756,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Reactivate the bulk-launch proxy resource interface in preview",
-          "summary": "An added preview activation on LaunchBulkInstancesOperation restores the interface after its stable-version removal. The supplied read operation retrieves the location-based launch operation proxy resource; the interface gate supports this resource's preview availability rather than publishing an independent version or proving a new tracked-resource lifecycle.",
+          "title": "Add LaunchBulkInstancesOperation, LaunchBulkInstancesOperation.get",
+          "summary": "Add covers 2 change facts (operation, type) across 2 declarations and 1 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -34236,18 +34236,70 @@
     },
     "rest": {
       "status": "not-assessed",
+      "verdict": "unknown",
+      "coverage": "blocked",
       "findings": [],
       "rejectedCandidateCount": 0,
       "blockers": [
         {
           "code": "inference-blocked",
-          "reviewUnitId": "semantic-ea6598f433a523f6",
-          "hunkId": "hunk-47db074bf2ab9b6b",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-2c9bf26bdc7cb1bb",
           "allowedDimensions": [
             "rest",
             "downstream"
           ],
-          "message": "The Python-scoped @clientName edits can change generated enum member identities, so they cannot be treated as nonbreaking decorator noise. The frozen neutral evidence provides neither baseline Python NetworkApiVersion member names nor its availability in the selected stable public SDK; an existing-member rename cannot be established or excluded."
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-4b28cca4678bc269",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-4fc38014414d7483",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-a57e2fa331d97734",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-cb8912c4f3ca5778",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-d9798705ad9627a9",
+          "hunkId": "hunk-74e4449f01c54c5e",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
         },
         {
           "code": "inference-blocked",
@@ -34257,131 +34309,20 @@
             "rest",
             "downstream"
           ],
-          "message": "C# @alternateType can change subscriptionId from a string-facing member to Guid?, and the @clientName edits can rename response type members. Neutral facts still report string/type and do not establish actual baseline C# names, generated member equivalence, or UUID consumption. Language-specific before/after evidence is required; the wrapper-equivalence exception is not assumed."
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
         }
-      ],
-      "verdict": "unknown",
-      "coverage": "blocked"
+      ]
     },
     "downstream": {
       "status": "not-assessed",
+      "verdict": "unknown",
+      "coverage": "partial",
       "findings": [],
       "methodGroups": [],
       "typeImpacts": [],
       "rootCauses": [
         {
-          "id": "downstream-root-cause-01664420a700e219",
-          "kind": "type-contract-propagation",
-          "directCandidateIds": [
-            "downstream-8a32983492226ebe"
-          ],
-          "propagatedCandidateIds": [],
-          "methodFactIds": [
-            "sdk-fact-0271f9db935e6a6e"
-          ],
-          "typeFactIds": [
-            "sdk-fact-115c809164ac84c1",
-            "sdk-fact-ed74dee9eda43766"
-          ],
-          "referenceEvidence": [
-            {
-              "fromFactId": "sdk-fact-0271f9db935e6a6e",
-              "toFactId": "sdk-fact-ed74dee9eda43766",
-              "kind": "parameter",
-              "memberName": "requestBody",
-              "location": "request-body"
-            }
-          ],
-          "rootKey": "project-8a23df6aa391:Microsoft.Compute.ExecuteDeallocateRequest"
-        },
-        {
-          "id": "downstream-root-cause-4c247c0b2f3d2828",
-          "kind": "type-contract-propagation",
-          "directCandidateIds": [
-            "downstream-2f8218a852d412e4"
-          ],
-          "propagatedCandidateIds": [],
-          "methodFactIds": [
-            "sdk-fact-08aa41fc78ce9812",
-            "sdk-fact-157b1221f04b0f11",
-            "sdk-fact-36920d5d07b9c589",
-            "sdk-fact-bc5367138f540521"
-          ],
-          "typeFactIds": [
-            "sdk-fact-5548e79dcdf6ccac",
-            "sdk-fact-6f13cbaee1a02ab0",
-            "sdk-fact-cc03dec4743a38db",
-            "sdk-fact-d109ce3a0a361b9b"
-          ],
-          "referenceEvidence": [
-            {
-              "fromFactId": "sdk-fact-08aa41fc78ce9812",
-              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
-              "kind": "lro-result",
-              "location": "response-body"
-            },
-            {
-              "fromFactId": "sdk-fact-6f13cbaee1a02ab0",
-              "toFactId": "sdk-fact-cc03dec4743a38db",
-              "kind": "property",
-              "memberName": "error",
-              "location": "response-body"
-            },
-            {
-              "fromFactId": "sdk-fact-157b1221f04b0f11",
-              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
-              "kind": "lro-result",
-              "location": "response-body"
-            },
-            {
-              "fromFactId": "sdk-fact-36920d5d07b9c589",
-              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
-              "kind": "lro-result",
-              "location": "response-body"
-            },
-            {
-              "fromFactId": "sdk-fact-bc5367138f540521",
-              "toFactId": "sdk-fact-d109ce3a0a361b9b",
-              "kind": "response",
-              "location": "response-body"
-            },
-            {
-              "fromFactId": "sdk-fact-d109ce3a0a361b9b",
-              "toFactId": "sdk-fact-cc03dec4743a38db",
-              "kind": "property",
-              "memberName": "error",
-              "location": "response-body"
-            }
-          ],
-          "rootKey": "project-8a23df6aa391:Azure.ResourceManager.CommonTypes.ErrorDetail"
-        },
-        {
-          "id": "downstream-root-cause-56a3ebf83f1670a4",
-          "kind": "type-contract-propagation",
-          "directCandidateIds": [
-            "downstream-32a7badb4325135e"
-          ],
-          "propagatedCandidateIds": [],
-          "methodFactIds": [
-            "sdk-fact-2cb811617c029440"
-          ],
-          "typeFactIds": [
-            "sdk-fact-50ef13340f65a3ef",
-            "sdk-fact-d79ec36633974927"
-          ],
-          "referenceEvidence": [
-            {
-              "fromFactId": "sdk-fact-2cb811617c029440",
-              "toFactId": "sdk-fact-d79ec36633974927",
-              "kind": "parameter",
-              "memberName": "requestBody",
-              "location": "request-body"
-            }
-          ],
-          "rootKey": "project-8a23df6aa391:Microsoft.Compute.ExecuteDeleteRequest"
-        },
-        {
-          "id": "downstream-root-cause-7a2051a542a80e91",
+          "id": "downstream-root-cause-1e8a5843120599f8",
           "kind": "type-contract-propagation",
           "directCandidateIds": [
             "downstream-c5fc39d03a675c71"
@@ -34389,39 +34330,58 @@
           "propagatedCandidateIds": [],
           "methodFactIds": [
             "sdk-fact-0271f9db935e6a6e",
+            "sdk-fact-0910df8bd3a8c6aa",
             "sdk-fact-10bcb69e8c153f5a",
             "sdk-fact-157b1221f04b0f11",
             "sdk-fact-2cb811617c029440",
             "sdk-fact-2e381acea2215ac2",
+            "sdk-fact-39daf97af50fb9b8",
             "sdk-fact-405796cdb68318f7",
             "sdk-fact-63affee36d8ab787",
             "sdk-fact-81cb29017136af6b",
             "sdk-fact-822ac4acf01af8ad",
+            "sdk-fact-8eef22adbf32dd01",
             "sdk-fact-99557ba69125b1ff",
             "sdk-fact-a92b1f5413ac23a8",
             "sdk-fact-acde5bc48a223de6",
+            "sdk-fact-b8e99764886ed21a",
+            "sdk-fact-da8f8f5858006bcd",
             "sdk-fact-e21ad2c11d7b51b4",
-            "sdk-fact-e6a1132ba74859ee"
+            "sdk-fact-e6a1132ba74859ee",
+            "sdk-fact-e6a8025d1580d9b3"
           ],
           "typeFactIds": [
             "sdk-fact-022234f29ef7bd30",
             "sdk-fact-02569fabdc135981",
+            "sdk-fact-04c62f4f73ef9f26",
+            "sdk-fact-0939d40858a9bae5",
             "sdk-fact-09a7d4914bce5062",
             "sdk-fact-0aadd0cfe8a8c273",
             "sdk-fact-0ba8f912e2b63e72",
+            "sdk-fact-0d40d6e54a26a4b4",
+            "sdk-fact-115c809164ac84c1",
             "sdk-fact-18cc33b08a105224",
             "sdk-fact-1df8eb0f27baab3e",
+            "sdk-fact-2718dd8a6ee16e75",
+            "sdk-fact-2e3792d3ea59d1f9",
             "sdk-fact-2e43abf5377b111a",
             "sdk-fact-2e7d2e6d12102d09",
+            "sdk-fact-34ac4b9934185a8d",
             "sdk-fact-3a9d74c041d8abf7",
             "sdk-fact-43df71f8fab4e653",
+            "sdk-fact-50ef13340f65a3ef",
+            "sdk-fact-73f592611dcc84b5",
             "sdk-fact-8a81eb61ff0509fe",
             "sdk-fact-9009a4d24647bb02",
             "sdk-fact-930c1283e9ce552e",
             "sdk-fact-991ad556c5b0db77",
+            "sdk-fact-a7d2ff5c2f8731b8",
             "sdk-fact-c7be197f936663ed",
             "sdk-fact-d6f1ee4114958b7f",
             "sdk-fact-d79ec36633974927",
+            "sdk-fact-d84648eb25d15403",
+            "sdk-fact-e13d1d320b072ce3",
+            "sdk-fact-e3e2f2a9533550f2",
             "sdk-fact-e8ae84e31ce4c835",
             "sdk-fact-ed74dee9eda43766",
             "sdk-fact-f98a96b8ce956824",
@@ -34721,19 +34681,175 @@
               "kind": "property",
               "memberName": "results",
               "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-39daf97af50fb9b8",
+              "toFactId": "sdk-fact-115c809164ac84c1",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-115c809164ac84c1",
+              "toFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "kind": "property",
+              "memberName": "executionParameters",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "toFactId": "sdk-fact-991ad556c5b0db77",
+              "kind": "property",
+              "memberName": "retryPolicy",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-b8e99764886ed21a",
+              "toFactId": "sdk-fact-50ef13340f65a3ef",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-50ef13340f65a3ef",
+              "toFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "kind": "property",
+              "memberName": "executionParameters",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-da8f8f5858006bcd",
+              "toFactId": "sdk-fact-2e3792d3ea59d1f9",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-2e3792d3ea59d1f9",
+              "toFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "kind": "property",
+              "memberName": "executionParameters",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-8eef22adbf32dd01",
+              "toFactId": "sdk-fact-2718dd8a6ee16e75",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-2718dd8a6ee16e75",
+              "toFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "kind": "property",
+              "memberName": "executionParameters",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-0910df8bd3a8c6aa",
+              "toFactId": "sdk-fact-a7d2ff5c2f8731b8",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-a7d2ff5c2f8731b8",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-34ac4b9934185a8d",
+              "toFactId": "sdk-fact-d84648eb25d15403",
+              "kind": "property",
+              "memberName": "operation",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-d84648eb25d15403",
+              "toFactId": "sdk-fact-991ad556c5b0db77",
+              "kind": "property",
+              "memberName": "retryPolicy",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-39daf97af50fb9b8",
+              "toFactId": "sdk-fact-e13d1d320b072ce3",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-e13d1d320b072ce3",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-b8e99764886ed21a",
+              "toFactId": "sdk-fact-e3e2f2a9533550f2",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-e3e2f2a9533550f2",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-e6a8025d1580d9b3",
+              "toFactId": "sdk-fact-73f592611dcc84b5",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-73f592611dcc84b5",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-da8f8f5858006bcd",
+              "toFactId": "sdk-fact-04c62f4f73ef9f26",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-04c62f4f73ef9f26",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-8eef22adbf32dd01",
+              "toFactId": "sdk-fact-0939d40858a9bae5",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-0939d40858a9bae5",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
             }
           ],
           "rootKey": "project-8a23df6aa391:Microsoft.Compute.RetryPolicy"
         },
         {
-          "id": "downstream-root-cause-88990da3531d014d",
+          "id": "downstream-root-cause-2c633e84235b6e31",
           "kind": "type-contract-propagation",
           "directCandidateIds": [
             "downstream-48d7299ad73e231d"
           ],
           "propagatedCandidateIds": [],
           "methodFactIds": [
-            "sdk-fact-822ac4acf01af8ad"
+            "sdk-fact-822ac4acf01af8ad",
+            "sdk-fact-da8f8f5858006bcd"
           ],
           "typeFactIds": [
             "sdk-fact-2e3792d3ea59d1f9",
@@ -34746,12 +34862,249 @@
               "kind": "parameter",
               "memberName": "requestBody",
               "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-da8f8f5858006bcd",
+              "toFactId": "sdk-fact-2e3792d3ea59d1f9",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
             }
           ],
           "rootKey": "project-8a23df6aa391:Microsoft.Compute.ExecuteHibernateRequest"
         },
         {
-          "id": "downstream-root-cause-923324edb244925e",
+          "id": "downstream-root-cause-4c247c0b2f3d2828",
+          "kind": "type-contract-propagation",
+          "directCandidateIds": [
+            "downstream-2f8218a852d412e4"
+          ],
+          "propagatedCandidateIds": [],
+          "methodFactIds": [
+            "sdk-fact-08aa41fc78ce9812",
+            "sdk-fact-157b1221f04b0f11",
+            "sdk-fact-36920d5d07b9c589",
+            "sdk-fact-bc5367138f540521"
+          ],
+          "typeFactIds": [
+            "sdk-fact-5548e79dcdf6ccac",
+            "sdk-fact-6f13cbaee1a02ab0",
+            "sdk-fact-cc03dec4743a38db",
+            "sdk-fact-d109ce3a0a361b9b"
+          ],
+          "referenceEvidence": [
+            {
+              "fromFactId": "sdk-fact-08aa41fc78ce9812",
+              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
+              "kind": "lro-result",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-6f13cbaee1a02ab0",
+              "toFactId": "sdk-fact-cc03dec4743a38db",
+              "kind": "property",
+              "memberName": "error",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-157b1221f04b0f11",
+              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
+              "kind": "lro-result",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-36920d5d07b9c589",
+              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
+              "kind": "lro-result",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-bc5367138f540521",
+              "toFactId": "sdk-fact-d109ce3a0a361b9b",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-d109ce3a0a361b9b",
+              "toFactId": "sdk-fact-cc03dec4743a38db",
+              "kind": "property",
+              "memberName": "error",
+              "location": "response-body"
+            }
+          ],
+          "rootKey": "project-8a23df6aa391:Azure.ResourceManager.CommonTypes.ErrorDetail"
+        },
+        {
+          "id": "downstream-root-cause-7da9e476ee2a3cb3",
+          "kind": "type-contract-propagation",
+          "directCandidateIds": [
+            "downstream-8a32983492226ebe"
+          ],
+          "propagatedCandidateIds": [],
+          "methodFactIds": [
+            "sdk-fact-0271f9db935e6a6e",
+            "sdk-fact-39daf97af50fb9b8"
+          ],
+          "typeFactIds": [
+            "sdk-fact-115c809164ac84c1",
+            "sdk-fact-ed74dee9eda43766"
+          ],
+          "referenceEvidence": [
+            {
+              "fromFactId": "sdk-fact-0271f9db935e6a6e",
+              "toFactId": "sdk-fact-ed74dee9eda43766",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-39daf97af50fb9b8",
+              "toFactId": "sdk-fact-115c809164ac84c1",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            }
+          ],
+          "rootKey": "project-8a23df6aa391:Microsoft.Compute.ExecuteDeallocateRequest"
+        },
+        {
+          "id": "downstream-root-cause-84f5085a46ba4d57",
+          "kind": "type-contract-propagation",
+          "directCandidateIds": [
+            "downstream-32a7badb4325135e"
+          ],
+          "propagatedCandidateIds": [],
+          "methodFactIds": [
+            "sdk-fact-2cb811617c029440",
+            "sdk-fact-b8e99764886ed21a"
+          ],
+          "typeFactIds": [
+            "sdk-fact-50ef13340f65a3ef",
+            "sdk-fact-d79ec36633974927"
+          ],
+          "referenceEvidence": [
+            {
+              "fromFactId": "sdk-fact-2cb811617c029440",
+              "toFactId": "sdk-fact-d79ec36633974927",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-b8e99764886ed21a",
+              "toFactId": "sdk-fact-50ef13340f65a3ef",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            }
+          ],
+          "rootKey": "project-8a23df6aa391:Microsoft.Compute.ExecuteDeleteRequest"
+        },
+        {
+          "id": "downstream-root-cause-9757e11ea5a5e0e8",
+          "kind": "type-contract-propagation",
+          "directCandidateIds": [
+            "downstream-ad10ac1e7645a12a"
+          ],
+          "propagatedCandidateIds": [],
+          "methodFactIds": [
+            "sdk-fact-08aa41fc78ce9812",
+            "sdk-fact-157b1221f04b0f11",
+            "sdk-fact-36920d5d07b9c589",
+            "sdk-fact-bc5367138f540521"
+          ],
+          "typeFactIds": [
+            "sdk-fact-07b39c97e77d28c6",
+            "sdk-fact-150bec739fa19f23",
+            "sdk-fact-5548e79dcdf6ccac",
+            "sdk-fact-6f13cbaee1a02ab0",
+            "sdk-fact-cc03dec4743a38db",
+            "sdk-fact-d109ce3a0a361b9b"
+          ],
+          "referenceEvidence": [
+            {
+              "fromFactId": "sdk-fact-08aa41fc78ce9812",
+              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
+              "kind": "lro-result",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-6f13cbaee1a02ab0",
+              "toFactId": "sdk-fact-cc03dec4743a38db",
+              "kind": "property",
+              "memberName": "error",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-cc03dec4743a38db",
+              "toFactId": "sdk-fact-07b39c97e77d28c6",
+              "kind": "property",
+              "memberName": "additionalInfo",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-157b1221f04b0f11",
+              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
+              "kind": "lro-result",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-36920d5d07b9c589",
+              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
+              "kind": "lro-result",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-bc5367138f540521",
+              "toFactId": "sdk-fact-d109ce3a0a361b9b",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-d109ce3a0a361b9b",
+              "toFactId": "sdk-fact-cc03dec4743a38db",
+              "kind": "property",
+              "memberName": "error",
+              "location": "response-body"
+            }
+          ],
+          "rootKey": "project-8a23df6aa391:Azure.ResourceManager.CommonTypes.ErrorAdditionalInfo"
+        },
+        {
+          "id": "downstream-root-cause-c2ad5a422392bd67",
+          "kind": "type-contract-propagation",
+          "directCandidateIds": [
+            "downstream-2624ae264168cba9"
+          ],
+          "propagatedCandidateIds": [],
+          "methodFactIds": [
+            "sdk-fact-8eef22adbf32dd01",
+            "sdk-fact-99557ba69125b1ff"
+          ],
+          "typeFactIds": [
+            "sdk-fact-022234f29ef7bd30",
+            "sdk-fact-2718dd8a6ee16e75"
+          ],
+          "referenceEvidence": [
+            {
+              "fromFactId": "sdk-fact-99557ba69125b1ff",
+              "toFactId": "sdk-fact-022234f29ef7bd30",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-8eef22adbf32dd01",
+              "toFactId": "sdk-fact-2718dd8a6ee16e75",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            }
+          ],
+          "rootKey": "project-8a23df6aa391:Microsoft.Compute.ExecuteStartRequest"
+        },
+        {
+          "id": "downstream-root-cause-f48c70d8929babb8",
           "kind": "enum-union-propagation",
           "directCandidateIds": [
             "downstream-53a638fc049696c2"
@@ -34759,40 +35112,60 @@
           "propagatedCandidateIds": [],
           "methodFactIds": [
             "sdk-fact-0271f9db935e6a6e",
+            "sdk-fact-0910df8bd3a8c6aa",
             "sdk-fact-10bcb69e8c153f5a",
             "sdk-fact-157b1221f04b0f11",
             "sdk-fact-2cb811617c029440",
             "sdk-fact-2e381acea2215ac2",
+            "sdk-fact-39daf97af50fb9b8",
             "sdk-fact-405796cdb68318f7",
             "sdk-fact-63affee36d8ab787",
             "sdk-fact-81cb29017136af6b",
             "sdk-fact-822ac4acf01af8ad",
+            "sdk-fact-8eef22adbf32dd01",
             "sdk-fact-99557ba69125b1ff",
             "sdk-fact-a92b1f5413ac23a8",
             "sdk-fact-acde5bc48a223de6",
+            "sdk-fact-b8e99764886ed21a",
+            "sdk-fact-da8f8f5858006bcd",
             "sdk-fact-e21ad2c11d7b51b4",
-            "sdk-fact-e6a1132ba74859ee"
+            "sdk-fact-e6a1132ba74859ee",
+            "sdk-fact-e6a8025d1580d9b3"
           ],
           "typeFactIds": [
             "sdk-fact-022234f29ef7bd30",
             "sdk-fact-02569fabdc135981",
+            "sdk-fact-04c62f4f73ef9f26",
+            "sdk-fact-0939d40858a9bae5",
             "sdk-fact-09a7d4914bce5062",
             "sdk-fact-0aadd0cfe8a8c273",
             "sdk-fact-0ba8f912e2b63e72",
+            "sdk-fact-0d40d6e54a26a4b4",
+            "sdk-fact-115c809164ac84c1",
             "sdk-fact-18cc33b08a105224",
             "sdk-fact-1df8eb0f27baab3e",
+            "sdk-fact-2718dd8a6ee16e75",
+            "sdk-fact-2e3792d3ea59d1f9",
             "sdk-fact-2e43abf5377b111a",
             "sdk-fact-2e7d2e6d12102d09",
+            "sdk-fact-34ac4b9934185a8d",
             "sdk-fact-37aeb31262df0bcf",
             "sdk-fact-3a9d74c041d8abf7",
             "sdk-fact-43df71f8fab4e653",
+            "sdk-fact-50ef13340f65a3ef",
             "sdk-fact-6b710dec77cbfad1",
+            "sdk-fact-73f592611dcc84b5",
             "sdk-fact-8a81eb61ff0509fe",
             "sdk-fact-9009a4d24647bb02",
             "sdk-fact-930c1283e9ce552e",
+            "sdk-fact-991ad556c5b0db77",
+            "sdk-fact-a7d2ff5c2f8731b8",
             "sdk-fact-c7be197f936663ed",
             "sdk-fact-d6f1ee4114958b7f",
             "sdk-fact-d79ec36633974927",
+            "sdk-fact-d84648eb25d15403",
+            "sdk-fact-e13d1d320b072ce3",
+            "sdk-fact-e3e2f2a9533550f2",
             "sdk-fact-e8ae84e31ce4c835",
             "sdk-fact-ed74dee9eda43766",
             "sdk-fact-f98a96b8ce956824",
@@ -35106,116 +35479,243 @@
               "toFactId": "sdk-fact-d6f1ee4114958b7f",
               "kind": "response",
               "location": "response-body"
-            }
-          ],
-          "rootKey": "project-8a23df6aa391:Microsoft.Compute.ResourceOperationType"
-        },
-        {
-          "id": "downstream-root-cause-a209385d19c801cb",
-          "kind": "type-contract-propagation",
-          "directCandidateIds": [
-            "downstream-2624ae264168cba9"
-          ],
-          "propagatedCandidateIds": [],
-          "methodFactIds": [
-            "sdk-fact-99557ba69125b1ff"
-          ],
-          "typeFactIds": [
-            "sdk-fact-022234f29ef7bd30",
-            "sdk-fact-2718dd8a6ee16e75"
-          ],
-          "referenceEvidence": [
-            {
-              "fromFactId": "sdk-fact-99557ba69125b1ff",
-              "toFactId": "sdk-fact-022234f29ef7bd30",
-              "kind": "parameter",
-              "memberName": "requestBody",
-              "location": "request-body"
-            }
-          ],
-          "rootKey": "project-8a23df6aa391:Microsoft.Compute.ExecuteStartRequest"
-        },
-        {
-          "id": "downstream-root-cause-e94f8d1ccd9c3de5",
-          "kind": "type-contract-propagation",
-          "directCandidateIds": [
-            "downstream-ad10ac1e7645a12a"
-          ],
-          "propagatedCandidateIds": [],
-          "methodFactIds": [
-            "sdk-fact-08aa41fc78ce9812",
-            "sdk-fact-157b1221f04b0f11",
-            "sdk-fact-36920d5d07b9c589",
-            "sdk-fact-bc5367138f540521"
-          ],
-          "typeFactIds": [
-            "sdk-fact-07b39c97e77d28c6",
-            "sdk-fact-150bec739fa19f23",
-            "sdk-fact-6f13cbaee1a02ab0",
-            "sdk-fact-cc03dec4743a38db",
-            "sdk-fact-d109ce3a0a361b9b"
-          ],
-          "referenceEvidence": [
-            {
-              "fromFactId": "sdk-fact-08aa41fc78ce9812",
-              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
-              "kind": "lro-result",
-              "location": "response-body"
             },
             {
-              "fromFactId": "sdk-fact-6f13cbaee1a02ab0",
-              "toFactId": "sdk-fact-cc03dec4743a38db",
-              "kind": "property",
-              "memberName": "error",
-              "location": "response-body"
-            },
-            {
-              "fromFactId": "sdk-fact-cc03dec4743a38db",
-              "toFactId": "sdk-fact-07b39c97e77d28c6",
-              "kind": "property",
-              "memberName": "additionalInfo",
-              "location": "response-body"
-            },
-            {
-              "fromFactId": "sdk-fact-157b1221f04b0f11",
-              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
-              "kind": "lro-result",
-              "location": "response-body"
-            },
-            {
-              "fromFactId": "sdk-fact-36920d5d07b9c589",
-              "toFactId": "sdk-fact-6f13cbaee1a02ab0",
-              "kind": "lro-result",
-              "location": "response-body"
-            },
-            {
-              "fromFactId": "sdk-fact-bc5367138f540521",
-              "toFactId": "sdk-fact-d109ce3a0a361b9b",
+              "fromFactId": "sdk-fact-0910df8bd3a8c6aa",
+              "toFactId": "sdk-fact-a7d2ff5c2f8731b8",
               "kind": "response",
               "location": "response-body"
             },
             {
-              "fromFactId": "sdk-fact-d109ce3a0a361b9b",
-              "toFactId": "sdk-fact-cc03dec4743a38db",
+              "fromFactId": "sdk-fact-a7d2ff5c2f8731b8",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
               "kind": "property",
-              "memberName": "error",
+              "memberName": "results",
               "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-34ac4b9934185a8d",
+              "toFactId": "sdk-fact-d84648eb25d15403",
+              "kind": "property",
+              "memberName": "operation",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-d84648eb25d15403",
+              "toFactId": "sdk-fact-37aeb31262df0bcf",
+              "kind": "property",
+              "memberName": "opType",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-39daf97af50fb9b8",
+              "toFactId": "sdk-fact-e13d1d320b072ce3",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-e13d1d320b072ce3",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-b8e99764886ed21a",
+              "toFactId": "sdk-fact-e3e2f2a9533550f2",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-e3e2f2a9533550f2",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-e6a8025d1580d9b3",
+              "toFactId": "sdk-fact-73f592611dcc84b5",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-73f592611dcc84b5",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-da8f8f5858006bcd",
+              "toFactId": "sdk-fact-04c62f4f73ef9f26",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-04c62f4f73ef9f26",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-8eef22adbf32dd01",
+              "toFactId": "sdk-fact-0939d40858a9bae5",
+              "kind": "response",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-0939d40858a9bae5",
+              "toFactId": "sdk-fact-34ac4b9934185a8d",
+              "kind": "property",
+              "memberName": "results",
+              "location": "response-body"
+            },
+            {
+              "fromFactId": "sdk-fact-39daf97af50fb9b8",
+              "toFactId": "sdk-fact-115c809164ac84c1",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-115c809164ac84c1",
+              "toFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "kind": "property",
+              "memberName": "executionParameters",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "toFactId": "sdk-fact-991ad556c5b0db77",
+              "kind": "property",
+              "memberName": "retryPolicy",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-991ad556c5b0db77",
+              "toFactId": "sdk-fact-37aeb31262df0bcf",
+              "kind": "property",
+              "memberName": "onFailureAction",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-b8e99764886ed21a",
+              "toFactId": "sdk-fact-50ef13340f65a3ef",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-50ef13340f65a3ef",
+              "toFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "kind": "property",
+              "memberName": "executionParameters",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-da8f8f5858006bcd",
+              "toFactId": "sdk-fact-2e3792d3ea59d1f9",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-2e3792d3ea59d1f9",
+              "toFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "kind": "property",
+              "memberName": "executionParameters",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-8eef22adbf32dd01",
+              "toFactId": "sdk-fact-2718dd8a6ee16e75",
+              "kind": "parameter",
+              "memberName": "requestBody",
+              "location": "request-body"
+            },
+            {
+              "fromFactId": "sdk-fact-2718dd8a6ee16e75",
+              "toFactId": "sdk-fact-0d40d6e54a26a4b4",
+              "kind": "property",
+              "memberName": "executionParameters",
+              "location": "request-body"
             }
           ],
-          "rootKey": "project-8a23df6aa391:Azure.ResourceManager.CommonTypes.ErrorAdditionalInfo"
+          "rootKey": "project-8a23df6aa391:Microsoft.Compute.ResourceOperationType"
         }
       ],
       "rejectedCandidateCount": 8,
       "blockers": [
         {
           "code": "inference-blocked",
-          "reviewUnitId": "semantic-ea6598f433a523f6",
-          "hunkId": "hunk-47db074bf2ab9b6b",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-2c9bf26bdc7cb1bb",
           "allowedDimensions": [
             "rest",
             "downstream"
           ],
-          "message": "The Python-scoped @clientName edits can change generated enum member identities, so they cannot be treated as nonbreaking decorator noise. The frozen neutral evidence provides neither baseline Python NetworkApiVersion member names nor its availability in the selected stable public SDK; an existing-member rename cannot be established or excluded."
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-4b28cca4678bc269",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-4fc38014414d7483",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-a57e2fa331d97734",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-884902daaaaa9100",
+          "hunkId": "hunk-cb8912c4f3ca5778",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-d9798705ad9627a9",
+          "hunkId": "hunk-74e4449f01c54c5e",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-ea6598f433a523f6",
+          "hunkId": "hunk-47db074bf2ab9b6b",
+          "allowedDimensions": [
+            "downstream"
+          ],
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
         },
         {
           "code": "inference-blocked",
@@ -35225,15 +35725,13 @@
             "rest",
             "downstream"
           ],
-          "message": "C# @alternateType can change subscriptionId from a string-facing member to Guid?, and the @clientName edits can rename response type members. Neutral facts still report string/type and do not establish actual baseline C# names, generated member equivalence, or UUID consumption. Language-specific before/after evidence is required; the wrapper-equivalence exception is not assumed."
+          "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
         }
-      ],
-      "verdict": "unknown",
-      "coverage": "partial"
+      ]
     },
     "compliance": {
-      "status": "failed",
-      "summary": "1 documentation-grounded Azure Guidelines finding(s).",
+      "status": "passed",
+      "summary": "All Semantic intents were assessed; no applicable guidance was found for one or more intents.",
       "coverage": {
         "semanticIntentCount": 6,
         "assessedIntentCount": 6,
@@ -35244,6 +35742,20 @@
         "catalogRanking": [
           {
             "rank": 1,
+            "catalogOrder": 5,
+            "title": "Add preview after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 10
+            },
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because a preview-after-stable release should isolate changes to the preview version."
+          },
+          {
+            "rank": 2,
             "catalogOrder": 1,
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
@@ -35254,38 +35766,10 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Existing ARM APIs gain operations, model properties, and preview activation; the evolving-version category directly matches this context."
-          },
-          {
-            "rank": 2,
-            "catalogOrder": 2,
-            "title": "Versioning overview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "The Versions enum adds an ARM preview after stable, making ordering and active-preview guidance relevant."
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces."
           },
           {
             "rank": 3,
-            "catalogOrder": 5,
-            "title": "Add preview after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "The exact transition is a new ARM preview following the latest stable API version."
-          },
-          {
-            "rank": 4,
             "catalogOrder": 12,
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
@@ -35296,13 +35780,13 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Added error actions and restored VM batch/resource operations match ARM operation and action guidance."
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because arm operations should follow standard templates and lifecycle visibility."
           },
           {
-            "rank": 5,
-            "catalogOrder": 20,
-            "title": "ARM common types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "rank": 4,
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
@@ -35310,7 +35794,21 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "The added ARM version selects common types v6; authoring/versioning common model definitions is relevant context."
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts."
+          },
+          {
+            "rank": 5,
+            "catalogOrder": 2,
+            "title": "Versioning overview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 6,
@@ -35319,12 +35817,12 @@
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "Versioning category and ARM applicability match, but the latest selected prior version is stable rather than preview."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 7,
@@ -35333,12 +35831,12 @@
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "Versioning category applies to ARM, but this change does not promote a preview to stable."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 8,
@@ -35347,12 +35845,12 @@
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "Versioning and ARM applicability match, but the target is preview rather than another stable version."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 9,
@@ -35361,12 +35859,12 @@
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "A proxy-resource interface is reactivated, but the supplied edits do not define a new ARM resource kind."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 10,
@@ -35375,68 +35873,68 @@
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "ResourceGroup extension scoping is present in action parameters; this is not a new extension-resource definition. The catalog wildcard is not an exact changed symbol."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 11,
+            "catalogOrder": 9,
+            "title": "Private endpoints",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 12,
+            "catalogOrder": 10,
+            "title": "Private links",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 13,
+            "catalogOrder": 11,
+            "title": "Network security perimeter",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 14,
             "catalogOrder": 13,
             "title": "Azure.ResourceManager interface reference",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
+              "patternCategory": 0,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 5
+              "total": 0
             },
-            "selectionRationale": "ARM operation templates are related context; the changed bounded excerpts do not identify an exact newly edited template signature."
-          },
-          {
-            "rank": 12,
-            "catalogOrder": 15,
-            "title": "Azure.ResourceManager decorators",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "ARM resource-role decorators are relevant context; the listed exact lifecycle decorators are not the changed activation decorators."
-          },
-          {
-            "rank": 13,
-            "catalogOrder": 16,
-            "title": "ARM long-running operations",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Restored interface evidence includes LRO results, but no new polling/header behavior is edited."
-          },
-          {
-            "rank": 14,
-            "catalogOrder": 18,
-            "title": "Azure.ResourceManager data types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "ARM paged error retrieval is relevant, but no standard top/skip parameter change is supplied."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 15,
@@ -35445,155 +35943,43 @@
             "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
+              "patternCategory": 0,
               "servicePlane": 0,
-              "changeContext": 1,
-              "total": 4
+              "changeContext": 0,
+              "total": 0
             },
-            "selectionRationale": "Resource/action semantics relate to added operations, but the catalog does not name an exact changed decorator and is plane-neutral."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 16,
-            "catalogOrder": 19,
-            "title": "TypeSpec pagination",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
+            "catalogOrder": 15,
+            "title": "Azure.ResourceManager decorators",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 0,
               "servicePlane": 0,
               "changeContext": 0,
-              "total": 4
+              "total": 0
             },
-            "selectionRationale": "The changed @list symbol is named exactly, but the catalog category is data-plane paging; it must not supply ARM resource-template requirements."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 17,
-            "catalogOrder": 21,
-            "title": "Models",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "catalogOrder": 16,
+            "title": "ARM long-running operations",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 3,
+              "patternCategory": 0,
               "servicePlane": 0,
-              "changeContext": 1,
-              "total": 4
+              "changeContext": 0,
+              "total": 0
             },
-            "selectionRationale": "Optional input members and added model composition match plane-neutral model guidance."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 18,
-            "catalogOrder": 22,
-            "title": "Enums",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 0,
-              "changeContext": 1,
-              "total": 4
-            },
-            "selectionRationale": "Version enum additions and operation-type member additions match plane-neutral enum guidance."
-          },
-          {
-            "rank": 19,
-            "catalogOrder": 24,
-            "title": "Decorators",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 0,
-              "changeContext": 1,
-              "total": 4
-            },
-            "selectionRationale": "Changed versioning and SDK augment decorators fit general decorator application guidance."
-          },
-          {
-            "rank": 20,
-            "catalogOrder": 25,
-            "title": "Built-in decorators",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 0,
-              "changeContext": 1,
-              "total": 4
-            },
-            "selectionRationale": "Documentation and optional/property metadata changes match general built-in decorator guidance without an exact catalog symbol match."
-          },
-          {
-            "rank": 21,
-            "catalogOrder": 9,
-            "title": "Private endpoints",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM applies, but no private endpoint change is supplied."
-          },
-          {
-            "rank": 22,
-            "catalogOrder": 10,
-            "title": "Private links",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM applies, but no private link change is supplied."
-          },
-          {
-            "rank": 23,
-            "catalogOrder": 11,
-            "title": "Network security perimeter",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM applies, but no network security perimeter change is supplied."
-          },
-          {
-            "rank": 24,
-            "catalogOrder": 27,
-            "title": "Change provider namespace",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "The service is ARM but its provider namespace is unchanged; contextual @armProviderNamespace is not a changed exact-symbol match."
-          },
-          {
-            "rank": 25,
-            "catalogOrder": 28,
-            "title": "Azure Portal default experiences",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM applicability alone matches; no Portal experience change is supplied."
-          },
-          {
-            "rank": 26,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -35604,10 +35990,66 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "The supplied operations are ARM, not Azure.Core data-plane polling-pattern changes."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 27,
+            "rank": 19,
+            "catalogOrder": 18,
+            "title": "Azure.ResourceManager data types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 20,
+            "catalogOrder": 19,
+            "title": "TypeSpec pagination",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 21,
+            "catalogOrder": 20,
+            "title": "ARM common types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 22,
+            "catalogOrder": 22,
+            "title": "Enums",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 23,
             "catalogOrder": 23,
             "title": "Scalars",
             "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
@@ -35618,10 +36060,38 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No custom scalar declaration is changed in the bounded query profiles; language-scoped alternateType is not a scalar definition."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
-            "rank": 28,
+            "rank": 24,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 25,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 26,
             "catalogOrder": 26,
             "title": "OpenAPI decorators",
             "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
@@ -35632,7 +36102,35 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No changed OpenAPI-specific decorator appears in the supplied query profiles."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 27,
+            "catalogOrder": 27,
+            "title": "Change provider namespace",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+          },
+          {
+            "rank": 28,
+            "catalogOrder": 28,
+            "title": "Azure Portal default experiences",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 29,
@@ -35646,7 +36144,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No Azure.Core content-negotiation change is supplied."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 30,
@@ -35660,7 +36158,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "The single bounded query profiles do not identify changed suppression directives; ranking is not repeated after resolving additional source context."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           },
           {
             "rank": 31,
@@ -35674,12 +36172,108 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No no-openapi suppression or changed OpenAPI-specific decorator is identified by the bounded query profiles."
+            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
           }
         ],
         "documents": [
           {
             "rank": 1,
+            "catalogOrder": 5,
+            "title": "Add preview after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 10
+            },
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because a preview-after-stable release should isolate changes to the preview version.",
+            "guidance": [
+              {
+                "section": "Making Changes to your TypeSpec spec",
+                "excerpt": "Add a preview version, decorate it with @previewVersion, and mark added, removed, renamed, or modified types with versioning decorators.",
+                "queryTerms": [
+                  "making",
+                  "changes",
+                  "to",
+                  "your",
+                  "typespec"
+                ],
+                "examples": [
+                  "A preview-after-stable release should isolate changes to the preview version."
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-048c0e815d803a98",
+                  "declaration-124a1908c7452303",
+                  "declaration-19ececd2d95234d7",
+                  "declaration-19f5f51903e824a9",
+                  "declaration-23acffec5a97dfe2",
+                  "declaration-25af27bc613849be",
+                  "declaration-25dd6844a9745550",
+                  "declaration-26b457f570289785",
+                  "declaration-27fc2fea992f8137",
+                  "declaration-332c162bbb51efc4",
+                  "declaration-36e073757b570b35",
+                  "declaration-378021bf1b06a418",
+                  "declaration-3cd2f60ea9f9cd78",
+                  "declaration-425476a6caf61122",
+                  "declaration-476d0652b363b72f",
+                  "declaration-490f8c6018ac2716",
+                  "declaration-4bb97a28c3476a3d",
+                  "declaration-5078f33058735507",
+                  "declaration-5b11ac4b4202eeed",
+                  "declaration-64de66707fd571d3",
+                  "declaration-65172bf980de3ce5",
+                  "declaration-6d94f9ebbe396f4b",
+                  "declaration-75f41e38f60ad6e8",
+                  "declaration-777db55b74f6d293",
+                  "declaration-7adf77f770f6801f",
+                  "declaration-7bc522a1d4bf35fa",
+                  "declaration-7d33c192fcb2fe10",
+                  "declaration-852079f52e0c7b41",
+                  "declaration-8a3c1afe7650f2c1",
+                  "declaration-8f99c21a3984f7cf",
+                  "declaration-96456a1526db33a8",
+                  "declaration-9665f40a9ce35338",
+                  "declaration-9734e86a95154c7e",
+                  "declaration-975b6d4d65da7203",
+                  "declaration-9a9ca4151cb04ebc",
+                  "declaration-9bd436bd6726dbff",
+                  "declaration-9dc7871351d88cdd",
+                  "declaration-a3d2dc60a9dab038",
+                  "declaration-ab24ab95289edd29",
+                  "declaration-ac6c98d58e577347",
+                  "declaration-b4263463a0a2c9e0",
+                  "declaration-b63ecf1dc2d02837",
+                  "declaration-c14086600cef8a73",
+                  "declaration-c18fffde73e9bf35",
+                  "declaration-c3b5a1dd28fd1a9e",
+                  "declaration-c41d3d08849c08c6",
+                  "declaration-c76ba93867349471",
+                  "declaration-cc93c44d33701c49",
+                  "declaration-d7e8c1e0d8cf0d75",
+                  "declaration-e249c02a32ec0b6d",
+                  "declaration-e3a89010144d3f5e",
+                  "declaration-e905c2edf3d0a2f3",
+                  "declaration-ebd094795f10f25b",
+                  "declaration-ed3db34ac19809d0",
+                  "declaration-f20c4d57d1b73e82",
+                  "declaration-f25c48e6c71c24c4",
+                  "declaration-f2da4036a13ddfd6",
+                  "declaration-f4b3e15378a61c1d",
+                  "declaration-f55c397f748dd730",
+                  "declaration-f61b65d32b9ad69b",
+                  "declaration-fe0dc203fcb56570"
+                ]
+              }
+            ],
+            "noRelevantGuidance": false,
+            "retrievedAt": "2026-10-29T08:26:11.606431Z",
+            "contentHash": "sha256:3885a711545e35181f77d058922ce9e2b58471f728c9a57710e8c65bccd4606d"
+          },
+          {
+            "rank": 2,
             "catalogOrder": 1,
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
@@ -35690,153 +36284,14 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Existing ARM APIs gain operations, model properties, and preview activation; the evolving-version category directly matches this context.",
-            "guidance": [
-              {
-                "section": "Declaring Versions",
-                "excerpt": "Define your API versions in an enum. For each version, specify dependencies and common types as needed.",
-                "queryTerms": [
-                  "Versions",
-                  "@armCommonTypesVersion"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-3cd2f60ea9f9cd78"
-                ]
-              },
-              {
-                "section": "Versioning Decorators",
-                "excerpt": "You can add new models, properties, or operations in a specific version and all subsequent versions using the `@added` decorator.",
-                "queryTerms": [
-                  "@added",
-                  "2026-07-06-preview"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-25af27bc613849be",
-                  "declaration-476d0652b363b72f",
-                  "declaration-4bb97a28c3476a3d",
-                  "declaration-5b11ac4b4202eeed",
-                  "declaration-64de66707fd571d3",
-                  "declaration-65172bf980de3ce5",
-                  "declaration-75f41e38f60ad6e8",
-                  "declaration-777db55b74f6d293",
-                  "declaration-9665f40a9ce35338",
-                  "declaration-9a9ca4151cb04ebc",
-                  "declaration-9bd436bd6726dbff",
-                  "declaration-ab24ab95289edd29",
-                  "declaration-b4263463a0a2c9e0",
-                  "declaration-b63ecf1dc2d02837",
-                  "declaration-c18fffde73e9bf35",
-                  "declaration-c76ba93867349471",
-                  "declaration-cc93c44d33701c49",
-                  "declaration-ebd094795f10f25b",
-                  "declaration-ed3db34ac19809d0",
-                  "declaration-f20c4d57d1b73e82",
-                  "declaration-f4b3e15378a61c1d",
-                  "declaration-f55c397f748dd730",
-                  "declaration-f61b65d32b9ad69b"
-                ]
-              },
-              {
-                "section": "@madeRequired and @madeOptional",
-                "excerpt": "Use `@madeOptional(Versions.version)` to make a property optional starting in that version.",
-                "queryTerms": [
-                  "@madeOptional",
-                  "resources"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-25af27bc613849be",
-                  "declaration-476d0652b363b72f",
-                  "declaration-4bb97a28c3476a3d",
-                  "declaration-65172bf980de3ce5",
-                  "declaration-75f41e38f60ad6e8",
-                  "declaration-9665f40a9ce35338",
-                  "declaration-9a9ca4151cb04ebc",
-                  "declaration-9bd436bd6726dbff",
-                  "declaration-ab24ab95289edd29",
-                  "declaration-b4263463a0a2c9e0",
-                  "declaration-b63ecf1dc2d02837",
-                  "declaration-c76ba93867349471",
-                  "declaration-cc93c44d33701c49",
-                  "declaration-ebd094795f10f25b",
-                  "declaration-f4b3e15378a61c1d",
-                  "declaration-f61b65d32b9ad69b"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:22:29.188Z",
-            "contentHash": "sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2"
-          },
-          {
-            "rank": 2,
-            "catalogOrder": 2,
-            "title": "Versioning overview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "The Versions enum adds an ARM preview after stable, making ordering and active-preview guidance relevant.",
-            "guidance": [
-              {
-                "section": "Preview Versioning Rules for All Azure APIs",
-                "excerpt": "Always make the last enum value the preview and apply `@previewVersion` to it. Only one version may be marked with the `@previewVersion` decorator.",
-                "queryTerms": [
-                  "Versions",
-                  "preview",
-                  "@previewVersion"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-3cd2f60ea9f9cd78"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:22:28.049Z",
-            "contentHash": "sha256:2aeadb30f0b22daa0b3aaed66c02786b479d3b63331dab61409d77f5b9452765"
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-29T08:26:10.671774Z",
+            "contentHash": "sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c"
           },
           {
             "rank": 3,
-            "catalogOrder": 5,
-            "title": "Add preview after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "The exact transition is a new ARM preview following the latest stable API version.",
-            "guidance": [
-              {
-                "section": "Making Changes to your TypeSpec spec",
-                "excerpt": "Add a new version to the `Versions` enum in your spec for the new preview. Decorate this version with the `@previewVersion` decorator from the `Azure.Core` library. If any types are added, renamed, or otherwise modified in the new version, mark them with the appropriate versioning decorator.",
-                "queryTerms": [
-                  "Versions",
-                  "@previewVersion",
-                  "@added",
-                  "@madeOptional"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-3cd2f60ea9f9cd78"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:22:26.891Z",
-            "contentHash": "sha256:de2ef952af27219ac5048ce94808b1d730c9631012c7a0f70650ade06533c0f8"
-          },
-          {
-            "rank": 4,
             "catalogOrder": 12,
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
@@ -35847,42 +36302,29 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Added error actions and restored VM batch/resource operations match ARM operation and action guidance.",
-            "guidance": [
-              {
-                "section": "Resource Actions (POST)",
-                "excerpt": "Custom actions define any operations over resources outside the simple CRUDL (Create< Read, Update, Delete, List) or lifecycle operations described above.",
-                "queryTerms": [
-                  "@action",
-                  "@armResourceCollectionAction",
-                  "bulkAcknowledgeOperationErrors"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-64de66707fd571d3",
-                  "declaration-777db55b74f6d293",
-                  "declaration-c18fffde73e9bf35",
-                  "declaration-ed3db34ac19809d0",
-                  "declaration-f55c397f748dd730"
-                ]
-              },
-              {
-                "section": "Resource Get Operations",
-                "excerpt": "Get is the operation to retrieve a single resource TypeSpec provides a single operation template for GET:",
-                "queryTerms": [
-                  "LaunchBulkInstancesOperation.get",
-                  "LocationBasedLaunchBulkInstancesOperation"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-5b11ac4b4202eeed",
-                  "declaration-f20c4d57d1b73e82"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T04:22:30.302Z",
-            "contentHash": "sha256:c647a4908a0d0e74803347a5e4956b56986a684344b8c67a3b3f7f37c67558d7"
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because arm operations should follow standard templates and lifecycle visibility.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-29T08:26:12.025201Z",
+            "contentHash": "sha256:045aef79057f64670685313072d5945ef1cf2a48e651a7fab77e8e1a65121b07"
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-29T08:26:13.273479Z",
+            "contentHash": "sha256:efd56120d9598700d213c873b8e93962fc666eede836a6009d5439fee74f75ce"
           }
         ]
       },
@@ -35892,12 +36334,8 @@
           "reviewUnitId": "semantic-61163152c9eb45ad",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-              "guidanceSection": "Resource Actions (POST)"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
@@ -35920,11 +36358,17 @@
             "declaration-f55c397f748dd730"
           ],
           "decision": "applicable-pass",
-          "expected": "Gate preview additions and reactivations with the corresponding version decorator and distinguish batch resource actions from ordinary resource CRUDL operations.",
-          "actual": "The changed routes use @added(2026-07-06-preview); VM batch and acknowledgement POST endpoints use collection-action metadata. The added GET returns a paged error-data contract at resource-group/location scope.",
-          "rationale": "The supplied activation and action metadata satisfy the retrieved guidance for these edits. Error data is not established as a tracked ARM resource collection, so no unrelated tracked-resource CRUDL or data-plane paging requirements are imposed.",
-          "gap": "The supplied activation and action metadata satisfy the retrieved guidance for these edits. Error data is not established as a tracked ARM resource collection, so no unrelated tracked-resource CRUDL or data-plane paging requirements are imposed.",
+          "expected": "A preview-after-stable release should isolate changes to the preview version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp",
+              "startLine": 103,
+              "endLine": 288,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp#L104-L288"
+            },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp",
               "startLine": 153,
@@ -35947,8 +36391,18 @@
             },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp",
+              "startLine": 267,
+              "endLine": 269
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp",
               "startLine": 272,
               "endLine": 287
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp",
+              "startLine": 284,
+              "endLine": 286
             }
           ],
           "codeSnippets": [
@@ -35999,14 +36453,6 @@
           "reviewUnitId": "semantic-6aacad4d8c4e84f7",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Declaring Versions"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
-            },
-            {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
               "guidanceSection": "Making Changes to your TypeSpec spec"
             }
@@ -36020,13 +36466,11 @@
           "declarationIds": [
             "declaration-3cd2f60ea9f9cd78"
           ],
-          "decision": "applicable-fail",
-          "title": "Mark the newly appended preview API version with @previewVersion",
-          "severity": "medium",
-          "expected": "Append the new preview version and mark its enum member with the Azure.Core @previewVersion decorator.",
-          "actual": "Versions appends 2026-07-06-preview after 2026-06-06 with @armCommonTypesVersion(v6), but the complete supplied enum declaration has no @previewVersion on the new member.",
-          "rationale": "Both the general preview rules and the preview-after-stable instructions explicitly require this marker. Common-types selection does not replace it; retaining an older historical preview enum value is not independently treated as a violation.",
-          "gap": "Both the general preview rules and the preview-after-stable instructions explicitly require this marker. Common-types selection does not replace it; retaining an older historical preview enum value is not independently treated as a violation.",
+          "decision": "applicable-pass",
+          "expected": "A preview-after-stable release should isolate changes to the preview version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp",
@@ -36054,12 +36498,8 @@
           "reviewUnitId": "semantic-884902daaaaa9100",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "@madeRequired and @madeOptional"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
@@ -36134,16 +36574,109 @@
             "declaration-fe0dc203fcb56570"
           ],
           "decision": "applicable-pass",
-          "expected": "Use version-specific decorators for new models/properties and for a required-to-optional property transition.",
-          "actual": "The context-bearing alternatives and added result models/properties are preview-gated, while the existing resources inputs use @madeOptional(2026-07-06-preview). Configuration passthrough changes use @typeChangedFrom and carry arm-no-record suppressions with explicit free-form passthrough justifications.",
-          "rationale": "The supplied model additions and optionality transitions match the retrieved evolving-API guidance. The fetched set does not establish a governing arm-no-record exception or prohibition, so suppressions are retained as context, not accepted as exemptions or independently turned into findings.",
-          "gap": "The supplied model additions and optionality transitions match the retrieved evolving-API guidance. The fetched set does not establish a governing arm-no-record exception or prohibition, so suppressions are retained as context, not accepted as exemptions or independently turned into findings.",
+          "expected": "A preview-after-stable release should isolate changes to the preview version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 32,
+              "endLine": 57,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L33-L57"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 52,
+              "endLine": 54
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 102,
+              "endLine": 114,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L104-L114"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 105,
+              "endLine": 110,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L106-L106"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 112,
+              "endLine": 113,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L113-L113"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 116,
+              "endLine": 122,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L118-L122"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 119,
+              "endLine": 121,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L121-L121"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 124,
+              "endLine": 129,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L126-L129"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 127,
+              "endLine": 128,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L128-L128"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 241,
+              "endLine": 262,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L243-L262"
+            },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
               "startLine": 259,
               "endLine": 261,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L261-L261"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 307,
+              "endLine": 325,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L308-L325"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 309,
+              "endLine": 312,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L312-L312"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 309,
+              "endLine": 312
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 314,
+              "endLine": 318,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L318-L318"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 314,
+              "endLine": 318
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 347,
+              "endLine": 355,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L348-L355"
             },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
@@ -36159,9 +36692,63 @@
             },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 369,
+              "endLine": 370,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L370-L370"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 372,
+              "endLine": 373,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L373-L373"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 388,
+              "endLine": 431,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L389-L431"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 428,
+              "endLine": 430,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L430-L430"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
               "startLine": 433,
               "endLine": 441,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L435-L441"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 436,
+              "endLine": 437,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L437-L437"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 439,
+              "endLine": 440,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L440-L440"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 443,
+              "endLine": 460,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L444-L460"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 457,
+              "endLine": 459,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L459-L459"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 562,
+              "endLine": 574,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L563-L574"
             },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
@@ -36177,6 +36764,12 @@
             },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 576,
+              "endLine": 588,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L577-L588"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
               "startLine": 581,
               "endLine": 583,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L583-L583"
@@ -36186,6 +36779,12 @@
               "startLine": 585,
               "endLine": 587,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L587-L587"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 590,
+              "endLine": 602,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L591-L602"
             },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
@@ -36201,6 +36800,12 @@
             },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 645,
+              "endLine": 660,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L646-L660"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
               "startLine": 650,
               "endLine": 652,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L652-L652"
@@ -36210,6 +36815,12 @@
               "startLine": 654,
               "endLine": 656,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L656-L656"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 713,
+              "endLine": 728,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L714-L728"
             },
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
@@ -36234,6 +36845,36 @@
               "startLine": 779,
               "endLine": 790,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L781-L790"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 782,
+              "endLine": 783,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L783-L783"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 785,
+              "endLine": 786,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L786-L786"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 788,
+              "endLine": 789,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L789-L789"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 792,
+              "endLine": 797,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L794-L797"
+            },
+            {
+              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp",
+              "startLine": 795,
+              "endLine": 796,
+              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L796-L796"
             }
           ],
           "codeSnippets": [
@@ -36441,9 +37082,9 @@
           ],
           "declarationIds": [],
           "decision": "no-applicable-guidance",
-          "actual": "The Python emitter adds service-dir sdk/computebulkactions and retains azure.mgmt.computebulkactions.",
-          "rationale": "The shared ranked four-document search supplies API versioning and ARM operation guidance, not requirements for this unchanged-namespace SDK output-directory setting.",
-          "gap": "The shared ranked four-document search supplies API versioning and ARM operation guidance, not requirements for this unchanged-namespace SDK output-directory setting.",
+          "actual": "This review unit has no eligible source declaration to which retrieved guidance can be attached.",
+          "rationale": "No declaration-scoped official guidance judgment can be materialized for this informational review unit.",
+          "gap": "No declaration-scoped official guidance judgment can be materialized for this informational review unit.",
           "sourceLinks": [],
           "codeSnippets": [
             {
@@ -36469,9 +37110,9 @@
           ],
           "declarationIds": [],
           "decision": "no-applicable-guidance",
-          "actual": "Python enum client names and C# alternateType/clientName customizations change language-scoped SDK generation while preserving the described REST types.",
-          "rationale": "The shared retrieved guidance does not govern these language-specific customization contracts. This completed Guidelines search is independent of the unresolved downstream inference; lack of governing guidance is not SDK compatibility approval.",
-          "gap": "The shared retrieved guidance does not govern these language-specific customization contracts. This completed Guidelines search is independent of the unresolved downstream inference; lack of governing guidance is not SDK compatibility approval.",
+          "actual": "This review unit has no eligible source declaration to which retrieved guidance can be attached.",
+          "rationale": "No declaration-scoped official guidance judgment can be materialized for this informational review unit.",
+          "gap": "No declaration-scoped official guidance judgment can be materialized for this informational review unit.",
           "sourceLinks": [],
           "codeSnippets": [
             {
@@ -36508,12 +37149,8 @@
           "reviewUnitId": "semantic-f8119248c846f3db",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-              "guidanceSection": "Resource Get Operations"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
+              "guidanceSection": "Making Changes to your TypeSpec spec"
             }
           ],
           "sourceChangeIds": [
@@ -36527,10 +37164,10 @@
             "declaration-f20c4d57d1b73e82"
           ],
           "decision": "applicable-pass",
-          "expected": "Apply the corresponding version gate to preview resource operations and preserve the resource-read role of the supplied GET.",
-          "actual": "LaunchBulkInstancesOperation receives @added(2026-07-06-preview) after its existing stable removal; the supplied get operation returns the location-based launch operation resource.",
-          "rationale": "The edit gates the restored proxy-resource interface to the new preview. The changed evidence does not introduce a tracked resource or an altered polling contract, so no tracked tags-PATCH or new LRO requirements are inferred.",
-          "gap": "The edit gates the restored proxy-resource interface to the new preview. The changed evidence does not introduce a tracked resource or an altered polling contract, so no tracked tags-PATCH or new LRO requirements are inferred.",
+          "expected": "A preview-after-stable release should isolate changes to the preview version.",
+          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
+          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
           "sourceLinks": [
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/launchBulkInstancesOperation.tsp",
@@ -36556,63 +37193,7 @@
           "blockers": []
         }
       ],
-      "findings": [
-        {
-          "id": "compliance-01f1345284d7f67e",
-          "semanticIntentId": "semantic-6aacad4d8c4e84f7",
-          "title": "Mark the newly appended preview API version with @previewVersion",
-          "severity": "medium",
-          "applicableGuidance": [
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Declaring Versions",
-              "excerpt": "Define your API versions in an enum. For each version, specify dependencies and common types as needed."
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-              "guidanceSection": "Preview Versioning Rules for All Azure APIs",
-              "excerpt": "Always make the last enum value the preview and apply `@previewVersion` to it. Only one version may be marked with the `@previewVersion` decorator."
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-              "guidanceSection": "Making Changes to your TypeSpec spec",
-              "excerpt": "Add a new version to the `Versions` enum in your spec for the new preview. Decorate this version with the `@previewVersion` decorator from the `Azure.Core` library. If any types are added, renamed, or otherwise modified in the new version, mark them with the appropriate versioning decorator."
-            }
-          ],
-          "declarationIds": [
-            "declaration-3cd2f60ea9f9cd78"
-          ],
-          "sourceChangeIds": [
-            "source-b11c20786960fdf3"
-          ],
-          "hunkIds": [
-            "hunk-b70984c5c0b9d60e"
-          ],
-          "expected": "Append the new preview version and mark its enum member with the Azure.Core @previewVersion decorator.",
-          "actual": "Versions appends 2026-07-06-preview after 2026-06-06 with @armCommonTypesVersion(v6), but the complete supplied enum declaration has no @previewVersion on the new member.",
-          "gap": "Both the general preview rules and the preview-after-stable instructions explicitly require this marker. Common-types selection does not replace it; retaining an older historical preview enum value is not independently treated as a violation.",
-          "sourceLinks": [
-            {
-              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp",
-              "startLine": 20,
-              "endLine": 33,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp#L21-L33"
-            }
-          ],
-          "codeSnippets": [
-            {
-              "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp",
-              "hunkId": "hunk-b70984c5c0b9d60e",
-              "lines": [
-                "+",
-                "+  /** 2026-07-06-preview version */",
-                "+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)",
-                "+  `2026-07-06-preview`,"
-              ]
-            }
-          ]
-        }
-      ],
+      "findings": [],
       "retrievalFailures": [],
       "blockers": []
     },
@@ -36878,15 +37459,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\projects\\project-8a23df6aa391\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\projects\\project-8a23df6aa391\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-06-06"
               ]
             },
             "exitCode": 0,
-            "durationMs": 7335,
+            "durationMs": 31409,
             "configPath": "worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions\\tspconfig.yaml",
             "configHash": "0b097634bcc7565b364047648bb3761542123dc8b2cd104fa056cfe5a4f84655",
             "logPath": "logs\\project-8a23df6aa391-baseline-autorest.log",
@@ -36910,16 +37491,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\projects\\project-8a23df6aa391\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\projects\\project-8a23df6aa391\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-06-06"
               ]
             },
             "exitCode": 0,
-            "durationMs": 5227,
+            "durationMs": 29147,
             "configPath": "worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions\\tspconfig.yaml",
             "configHash": "0b097634bcc7565b364047648bb3761542123dc8b2cd104fa056cfe5a4f84655",
             "logPath": "logs\\project-8a23df6aa391-baseline-tcgc.log",
@@ -36947,15 +37528,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\projects\\project-8a23df6aa391\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\projects\\project-8a23df6aa391\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-07-06-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 5249,
+            "durationMs": 17086,
             "configPath": "worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions\\tspconfig.yaml",
             "configHash": "0b097634bcc7565b364047648bb3761542123dc8b2cd104fa056cfe5a4f84655",
             "logPath": "logs\\project-8a23df6aa391-target-autorest.log",
@@ -36979,16 +37560,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\projects\\project-8a23df6aa391\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\projects\\project-8a23df6aa391\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\core-final-44101\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-44101\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-07-06-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 5201,
+            "durationMs": 12078,
             "configPath": "worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions\\tspconfig.yaml",
             "configHash": "0b097634bcc7565b364047648bb3761542123dc8b2cd104fa056cfe5a4f84655",
             "logPath": "logs\\project-8a23df6aa391-target-tcgc.log",
@@ -37063,17 +37644,75 @@
     }
   ],
   "blockers": [
-    "Language-specific SDK inference remains unresolved for Python NetworkApiVersion member naming and C# UUID/member-name customizations; frozen neutral evidence does not establish actual baseline/target language surfaces.",
-    "The ARM resource-operations web_fetch tool body was truncated at 20,000 document characters; only returned sections were used, with no continuation or second fetch. Recorded hashes and byte counts cover the exact tool-return bodies, including URL headers and the truncation notice, recovered from this agent's matching tool events.",
+    "Language-specific client.tsp inference requests could not be resolved from bounded language-neutral evidence.",
+    {
+      "code": "inference-blocked",
+      "reviewUnitId": "semantic-884902daaaaa9100",
+      "hunkId": "hunk-2c9bf26bdc7cb1bb",
+      "allowedDimensions": [
+        "rest",
+        "downstream"
+      ],
+      "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+    },
+    {
+      "code": "inference-blocked",
+      "reviewUnitId": "semantic-884902daaaaa9100",
+      "hunkId": "hunk-4b28cca4678bc269",
+      "allowedDimensions": [
+        "rest",
+        "downstream"
+      ],
+      "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+    },
+    {
+      "code": "inference-blocked",
+      "reviewUnitId": "semantic-884902daaaaa9100",
+      "hunkId": "hunk-4fc38014414d7483",
+      "allowedDimensions": [
+        "rest",
+        "downstream"
+      ],
+      "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+    },
+    {
+      "code": "inference-blocked",
+      "reviewUnitId": "semantic-884902daaaaa9100",
+      "hunkId": "hunk-a57e2fa331d97734",
+      "allowedDimensions": [
+        "rest",
+        "downstream"
+      ],
+      "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+    },
+    {
+      "code": "inference-blocked",
+      "reviewUnitId": "semantic-884902daaaaa9100",
+      "hunkId": "hunk-cb8912c4f3ca5778",
+      "allowedDimensions": [
+        "rest",
+        "downstream"
+      ],
+      "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+    },
+    {
+      "code": "inference-blocked",
+      "reviewUnitId": "semantic-d9798705ad9627a9",
+      "hunkId": "hunk-74e4449f01c54c5e",
+      "allowedDimensions": [
+        "rest",
+        "downstream"
+      ],
+      "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
+    },
     {
       "code": "inference-blocked",
       "reviewUnitId": "semantic-ea6598f433a523f6",
       "hunkId": "hunk-47db074bf2ab9b6b",
       "allowedDimensions": [
-        "rest",
         "downstream"
       ],
-      "message": "The Python-scoped @clientName edits can change generated enum member identities, so they cannot be treated as nonbreaking decorator noise. The frozen neutral evidence provides neither baseline Python NetworkApiVersion member names nor its availability in the selected stable public SDK; an existing-member rename cannot be established or excluded."
+      "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
     },
     {
       "code": "inference-blocked",
@@ -37083,7 +37722,7 @@
         "rest",
         "downstream"
       ],
-      "message": "C# @alternateType can change subscriptionId from a string-facing member to Guid?, and the @clientName edits can rename response type members. Neutral facts still report string/type and do not establish actual baseline C# names, generated member equivalence, or UUID consumption. Language-specific before/after evidence is required; the wrapper-equivalence exception is not assumed."
+      "message": "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate."
     }
   ],
   "provenance": {
@@ -37093,23 +37732,16 @@
     "inference": "inference.json",
     "complianceSearchEvidence": "compliance-search-evidence.json",
     "judgment": "assessment-judgment.json",
-    "preparationManifest": "preparation-manifest.json",
-    "compatibilityStatusModel": {
-      "schemaVersion": 1,
-      "appliedAt": "2026-10-28T09:23:27.612Z",
-      "sourceAssessmentSha256": "a11c3a692592419e16b8edb250f1bb577380eb14062822c55e62c06e86b14e5a",
-      "findingsChanged": false,
-      "blockersChanged": false
-    }
+    "preparationManifest": "preparation-manifest.json"
   },
   "inputAccounting": {
     "budgetTier": "medium",
     "budgetBytes": 262144,
-    "bytes": 155745,
-    "estimatedTokens": 38937,
+    "bytes": 184091,
+    "estimatedTokens": 46023,
     "retained": {
       "evidenceSets": 18,
-      "facts": 56,
+      "facts": 71,
       "semanticReviewUnits": 6,
       "restCandidates": 0,
       "downstreamCandidates": 8,
@@ -37131,23 +37763,31 @@
     "inference": {
       "requestCount": 8,
       "inferredCandidateCount": 0,
-      "noImpactCount": 6,
-      "blockedCount": 2
+      "noImpactCount": 0,
+      "blockedCount": 8
     },
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 44237,
-      "guidanceExcerptsRetained": 7,
-      "guidanceExcerptBytesRetained": 1021
+      "documentBytesFetched": 1455003,
+      "guidanceExcerptsRetained": 1,
+      "guidanceExcerptBytesRetained": 136
     }
   },
   "timings": {
-    "semanticAnalysisMs": 129,
-    "restAnalysisMs": 26,
-    "downstreamAnalysisMs": 665,
-    "semanticContextPolicyMs": 61,
-    "documentQualityAnalysisMs": 1,
-    "replayAnalysisMs": 1265
+    "metadataMs": 3736,
+    "fetchMs": 671,
+    "scopeDiscoveryMs": 481,
+    "setupExcludingFetchMs": 1264014,
+    "comparisonMs": 889,
+    "changeDiscoveryMs": 573,
+    "workspacePreparationMs": 1255046,
+    "projectDiscoveryMs": 1173,
+    "totalMs": 2621980,
+    "semanticAnalysisMs": 218,
+    "restAnalysisMs": 56,
+    "downstreamAnalysisMs": 1489,
+    "semanticContextPolicyMs": 144,
+    "documentQualityAnalysisMs": 2
   }
 }

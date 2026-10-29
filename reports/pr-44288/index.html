@@ -746,37 +746,33 @@ body {
 }
 
 </style></head><body>
-<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>Bind private endpoint update and delete to the HorizonDB cluster parent</h1>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>Modify HorizonDbPrivateEndpointConnections, HorizonDbPrivateEndpointConnections.delete, HorizonDbPrivateEndpointConnections.update</h1>
 <p class="hero-meta">TypeSpec source diff: <code>397a6977353e62db503b266fd796f51d14d60ef6</code> → <code>b931dadcc0382a211cc8d8489f45dab5bdf858b9</code></p>
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">1 intent<br>2 operations<br>0 Added, 1 Modified, 0 Removed</div></a>
 <a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">1 finding<br>1/1 intents assessed</div></a>
-<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Partial coverage<br>4 findings</div></a>
-<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Complete coverage<br>4 findings</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Partial coverage<br>2 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Complete coverage<br>1 finding</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>0 declarations checked</div></a>
 </div></div></header>
 <details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">1 findings</span></div></div><p class="report-small">1 of 1 semantic intents assessed · 4 documents selected</p><details class="report-card compliance-finding"><summary><div class="report-card-title"><strong>Existing preview operations change scope without preserving the versioned caller contract</strong><small>The private endpoint guide supports ParentResource as the operation template argument, and the lifecycle/LRO documents support the retained asynchronous update/delete design. Independently, Evolving APIs describes version-scoped changes as the mechanism for evolving operations and parameters without breaking clients; this existing-version rewrite does not preserve that modeled contract. The assessment does not establish whether the preview was deployed or whether the service accepts legacy URIs, so it makes no runtime deployment claim. Resource-operations retrieval was truncated after 20,000 content characters; only received sections are used. Provenance hashes and byte counts cover the exact web_fetch result.content strings, including their tool headings and truncation notice, recovered from this session&#39;s completion events without a second network request.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-8928ca2cf24aac04">Bind private endpoint update and delete to the HorizonDB cluster parent</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><div class="report-guideline-section expected-details"><h3>Expected</h3><p>Use the documented parent-resource private endpoint templates while evolving operation scope and parameters in a way that preserves existing versioned clients.</p><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs — Introduction and Add a parameter to an operation in v2</a><blockquote>Versioning allows you to evolve your API without breaking existing clients. By using versioning decorators, you can specify when resources, operations, or properties are added, removed, or changed.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Private endpoints — Adding Private Endpoint Operations to Your Resource Interface and Available Operations</a><blockquote>Create an alias for your private endpoint operations using the `PrivateEndpoints` interface template. The operation table models custom patch and delete as `update is Ops.CustomPatchAsync&lt;ParentResource&gt;;` and `delete is Ops.DeleteAsync&lt;ParentResource&gt;;`.</blockquote><div class="diff"><div class="diff-path"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Documented TypeSpec example</a></div><pre><span class="">updateConnection is PrivateEndpointOps.CustomPatchAsync&lt;Employee&gt;;</span>
-<span class="">deleteConnection is PrivateEndpointOps.DeleteAsync&lt;Employee&gt;;</span></pre></div></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations — Synchronous and Asynchronous APIs</a><blockquote>CreateOrUpdate (PUT), Update (Patch), Delete, and Action (POST) operations over a resource may be either synchronous or asynchronous. Asynchronous operations return an initial response before the operation fully completes, and support long-running operation (LRO) polling.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/">ARM long-running operations — ARM LRO introduction, PATCH defaults, and DELETE defaults</a><blockquote>Each header model accepts a `FinalResult` parameter that indicates the type of the logical result of the operation. It is important that this value matches what the operation actually returns. The headers appear in the `202 Accepted` response for PATCH, DELETE, and POST operations.</blockquote></div></div><div class="report-guideline-section actual-details"><h3>Actual</h3><div class="report-type-impact" id="compliance-finding-compliance-879ce59fb50ecf19"><p>Adding HorizonDbCluster correctly binds private endpoint patch/delete to their parent, but the same 2026-01-20-preview operations acquire a different URI and required clusterName parameter. No version boundary or compatibility route is present in the supplied change. Async response and completion behavior remain consistent with the fetched ARM guidance.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L119-L119">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:118-122</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L125-L125">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:124-132</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L119-L119">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:118-122</a></div><pre><span class="remove"><span class="line-number">118</span>-  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span>
-<span class="add"><span class="line-number">119</span>+  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;</span>
-<span class="add"><span class="line-number">120</span>+    HorizonDbCluster,</span>
-<span class="add"><span class="line-number">121</span>+    PrivateEndpointConnectionResource</span>
-<span class="add"><span class="line-number">122</span>+  &gt;;</span>
-<span class="add"><span class="line-number">123</span>+    HorizonDbCluster,</span></pre></div></div></div></div></details></section>
-<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">2 operations · 4 findings</span></div></div><details class="report-card rest-contract-card" id="rest-operation--HorizonDbPrivateEndpointConnections_Delete-2026-01-20-preview"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections_Delete</strong><small><span class="report-http">DELETE</span> <code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code> · 2026-01-20-preview</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-8928ca2cf24aac04">Bind private endpoint update and delete to the HorizonDB cluster parent</a></div></div></div><div class="report-badges"><span class="report-count">2 changes</span></div></summary><div class="report-card-body"><span id="finding-rest-320869014d4b2b8c"></span><span id="finding-rest-ddb21d3d4b9868ad"></span><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr><tr><td><span class="contract-area-kind">Path parameter</span><strong>clusterName</strong></td><td><pre>removed</pre></td><td><pre>string</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> <ul><li>Private endpoint delete moves from the resource-group/provider privateEndpointConnections route to clusters/{clusterName}/privateEndpointConnections in the same API version. Existing callers addressing the old resource URI cannot invoke the replacement without changing the route.</li><li>Delete now requires the clusterName path parameter, absent from the baseline operation. Existing callers must supply the parent cluster name to construct a valid target request.</li></ul></div></div></details><details class="report-card rest-contract-card" id="rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections_Update</strong><small><span class="report-http">PATCH</span> <code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code> · 2026-01-20-preview</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-8928ca2cf24aac04">Bind private endpoint update and delete to the HorizonDB cluster parent</a></div></div></div><div class="report-badges"><span class="report-count">2 changes</span></div></summary><div class="report-card-body"><span id="finding-rest-65b757c6f1cb25e2"></span><span id="finding-rest-d3aa85936d7ff1f8"></span><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr><tr><td><span class="contract-area-kind">Path parameter</span><strong>clusterName</strong></td><td><pre>removed</pre></td><td><pre>string</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> <ul><li>Private endpoint update moves from the resource-group/provider privateEndpointConnections route to clusters/{clusterName}/privateEndpointConnections in the same API version. Requests to the previously modeled URI no longer match the target operation.</li><li>Update now requires the clusterName path parameter, which the baseline request did not accept or require. Existing requests cannot identify the target route without supplying this new parent resource name.</li></ul></div></div></details></section>
-<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">2 mapped methods · 1 changed types</span></div></div><details class="report-card sdk-method-card" id="downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-delete"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections.delete</strong><small>The normalized SDK method contract changes directly.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-8928ca2cf24aac04">Bind private endpoint update and delete to the HorizonDB cluster parent</a></div></div></div><div class="report-badges"><span class="report-badge direct">Direct method change</span></div></summary><div class="report-card-body"><span id="downstream-downstream-group-a04da6ddbd382f84"></span><span id="downstream-downstream-ed55490cefd690e3"></span><span id="finding-downstream-ed55490cefd690e3"></span><div class="report-method-signature"><p class="report-small"><strong>Method signature</strong> <span class="report-badge neutral">Changed</span></p><div class="report-signature-lines"><div><span>Before</span><code>delete(resourceGroupName: string, privateEndpointConnectionName: string): Not recorded</code></div><div><span>After</span><code>delete(resourceGroupName: string, clusterName: string, privateEndpointConnectionName: string): Not recorded</code></div></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK method</span><strong>Normalized input order</strong><span class="report-detail">Private endpoint delete inserts required clusterName before privateEndpointConnectionName. Existing SDK callers must provide the parent name and adjust positional calls where applicable.</span></td><td><pre>1. resourceGroupName (path): string
-2. privateEndpointConnectionName (path): string</pre></td><td><pre>1. resourceGroupName (path): string
-2. clusterName (path): string
-3. privateEndpointConnectionName (path): string</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> Private endpoint delete inserts required clusterName before privateEndpointConnectionName. Existing SDK callers must provide the parent name and adjust positional calls where applicable.</div><details class="report-model-evidence"><summary>Show recorded SDK method evidence</summary><p class="report-small"><strong>Target normalized SDK method:</strong> <code>Microsoft.HorizonDb.HorizonDbPrivateEndpointConnections.delete</code></p><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></details></div></details><details class="report-card sdk-method-card" id="downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections.update</strong><small>The normalized SDK method contract changes directly.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-8928ca2cf24aac04">Bind private endpoint update and delete to the HorizonDB cluster parent</a></div></div></div><div class="report-badges"><span class="report-badge mixed">Mixed: direct + type change</span></div></summary><div class="report-card-body"><span id="downstream-downstream-group-4e7a4c3d52495246"></span><span id="downstream-downstream-38923c7c65105569"></span><span id="finding-downstream-38923c7c65105569"></span><span id="downstream-downstream-ee82380623aa067e"></span><span id="finding-downstream-ee82380623aa067e"></span><div class="report-method-signature"><p class="report-small"><strong>Method signature</strong> <span class="report-badge neutral">Changed</span></p><div class="report-signature-lines"><div><span>Before</span><code>update(resourceGroupName: string, privateEndpointConnectionName: string, properties: PrivateEndpointConnectionUpdate): PrivateEndpointConnection</code></div><div><span>After</span><code>update(resourceGroupName: string, clusterName: string, privateEndpointConnectionName: string, properties: PrivateEndpointConnectionUpdate): PrivateEndpointConnectionResource</code></div></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK method</span><strong>Normalized input order</strong><span class="report-detail">Private endpoint update inserts required clusterName between resourceGroupName and privateEndpointConnectionName. Existing generated SDK calls must provide the new value and, where arguments are positional, adjust the subsequent arguments.</span></td><td><pre>1. resourceGroupName (path): string
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">1 findings</span></div></div><p class="report-small">1 of 1 semantic intents assessed · 4 documents selected</p><details class="report-card compliance-finding"><summary><div class="report-card-title"><strong>Existing private endpoint operation contract changed</strong><small>The official private-endpoint and API-evolution guidance favors standard operation templates and version-isolated evolution; the bounded projection shows incompatible changes in an already-published version.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-8928ca2cf24aac04">Modify HorizonDbPrivateEndpointConnections, HorizonDbPrivateEndpointConnections.delete, HorizonDbPrivateEndpointConnections.update</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><div class="report-guideline-section expected-details"><h3>Expected</h3><p>Existing published API-version routes, required parameters, and response schemas remain compatible; new hierarchy changes are introduced only in a new version.</p><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Private endpoints — Defining Private Endpoint Operations</a><blockquote>Private endpoint connection resources should extend PrivateEndpointConnectionResource and use the standard PrivateEndpoints operation templates.</blockquote><div class="diff"><div class="diff-path"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Documented TypeSpec example</a></div><pre><span class="">Private endpoint operations should follow the standard parent-resource routes and model contracts.</span></pre></div></div></div><div class="report-guideline-section actual-details"><h3>Actual</h3><div class="report-type-impact" id="compliance-finding-compliance-879ce59fb50ecf19"><p>The existing private endpoint update/delete operations move under a cluster route with a new required clusterName parameter, and update changes its response model.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104-133</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L119-L119">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:118-122</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L125-L125">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:124-132</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104-133</a></div><pre><span class="remove"><span class="line-number">104</span>-  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span>
+<span class="add"><span class="line-number">105</span>+  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;</span>
+<span class="add"><span class="line-number">106</span>+    HorizonDbCluster,</span>
+<span class="add"><span class="line-number">107</span>+    PrivateEndpointConnectionResource</span>
+<span class="add"><span class="line-number">108</span>+  &gt;;</span>
+<span class="add"><span class="line-number">109</span>+    HorizonDbCluster,</span></pre></div></div></div></div></details></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">2 operations · 2 findings</span></div></div><details class="report-card rest-contract-card" id="rest-operation--HorizonDbPrivateEndpointConnections_Delete-2026-01-20-preview"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections_Delete</strong><small><span class="report-http">DELETE</span> <code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code> · 2026-01-20-preview</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-8928ca2cf24aac04">Modify HorizonDbPrivateEndpointConnections, HorizonDbPrivateEndpointConnections.delete, HorizonDbPrivateEndpointConnections.update</a></div></div></div><div class="report-badges"><span class="report-count">1 changes</span></div></summary><div class="report-card-body"><span id="finding-rest-320869014d4b2b8c"></span><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> The candidate records a material change to an existing operation contract and is retained as a REST breaking change.</div></div></details><details class="report-card rest-contract-card" id="rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections_Update</strong><small><span class="report-http">PATCH</span> <code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code> · 2026-01-20-preview</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-8928ca2cf24aac04">Modify HorizonDbPrivateEndpointConnections, HorizonDbPrivateEndpointConnections.delete, HorizonDbPrivateEndpointConnections.update</a></div></div></div><div class="report-badges"><span class="report-count">1 changes</span></div></summary><div class="report-card-body"><span id="finding-rest-65b757c6f1cb25e2"></span><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> The candidate records a material change to an existing operation contract and is retained as a REST breaking change.</div></div></details></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">1 mapped methods · 0 changed types</span></div></div><details class="report-card sdk-method-card" id="downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections.update</strong><small>The normalized SDK method contract changes directly.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-8928ca2cf24aac04">Modify HorizonDbPrivateEndpointConnections, HorizonDbPrivateEndpointConnections.delete, HorizonDbPrivateEndpointConnections.update</a></div></div></div><div class="report-badges"><span class="report-badge direct">Direct method change</span></div></summary><div class="report-card-body"><span id="downstream-downstream-group-4e7a4c3d52495246"></span><span id="downstream-downstream-ee82380623aa067e"></span><span id="finding-downstream-ee82380623aa067e"></span><div class="report-method-signature"><p class="report-small"><strong>Method signature</strong> <span class="report-badge neutral">Changed</span></p><div class="report-signature-lines"><div><span>Before</span><code>update(resourceGroupName: string, privateEndpointConnectionName: string, properties: PrivateEndpointConnectionUpdate): PrivateEndpointConnection</code></div><div><span>After</span><code>update(resourceGroupName: string, clusterName: string, privateEndpointConnectionName: string, properties: PrivateEndpointConnectionUpdate): PrivateEndpointConnectionResource</code></div></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK method</span><strong>Normalized input order</strong></td><td><pre>1. resourceGroupName (path): string
 2. privateEndpointConnectionName (path): string
 3. properties (body input): PrivateEndpointConnectionUpdate</pre></td><td><pre>1. resourceGroupName (path): string
 2. clusterName (path): string
 3. privateEndpointConnectionName (path): string
-4. properties (body input): PrivateEndpointConnectionUpdate</pre></td></tr><tr><td><span class="contract-area-kind">SDK method</span><strong>Return type (body output)</strong></td><td><pre>PrivateEndpointConnection</pre></td><td><pre>PrivateEndpointConnectionResource</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> <ul><li>Private endpoint update inserts required clusterName between resourceGroupName and privateEndpointConnectionName. Existing generated SDK calls must provide the new value and, where arguments are positional, adjust the subsequent arguments.</li><li>Update&#39;s named result changes from common PrivateEndpointConnection to PrivateEndpointConnectionResource. Although both retain the same optional properties member and Resource base, consumers explicitly naming the former result type must adapt; the facts do not establish an implicit-to-explicit wrapper-only transition.</li></ul></div><div class="report-type-impact report-model-change"><span id="downstream-type-project-1a17ac3fb584-Azure-ResourceManager-CommonTypes-PrivateEndpointConnection"></span><span id="downstream-sdk-type-impact-4d50e216919f79e1"></span><span id="downstream-downstream-c6f9c73c367820cd"></span><span id="finding-downstream-c6f9c73c367820cd"></span><h4>Output model: PrivateEndpointConnection <span class="report-badge indirect">Structure changed</span></h4><p class="report-small">The table directly compares the affected fields inside the referenced SDK model or type.</p><div class="report-reference-paths"><div class="report-reference-path"><span>Output / model</span><code>PrivateEndpointConnection</code><span>Baseline evidence</span></div></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK type availability</span><strong>PrivateEndpointConnection</strong></td><td><pre>access: public · reachable: true · usage: 10500</pre></td><td><pre>Not recorded</pre></td></tr><tr><td><span class="contract-area-kind">SDK type contract</span><strong>PrivateEndpointConnection</strong></td><td><pre>Azure.ResourceManager.CommonTypes.PrivateEndpointConnection preserves its existing language-neutral generated SDK contract.</pre></td><td><pre>Azure.ResourceManager.CommonTypes.PrivateEndpointConnection changed public access, usage, or reachability.</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>The output model contract changed.</strong> The method uses PrivateEndpointConnection; fields or public contracts inside the referenced model differ.</div><p class="report-small report-model-scope">This compares language-neutral SDK model structure, not HTTP response fields. Language-specific compatibility conclusions require the corresponding public API evidence.</p><details class="report-model-evidence"><summary>Show reference paths and assessment evidence</summary><p class="report-small">Changed type: <code>Azure.ResourceManager.CommonTypes.PrivateEndpointConnection</code></p><div class="report-reference-chains"><p class="report-small"><strong>How this method connects to the changed type</strong></p><div class="report-reference-chain"><div class="report-chain-label">Baseline SDK reference graph</div><ol><li style="--reference-depth:0"><code>HorizonDbPrivateEndpointConnections.update</code><span class="report-chain-detail">Public SDK method</span></li><li style="--reference-depth:1"><code>PrivateEndpointConnection</code><span class="report-badge remove">Type-level breaking change</span><span class="report-chain-detail">Return type</span></li></ol></div><p class="report-path-scope"><strong>Why this method is listed:</strong> a recorded baseline parameter or return-type path reaches this changed SDK type. The type-level consequence is described below; the method signature can remain unchanged.</p></div><div class="breaking-rationale"><strong>Why the type change is breaking:</strong> The public, reachable common PrivateEndpointConnection model has no target fact after update switches to PrivateEndpointConnectionResource. Existing consumers naming the former generated type must migrate; equal properties do not prove that the old named type remains available.</div><p class="report-small">A lifecycle badge does not prove that a property is absent from the REST response schema.</p></details></div><details class="report-model-evidence"><summary>Show recorded SDK method evidence</summary><p class="report-small"><strong>Target normalized SDK method:</strong> <code>Microsoft.HorizonDb.HorizonDbPrivateEndpointConnections.update</code></p><p class="report-small"><strong>Constant headers (not numbered caller inputs):</strong> Baseline: Content-Type (header): &quot;application/json&quot;; Baseline: Accept (header): &quot;application/json&quot;; Target: Content-Type (header): &quot;application/json&quot;; Target: Accept (header): &quot;application/json&quot;</p><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></details></div></details></section>
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">1 intents · 0 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-8928ca2cf24aac04"><summary><div class="report-card-title"><strong>Bind private endpoint update and delete to the HorizonDB cluster parent</strong><small>The routes.tsp group adds HorizonDbCluster as the parent argument of the private endpoint CustomPatchAsync and DeleteAsync template applications. These are the update and deletion lifecycle operations for a cluster&#39;s private endpoint connection, not a version publication. For the existing 2026-01-20-preview comparison, both routes move beneath clusters/{clusterName} and gain a required clusterName input; update also returns the PrivateEndpointConnectionResource SDK model instead of the common PrivateEndpointConnection model. Polling links, completion states, and final-result members otherwise remain equivalent. The supplied source-file grouping is retained without asserting a wider business feature.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (4)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Delete-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Delete</a><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Update</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-delete">Downstream: HorizonDbPrivateEndpointConnections.delete</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update">Downstream: HorizonDbPrivateEndpointConnections.update</a></div><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-879ce59fb50ecf19">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Operation/transform relationship grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 3 declaration/source facts; 1 source hunks; 2 supporting operation mappings.</p><details class="report-subdetails"><summary>Change facts (3)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>HorizonDbPrivateEndpointConnections.update</code></td><td>operation</td><td>modify</td><td>lro, parameters, path</td></tr><tr><td><code>HorizonDbPrivateEndpointConnections</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>HorizonDbPrivateEndpointConnections.delete</code></td><td>operation</td><td>modify</td><td>lro, parameters, path</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</div><pre><span class="context">   &gt;;</span>
+4. properties (body input): PrivateEndpointConnectionUpdate</pre></td></tr><tr><td><span class="contract-area-kind">SDK method</span><strong>Return type (body output)</strong></td><td><pre>PrivateEndpointConnection</pre></td><td><pre>PrivateEndpointConnectionResource</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> The existing operation route/signature or response model changes, which changes generated cross-language client methods or return types.</div><details class="report-model-evidence"><summary>Show recorded SDK method evidence</summary><p class="report-small"><strong>Target normalized SDK method:</strong> <code>Microsoft.HorizonDb.HorizonDbPrivateEndpointConnections.update</code></p><p class="report-small"><strong>Constant headers (not numbered caller inputs):</strong> Baseline: Content-Type (header): &quot;application/json&quot;; Baseline: Accept (header): &quot;application/json&quot;; Target: Content-Type (header): &quot;application/json&quot;; Target: Accept (header): &quot;application/json&quot;</p><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></details></div></details></section>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">1 intents · 0 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-8928ca2cf24aac04"><summary><div class="report-card-title"><strong>Modify HorizonDbPrivateEndpointConnections, HorizonDbPrivateEndpointConnections.delete, HorizonDbPrivateEndpointConnections.update</strong><small>Modify covers 3 change facts (operation, type) across 3 declarations and 2 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (3)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Delete-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Delete</a><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Update</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update">Downstream: HorizonDbPrivateEndpointConnections.update</a></div><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-879ce59fb50ecf19">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Operation/transform relationship grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 3 declaration/source facts; 1 source hunks; 2 supporting operation mappings.</p><details class="report-subdetails"><summary>Change facts (3)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>HorizonDbPrivateEndpointConnections.update</code></td><td>operation</td><td>modify</td><td>lro, parameters, path</td></tr><tr><td><code>HorizonDbPrivateEndpointConnections</code></td><td>type</td><td>modify</td><td></td></tr><tr><td><code>HorizonDbPrivateEndpointConnections.delete</code></td><td>operation</td><td>modify</td><td>lro, parameters, path</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</div><pre><span class="context">   &gt;;</span>
 <span class="context"> </span>
 <span class="context">   @doc(&quot;Updates a private endpoint connection.&quot;)</span>
 <span class="remove">-  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span>
@@ -791,13 +787,13 @@ body {
 <span class="context">     PrivateEndpointConnectionResource,</span>
 <span class="context">     Response =</span>
 <span class="context">       | ArmDeleteAcceptedLroResponse&lt;LroHeaders = ArmCombinedLroHeaders &amp;</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104</a></p></details><details class="report-subdetails" id="intent-semantic-8928ca2cf24aac04-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>HorizonDbPrivateEndpointConnections_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code><span>2026-01-20-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Path parameter</span><strong>clusterName</strong></td><td><pre>removed</pre></td><td><pre>string</pre></td></tr><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr></tbody></table></div><p>REST contract changed: path, parameters.</p></div></details><details class="operation"><summary><strong>HorizonDbPrivateEndpointConnections_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code><span>2026-01-20-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Path parameter</span><strong>clusterName</strong></td><td><pre>removed</pre></td><td><pre>string</pre></td></tr><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr></tbody></table></div><p>REST contract changed: path, parameters, lro.</p></div></details></details></div></details></section>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104</a></p></details><details class="report-subdetails" id="intent-semantic-8928ca2cf24aac04-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>HorizonDbPrivateEndpointConnections_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code><span>2026-01-20-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr></tbody></table></div><p>REST contract changed: path, parameters.</p></div></details><details class="operation"><summary><strong>HorizonDbPrivateEndpointConnections_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code><span>2026-01-20-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr></tbody></table></div><p>REST contract changed: path, parameters, lro.</p></div></details></details></div></details></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 0 declarations checked</p></section>
-<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>{&quot;code&quot;: &quot;autorest-contract-unresolved&quot;, &quot;message&quot;: &quot;Changed AutoRest contracts for 2 operations in project-1a17ac3fb584 contain unresolved schema or parameter references (HorizonDbPrivateEndpointConnections_Delete, HorizonDbPrivateEndpointConnections_Update). Their effective compatibility cannot be established from placeholder references.&quot;, &quot;projectId&quot;: &quot;project-1a17ac3fb584&quot;}</li></ul>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb</code></td><td>existing-api-version</td><td><code>397a6977353e62db503b266fd796f51d14d60ef6@2026-01-20-preview</code><br><small>base · affected-existing-version</small></td><td><code>b931dadcc0382a211cc8d8489f45dab5bdf858b9@2026-01-20-preview</code><br><small>current · affected-existing-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/44288">#44288</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Private endpoints</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/">ARM long-running operations</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Private endpoints</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
   &quot;status&quot;: &quot;failed&quot;,
   &quot;coverage&quot;: {
     &quot;semanticIntentCount&quot;: 1,
@@ -809,6 +805,20 @@ body {
     &quot;catalogRanking&quot;: [
       {
         &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because private endpoint operations should follow the standard parent-resource routes and model contracts.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 1,
         &quot;title&quot;: &quot;Evolving APIs&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
@@ -819,21 +829,7 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Primary existing-version evolution guidance covers modifying operations and required parameters in this ARM preview contract.&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 9,
-        &quot;title&quot;: &quot;Private endpoints&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Direct private endpoint connection operation category and ARM parent-template correction context; the catalog description does not spell the exact changed identifiers.&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.&quot;
       },
       {
         &quot;rank&quot;: 3,
@@ -847,80 +843,10 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;ARM lifecycle update/delete templates and their resource arguments directly frame the modified operation applications.&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because arm operations should follow standard templates and lifecycle visibility.&quot;
       },
       {
         &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 16,
-        &quot;title&quot;: &quot;ARM long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;ARM asynchronous update/delete result and polling behavior are directly implicated by the changed parent template applications and LRO candidates.&quot;
-      },
-      {
-        &quot;rank&quot;: 5,
-        &quot;catalogOrder&quot;: 7,
-        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM parent and child resource modeling provides related scope context; this patch changes template arguments rather than defining a resource type.&quot;
-      },
-      {
-        &quot;rank&quot;: 6,
-        &quot;catalogOrder&quot;: 13,
-        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM operation-template signatures are related reference material, but the catalog does not name these exact private endpoint templates or describe this existing-version correction.&quot;
-      },
-      {
-        &quot;rank&quot;: 7,
-        &quot;catalogOrder&quot;: 14,
-        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Generic resource lifecycle and parent semantics can apply to ARM, though none of the listed Rest decorators is itself edited.&quot;
-      },
-      {
-        &quot;rank&quot;: 8,
-        &quot;catalogOrder&quot;: 15,
-        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM lifecycle decorator category is related, but the description does not name the supplied @armResourceOperations construct and no lifecycle decorator edit occurs.&quot;
-      },
-      {
-        &quot;rank&quot;: 9,
         &quot;catalogOrder&quot;: 21,
         &quot;title&quot;: &quot;Models&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
@@ -928,265 +854,195 @@ body {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;General model optionality and inheritance can explain the result-type comparison, but this patch does not author model members.&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.&quot;
       },
       {
-        &quot;rank&quot;: 10,
+        &quot;rank&quot;: 5,
         &quot;catalogOrder&quot;: 2,
         &quot;title&quot;: &quot;Versioning overview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 3
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;General Azure versioning context is relevant to changing an existing preview, but no version enum or ordering changes are supplied.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 11,
+        &quot;rank&quot;: 6,
         &quot;catalogOrder&quot;: 3,
         &quot;title&quot;: &quot;Add preview after preview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Applicable Azure plane, but no additional preview version is introduced.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 12,
+        &quot;rank&quot;: 7,
         &quot;catalogOrder&quot;: 4,
         &quot;title&quot;: &quot;Add stable after preview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Applicable Azure plane, but no preview-to-stable promotion occurs.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 13,
+        &quot;rank&quot;: 8,
         &quot;catalogOrder&quot;: 5,
         &quot;title&quot;: &quot;Add preview after stable&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Applicable Azure plane, but there is no stable-to-preview transition.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 14,
+        &quot;rank&quot;: 9,
         &quot;catalogOrder&quot;: 6,
         &quot;title&quot;: &quot;Add stable after stable&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Applicable Azure plane, but no new stable version is added.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 15,
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 11,
         &quot;catalogOrder&quot;: 8,
         &quot;title&quot;: &quot;Specific extension resource sample&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM-specific sample, but no extension-resource scope is changed.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 16,
+        &quot;rank&quot;: 12,
         &quot;catalogOrder&quot;: 10,
         &quot;title&quot;: &quot;Private links&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM guidance, but private link resource enumeration is distinct from these private endpoint update/delete changes.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 17,
+        &quot;rank&quot;: 13,
         &quot;catalogOrder&quot;: 11,
         &quot;title&quot;: &quot;Network security perimeter&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM plane only; no network security perimeter construct changes.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 18,
-        &quot;catalogOrder&quot;: 18,
-        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM plane only; no paging query parameters or list templates are edited.&quot;
-      },
-      {
-        &quot;rank&quot;: 19,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM common types appear in emitted evidence, but no common-type definition or version decorator is authored by this patch.&quot;
-      },
-      {
-        &quot;rank&quot;: 20,
-        &quot;catalogOrder&quot;: 22,
-        &quot;title&quot;: &quot;Enums&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;Language guidance applies to ARM, but no enum declaration or values change.&quot;
-      },
-      {
-        &quot;rank&quot;: 21,
-        &quot;catalogOrder&quot;: 23,
-        &quot;title&quot;: &quot;Scalars&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;Language guidance applies to ARM, but no scalar definition or constraint changes.&quot;
-      },
-      {
-        &quot;rank&quot;: 22,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;Generic decorators apply to ARM, but the changed lines are template arguments rather than decorator applications.&quot;
-      },
-      {
-        &quot;rank&quot;: 23,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;Generic built-in decorator guidance applies to ARM, with no changed documentation, visibility, or constraint decorator.&quot;
-      },
-      {
-        &quot;rank&quot;: 24,
-        &quot;catalogOrder&quot;: 26,
-        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;OpenAPI decorator reference can apply to ARM, but no @operationId or other OpenAPI decorator is modified.&quot;
-      },
-      {
-        &quot;rank&quot;: 25,
-        &quot;catalogOrder&quot;: 27,
-        &quot;title&quot;: &quot;Change provider namespace&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM plane only; the provider namespace is unchanged.&quot;
-      },
-      {
-        &quot;rank&quot;: 26,
-        &quot;catalogOrder&quot;: 28,
-        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM plane only; no Azure Portal experience customization changes.&quot;
-      },
-      {
-        &quot;rank&quot;: 27,
-        &quot;catalogOrder&quot;: 30,
-        &quot;title&quot;: &quot;Directives&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;Language directives apply to ARM, but no changed suppression is supplied.&quot;
-      },
-      {
-        &quot;rank&quot;: 28,
         &quot;catalogOrder&quot;: 17,
         &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
@@ -1197,10 +1053,24 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Azure.Core data-plane LRO patterns are not the governing ARM private endpoint templates.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 29,
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
         &quot;catalogOrder&quot;: 19,
         &quot;title&quot;: &quot;TypeSpec pagination&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
@@ -1211,10 +1081,122 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Low-level data-plane pagination is not changed and must not be imposed on ARM templates.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 30,
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
         &quot;catalogOrder&quot;: 29,
         &quot;title&quot;: &quot;Content negotiation&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
@@ -1225,7 +1207,21 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Azure.Core content negotiation does not govern the changed ARM parent arguments.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 31,
@@ -1239,12 +1235,49 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No Azure.Core no-openapi warning or suppression is part of this ARM template correction.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       }
     ],
     &quot;documents&quot;: [
       {
         &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because private endpoint operations should follow the standard parent-resource routes and model contracts.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Defining Private Endpoint Operations&quot;,
+            &quot;excerpt&quot;: &quot;Private endpoint connection resources should extend PrivateEndpointConnectionResource and use the standard PrivateEndpoints operation templates.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;defining&quot;,
+              &quot;private&quot;,
+              &quot;endpoint&quot;,
+              &quot;operations&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;Private endpoint operations should follow the standard parent-resource routes and model contracts.&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-2d3d846baac34783&quot;,
+              &quot;declaration-82ecde4e4d56e9e4&quot;,
+              &quot;declaration-934363b30dd7dacf&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:14.194008Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:3b0375175d2212391e860a1c919b6d422e530a68fdb52dfd119089cae26b7e70&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 1,
         &quot;title&quot;: &quot;Evolving APIs&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
@@ -1255,62 +1288,11 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Primary existing-version evolution guidance covers modifying operations and required parameters in this ARM preview contract.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Introduction and Add a parameter to an operation in v2&quot;,
-            &quot;excerpt&quot;: &quot;Versioning allows you to evolve your API without breaking existing clients. By using versioning decorators, you can specify when resources, operations, or properties are added, removed, or changed.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;existing API version&quot;,
-              &quot;parameters&quot;,
-              &quot;HorizonDbCluster&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-82ecde4e4d56e9e4&quot;,
-              &quot;declaration-934363b30dd7dacf&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:09:28.453Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 9,
-        &quot;title&quot;: &quot;Private endpoints&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Direct private endpoint connection operation category and ARM parent-template correction context; the catalog description does not spell the exact changed identifiers.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Adding Private Endpoint Operations to Your Resource Interface and Available Operations&quot;,
-            &quot;excerpt&quot;: &quot;Create an alias for your private endpoint operations using the `PrivateEndpoints` interface template. The operation table models custom patch and delete as `update is Ops.CustomPatchAsync&lt;ParentResource&gt;;` and `delete is Ops.DeleteAsync&lt;ParentResource&gt;;`.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;PrivateEndpointConnectionResource&quot;,
-              &quot;CustomPatchAsync&quot;,
-              &quot;DeleteAsync&quot;,
-              &quot;HorizonDbCluster&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;updateConnection is PrivateEndpointOps.CustomPatchAsync&lt;Employee&gt;;\ndeleteConnection is PrivateEndpointOps.DeleteAsync&lt;Employee&gt;;&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-82ecde4e4d56e9e4&quot;,
-              &quot;declaration-934363b30dd7dacf&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:09:29.511Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:7b20a071f6a2aa769e16d20ec463312170e4eda5e6bfb93cfebc4ef5a664709c&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:10.671774Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c&quot;
       },
       {
         &quot;rank&quot;: 3,
@@ -1324,32 +1306,17 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;ARM lifecycle update/delete templates and their resource arguments directly frame the modified operation applications.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Synchronous and Asynchronous APIs&quot;,
-            &quot;excerpt&quot;: &quot;CreateOrUpdate (PUT), Update (Patch), Delete, and Action (POST) operations over a resource may be either synchronous or asynchronous. Asynchronous operations return an initial response before the operation fully completes, and support long-running operation (LRO) polling.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;CustomPatchAsync&quot;,
-              &quot;DeleteAsync&quot;,
-              &quot;LRO&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-82ecde4e4d56e9e4&quot;,
-              &quot;declaration-934363b30dd7dacf&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:09:31.747Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:c647a4908a0d0e74803347a5e4956b56986a684344b8c67a3b3f7f37c67558d7&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because arm operations should follow standard templates and lifecycle visibility.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:12.025201Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:045aef79057f64670685313072d5945ef1cf2a48e651a7fab77e8e1a65121b07&quot;
       },
       {
         &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 16,
-        &quot;title&quot;: &quot;ARM long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
@@ -1357,28 +1324,11 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;ARM asynchronous update/delete result and polling behavior are directly implicated by the changed parent template applications and LRO candidates.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;ARM LRO introduction, PATCH defaults, and DELETE defaults&quot;,
-            &quot;excerpt&quot;: &quot;Each header model accepts a `FinalResult` parameter that indicates the type of the logical result of the operation. It is important that this value matches what the operation actually returns. The headers appear in the `202 Accepted` response for PATCH, DELETE, and POST operations.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;ArmAcceptedLroResponse&quot;,
-              &quot;ArmDeleteAcceptedLroResponse&quot;,
-              &quot;Location&quot;,
-              &quot;Azure-AsyncOperation&quot;,
-              &quot;finalResult&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-82ecde4e4d56e9e4&quot;,
-              &quot;declaration-934363b30dd7dacf&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:09:30.687Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:c6dbf2d5929f4e9cce59bab7099dbaef86458c5f8b7c2c72d88028f9a7027507&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:13.273479Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:efd56120d9598700d213c873b8e93962fc666eede836a6009d5439fee74f75ce&quot;
       }
     ]
   },
@@ -1395,21 +1345,29 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;semanticAnalysisMs&quot;: 38,
-    &quot;restAnalysisMs&quot;: 22,
-    &quot;downstreamAnalysisMs&quot;: 906,
-    &quot;semanticContextPolicyMs&quot;: 1,
-    &quot;documentQualityAnalysisMs&quot;: 1,
-    &quot;replayAnalysisMs&quot;: 1321
+    &quot;metadataMs&quot;: 2751,
+    &quot;fetchMs&quot;: 367,
+    &quot;scopeDiscoveryMs&quot;: 317,
+    &quot;setupExcludingFetchMs&quot;: 20827,
+    &quot;comparisonMs&quot;: 516,
+    &quot;changeDiscoveryMs&quot;: 281,
+    &quot;workspacePreparationMs&quot;: 15934,
+    &quot;projectDiscoveryMs&quot;: 126,
+    &quot;totalMs&quot;: 2584724,
+    &quot;semanticAnalysisMs&quot;: 89,
+    &quot;restAnalysisMs&quot;: 98,
+    &quot;downstreamAnalysisMs&quot;: 2289,
+    &quot;semanticContextPolicyMs&quot;: 6,
+    &quot;documentQualityAnalysisMs&quot;: 1
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;small&quot;,
     &quot;budgetBytes&quot;: 131072,
-    &quot;bytes&quot;: 40090,
-    &quot;estimatedTokens&quot;: 10023,
+    &quot;bytes&quot;: 43441,
+    &quot;estimatedTokens&quot;: 10861,
     &quot;retained&quot;: {
       &quot;evidenceSets&quot;: 8,
-      &quot;facts&quot;: 13,
+      &quot;facts&quot;: 15,
       &quot;semanticReviewUnits&quot;: 1,
       &quot;restCandidates&quot;: 5,
       &quot;downstreamCandidates&quot;: 7,
@@ -1431,13 +1389,13 @@ body {
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 54979,
-      &quot;guidanceExcerptsRetained&quot;: 4,
-      &quot;guidanceExcerptBytesRetained&quot;: 1006
+      &quot;documentBytesFetched&quot;: 1511304,
+      &quot;guidanceExcerptsRetained&quot;: 1,
+      &quot;guidanceExcerptBytesRetained&quot;: 144
     }
   }
 }</pre>
-<p><strong>Provenance:</strong> 2, model-input.json, dimensions/document-quality-input.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json, {&quot;schemaVersion&quot;:1,&quot;appliedAt&quot;:&quot;2026-10-28T09:23:27.612Z&quot;,&quot;sourceAssessmentSha256&quot;:&quot;1bc1500b018ad6fc6deaf2c591bf4d3f71548a4f7c13c96275914b0b593b66c0&quot;,&quot;findingsChanged&quot;:false,&quot;blockersChanged&quot;:false}</p></div></details></section>
+<p><strong>Provenance:</strong> 2, model-input.json, dimensions/document-quality-input.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
 </main>
 <script>
 function revealHashTarget() {

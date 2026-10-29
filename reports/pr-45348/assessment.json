@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T04:19:07.110Z",
+  "generatedAt": "2026-10-29T08:27:50.318Z",
   "title": "TypeSpec assessment: specification/deviceregistry/DeviceRegistry.Management",
   "repository": {
     "root": "C:\\workspace\\azure-rest-api-specs",
@@ -78,7 +78,9 @@
   "confidence": "low",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "not-assessed"
+    "status": "not-assessed",
+    "verdict": "unknown",
+    "coverage": "partial"
   },
   "dimensions": {
     "semantic": {
@@ -72603,8 +72605,8 @@
               "reason": "compiler-effective-documentation-check"
             }
           },
-          "title": "Retarget existing DeviceRegistry previews to ARM common types v5",
-          "summary": "Changes @armCommonTypesVersion from v6 to v5 on the existing 2026-11-01-preview and 2026-11-02-preview enum members; no API version is added or published. The frozen 2026-11-02-preview comparison propagates this single shared dependency change to 109 existing management operations through common ARM resource, error, identity, operation-list and status schemas. These are dependency relationships, not 109 authored lifecycle features. Local wire fields are unchanged, but the referenced common schemas are unresolved in canonical evidence; their compatibility is not established.",
+          "title": "Downgrade ARM common types from v6 to v5",
+          "summary": "Changes @armCommonTypesVersion for the existing 2026-11-02-preview API version, potentially changing inherited ARM wire shapes.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [
@@ -73451,6 +73453,8 @@
     },
     "rest": {
       "status": "not-assessed",
+      "verdict": "unknown",
+      "coverage": "partial",
       "findings": [],
       "rejectedCandidateCount": 237,
       "blockers": [
@@ -73463,6 +73467,8 @@
     },
     "downstream": {
       "status": "passed",
+      "verdict": "passed",
+      "coverage": "complete",
       "findings": [],
       "methodGroups": [],
       "typeImpacts": [],
@@ -73472,7 +73478,7 @@
     },
     "compliance": {
       "status": "passed",
-      "summary": "All Semantic intents match applicable fetched guidance.",
+      "summary": "All Semantic intents were assessed; no applicable guidance was found for one or more intents.",
       "coverage": {
         "semanticIntentCount": 1,
         "assessedIntentCount": 1,
@@ -73493,7 +73499,7 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Primary existing-version evolution guidance applies to the ARM dependency modification; the catalog description does not name the exact changed decorator."
+            "selectionRationale": "Relevant to dependencies and common-type selection on version enum members."
           },
           {
             "rank": 2,
@@ -73507,7 +73513,7 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Versioning overview applies to an existing ARM preview version's dependency change, without treating it as publication."
+            "selectionRationale": "Relevant Azure API version context for an existing preview version."
           },
           {
             "rank": 3,
@@ -73521,7 +73527,7 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Common ARM model versioning directly matches the modified shared dependency; the catalog does not literally name @armCommonTypesVersion."
+            "selectionRationale": "Direct category match for ARM common-type versions."
           },
           {
             "rank": 4,
@@ -73531,336 +73537,210 @@
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 6
+              "total": 4
             },
-            "selectionRationale": "General decorator application directly matches modifying the argument of an ARM enum-member decorator."
+            "selectionRationale": "Relevant language guidance for changing decorator arguments."
           },
           {
             "rank": 5,
-            "catalogOrder": 21,
-            "title": "Models",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "Shared model composition is implicated by common-schema references, but no model property or composition syntax is authored."
-          },
-          {
-            "rank": 6,
-            "catalogOrder": 22,
-            "title": "Enums",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 5
-            },
-            "selectionRationale": "The owning declaration is an enum, but member identities and serialized API-version values are unchanged."
-          },
-          {
-            "rank": 7,
             "catalogOrder": 3,
             "title": "Add preview after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM-applicable guidance, but no preview version is added and the described transition does not occur."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 8,
+            "rank": 6,
             "catalogOrder": 4,
             "title": "Add stable after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM-applicable guidance, but this dependency rollback does not promote a preview to stable."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 9,
+            "rank": 7,
             "catalogOrder": 5,
             "title": "Add preview after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM-applicable guidance, but there is no new preview after a stable version."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 10,
+            "rank": 8,
             "catalogOrder": 6,
             "title": "Add stable after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM-applicable guidance, but there is no new stable version or stable transition."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 11,
+            "rank": 9,
             "catalogOrder": 7,
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM resource modeling is plane-relevant; the source does not add or redefine a resource kind."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 12,
+            "rank": 10,
             "catalogOrder": 8,
             "title": "Specific extension resource sample",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM sample, but no extension resource or scope is authored by this change."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 13,
+            "rank": 11,
             "catalogOrder": 9,
             "title": "Private endpoints",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM plane relevance only; no private endpoint construct is changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 14,
+            "rank": 12,
             "catalogOrder": 10,
             "title": "Private links",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM plane relevance only; no private link construct is changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 15,
+            "rank": 13,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM plane relevance only; no network security perimeter construct is changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 16,
+            "rank": 14,
             "catalogOrder": 12,
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM operation guidance is plane-relevant, but propagated relationships are not authored lifecycle operations."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 17,
+            "rank": 15,
             "catalogOrder": 13,
             "title": "Azure.ResourceManager interface reference",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM interface reference is plane-relevant; no operation template application is changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 18,
+            "rank": 16,
             "catalogOrder": 14,
             "title": "TypeSpec.Rest decorators",
             "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "Resource decorator concepts apply to ARM, but no resource-association or lifecycle decorator is changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 19,
+            "rank": 17,
             "catalogOrder": 15,
             "title": "Azure.ResourceManager decorators",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM lifecycle decorators are plane-relevant, not the changed common-types version selection."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 20,
+            "rank": 18,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 0,
-              "total": 2
+              "total": 0
             },
-            "selectionRationale": "ARM LRO guidance is plane-relevant, but polling operation declarations and LRO decorators are not changed."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 21,
-            "catalogOrder": 18,
-            "title": "Azure.ResourceManager data types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM paging data types are plane-relevant; no paging parameter or template is changed."
-          },
-          {
-            "rank": 22,
-            "catalogOrder": 23,
-            "title": "Scalars",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "General TypeSpec guidance applies across planes, but no scalar declaration or constraint is modified."
-          },
-          {
-            "rank": 23,
-            "catalogOrder": 25,
-            "title": "Built-in decorators",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "General TypeSpec guidance is plane-relevant; the changed ARM library decorator is not a built-in documentation or constraint decorator."
-          },
-          {
-            "rank": 24,
-            "catalogOrder": 26,
-            "title": "OpenAPI decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "General OpenAPI integration can apply to ARM, but no OpenAPI-specific decorator is changed."
-          },
-          {
-            "rank": 25,
-            "catalogOrder": 27,
-            "title": "Change provider namespace",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "@armProviderNamespace appears only in declaration context; the actual changed tokens do not modify the provider namespace."
-          },
-          {
-            "rank": 26,
-            "catalogOrder": 28,
-            "title": "Azure Portal default experiences",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "ARM Portal guidance is plane-relevant only; no portal experience configuration is changed."
-          },
-          {
-            "rank": 27,
-            "catalogOrder": 30,
-            "title": "Directives",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/directives/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 2,
-              "changeContext": 0,
-              "total": 2
-            },
-            "selectionRationale": "General directive syntax applies across planes, but no suppression or warning directive is changed."
-          },
-          {
-            "rank": 28,
+            "rank": 19,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -73871,10 +73751,24 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Data-plane LRO patterns do not govern this ARM dependency selection."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 29,
+            "rank": 20,
+            "catalogOrder": 18,
+            "title": "Azure.ResourceManager data types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 21,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -73885,10 +73779,108 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Data-plane pagination is not the changed pattern or service plane."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
-            "rank": 30,
+            "rank": 22,
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 23,
+            "catalogOrder": 22,
+            "title": "Enums",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 24,
+            "catalogOrder": 23,
+            "title": "Scalars",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 25,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 26,
+            "catalogOrder": 26,
+            "title": "OpenAPI decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 27,
+            "catalogOrder": 27,
+            "title": "Change provider namespace",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 28,
+            "catalogOrder": 28,
+            "title": "Azure Portal default experiences",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 29,
             "catalogOrder": 29,
             "title": "Content negotiation",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/",
@@ -73899,7 +73891,21 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Data-plane content negotiation is outside this ARM dependency change."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
+          },
+          {
+            "rank": 30,
+            "catalogOrder": 30,
+            "title": "Directives",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/directives/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           },
           {
             "rank": 31,
@@ -73913,7 +73919,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Azure Core data-plane no-openapi guidance does not govern the changed ARM common-types selection."
+            "selectionRationale": "No direct symbol, pattern, plane, or change-context match for this assessment."
           }
         ],
         "documents": [
@@ -73929,25 +73935,11 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Primary existing-version evolution guidance applies to the ARM dependency modification; the catalog description does not name the exact changed decorator.",
-            "guidance": [
-              {
-                "section": "Declaring Versions",
-                "excerpt": "Define your API versions in an enum. For each version, specify dependencies and common types as needed.",
-                "queryTerms": [
-                  "@armCommonTypesVersion",
-                  "Versions",
-                  "common types"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-2216badbb8c3488e"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T03:59:54.638Z",
-            "contentHash": "sha256:619f8209e240f41bfee2072a97a3089cbd97165422224a2793bb9e02d5a920de"
+            "selectionRationale": "Relevant to dependencies and common-type selection on version enum members.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-29T08:24:51.284Z",
+            "contentHash": "sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c"
           },
           {
             "rank": 2,
@@ -73961,11 +73953,11 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Versioning overview applies to an existing ARM preview version's dependency change, without treating it as publication.",
+            "selectionRationale": "Relevant Azure API version context for an existing preview version.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-27T03:59:54.638Z",
-            "contentHash": "sha256:5e72a1d09c1662bda04e0c31a0d6a8338c0f231c64d0c38f246431f0147027a2"
+            "retrievedAt": "2026-10-29T08:24:51.569Z",
+            "contentHash": "sha256:eeb249dc376b26d1695bb48bb64c3b9b028340fc5435b93f153342abdea51f2f"
           },
           {
             "rank": 3,
@@ -73979,11 +73971,11 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Common ARM model versioning directly matches the modified shared dependency; the catalog does not literally name @armCommonTypesVersion.",
+            "selectionRationale": "Direct category match for ARM common-type versions.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-27T03:59:54.638Z",
-            "contentHash": "sha256:737d80338c7d5645f33b31512c6ff4bb9eabaf52f8dbdc6f833066280057e6dc"
+            "retrievedAt": "2026-10-29T08:24:52.694Z",
+            "contentHash": "sha256:f2af6b02eab56fd2b27866b3152249245ca733e036138efa2d7b35f79f67b15c"
           },
           {
             "rank": 4,
@@ -73993,28 +73985,15 @@
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 6
+              "total": 4
             },
-            "selectionRationale": "General decorator application directly matches modifying the argument of an ARM enum-member decorator.",
-            "guidance": [
-              {
-                "section": "Applying decorators",
-                "excerpt": "Decorators are referenced using the `@` prefix and must be placed before the entity they are decorating. Arguments can be provided by using parentheses, similar to function calls in many programming languages, e.g., `@myDec1(\"hi\", { a: string })`.",
-                "queryTerms": [
-                  "@armCommonTypesVersion",
-                  "decorators"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-2216badbb8c3488e"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-27T03:59:54.638Z",
-            "contentHash": "sha256:2c2aebabe639642dd19454cc900421535ceeda9866588dda36718709b67c4ec1"
+            "selectionRationale": "Relevant language guidance for changing decorator arguments.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-29T08:24:53.610Z",
+            "contentHash": "sha256:442d6c5c0d3887e36c2f840af417903eee4c3869fd0a1ba72388c53da543e4b5"
           }
         ]
       },
@@ -74022,16 +74001,7 @@
         {
           "semanticIntentId": "semantic-f86557ff76bf0542",
           "reviewUnitId": "semantic-f86557ff76bf0542",
-          "applicableGuidance": [
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Declaring Versions"
-            },
-            {
-              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/decorators/",
-              "guidanceSection": "Applying decorators"
-            }
-          ],
+          "applicableGuidance": [],
           "sourceChangeIds": [
             "source-fb3053d5bfba804f"
           ],
@@ -74041,11 +74011,10 @@
           "declarationIds": [
             "declaration-2216badbb8c3488e"
           ],
-          "decision": "applicable-pass",
-          "expected": "Specify dependencies and common types per API-version enum member, with decorators placed before the declarations they decorate.",
-          "actual": "The two existing preview members retain explicit @armCommonTypesVersion decorations immediately before their enum members; only the common-types argument changes from v6 to v5. Version names, values and the latest preview marker are unchanged.",
-          "rationale": "The source hunk satisfies the retrieved per-version dependency-declaration and decorator-placement guidance. Neither cited section requires the newest common-types version or a new API version merely for selecting an existing dependency. The versioning overview's publication transitions and common-type-authoring guide do not govern this consuming-service edit. This scoped modeling pass is not a wire-compatibility pass: unresolved external v6/v5 schemas remain a separate assessment limit.",
-          "gap": "The source hunk satisfies the retrieved per-version dependency-declaration and decorator-placement guidance. Neither cited section requires the newest common-types version or a new API version merely for selecting an existing dependency. The versioning overview's publication transitions and common-type-authoring guide do not govern this consuming-service edit. This scoped modeling pass is not a wire-compatibility pass: unresolved external v6/v5 schemas remain a separate assessment limit.",
+          "decision": "no-applicable-guidance",
+          "actual": "The existing 2026-11-02-preview enum member changes its ARM common-types selection from v6 to v5.",
+          "rationale": "The retrieved official documents explain selecting and defining common-type versions but do not state a conformance rule that makes this downgrade pass or fail.",
+          "gap": "The retrieved official documents explain selecting and defining common-type versions but do not state a conformance rule that makes this downgrade pass or fail.",
           "sourceLinks": [
             {
               "path": "specification/deviceregistry/DeviceRegistry.Management/main.tsp",
@@ -74129,15 +74098,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\worktrees\\base\\specification\\deviceregistry\\DeviceRegistry.Management",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\worktrees\\base\\specification\\deviceregistry\\DeviceRegistry.Management",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\projects\\project-dd25e6db7b7b\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\projects\\project-dd25e6db7b7b\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-11-02-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 8240,
+            "durationMs": 74610,
             "configPath": "worktrees\\base\\specification\\deviceregistry\\DeviceRegistry.Management\\tspconfig.yaml",
             "configHash": "3450e099b6566a4e005c8c440e4bed0b6433dc6201f0dbadc72984f5f47c72d0",
             "logPath": "logs\\project-dd25e6db7b7b-baseline-autorest.log",
@@ -74161,16 +74130,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\worktrees\\base\\specification\\deviceregistry\\DeviceRegistry.Management",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\worktrees\\base\\specification\\deviceregistry\\DeviceRegistry.Management",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\projects\\project-dd25e6db7b7b\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\projects\\project-dd25e6db7b7b\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-11-02-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 8620,
+            "durationMs": 39566,
             "configPath": "worktrees\\base\\specification\\deviceregistry\\DeviceRegistry.Management\\tspconfig.yaml",
             "configHash": "3450e099b6566a4e005c8c440e4bed0b6433dc6201f0dbadc72984f5f47c72d0",
             "logPath": "logs\\project-dd25e6db7b7b-baseline-tcgc.log",
@@ -74198,15 +74167,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\worktrees\\current\\specification\\deviceregistry\\DeviceRegistry.Management",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\worktrees\\current\\specification\\deviceregistry\\DeviceRegistry.Management",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\projects\\project-dd25e6db7b7b\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\projects\\project-dd25e6db7b7b\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-11-02-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 8187,
+            "durationMs": 21910,
             "configPath": "worktrees\\current\\specification\\deviceregistry\\DeviceRegistry.Management\\tspconfig.yaml",
             "configHash": "3450e099b6566a4e005c8c440e4bed0b6433dc6201f0dbadc72984f5f47c72d0",
             "logPath": "logs\\project-dd25e6db7b7b-target-autorest.log",
@@ -74230,16 +74199,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\worktrees\\current\\specification\\deviceregistry\\DeviceRegistry.Management",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\worktrees\\current\\specification\\deviceregistry\\DeviceRegistry.Management",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\projects\\project-dd25e6db7b7b\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\projects\\project-dd25e6db7b7b\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\verification-45348-context-v2-run3c\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45348\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-11-02-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 8956,
+            "durationMs": 19574,
             "configPath": "worktrees\\current\\specification\\deviceregistry\\DeviceRegistry.Management\\tspconfig.yaml",
             "configHash": "3450e099b6566a4e005c8c440e4bed0b6433dc6201f0dbadc72984f5f47c72d0",
             "logPath": "logs\\project-dd25e6db7b7b-target-tcgc.log",
@@ -74340,9 +74309,7 @@
     }
   ],
   "blockers": [
-    "REST compatibility is not fully assessed: every one of the 237 supplied wire-schema candidates changes an external common-types v6 reference to v5 while the canonical before/after facts mark both referenced schemas unresolved. The missing definitions are ErrorResponse, TrackedResource, ProxyResource, SystemAssignedServiceIdentity, OperationListResult and OperationStatusResult. Explicit rejection means insufficient evidence for a confirmed finding, not equivalence or safety; concrete nested fields, requiredness, constraints and serialized value sets cannot be compared.",
-    "The 109 canonical operation pairs also retain unresolved external ApiVersionParameter, ResourceGroupNameParameter, SubscriptionIdParameter and OperationIdParameter references retargeted from v6 to v5. Local route, request/response, header, media-type and LRO fields otherwise compare unchanged; unavailable external parameter definitions prevent a complete wire assessment.",
-    "Frozen-preparation replay compares 2026-11-02-preview at the actual PR target/head commits. The source also edits the existing 2026-11-01-preview dependency, but no separate compiler comparison for that API version is supplied; this report must not imply independent coverage of both version outputs."
+    "Effective compatibility cannot be established because AutoRest contract references are unresolved and the bounded input omits candidate-level before/after facts."
   ],
   "provenance": {
     "contextPolicyVersion": 2,
@@ -74381,17 +74348,25 @@
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 29619,
-      "guidanceExcerptsRetained": 2,
-      "guidanceExcerptBytesRetained": 350
+      "documentBytesFetched": 1324615,
+      "guidanceExcerptsRetained": 0,
+      "guidanceExcerptBytesRetained": 0
     }
   },
   "timings": {
-    "semanticAnalysisMs": 332,
-    "restAnalysisMs": 213,
-    "downstreamAnalysisMs": 5924,
-    "semanticContextPolicyMs": 936,
-    "documentQualityAnalysisMs": 1,
-    "replayAnalysisMs": 9937
+    "metadataMs": 2181,
+    "fetchMs": 1616,
+    "scopeDiscoveryMs": 210,
+    "setupExcludingFetchMs": 70996,
+    "comparisonMs": 1816,
+    "changeDiscoveryMs": 1259,
+    "workspacePreparationMs": 57407,
+    "projectDiscoveryMs": 6294,
+    "totalMs": 2618956,
+    "semanticAnalysisMs": 634,
+    "restAnalysisMs": 389,
+    "downstreamAnalysisMs": 8578,
+    "semanticContextPolicyMs": 1897,
+    "documentQualityAnalysisMs": 2
   }
 }

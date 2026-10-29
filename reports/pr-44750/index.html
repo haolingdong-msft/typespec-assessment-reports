@@ -165,6 +165,92 @@
   background: #fef3c7;
   color: #92400e;
 }
+.report-badge.neutral {
+  background: #edf2f8;
+  color: #405c7c;
+}
+.report-badge.coverage {
+  text-transform: none;
+}
+.report-method-signature {
+  margin: 14px 0 18px;
+}
+.report-signature-lines {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+.report-signature-lines > div {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 10px;
+  padding: 9px 12px;
+  background: color-mix(in srgb, var(--panel) 95%, var(--accent));
+}
+.report-signature-lines > div + div {
+  border-top: 1px solid var(--line);
+}
+.report-signature-lines span,
+.report-chain-label,
+.report-chain-detail {
+  color: var(--muted);
+  font-size: 11px;
+}
+.report-signature-lines code {
+  font-size: 12px;
+}
+.report-reference-chain {
+  margin: 8px 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--panel) 98%, var(--accent));
+}
+.report-reference-chain ol {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.report-reference-chain li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  min-height: 28px;
+  padding: 3px 0 3px min(calc(var(--reference-depth) * 20px), 35%);
+}
+.report-reference-chain li:not(:first-child)::before {
+  content: "\21B3";
+  color: var(--muted);
+}
+.report-reference-chain code {
+  min-width: 0;
+  font-size: 12px;
+}
+.report-path-scope {
+  margin: 9px 0 12px;
+  padding: 9px 12px;
+  border-left: 3px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 96%, var(--accent));
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (max-width: 650px) {
+  .report-reference-chain li {
+    padding-left: min(calc(var(--reference-depth) * 10px), 25%);
+  }
+  .report-signature-lines > div {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 6px;
+    padding: 8px;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-badge.neutral {
+    background: #27374d;
+    color: #c3d4ea;
+  }
+}
 .report-table-wrap {
   max-width: 100%;
   overflow-x: auto;
@@ -289,6 +375,44 @@
 }
 .report-type-impact h4 {
   margin: 0 0 5px;
+}
+.report-model-change h4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 9px;
+}
+.report-model-evidence {
+  margin-top: 16px;
+  padding-top: 11px;
+  border-top: 1px solid var(--line);
+}
+.report-model-evidence > summary {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 12px;
+}
+.report-model-evidence > .report-type-impact:first-of-type {
+  border-top: 0;
+}
+.report-model-change .report-reference-path {
+  grid-template-columns: 110px minmax(0, 1fr) max-content;
+}
+.report-model-change .report-reference-path code {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-model-scope {
+  margin-bottom: 0;
+}
+@media (max-width: 650px) {
+  .report-model-change .report-reference-path {
+    grid-template-columns: 1fr auto;
+  }
+  .report-model-change .report-reference-path code {
+    grid-row: 2;
+    grid-column: 1 / -1;
+  }
 }
 .report-guideline-section {
   min-width: 0;
@@ -627,15 +751,15 @@ body {
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">3 intents<br>9 operations<br>2 Added, 1 Modified, 0 Removed</div></a>
 <a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>2/2 intents assessed</div></a>
-<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">0 findings</div></a>
-<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">0 findings</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Complete coverage<br>0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Complete coverage<br>0 findings</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">2 findings<br>19 declarations checked</div></a>
 </div></div></header>
 <details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span></div></div><p class="report-small">2 findings · 19 declarations checked</p><div class="document-quality-scope"><details class="report-card document-quality-check" id="document-quality-document-finding-d4f33a9f5973db9a"><summary><div class="report-card-title"><strong>UpgradePreferencesOperations</strong><small>Missing documentation for UpgradePreferencesOperations</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-01ff7b229e3e8a2a">Add cluster upgrade preference resource and actions</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/UpgradePreferences.tsp:175-205</code></p><pre><code>#suppress &quot;@azure-tools/typespec-azure-resource-manager/no-resource-delete-operation&quot; &quot;Upgrade preferences are a singleton resource that does not support deletion.&quot;
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span></div></div><p class="report-small">2 findings · 19 declarations checked</p><div class="document-quality-scope"><details class="report-card document-quality-check" id="document-quality-document-finding-6b459d6f2e13a680"><summary><div class="report-card-title"><strong>UpgradePreferencesOperations</strong><small>Missing documentation for UpgradePreferencesOperations</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-4033ba508c6f812f">Add Exception Window</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/UpgradePreferences.tsp:175-205</code></p><pre><code>#suppress &quot;@azure-tools/typespec-azure-resource-manager/no-resource-delete-operation&quot; &quot;Upgrade preferences are a singleton resource that does not support deletion.&quot;
 @added(Versions.v2026_07_01_preview)
 @armResourceOperations
 interface UpgradePreferencesOperations {
@@ -665,7 +789,7 @@ interface UpgradePreferencesOperations {
     ArmResponse&lt;UpgradePreferences&gt; | NoContentResponse,
     Error = ErrorResponse
   &gt;;
-}</code></pre></details><div class="report-guideline-section document-quality-explanation"><h3>Why this needs attention</h3><p>The TypeSpec compiler returned no nonempty documentation for this declaration.</p></div><div class="report-guideline-section document-quality-suggestion"><h3>Suggested change</h3><p>Add a nonempty TypeSpec documentation description.</p></div></div></details><details class="report-card document-quality-check" id="document-quality-document-finding-15795cbff2973718"><summary><div class="report-card-title"><strong>FabricShortcuts</strong><small>Missing documentation for FabricShortcuts</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-d9c323dd2252f4fe">Add Microsoft Fabric shortcut child resource lifecycle</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/FabricShortcut.tsp:162-201</code> · first 40 lines shown</p><pre><code>@added(Versions.v2026_07_01_preview)
+}</code></pre></details><div class="report-guideline-section document-quality-explanation"><h3>Why this needs attention</h3><p>The TypeSpec compiler returned no nonempty documentation for this declaration.</p></div><div class="report-guideline-section document-quality-suggestion"><h3>Suggested change</h3><p>Add a nonempty TypeSpec documentation description.</p></div></div></details><details class="report-card document-quality-check" id="document-quality-document-finding-f58560606f7c6fdc"><summary><div class="report-card-title"><strong>FabricShortcuts</strong><small>Missing documentation for FabricShortcuts</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-ae29ba7b808d150a">Add Fabric Shortcut</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/FabricShortcut.tsp:162-201</code> · first 40 lines shown</p><pre><code>@added(Versions.v2026_07_01_preview)
 @armResourceOperations
 interface FabricShortcuts {
   /**
@@ -705,7 +829,7 @@ interface FabricShortcuts {
    * Approves a Microsoft Fabric shortcut.
    */
   @action(&quot;approve&quot;)</code></pre></details><div class="report-guideline-section document-quality-explanation"><h3>Why this needs attention</h3><p>The TypeSpec compiler returned no nonempty documentation for this declaration.</p></div><div class="report-guideline-section document-quality-suggestion"><h3>Suggested change</h3><p>Add a nonempty TypeSpec documentation description.</p></div></div></details></div></section>
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">3 intents · 2 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-01ff7b229e3e8a2a"><summary><div class="report-card-title"><strong>Add cluster upgrade preference resource and actions</strong><small>Adds a singleton ProxyResource under an Event Hubs Dedicated cluster for reading and updating recurring maintenance and exception windows, plus a synchronous upgrade-now action, in the 2026-07-01-preview API.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-d4f33a9f5973db9a">Documentation Completeness: Missing documentation for UpgradePreferencesOperations</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/UpgradePreferences.tsp</div><pre><span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">3 intents · 2 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-4033ba508c6f812f"><summary><div class="report-card-title"><strong>Add Exception Window</strong><small>add operation and type declarations for ExceptionWindow, ExceptionWindow.action, ExceptionWindow.date, affecting 3 operation(s).</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-6b459d6f2e13a680">Documentation Completeness: Missing documentation for UpgradePreferencesOperations</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 33 declaration/source facts; 1 source hunks; 3 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>behavior:lro</code>; <code>feature:UpgradePreferences</code></p><details class="report-subdetails"><summary>Change facts (33)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>ExceptionWindow.startTimeOfDay</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExceptionWindow.durationMinutes</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExceptionWindow</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>MaintenanceWindow</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>UpgradePreferences</code></td><td>type</td><td>add</td><td>version-activation</td></tr><tr><td><code>UpgradePreferencesProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>UpgradeStatus</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>UpgradePreferenceDayOfWeek.Sunday</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradePreferenceDayOfWeek.Tuesday</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExceptionWindowAction.Block</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradePreferencesProperties.exceptionWindows</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>UpgradePreferenceDayOfWeek.Saturday</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExceptionWindowAction.Allow</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradePreferencesOperations.get</code></td><td>operation</td><td>add</td><td>operation</td></tr><tr><td><code>UpgradePreferenceDayOfWeek.Thursday</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradePreferencesProperties.maintenanceWindows</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>UpgradePreferenceDayOfWeek</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>ExceptionWindow.date</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradePreferenceDayOfWeek.Friday</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>MaintenanceWindow.startTimeOfDay</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradeStatus.completesAt</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>ExceptionWindowAction</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>ExceptionWindow.action</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradeStatus.pendingUpgrade</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradePreferenceDayOfWeek.Monday</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradeStatus.inProgress</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradePreferencesOperations</code></td><td>type</td><td>add</td><td>version-activation</td></tr><tr><td><code>UpgradePreferencesOperations.createOrUpdate</code></td><td>operation</td><td>add</td><td>operation</td></tr><tr><td><code>UpgradePreferencesOperations.upgradeNow</code></td><td>operation</td><td>add</td><td>operation</td></tr><tr><td><code>UpgradePreferencesProperties.upgradeStatus</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>MaintenanceWindow.dayOfWeek</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>MaintenanceWindow.durationMinutes</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>UpgradePreferenceDayOfWeek.Wednesday</code></td><td>type</td><td>add</td><td>property-contract</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/UpgradePreferences.tsp</div><pre><span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
 <span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
 <span class="add">+import &quot;@typespec/rest&quot;;</span>
 <span class="add">+import &quot;@typespec/versioning&quot;;</span>
@@ -920,7 +1044,7 @@ interface FabricShortcuts {
 <span class="add">+  UpgradePreferencesOperations.createOrUpdate::parameters.resource,</span>
 <span class="add">+  &quot;The upgrade preferences.&quot;</span>
 <span class="add">+);</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/6036a83a738bd700401abfd23e10c75c1e2fa986/specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/UpgradePreferences.tsp#L21-L21">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/UpgradePreferences.tsp:15</a></p></details><details class="report-subdetails" id="intent-semantic-01ff7b229e3e8a2a-operations"><summary>Affected operations (3)</summary><details class="operation"><summary><strong>UpgradePreferencesOperations_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>UpgradePreferencesOperations_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>UpgradePreferencesOperations_UpgradeNow</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default/upgradeNow</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default/upgradeNow</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-7360bba2c5de4a18"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 0 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge modify">modify</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp</div><pre><span class="context">    * The 2026-01-01 API version.</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/6036a83a738bd700401abfd23e10c75c1e2fa986/specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/UpgradePreferences.tsp#L21-L21">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/UpgradePreferences.tsp:15</a></p></details><details class="report-subdetails" id="intent-semantic-4033ba508c6f812f-operations"><summary>Affected operations (3)</summary><details class="operation"><summary><strong>UpgradePreferencesOperations_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>UpgradePreferencesOperations_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>UpgradePreferencesOperations_UpgradeNow</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default/upgradeNow</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/clusters/{clusterName}/upgradePreferences/default/upgradeNow</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-71e7c5fb78212d68"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 0 verified unchanged operation pairs into the new API version. The compact version event remains independently eligible for Azure Guidelines assessment.</small></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>property-contract</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp</div><pre><span class="context">    * The 2026-01-01 API version.</span>
 <span class="context">    */</span>
 <span class="context">   v2026_01_01: &quot;2026-01-01&quot;,</span>
 <span class="add">+</span>
@@ -931,14 +1055,7 @@ interface FabricShortcuts {
 <span class="context"> }</span>
 <span class="context"> </span>
 <span class="context"> interface Operations</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/6036a83a738bd700401abfd23e10c75c1e2fa986/specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp#L51-L66">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp:48</a></p></details><details class="report-subdetails" id="intent-semantic-7360bba2c5de4a18-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-d9c323dd2252f4fe"><summary><div class="report-card-title"><strong>Add Microsoft Fabric shortcut child resource lifecycle</strong><small>Adds a ProxyResource child of an Event Hub with get, create-or-update, list, delete, approve, and reject operations and supporting Fabric configuration, type, and status models in the 2026-07-01-preview API.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-15795cbff2973718">Documentation Completeness: Missing documentation for FabricShortcuts</a></div></div></div><div class="report-badges"><span class="report-badge add">add</span></div></summary><div class="report-card-body"><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp</div><pre><span class="context"> import &quot;./ConsumerGroup.tsp&quot;;</span>
-<span class="context"> import &quot;./SchemaGroup.tsp&quot;;</span>
-<span class="context"> import &quot;./ApplicationGroup.tsp&quot;;</span>
-<span class="add">+import &quot;./FabricShortcut.tsp&quot;;</span>
-<span class="add">+import &quot;./UpgradePreferences.tsp&quot;;</span>
-<span class="context"> import &quot;./routes.tsp&quot;;</span>
-<span class="context"> import &quot;./client.tsp&quot;;</span>
-<span class="context"> </span></pre></div><div class="diff"><div class="diff-path">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/FabricShortcut.tsp</div><pre><span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/6036a83a738bd700401abfd23e10c75c1e2fa986/specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp#L51-L66">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp:48</a></p></details><details class="report-subdetails" id="intent-semantic-71e7c5fb78212d68-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-ae29ba7b808d150a"><summary><div class="report-card-title"><strong>Add Fabric Shortcut</strong><small>add operation and type declarations for FabricShortcut, FabricShortcut.location, FabricShortcutConfiguration, affecting 6 operation(s).</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-f58560606f7c6fdc">Documentation Completeness: Missing documentation for FabricShortcuts</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 32 declaration/source facts; 2 source hunks; 6 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>behavior:lro</code>; <code>feature:FabricShortcut</code>; <code>transform:arm-resource-identifier</code></p><details class="report-subdetails"><summary>Change facts (32)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>FabricShortcutConfiguration.workspaceId</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>FabricShortcutType.Network</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>FabricShortcutConfiguration.workspaceName</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>FabricShortcuts.listByEventHub</code></td><td>operation</td><td>add</td><td>operation</td></tr><tr><td><code>FabricShortcuts.approve</code></td><td>operation</td><td>add</td><td>operation</td></tr><tr><td><code>FabricShortcutProperties.shortcutStatus</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>FabricShortcutConfiguration.artifactId</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>FabricShortcutType</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>FabricShortcutType.Entity</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>FabricShortcutConfiguration.artifactName</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>FabricShortcuts.delete</code></td><td>operation</td><td>add</td><td>operation</td></tr><tr><td><code>FabricShortcuts.get</code></td><td>operation</td><td>add</td><td>operation</td></tr><tr><td><code>FabricShortcutStatus.Pending</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>FabricShortcutStatus.Approved</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>FabricShortcuts.reject</code></td><td>operation</td><td>add</td><td>operation</td></tr><tr><td><code>FabricShortcutConfiguration</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>FabricShortcutStatus</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>FabricShortcutProperties.createdAt</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>FabricShortcutProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>FabricShortcutConfiguration.logAnalyticsResourceId</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>FabricShortcutProperties.configuration</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>FabricShortcutProperties.modifiedAt</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>FabricShortcutConfiguration.premiumCapacityId</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>(source/configuration)</code></td><td>type</td><td>modify</td><td>operation</td></tr><tr><td><code>FabricShortcutConfiguration.tenantId</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>FabricShortcut.location</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>FabricShortcutProperties.statusDescription</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>FabricShortcuts</code></td><td>type</td><td>add</td><td>version-activation</td></tr><tr><td><code>FabricShortcutStatus.Rejected</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>FabricShortcut</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>FabricShortcuts.createOrUpdate</code></td><td>operation</td><td>add</td><td>operation</td></tr><tr><td><code>FabricShortcutProperties.shortcutType</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/FabricShortcut.tsp</div><pre><span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
 <span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
 <span class="add">+import &quot;@typespec/rest&quot;;</span>
 <span class="add">+import &quot;@typespec/versioning&quot;;</span>
@@ -1167,15 +1284,22 @@ interface FabricShortcuts {
 <span class="add">+  FabricShortcuts.createOrUpdate::parameters.resource,</span>
 <span class="add">+  &quot;The Microsoft Fabric shortcut.&quot;</span>
 <span class="add">+);</span>
-<span class="context"></span></pre></div><p class="sources"><code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp</code>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/6036a83a738bd700401abfd23e10c75c1e2fa986/specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/FabricShortcut.tsp#L21-L21">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/FabricShortcut.tsp:16</a></p></details><details class="report-subdetails" id="intent-semantic-d9c323dd2252f4fe-operations"><summary>Affected operations (6)</summary><details class="operation"><summary><strong>FabricShortcuts_Approve</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}/approve</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}/approve</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_ListByEventHub</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_Reject</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}/reject</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}/reject</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details></section>
+<span class="context"></span></pre></div><div class="diff"><div class="diff-path">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp</div><pre><span class="context"> import &quot;./ConsumerGroup.tsp&quot;;</span>
+<span class="context"> import &quot;./SchemaGroup.tsp&quot;;</span>
+<span class="context"> import &quot;./ApplicationGroup.tsp&quot;;</span>
+<span class="add">+import &quot;./FabricShortcut.tsp&quot;;</span>
+<span class="add">+import &quot;./UpgradePreferences.tsp&quot;;</span>
+<span class="context"> import &quot;./routes.tsp&quot;;</span>
+<span class="context"> import &quot;./client.tsp&quot;;</span>
+<span class="context"> </span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/6036a83a738bd700401abfd23e10c75c1e2fa986/specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/FabricShortcut.tsp#L21-L21">specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/FabricShortcut.tsp:16</a>, <code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp</code></p></details><details class="report-subdetails" id="intent-semantic-ae29ba7b808d150a-operations"><summary>Affected operations (6)</summary><details class="operation"><summary><strong>FabricShortcuts_Approve</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}/approve</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}/approve</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_ListByEventHub</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>FabricShortcuts_Reject</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}/reject</code><span>2026-07-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/eventhubs/{eventHubName}/fabricShortcuts/{fabricShortcutName}/reject</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details></section>
 <section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">2 of 2 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
-<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Operation impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
-<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Method impact and affected intents at a glance; expand for before/after evidence.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty"><strong>Cross-version REST scope:</strong> 2026-01-01 to 2026-07-01-preview. For these projects, findings assess migration between API versions, not a change to an existing version at a fixed API-version selector. Compiling an old-version projection does not prove that its previously published contract was preserved. Source commits and comparison roles are recorded in the appendix.</div><div class="report-empty">No confirmed REST breaking changes.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
 <section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub</code></td><td>new-api-version</td><td><code>6036a83a738bd700401abfd23e10c75c1e2fa986@2026-01-01</code><br><small>current · previous-latest-stable</small></td><td><code>6036a83a738bd700401abfd23e10c75c1e2fa986@2026-07-01-preview</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/44750">#44750</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/">ARM resource types and modeling</a></li><li><a href="https://typespec.io/docs/libraries/rest/reference/decorators/">TypeSpec.Rest decorators</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/">ARM resource types and modeling</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
   &quot;status&quot;: &quot;passed&quot;,
   &quot;coverage&quot;: {
     &quot;semanticIntentCount&quot;: 2,
@@ -1197,7 +1321,7 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Directly covers adding resources, operations, and properties to an existing versioned Azure API.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM api versioning constructs and version context.&quot;
       },
       {
         &quot;rank&quot;: 2,
@@ -1211,7 +1335,7 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Exactly matches the new preview-after-stable context and describes versioning newly added types and operations.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM api versioning constructs and version context.&quot;
       },
       {
         &quot;rank&quot;: 3,
@@ -1225,13 +1349,13 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Directly covers ProxyResource, child-resource, singleton, and ResourceNameParameter modeling used by both intents.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM add arm resource type constructs and version context.&quot;
       },
       {
         &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 14,
-        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 4,
           &quot;patternCategory&quot;: 3,
@@ -1239,66 +1363,10 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Names @parentResource and resource lifecycle decorators that establish the changed child-resource semantics.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM add arm resource operation constructs and version context.&quot;
       },
       {
         &quot;rank&quot;: 5,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 8
-        },
-        &quot;selectionRationale&quot;: &quot;The intents add multiple models and properties, but generic TypeSpec model syntax is secondary to Azure ARM guidance.&quot;
-      },
-      {
-        &quot;rank&quot;: 6,
-        &quot;catalogOrder&quot;: 22,
-        &quot;title&quot;: &quot;Enums&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 8
-        },
-        &quot;selectionRationale&quot;: &quot;The intents add fixed unions representing service values; generic enum guidance is relevant but not the primary ARM pattern.&quot;
-      },
-      {
-        &quot;rank&quot;: 7,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 8
-        },
-        &quot;selectionRationale&quot;: &quot;Names visibility and value-constraint decorator patterns used in the new models.&quot;
-      },
-      {
-        &quot;rank&quot;: 8,
-        &quot;catalogOrder&quot;: 30,
-        &quot;title&quot;: &quot;Directives&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 7
-        },
-        &quot;selectionRationale&quot;: &quot;Several #suppress directives are present; the document explains directive mechanics but not the underlying ARM requirements.&quot;
-      },
-      {
-        &quot;rank&quot;: 9,
         &quot;catalogOrder&quot;: 2,
         &quot;title&quot;: &quot;Versioning overview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
@@ -1306,27 +1374,111 @@ interface FabricShortcuts {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;Relevant general versioning and preview guidance, but less specific than the evolving-API and transition documents.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM api versioning constructs and version context.&quot;
       },
       {
-        &quot;rank&quot;: 10,
-        &quot;catalogOrder&quot;: 12,
-        &quot;title&quot;: &quot;ARM resource operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;Covers ARM lifecycle, list, and action operation templates used by the new resources.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM api versioning constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM api versioning constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM api versioning constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 8,
+        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM add arm resource type constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM add arm resource type constructs and version context.&quot;
       },
       {
         &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM add arm resource type constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM add arm resource type constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 13,
         &quot;catalogOrder&quot;: 13,
         &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
@@ -1337,10 +1489,24 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;Relevant ARM template reference, but the bounded review does not require signature lookup.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM add arm resource operation constructs and version context.&quot;
       },
       {
-        &quot;rank&quot;: 12,
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM resource semantics constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
         &quot;catalogOrder&quot;: 15,
         &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
@@ -1351,10 +1517,38 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;Relevant ARM lifecycle decorator reference, though the changes use standard operation templates.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM resource semantics constructs and version context.&quot;
       },
       {
-        &quot;rank&quot;: 13,
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM long-running operations (lro) constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 17,
+        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM long-running operations (lro) constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 18,
         &quot;catalogOrder&quot;: 18,
         &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
@@ -1365,206 +1559,178 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;The Fabric shortcut intent adds an ARM list operation, but standard templates already supply paging behavior.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM arm paging constructs and version context.&quot;
       },
       {
-        &quot;rank&quot;: 14,
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM models and enums constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM models and enums constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM models and enums constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
         &quot;catalogOrder&quot;: 23,
         &quot;title&quot;: &quot;Scalars&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;Some new properties use built-in scalar types, but no reusable custom scalar is introduced.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM models and enums constructs and version context.&quot;
       },
       {
-        &quot;rank&quot;: 15,
+        &quot;rank&quot;: 23,
         &quot;catalogOrder&quot;: 24,
         &quot;title&quot;: &quot;Decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
-        },
-        &quot;selectionRationale&quot;: &quot;Decorator usage is present, but the Azure-specific versioning and resource documents are more directly governing.&quot;
-      },
-      {
-        &quot;rank&quot;: 16,
-        &quot;catalogOrder&quot;: 3,
-        &quot;title&quot;: &quot;Add preview after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 3
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning category matches, but the change is preview after stable rather than preview after preview.&quot;
-      },
-      {
-        &quot;rank&quot;: 17,
-        &quot;catalogOrder&quot;: 4,
-        &quot;title&quot;: &quot;Add stable after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 3
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning category matches, but the change does not promote preview to stable.&quot;
-      },
-      {
-        &quot;rank&quot;: 18,
-        &quot;catalogOrder&quot;: 6,
-        &quot;title&quot;: &quot;Add stable after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 3
-        },
-        &quot;selectionRationale&quot;: &quot;Versioning category matches, but the change is not stable after stable.&quot;
-      },
-      {
-        &quot;rank&quot;: 19,
-        &quot;catalogOrder&quot;: 8,
-        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;ARM plane applies, but neither intent adds an extension resource.&quot;
-      },
-      {
-        &quot;rank&quot;: 20,
-        &quot;catalogOrder&quot;: 9,
-        &quot;title&quot;: &quot;Private endpoints&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM plane applies, but no private endpoint resource is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 21,
-        &quot;catalogOrder&quot;: 10,
-        &quot;title&quot;: &quot;Private links&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM plane applies, but no private link resource is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 22,
-        &quot;catalogOrder&quot;: 11,
-        &quot;title&quot;: &quot;Network security perimeter&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM plane applies, but no network security perimeter resource is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 23,
-        &quot;catalogOrder&quot;: 16,
-        &quot;title&quot;: &quot;ARM long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM plane applies, but the changed operations are synchronous and no LRO construct is present.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM decorators constructs and version context.&quot;
       },
       {
         &quot;rank&quot;: 24,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
+          &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;ARM plane applies, but the change does not author shared ARM common definitions.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM decorators constructs and version context.&quot;
       },
       {
         &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM decorators constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
         &quot;catalogOrder&quot;: 27,
         &quot;title&quot;: &quot;Change provider namespace&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
+          &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
+          &quot;total&quot;: 5
         },
-        &quot;selectionRationale&quot;: &quot;ARM plane applies, but the provider namespace is unchanged.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM decorators constructs and version context.&quot;
       },
       {
-        &quot;rank&quot;: 26,
+        &quot;rank&quot;: 27,
         &quot;catalogOrder&quot;: 28,
         &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM decorators constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM decorators constructs and version context.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;ARM plane applies, but no portal default experience is changed.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM warnings constructs and version context.&quot;
       },
       {
-        &quot;rank&quot;: 27,
-        &quot;catalogOrder&quot;: 17,
-        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 31,
+        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
+          &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
+          &quot;total&quot;: 2
         },
-        &quot;selectionRationale&quot;: &quot;No Azure.Core long-running operation is introduced.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM warnings constructs and version context.&quot;
       },
       {
-        &quot;rank&quot;: 28,
+        &quot;rank&quot;: 31,
         &quot;catalogOrder&quot;: 19,
         &quot;title&quot;: &quot;TypeSpec pagination&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
@@ -1575,49 +1741,7 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Data-plane pagination does not govern these ARM resource operations.&quot;
-      },
-      {
-        &quot;rank&quot;: 29,
-        &quot;catalogOrder&quot;: 26,
-        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No OpenAPI-specific decorator is added.&quot;
-      },
-      {
-        &quot;rank&quot;: 30,
-        &quot;catalogOrder&quot;: 29,
-        &quot;title&quot;: &quot;Content negotiation&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No content-negotiation construct is changed.&quot;
-      },
-      {
-        &quot;rank&quot;: 31,
-        &quot;catalogOrder&quot;: 31,
-        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No OpenAPI decorator or no-openapi suppression is present.&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM data-plane paging constructs and version context.&quot;
       }
     ],
     &quot;documents&quot;: [
@@ -1633,69 +1757,11 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Directly covers adding resources, operations, and properties to an existing versioned Azure API.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Versioning Decorators&quot;,
-            &quot;excerpt&quot;: &quot;Use @added with the introducing version for new models, properties, or operations so they appear in that version and later versions.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@added&quot;,
-              &quot;model&quot;,
-              &quot;operation&quot;,
-              &quot;property&quot;,
-              &quot;Versions.v2026_07_01_preview&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;@added(Versions.v2) model Employee { name?: string; }&quot;,
-              &quot;@added(Versions.v3) createOrUpdate is ArmResourceCreateOrReplaceAsync&lt;Employee&gt;;&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-01e375423c424c3a&quot;,
-              &quot;declaration-1fed4e7ea9c10698&quot;,
-              &quot;declaration-3954a9768788e735&quot;,
-              &quot;declaration-586ea50e98f4c7cf&quot;,
-              &quot;declaration-7a0fcf1caa823216&quot;,
-              &quot;declaration-8bf0314d7f57e7f1&quot;,
-              &quot;declaration-994f3484c3038c1f&quot;,
-              &quot;declaration-ab53566fb14ea1e1&quot;,
-              &quot;declaration-c18eb9f2b9343a8d&quot;,
-              &quot;declaration-daeb8e19a963ba8d&quot;,
-              &quot;declaration-ddc50ffa16edd274&quot;,
-              &quot;declaration-ef2e8de26adf9f9c&quot;,
-              &quot;declaration-fd8dbcd345aa7401&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;Add a new operation in v2&quot;,
-            &quot;excerpt&quot;: &quot;A new ARM resource action introduced in a later version is modeled on the resource operation interface and decorated with @added for that version.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@armResourceOperations&quot;,
-              &quot;@added&quot;,
-              &quot;ArmResourceActionSync&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;@added(Versions.v2) move is ArmResourceActionSync&lt;Employee, MoveRequest, MoveResponse&gt;;&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-01e375423c424c3a&quot;,
-              &quot;declaration-1fed4e7ea9c10698&quot;,
-              &quot;declaration-3954a9768788e735&quot;,
-              &quot;declaration-586ea50e98f4c7cf&quot;,
-              &quot;declaration-7a0fcf1caa823216&quot;,
-              &quot;declaration-8bf0314d7f57e7f1&quot;,
-              &quot;declaration-994f3484c3038c1f&quot;,
-              &quot;declaration-ab53566fb14ea1e1&quot;,
-              &quot;declaration-c18eb9f2b9343a8d&quot;,
-              &quot;declaration-daeb8e19a963ba8d&quot;,
-              &quot;declaration-ddc50ffa16edd274&quot;,
-              &quot;declaration-ef2e8de26adf9f9c&quot;,
-              &quot;declaration-fd8dbcd345aa7401&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T07:59:21.437Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:1a5af6c154f5a526ba3f6b1815091e533feb949fa65bad48535b04d20b137a9a&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM api versioning constructs and version context.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:51:03.849Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c&quot;
       },
       {
         &quot;rank&quot;: 2,
@@ -1709,40 +1775,11 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Exactly matches the new preview-after-stable context and describes versioning newly added types and operations.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
-            &quot;excerpt&quot;: &quot;When adding a preview after a stable version, mark newly added, renamed, or otherwise modified types with the appropriate versioning decorator for the new preview.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;preview after stable&quot;,
-              &quot;@added&quot;,
-              &quot;types&quot;,
-              &quot;operations&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;@added(Versions.`2026-01-01-preview`) model Foo {}&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-01e375423c424c3a&quot;,
-              &quot;declaration-1fed4e7ea9c10698&quot;,
-              &quot;declaration-3954a9768788e735&quot;,
-              &quot;declaration-586ea50e98f4c7cf&quot;,
-              &quot;declaration-7a0fcf1caa823216&quot;,
-              &quot;declaration-8bf0314d7f57e7f1&quot;,
-              &quot;declaration-994f3484c3038c1f&quot;,
-              &quot;declaration-ab53566fb14ea1e1&quot;,
-              &quot;declaration-c18eb9f2b9343a8d&quot;,
-              &quot;declaration-daeb8e19a963ba8d&quot;,
-              &quot;declaration-ddc50ffa16edd274&quot;,
-              &quot;declaration-ef2e8de26adf9f9c&quot;,
-              &quot;declaration-fd8dbcd345aa7401&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T07:59:21.430Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:2cfcbb79b46e8004ff9ef95a9da0b0b8f09d2b146ab415502901130490a174d7&quot;
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM api versioning constructs and version context.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:51:03.864Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:3885a711545e35181f77d058922ce9e2b58471f728c9a57710e8c65bccd4606d&quot;
       },
       {
         &quot;rank&quot;: 3,
@@ -1756,72 +1793,94 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Directly covers ProxyResource, child-resource, singleton, and ResourceNameParameter modeling used by both intents.&quot;,
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM add arm resource type constructs and version context.&quot;,
         &quot;guidance&quot;: [
           {
-            &quot;section&quot;: &quot;Choosing a Resource Type&quot;,
-            &quot;excerpt&quot;: &quot;Child resources model separately configurable components of a larger resource; singleton resources must be identified as singletons, with default as the recommended resource name.&quot;,
+            &quot;section&quot;: &quot;Modeling Resources in TypeSpec&quot;,
+            &quot;excerpt&quot;: &quot;Choose the appropriate ARM base resource type, define resource-provider properties, and use ResourceNameParameter for resource identity.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;child resource&quot;,
-              &quot;singleton&quot;,
-              &quot;default&quot;,
-              &quot;ProxyResource&quot;
+              &quot;ProxyResource&quot;,
+              &quot;TrackedResource&quot;,
+              &quot;ResourceNameParameter&quot;
             ],
             &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
               &quot;declaration-01e375423c424c3a&quot;,
+              &quot;declaration-12cc321d277fe635&quot;,
+              &quot;declaration-148ad804a745c559&quot;,
+              &quot;declaration-17bf4cf52989f776&quot;,
+              &quot;declaration-1ac939ab793c20fd&quot;,
               &quot;declaration-1fed4e7ea9c10698&quot;,
+              &quot;declaration-24277b33044290a2&quot;,
+              &quot;declaration-2543d00bd7d6f13e&quot;,
+              &quot;declaration-2af45f074c3298cf&quot;,
               &quot;declaration-3954a9768788e735&quot;,
+              &quot;declaration-3c6fe5aadf14b5b8&quot;,
+              &quot;declaration-46d86099cb8510ed&quot;,
+              &quot;declaration-54c5774c02b0f0d6&quot;,
+              &quot;declaration-554d6edddd8eb392&quot;,
               &quot;declaration-586ea50e98f4c7cf&quot;,
+              &quot;declaration-5eea57c4f7cc1c07&quot;,
+              &quot;declaration-606cdf8cfef1c2a8&quot;,
+              &quot;declaration-61442a175de6296e&quot;,
+              &quot;declaration-61f013bb6b5abffd&quot;,
+              &quot;declaration-62aab3e8641007ca&quot;,
+              &quot;declaration-62b137c9961f79e2&quot;,
+              &quot;declaration-6aa14c58674898ac&quot;,
+              &quot;declaration-6f1bd1303163c551&quot;,
+              &quot;declaration-6f88b7a68bf2f92e&quot;,
+              &quot;declaration-6fd08821e083ad36&quot;,
+              &quot;declaration-737528917d6a08c8&quot;,
+              &quot;declaration-78a670c35388e6ef&quot;,
               &quot;declaration-7a0fcf1caa823216&quot;,
+              &quot;declaration-7d6738b4d6005644&quot;,
+              &quot;declaration-7dfdb70afb134f54&quot;,
+              &quot;declaration-8b33acdf9f10e1e4&quot;,
               &quot;declaration-8bf0314d7f57e7f1&quot;,
+              &quot;declaration-90c120dc0944cdc4&quot;,
+              &quot;declaration-9793aa1c5a5b2c61&quot;,
               &quot;declaration-994f3484c3038c1f&quot;,
+              &quot;declaration-a06ba22ef089c964&quot;,
+              &quot;declaration-a733c1d2bcbc82e9&quot;,
               &quot;declaration-ab53566fb14ea1e1&quot;,
+              &quot;declaration-ab947dad43bbf630&quot;,
+              &quot;declaration-ac205aec37738bba&quot;,
+              &quot;declaration-b0913b8764257add&quot;,
+              &quot;declaration-b19768cd4479183e&quot;,
+              &quot;declaration-b485ebd7fbc344c3&quot;,
+              &quot;declaration-b5ae3a364a399c87&quot;,
+              &quot;declaration-b7de3114fe7346dd&quot;,
+              &quot;declaration-bb3b4003396fc8d4&quot;,
               &quot;declaration-c18eb9f2b9343a8d&quot;,
+              &quot;declaration-c19d7a544b9ba382&quot;,
+              &quot;declaration-ccb8823bef66614c&quot;,
+              &quot;declaration-d48a28c73e02d089&quot;,
+              &quot;declaration-d4e058af927a4a37&quot;,
+              &quot;declaration-d75ec63ad7f71015&quot;,
+              &quot;declaration-d81119388ff68828&quot;,
+              &quot;declaration-d879258a3cf71cec&quot;,
               &quot;declaration-daeb8e19a963ba8d&quot;,
               &quot;declaration-ddc50ffa16edd274&quot;,
+              &quot;declaration-dfdc7ef6c6c086c2&quot;,
+              &quot;declaration-e186da5203be90c0&quot;,
+              &quot;declaration-eda77d75aebe1c86&quot;,
               &quot;declaration-ef2e8de26adf9f9c&quot;,
-              &quot;declaration-fd8dbcd345aa7401&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;Modeling Resources in TypeSpec&quot;,
-            &quot;excerpt&quot;: &quot;Model an ARM resource by selecting the appropriate base resource type, defining resource-provider properties, and spreading ResourceNameParameter for its resource name and path segment.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;ProxyResource&quot;,
-              &quot;ResourceNameParameter&quot;,
-              &quot;properties&quot;,
-              &quot;resource operations&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;model Employee is TrackedResource&lt;EmployeeProperties&gt; { ...ResourceNameParameter&lt;Employee&gt;; }&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-01e375423c424c3a&quot;,
-              &quot;declaration-1fed4e7ea9c10698&quot;,
-              &quot;declaration-3954a9768788e735&quot;,
-              &quot;declaration-586ea50e98f4c7cf&quot;,
-              &quot;declaration-7a0fcf1caa823216&quot;,
-              &quot;declaration-8bf0314d7f57e7f1&quot;,
-              &quot;declaration-994f3484c3038c1f&quot;,
-              &quot;declaration-ab53566fb14ea1e1&quot;,
-              &quot;declaration-c18eb9f2b9343a8d&quot;,
-              &quot;declaration-daeb8e19a963ba8d&quot;,
-              &quot;declaration-ddc50ffa16edd274&quot;,
-              &quot;declaration-ef2e8de26adf9f9c&quot;,
+              &quot;declaration-f0921fd84c8d9a6e&quot;,
+              &quot;declaration-f6217867766287cc&quot;,
+              &quot;declaration-f73dfd4d5a1a085d&quot;,
               &quot;declaration-fd8dbcd345aa7401&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T07:59:21.444Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:9544f4eb8dd21fad47a6460a6036f1964719a532002403b39abc70371fa5f064&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:51:03.880Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:d3eb7225c2f499317611ae7d7226f8174f0b6b831b498fa53b93eb1687244c2f&quot;
       },
       {
         &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 14,
-        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 4,
           &quot;patternCategory&quot;: 3,
@@ -1829,79 +1888,99 @@ interface FabricShortcuts {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Names @parentResource and resource lifecycle decorators that establish the changed child-resource semantics.&quot;,
+        &quot;selectionRationale&quot;: &quot;Scored for relevance to the changed ARM add arm resource operation constructs and version context.&quot;,
         &quot;guidance&quot;: [
           {
-            &quot;section&quot;: &quot;@parentResource&quot;,
-            &quot;excerpt&quot;: &quot;Apply @parentResource to mark a model as a child of the specified parent resource model.&quot;,
+            &quot;section&quot;: &quot;Recommended and Required Operations&quot;,
+            &quot;excerpt&quot;: &quot;Use standard ARM templates for resource lifecycle operations and lifecycle visibility for response-only properties.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;@parentResource&quot;,
-              &quot;child resource&quot;,
-              &quot;Cluster&quot;,
-              &quot;Eventhub&quot;
+              &quot;@armResourceOperations&quot;,
+              &quot;ArmResourceRead&quot;,
+              &quot;Lifecycle.Read&quot;
             ],
-            &quot;examples&quot;: [
-              &quot;@TypeSpec.Rest.parentResource(parent: Model)&quot;
-            ],
+            &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
               &quot;declaration-01e375423c424c3a&quot;,
+              &quot;declaration-12cc321d277fe635&quot;,
+              &quot;declaration-148ad804a745c559&quot;,
+              &quot;declaration-17bf4cf52989f776&quot;,
+              &quot;declaration-1ac939ab793c20fd&quot;,
               &quot;declaration-1fed4e7ea9c10698&quot;,
+              &quot;declaration-24277b33044290a2&quot;,
+              &quot;declaration-2543d00bd7d6f13e&quot;,
+              &quot;declaration-2af45f074c3298cf&quot;,
               &quot;declaration-3954a9768788e735&quot;,
+              &quot;declaration-3c6fe5aadf14b5b8&quot;,
+              &quot;declaration-46d86099cb8510ed&quot;,
+              &quot;declaration-54c5774c02b0f0d6&quot;,
+              &quot;declaration-554d6edddd8eb392&quot;,
               &quot;declaration-586ea50e98f4c7cf&quot;,
+              &quot;declaration-5eea57c4f7cc1c07&quot;,
+              &quot;declaration-606cdf8cfef1c2a8&quot;,
+              &quot;declaration-61442a175de6296e&quot;,
+              &quot;declaration-61f013bb6b5abffd&quot;,
+              &quot;declaration-62aab3e8641007ca&quot;,
+              &quot;declaration-62b137c9961f79e2&quot;,
+              &quot;declaration-6aa14c58674898ac&quot;,
+              &quot;declaration-6f1bd1303163c551&quot;,
+              &quot;declaration-6f88b7a68bf2f92e&quot;,
+              &quot;declaration-6fd08821e083ad36&quot;,
+              &quot;declaration-737528917d6a08c8&quot;,
+              &quot;declaration-78a670c35388e6ef&quot;,
               &quot;declaration-7a0fcf1caa823216&quot;,
+              &quot;declaration-7d6738b4d6005644&quot;,
+              &quot;declaration-7dfdb70afb134f54&quot;,
+              &quot;declaration-8b33acdf9f10e1e4&quot;,
               &quot;declaration-8bf0314d7f57e7f1&quot;,
+              &quot;declaration-90c120dc0944cdc4&quot;,
+              &quot;declaration-9793aa1c5a5b2c61&quot;,
               &quot;declaration-994f3484c3038c1f&quot;,
+              &quot;declaration-a06ba22ef089c964&quot;,
+              &quot;declaration-a733c1d2bcbc82e9&quot;,
               &quot;declaration-ab53566fb14ea1e1&quot;,
+              &quot;declaration-ab947dad43bbf630&quot;,
+              &quot;declaration-ac205aec37738bba&quot;,
+              &quot;declaration-b0913b8764257add&quot;,
+              &quot;declaration-b19768cd4479183e&quot;,
+              &quot;declaration-b485ebd7fbc344c3&quot;,
+              &quot;declaration-b5ae3a364a399c87&quot;,
+              &quot;declaration-b7de3114fe7346dd&quot;,
+              &quot;declaration-bb3b4003396fc8d4&quot;,
               &quot;declaration-c18eb9f2b9343a8d&quot;,
+              &quot;declaration-c19d7a544b9ba382&quot;,
+              &quot;declaration-ccb8823bef66614c&quot;,
+              &quot;declaration-d48a28c73e02d089&quot;,
+              &quot;declaration-d4e058af927a4a37&quot;,
+              &quot;declaration-d75ec63ad7f71015&quot;,
+              &quot;declaration-d81119388ff68828&quot;,
+              &quot;declaration-d879258a3cf71cec&quot;,
               &quot;declaration-daeb8e19a963ba8d&quot;,
               &quot;declaration-ddc50ffa16edd274&quot;,
+              &quot;declaration-dfdc7ef6c6c086c2&quot;,
+              &quot;declaration-e186da5203be90c0&quot;,
+              &quot;declaration-eda77d75aebe1c86&quot;,
               &quot;declaration-ef2e8de26adf9f9c&quot;,
-              &quot;declaration-fd8dbcd345aa7401&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;@action&quot;,
-            &quot;excerpt&quot;: &quot;Apply @action to identify an operation as an action scoped to a resource item.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@action&quot;,
-              &quot;approve&quot;,
-              &quot;reject&quot;,
-              &quot;upgradeNow&quot;
-            ],
-            &quot;examples&quot;: [
-              &quot;@TypeSpec.Rest.action(name?: valueof string)&quot;
-            ],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-01e375423c424c3a&quot;,
-              &quot;declaration-1fed4e7ea9c10698&quot;,
-              &quot;declaration-3954a9768788e735&quot;,
-              &quot;declaration-586ea50e98f4c7cf&quot;,
-              &quot;declaration-7a0fcf1caa823216&quot;,
-              &quot;declaration-8bf0314d7f57e7f1&quot;,
-              &quot;declaration-994f3484c3038c1f&quot;,
-              &quot;declaration-ab53566fb14ea1e1&quot;,
-              &quot;declaration-c18eb9f2b9343a8d&quot;,
-              &quot;declaration-daeb8e19a963ba8d&quot;,
-              &quot;declaration-ddc50ffa16edd274&quot;,
-              &quot;declaration-ef2e8de26adf9f9c&quot;,
+              &quot;declaration-f0921fd84c8d9a6e&quot;,
+              &quot;declaration-f6217867766287cc&quot;,
+              &quot;declaration-f73dfd4d5a1a085d&quot;,
               &quot;declaration-fd8dbcd345aa7401&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-21T07:59:21.435Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:cc1a80deef5130be153ea0b6bb14164f8b6b9ac963559cc9c3e2dd62da88cbb7&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:51:03.892Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:045aef79057f64670685313072d5945ef1cf2a48e651a7fab77e8e1a65121b07&quot;
       }
     ]
   },
   &quot;intentAssessments&quot;: [
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-01ff7b229e3e8a2a&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-4033ba508c6f812f&quot;,
       &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     },
     {
-      &quot;semanticIntentId&quot;: &quot;semantic-d9c323dd2252f4fe&quot;,
+      &quot;semanticIntentId&quot;: &quot;semantic-ae29ba7b808d150a&quot;,
       &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     }
@@ -1912,30 +1991,31 @@ interface FabricShortcuts {
 <h3>Changed files</h3><ul><li><code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/FabricShortcut.tsp</code> (committed)</li><li><code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/main.tsp</code> (committed)</li><li><code>specification/eventhub/resource-manager/Microsoft.EventHub/Eventhub/UpgradePreferences.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 3463,
-    &quot;fetchMs&quot;: 55136,
-    &quot;scopeDiscoveryMs&quot;: 418,
-    &quot;setupExcludingFetchMs&quot;: 51098,
-    &quot;comparisonMs&quot;: 575,
-    &quot;changeDiscoveryMs&quot;: 486,
-    &quot;workspacePreparationMs&quot;: 40602,
-    &quot;projectDiscoveryMs&quot;: 4614,
-    &quot;totalMs&quot;: 855161,
-    &quot;semanticAnalysisMs&quot;: 277,
-    &quot;restAnalysisMs&quot;: 155,
-    &quot;downstreamAnalysisMs&quot;: 4781,
+    &quot;metadataMs&quot;: 7089,
+    &quot;fetchMs&quot;: 738,
+    &quot;scopeDiscoveryMs&quot;: 331,
+    &quot;setupExcludingFetchMs&quot;: 30176,
+    &quot;comparisonMs&quot;: 345,
+    &quot;changeDiscoveryMs&quot;: 346,
+    &quot;workspacePreparationMs&quot;: 20201,
+    &quot;projectDiscoveryMs&quot;: 406,
+    &quot;totalMs&quot;: 199057,
+    &quot;semanticAnalysisMs&quot;: 168,
+    &quot;restAnalysisMs&quot;: 213,
+    &quot;downstreamAnalysisMs&quot;: 2003,
+    &quot;semanticContextPolicyMs&quot;: 4,
     &quot;documentQualityAnalysisMs&quot;: 2
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;small&quot;,
     &quot;budgetBytes&quot;: 131072,
-    &quot;bytes&quot;: 23278,
-    &quot;estimatedTokens&quot;: 5820,
+    &quot;bytes&quot;: 82600,
+    &quot;estimatedTokens&quot;: 20650,
     &quot;retained&quot;: {
-      &quot;evidenceSets&quot;: 2,
+      &quot;evidenceSets&quot;: 3,
       &quot;facts&quot;: 3,
       &quot;semanticReviewUnits&quot;: 2,
-      &quot;restCandidates&quot;: 0,
+      &quot;restCandidates&quot;: 77,
       &quot;downstreamCandidates&quot;: 0,
       &quot;downstreamRootCauses&quot;: 0,
       &quot;complianceSearchRequests&quot;: 2,
@@ -1947,6 +2027,7 @@ interface FabricShortcuts {
       &quot;unchangedInventories&quot;: true,
       &quot;unreferencedFacts&quot;: true,
       &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;restCandidateEvidenceFacts&quot;: true,
       &quot;sourceChanges&quot;: true,
       &quot;repeatedDeclarationIds&quot;: true,
       &quot;repeatedReviewUnitEvidence&quot;: true
@@ -1960,13 +2041,13 @@ interface FabricShortcuts {
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 1763140,
-      &quot;guidanceExcerptsRetained&quot;: 7,
-      &quot;guidanceExcerptBytesRetained&quot;: 971
+      &quot;documentBytesFetched&quot;: 1776244,
+      &quot;guidanceExcerptsRetained&quot;: 2,
+      &quot;guidanceExcerptBytesRetained&quot;: 251
     }
   }
 }</pre>
-<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+<p><strong>Provenance:</strong> 2, model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
 </main>
 <script>
 function revealHashTarget() {

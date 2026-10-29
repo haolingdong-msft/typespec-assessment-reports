@@ -750,7 +750,7 @@ body {
 <p class="hero-meta">TypeSpec source diff: <code>6160a0aa235ab0b54b42cf3279abbb9a8dce7b97</code> → <code>d44082c34ce29d8102acf3a94ef07a6cbfc4570c</code></p>
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">6 intents<br>13 operations<br>3 Added, 3 Modified, 0 Removed</div></a>
-<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">1 finding<br>6/6 intents assessed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>6/6 intents assessed</div></a>
 <a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Verdict unknown<br>Coverage blocked<br>0 findings</div></a>
 <a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Verdict unknown<br>Partial coverage<br>0 findings</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>10 declarations checked</div></a>
@@ -759,11 +759,7 @@ body {
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">1 findings</span></div></div><p class="report-small">6 of 6 semantic intents assessed · 4 documents selected</p><details class="report-card compliance-finding"><summary><div class="report-card-title"><strong>Mark the newly appended preview API version with @previewVersion</strong><small>Both the general preview rules and the preview-after-stable instructions explicitly require this marker. Common-types selection does not replace it; retaining an older historical preview enum value is not independently treated as a violation.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-6aacad4d8c4e84f7">Publish the next Compute BulkActions preview version</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><div class="report-guideline-section expected-details"><h3>Expected</h3><p>Append the new preview version and mark its enum member with the Azure.Core @previewVersion decorator.</p><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs — Declaring Versions</a><blockquote>Define your API versions in an enum. For each version, specify dependencies and common types as needed.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview — Preview Versioning Rules for All Azure APIs</a><blockquote>Always make the last enum value the preview and apply `@previewVersion` to it. Only one version may be marked with the `@previewVersion` decorator.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable — Making Changes to your TypeSpec spec</a><blockquote>Add a new version to the `Versions` enum in your spec for the new preview. Decorate this version with the `@previewVersion` decorator from the `Azure.Core` library. If any types are added, renamed, or otherwise modified in the new version, mark them with the appropriate versioning decorator.</blockquote></div></div><div class="report-guideline-section actual-details"><h3>Actual</h3><div class="report-type-impact" id="compliance-finding-compliance-01f1345284d7f67e"><p>Versions appends 2026-07-06-preview after 2026-06-06 with @armCommonTypesVersion(v6), but the complete supplied enum declaration has no @previewVersion on the new member.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp#L21-L33">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp:20-33</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp#L21-L33">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp:20-33</a></div><pre><span class="add"><span class="line-number">20</span>+</span>
-<span class="add"><span class="line-number">21</span>+  /** 2026-07-06-preview version */</span>
-<span class="add"><span class="line-number">22</span>+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
-<span class="add"><span class="line-number">23</span>+  `2026-07-06-preview`,</span></pre></div></div></div></div></details><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-d9798705ad9627a9">Set the Python SDK service output directory</a><a class="report-link" href="#intent-semantic-ea6598f433a523f6">Customize Python enum names and C# result members</a>.</p></section>
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">6 intents · 3 added · 3 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-61163152c9eb45ad"><summary><div class="report-card-title"><strong>Restore preview VM batch actions and add error management routes</strong><small>The routes.tsp group reactivates bulk VM creation, flexible creation, and reimage collection actions in 2026-07-06-preview, and adds resource-group/location-scoped paged error retrieval and error acknowledgement. These are batch actions and error management endpoints, not evidence that every declaration in this file implements one business feature or a new tracked-resource lifecycle.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 8 declaration/source facts; 4 source hunks; 6 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:routes</code></p><details class="report-subdetails"><summary>Change facts (8)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>lookbackInMinutes</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkAcknowledgeOperationErrors</code></td><td>operation</td><td>add</td><td>operation, property-contract, request, version-activation</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkListOperationErrors</code></td><td>operation</td><td>add</td><td>operation, optionality, property-contract, request, version-activation</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkCreate</code></td><td>operation</td><td>modify</td><td>operation, request, version-activation</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkReimage</code></td><td>operation</td><td>modify</td><td>operation, request, version-activation</td></tr><tr><td><code>body</code></td><td>type</td><td>modify</td><td>property-contract</td></tr><tr><td><code>VirtualMachineBulkOperations</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkVdiFlexCreate</code></td><td>operation</td><td>modify</td><td>operation, request, version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp</div><pre><span class="context"> </span>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">6 intents · 3 added · 3 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-61163152c9eb45ad"><summary><div class="report-card-title"><strong>Add VirtualMachineBulkOperations, VirtualMachineBulkOperations.bulkAcknowledgeOperationErrors, VirtualMachineBulkOperations.bulkCreate</strong><small>Add covers 8 change facts (operation, type) across 8 declarations and 6 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 8 declaration/source facts; 4 source hunks; 6 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:routes</code></p><details class="report-subdetails"><summary>Change facts (8)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>lookbackInMinutes</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkAcknowledgeOperationErrors</code></td><td>operation</td><td>add</td><td>operation, property-contract, request, version-activation</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkListOperationErrors</code></td><td>operation</td><td>add</td><td>operation, optionality, property-contract, request, version-activation</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkCreate</code></td><td>operation</td><td>modify</td><td>operation, request, version-activation</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkReimage</code></td><td>operation</td><td>modify</td><td>operation, request, version-activation</td></tr><tr><td><code>body</code></td><td>type</td><td>modify</td><td>property-contract</td></tr><tr><td><code>VirtualMachineBulkOperations</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>VirtualMachineBulkOperations.bulkVdiFlexCreate</code></td><td>operation</td><td>modify</td><td>operation, request, version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp</div><pre><span class="context"> </span>
 <span class="context">   /** BulkCreate: Execute create operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. */</span>
 <span class="context">   @removed(Versions.`2026-06-06`)</span>
 <span class="add">+  @added(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
@@ -819,7 +815,7 @@ body {
 <span class="add">+    body: AcknowledgeBulkOperationErrorsRequest,</span>
 <span class="add">+  ): ArmResponse&lt;AcknowledgeBulkOperationErrorsResponse&gt; | ErrorResponse;</span>
 <span class="context"> }</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp#L104-L288">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp:103</a></p></details><details class="report-subdetails" id="intent-semantic-61163152c9eb45ad-operations"><summary>Affected operations (6)</summary><details class="operation"><summary><strong>LaunchBulkInstancesOperation_Cancel</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/launchBulkInstancesOperations/{name}/cancel</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/launchBulkInstancesOperations/{name}/cancel</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkAcknowledgeOperationErrors</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/acknowledgeBulkOperationErrors</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/acknowledgeBulkOperationErrors</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkCreate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCreate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCreate</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkListOperationErrors</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/listBulkOperationErrors</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/listBulkOperationErrors</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkReimage</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkReimage</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkReimage</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkVdiFlexCreate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkVdiFlexCreate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkVdiFlexCreate</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-6aacad4d8c4e84f7"><summary><div class="report-card-title"><strong>Publish the next Compute BulkActions preview version</strong><small>The version-declaration-only main.tsp group appends 2026-07-06-preview after 2026-06-06 and selects ARM common types v6. The frozen artifact comparison uses these two versions from the same head source; feature changes and their activation decorators remain owned by their separate file groups.</small><div class="report-intent-relations"><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-01f1345284d7f67e">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 6 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>common-type-version</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp</div><pre><span class="context">   /** 2026-06-06 version */</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp#L104-L288">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp:103</a></p></details><details class="report-subdetails" id="intent-semantic-61163152c9eb45ad-operations"><summary>Affected operations (6)</summary><details class="operation"><summary><strong>LaunchBulkInstancesOperation_Cancel</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/launchBulkInstancesOperations/{name}/cancel</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/launchBulkInstancesOperations/{name}/cancel</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkAcknowledgeOperationErrors</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/acknowledgeBulkOperationErrors</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/acknowledgeBulkOperationErrors</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkCreate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCreate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCreate</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkListOperationErrors</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/listBulkOperationErrors</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/listBulkOperationErrors</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkReimage</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkReimage</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkReimage</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkVdiFlexCreate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkVdiFlexCreate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkVdiFlexCreate</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-6aacad4d8c4e84f7"><summary><div class="report-card-title"><strong>Modify Versions</strong><small>Modify covers 1 change facts (versioning) across 1 declarations and 6 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 6 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>common-type-version</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp</div><pre><span class="context">   /** 2026-06-06 version */</span>
 <span class="context">   @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
 <span class="context">   `2026-06-06`,</span>
 <span class="add">+</span>
@@ -827,7 +823,7 @@ body {
 <span class="add">+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
 <span class="add">+  `2026-07-06-preview`,</span>
 <span class="context"> }</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp#L21-L33">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp:20</a></p></details><details class="report-subdetails" id="intent-semantic-6aacad4d8c4e84f7-operations"><summary>Affected operations (6)</summary><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkCancel</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCancel</code><span>2026-07-06-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkDeallocate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkDeallocate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resources</strong></td><td><pre>Resources (required)</pre></td><td><pre>Resources (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourcesWithContext</strong></td><td><pre>not present</pre></td><td><pre>ResourcesWithContext (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkDelete</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkDelete</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resources</strong></td><td><pre>Resources (required)</pre></td><td><pre>Resources (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourcesWithContext</strong></td><td><pre>not present</pre></td><td><pre>ResourcesWithContext (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkGetOperationsStatus</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkGetOperationStatus</code><span>2026-07-06-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkHibernate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkHibernate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resources</strong></td><td><pre>Resources (required)</pre></td><td><pre>Resources (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourcesWithContext</strong></td><td><pre>not present</pre></td><td><pre>ResourcesWithContext (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkStart</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkStart</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resources</strong></td><td><pre>Resources (required)</pre></td><td><pre>Resources (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourcesWithContext</strong></td><td><pre>not present</pre></td><td><pre>ResourcesWithContext (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-884902daaaaa9100"><summary><div class="report-card-title"><strong>Extend batch request context, VM configuration, and error result models</strong><small>The coarse models.tsp group contains several related but distinct additions: optional context-bearing resource alternatives, notification and VM allocation information, paged error/acknowledgement contracts, flexible minimum capacity, post-start agent verification, and GetInstanceView operation classification. It also versions relaxed resources inputs and loosely typed VM configuration passthrough. Preview decorators control applicability; file membership alone does not establish one feature.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 50 declaration/source facts; 14 source hunks; 5 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>source:source-5f82a7335fc8495e</code>; <code>transform:arm-resource-identifier</code></p><details class="report-subdetails"><summary>Change facts (50)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>ResourceProvisionPayload.resourceOverrides</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteDeallocateRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ResourceProvisionPayload</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ResourceNotificationDetails</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>VirtualMachineInfo.zone</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsResponse.acknowledged</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ResourcesWithContext</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>ExecuteReimageRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>VmAllocationInfo</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecutionParameters</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceOperationDetails.resourceNotificationDetails</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ListBulkOperationErrorsResponse</code></td><td>type</td><td>add</td><td>paging, version-activation</td></tr><tr><td><code>ExecuteStartRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceProvisionPayload.baseProfile</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ResourceOperation</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>FlexProperties</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecuteReimageRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecuteHibernateRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteDeallocateRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsResponse</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>VmAllocationInfo.vmSize</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteStartRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>FlexProperties.minCapacity</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceOperationType.GetInstanceView</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>ResourcesWithContext.resources</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>VirtualMachineInfo.vmSize</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsResponse.skipped</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExecuteDeleteRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ExecutionParameters.verifyVmAgentHealth</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceProvisionVdiPayload.resourceOverrides</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteStartRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsRequest</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>VirtualMachineInfo</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsResponse.notFound</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ResourceOperationType</code></td><td>type</td><td>modify</td><td>property-contract, version-activation</td></tr><tr><td><code>ResourceProvisionVdiPayload.baseProfile</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ResourceWithContext.resourceId</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExecuteHibernateRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecuteDeleteRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceOperationDetails</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>VmAllocationInfo.zone</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteDeleteRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceNotificationDetails.resourceContext</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteReimageRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsRequest.operationIds</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExecuteDeallocateRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecuteHibernateRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceWithContext</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>ResourceWithContext.resourceContext</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ResourceOperation.virtualMachineInfo</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp</div><pre><span class="context">   @doc(&quot;Delete operations on the resources&quot;)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp#L21-L33">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp:20</a></p></details><details class="report-subdetails" id="intent-semantic-6aacad4d8c4e84f7-operations"><summary>Affected operations (6)</summary><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkCancel</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCancel</code><span>2026-07-06-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkDeallocate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkDeallocate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resources</strong></td><td><pre>Resources (required)</pre></td><td><pre>Resources (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourcesWithContext</strong></td><td><pre>not present</pre></td><td><pre>ResourcesWithContext (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkDelete</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkDelete</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resources</strong></td><td><pre>Resources (required)</pre></td><td><pre>Resources (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourcesWithContext</strong></td><td><pre>not present</pre></td><td><pre>ResourcesWithContext (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkGetOperationsStatus</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkGetOperationStatus</code><span>2026-07-06-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkHibernate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkHibernate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resources</strong></td><td><pre>Resources (required)</pre></td><td><pre>Resources (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourcesWithContext</strong></td><td><pre>not present</pre></td><td><pre>ResourcesWithContext (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkStart</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkStart</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resources</strong></td><td><pre>Resources (required)</pre></td><td><pre>Resources (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>resourcesWithContext</strong></td><td><pre>not present</pre></td><td><pre>ResourcesWithContext (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-884902daaaaa9100"><summary><div class="report-card-title"><strong>Add AcknowledgeBulkOperationErrorsRequest, AcknowledgeBulkOperationErrorsRequest.operationIds, AcknowledgeBulkOperationErrorsResponse</strong><small>Add covers 50 change facts (type) across 50 declarations and 5 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 50 declaration/source facts; 14 source hunks; 5 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>source:source-5f82a7335fc8495e</code>; <code>transform:arm-resource-identifier</code></p><details class="report-subdetails"><summary>Change facts (50)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>ResourceProvisionPayload.resourceOverrides</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteDeallocateRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ResourceProvisionPayload</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ResourceNotificationDetails</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>VirtualMachineInfo.zone</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsResponse.acknowledged</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ResourcesWithContext</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>ExecuteReimageRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>VmAllocationInfo</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecutionParameters</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceOperationDetails.resourceNotificationDetails</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ListBulkOperationErrorsResponse</code></td><td>type</td><td>add</td><td>paging, version-activation</td></tr><tr><td><code>ExecuteStartRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceProvisionPayload.baseProfile</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ResourceOperation</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>FlexProperties</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecuteReimageRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecuteHibernateRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteDeallocateRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsResponse</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>VmAllocationInfo.vmSize</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteStartRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>FlexProperties.minCapacity</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceOperationType.GetInstanceView</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>ResourcesWithContext.resources</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>VirtualMachineInfo.vmSize</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsResponse.skipped</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExecuteDeleteRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ExecutionParameters.verifyVmAgentHealth</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceProvisionVdiPayload.resourceOverrides</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteStartRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsRequest</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>VirtualMachineInfo</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsResponse.notFound</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ResourceOperationType</code></td><td>type</td><td>modify</td><td>property-contract, version-activation</td></tr><tr><td><code>ResourceProvisionVdiPayload.baseProfile</code></td><td>type</td><td>modify</td><td>optionality, property-contract</td></tr><tr><td><code>ResourceWithContext.resourceId</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExecuteHibernateRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecuteDeleteRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceOperationDetails</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>VmAllocationInfo.zone</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteDeleteRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceNotificationDetails.resourceContext</code></td><td>type</td><td>add</td><td>optionality, property-contract</td></tr><tr><td><code>ExecuteReimageRequest.resourcesWithContext</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>AcknowledgeBulkOperationErrorsRequest.operationIds</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ExecuteDeallocateRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ExecuteHibernateRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td></tr><tr><td><code>ResourceWithContext</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td></tr><tr><td><code>ResourceWithContext.resourceContext</code></td><td>type</td><td>add</td><td>property-contract</td></tr><tr><td><code>ResourceOperation.virtualMachineInfo</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp</div><pre><span class="context">   @doc(&quot;Delete operations on the resources&quot;)</span>
 <span class="context">   Delete: &quot;Delete&quot;,</span>
 <span class="context"> </span>
 <span class="add">+  @added(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
@@ -1037,14 +1033,14 @@ body {
 <span class="add">+  @doc(&quot;The set of operation ids to acknowledge.&quot;)</span>
 <span class="add">+  operationIds: Array&lt;string&gt;;</span>
 <span class="add">+}</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L33-L57">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp:32</a></p></details><details class="report-subdetails" id="intent-semantic-884902daaaaa9100-operations"><summary>Affected operations (5)</summary><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkAcknowledgeOperationErrors</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/acknowledgeBulkOperationErrors</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/acknowledgeBulkOperationErrors</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkCreate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCreate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCreate</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkListOperationErrors</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/listBulkOperationErrors</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/listBulkOperationErrors</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkReimage</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkReimage</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkReimage</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkVdiFlexCreate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkVdiFlexCreate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkVdiFlexCreate</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-d9798705ad9627a9"><summary><div class="report-card-title"><strong>Set the Python SDK service output directory</strong><small>The Python emitter configuration adds service-dir sdk/computebulkactions while retaining azure.mgmt.computebulkactions. This changes generation output placement, not a demonstrated public API identity or REST wire contract.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">generation-configuration</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:tspconfig.yaml</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>generation-configuration</td><td>modify</td><td></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/tspconfig.yaml</div><pre><span class="context">     namespace: &quot;Azure.ResourceManager.Compute.BulkActions&quot;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L33-L57">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp:32</a></p></details><details class="report-subdetails" id="intent-semantic-884902daaaaa9100-operations"><summary>Affected operations (5)</summary><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkAcknowledgeOperationErrors</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/acknowledgeBulkOperationErrors</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/acknowledgeBulkOperationErrors</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkCreate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCreate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCreate</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkListOperationErrors</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/listBulkOperationErrors</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/listBulkOperationErrors</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkReimage</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkReimage</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkReimage</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkVdiFlexCreate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkVdiFlexCreate</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkVdiFlexCreate</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-d9798705ad9627a9"><summary><div class="report-card-title"><strong>Modify TypeSpec declarations</strong><small>Modify covers 1 change facts (generation-configuration) across 0 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">generation-configuration</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:tspconfig.yaml</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>generation-configuration</td><td>modify</td><td></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/tspconfig.yaml</div><pre><span class="context">     namespace: &quot;Azure.ResourceManager.Compute.BulkActions&quot;</span>
 <span class="context">     emitter-output-dir: &quot;{output-dir}/{service-dir}/{namespace}&quot;</span>
 <span class="context">   &quot;@azure-tools/typespec-python&quot;:</span>
 <span class="add">+    service-dir: &quot;sdk/computebulkactions&quot;</span>
 <span class="context">     namespace: &quot;azure.mgmt.computebulkactions&quot;</span>
 <span class="context">     generate-test: true</span>
 <span class="context">     generate-sample: true</span>
-<span class="context"></span></pre></div><p class="sources"><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/tspconfig.yaml</code></p></details><details class="report-subdetails" id="intent-semantic-d9798705ad9627a9-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-ea6598f433a523f6"><summary><div class="report-card-title"><strong>Customize Python enum names and C# result members</strong><small>client.tsp supplies explicit Python names for network API-version enum members, maps ResourceOperationDetails.subscriptionId to a C# UUID, and renames several C# response type members to ResourceTypeName. These are language-scoped SDK changes, not REST changes; the frozen neutral SDK evidence does not establish their complete before/after language-specific public surface.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">sdk-customization</span></div></summary><div class="report-card-body"><p class="report-small"><strong>SDK-compatibility grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 2 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>sdk-compatibility</code>; <code>transform:client-name</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>sdk-customization</td><td>modify</td><td>public-name, sdk-mapping</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/client.tsp</div><pre><span class="context"> namespace Microsoft.Compute;</span>
+<span class="context"></span></pre></div><p class="sources"><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/tspconfig.yaml</code></p></details><details class="report-subdetails" id="intent-semantic-d9798705ad9627a9-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-ea6598f433a523f6"><summary><div class="report-card-title"><strong>Modify TypeSpec declarations</strong><small>Modify covers 1 change facts (sdk-customization) across 0 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">sdk-customization</span></div></summary><div class="report-card-body"><p class="report-small"><strong>SDK-compatibility grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 2 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>sdk-compatibility</code>; <code>transform:client-name</code></p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>sdk-customization</td><td>modify</td><td>public-name, sdk-mapping</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/client.tsp</div><pre><span class="context"> namespace Microsoft.Compute;</span>
 <span class="context"> </span>
 <span class="context"> @@clientName(Microsoft.Compute, &quot;ComputeBulkActionsMgmtClient&quot;, &quot;python&quot;);</span>
 <span class="add">+@@clientName(NetworkApiVersion.`2020-11-01`, &quot;ENUM_2020_11_01&quot;, &quot;python&quot;);</span>
@@ -1096,7 +1092,7 @@ body {
 <span class="context"> // =====================================================================</span>
 <span class="context"> // Fix: Go SDK Validation incorrectly detects networkApiVersion as an API version</span>
 <span class="context"> // parameter because its name contains &quot;apiversion&quot;. This causes</span>
-<span class="context"></span></pre></div><p class="sources"><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/client.tsp</code></p></details><details class="report-subdetails" id="intent-semantic-ea6598f433a523f6-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-f8119248c846f3db"><summary><div class="report-card-title"><strong>Reactivate the bulk-launch proxy resource interface in preview</strong><small>An added preview activation on LaunchBulkInstancesOperation restores the interface after its stable-version removal. The supplied read operation retrieves the location-based launch operation proxy resource; the interface gate supports this resource&#39;s preview availability rather than publishing an independent version or proving a new tracked-resource lifecycle.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 2 declaration/source facts; 1 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:launchBulkInstancesOperation</code></p><details class="report-subdetails"><summary>Change facts (2)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>LaunchBulkInstancesOperation.get</code></td><td>operation</td><td>modify</td><td>operation</td></tr><tr><td><code>LaunchBulkInstancesOperation</code></td><td>type</td><td>modify</td><td>version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/launchBulkInstancesOperation.tsp</div><pre><span class="context"> // ============================================================</span>
+<span class="context"></span></pre></div><p class="sources"><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/client.tsp</code></p></details><details class="report-subdetails" id="intent-semantic-ea6598f433a523f6-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-f8119248c846f3db"><summary><div class="report-card-title"><strong>Add LaunchBulkInstancesOperation, LaunchBulkInstancesOperation.get</strong><small>Add covers 2 change facts (operation, type) across 2 declarations and 1 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 2 declaration/source facts; 1 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping reasons:</strong> <code>feature:launchBulkInstancesOperation</code></p><details class="report-subdetails"><summary>Change facts (2)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>LaunchBulkInstancesOperation.get</code></td><td>operation</td><td>modify</td><td>operation</td></tr><tr><td><code>LaunchBulkInstancesOperation</code></td><td>type</td><td>modify</td><td>version-activation</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/launchBulkInstancesOperation.tsp</div><pre><span class="context"> // ============================================================</span>
 <span class="context"> </span>
 <span class="context"> @removed(Versions.`2026-06-06`)</span>
 <span class="add">+@added(Versions.`2026-07-06-preview`)</span>
@@ -1104,15 +1100,16 @@ body {
 <span class="context"> interface LaunchBulkInstancesOperation {</span>
 <span class="context">   @doc(&quot;Gets an instance of LaunchBulkInstancesOperations.&quot;)</span>
 <span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/d44082c34ce29d8102acf3a94ef07a6cbfc4570c/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/launchBulkInstancesOperation.tsp#L333-L424">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/launchBulkInstancesOperation.tsp:330</a></p></details><details class="report-subdetails" id="intent-semantic-f8119248c846f3db-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>LaunchBulkInstancesOperation_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/launchBulkInstancesOperations/{name}</code><span>2026-07-06-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/launchBulkInstancesOperations/{name}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">6 of 6 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-d9798705ad9627a9">Modify TypeSpec declarations</a><a class="report-link" href="#intent-semantic-ea6598f433a523f6">Modify TypeSpec declarations</a>.</p></section>
 <section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">coverage blocked</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty"><strong>Cross-version REST scope:</strong> 2026-06-06 to 2026-07-06-preview. For these projects, findings assess migration between API versions, not a change to an existing version at a fixed API-version selector. Compiling an old-version projection does not prove that its previously published contract was preserved. Source commits and comparison roles are recorded in the appendix.</div><div class="report-empty">No REST compatibility verdict is available for the covered scope.</div></section>
 <section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream compatibility verdict is available for the covered scope.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 10 declarations checked</p></section>
-<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Language-specific SDK inference remains unresolved for Python NetworkApiVersion member naming and C# UUID/member-name customizations; frozen neutral evidence does not establish actual baseline/target language surfaces.</li><li>The ARM resource-operations web_fetch tool body was truncated at 20,000 document characters; only returned sections were used, with no continuation or second fetch. Recorded hashes and byte counts cover the exact tool-return bodies, including URL headers and the truncation notice, recovered from this agent&#39;s matching tool events.</li><li>The Python-scoped @clientName edits can change generated enum member identities, so they cannot be treated as nonbreaking decorator noise. The frozen neutral evidence provides neither baseline Python NetworkApiVersion member names nor its availability in the selected stable public SDK; an existing-member rename cannot be established or excluded.</li><li>C# @alternateType can change subscriptionId from a string-facing member to Guid?, and the @clientName edits can rename response type members. Neutral facts still report string/type and do not establish actual baseline C# names, generated member equivalence, or UUID consumption. Language-specific before/after evidence is required; the wrapper-equivalence exception is not assumed.</li></ul>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Language-specific client.tsp inference requests could not be resolved from bounded language-neutral evidence.</li><li>The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.</li><li>The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.</li><li>The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.</li><li>The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.</li><li>The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.</li><li>The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.</li><li>The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.</li><li>The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.</li></ul>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions</code></td><td>new-api-version</td><td><code>d44082c34ce29d8102acf3a94ef07a6cbfc4570c@2026-06-06</code><br><small>current · previous-latest-stable</small></td><td><code>d44082c34ce29d8102acf3a94ef07a6cbfc4570c@2026-07-06-preview</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/44101">#44101</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
-  &quot;status&quot;: &quot;failed&quot;,
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/">Add preview after stable</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;passed&quot;,
   &quot;coverage&quot;: {
     &quot;semanticIntentCount&quot;: 6,
     &quot;assessedIntentCount&quot;: 6,
@@ -1123,6 +1120,20 @@ body {
     &quot;catalogRanking&quot;: [
       {
         &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because a preview-after-stable release should isolate changes to the preview version.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 1,
         &quot;title&quot;: &quot;Evolving APIs&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
@@ -1133,38 +1144,10 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Existing ARM APIs gain operations, model properties, and preview activation; the evolving-version category directly matches this context.&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 2,
-        &quot;title&quot;: &quot;Versioning overview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;The Versions enum adds an ARM preview after stable, making ordering and active-preview guidance relevant.&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.&quot;
       },
       {
         &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 5,
-        &quot;title&quot;: &quot;Add preview after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;The exact transition is a new ARM preview following the latest stable API version.&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
         &quot;catalogOrder&quot;: 12,
         &quot;title&quot;: &quot;ARM resource operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
@@ -1175,13 +1158,13 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Added error actions and restored VM batch/resource operations match ARM operation and action guidance.&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because arm operations should follow standard templates and lifecycle visibility.&quot;
       },
       {
-        &quot;rank&quot;: 5,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
@@ -1189,7 +1172,21 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;The added ARM version selects common types v6; authoring/versioning common model definitions is relevant context.&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 6,
@@ -1198,12 +1195,12 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Versioning category and ARM applicability match, but the latest selected prior version is stable rather than preview.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 7,
@@ -1212,12 +1209,12 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Versioning category applies to ARM, but this change does not promote a preview to stable.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 8,
@@ -1226,12 +1223,12 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Versioning and ARM applicability match, but the target is preview rather than another stable version.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 9,
@@ -1240,12 +1237,12 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;A proxy-resource interface is reactivated, but the supplied edits do not define a new ARM resource kind.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 10,
@@ -1254,68 +1251,68 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ResourceGroup extension scoping is present in action parameters; this is not a new extension-resource definition. The catalog wildcard is not an exact changed symbol.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
         &quot;catalogOrder&quot;: 13,
         &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;ARM operation templates are related context; the changed bounded excerpts do not identify an exact newly edited template signature.&quot;
-      },
-      {
-        &quot;rank&quot;: 12,
-        &quot;catalogOrder&quot;: 15,
-        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM resource-role decorators are relevant context; the listed exact lifecycle decorators are not the changed activation decorators.&quot;
-      },
-      {
-        &quot;rank&quot;: 13,
-        &quot;catalogOrder&quot;: 16,
-        &quot;title&quot;: &quot;ARM long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;Restored interface evidence includes LRO results, but no new polling/header behavior is edited.&quot;
-      },
-      {
-        &quot;rank&quot;: 14,
-        &quot;catalogOrder&quot;: 18,
-        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 5
-        },
-        &quot;selectionRationale&quot;: &quot;ARM paged error retrieval is relevant, but no standard top/skip parameter change is supplied.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 15,
@@ -1324,155 +1321,43 @@ body {
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
+          &quot;patternCategory&quot;: 0,
           &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Resource/action semantics relate to added operations, but the catalog does not name an exact changed decorator and is plane-neutral.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 16,
-        &quot;catalogOrder&quot;: 19,
-        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 0,
           &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 4
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The changed @list symbol is named exactly, but the catalog category is data-plane paging; it must not supply ARM resource-template requirements.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 17,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
         &quot;score&quot;: {
           &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
+          &quot;patternCategory&quot;: 0,
           &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Optional input members and added model composition match plane-neutral model guidance.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 18,
-        &quot;catalogOrder&quot;: 22,
-        &quot;title&quot;: &quot;Enums&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
-        },
-        &quot;selectionRationale&quot;: &quot;Version enum additions and operation-type member additions match plane-neutral enum guidance.&quot;
-      },
-      {
-        &quot;rank&quot;: 19,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
-        },
-        &quot;selectionRationale&quot;: &quot;Changed versioning and SDK augment decorators fit general decorator application guidance.&quot;
-      },
-      {
-        &quot;rank&quot;: 20,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
-        },
-        &quot;selectionRationale&quot;: &quot;Documentation and optional/property metadata changes match general built-in decorator guidance without an exact catalog symbol match.&quot;
-      },
-      {
-        &quot;rank&quot;: 21,
-        &quot;catalogOrder&quot;: 9,
-        &quot;title&quot;: &quot;Private endpoints&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM applies, but no private endpoint change is supplied.&quot;
-      },
-      {
-        &quot;rank&quot;: 22,
-        &quot;catalogOrder&quot;: 10,
-        &quot;title&quot;: &quot;Private links&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM applies, but no private link change is supplied.&quot;
-      },
-      {
-        &quot;rank&quot;: 23,
-        &quot;catalogOrder&quot;: 11,
-        &quot;title&quot;: &quot;Network security perimeter&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM applies, but no network security perimeter change is supplied.&quot;
-      },
-      {
-        &quot;rank&quot;: 24,
-        &quot;catalogOrder&quot;: 27,
-        &quot;title&quot;: &quot;Change provider namespace&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;The service is ARM but its provider namespace is unchanged; contextual @armProviderNamespace is not a changed exact-symbol match.&quot;
-      },
-      {
-        &quot;rank&quot;: 25,
-        &quot;catalogOrder&quot;: 28,
-        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 2
-        },
-        &quot;selectionRationale&quot;: &quot;ARM applicability alone matches; no Portal experience change is supplied.&quot;
-      },
-      {
-        &quot;rank&quot;: 26,
         &quot;catalogOrder&quot;: 17,
         &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
@@ -1483,10 +1368,66 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The supplied operations are ARM, not Azure.Core data-plane polling-pattern changes.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 27,
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 19,
+        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
         &quot;catalogOrder&quot;: 23,
         &quot;title&quot;: &quot;Scalars&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
@@ -1497,10 +1438,38 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No custom scalar declaration is changed in the bounded query profiles; language-scoped alternateType is not a scalar definition.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
-        &quot;rank&quot;: 28,
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
         &quot;catalogOrder&quot;: 26,
         &quot;title&quot;: &quot;OpenAPI decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
@@ -1511,7 +1480,35 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No changed OpenAPI-specific decorator appears in the supplied query profiles.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 29,
@@ -1525,7 +1522,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No Azure.Core content-negotiation change is supplied.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 30,
@@ -1539,7 +1536,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;The single bounded query profiles do not identify changed suppression directives; ranking is not repeated after resolving additional source context.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       },
       {
         &quot;rank&quot;: 31,
@@ -1553,12 +1550,108 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;No no-openapi suppression or changed OpenAPI-specific decorator is identified by the bounded query profiles.&quot;
+        &quot;selectionRationale&quot;: &quot;The bounded change evidence does not directly involve this catalog topic.&quot;
       }
     ],
     &quot;documents&quot;: [
       {
         &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because a preview-after-stable release should isolate changes to the preview version.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
+            &quot;excerpt&quot;: &quot;Add a preview version, decorate it with @previewVersion, and mark added, removed, renamed, or modified types with versioning decorators.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;making&quot;,
+              &quot;changes&quot;,
+              &quot;to&quot;,
+              &quot;your&quot;,
+              &quot;typespec&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;A preview-after-stable release should isolate changes to the preview version.&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-048c0e815d803a98&quot;,
+              &quot;declaration-124a1908c7452303&quot;,
+              &quot;declaration-19ececd2d95234d7&quot;,
+              &quot;declaration-19f5f51903e824a9&quot;,
+              &quot;declaration-23acffec5a97dfe2&quot;,
+              &quot;declaration-25af27bc613849be&quot;,
+              &quot;declaration-25dd6844a9745550&quot;,
+              &quot;declaration-26b457f570289785&quot;,
+              &quot;declaration-27fc2fea992f8137&quot;,
+              &quot;declaration-332c162bbb51efc4&quot;,
+              &quot;declaration-36e073757b570b35&quot;,
+              &quot;declaration-378021bf1b06a418&quot;,
+              &quot;declaration-3cd2f60ea9f9cd78&quot;,
+              &quot;declaration-425476a6caf61122&quot;,
+              &quot;declaration-476d0652b363b72f&quot;,
+              &quot;declaration-490f8c6018ac2716&quot;,
+              &quot;declaration-4bb97a28c3476a3d&quot;,
+              &quot;declaration-5078f33058735507&quot;,
+              &quot;declaration-5b11ac4b4202eeed&quot;,
+              &quot;declaration-64de66707fd571d3&quot;,
+              &quot;declaration-65172bf980de3ce5&quot;,
+              &quot;declaration-6d94f9ebbe396f4b&quot;,
+              &quot;declaration-75f41e38f60ad6e8&quot;,
+              &quot;declaration-777db55b74f6d293&quot;,
+              &quot;declaration-7adf77f770f6801f&quot;,
+              &quot;declaration-7bc522a1d4bf35fa&quot;,
+              &quot;declaration-7d33c192fcb2fe10&quot;,
+              &quot;declaration-852079f52e0c7b41&quot;,
+              &quot;declaration-8a3c1afe7650f2c1&quot;,
+              &quot;declaration-8f99c21a3984f7cf&quot;,
+              &quot;declaration-96456a1526db33a8&quot;,
+              &quot;declaration-9665f40a9ce35338&quot;,
+              &quot;declaration-9734e86a95154c7e&quot;,
+              &quot;declaration-975b6d4d65da7203&quot;,
+              &quot;declaration-9a9ca4151cb04ebc&quot;,
+              &quot;declaration-9bd436bd6726dbff&quot;,
+              &quot;declaration-9dc7871351d88cdd&quot;,
+              &quot;declaration-a3d2dc60a9dab038&quot;,
+              &quot;declaration-ab24ab95289edd29&quot;,
+              &quot;declaration-ac6c98d58e577347&quot;,
+              &quot;declaration-b4263463a0a2c9e0&quot;,
+              &quot;declaration-b63ecf1dc2d02837&quot;,
+              &quot;declaration-c14086600cef8a73&quot;,
+              &quot;declaration-c18fffde73e9bf35&quot;,
+              &quot;declaration-c3b5a1dd28fd1a9e&quot;,
+              &quot;declaration-c41d3d08849c08c6&quot;,
+              &quot;declaration-c76ba93867349471&quot;,
+              &quot;declaration-cc93c44d33701c49&quot;,
+              &quot;declaration-d7e8c1e0d8cf0d75&quot;,
+              &quot;declaration-e249c02a32ec0b6d&quot;,
+              &quot;declaration-e3a89010144d3f5e&quot;,
+              &quot;declaration-e905c2edf3d0a2f3&quot;,
+              &quot;declaration-ebd094795f10f25b&quot;,
+              &quot;declaration-ed3db34ac19809d0&quot;,
+              &quot;declaration-f20c4d57d1b73e82&quot;,
+              &quot;declaration-f25c48e6c71c24c4&quot;,
+              &quot;declaration-f2da4036a13ddfd6&quot;,
+              &quot;declaration-f4b3e15378a61c1d&quot;,
+              &quot;declaration-f55c397f748dd730&quot;,
+              &quot;declaration-f61b65d32b9ad69b&quot;,
+              &quot;declaration-fe0dc203fcb56570&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:11.606431Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:3885a711545e35181f77d058922ce9e2b58471f728c9a57710e8c65bccd4606d&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 1,
         &quot;title&quot;: &quot;Evolving APIs&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
@@ -1569,153 +1662,14 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Existing ARM APIs gain operations, model properties, and preview activation; the evolving-version category directly matches this context.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Declaring Versions&quot;,
-            &quot;excerpt&quot;: &quot;Define your API versions in an enum. For each version, specify dependencies and common types as needed.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;Versions&quot;,
-              &quot;@armCommonTypesVersion&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-3cd2f60ea9f9cd78&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;Versioning Decorators&quot;,
-            &quot;excerpt&quot;: &quot;You can add new models, properties, or operations in a specific version and all subsequent versions using the `@added` decorator.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@added&quot;,
-              &quot;2026-07-06-preview&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-25af27bc613849be&quot;,
-              &quot;declaration-476d0652b363b72f&quot;,
-              &quot;declaration-4bb97a28c3476a3d&quot;,
-              &quot;declaration-5b11ac4b4202eeed&quot;,
-              &quot;declaration-64de66707fd571d3&quot;,
-              &quot;declaration-65172bf980de3ce5&quot;,
-              &quot;declaration-75f41e38f60ad6e8&quot;,
-              &quot;declaration-777db55b74f6d293&quot;,
-              &quot;declaration-9665f40a9ce35338&quot;,
-              &quot;declaration-9a9ca4151cb04ebc&quot;,
-              &quot;declaration-9bd436bd6726dbff&quot;,
-              &quot;declaration-ab24ab95289edd29&quot;,
-              &quot;declaration-b4263463a0a2c9e0&quot;,
-              &quot;declaration-b63ecf1dc2d02837&quot;,
-              &quot;declaration-c18fffde73e9bf35&quot;,
-              &quot;declaration-c76ba93867349471&quot;,
-              &quot;declaration-cc93c44d33701c49&quot;,
-              &quot;declaration-ebd094795f10f25b&quot;,
-              &quot;declaration-ed3db34ac19809d0&quot;,
-              &quot;declaration-f20c4d57d1b73e82&quot;,
-              &quot;declaration-f4b3e15378a61c1d&quot;,
-              &quot;declaration-f55c397f748dd730&quot;,
-              &quot;declaration-f61b65d32b9ad69b&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;@madeRequired and @madeOptional&quot;,
-            &quot;excerpt&quot;: &quot;Use `@madeOptional(Versions.version)` to make a property optional starting in that version.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@madeOptional&quot;,
-              &quot;resources&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-25af27bc613849be&quot;,
-              &quot;declaration-476d0652b363b72f&quot;,
-              &quot;declaration-4bb97a28c3476a3d&quot;,
-              &quot;declaration-65172bf980de3ce5&quot;,
-              &quot;declaration-75f41e38f60ad6e8&quot;,
-              &quot;declaration-9665f40a9ce35338&quot;,
-              &quot;declaration-9a9ca4151cb04ebc&quot;,
-              &quot;declaration-9bd436bd6726dbff&quot;,
-              &quot;declaration-ab24ab95289edd29&quot;,
-              &quot;declaration-b4263463a0a2c9e0&quot;,
-              &quot;declaration-b63ecf1dc2d02837&quot;,
-              &quot;declaration-c76ba93867349471&quot;,
-              &quot;declaration-cc93c44d33701c49&quot;,
-              &quot;declaration-ebd094795f10f25b&quot;,
-              &quot;declaration-f4b3e15378a61c1d&quot;,
-              &quot;declaration-f61b65d32b9ad69b&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:22:29.188Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:6bd722274877c33024c093c97e386e124612b0cccd478a5f0c63c7d0596f79d2&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 2,
-        &quot;title&quot;: &quot;Versioning overview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;The Versions enum adds an ARM preview after stable, making ordering and active-preview guidance relevant.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Preview Versioning Rules for All Azure APIs&quot;,
-            &quot;excerpt&quot;: &quot;Always make the last enum value the preview and apply `@previewVersion` to it. Only one version may be marked with the `@previewVersion` decorator.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;Versions&quot;,
-              &quot;preview&quot;,
-              &quot;@previewVersion&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-3cd2f60ea9f9cd78&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:22:28.049Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:2aeadb30f0b22daa0b3aaed66c02786b479d3b63331dab61409d77f5b9452765&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:10.671774Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c&quot;
       },
       {
         &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 5,
-        &quot;title&quot;: &quot;Add preview after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;The exact transition is a new ARM preview following the latest stable API version.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
-            &quot;excerpt&quot;: &quot;Add a new version to the `Versions` enum in your spec for the new preview. Decorate this version with the `@previewVersion` decorator from the `Azure.Core` library. If any types are added, renamed, or otherwise modified in the new version, mark them with the appropriate versioning decorator.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;Versions&quot;,
-              &quot;@previewVersion&quot;,
-              &quot;@added&quot;,
-              &quot;@madeOptional&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-3cd2f60ea9f9cd78&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:22:26.891Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:de2ef952af27219ac5048ce94808b1d730c9631012c7a0f70650ade06533c0f8&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
         &quot;catalogOrder&quot;: 12,
         &quot;title&quot;: &quot;ARM resource operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
@@ -1726,42 +1680,29 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Added error actions and restored VM batch/resource operations match ARM operation and action guidance.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Resource Actions (POST)&quot;,
-            &quot;excerpt&quot;: &quot;Custom actions define any operations over resources outside the simple CRUDL (Create&lt; Read, Update, Delete, List) or lifecycle operations described above.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@action&quot;,
-              &quot;@armResourceCollectionAction&quot;,
-              &quot;bulkAcknowledgeOperationErrors&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-64de66707fd571d3&quot;,
-              &quot;declaration-777db55b74f6d293&quot;,
-              &quot;declaration-c18fffde73e9bf35&quot;,
-              &quot;declaration-ed3db34ac19809d0&quot;,
-              &quot;declaration-f55c397f748dd730&quot;
-            ]
-          },
-          {
-            &quot;section&quot;: &quot;Resource Get Operations&quot;,
-            &quot;excerpt&quot;: &quot;Get is the operation to retrieve a single resource TypeSpec provides a single operation template for GET:&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;LaunchBulkInstancesOperation.get&quot;,
-              &quot;LocationBasedLaunchBulkInstancesOperation&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-5b11ac4b4202eeed&quot;,
-              &quot;declaration-f20c4d57d1b73e82&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-27T04:22:30.302Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:c647a4908a0d0e74803347a5e4956b56986a684344b8c67a3b3f7f37c67558d7&quot;
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because arm operations should follow standard templates and lifecycle visibility.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:12.025201Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:045aef79057f64670685313072d5945ef1cf2a48e651a7fab77e8e1a65121b07&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-29T08:26:13.273479Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:efd56120d9598700d213c873b8e93962fc666eede836a6009d5439fee74f75ce&quot;
       }
     ]
   },
@@ -1773,7 +1714,7 @@ body {
     },
     {
       &quot;semanticIntentId&quot;: &quot;semantic-6aacad4d8c4e84f7&quot;,
-      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
       &quot;blockers&quot;: []
     },
     {
@@ -1803,21 +1744,29 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/client.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/launchBulkInstancesOperation.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/tspconfig.yaml</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;semanticAnalysisMs&quot;: 129,
-    &quot;restAnalysisMs&quot;: 26,
-    &quot;downstreamAnalysisMs&quot;: 665,
-    &quot;semanticContextPolicyMs&quot;: 61,
-    &quot;documentQualityAnalysisMs&quot;: 1,
-    &quot;replayAnalysisMs&quot;: 1265
+    &quot;metadataMs&quot;: 3736,
+    &quot;fetchMs&quot;: 671,
+    &quot;scopeDiscoveryMs&quot;: 481,
+    &quot;setupExcludingFetchMs&quot;: 1264014,
+    &quot;comparisonMs&quot;: 889,
+    &quot;changeDiscoveryMs&quot;: 573,
+    &quot;workspacePreparationMs&quot;: 1255046,
+    &quot;projectDiscoveryMs&quot;: 1173,
+    &quot;totalMs&quot;: 2621980,
+    &quot;semanticAnalysisMs&quot;: 218,
+    &quot;restAnalysisMs&quot;: 56,
+    &quot;downstreamAnalysisMs&quot;: 1489,
+    &quot;semanticContextPolicyMs&quot;: 144,
+    &quot;documentQualityAnalysisMs&quot;: 2
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;medium&quot;,
     &quot;budgetBytes&quot;: 262144,
-    &quot;bytes&quot;: 155745,
-    &quot;estimatedTokens&quot;: 38937,
+    &quot;bytes&quot;: 184091,
+    &quot;estimatedTokens&quot;: 46023,
     &quot;retained&quot;: {
       &quot;evidenceSets&quot;: 18,
-      &quot;facts&quot;: 56,
+      &quot;facts&quot;: 71,
       &quot;semanticReviewUnits&quot;: 6,
       &quot;restCandidates&quot;: 0,
       &quot;downstreamCandidates&quot;: 8,
@@ -1839,19 +1788,19 @@ body {
     &quot;inference&quot;: {
       &quot;requestCount&quot;: 8,
       &quot;inferredCandidateCount&quot;: 0,
-      &quot;noImpactCount&quot;: 6,
-      &quot;blockedCount&quot;: 2
+      &quot;noImpactCount&quot;: 0,
+      &quot;blockedCount&quot;: 8
     },
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 44237,
-      &quot;guidanceExcerptsRetained&quot;: 7,
-      &quot;guidanceExcerptBytesRetained&quot;: 1021
+      &quot;documentBytesFetched&quot;: 1455003,
+      &quot;guidanceExcerptsRetained&quot;: 1,
+      &quot;guidanceExcerptBytesRetained&quot;: 136
     }
   }
 }</pre>
-<p><strong>Provenance:</strong> 2, model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json, {&quot;schemaVersion&quot;:1,&quot;appliedAt&quot;:&quot;2026-10-28T09:23:27.612Z&quot;,&quot;sourceAssessmentSha256&quot;:&quot;a11c3a692592419e16b8edb250f1bb577380eb14062822c55e62c06e86b14e5a&quot;,&quot;findingsChanged&quot;:false,&quot;blockersChanged&quot;:false}</p></div></details></section>
+<p><strong>Provenance:</strong> 2, model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
 </main>
 <script>
 function revealHashTarget() {
