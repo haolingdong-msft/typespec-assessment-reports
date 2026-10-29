@@ -1,0 +1,788 @@
+{
+  "schemaVersion": 1,
+  "description": "Reviewed downstream SDK alignment classifications, evidence associations, explanations, and related spec PR attribution.",
+  "reports": [
+    {
+      "pr": 44288,
+      "service": "Microsoft.HorizonDb / HorizonDb",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/0ebb7a0b359daca1a27826dc0b72a4ee99c0d168/sdk/horizondb/azure-mgmt-horizondb/CHANGELOG.md#L3-L43"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/0fbeae2758a5c57823006edc4e04c33c10e30f43/sdk/horizondb/azure-resourcemanager-horizondb/CHANGELOG.md#L3-L130"
+        }
+      },
+      "reason": "Assessment and SDK changelogs identify the clusterName and result-model breaking changes. The SDK release also carries later changes, but the relevant findings align."
+    },
+    {
+      "pr": 46679,
+      "service": "Commvault.ContentStore.Management",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/1d5c0729ac5851d692f84537f65d86df1f985cc4/sdk/commvaultcontentstore/azure-mgmt-commvaultcontentstore/CHANGELOG.md#L3-L30"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/cf933c24ed9c761566a5dd061effed8fe66c3dd1/sdk/commvaultcontentstore/azure-resourcemanager-commvaultcontentstore/CHANGELOG.md#L3-L82"
+        }
+      },
+      "reason": "Assessment and SDK changelogs identify the model and property breaks. Both SDK PRs were closed without merging, so this is generated-surface evidence rather than shipped-package evidence."
+    },
+    {
+      "pr": 44332,
+      "service": "Microsoft.HorizonDb / HorizonDb",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "relatedPrs": [
+        {
+          "number": 44288,
+          "label": "Earlier clusterName change"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/0ebb7a0b359daca1a27826dc0b72a4ee99c0d168/sdk/horizondb/azure-mgmt-horizondb/CHANGELOG.md#L3-L43"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/0fbeae2758a5c57823006edc4e04c33c10e30f43/sdk/horizondb/azure-resourcemanager-horizondb/CHANGELOG.md#L3-L130"
+        }
+      },
+      "reason": "Assessment reports the removal of the private-endpoint update method. Python and Java list the corresponding update rename or replacement. Additional delete-signature changes came from earlier #44288, while helper-model removals are grouped under the same root method change."
+    },
+    {
+      "pr": 44920,
+      "service": "Microsoft.ContainerRegistry / ContainerRegistry",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/ba4a9cb307f5f4159071f79019d78260ab0647e6/sdk/containerregistry/azure-mgmt-containerregistry/CHANGELOG.md#L3-L23"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/190c951ea54881396494b54de36a879f91ed04f3/sdk/containerregistry/azure-resourcemanager-containerregistry/CHANGELOG.md#L3-L46"
+        }
+      },
+      "reason": "Assessment and Java align on tokenId becoming optional. Python reports the same change plus additional Python-specific TypedDict removals."
+    },
+    {
+      "pr": 44101,
+      "service": "Microsoft.Compute / Bulkactions",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Partially aligned; difference expected",
+      "reasonCategory": "Language-specific breaking change",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/bfa76d9b21fe24ebd8d44cc6c22de354ac4c0a6b/sdk/compute/azure-mgmt-compute-bulkaction/CHANGELOG.md#L3-L249"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/d8de280c22558371ba175c39b916b7f30f285439/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md#L3-L530"
+        }
+      },
+      "reason": "Python reports no breaking change. Java changes ResourceOperation from a class to an interface because the model becomes a paged-operation item, a Java Fluent-specific generation effect."
+    },
+    {
+      "pr": 44524,
+      "service": "Microsoft.Compute / Bulkactions",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Partially aligned; difference expected",
+      "reasonCategory": "Language-specific and aggregated SDK changes",
+      "relatedPrs": [
+        {
+          "number": 44101,
+          "label": "Earlier paging trigger"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/bfa76d9b21fe24ebd8d44cc6c22de354ac4c0a6b/sdk/compute/azure-mgmt-compute-bulkaction/CHANGELOG.md#L3-L249"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/d8de280c22558371ba175c39b916b7f30f285439/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md#L3-L530"
+        }
+      },
+      "reason": "Python lists no breaking change. Java's ResourceOperation class-to-interface break was triggered by earlier #44101. The #44524 assessment findings are C# customizations and an inferred error-model replacement, so they are not expected to appear consistently in Python or Java changelogs."
+    },
+    {
+      "pr": 46008,
+      "service": "Microsoft.Relationships / Relationships",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
+      "reasonCategory": "SDK release contains changes from multiple spec PRs",
+      "relatedPrs": [
+        {
+          "number": 44941,
+          "label": "2026-03-01-preview"
+        },
+        {
+          "number": 45024,
+          "label": "2026-08-01 stable"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/28d7e5eb5c0ed8331ad0786aba1e00c8b1294f46/sdk/relationships/azure-mgmt-relationships/CHANGELOG.md#L3-L21"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/29ef7d99eb2169947d820881807fe98e95ef283a/sdk/relationships/azure-resourcemanager-relationships/CHANGELOG.md#L3-L57"
+        }
+      },
+      "reason": "The SDK breaking items were introduced by earlier spec changes. The SDK release aggregates multiple spec PRs, while assessment evaluates only #46008."
+    },
+    {
+      "pr": 43918,
+      "service": "Microsoft.ContainerService / Fleet",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
+      "reasonCategory": "SDK release contains changes from multiple spec PRs",
+      "relatedPrs": [
+        {
+          "number": 35829,
+          "label": "2025-04-01-preview"
+        },
+        {
+          "number": 38919,
+          "label": "2025-08-01-preview"
+        },
+        {
+          "number": 39498,
+          "label": "2026-02-01-preview"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/a4d46822ef348e6046a974896c2c0cb3798df0d4/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md#L3-L110"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/d71816d7db44736e8897f350b38c3057938acad7/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md#L3-L335"
+        }
+      },
+      "reason": "The stable SDK release repeats breaking items already recorded in earlier beta releases. Those items were not introduced by #43918."
+    },
+    {
+      "pr": 44557,
+      "service": "Microsoft.DocumentDB / MongoCluster",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/d985f172a2d8fe96f318147698a364e97fd822d2/sdk/mongocluster/azure-mgmt-mongocluster/CHANGELOG.md#L3-L8"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/86c5cd5d4773c5e8b8cc9ec306c43d63dbeaa910/sdk/mongocluster/azure-resourcemanager-mongocluster/CHANGELOG.md#L3-L12"
+        }
+      },
+      "reason": "Assessment reports no downstream breaking changes, and neither SDK changelog lists a breaking change."
+    },
+    {
+      "pr": 43757,
+      "service": "Microsoft.StorageCache / StorageCache",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/2d85158659f558602c2b0ef87c7196b0568bc7d0/sdk/storage/azure-mgmt-storagecache/CHANGELOG.md#L3-L19"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/3d03eade0a40e4bf958de781c8b8f11897d188a2/sdk/storagecache/azure-resourcemanager-storagecache/CHANGELOG.md#L3-L39"
+        }
+      },
+      "reason": "Assessment reports no downstream breaking changes, and the SDK changelogs contain only additive operations and models."
+    },
+    {
+      "pr": 39064,
+      "service": "Microsoft.StorageSync / StorageSync",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/1b58e985a6c9de2f57ce9dd6c19e55db5425a44f/sdk/storage/azure-mgmt-storagesync/CHANGELOG.md#L3-L24"
+        },
+        "java": {
+          "state": "initial",
+          "label": "Initial release",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/83e503e01bafb07287ad4c55ffcce74a94369fa3/sdk/storagesync/azure-resourcemanager-storagesync/CHANGELOG.md#L3-L9"
+        }
+      },
+      "reason": "Neither assessment nor the available SDK changelogs report a breaking change. Java is an initial release, so historical comparison is limited, but the observed evidence is aligned."
+    },
+    {
+      "pr": 42373,
+      "service": "Microsoft.Network / FrontDoor",
+      "category": "unknown",
+      "categoryLabel": "Cannot determine",
+      "outcome": "Cannot determine",
+      "sdkEvidence": {
+        "python": {
+          "state": "unverified",
+          "label": "Unverified",
+          "url": null
+        },
+        "java": {
+          "state": "unverified",
+          "label": "Unverified",
+          "url": null
+        }
+      },
+      "reason": "Assessment reports no downstream break, but no Python or Java management SDK release could be mapped to API 2026-04-01. The visible SDK releases predate this spec PR."
+    },
+    {
+      "pr": 43855,
+      "service": "Microsoft.Consumption / Consumption",
+      "category": "unknown",
+      "categoryLabel": "Cannot determine",
+      "outcome": "Cannot determine",
+      "sdkEvidence": {
+        "python": {
+          "state": "unverified",
+          "label": "Unverified",
+          "url": null
+        },
+        "java": {
+          "state": "unverified",
+          "label": "Unverified",
+          "url": null
+        }
+      },
+      "reason": "The three assessment findings are C#-only ResourceIdentifier alternate types. No defensible Python or Java SDK release mapping was found for API 2026-06-01."
+    },
+    {
+      "pr": 44200,
+      "service": "Microsoft.ServiceNetworking / ServiceNetworking",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
+      "reasonCategory": "Language-specific breaking change",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/140d0982fc0a1465305a4c2985b35042b6944729/sdk/servicenetworking/azure-mgmt-servicenetworking/CHANGELOG.md#L3-L36"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/f8084ee3a9ec07f356869c1ed70cb9ef49965b95/sdk/servicenetworking/azure-resourcemanager-servicenetworking/CHANGELOG.md#L3-L176"
+        }
+      },
+      "reason": "Python is additive. Java records Fluent-surface removals, mainly validate methods and update-wrapper changes, that are not represented by the neutral downstream contract."
+    },
+    {
+      "pr": 44334,
+      "service": "Microsoft.CognitiveServices / CognitiveServices",
+      "category": "unknown",
+      "categoryLabel": "Cannot determine",
+      "outcome": "Cannot determine",
+      "relatedPrs": [
+        {
+          "number": 44323,
+          "label": "Earlier API change"
+        },
+        {
+          "number": 44956,
+          "label": "Later API change"
+        },
+        {
+          "number": 45210,
+          "label": "Later API change"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/bf9360453675665e83e43f9390b1b6c8dc83422b/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md#L3-L45"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/33636956ee8b13fe21cd8af7b21da46325d69d01/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md#L3-L161"
+        }
+      },
+      "reason": "The assessment was blocked. Both SDK releases compare against an earlier package and aggregate intervening spec changes, so their breaking sections cannot be attributed to #44334 alone."
+    },
+    {
+      "pr": 44384,
+      "service": "Microsoft.Storage / Storage",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is explained",
+      "reasonCategory": "Assessment inference not reflected in emitted SDKs",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/5e61bd8058660ee4222c2442f31c9dc5e30d937a/sdk/storage/azure-mgmt-storage/CHANGELOG.md#L3-L35"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/a638d29e68f842319c51b0d517bcde34f4efdcc1/sdk/storage/azure-resourcemanager-storage/CHANGELOG.md#L3-L55"
+        }
+      },
+      "reason": "Assessment inferred that Encryption was renamed. Both emitted SDKs retain Encryption and add StorageAccountEncryption, so the inferred replacement is not corroborated by Python or Java."
+    },
+    {
+      "pr": 44586,
+      "service": "Microsoft.Fabric / Fabric",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
+      "reasonCategory": "Language-specific breaking change",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/fab454804876c4c01c1b36147828451f8c96a39e/sdk/fabric/azure-mgmt-fabric/CHANGELOG.md#L3-L15"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/2415d1810550ae5fe88b09805b066b667b2182ab/sdk/fabric/azure-resourcemanager-fabric/CHANGELOG.md#L3-L61"
+        }
+      },
+      "reason": "Python is additive. Every Java breaking item is a removed generated validate method; the feature models and operations themselves are additions."
+    },
+    {
+      "pr": 44598,
+      "service": "Microsoft.ContainerService / AKS",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/47f00357aad66da1ad32bb8c752759c7b9a8cfe4/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md#L3-L16"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/c860595433b2ca8135ab0fa953b6cdad98c4cf5c/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md#L3-L31"
+        }
+      },
+      "reason": "Python and Java publish additive stable and preview releases with no breaking section, matching the assessment's zero downstream-breaking findings."
+    },
+    {
+      "pr": 44750,
+      "service": "Microsoft.EventHub / Event Hubs",
+      "category": "unknown",
+      "categoryLabel": "Cannot determine",
+      "outcome": "Cannot determine",
+      "sdkEvidence": {
+        "python": {
+          "state": "unverified",
+          "label": "Unverified",
+          "url": null
+        },
+        "java": {
+          "state": "unverified",
+          "label": "Unverified",
+          "url": null
+        }
+      },
+      "reason": "No defensible Python or Java management SDK release association was found for API 2026-07-01-preview."
+    },
+    {
+      "pr": 44842,
+      "service": "Microsoft.Migrate / Waves",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
+      "reasonCategory": "Initial SDK release",
+      "sdkEvidence": {
+        "python": {
+          "state": "initial",
+          "label": "Initial release",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/2f6a18451dd0837ecfbd34858f400acc6ae30f0e/sdk/migrate/azure-mgmt-migrate/CHANGELOG.md#L3-L7"
+        },
+        "java": {
+          "state": "initial",
+          "label": "Initial release",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/f5d28ea9ae9b87b139081be2fed6685aeb89c56e/sdk/migrate/azure-resourcemanager-migrate/CHANGELOG.md#L3-L8"
+        }
+      },
+      "reason": "Assessment identifies two removed response properties. Both SDK packages are initial releases, so no previous published SDK surface exists for the changelog to describe as breaking."
+    },
+    {
+      "pr": 44882,
+      "service": "NewRelic.Observability / New Relic",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
+      "reasonCategory": "Language and generator migration",
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/696f6942aca6e45fac55105bec821817c234182a/sdk/newrelicobservability/azure-mgmt-newrelicobservability/CHANGELOG.md#L3-L49"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/1572763d3909bad07e84e27416d245ec76a5a2e1/sdk/newrelicobservability/azure-resourcemanager-newrelicobservability/CHANGELOG.md#L3-L215"
+        }
+      },
+      "reason": "The SDK breaking notes are dominated by Python hybrid-model and keyword-only changes plus Java validation and representation changes, rather than a neutral TCGC contract change in this PR."
+    },
+    {
+      "pr": 44988,
+      "service": "Microsoft.Network / Network and VMSS",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Partially aligned; difference expected",
+      "reasonCategory": "Language-specific and aggregated SDK changes",
+      "relatedPrs": [
+        {
+          "number": 44613,
+          "label": "Earlier initial-version PR"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/ee4b31ff1a7e235cf7a8d176529829d0cce5781d/sdk/network/azure-mgmt-network/CHANGELOG.md#L3-L111"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/95490d336a28001cb8d4c15133fea6d9a3dbc84a/sdk/network/azure-resourcemanager-network/CHANGELOG.md#L3-L129"
+        }
+      },
+      "reason": "Python directly records the ServiceGateways update-method renames corresponding to assessed LRO changes. Java reports only additions. The Python release also includes the earlier initial-version PR #44613."
+    },
+    {
+      "pr": 45167,
+      "service": "Microsoft.NetworkCloud / NetworkCloud",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
+      "reasonCategory": "Language-specific breaking change",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/db9e8a88bfe35500d5038424b1e7cfd6714b0386/sdk/networkcloud/azure-mgmt-networkcloud/CHANGELOG.md#L3-L22"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/44d3bd6299c6ac1ce499d32f5bcff8a6472e6828/sdk/networkcloud/azure-resourcemanager-networkcloud/CHANGELOG.md#L3-L68"
+        }
+      },
+      "reason": "Java reports three Fluent definition-stage removals while Python reports no break. These Java builder-surface changes are not represented by the neutral downstream assessment."
+    },
+    {
+      "pr": 45197,
+      "service": "Microsoft.RedHatOpenShift / HCP OpenShift",
+      "category": "unknown",
+      "categoryLabel": "Cannot determine",
+      "outcome": "Cannot determine",
+      "relatedPrs": [
+        {
+          "number": 45624,
+          "label": "Later 2026-09-01-preview"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "initial",
+          "label": "Initial release",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/ec9dd7540bf61e463e70a112af572587f3261bba/sdk/redhatopenshifthcp/azure-mgmt-redhatopenshifthcp/CHANGELOG.md#L3-L7"
+        },
+        "java": {
+          "state": "initial",
+          "label": "Initial release",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/097862362e1c37402a79c31e23a062437e37abee/sdk/redhatopenshifthcp/azure-resourcemanager-redhatopenshifthcp/CHANGELOG.md#L3-L10"
+        }
+      },
+      "reason": "The assessment was blocked. Both initial SDKs were generated after #45624 for a later API version, not for the assessed 2026-06-30-preview surface alone."
+    },
+    {
+      "pr": 45348,
+      "service": "Microsoft.DeviceRegistry / DeviceRegistry",
+      "category": "unknown",
+      "categoryLabel": "Cannot determine",
+      "outcome": "Cannot determine",
+      "relatedPrs": [
+        {
+          "number": 45288,
+          "label": "Aggregate parent merge"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/57cb3ee759f087c9bc9d252ded3fa4c27b7dd8ec/sdk/deviceregistry/azure-mgmt-deviceregistry/CHANGELOG.md#L3-L90"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/28a6f536c6446c106fc57589a67e16f6c6093db5/sdk/deviceregistry/azure-resourcemanager-deviceregistry/CHANGELOG.md#L3-L314"
+        }
+      },
+      "reason": "The SDK PRs emit stable 2026-11-01 from aggregate parent #45288, while the assessment isolates a 2026-11-02-preview child fix. The SDK breaking sections cannot be attributed to #45348 alone."
+    },
+    {
+      "pr": 45395,
+      "service": "Napster / Companion API",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/cb09a36f9561fadd907d40cca945c586993af7c7/sdk/napsteromniagentapi/azure-mgmt-napsteromniagentapi/CHANGELOG.md#L3-L8"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/684681dba8cbe4e3867d110f72d067fe82989854/sdk/napsteromniagentapi/azure-resourcemanager-napsteromniagentapi/CHANGELOG.md#L3-L10"
+        }
+      },
+      "reason": "Both exact-API generated changelogs contain no breaking changes, matching the assessment. The SDK PRs are not both merged, so this is generated rather than fully shipped evidence."
+    },
+    {
+      "pr": 45458,
+      "service": "Microsoft.Security / ServiceEntitlements",
+      "category": "unknown",
+      "categoryLabel": "Cannot determine",
+      "outcome": "Cannot determine",
+      "sdkEvidence": {
+        "python": {
+          "state": "unverified",
+          "label": "Unavailable",
+          "url": null
+        },
+        "java": {
+          "state": "unverified",
+          "label": "Unavailable",
+          "url": null
+        }
+      },
+      "reason": "The spec project has no Python or Java emitter configuration, no downstream package surface was found, and the assessment was blocked."
+    },
+    {
+      "pr": 45608,
+      "service": "Microsoft.SecurityInsights / SecurityInsights",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
+      "reasonCategory": "Language-specific and aggregated SDK changes",
+      "relatedPrs": [
+        {
+          "number": 40252,
+          "label": "Earlier API work"
+        },
+        {
+          "number": 45433,
+          "label": "Stable spec merge"
+        },
+        {
+          "number": 45615,
+          "label": "Java configuration"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/securityinsight/azure-mgmt-securityinsight/CHANGELOG.md#L3-L15"
+        },
+        "java": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/securityinsights/azure-resourcemanager-securityinsights/CHANGELOG.md#L13-L47"
+        }
+      },
+      "reason": "All ten assessment findings are C# client-name or alternate-type changes, so they are not expected in Python or Java. The SDK releases also aggregate other API-version and migration changes."
+    },
+    {
+      "pr": 45678,
+      "service": "Microsoft.ContainerService / Fleet",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
+      "reasonCategory": "Runtime behavior not represented in changelog",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/containerservice/azure-mgmt-containerservicefleet/CHANGELOG.md#L3-L55"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md#L13-L155"
+        }
+      },
+      "reason": "The assessment finding concerns an LRO final-state GET destination. That is runtime polling behavior, not a public type or signature change normally listed in generated SDK changelogs."
+    },
+    {
+      "pr": 45714,
+      "service": "Oracle.Database / OracleDatabase",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Partially aligned; difference expected",
+      "reasonCategory": "Language-specific mitigation",
+      "relatedPrs": [
+        {
+          "number": 46662,
+          "label": "Java compatibility mitigation"
+        }
+      ],
+      "sdkEvidence": {
+        "python": {
+          "state": "breaking",
+          "label": "Breaking listed",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/oracledatabase/azure-mgmt-oracledatabase/CHANGELOG.md#L3-L124"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/oracledatabase/azure-resourcemanager-oracledatabase/CHANGELOG.md#L13-L270"
+        }
+      },
+      "reason": "Python confirms the hostname and scanDnsName removals found by the assessment. Java was generated after #46662 deliberately preserved those members, so no Java breaking changes remained."
+    },
+    {
+      "pr": 45760,
+      "service": "Microsoft.ServiceFabric / Managed Clusters",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/servicefabricmanagedclusters/azure-mgmt-servicefabricmanagedclusters/CHANGELOG.md#L3-L7"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/servicefabricmanagedclusters/azure-resourcemanager-servicefabricmanagedclusters/CHANGELOG.md#L13-L17"
+        }
+      },
+      "reason": "The PR only adds C# names intended to preserve .NET compatibility. Python and Java regeneration entries contain no breaking section."
+    },
+    {
+      "pr": 45794,
+      "service": "Microsoft.EdgeOperator / SystemReadiness",
+      "category": "unknown",
+      "categoryLabel": "Cannot determine",
+      "outcome": "Cannot determine",
+      "sdkEvidence": {
+        "python": {
+          "state": "initial",
+          "label": "Initial release",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/edgeoperator/azure-mgmt-edgeoperator/CHANGELOG.md#L3-L7"
+        },
+        "java": {
+          "state": "initial",
+          "label": "Initial release",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/edgeoperator/azure-resourcemanager-edgeoperator/CHANGELOG.md#L3-L8"
+        }
+      },
+      "reason": "Both SDKs are initial releases, but the assessment was blocked by unavailable compiler, AutoRest, and TCGC baselines. There is no assessed downstream result to compare."
+    },
+    {
+      "pr": 46075,
+      "service": "Microsoft.StorageDiscovery / StorageDiscovery",
+      "category": "aligned",
+      "categoryLabel": "Aligned",
+      "outcome": "Aligned",
+      "sdkEvidence": {
+        "python": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/fa2790463a203d082feb80bc3574c7f1487797d1/sdk/storagediscovery/azure-mgmt-storagediscovery/CHANGELOG.md#L3-L17"
+        },
+        "java": {
+          "state": "clear",
+          "label": "No breaking",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/storagediscovery/azure-resourcemanager-storagediscovery/CHANGELOG.md#L13-L46"
+        }
+      },
+      "reason": "Both changelogs contain additive capability models and properties only, matching the assessment's zero downstream-breaking findings."
+    },
+    {
+      "pr": 46429,
+      "service": "Microsoft.DeviceUpdate / Device Registry",
+      "category": "unknown",
+      "categoryLabel": "Cannot determine",
+      "outcome": "Cannot determine",
+      "sdkEvidence": {
+        "python": {
+          "state": "initial",
+          "label": "Initial, open PR",
+          "url": "https://github.com/Azure/azure-sdk-for-python/blob/5b1b9b0239a817a2f598e483dd2701c950f508a1/sdk/deviceregistry/azure-mgmt-deviceregistrysoftwareupdate/CHANGELOG.md#L3-L7"
+        },
+        "java": {
+          "state": "initial",
+          "label": "Initial, open PR",
+          "url": "https://github.com/Azure/azure-sdk-for-java/blob/c33edd18a14fd29ee4be096d0c22baf20c5adc00/sdk/deviceregistry/azure-resourcemanager-deviceregistry-softwareupdate/CHANGELOG.md#L3-L8"
+        }
+      },
+      "reason": "The assessment was blocked, and neither SDK PR is merged or published. The exact generated mappings are provisional initial-release evidence only."
+    }
+  ]
+}

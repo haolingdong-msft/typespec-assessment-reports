@@ -17,10 +17,26 @@ such; they were not automatically reclassified from the fresh finding counts.
 
 Machine-readable artifacts:
 
+- [Generated SDK alignment data](https://haolingdong-msft.github.io/typespec-assessment-reports/alignment-data.json)
+- [Reviewed SDK alignment curation](https://haolingdong-msft.github.io/typespec-assessment-reports/alignment-curation.json)
 - [Fresh dashboard rows](https://haolingdong-msft.github.io/typespec-assessment-reports/reports.json)
 - [Fresh publication manifest](https://haolingdong-msft.github.io/typespec-assessment-reports/publication-manifest.json)
 - [Previous dashboard rows](https://haolingdong-msft.github.io/typespec-assessment-reports/legacy-reports.json)
 - [Pinned Python/Java changelog evidence](https://haolingdong-msft.github.io/typespec-assessment-reports/changelog-evidence.json)
+
+`alignment-curation.json` contains the reviewed classification, explanation,
+related spec PR attribution, and SDK evidence association for each retained
+report. Generate the dashboard-ready artifact after updating its inputs:
+
+```shell
+node scripts/generate-alignment-data.mjs
+```
+
+Verify that the committed artifact is valid and current:
+
+```shell
+node scripts/generate-alignment-data.mjs --check
+```
 
 The full structured result for PR #44988 is published as
 `assessment.json.gz` because the uncompressed report exceeds GitHub's
