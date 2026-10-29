@@ -158,6 +158,7 @@ async function buildAlignmentData() {
       outcome: curated.outcome,
       ...(curated.reasonCategory ? { reasonCategory: curated.reasonCategory } : {}),
       coverage: publication.coverage,
+      verdict: publication.verdict,
       assessmentResult: publication.result,
       confidence: publication.confidence,
       findings: publication.findings,
