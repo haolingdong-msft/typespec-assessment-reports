@@ -1,11 +1,1835 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PR #44332 fresh reassessment blocked</title>
-<style>body{max-width:900px;margin:48px auto;padding:0 24px;color:#1f2328;font:16px/1.55 system-ui,sans-serif}a{color:#0969da}.card{border:1px solid #d0d7de;border-radius:12px;padding:24px;background:#fff}.status{display:inline-block;padding:4px 10px;border-radius:999px;background:#fff8c5;color:#9a6700;font-weight:700}code{background:#f6f8fa;padding:2px 5px;border-radius:4px}</style>
-</head><body><main class="card"><span class="status">Fresh reassessment blocked</span>
-<h1>TypeSpec Assessment for PR #44332</h1>
-<p>The October 29, 2026 reassessment did not produce a finalizable assessment report. This is a blocked result, not a compatibility pass.</p>
-<h2>Potential limits</h2><ul><li>Downstream candidate downstream-5f27cb930d17c64d has no source-owned Semantic intent.</li></ul>
-<p><a href="https://github.com/Azure/azure-rest-api-specs/pull/44332">Open spec PR</a>
- &middot; <a href="legacy-index.html">Open the previous historical report</a></p>
-<p><a href="../../">Back to dashboard</a></p></main></body></html>
+<title>TypeSpec Assessment</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#64748b;--line:#dbe3ef;--accent:#2563eb;--good:#047857;--warn:#b45309;--danger:#b91c1c;--add-bg:#dcfce7;--add-text:#166534;--remove-bg:#fee2e2;--remove-text:#991b1b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,sans-serif}.container{width:min(1100px,calc(100% - 32px));margin:auto}.hero{padding:38px 0 42px;background:linear-gradient(120deg,#172554,#2554d8);color:white}.hero .eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:800;color:#dbeafe}.hero h1{margin:.35em 0 .55em;font-size:clamp(34px,4.2vw,58px);line-height:1.08;letter-spacing:-.025em}.hero-meta{font-size:16px;color:#e0e7ff}.hero-meta strong{color:#86efac;text-transform:capitalize}.hero a{color:#dbeafe}.summary-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:28px}.summary-card{display:block;min-height:150px;padding:18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.09);color:white!important;text-decoration:none;transition:background .15s,border-color .15s,transform .15s}.summary-card:hover,.summary-card:focus-visible{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5);transform:translateY(-2px);outline:none}.summary-card:focus-visible{box-shadow:0 0 0 3px #93c5fd}.summary-value{display:flex;gap:10px;align-items:center;font-size:25px;font-weight:800}.summary-value .pass{color:#86efac}.summary-value .fail{color:#fecaca}.summary-label{margin-top:8px;font-size:16px;font-weight:750}.summary-detail{margin-top:7px;color:#dbeafe;font-size:13px}.notice{padding:16px 0;background:#fffbeb;color:#713f12;border-bottom:1px solid #fde68a}main{padding:28px 0}section{margin:0 0 30px}.dimension-details>summary{cursor:pointer;list-style-position:outside}.dimension-details>summary h2{display:inline-block;margin:0 0 12px}.panel,.finding,.intent,.operation,.compliance-intent,.compliance-comparison{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}.finding{border-left:4px solid var(--warn)}.finding.high,.compliance-comparison.applicable-fail{border-left:4px solid var(--danger)}.finding.low{border-left-color:var(--muted)}.intent>summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.intent>summary .action{margin-left:0}.intent-finding-badges{display:inline-flex;gap:7px;flex-wrap:wrap;margin-left:auto}.intent-finding-badge{border:1px solid #991b1b;border-radius:999px;padding:3px 10px;background:#b91c1c;color:#fff!important;font-size:13px;font-weight:800;text-decoration:none}.intent-finding-badge:hover,.intent-finding-badge:focus-visible{background:#7f1d1d;outline:2px solid #fca5a5;outline-offset:2px}.intent>summary,.representative-example>summary,.operation summary,.compliance-intent>summary,.compliance-comparison>summary,.finding>summary,.comparison-details>summary,.affected-operations>summary,.root-cause-provenance>summary{cursor:pointer}.intent>summary,.compliance-intent>summary{font-size:18px}.intent-body,.compliance-intent-body,.compliance-comparison-body{padding-top:12px}.finding>summary{display:flex;align-items:center;gap:12px;font-size:18px}.sdk-contract-card>summary,.sdk-method-card>summary{flex-wrap:wrap}.finding-summary{margin-left:auto;color:var(--muted);font-size:15px}.severity,.origin-tag,.contract-tag{border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800}.contract-tag{background:#dbeafe;color:#1e40af}.severity{text-transform:lowercase}.severity.high{background:#fee2e2;color:#991b1b}.severity.medium{background:#fef3c7;color:#92400e}.severity.low{background:#dbeafe;color:#1e40af}.origin-tag.rest-breaking-tag{background:#fee2e2;color:#991b1b}.downstream-rest-link{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}.downstream-rest-link:hover strong,.downstream-rest-link:focus-visible strong{text-decoration:underline}.finding-body{padding-top:12px}.comparison-details{margin:14px 0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--panel) 94%,var(--accent))}.comparison-details>summary{font-size:16px}.comparison-body{padding-top:12px}.contract-metadata{grid-template-columns:max-content minmax(0,1fr);margin:4px 0 22px}.http-contract{display:inline-flex;align-items:baseline;gap:8px;flex-wrap:wrap}.contract-change-table{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden}.contract-change-table th{background:#eaf0f9}.contract-change-table th,.contract-change-table td{padding:13px 15px;border-right:1px solid var(--line)}.contract-change-table th:last-child,.contract-change-table td:last-child{border-right:0}.contract-member{width:31%;background:color-mix(in srgb,#eaf0f9 70%,var(--panel))}.contract-area-kind{display:block;margin-bottom:3px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.contract-before{width:34.5%;background:#fff1f1}.contract-after{width:34.5%;background:#eefaf3}.contract-value{display:inline-block;padding:3px 7px;border-radius:5px;font-weight:700}.contract-value.before{background:var(--remove-bg);color:var(--remove-text)}.contract-value.after{background:var(--add-bg);color:var(--add-text)}.contract-detail{display:block;margin-top:4px;color:var(--muted);font-size:13px}.breaking-rationale{margin:17px 0 22px;padding:12px 14px;border-left:3px solid #e7a400;background:#fff9e8}.affected-operations{margin:20px 0}.affected-operations>summary{font-size:18px}.affected-operation-list{display:grid;gap:7px;margin-top:10px}.affected-operation{display:grid;grid-template-columns:minmax(230px,.8fr) 65px minmax(300px,1.8fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}.http-method{color:#075cab;font-family:ui-monospace,monospace;font-weight:800}.contract-footer{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:18px;color:var(--muted);font-size:13px}.root-cause-provenance{margin-top:14px}.mapping-unavailable{color:var(--muted)}.representative-example{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:9px}.operation summary{display:flex;gap:12px;align-items:center}.operation summary span,.action{margin-left:auto;border-radius:999px;padding:2px 8px;background:#dbeafe;color:#1e40af}.operation-body{padding-top:12px}.diff{background:#111827;color:#e5e7eb;border-radius:10px;overflow:auto;margin:12px 0}.diff-path{padding:7px 12px;background:#1f2937}.diff-path a{color:#93c5fd}.diff pre{padding:12px;margin:0}.diff pre span{display:block}.diff pre .line-number{display:inline-block;width:42px;color:#94a3b8;user-select:none}.diff .add{background:#123d2a;color:#bbf7d0}.diff .remove{background:#51212a;color:#fecaca}.parameter-diff{margin:12px 0}.parameter-line{display:flex;gap:8px;align-items:baseline;padding:5px 9px;margin:3px 0;border-radius:6px}.parameter-line.add,.delta-after,ins{background:var(--add-bg);color:var(--add-text)}.parameter-line.remove,.delta-before,del{background:var(--remove-bg);color:var(--remove-text)}.parameter-line.modify,.parameter-line.reorder{background:#fef3c7;color:#92400e}.parameter-line>span:first-child{font-weight:800}.parameter-attribute{white-space:nowrap}.delta-before,.delta-after,del,ins{padding:2px 5px;border-radius:4px;text-decoration:none}dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px}dt{font-weight:700}dd{margin:0}.not-assessed{color:var(--muted);font-weight:700}.good,.compliance-summary.passed{color:var(--good)}.compliance-summary.failed{color:var(--danger)}.sources{color:var(--muted);font-size:13px}blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--panel) 90%,var(--accent))}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere}@media(max-width:1050px){.summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.affected-operation{grid-template-columns:1fr 65px}.affected-operation code{grid-column:1/-1}}@media(max-width:700px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.finding-summary{width:100%;margin-left:0}.contract-change-table{display:block;overflow-x:auto}.contract-change-table th,.contract-change-table td{min-width:210px}}@media(max-width:540px){.summary-grid{grid-template-columns:1fr}.hero h1{font-size:32px}}@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--panel:#172033;--text:#e5e7eb;--muted:#9ca3af;--line:#334155;--add-bg:#123d2a;--add-text:#bbf7d0;--remove-bg:#51212a;--remove-text:#fecaca}.notice{background:#422006;color:#fde68a}.parameter-line.modify,.parameter-line.reorder{background:#422006;color:#fde68a}.contract-change-table th{background:#202d45}.contract-member{background:#1d293d}.contract-before{background:#431f29}.contract-after{background:#15382b}.breaking-rationale{background:#3b2f13}.http-method{color:#76b9ff}}
+.tag{border-radius:999px;padding:3px 10px;background:#dbeafe;color:#1e40af;font-size:13px;font-weight:800}.finding-summary-meta{margin-left:auto;color:var(--muted);font-size:14px}.rest-operation-list{display:grid;gap:7px}.rest-operation-line{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(260px,2fr);gap:12px;padding:9px 11px;border:1px solid var(--line);border-radius:8px}.rest-operation-line>span{color:var(--muted)}@media(max-width:700px){.rest-operation-line{grid-template-columns:1fr}.finding-summary-meta{width:100%;margin-left:0}}
+.finding{border-left:1px solid var(--line)}
+.rest-contract-card .contract-tag{background:#fee2e2;color:#991b1b}.rest-contract-card .rest-operation-list{margin-top:10px}
+.notice{padding:0}.notice>summary{display:flex;min-height:46px;align-items:center;gap:10px;padding:8px 0;cursor:pointer;list-style:none}.notice>summary::-webkit-details-marker{display:none}.notice>summary::before{content:"▸";flex:none;color:#b45309;font-size:15px;font-weight:900;transition:transform .15s ease}.notice[open]>summary::before{transform:rotate(90deg)}.notice-title{flex:none;font-size:14px;font-weight:800}.notice-summary{overflow:hidden;color:color-mix(in srgb,currentColor 78%,var(--muted));font-size:12.5px;text-overflow:ellipsis;white-space:nowrap}.notice-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 0 12px 25px;font-size:12.5px;line-height:1.4}.notice-body p{margin:0}@media(max-width:700px){.notice-summary{display:none}.notice-body{grid-template-columns:1fr;gap:6px}}@media(prefers-color-scheme:dark){.notice>summary::before{color:#fbbf24}}
+.compliance-finding-group>summary{flex-wrap:wrap}.compliance-affected-intents{display:grid;gap:12px}.compliance-affected-intent{margin:0;padding:14px 16px;border:1px solid var(--line);border-radius:10px}.compliance-affected-intent h4{margin:0 0 8px}.compliance-affected-intent h5{margin:14px 0 6px}
+.intent-finding-badge{font:inherit;font-size:13px;cursor:pointer}.intent-impact-trigger{position:relative}.intent-impact-popover{position:absolute;z-index:20;top:calc(100% + 8px);right:0;display:none;width:min(480px,88vw);overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--panel);box-shadow:0 14px 34px rgb(31 42 68 / 18%)}.intent-impact-trigger.open .intent-impact-popover{display:grid}.intent-impact-popover a{display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);color:var(--text)!important;text-decoration:none}.intent-impact-popover a:first-child{border-top:0}.intent-impact-popover a:hover,.intent-impact-popover a:focus-visible{background:color-mix(in srgb,var(--panel) 92%,var(--accent))}.intent-impact-popover a span{color:var(--muted);font-size:13px}.intent h3,.representative-example>summary{font-size:17px;font-weight:750;line-height:1.35}.impact-highlight{outline:3px solid #ef4444;outline-offset:3px}
+.affected-methods{margin:20px 0}.affected-methods>summary{font-size:18px}.affected-method-list{display:grid;gap:7px;margin-top:10px}.affected-method{display:grid;grid-template-columns:minmax(180px,.6fr) minmax(280px,1.4fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}@media(max-width:700px){.affected-method{grid-template-columns:1fr}}
+.summary-value {
+  white-space: nowrap;
+}
+.summary-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.summary-heading .summary-value {
+  flex: none;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.summary-heading .summary-label {
+  min-width: 0;
+  margin-top: 0;
+  line-height: 1.4;
+}
+.summary-heading .info {
+  color: #dbeafe;
+}
+@media (min-width: 1051px) {
+  .summary-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.report-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 14px;
+}
+.report-section-head > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+.report-section-head h2 {
+  margin: 0;
+}
+.report-section-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.report-section-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.report-count {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eaf0f9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+}
+.report-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+}
+.report-card {
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.report-card > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+.report-card > summary::-webkit-details-marker {
+  display: none;
+}
+.report-card > summary:before {
+  content: "+";
+  width: 16px;
+  flex: none;
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 1.2;
+}
+.report-card[open] > summary:before {
+  content: "−";
+}
+.report-card-title {
+  min-width: 0;
+  flex: 1;
+}
+.report-card-title strong {
+  display: block;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.report-card-title small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+.report-card-body {
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--line);
+}
+.report-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.report-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.report-badge.add {
+  background: #dcfce7;
+  color: #166534;
+}
+.report-badge.modify,
+.report-badge.direct {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.report-badge.remove {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.report-badge.indirect {
+  background: #ede9fe;
+  color: #6b21a8;
+}
+.report-badge.mixed {
+  background: #d1fae5;
+  color: #065f46;
+}
+.report-badge.unknown {
+  background: #fef3c7;
+  color: #92400e;
+}
+.report-badge.neutral {
+  background: #edf2f8;
+  color: #405c7c;
+}
+.report-badge.coverage {
+  text-transform: none;
+}
+.report-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.report-table th {
+  background: #f2f5fa;
+  color: #53637a;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.report-table th,
+.report-table td {
+  padding: 11px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.report-table tr:last-child td {
+  border-bottom: 0;
+}
+.report-table td:first-child {
+  width: 29%;
+  min-width: 145px;
+}
+.report-table td:nth-child(2),
+.report-table td:nth-child(3) {
+  width: 35.5%;
+  min-width: 170px;
+}
+.report-table td:nth-child(2) {
+  background: #fff5f4;
+}
+.report-table td:nth-child(3) {
+  background: #f0faf5;
+}
+.report-table pre {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-detail,
+.report-small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.report-link-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 5px 0 0;
+}
+.report-link {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.report-link:hover,
+.report-link:focus-visible {
+  text-decoration: underline;
+  outline-offset: 2px;
+}
+.report-intent-relations {
+  margin-top: 12px;
+  cursor: default;
+}
+.report-relation-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: text;
+}
+.report-link.impact,
+.report-link[href^="#compliance-finding-"] {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fff1f2;
+}
+.report-reference-paths {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0;
+}
+.report-reference-path {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.35fr) minmax(180px, 1fr) max-content;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--panel) 92%, var(--accent));
+  font-size: 12px;
+}
+.report-reference-path > span {
+  color: var(--muted);
+}
+.report-type-impact {
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+.report-type-impact:first-child {
+  border-top: 0;
+}
+.report-type-impact h4 {
+  margin: 0 0 5px;
+}
+.report-guideline-section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-guideline-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+.report-guideline-section + .report-guideline-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.report-document-snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.report-document-snapshots.single-snapshot {
+  grid-template-columns: minmax(0, 1fr);
+}
+.report-document-context {
+  min-width: 0;
+}
+.report-document-related {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.report-document-related-type > h5 {
+  font-size: 13px;
+  margin: 15px 0 8px;
+  overflow-wrap: anywhere;
+}
+.report-document-related pre {
+  max-height: 400px;
+  overflow: auto;
+}
+.report-document-snapshot {
+  min-width: 0;
+}
+.report-document-snapshot h4,
+.report-document-snapshot h5 {
+  margin: 12px 0 6px;
+}
+.document-quality-check pre {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-document-rationale {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.report-document-rationale p {
+  margin: 5px 0 0;
+}
+.document-quality-scope {
+  margin-top: 14px;
+}
+.document-quality-intent-link {
+  margin-bottom: 12px;
+}
+.document-quality-file {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.document-quality-file-count {
+  font-weight: 400;
+  color: var(--muted);
+}
+.document-quality-list {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+  overscroll-behavior: contain;
+}
+.document-quality-row,
+.document-quality-document > summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.document-quality-document > summary {
+  cursor: pointer;
+}
+.document-quality-document > summary:before {
+  content: "+";
+  color: var(--accent);
+}
+.document-quality-document[open] > summary:before {
+  content: "-";
+}
+.document-quality-document > summary > span:first-of-type {
+  flex: 1;
+}
+.document-quality-document > summary > span:first-child,
+.document-quality-row > a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.document-quality-document > summary > .report-badge,
+.document-quality-row > .report-badge {
+  flex: none;
+}
+.document-quality-document-body {
+  padding: 12px;
+}
+.document-quality-document-body h4 {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+.document-quality-document-body blockquote {
+  margin: 0 0 15px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.document-quality-current {
+  padding: 0;
+}
+.document-quality-description-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.document-quality-description-heading h3,
+.document-quality-explanation h3,
+.document-quality-suggestion h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.document-quality-current mark {
+  background: var(--remove-bg);
+  color: var(--remove-text);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+.document-quality-explanation p,
+.document-quality-suggestion p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+.document-quality-check .document-quality-source {
+  margin-top: 16px;
+}
+.document-quality-source pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-badge.neutral {
+  background: color-mix(in srgb, var(--panel) 85%, var(--muted));
+  color: var(--muted);
+}
+.document-quality-neutral > summary {
+  padding: 12px 18px;
+}
+.document-quality-neutral .report-card-title strong {
+  font-size: 13px;
+}
+.document-quality-list:focus-visible,
+.document-quality-file > summary:focus-visible,
+.document-quality-document > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.report-source {
+  margin-bottom: 16px;
+}
+.report-source > summary,
+.report-subdetails > summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+.report-http {
+  color: #075cab;
+  font:
+    800 12px ui-monospace,
+    monospace;
+}
+.report-card .operation summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+}
+.report-card .operation summary > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-card .operation summary > code {
+  grid-column: 1/-1;
+}
+.report-card .operation summary > span {
+  margin-left: 0;
+  justify-self: start;
+}
+.report-operation-remainder {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.container,
+.report-card-body,
+.report-card,
+.report-guideline-section,
+.report-source,
+.operation {
+  min-width: 0;
+}
+body {
+  overflow-wrap: anywhere;
+}
+.diff,
+.report-table-wrap,
+#appendix .panel {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.diff-path {
+  overflow-wrap: anywhere;
+}
+#appendix pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#appendix table {
+  display: block;
+  overflow-x: auto;
+}
+@media (max-width: 760px) {
+  .report-document-snapshots {
+    grid-template-columns: 1fr;
+  }
+  .report-section-head {
+    display: block;
+  }
+  .report-section-meta {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+  .report-card > summary {
+    flex-wrap: wrap;
+  }
+  .report-card > summary > .report-badges {
+    margin-left: 28px;
+  }
+  .report-reference-path {
+    grid-template-columns: 1fr;
+  }
+  .report-count {
+    max-width: 100%;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-count {
+    background: #26344d;
+    color: #cbd5e1;
+  }
+  .report-badge.indirect {
+    background: #3b2852;
+    color: #e9d5ff;
+  }
+  .report-badge.mixed {
+    background: #143d34;
+    color: #a7f3d0;
+  }
+  .report-badge.add {
+    background: #123d2a;
+    color: #bbf7d0;
+  }
+  .report-badge.modify,
+  .report-badge.direct {
+    background: #202d45;
+    color: #dbeafe;
+  }
+  .report-badge.remove {
+    background: #431f29;
+    color: #fecaca;
+  }
+  .report-badge.unknown {
+    background: #422006;
+    color: #fde68a;
+  }
+  .report-table th {
+    background: #202d45;
+    color: #cbd5e1;
+  }
+  .report-table td:nth-child(2) {
+    background: #431f29;
+  }
+  .report-table td:nth-child(3) {
+    background: #15382b;
+  }
+  .report-link.impact,
+  .report-link[href^="#compliance-finding-"] {
+    color: #fecaca;
+    border-color: #7f1d1d;
+    background: #431f29;
+  }
+  .report-http {
+    color: #93c5fd;
+  }
+}
+
+</style></head><body>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>5 TypeSpec changes for HorizonDb</h1>
+<p class="hero-meta">TypeSpec source diff: <code>8329aa9690e06107f169e9f29f95548856820d5f</code> → <code>fda83cbed9a358cf8fc702233ac4f9239dc90c65</code></p>
+<div class="summary-grid">
+<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">5 intents<br>20 operations<br>1 Added, 4 Modified, 0 Removed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>4/4 intents assessed</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Partial coverage<br>1 finding</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Partial coverage<br>1 finding</div></a>
+<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">1 finding<br>16 declarations checked</div></a>
+</div></div></header>
+<details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
+<div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
+<p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
+<main class="container">
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">1 operations · 1 findings</span></div></div><details class="report-card rest-contract-card" id="rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections_Update</strong><small><span class="report-http">PATCH</span> <code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code> · 2026-01-20-preview</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-52b3113e550c957e">Update HorizonDbAdministrators, HorizonDbClusters, HorizonDbPrivateEndpointConnections</a></div></div></div><div class="report-badges"><span class="report-count">1 changes</span></div></summary><div class="report-card-body"><span id="finding-rest-3abd426242e6d014"></span><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>operation-removed</strong></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>removed</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> The existing private endpoint update operation is absent in the target version, so callers can no longer send that request and must migrate to the replacement operation.</div></div></details></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">1 mapped methods · 0 changed types</span></div></div><details class="report-card sdk-method-card" id="downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections.update</strong><small>The normalized SDK method contract changes directly.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-52b3113e550c957e">Update HorizonDbAdministrators, HorizonDbClusters, HorizonDbPrivateEndpointConnections</a></div></div></div><div class="report-badges"><span class="report-badge direct">Direct method change</span></div></summary><div class="report-card-body"><span id="downstream-downstream-group-4e7a4c3d52495246"></span><span id="downstream-downstream-f02fe9a89b1cdc9a"></span><span id="finding-downstream-f02fe9a89b1cdc9a"></span><p class="report-small"><strong>Recorded normalized SDK method:</strong> <code>Microsoft.HorizonDb.HorizonDbPrivateEndpointConnections.update</code></p><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK method</span><strong>Normalized input order</strong></td><td><pre>1. resourceGroupName (path): string
+2. clusterName (path): string
+3. privateEndpointConnectionName (path): string
+4. properties (body input): PrivateEndpointConnectionUpdate</pre></td><td><pre>Not recorded</pre></td></tr><tr><td><span class="contract-area-kind">SDK method</span><strong>Normalized method name</strong></td><td><pre>update</pre></td><td><pre>Not recorded</pre></td></tr><tr><td><span class="contract-area-kind">SDK method</span><strong>Return type (body output)</strong></td><td><pre>PrivateEndpointConnectionResource</pre></td><td><pre>Not recorded</pre></td></tr></tbody></table></div><p class="report-small"><strong>Constant headers (not numbered caller inputs):</strong> Baseline: Content-Type (header): &quot;application/json&quot;; Baseline: Accept (header): &quot;application/json&quot;</p><div class="breaking-rationale"><strong>Why this is breaking:</strong> The public update method is no longer generated, so existing SDK callers must switch to the new update-status method.</div><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details></section>
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span></div></div><p class="report-small">1 finding · 16 declarations checked</p><div class="document-quality-scope"><details class="report-card document-quality-check" id="document-quality-document-finding-7654f5737c364e2b"><summary><div class="report-card-title"><strong>HorizonDbAdministrators</strong><small>Missing documentation for HorizonDbAdministrators</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-52b3113e550c957e">Update HorizonDbAdministrators, HorizonDbClusters, HorizonDbPrivateEndpointConnections</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:237-261</code></p><pre><code>@added(Versions.v2026_05_01_preview)
+@armResourceOperations
+interface HorizonDbAdministrators {
+  @doc(&quot;Gets information about a HorizonDB administrator.&quot;)
+  get is ArmResourceRead&lt;HorizonDbAdministrator&gt;;
+
+  @doc(&quot;Creates a new HorizonDB administrator or updates an existing administrator.&quot;)
+  @Azure.Core.useFinalStateVia(&quot;azure-async-operation&quot;)
+  createOrUpdate is Azure.ResourceManager.Legacy.CreateOrReplaceAsync&lt;
+    HorizonDbAdministrator,
+    Request = HorizonDbAdministratorAdd
+  &gt;;
+
+  @doc(&quot;Deletes a HorizonDB administrator.&quot;)
+  delete is ArmResourceDeleteWithoutOkAsync&lt;
+    HorizonDbAdministrator,
+    Response =
+      | ArmDeleteAcceptedLroResponse&lt;LroHeaders = ArmCombinedLroHeaders &amp;
+          Azure.Core.Foundations.RetryAfterHeader&gt;
+      | ArmDeletedNoContentResponse
+  &gt;;
+
+  @doc(&quot;Lists all HorizonDB administrators in a cluster.&quot;)
+  list is ArmResourceListByParent&lt;HorizonDbAdministrator&gt;;
+}</code></pre></details><div class="report-guideline-section document-quality-explanation"><h3>Why this needs attention</h3><p>The TypeSpec compiler returned no nonempty documentation for this declaration.</p></div><div class="report-guideline-section document-quality-suggestion"><h3>Suggested change</h3><p>Add a nonempty TypeSpec documentation description.</p></div></div></details></div></section>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">5 intents · 1 added · 4 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-40b6cfebaa6a266d"><summary><div class="report-card-title"><strong>Add AuthenticationState, HorizonDbAdministrator, HorizonDbAdministratorAdd, HorizonDbAdministratorProperties</strong><small>Adds AuthenticationState, HorizonDbAdministrator, HorizonDbAdministratorAdd, HorizonDbAdministratorProperties across 6 affected operations. The bounded evidence records 158 changed constructs and requires judgment for uncovered customization or configuration hunks.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">documentation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-40b6cfebaa6a266d</code></p><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 59 normalized facts; 7 source hunks; 6 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>source:source-753ced93045db216</code>; <code>transform:arm-resource-identifier</code></p><details class="report-subdetails"><summary>Change facts and provenance (59)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>HorizonDbComputeModel.vCores</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-1f769711d9537200</span></td></tr><tr><td><code>HorizonDbComputeModel</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-e01b2ddebe59a28f</span></td></tr><tr><td><code>State.Disabled</code></td><td>documentation</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-07d2ed97b9ff3d34, declaration-2ef056a3f4a68f05</span></td></tr><tr><td><code>HorizonDbAdministratorPropertiesForAdd.tenantId</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-7598d95084a95429</span></td></tr><tr><td><code>HorizonDbAdministratorProperties.tenantId</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-d63dc347506b7233</span></td></tr><tr><td><code>HorizonDbComputeModel.maxvCores</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-a9d5280f110c7ae8</span></td></tr><tr><td><code>PrincipalTypes.Unknown</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-d35f3efc336ce255</span></td></tr><tr><td><code>HorizonDbComputeModelType</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-eff229cd73229c0c</span></td></tr><tr><td><code>HorizonDbClusterAuthConfig.passwordAuth</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-651dfcb666ca5ce0</span></td></tr><tr><td><code>PrincipalTypes.User</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-9413a04acc911af8</span></td></tr><tr><td><code>State.Upgrading</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-9ca389816c85c623</span></td></tr><tr><td><code>PrincipalTypes.ServicePrincipal</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-baaa058f8140068b</span></td></tr><tr><td><code>HorizonDbAdministratorProperties.principalName</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-20b15ed7ee4e2167</span></td></tr><tr><td><code>State.Stopping</code></td><td>documentation</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-85c695d6c3f59922, declaration-8bf4ea77869862b7</span></td></tr><tr><td><code>HorizonDbClusterMirroring</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-b57be7ec04fa7b81</span></td></tr><tr><td><code>HorizonDbAdministratorAdd.properties</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-ca608eb5a50779c3</span></td></tr><tr><td><code>HorizonDbClusterMirroring.userAssignedIdentityId</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-aca757b27ae8e48c</span></td></tr><tr><td><code>PrincipalTypes</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-c83c11a8b57e4594</span></td></tr><tr><td><code>HorizonDbAdministrator.name</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-97b458a618cecd7a<br>declarations: declaration-1f25b8c31ca63717</span></td></tr><tr><td><code>HorizonDbComputeModelType.Provisioned</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-2cb5d3005e55ab37</span></td></tr><tr><td><code>HorizonDbClusterProperties.authConfig</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-77bbeb341d433a76</span></td></tr><tr><td><code>HorizonDbComputeModelType.Serverless</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-b901a1abe42b1313</span></td></tr><tr><td><code>State.Starting</code></td><td>documentation</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-33cc3625be38659c, declaration-e215f85e07390eaf</span></td></tr><tr><td><code>State.Ready</code></td><td>documentation</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-740c81a911db284d, declaration-e78df4b09d43c34c</span></td></tr><tr><td><code>State.Healthy</code></td><td>documentation</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-b28a31c68f41ebdf, declaration-d65c6a5239046b89</span></td></tr><tr><td><code>HorizonDbClusterForPatchUpdate</code></td><td>type</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-d1638be6b5464dfe<br>declarations: declaration-3bfbf050c3308a9e, declaration-924fc46c4a0c06c3</span></td></tr><tr><td><code>HorizonDbClusterAuthConfig.tenantId</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-3cd35d3c2db89a59</span></td></tr><tr><td><code>HorizonDbAdministratorProperties.provisioningState</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-2e53496add453aa0</span></td></tr><tr><td><code>State.Updating</code></td><td>documentation</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-3bb14c201d3b78cf, declaration-a0ba0791ff8bf726</span></td></tr><tr><td><code>HorizonDbAdministratorProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-a8bd84e69564c6e0</span></td></tr><tr><td><code>HorizonDbClusterMirroring.databaseNames</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-36129035da29b8f0</span></td></tr><tr><td><code>HorizonDbClusterPropertiesForPatchUpdate.authConfig</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-d1638be6b5464dfe<br>declarations: declaration-c12c43e275ff3ee5</span></td></tr><tr><td><code>HorizonDbAdministratorAdd</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-ced4da1b025fa73d</span></td></tr><tr><td><code>HorizonDbAdministratorPropertiesForAdd.principalName</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-0bf2f0ae500f7bad</span></td></tr><tr><td><code>HorizonDbClusterProperties.mirroring</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-d80d17132b81b875</span></td></tr><tr><td><code>HorizonDbCluster</code></td><td>type</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-a274ee0d6eabf8cc<br>declarations: declaration-436f7c83fcc1b773, declaration-6806fbe19e963639</span></td></tr><tr><td><code>HorizonDbAdministratorProperties.objectId</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-269a1ed3adeb8aac</span></td></tr><tr><td><code>HorizonDbClusterAuthConfig.entraIdAuth</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-cc6a530da879255d</span></td></tr><tr><td><code>AuthenticationState</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-de8601965b73306d</span></td></tr><tr><td><code>HorizonDbClusterProperties</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-160524e8b1476481, declaration-6397ba895ca5c61e</span></td></tr><tr><td><code>HorizonDbClusterPropertiesForPatchUpdate.mirroring</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-d1638be6b5464dfe<br>declarations: declaration-225ab4010126e6b9</span></td></tr><tr><td><code>HorizonDbAdministrator</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-97b458a618cecd7a<br>declarations: declaration-6de02393e4826b83</span></td></tr><tr><td><code>AuthenticationState.Enabled</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-5cf8e1ec475b629a</span></td></tr><tr><td><code>PrincipalTypes.Group</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-7ac67e727da36083</span></td></tr><tr><td><code>HorizonDbClusterProperties.computeModel</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-1320cf7156e323b0</span></td></tr><tr><td><code>AuthenticationState.Disabled</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-1d1dfaec5159648c</span></td></tr><tr><td><code>State.Stopped</code></td><td>documentation</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-28441d35d6db9c76, declaration-2ae27d0186eb20d2</span></td></tr><tr><td><code>State.Dropping</code></td><td>documentation</td><td>modify</td><td></td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-c69a6aedde347790, declaration-e96e45c8f633c1f5</span></td></tr><tr><td><code>HorizonDbComputeModel.minvCores</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-ef96a280dffc2a57</span></td></tr><tr><td><code>HorizonDbAdministratorProperties.principalType</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-896922b8381a4333</span></td></tr><tr><td><code>objectId</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-97b458a618cecd7a<br>declarations: declaration-54b8595f17c31dd2</span></td></tr><tr><td><code>HorizonDbClusterPropertiesForPatchUpdate</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-d1638be6b5464dfe<br>declarations: declaration-af7221759573075e, declaration-c06e190a50913db8</span></td></tr><tr><td><code>HorizonDbComputeModel.type</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-5397961f0ce37afd</span></td></tr><tr><td><code>HorizonDbClusterAuthConfig</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-2038c1b17a3305a4<br>declarations: declaration-d1c9cd7594f99b4c</span></td></tr><tr><td><code>HorizonDbClusterPropertiesForPatchUpdate.computeModel</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-d1638be6b5464dfe<br>declarations: declaration-f132d1486a411f17</span></td></tr><tr><td><code>State.Succeeded</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-6d446ac4069abca7</span></td></tr><tr><td><code>HorizonDbAdministratorPropertiesForAdd</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-abbd8fcd598fcbe1</span></td></tr><tr><td><code>HorizonDbAdministratorPropertiesForAdd.principalType</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-b9207c3f2334a9f6<br>declarations: declaration-0baf668df4a59fa4</span></td></tr><tr><td><code>State</code></td><td>type</td><td>modify</td><td>property-contract, version-activation</td><td><code>source-753ced93045db216</code><br><span class="report-small">hunks: hunk-f131d47ad7cedb9c<br>declarations: declaration-2555753b7065098b, declaration-fb228e5d48da7559</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/models.tsp</div><pre><span class="context"> using TypeSpec.Http;</span>
+<span class="context"> using Azure.Core;</span>
+<span class="context"> using Azure.ResourceManager;</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="context"> </span>
+<span class="context"> namespace Microsoft.HorizonDb;</span>
+<span class="context"> </span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/models.tsp</div><pre><span class="context">   @path</span>
+<span class="context">   @segment(&quot;clusters&quot;)</span>
+<span class="context">   name: string;</span>
+<span class="add">+</span>
+<span class="add">+  ...Azure.ResourceManager.ManagedServiceIdentityProperty;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @doc(&quot;Represents the HorizonDB pool.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/models.tsp</div><pre><span class="context">   name: string;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+@added(Versions.v2026_05_01_preview)</span>
+<span class="add">+@doc(&quot;Represents an Entra ID administrator configured on a HorizonDB cluster.&quot;)</span>
+<span class="add">+@parentResource(HorizonDbCluster)</span>
+<span class="add">+model HorizonDbAdministrator</span>
+<span class="add">+  is Azure.ResourceManager.ProxyResource&lt;HorizonDbAdministratorProperties&gt; {</span>
+<span class="add">+  @doc(&quot;The Entra ID object identifier of the principal (an RFC 4122 GUID).&quot;)</span>
+<span class="add">+  @pattern(&quot;^[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}$&quot;)</span>
+<span class="add">+  @key(&quot;objectId&quot;)</span>
+<span class="add">+  @path</span>
+<span class="add">+  @segment(&quot;administrators&quot;)</span>
+<span class="add">+  name: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="context"> @doc(&quot;Properties of a HorizonDB cluster.&quot;)</span>
+<span class="context"> model HorizonDbClusterProperties {</span>
+<span class="context">   @doc(&quot;The administrator login name.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/models.tsp</div><pre><span class="context">   @doc(&quot;Defines connection to a parameter group.&quot;)</span>
+<span class="context">   @visibility(Lifecycle.Update, Lifecycle.Read)</span>
+<span class="context">   parameterGroup?: HorizonDbClusterParameterGroupConnectionProperties;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;Authentication configuration for the HorizonDB cluster.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Update, Lifecycle.Read)</span>
+<span class="add">+  authConfig?: HorizonDbClusterAuthConfig;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;The compute model for the cluster.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Update, Lifecycle.Read)</span>
+<span class="add">+  computeModel?: HorizonDbComputeModel;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;Mirroring configuration for the HorizonDB cluster.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Create, Lifecycle.Update, Lifecycle.Read)</span>
+<span class="add">+  mirroring?: HorizonDbClusterMirroring;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_05_01_preview)</span>
+<span class="add">+@doc(&quot;Mirroring configuration for a HorizonDB cluster.&quot;)</span>
+<span class="add">+model HorizonDbClusterMirroring {</span>
+<span class="add">+  @doc(&quot;The names of the databases to mirror.&quot;)</span>
+<span class="add">+  databaseNames?: string[];</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The resource ID of the user-assigned managed identity used for mirroring.&quot;)</span>
+<span class="add">+  userAssignedIdentityId?: armResourceIdentifier&lt;[</span>
+<span class="add">+    {</span>
+<span class="add">+      type: &quot;Microsoft.ManagedIdentity/userAssignedIdentities&quot;;</span>
+<span class="add">+    }</span>
+<span class="add">+  ]&gt;;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_05_01_preview)</span>
+<span class="add">+@doc(&quot;Authentication configuration for a HorizonDB cluster.&quot;)</span>
+<span class="add">+model HorizonDbClusterAuthConfig {</span>
+<span class="add">+  @doc(&quot;Indicates whether Microsoft Entra ID authentication is enabled or disabled.&quot;)</span>
+<span class="add">+  entraIdAuth?: AuthenticationState;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The Microsoft Entra tenant ID.&quot;)</span>
+<span class="add">+  tenantId?: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Indicates whether password authentication is enabled or disabled.&quot;)</span>
+<span class="add">+  passwordAuth?: AuthenticationState;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_05_01_preview)</span>
+<span class="add">+@doc(&quot;The compute model for a HorizonDB cluster.&quot;)</span>
+<span class="add">+model HorizonDbComputeModel {</span>
+<span class="add">+  @doc(&quot;The compute model type. Supported values: &#39;Provisioned&#39;, &#39;Serverless&#39;.&quot;)</span>
+<span class="add">+  type?: HorizonDbComputeModelType;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The fixed vCore count for Provisioned compute.&quot;)</span>
+<span class="add">+  vCores?: int32;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The minimum vCores for Serverless compute. Defines the lower autoscaling bound.&quot;)</span>
+<span class="add">+  minvCores?: float64;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The maximum vCores for Serverless compute. Defines the upper autoscaling bound.&quot;)</span>
+<span class="add">+  maxvCores?: float64;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;The compute model type.&quot;)</span>
+<span class="add">+union HorizonDbComputeModelType {</span>
+<span class="add">+  string,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Provisioned compute.&quot;)</span>
+<span class="add">+  Provisioned: &quot;Provisioned&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Serverless compute.&quot;)</span>
+<span class="add">+  Serverless: &quot;Serverless&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @doc(&quot;Properties of a HorizonDB cluster for update operations.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/models.tsp</div><pre><span class="context"> </span>
+<span class="context">   @doc(&quot;Defines connection to a parameter group.&quot;)</span>
+<span class="context">   parameterGroup?: HorizonDbClusterParameterGroupConnectionProperties;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;Authentication configuration for the HorizonDB cluster.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Update)</span>
+<span class="add">+  authConfig?: HorizonDbClusterAuthConfig;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;The compute model for the cluster.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Update)</span>
+<span class="add">+  computeModel?: HorizonDbComputeModel;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;Mirroring configuration for the HorizonDB cluster.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Update)</span>
+<span class="add">+  mirroring?: HorizonDbClusterMirroring;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @doc(&quot;HorizonDB cluster for update operations.&quot;)</span>
+<span class="context"> model HorizonDbClusterForPatchUpdate {</span>
+<span class="context">   ...Azure.ResourceManager.Foundations.ArmTagsProperty;</span>
+<span class="add">+  ...Azure.ResourceManager.ManagedServiceIdentityProperty;</span>
+<span class="context"> </span>
+<span class="context">   @doc(&quot;The properties that can be updated for a HorizonDB cluster.&quot;)</span>
+<span class="context">   properties?: HorizonDbClusterPropertiesForPatchUpdate;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+@@added(HorizonDbCluster.identity, Versions.v2026_05_01_preview);</span>
+<span class="add">+@@added(HorizonDbClusterForPatchUpdate.identity, Versions.v2026_05_01_preview);</span>
+<span class="add">+</span>
+<span class="context"> @doc(&quot;Properties of a HorizonDB pool.&quot;)</span>
+<span class="context"> model HorizonDbPoolProperties {</span>
+<span class="context">   @doc(&quot;The location of the HorizonDB pool.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/models.tsp</div><pre><span class="context">   provisioningState?: ProvisioningState;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+@added(Versions.v2026_05_01_preview)</span>
+<span class="add">+@doc(&quot;Properties of a HorizonDB administrator.&quot;)</span>
+<span class="add">+model HorizonDbAdministratorProperties {</span>
+<span class="add">+  @doc(&quot;The display name or UPN of the Entra ID principal. For users, typically the User Principal Name (e.g., admin@contoso.com). For groups, the group display name. For service principals, the application display name.&quot;)</span>
+<span class="add">+  @maxLength(256)</span>
+<span class="add">+  @visibility(Lifecycle.Read, Lifecycle.Create)</span>
+<span class="add">+  principalName: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The type of the Entra ID principal.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read, Lifecycle.Create)</span>
+<span class="add">+  principalType: PrincipalTypes;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The Entra ID object identifier of the principal (an RFC 4122 GUID). On PUT requests, this value comes from the URI path parameter.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  objectId?: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The Entra ID tenant identifier (an RFC 4122 GUID). If omitted, defaults to the tenant of the subscription.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read, Lifecycle.Create)</span>
+<span class="add">+  tenantId?: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The provisioning state of the administrator.&quot;)</span>
+<span class="add">+  @visibility(Lifecycle.Read)</span>
+<span class="add">+  provisioningState?: ProvisioningState;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_05_01_preview)</span>
+<span class="add">+@doc(&quot;The properties for adding a HorizonDB administrator.&quot;)</span>
+<span class="add">+model HorizonDbAdministratorPropertiesForAdd {</span>
+<span class="add">+  @doc(&quot;The display name or UPN of the Entra ID principal. For users, typically the User Principal Name (e.g., admin@contoso.com). For groups, the group display name. For service principals, the application display name.&quot;)</span>
+<span class="add">+  @maxLength(256)</span>
+<span class="add">+  principalName: string;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The type of the Entra ID principal.&quot;)</span>
+<span class="add">+  principalType: PrincipalTypes;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The Entra ID tenant identifier (an RFC 4122 GUID). If omitted, defaults to the tenant of the subscription.&quot;)</span>
+<span class="add">+  tenantId?: string;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_05_01_preview)</span>
+<span class="add">+@doc(&quot;The request body for adding a HorizonDB administrator.&quot;)</span>
+<span class="add">+model HorizonDbAdministratorAdd {</span>
+<span class="add">+  @doc(&quot;The properties for adding a HorizonDB administrator.&quot;)</span>
+<span class="add">+  properties: HorizonDbAdministratorPropertiesForAdd;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_05_01_preview)</span>
+<span class="add">+@doc(&quot;The type of the Entra ID principal.&quot;)</span>
+<span class="add">+union PrincipalTypes {</span>
+<span class="add">+  string,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Unknown or unrecognized type (internal only, not accepted in requests).&quot;)</span>
+<span class="add">+  Unknown: &quot;Unknown&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;An Entra ID user account (UPN-based principal).&quot;)</span>
+<span class="add">+  User: &quot;User&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;An Entra ID security group. All members of the group inherit admin privileges.&quot;)</span>
+<span class="add">+  Group: &quot;Group&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;An Entra ID application / service principal (used for automated workloads).&quot;)</span>
+<span class="add">+  ServicePrincipal: &quot;ServicePrincipal&quot;,</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="context"> @doc(&quot;The mode to create a new HorizonDB cluster.&quot;)</span>
+<span class="context"> union CreateModeCluster {</span>
+<span class="context">   string,</span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/models.tsp</div><pre><span class="context"> union State {</span>
+<span class="context">   string,</span>
+<span class="context"> </span>
+<span class="remove">-  /** Is ready and operational */</span>
+<span class="add">+  @doc(&quot;Is ready and operational&quot;)</span>
+<span class="context">   Ready: &quot;Ready&quot;,</span>
+<span class="context"> </span>
+<span class="remove">-  /** Is being dropped/deleted */</span>
+<span class="add">+  @doc(&quot;Is being dropped/deleted&quot;)</span>
+<span class="context">   Dropping: &quot;Dropping&quot;,</span>
+<span class="context"> </span>
+<span class="remove">-  /** Is disabled */</span>
+<span class="add">+  @doc(&quot;Is disabled&quot;)</span>
+<span class="context">   Disabled: &quot;Disabled&quot;,</span>
+<span class="context"> </span>
+<span class="remove">-  /** Is starting up */</span>
+<span class="add">+  @doc(&quot;Is starting up&quot;)</span>
+<span class="context">   Starting: &quot;Starting&quot;,</span>
+<span class="context"> </span>
+<span class="remove">-  /** Is stopping */</span>
+<span class="add">+  @doc(&quot;Is stopping&quot;)</span>
+<span class="context">   Stopping: &quot;Stopping&quot;,</span>
+<span class="context"> </span>
+<span class="remove">-  /** Is stopped */</span>
+<span class="add">+  @doc(&quot;Is stopped&quot;)</span>
+<span class="context">   Stopped: &quot;Stopped&quot;,</span>
+<span class="context"> </span>
+<span class="remove">-  /** Is being updated */</span>
+<span class="add">+  @doc(&quot;Is being updated&quot;)</span>
+<span class="context">   Updating: &quot;Updating&quot;,</span>
+<span class="context"> </span>
+<span class="remove">-  /** Is healthy */</span>
+<span class="add">+  @doc(&quot;Is healthy&quot;)</span>
+<span class="context">   Healthy: &quot;Healthy&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;Is succeeded&quot;)</span>
+<span class="add">+  Succeeded: &quot;Succeeded&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;Is upgrading&quot;)</span>
+<span class="add">+  Upgrading: &quot;Upgrading&quot;,</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="add">+@doc(&quot;Indicates if authentication state is enabled or not.&quot;)</span>
+<span class="add">+union AuthenticationState {</span>
+<span class="add">+  string,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Is enabled&quot;)</span>
+<span class="add">+  Enabled: &quot;Enabled&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Is disabled&quot;)</span>
+<span class="add">+  Disabled: &quot;Disabled&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @doc(&quot;Indicates if public network access is enabled or not.&quot;)</span>
+<span class="context"></span></pre></div><p class="sources"><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/models.tsp:13</code></p></details><details class="report-subdetails" id="intent-semantic-40b6cfebaa6a266d-operations"><summary>Affected operations (6)</summary><details class="operation"><summary><strong>HorizonDbAdministrators_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbAdministrators_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbAdministrators_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_Restart</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/restart</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/restart</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_Start</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/start</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/start</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_Stop</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/stop</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/stop</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-50403656cfca6592"><summary><div class="report-card-title"><strong>Update supporting TypeSpec configuration</strong><small>Updates supporting TypeSpec configuration. The bounded evidence records 0 changed constructs.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-50403656cfca6592</code></p><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>source:source-308d972419287c6a</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>type</td><td>modify</td><td></td><td><code>source-308d972419287c6a</code><br><span class="report-small">hunks: hunk-28d9c7c656e2d4c0<br>declarations: none</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/main.tsp</div><pre><span class="context"> </span>
+<span class="context"> using TypeSpec.Versioning;</span>
+<span class="context"> using Azure.ResourceManager;</span>
+<span class="add">+using Azure.Core;</span>
+<span class="context"> </span>
+<span class="context"> /**</span>
+<span class="context">  * Azure Resource Provider API for managing HorizonDB clusters, pools, replicas, and firewall rules</span></pre></div><p class="sources"><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/main.tsp</code></p></details><details class="report-subdetails" id="intent-semantic-50403656cfca6592-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-52b3113e550c957e"><summary><div class="report-card-title"><strong>Update HorizonDbAdministrators, HorizonDbClusters, HorizonDbPrivateEndpointConnections</strong><small>Updates HorizonDbAdministrators, HorizonDbClusters, HorizonDbPrivateEndpointConnections across 9 affected operations. The bounded evidence records 142 changed constructs.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (3)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Update</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update">Downstream: HorizonDbPrivateEndpointConnections.update</a></div><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-7654f5737c364e2b">Documentation Completeness: Missing documentation for HorizonDbAdministrators</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-52b3113e550c957e</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 12 normalized facts; 4 source hunks; 9 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>behavior:lro</code>; <code>feature:routes</code></p><details class="report-subdetails"><summary>Change facts and provenance (12)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>HorizonDbPrivateEndpointConnections.updateStatus</code></td><td>operation</td><td>add</td><td>operation, version-activation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-8ab95b8e2cf75df4<br>declarations: declaration-076ff520966a8b1f</span></td></tr><tr><td><code>HorizonDbClusters.restart</code></td><td>operation</td><td>add</td><td>lro, operation, version-activation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-0e50889c43a096bb<br>declarations: declaration-9aebe18e19f34481</span></td></tr><tr><td><code>HorizonDbClusters.start</code></td><td>operation</td><td>add</td><td>lro, operation, version-activation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-0e50889c43a096bb<br>declarations: declaration-725b78fe002bd67e</span></td></tr><tr><td><code>HorizonDbAdministrators.get</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-f85049ea3116f29c<br>declarations: declaration-4e31533cd6095bc0</span></td></tr><tr><td><code>HorizonDbAdministrators</code></td><td>type</td><td>add</td><td>lro, version-activation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-f85049ea3116f29c<br>declarations: declaration-d30695db400573ea</span></td></tr><tr><td><code>HorizonDbPrivateEndpointConnections</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-8ab95b8e2cf75df4<br>declarations: declaration-7a33fd0e4dae5170, declaration-b7ef1013d9b424b8</span></td></tr><tr><td><code>HorizonDbClusters.stop</code></td><td>operation</td><td>add</td><td>lro, operation, version-activation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-0e50889c43a096bb<br>declarations: declaration-8efc593a921173c4</span></td></tr><tr><td><code>HorizonDbAdministrators.delete</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-f85049ea3116f29c<br>declarations: declaration-57cf5a829a396bf4</span></td></tr><tr><td><code>HorizonDbClusters</code></td><td>type</td><td>modify</td><td>lro, version-activation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-0e50889c43a096bb<br>declarations: declaration-1ae6d4d3975409b4, declaration-394d118044b22a4c</span></td></tr><tr><td><code>HorizonDbAdministrators.createOrUpdate</code></td><td>operation</td><td>add</td><td>lro, operation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-f85049ea3116f29c<br>declarations: declaration-418ab173f6bb0472</span></td></tr><tr><td><code>HorizonDbAdministrators.list</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-f85049ea3116f29c<br>declarations: declaration-cb162a8881ea9dab</span></td></tr><tr><td><code>HorizonDbPrivateEndpointConnections.update</code></td><td>operation</td><td>modify</td><td>operation, version-activation</td><td><code>source-2fbb1d6b6e82d458</code><br><span class="report-small">hunks: hunk-8ab95b8e2cf75df4<br>declarations: declaration-2b7bb778f5e41164, declaration-6004adfe72c5cc7e</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</div><pre><span class="context"> import &quot;@typespec/rest&quot;;</span>
+<span class="add">+import &quot;@typespec/versioning&quot;;</span>
+<span class="context"> import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="context"> import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
+<span class="context"> import &quot;./main.tsp&quot;;</span>
+<span class="context"> </span>
+<span class="context"> using TypeSpec.Rest;</span>
+<span class="context"> using TypeSpec.Http;</span>
+<span class="add">+using TypeSpec.Versioning;</span>
+<span class="context"> using Azure.ResourceManager;</span>
+<span class="context"> </span>
+<span class="context"> namespace Microsoft.HorizonDb;</span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</div><pre><span class="context"> </span>
+<span class="context">   @doc(&quot;Lists all HorizonDB clusters in a subscription.&quot;)</span>
+<span class="context">   listBySubscription is ArmListBySubscription&lt;HorizonDbCluster&gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;Starts a stopped HorizonDB cluster.&quot;)</span>
+<span class="add">+  start is ArmResourceActionAsync&lt;</span>
+<span class="add">+    HorizonDbCluster,</span>
+<span class="add">+    void,</span>
+<span class="add">+    ArmResponse&lt;HorizonDbCluster&gt;,</span>
+<span class="add">+    LroHeaders = ArmCombinedLroHeaders &amp; Azure.Core.Foundations.RetryAfterHeader</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;Stops a running HorizonDB cluster.&quot;)</span>
+<span class="add">+  stop is ArmResourceActionAsync&lt;</span>
+<span class="add">+    HorizonDbCluster,</span>
+<span class="add">+    void,</span>
+<span class="add">+    ArmResponse&lt;HorizonDbCluster&gt;,</span>
+<span class="add">+    LroHeaders = ArmCombinedLroHeaders &amp; Azure.Core.Foundations.RetryAfterHeader</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  @doc(&quot;Restarts a HorizonDB cluster.&quot;)</span>
+<span class="add">+  restart is ArmResourceActionAsync&lt;</span>
+<span class="add">+    HorizonDbCluster,</span>
+<span class="add">+    void,</span>
+<span class="add">+    ArmResponse&lt;HorizonDbCluster&gt;,</span>
+<span class="add">+    LroHeaders = ArmCombinedLroHeaders &amp; Azure.Core.Foundations.RetryAfterHeader</span>
+<span class="add">+  &gt;;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @armResourceOperations</span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</div><pre><span class="context">   &gt;;</span>
+<span class="context"> </span>
+<span class="context">   @doc(&quot;Updates a private endpoint connection.&quot;)</span>
+<span class="add">+  @removed(Versions.v2026_05_01_preview)</span>
+<span class="context">   update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;</span>
+<span class="context">     HorizonDbCluster,</span>
+<span class="context">     PrivateEndpointConnectionResource</span>
+<span class="context">   &gt;;</span>
+<span class="context"> </span>
+<span class="add">+  @doc(&quot;Approves or rejects a private endpoint connection.&quot;)</span>
+<span class="add">+  @added(Versions.v2026_05_01_preview)</span>
+<span class="add">+  updateStatus is HorizonDbPrivateEndpointOperations.CreateOrReplaceSync&lt;</span>
+<span class="add">+    HorizonDbCluster,</span>
+<span class="add">+    PrivateEndpointConnectionResource</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="context">   @doc(&quot;Deletes a private endpoint connection.&quot;)</span>
+<span class="context">   delete is HorizonDbPrivateEndpointOperations.DeleteAsync&lt;</span>
+<span class="context">     HorizonDbCluster,</span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</div><pre><span class="context">     }</span>
+<span class="context">   &gt;;</span>
+<span class="context"> }</span>
+<span class="add">+</span>
+<span class="add">+@added(Versions.v2026_05_01_preview)</span>
+<span class="add">+@armResourceOperations</span>
+<span class="add">+interface HorizonDbAdministrators {</span>
+<span class="add">+  @doc(&quot;Gets information about a HorizonDB administrator.&quot;)</span>
+<span class="add">+  get is ArmResourceRead&lt;HorizonDbAdministrator&gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Creates a new HorizonDB administrator or updates an existing administrator.&quot;)</span>
+<span class="add">+  @Azure.Core.useFinalStateVia(&quot;azure-async-operation&quot;)</span>
+<span class="add">+  createOrUpdate is Azure.ResourceManager.Legacy.CreateOrReplaceAsync&lt;</span>
+<span class="add">+    HorizonDbAdministrator,</span>
+<span class="add">+    Request = HorizonDbAdministratorAdd</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Deletes a HorizonDB administrator.&quot;)</span>
+<span class="add">+  delete is ArmResourceDeleteWithoutOkAsync&lt;</span>
+<span class="add">+    HorizonDbAdministrator,</span>
+<span class="add">+    Response =</span>
+<span class="add">+      | ArmDeleteAcceptedLroResponse&lt;LroHeaders = ArmCombinedLroHeaders &amp;</span>
+<span class="add">+          Azure.Core.Foundations.RetryAfterHeader&gt;</span>
+<span class="add">+      | ArmDeletedNoContentResponse</span>
+<span class="add">+  &gt;;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Lists all HorizonDB administrators in a cluster.&quot;)</span>
+<span class="add">+  list is ArmResourceListByParent&lt;HorizonDbAdministrator&gt;;</span>
+<span class="add">+}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/fda83cbed9a358cf8fc702233ac4f9239dc90c65/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L17-L72">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:16</a></p></details><details class="report-subdetails" id="intent-semantic-52b3113e550c957e-operations"><summary>Affected operations (9)</summary><details class="operation"><summary><strong>HorizonDbAdministrators_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbAdministrators_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbAdministrators_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators/{objectId}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbAdministrators_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/administrators</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_Restart</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/restart</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/restart</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_Start</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/start</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/start</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_Stop</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/stop</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>POST /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/stop</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbPrivateEndpointConnections_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code><span>2026-01-20-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>operation-removed</strong></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>removed</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>HorizonDbPrivateEndpointConnections_UpdateStatus</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-93f7220733675e91"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 11 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-93f7220733675e91</code></p><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 11 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>property-contract</td><td><code>source-308d972419287c6a</code><br><span class="report-small">hunks: hunk-ec72045f64b23ffd<br>declarations: declaration-37ad3986399b1748, declaration-921df5bc46fde0a4</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/main.tsp</div><pre><span class="context"> </span>
+<span class="context"> @doc(&quot;The available API versions.&quot;)</span>
+<span class="context"> enum Versions {</span>
+<span class="remove">-  /**</span>
+<span class="remove">-   * The 2026-01-20-preview API version.</span>
+<span class="remove">-   */</span>
+<span class="add">+  @doc(&quot;The 2026-01-20-preview API version.&quot;)</span>
+<span class="context">   v2026_01_20_preview: &quot;2026-01-20-preview&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The 2026-05-01-preview API version.&quot;)</span>
+<span class="add">+  @previewVersion</span>
+<span class="add">+  v2026_05_01_preview: &quot;2026-05-01-preview&quot;,</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> interface Operations extends Azure.ResourceManager.Operations {}</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/fda83cbed9a358cf8fc702233ac4f9239dc90c65/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/main.tsp#L23-L30">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/main.tsp:22</a></p></details><details class="report-subdetails" id="intent-semantic-93f7220733675e91-operations"><summary>Affected operations (11)</summary><p class="report-small">Showing 10 operation cards; the remaining 1 are listed below.</p><details class="operation"><summary><strong>HorizonDbClusters_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.authConfig</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterAuthConfig (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.computeModel</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbComputeModel (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.mirroring</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterMirroring (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.authConfig</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterAuthConfig (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.computeModel</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbComputeModel (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.mirroring</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterMirroring (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.authConfig</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterAuthConfig (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.computeModel</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbComputeModel (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.mirroring</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterMirroring (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.authConfig</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterAuthConfig (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.computeModel</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbComputeModel (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.mirroring</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterMirroring (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters</code><span>2026-05-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_ListBySubscription</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.HorizonDb/clusters</code><span>2026-05-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>HorizonDbClusters_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.authConfig</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterAuthConfig (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.computeModel</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbComputeModel (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.mirroring</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterMirroring (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · identity</strong></td><td><pre>not present</pre></td><td><pre>reference (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.authConfig</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterAuthConfig (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.computeModel</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbComputeModel (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.mirroring</strong></td><td><pre>not present</pre></td><td><pre>HorizonDbClusterMirroring (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>HorizonDbPools_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/pools/{poolName}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>HorizonDbPools_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/pools</code><span>2026-05-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>HorizonDbReplicas_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/pools/{poolName}/replicas/{replicaName}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>HorizonDbReplicas_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/pools/{poolName}/replicas/{replicaName}</code><span>2026-05-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>HorizonDbReplicas_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/pools/{poolName}/replicas</code><span>2026-05-01-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (1)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/pools/{poolName}/replicas/{replicaName}">HorizonDbReplicas_Update (PATCH, 2026-05-01-preview)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-bb4ce7036a83a032"><summary><div class="report-card-title"><strong>Update supporting TypeSpec configuration</strong><small>Updates supporting TypeSpec configuration. The bounded evidence records 0 changed constructs and requires judgment for uncovered customization or configuration hunks.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">sdk-customization</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-bb4ce7036a83a032</code></p><p class="report-small"><strong>SDK-compatibility grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 2 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>sdk-compatibility</code>; <code>transform:client-name</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>sdk-customization</td><td>modify</td><td>public-name</td><td><code>source-e55f8375a85772a2</code><br><span class="report-small">hunks: hunk-85cdcada17586e74, hunk-e85b94a1af0f5810<br>declarations: none</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/client.tsp</div><pre><span class="context">   &quot;HorizonDBCluster&quot;,</span>
+<span class="context">   &quot;csharp&quot;</span>
+<span class="context"> );</span>
+<span class="add">+@@clientName(</span>
+<span class="add">+  Microsoft.HorizonDb.HorizonDbAdministrator,</span>
+<span class="add">+  &quot;HorizonDBAdministrator&quot;,</span>
+<span class="add">+  &quot;csharp&quot;</span>
+<span class="add">+);</span>
+<span class="add">+@@clientName(</span>
+<span class="add">+  Microsoft.HorizonDb.HorizonDbAdministratorProperties,</span>
+<span class="add">+  &quot;HorizonDBAdministratorProperties&quot;,</span>
+<span class="add">+  &quot;csharp&quot;</span>
+<span class="add">+);</span>
+<span class="add">+@@clientName(</span>
+<span class="add">+  Microsoft.HorizonDb.HorizonDbAdministratorPropertiesForAdd,</span>
+<span class="add">+  &quot;HorizonDBAdministratorPropertiesForAdd&quot;,</span>
+<span class="add">+  &quot;csharp&quot;</span>
+<span class="add">+);</span>
+<span class="add">+@@clientName(</span>
+<span class="add">+  Microsoft.HorizonDb.HorizonDbAdministratorAdd,</span>
+<span class="add">+  &quot;HorizonDBAdministratorAdd&quot;,</span>
+<span class="add">+  &quot;csharp&quot;</span>
+<span class="add">+);</span>
+<span class="add">+@@clientName(</span>
+<span class="add">+  Microsoft.HorizonDb.HorizonDbAdministrators,</span>
+<span class="add">+  &quot;HorizonDBAdministrators&quot;,</span>
+<span class="add">+  &quot;csharp&quot;</span>
+<span class="add">+);</span>
+<span class="add">+@@clientName(</span>
+<span class="add">+  Microsoft.HorizonDb.PrincipalTypes,</span>
+<span class="add">+  &quot;HorizonDBPrincipalType&quot;,</span>
+<span class="add">+  &quot;csharp&quot;</span>
+<span class="add">+);</span>
+<span class="context"> @@clientName(</span>
+<span class="context">   Microsoft.HorizonDb.HorizonDbClusterForPatchUpdate,</span>
+<span class="context">   &quot;HorizonDBClusterPatch&quot;,</span></pre></div><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/client.tsp</div><pre><span class="context">   &quot;updatePrivateEndpointConnection&quot;,</span>
+<span class="context">   &quot;csharp&quot;</span>
+<span class="context"> );</span>
+<span class="add">+@@clientName(</span>
+<span class="add">+  Microsoft.HorizonDb.HorizonDbPrivateEndpointConnections.updateStatus,</span>
+<span class="add">+  &quot;updateStatusPrivateEndpointConnection&quot;,</span>
+<span class="add">+  &quot;csharp&quot;</span>
+<span class="add">+);</span>
+<span class="context"> @@clientName(</span>
+<span class="context">   Microsoft.HorizonDb.HorizonDbPrivateEndpointConnections.delete,</span>
+<span class="context">   &quot;deletePrivateEndpointConnection&quot;,</span>
+<span class="context"></span></pre></div><p class="sources"><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/client.tsp</code></p></details><details class="report-subdetails" id="intent-semantic-bb4ce7036a83a032-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">4 of 4 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-50403656cfca6592">Update supporting TypeSpec configuration</a><a class="report-link" href="#intent-semantic-bb4ce7036a83a032">Update supporting TypeSpec configuration</a>.</p></section>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Changed AutoRest contracts for 5 operations in project-1a17ac3fb584 contain unresolved references or ambiguous visibility metadata (HorizonDbClusters_CreateOrUpdate, HorizonDbClusters_Get, HorizonDbClusters_ListByResourceGroup). Their effective compatibility cannot be established from incomplete contract evidence.</li><li>Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId.</li></ul>
+<h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb</code></td><td>new-api-version</td><td><code>fda83cbed9a358cf8fc702233ac4f9239dc90c65@2026-01-20-preview</code><br><small>current · previous-latest-preview</small></td><td><code>fda83cbed9a358cf8fc702233ac4f9239dc90c65@2026-05-01-preview</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
+<p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/44332">#44332</a></p>
+<h3 id="compliance-search-evidence">Guidance fetched</h3>
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/">ARM long-running operations</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/">ARM resource types and modeling</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;coverage&quot;: {
+    &quot;semanticIntentCount&quot;: 4,
+    &quot;assessedIntentCount&quot;: 4,
+    &quot;selectedDocumentCount&quot;: 4,
+    &quot;unassessedIntentIds&quot;: []
+  },
+  &quot;sharedSearch&quot;: {
+    &quot;catalogRanking&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the changed ARM constructs and versioned API context for this assessment.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 9
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the changed ARM constructs and versioned API context for this assessment.&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 8
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the changed ARM constructs and versioned API context for this assessment.&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 7
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the changed ARM constructs and versioned API context for this assessment.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 8,
+        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 17,
+        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 18,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 19,
+        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      },
+      {
+        &quot;rank&quot;: 31,
+        &quot;catalogOrder&quot;: 31,
+        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match.&quot;
+      }
+    ],
+    &quot;documents&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the changed ARM constructs and versioned API context for this assessment.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:24.956Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:30470c99aaddccfad0799e2dcdf370cc27e56e09b76ed81b70ef5de044e29854&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 9
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the changed ARM constructs and versioned API context for this assessment.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Recommended and Required Operations&quot;,
+            &quot;excerpt&quot;: &quot;ARM resource lifecycle operations should use the standard read, create or update, update, delete, and list templates appropriate to the resource kind and scope.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;ArmResourceRead&quot;,
+              &quot;ArmResourceCreateOrReplaceAsync&quot;,
+              &quot;ArmResourceListByParent&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;get is ArmResourceRead&lt;Resource&gt;;&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-07d2ed97b9ff3d34&quot;,
+              &quot;declaration-0baf668df4a59fa4&quot;,
+              &quot;declaration-0bf2f0ae500f7bad&quot;,
+              &quot;declaration-1320cf7156e323b0&quot;,
+              &quot;declaration-1d1dfaec5159648c&quot;,
+              &quot;declaration-1f25b8c31ca63717&quot;,
+              &quot;declaration-1f769711d9537200&quot;,
+              &quot;declaration-20b15ed7ee4e2167&quot;,
+              &quot;declaration-225ab4010126e6b9&quot;,
+              &quot;declaration-2555753b7065098b&quot;,
+              &quot;declaration-269a1ed3adeb8aac&quot;,
+              &quot;declaration-28441d35d6db9c76&quot;,
+              &quot;declaration-2cb5d3005e55ab37&quot;,
+              &quot;declaration-2e53496add453aa0&quot;,
+              &quot;declaration-33cc3625be38659c&quot;,
+              &quot;declaration-36129035da29b8f0&quot;,
+              &quot;declaration-3bb14c201d3b78cf&quot;,
+              &quot;declaration-3cd35d3c2db89a59&quot;,
+              &quot;declaration-5397961f0ce37afd&quot;,
+              &quot;declaration-54b8595f17c31dd2&quot;,
+              &quot;declaration-5cf8e1ec475b629a&quot;,
+              &quot;declaration-6397ba895ca5c61e&quot;,
+              &quot;declaration-651dfcb666ca5ce0&quot;,
+              &quot;declaration-6806fbe19e963639&quot;,
+              &quot;declaration-6d446ac4069abca7&quot;,
+              &quot;declaration-6de02393e4826b83&quot;,
+              &quot;declaration-7598d95084a95429&quot;,
+              &quot;declaration-77bbeb341d433a76&quot;,
+              &quot;declaration-7ac67e727da36083&quot;,
+              &quot;declaration-85c695d6c3f59922&quot;,
+              &quot;declaration-896922b8381a4333&quot;,
+              &quot;declaration-924fc46c4a0c06c3&quot;,
+              &quot;declaration-9413a04acc911af8&quot;,
+              &quot;declaration-9ca389816c85c623&quot;,
+              &quot;declaration-a8bd84e69564c6e0&quot;,
+              &quot;declaration-a9d5280f110c7ae8&quot;,
+              &quot;declaration-abbd8fcd598fcbe1&quot;,
+              &quot;declaration-aca757b27ae8e48c&quot;,
+              &quot;declaration-af7221759573075e&quot;,
+              &quot;declaration-b57be7ec04fa7b81&quot;,
+              &quot;declaration-b901a1abe42b1313&quot;,
+              &quot;declaration-baaa058f8140068b&quot;,
+              &quot;declaration-c12c43e275ff3ee5&quot;,
+              &quot;declaration-c83c11a8b57e4594&quot;,
+              &quot;declaration-ca608eb5a50779c3&quot;,
+              &quot;declaration-cc6a530da879255d&quot;,
+              &quot;declaration-ced4da1b025fa73d&quot;,
+              &quot;declaration-d1c9cd7594f99b4c&quot;,
+              &quot;declaration-d35f3efc336ce255&quot;,
+              &quot;declaration-d63dc347506b7233&quot;,
+              &quot;declaration-d65c6a5239046b89&quot;,
+              &quot;declaration-d80d17132b81b875&quot;,
+              &quot;declaration-de8601965b73306d&quot;,
+              &quot;declaration-e01b2ddebe59a28f&quot;,
+              &quot;declaration-e78df4b09d43c34c&quot;,
+              &quot;declaration-e96e45c8f633c1f5&quot;,
+              &quot;declaration-ef96a280dffc2a57&quot;,
+              &quot;declaration-eff229cd73229c0c&quot;,
+              &quot;declaration-f132d1486a411f17&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:25.495Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:c1f60e78029f3aaff88d0037256e628682821fc635a96f94e05c758bdbd7c962&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 8
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the changed ARM constructs and versioned API context for this assessment.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Resource Action (POST)&quot;,
+            &quot;excerpt&quot;: &quot;ARM asynchronous actions should use the standard action templates and an LRO final result matching the operation response type.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;ArmResourceActionAsync&quot;,
+              &quot;LroHeaders&quot;,
+              &quot;FinalResult&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;op startMigration is ArmResourceActionAsync&lt;MyResource, MigrationRequest, MigrationResponse&gt;;&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-076ff520966a8b1f&quot;,
+              &quot;declaration-1ae6d4d3975409b4&quot;,
+              &quot;declaration-418ab173f6bb0472&quot;,
+              &quot;declaration-4e31533cd6095bc0&quot;,
+              &quot;declaration-57cf5a829a396bf4&quot;,
+              &quot;declaration-6004adfe72c5cc7e&quot;,
+              &quot;declaration-725b78fe002bd67e&quot;,
+              &quot;declaration-8efc593a921173c4&quot;,
+              &quot;declaration-9aebe18e19f34481&quot;,
+              &quot;declaration-b7ef1013d9b424b8&quot;,
+              &quot;declaration-cb162a8881ea9dab&quot;,
+              &quot;declaration-d30695db400573ea&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:26.277Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:8d51da0c3c1568ee553fbbe14a1adc9978d30b4e927900e839938f30612df737&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 7
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the changed ARM constructs and versioned API context for this assessment.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:25.249Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:530cea00cafd989f49e45120bdbba55d5502e02fc428f624f8623b4ddae88d56&quot;
+      }
+    ]
+  },
+  &quot;intentAssessments&quot;: [
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-40b6cfebaa6a266d&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-50403656cfca6592&quot;,
+      &quot;decision&quot;: &quot;no-applicable-guidance&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-52b3113e550c957e&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-bb4ce7036a83a032&quot;,
+      &quot;decision&quot;: &quot;no-applicable-guidance&quot;,
+      &quot;blockers&quot;: []
+    }
+  ],
+  &quot;retrievalFailures&quot;: [],
+  &quot;blockers&quot;: []
+}</pre></details>
+<h3>Changed files</h3><ul><li><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/client.tsp</code> (committed)</li><li><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/main.tsp</code> (committed)</li><li><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/models.tsp</code> (committed)</li><li><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</code> (committed)</li></ul>
+<h3>Timing and model input</h3><pre>{
+  &quot;timings&quot;: {
+    &quot;metadataMs&quot;: 1773,
+    &quot;fetchMs&quot;: 227,
+    &quot;scopeDiscoveryMs&quot;: 95,
+    &quot;setupExcludingFetchMs&quot;: 7644,
+    &quot;comparisonMs&quot;: 183,
+    &quot;changeDiscoveryMs&quot;: 111,
+    &quot;workspacePreparationMs&quot;: 5191,
+    &quot;projectDiscoveryMs&quot;: 17,
+    &quot;totalMs&quot;: 418417,
+    &quot;semanticAnalysisMs&quot;: 203,
+    &quot;restAnalysisMs&quot;: 110,
+    &quot;downstreamAnalysisMs&quot;: 2149,
+    &quot;documentQualityAnalysisMs&quot;: 2
+  },
+  &quot;inputAccounting&quot;: {
+    &quot;budgetTier&quot;: &quot;small&quot;,
+    &quot;budgetBytes&quot;: 131072,
+    &quot;bytes&quot;: 106139,
+    &quot;estimatedTokens&quot;: 26535,
+    &quot;retained&quot;: {
+      &quot;evidenceSets&quot;: 16,
+      &quot;facts&quot;: 37,
+      &quot;semanticReviewUnits&quot;: 4,
+      &quot;restCandidates&quot;: 1,
+      &quot;downstreamCandidates&quot;: 9,
+      &quot;downstreamRootCauses&quot;: 9,
+      &quot;complianceSearchRequests&quot;: 4,
+      &quot;inferenceRequests&quot;: 3
+    },
+    &quot;omittedRedundant&quot;: {
+      &quot;rawEmitterArtifacts&quot;: true,
+      &quot;compilerLogs&quot;: true,
+      &quot;unchangedInventories&quot;: true,
+      &quot;unreferencedFacts&quot;: true,
+      &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;sourceChanges&quot;: true,
+      &quot;repeatedDeclarationIds&quot;: true,
+      &quot;repeatedReviewUnitEvidence&quot;: true
+    },
+    &quot;inference&quot;: {
+      &quot;requestCount&quot;: 3,
+      &quot;inferredCandidateCount&quot;: 0,
+      &quot;noImpactCount&quot;: 3,
+      &quot;blockedCount&quot;: 0
+    },
+    &quot;compliance&quot;: {
+      &quot;catalogEntriesScored&quot;: 31,
+      &quot;documentsFetched&quot;: 4,
+      &quot;documentBytesFetched&quot;: 1836116,
+      &quot;guidanceExcerptsRetained&quot;: 2,
+      &quot;guidanceExcerptBytesRetained&quot;: 287
+    }
+  }
+}</pre>
+<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+</main>
+<script>
+function revealHashTarget() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (!target) return;
+  for (let element = target; element; element = element.parentElement) {
+    if (element.tagName === "DETAILS") element.open = true;
+  }
+  target.scrollIntoView({ block: "start" });
+}
+window.addEventListener("hashchange", revealHashTarget);
+document.addEventListener("click", (event) => {
+  if (event.target instanceof Element &&
+      event.target.closest(".report-card > summary .report-intent-relations") &&
+      !event.target.closest("a")) {
+    event.preventDefault();
+    return;
+  }
+  const link = event.target instanceof Element
+    ? event.target.closest('a[href^="#"]')
+    : null;
+  if (link) {
+    event.preventDefault();
+    location.hash = link.getAttribute("href");
+    window.setTimeout(revealHashTarget);
+  }
+});
+revealHashTarget();
+</script>
+</body></html>

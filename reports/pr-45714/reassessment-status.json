@@ -1,28 +1,32 @@
 {
   "pr": 45714,
-  "result": "fresh-reassessment-could-not-produce-report",
-  "generatedAt": null,
+  "result": "fresh-report",
+  "generatedAt": "2026-10-30T06:14:59.561Z",
   "confidence": "low",
-  "safety": "not-assessed",
-  "verdict": "unknown",
-  "coverage": "blocked",
+  "safety": "failed",
+  "verdict": "failed",
+  "coverage": "partial",
   "findings": {
     "rest": 0,
-    "sdk": 0,
+    "sdk": 6,
     "guidelines": 0,
-    "documentation": 0
+    "documentation": 5
   },
   "statuses": {
     "rest": "not-assessed",
-    "downstream": "not-assessed",
-    "guidelines": "not-assessed",
-    "documentation": "not-assessed"
+    "downstream": "failed",
+    "guidelines": "passed",
+    "documentation": "failed"
   },
   "blockers": [
-    "Downstream candidate downstream-7ad918254d07827f has no source-owned Semantic intent."
+    "Changed AutoRest contracts for 1 operations in project-22c7ebefe8c9 contain unresolved references or ambiguous visibility metadata (GiMinorVersions_ListByParent). Their effective compatibility cannot be established from incomplete contract evidence.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
   ],
-  "assessmentJsonSha256": null,
-  "assessmentHtmlSha256": null,
+  "assessmentJsonSha256": "4aaf65b4e1176084713c533a55b24ee95ec63cad9373aa82d06c2320a4f795b4",
+  "assessmentHtmlSha256": "b41e8edef95d398538156c0fa0466b8661815f1167c7927b62c261a296e144fa",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45714/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45714/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45714/assessment.json",
+  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
 }

@@ -1,29 +1,34 @@
 {
   "pr": 44384,
-  "result": "fresh-reassessment-could-not-produce-report",
-  "generatedAt": null,
-  "confidence": "low",
+  "result": "fresh-report",
+  "generatedAt": "2026-10-30T06:14:40.093Z",
+  "confidence": "medium",
   "safety": "not-assessed",
   "verdict": "unknown",
-  "coverage": "blocked",
+  "coverage": "partial",
   "findings": {
     "rest": 0,
     "sdk": 0,
     "guidelines": 0,
-    "documentation": 0
+    "documentation": 2
   },
   "statuses": {
     "rest": "not-assessed",
     "downstream": "not-assessed",
-    "guidelines": "not-assessed",
-    "documentation": "not-assessed"
+    "guidelines": "passed",
+    "documentation": "failed"
   },
   "blockers": [
-    "Coordinator failed during preparation: REST status must be passed.",
-    "Coordinator failed during preparation: Downstream status must be passed."
+    "Changed AutoRest contracts for 5 operations in project-5ce92fdb382e contain unresolved references or ambiguous visibility metadata (StorageAccounts_Create, StorageAccounts_GetProperties, StorageAccounts_List). Their effective compatibility cannot be established from incomplete contract evidence.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId.",
+    "Inference inference-request-d185205185e88848 is blocked: language-specific-sdk-customization-not-represented.",
+    "Inference inference-request-a8c0aa80e30eee48 is blocked: unsupported-customization-not-represented.",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-78c56564fa50bea9\",\"hunkId\":\"hunk-ba4805f476c41df2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-cb3e0140ab53f7ea\",\"hunkId\":\"hunk-ed4015b052de1342\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}"
   ],
-  "assessmentJsonSha256": null,
-  "assessmentHtmlSha256": null,
+  "assessmentJsonSha256": "a231f8123c39c92bb6836c93145f14807972dcc749c212e8eddc426dfc9cac59",
+  "assessmentHtmlSha256": "bcccfcd5d37b2382e7ea3f2e9662995c7232aa96cf2d042061f32e2b8240c2b0",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44384/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44384/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44384/assessment.json",
+  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
 }

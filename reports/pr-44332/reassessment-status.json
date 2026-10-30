@@ -1,28 +1,30 @@
 {
   "pr": 44332,
-  "result": "fresh-reassessment-could-not-produce-report",
-  "generatedAt": null,
+  "result": "fresh-report",
+  "generatedAt": "2026-10-30T06:14:59.398Z",
   "confidence": "low",
-  "safety": "not-assessed",
-  "verdict": "unknown",
-  "coverage": "blocked",
+  "safety": "failed",
+  "verdict": "failed",
+  "coverage": "partial",
   "findings": {
-    "rest": 0,
-    "sdk": 0,
+    "rest": 1,
+    "sdk": 1,
     "guidelines": 0,
-    "documentation": 0
+    "documentation": 1
   },
   "statuses": {
-    "rest": "not-assessed",
-    "downstream": "not-assessed",
-    "guidelines": "not-assessed",
-    "documentation": "not-assessed"
+    "rest": "failed",
+    "downstream": "failed",
+    "guidelines": "passed",
+    "documentation": "failed"
   },
   "blockers": [
-    "Downstream candidate downstream-5f27cb930d17c64d has no source-owned Semantic intent."
+    "Changed AutoRest contracts for 5 operations in project-1a17ac3fb584 contain unresolved references or ambiguous visibility metadata (HorizonDbClusters_CreateOrUpdate, HorizonDbClusters_Get, HorizonDbClusters_ListByResourceGroup). Their effective compatibility cannot be established from incomplete contract evidence.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
   ],
-  "assessmentJsonSha256": null,
-  "assessmentHtmlSha256": null,
+  "assessmentJsonSha256": "7a52221c58a8b89508eebbc0d66d6bcabc14fcef9182fa413fc8852727dbc9cf",
+  "assessmentHtmlSha256": "1b3c2b2e990dd4871f727b51c1038757bf8b0e08a0936f5df31027bf2dd75cbd",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44332/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44332/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44332/assessment.json",
+  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
 }

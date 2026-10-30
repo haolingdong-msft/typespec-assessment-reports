@@ -1,11 +1,11 @@
 {
   "pr": 43855,
-  "result": "fresh-reassessment-could-not-produce-report",
-  "generatedAt": null,
-  "confidence": "low",
+  "result": "fresh-report",
+  "generatedAt": "2026-10-30T06:14:40.065Z",
+  "confidence": "medium",
   "safety": "not-assessed",
   "verdict": "unknown",
-  "coverage": "blocked",
+  "coverage": "partial",
   "findings": {
     "rest": 0,
     "sdk": 0,
@@ -15,14 +15,17 @@
   "statuses": {
     "rest": "not-assessed",
     "downstream": "not-assessed",
-    "guidelines": "not-assessed",
-    "documentation": "not-assessed"
+    "guidelines": "passed",
+    "documentation": "passed"
   },
   "blockers": [
-    "Downstream candidate downstream-23783eb4465a77a7 has no source-owned Semantic intent."
+    "Changed AutoRest contracts for 1 operations in project-49e7a00359db contain unresolved references or ambiguous visibility metadata (ReservationRecommendationDetails_Get). Their effective compatibility cannot be established from incomplete contract evidence.",
+    "Inference inference-request-5542f78031438a51 is blocked: language-specific-sdk-customization-not-represented.",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-d6a6211d0c6d440b\",\"hunkId\":\"hunk-8a386f4c7f369431\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}"
   ],
-  "assessmentJsonSha256": null,
-  "assessmentHtmlSha256": null,
+  "assessmentJsonSha256": "9975bf039dc547b53c225eaebd8507c2bc7bd1b7d475ea3f420cbeed9a90b37a",
+  "assessmentHtmlSha256": "3c5bce298b5fb1b37e04e175754b60a2e73e8d2444fd2a1e4d654c6a3d5d92d3",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43855/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43855/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43855/assessment.json",
+  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
 }

@@ -1,28 +1,31 @@
 {
   "pr": 44200,
-  "result": "fresh-reassessment-could-not-produce-report",
-  "generatedAt": null,
+  "result": "fresh-report",
+  "generatedAt": "2026-10-30T06:14:59.443Z",
   "confidence": "low",
   "safety": "not-assessed",
   "verdict": "unknown",
-  "coverage": "blocked",
+  "coverage": "partial",
   "findings": {
     "rest": 0,
     "sdk": 0,
-    "guidelines": 0,
-    "documentation": 0
+    "guidelines": 1,
+    "documentation": 2
   },
   "statuses": {
-    "rest": "not-assessed",
+    "rest": "passed",
     "downstream": "not-assessed",
-    "guidelines": "not-assessed",
-    "documentation": "not-assessed"
+    "guidelines": "failed",
+    "documentation": "failed"
   },
   "blockers": [
-    "Downstream candidate downstream-48c6fec409bc27ba has no source-owned Semantic intent."
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
   ],
-  "assessmentJsonSha256": null,
-  "assessmentHtmlSha256": null,
+  "assessmentJsonSha256": "434eaf8d2affc54db8dd44aa760a4ff5491277b084e2abcbb6d610e3612aac50",
+  "assessmentHtmlSha256": "54dd65e7212cd000bd51fd021e19b667d00d999edcf5ac60de9126474c7d839e",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44200/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44200/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44200/assessment.json",
+  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
 }

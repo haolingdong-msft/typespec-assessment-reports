@@ -1,13 +1,13 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-29T09:06:19.346Z",
-  "source": "fresh full-skill PR reassessment",
+  "generatedAt": "2026-10-30T06:25:29.669Z",
+  "source": "fresh full-skill PR reassessment with latest-stack retries",
   "dashboardRepository": "haolingdong-msft/typespec-assessment-reports",
   "sourceRepository": "Azure/azure-rest-api-specs",
   "reportCount": 34,
-  "finalizedReportCount": 26,
-  "blockedBeforeReportCount": 8,
-  "totalFindings": 97,
+  "finalizedReportCount": 34,
+  "blockedBeforeReportCount": 0,
+  "totalFindings": 123,
   "entries": [
     {
       "pr": 39064,
@@ -89,12 +89,12 @@
     },
     {
       "pr": 43855,
-      "result": "fresh-reassessment-could-not-produce-report",
-      "generatedAt": null,
-      "confidence": "low",
+      "result": "fresh-report",
+      "generatedAt": "2026-10-30T06:14:40.065Z",
+      "confidence": "medium",
       "safety": "not-assessed",
       "verdict": "unknown",
-      "coverage": "blocked",
+      "coverage": "partial",
       "findings": {
         "rest": 0,
         "sdk": 0,
@@ -104,16 +104,19 @@
       "statuses": {
         "rest": "not-assessed",
         "downstream": "not-assessed",
-        "guidelines": "not-assessed",
-        "documentation": "not-assessed"
+        "guidelines": "passed",
+        "documentation": "passed"
       },
       "blockers": [
-        "Downstream candidate downstream-23783eb4465a77a7 has no source-owned Semantic intent."
+        "Changed AutoRest contracts for 1 operations in project-49e7a00359db contain unresolved references or ambiguous visibility metadata (ReservationRecommendationDetails_Get). Their effective compatibility cannot be established from incomplete contract evidence.",
+        "Inference inference-request-5542f78031438a51 is blocked: language-specific-sdk-customization-not-represented.",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-d6a6211d0c6d440b\",\"hunkId\":\"hunk-8a386f4c7f369431\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}"
       ],
-      "assessmentJsonSha256": null,
-      "assessmentHtmlSha256": null,
+      "assessmentJsonSha256": "9975bf039dc547b53c225eaebd8507c2bc7bd1b7d475ea3f420cbeed9a90b37a",
+      "assessmentHtmlSha256": "3c5bce298b5fb1b37e04e175754b60a2e73e8d2444fd2a1e4d654c6a3d5d92d3",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43855/",
-      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43855/assessment.json"
+      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43855/assessment.json",
+      "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
     },
     {
       "pr": 43918,
@@ -187,31 +190,34 @@
     },
     {
       "pr": 44200,
-      "result": "fresh-reassessment-could-not-produce-report",
-      "generatedAt": null,
+      "result": "fresh-report",
+      "generatedAt": "2026-10-30T06:14:59.443Z",
       "confidence": "low",
       "safety": "not-assessed",
       "verdict": "unknown",
-      "coverage": "blocked",
+      "coverage": "partial",
       "findings": {
         "rest": 0,
         "sdk": 0,
-        "guidelines": 0,
-        "documentation": 0
+        "guidelines": 1,
+        "documentation": 2
       },
       "statuses": {
-        "rest": "not-assessed",
+        "rest": "passed",
         "downstream": "not-assessed",
-        "guidelines": "not-assessed",
-        "documentation": "not-assessed"
+        "guidelines": "failed",
+        "documentation": "failed"
       },
       "blockers": [
-        "Downstream candidate downstream-48c6fec409bc27ba has no source-owned Semantic intent."
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
       ],
-      "assessmentJsonSha256": null,
-      "assessmentHtmlSha256": null,
+      "assessmentJsonSha256": "434eaf8d2affc54db8dd44aa760a4ff5491277b084e2abcbb6d610e3612aac50",
+      "assessmentHtmlSha256": "54dd65e7212cd000bd51fd021e19b667d00d999edcf5ac60de9126474c7d839e",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44200/",
-      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44200/assessment.json"
+      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44200/assessment.json",
+      "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
     },
     {
       "pr": 44288,
@@ -244,31 +250,33 @@
     },
     {
       "pr": 44332,
-      "result": "fresh-reassessment-could-not-produce-report",
-      "generatedAt": null,
+      "result": "fresh-report",
+      "generatedAt": "2026-10-30T06:14:59.398Z",
       "confidence": "low",
-      "safety": "not-assessed",
-      "verdict": "unknown",
-      "coverage": "blocked",
+      "safety": "failed",
+      "verdict": "failed",
+      "coverage": "partial",
       "findings": {
-        "rest": 0,
-        "sdk": 0,
+        "rest": 1,
+        "sdk": 1,
         "guidelines": 0,
-        "documentation": 0
+        "documentation": 1
       },
       "statuses": {
-        "rest": "not-assessed",
-        "downstream": "not-assessed",
-        "guidelines": "not-assessed",
-        "documentation": "not-assessed"
+        "rest": "failed",
+        "downstream": "failed",
+        "guidelines": "passed",
+        "documentation": "failed"
       },
       "blockers": [
-        "Downstream candidate downstream-5f27cb930d17c64d has no source-owned Semantic intent."
+        "Changed AutoRest contracts for 5 operations in project-1a17ac3fb584 contain unresolved references or ambiguous visibility metadata (HorizonDbClusters_CreateOrUpdate, HorizonDbClusters_Get, HorizonDbClusters_ListByResourceGroup). Their effective compatibility cannot be established from incomplete contract evidence.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
       ],
-      "assessmentJsonSha256": null,
-      "assessmentHtmlSha256": null,
+      "assessmentJsonSha256": "7a52221c58a8b89508eebbc0d66d6bcabc14fcef9182fa413fc8852727dbc9cf",
+      "assessmentHtmlSha256": "1b3c2b2e990dd4871f727b51c1038757bf8b0e08a0936f5df31027bf2dd75cbd",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44332/",
-      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44332/assessment.json"
+      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44332/assessment.json",
+      "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
     },
     {
       "pr": 44334,
@@ -301,70 +309,82 @@
     },
     {
       "pr": 44384,
-      "result": "fresh-reassessment-could-not-produce-report",
-      "generatedAt": null,
-      "confidence": "low",
+      "result": "fresh-report",
+      "generatedAt": "2026-10-30T06:14:40.093Z",
+      "confidence": "medium",
       "safety": "not-assessed",
       "verdict": "unknown",
-      "coverage": "blocked",
+      "coverage": "partial",
       "findings": {
         "rest": 0,
         "sdk": 0,
         "guidelines": 0,
-        "documentation": 0
+        "documentation": 2
       },
       "statuses": {
         "rest": "not-assessed",
         "downstream": "not-assessed",
-        "guidelines": "not-assessed",
-        "documentation": "not-assessed"
+        "guidelines": "passed",
+        "documentation": "failed"
       },
       "blockers": [
-        "Coordinator failed during preparation: REST status must be passed.",
-        "Coordinator failed during preparation: Downstream status must be passed."
+        "Changed AutoRest contracts for 5 operations in project-5ce92fdb382e contain unresolved references or ambiguous visibility metadata (StorageAccounts_Create, StorageAccounts_GetProperties, StorageAccounts_List). Their effective compatibility cannot be established from incomplete contract evidence.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId.",
+        "Inference inference-request-d185205185e88848 is blocked: language-specific-sdk-customization-not-represented.",
+        "Inference inference-request-a8c0aa80e30eee48 is blocked: unsupported-customization-not-represented.",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-78c56564fa50bea9\",\"hunkId\":\"hunk-ba4805f476c41df2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-cb3e0140ab53f7ea\",\"hunkId\":\"hunk-ed4015b052de1342\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}"
       ],
-      "assessmentJsonSha256": null,
-      "assessmentHtmlSha256": null,
+      "assessmentJsonSha256": "a231f8123c39c92bb6836c93145f14807972dcc749c212e8eddc426dfc9cac59",
+      "assessmentHtmlSha256": "bcccfcd5d37b2382e7ea3f2e9662995c7232aa96cf2d042061f32e2b8240c2b0",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44384/",
-      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44384/assessment.json"
+      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44384/assessment.json",
+      "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
     },
     {
       "pr": 44524,
-      "result": "fresh-reassessment-could-not-produce-report",
-      "generatedAt": null,
-      "confidence": "low",
+      "result": "fresh-report",
+      "generatedAt": "2026-10-30T06:14:40.088Z",
+      "confidence": "medium",
       "safety": "not-assessed",
       "verdict": "unknown",
-      "coverage": "blocked",
+      "coverage": "partial",
       "findings": {
         "rest": 0,
         "sdk": 0,
         "guidelines": 0,
-        "documentation": 0
+        "documentation": 6
       },
       "statuses": {
         "rest": "not-assessed",
         "downstream": "not-assessed",
-        "guidelines": "not-assessed",
-        "documentation": "not-assessed"
+        "guidelines": "passed",
+        "documentation": "failed"
       },
       "blockers": [
-        "Coordinator failed during preparation: REST status must be passed.",
-        "Coordinator failed during preparation: Downstream status must be passed."
+        "Inference inference-request-e9af3d806d470f90 is blocked: language-specific-sdk-customization-not-represented.",
+        "Inference inference-request-2a4f9864426deb9c is blocked: language-specific-sdk-customization-not-represented.",
+        "Inference inference-request-f7ff1b85208317fe is blocked: unsupported-customization-not-represented.",
+        "Inference inference-request-90250f2b0dda8ae2 is blocked: unsupported-customization-not-represented.",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-964bcfc4374de0f2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-ae7beb868e2a1ef0\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-f27bb3d99c9c5358\",\"hunkId\":\"hunk-41ab85742a8e8e40\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-f27bb3d99c9c5358\",\"hunkId\":\"hunk-51b6891ecd19e50b\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}"
       ],
-      "assessmentJsonSha256": null,
-      "assessmentHtmlSha256": null,
+      "assessmentJsonSha256": "d8878e02956e654a8a42e9ef02a1cd2af14158653209837cb74f29135165a247",
+      "assessmentHtmlSha256": "6b058d50c814b437f49971b16e5628697004206b6cf5ef25ed7df773cade07b5",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44524/",
-      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44524/assessment.json"
+      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44524/assessment.json",
+      "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
     },
     {
       "pr": 44557,
-      "result": "fresh-reassessment-could-not-produce-report",
-      "generatedAt": null,
-      "confidence": "low",
+      "result": "fresh-report",
+      "generatedAt": "2026-10-30T06:14:40.049Z",
+      "confidence": "medium",
       "safety": "not-assessed",
       "verdict": "unknown",
-      "coverage": "blocked",
+      "coverage": "partial",
       "findings": {
         "rest": 0,
         "sdk": 0,
@@ -372,19 +392,19 @@
         "documentation": 0
       },
       "statuses": {
-        "rest": "not-assessed",
+        "rest": "passed",
         "downstream": "not-assessed",
-        "guidelines": "not-assessed",
-        "documentation": "not-assessed"
+        "guidelines": "passed",
+        "documentation": "not-applicable"
       },
       "blockers": [
-        "Coordinator failed during preparation: REST status must be passed.",
-        "Coordinator failed during preparation: Downstream status must be passed."
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
       ],
-      "assessmentJsonSha256": null,
-      "assessmentHtmlSha256": null,
+      "assessmentJsonSha256": "04c5ea3ed8c34887e2e50f607856e92c81dc15fa43ab43e1c302adfeec062033",
+      "assessmentHtmlSha256": "27246c65b46856d31ba9c404551665f52d241ef514922baefac559ec69779da7",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44557/",
-      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44557/assessment.json"
+      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44557/assessment.json",
+      "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
     },
     {
       "pr": 44586,
@@ -414,31 +434,33 @@
     },
     {
       "pr": 44598,
-      "result": "fresh-reassessment-could-not-produce-report",
-      "generatedAt": null,
+      "result": "fresh-report",
+      "generatedAt": "2026-10-30T06:14:59.509Z",
       "confidence": "low",
       "safety": "not-assessed",
       "verdict": "unknown",
-      "coverage": "blocked",
+      "coverage": "partial",
       "findings": {
         "rest": 0,
         "sdk": 0,
         "guidelines": 0,
-        "documentation": 0
+        "documentation": 1
       },
       "statuses": {
         "rest": "not-assessed",
         "downstream": "not-assessed",
-        "guidelines": "not-assessed",
-        "documentation": "not-assessed"
+        "guidelines": "passed",
+        "documentation": "failed"
       },
       "blockers": [
-        "Coordinator rejected downstream candidate downstream-1b74d8bb683138cc because it has no source-owned Semantic intent."
+        "Changed AutoRest contracts for 12 operations in project-d1d4d254feed contain unresolved references or ambiguous visibility metadata (AgentPools_CreateOrUpdate, AgentPools_Get, AgentPools_List). Their effective compatibility cannot be established from incomplete contract evidence.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
       ],
-      "assessmentJsonSha256": null,
-      "assessmentHtmlSha256": null,
+      "assessmentJsonSha256": "a56ec23887fd9d653afdd6cf5347dcc0cae2b1c9a4f7f14f55a73605513660a7",
+      "assessmentHtmlSha256": "a9641d5e9ccb59034fad63b40d0600507e886c3cf97ddbd74ba198cec34c75fd",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44598/",
-      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44598/assessment.json"
+      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44598/assessment.json",
+      "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
     },
     {
       "pr": 44750,
@@ -780,31 +802,35 @@
     },
     {
       "pr": 45714,
-      "result": "fresh-reassessment-could-not-produce-report",
-      "generatedAt": null,
+      "result": "fresh-report",
+      "generatedAt": "2026-10-30T06:14:59.561Z",
       "confidence": "low",
-      "safety": "not-assessed",
-      "verdict": "unknown",
-      "coverage": "blocked",
+      "safety": "failed",
+      "verdict": "failed",
+      "coverage": "partial",
       "findings": {
         "rest": 0,
-        "sdk": 0,
+        "sdk": 6,
         "guidelines": 0,
-        "documentation": 0
+        "documentation": 5
       },
       "statuses": {
         "rest": "not-assessed",
-        "downstream": "not-assessed",
-        "guidelines": "not-assessed",
-        "documentation": "not-assessed"
+        "downstream": "failed",
+        "guidelines": "passed",
+        "documentation": "failed"
       },
       "blockers": [
-        "Downstream candidate downstream-7ad918254d07827f has no source-owned Semantic intent."
+        "Changed AutoRest contracts for 1 operations in project-22c7ebefe8c9 contain unresolved references or ambiguous visibility metadata (GiMinorVersions_ListByParent). Their effective compatibility cannot be established from incomplete contract evidence.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
       ],
-      "assessmentJsonSha256": null,
-      "assessmentHtmlSha256": null,
+      "assessmentJsonSha256": "4aaf65b4e1176084713c533a55b24ee95ec63cad9373aa82d06c2320a4f795b4",
+      "assessmentHtmlSha256": "b41e8edef95d398538156c0fa0466b8661815f1167c7927b62c261a296e144fa",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45714/",
-      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45714/assessment.json"
+      "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45714/assessment.json",
+      "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
     },
     {
       "pr": 45760,
@@ -991,5 +1017,16 @@
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679/",
       "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679/assessment.json"
     }
+  ],
+  "latestRetryImplementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad",
+  "latestRetryPrs": [
+    43855,
+    44384,
+    44524,
+    44557,
+    44200,
+    44332,
+    44598,
+    45714
   ]
 }

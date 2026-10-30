@@ -1,28 +1,30 @@
 {
   "pr": 44598,
-  "result": "fresh-reassessment-could-not-produce-report",
-  "generatedAt": null,
+  "result": "fresh-report",
+  "generatedAt": "2026-10-30T06:14:59.509Z",
   "confidence": "low",
   "safety": "not-assessed",
   "verdict": "unknown",
-  "coverage": "blocked",
+  "coverage": "partial",
   "findings": {
     "rest": 0,
     "sdk": 0,
     "guidelines": 0,
-    "documentation": 0
+    "documentation": 1
   },
   "statuses": {
     "rest": "not-assessed",
     "downstream": "not-assessed",
-    "guidelines": "not-assessed",
-    "documentation": "not-assessed"
+    "guidelines": "passed",
+    "documentation": "failed"
   },
   "blockers": [
-    "Coordinator rejected downstream candidate downstream-1b74d8bb683138cc because it has no source-owned Semantic intent."
+    "Changed AutoRest contracts for 12 operations in project-d1d4d254feed contain unresolved references or ambiguous visibility metadata (AgentPools_CreateOrUpdate, AgentPools_Get, AgentPools_List). Their effective compatibility cannot be established from incomplete contract evidence.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
   ],
-  "assessmentJsonSha256": null,
-  "assessmentHtmlSha256": null,
+  "assessmentJsonSha256": "a56ec23887fd9d653afdd6cf5347dcc0cae2b1c9a4f7f14f55a73605513660a7",
+  "assessmentHtmlSha256": "a9641d5e9ccb59034fad63b40d0600507e886c3cf97ddbd74ba198cec34c75fd",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44598/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44598/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44598/assessment.json",
+  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
 }

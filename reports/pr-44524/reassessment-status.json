@@ -1,29 +1,36 @@
 {
   "pr": 44524,
-  "result": "fresh-reassessment-could-not-produce-report",
-  "generatedAt": null,
-  "confidence": "low",
+  "result": "fresh-report",
+  "generatedAt": "2026-10-30T06:14:40.088Z",
+  "confidence": "medium",
   "safety": "not-assessed",
   "verdict": "unknown",
-  "coverage": "blocked",
+  "coverage": "partial",
   "findings": {
     "rest": 0,
     "sdk": 0,
     "guidelines": 0,
-    "documentation": 0
+    "documentation": 6
   },
   "statuses": {
     "rest": "not-assessed",
     "downstream": "not-assessed",
-    "guidelines": "not-assessed",
-    "documentation": "not-assessed"
+    "guidelines": "passed",
+    "documentation": "failed"
   },
   "blockers": [
-    "Coordinator failed during preparation: REST status must be passed.",
-    "Coordinator failed during preparation: Downstream status must be passed."
+    "Inference inference-request-e9af3d806d470f90 is blocked: language-specific-sdk-customization-not-represented.",
+    "Inference inference-request-2a4f9864426deb9c is blocked: language-specific-sdk-customization-not-represented.",
+    "Inference inference-request-f7ff1b85208317fe is blocked: unsupported-customization-not-represented.",
+    "Inference inference-request-90250f2b0dda8ae2 is blocked: unsupported-customization-not-represented.",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-964bcfc4374de0f2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-ae7beb868e2a1ef0\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-f27bb3d99c9c5358\",\"hunkId\":\"hunk-41ab85742a8e8e40\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-f27bb3d99c9c5358\",\"hunkId\":\"hunk-51b6891ecd19e50b\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}"
   ],
-  "assessmentJsonSha256": null,
-  "assessmentHtmlSha256": null,
+  "assessmentJsonSha256": "d8878e02956e654a8a42e9ef02a1cd2af14158653209837cb74f29135165a247",
+  "assessmentHtmlSha256": "6b058d50c814b437f49971b16e5628697004206b6cf5ef25ed7df773cade07b5",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44524/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44524/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44524/assessment.json",
+  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
 }
