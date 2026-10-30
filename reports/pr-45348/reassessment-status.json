@@ -1,11 +1,11 @@
 {
   "pr": 45348,
   "result": "fresh-report",
-  "generatedAt": "2026-10-29T08:27:50.318Z",
+  "generatedAt": "2026-10-30T08:13:59.701Z",
   "confidence": "low",
   "safety": "not-assessed",
   "verdict": "unknown",
-  "coverage": "partial",
+  "coverage": "blocked",
   "findings": {
     "rest": 0,
     "sdk": 0,
@@ -14,16 +14,19 @@
   },
   "statuses": {
     "rest": "not-assessed",
-    "downstream": "passed",
+    "downstream": "not-assessed",
     "guidelines": "passed",
     "documentation": "not-applicable"
   },
   "blockers": [
-    "Effective compatibility cannot be established because AutoRest contract references are unresolved and the bounded input omits candidate-level before/after facts.",
-    "Changed AutoRest contracts for 109 operations in project-dd25e6db7b7b contain unresolved schema or parameter references (AssetEndpointProfiles_CreateOrReplace, AssetEndpointProfiles_Delete, AssetEndpointProfiles_Get). Their effective compatibility cannot be established from placeholder references."
+    "Changed AutoRest contracts for 109 operations in project-dd25e6db7b7b contain unresolved references or ambiguous visibility metadata (AssetEndpointProfiles_CreateOrReplace, AssetEndpointProfiles_Delete, AssetEndpointProfiles_Get). Their effective compatibility cannot be established from incomplete contract evidence.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
+    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
   ],
-  "assessmentJsonSha256": "9936de7d2dfef0d59332108856cbbef0b5d819704aac42ab0d85e81f95159a4c",
-  "assessmentHtmlSha256": "70d1c095c468506fc88a9fb94b3fa53c3725f06bd84cf421943fa6b8e3b35a57",
+  "assessmentJsonSha256": "5995bd962bcaed989606888bbc4a5432facde1474fecbd5cfedd67c89fdd97de",
+  "assessmentHtmlSha256": "271e5e94965ecde1b25ff82336d58cc86896d7176c73a7aef2d9302be7985d0f",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45348/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45348/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45348/assessment.json",
+  "implementationCommit": "d1ff1fd54f9e87b324a007570070cb0862a4e49c"
 }

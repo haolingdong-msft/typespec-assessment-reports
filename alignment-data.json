@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "reportCount": 34,
   "sourceGeneratedAt": {
-    "reports": "2026-10-30T06:14:59.561Z",
-    "publicationManifest": "2026-10-30T06:25:29.669Z",
+    "reports": "2026-10-30T08:21:06.747Z",
+    "publicationManifest": "2026-10-30T08:34:39.946Z",
     "changelogEvidence": "2026-10-28T03:27:09.068Z"
   },
   "reports": [
@@ -208,24 +208,25 @@
       "categoryLabel": "Aligned",
       "outcome": "Aligned",
       "coverage": "partial",
-      "verdict": "unknown",
+      "verdict": "failed",
       "assessmentResult": "fresh-report",
-      "confidence": "medium",
+      "confidence": "low",
       "findings": {
         "rest": 0,
-        "sdk": 0,
+        "sdk": 1,
         "guidelines": 0,
         "documentation": 0
       },
       "statuses": {
         "rest": "not-assessed",
-        "downstream": "passed",
+        "downstream": "failed",
         "guidelines": "passed",
         "documentation": "not-applicable"
       },
       "blockers": [
-        "Effective AutoRest contract comparison remains unresolved for five operations because their contract references could not be resolved.",
-        "Changed AutoRest contracts for 5 operations in project-9dc15a9f8ade contain unresolved schema or parameter references (Registries_Create, Registries_Get, Registries_List). Their effective compatibility cannot be established from placeholder references."
+        "Changed AutoRest contracts for 9 operations in project-9dc15a9f8ade contain unresolved references or ambiguous visibility metadata (ConnectedRegistries_Create, ConnectedRegistries_Get, ConnectedRegistries_List). Their effective compatibility cannot be established from incomplete contract evidence.",
+        "REST impact of the tokenId optionality hunk could not be fully mapped because no bounded REST operation facts were supplied for that hunk.",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-c6e4a1eb523ddb47\",\"hunkId\":\"hunk-8b65c0ea3123704e\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The hunk proves tokenId became optional, but supplies no REST operation facts to determine every request or response wire location; the deterministic downstream candidate covers the SDK impact.\"}"
       ],
       "reportUrl": "reports/pr-44920/",
       "jsonUrl": "reports/pr-44920/assessment.json",
@@ -275,7 +276,7 @@
       "coverage": "partial",
       "verdict": "unknown",
       "assessmentResult": "fresh-report",
-      "confidence": "medium",
+      "confidence": "low",
       "findings": {
         "rest": 0,
         "sdk": 0,
@@ -289,23 +290,9 @@
         "documentation": "passed"
       },
       "blockers": [
-        "Language-specific client.tsp inference requests could not be resolved from bounded language-neutral evidence.",
-        "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-        "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-        "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-        "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-        "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-        "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-        "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-        "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-        "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-2c9bf26bdc7cb1bb\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-        "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-4b28cca4678bc269\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-        "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-4fc38014414d7483\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-        "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-a57e2fa331d97734\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-        "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-cb8912c4f3ca5778\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-        "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-74e4449f01c54c5e\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-d9798705ad9627a9\"}",
-        "{\"allowedDimensions\": [\"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-47db074bf2ab9b6b\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-ea6598f433a523f6\"}",
-        "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-b81c862dd18a28e0\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-ea6598f433a523f6\"}"
+        "Python enum and C# type/name customizations lack language-specific before/after SDK evidence, so their compatibility impact is not assessed.",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-ea6598f433a523f6\",\"hunkId\":\"hunk-47db074bf2ab9b6b\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The Python enum client names may alter existing language-specific member names, but no Python before/after symbol evidence is supplied to establish the exact public change.\"}",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-ea6598f433a523f6\",\"hunkId\":\"hunk-b81c862dd18a28e0\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The C# alternate type and client names may alter existing public SDK types or property names, but no C# before/after symbol evidence is supplied for a supported candidate.\"}"
       ],
       "reportUrl": "reports/pr-44101/",
       "jsonUrl": "reports/pr-44101/assessment.json",
@@ -366,14 +353,9 @@
         "documentation": "failed"
       },
       "blockers": [
-        "Inference inference-request-e9af3d806d470f90 is blocked: language-specific-sdk-customization-not-represented.",
-        "Inference inference-request-2a4f9864426deb9c is blocked: language-specific-sdk-customization-not-represented.",
-        "Inference inference-request-f7ff1b85208317fe is blocked: unsupported-customization-not-represented.",
-        "Inference inference-request-90250f2b0dda8ae2 is blocked: unsupported-customization-not-represented.",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-964bcfc4374de0f2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-ae7beb868e2a1ef0\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-f27bb3d99c9c5358\",\"hunkId\":\"hunk-41ab85742a8e8e40\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-f27bb3d99c9c5358\",\"hunkId\":\"hunk-51b6891ecd19e50b\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}"
+        "Removed and added language-specific SDK customizations cannot be evaluated from the language-neutral downstream evidence.",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-964bcfc4374de0f2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established.\"}",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-ae7beb868e2a1ef0\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established.\"}"
       ],
       "reportUrl": "reports/pr-44524/",
       "jsonUrl": "reports/pr-44524/assessment.json",
@@ -583,7 +565,7 @@
         "documentation": "not-applicable"
       },
       "blockers": [
-        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
+        "Azure.ResourceManager.ResourceListResult has ambiguous downstream model identity because multiple target symbols share its cross-language definition ID."
       ],
       "reportUrl": "reports/pr-44557/",
       "jsonUrl": "reports/pr-44557/assessment.json",
@@ -817,14 +799,12 @@
       },
       "statuses": {
         "rest": "not-assessed",
-        "downstream": "not-assessed",
+        "downstream": "passed",
         "guidelines": "passed",
         "documentation": "passed"
       },
       "blockers": [
-        "Changed AutoRest contracts for 1 operations in project-49e7a00359db contain unresolved references or ambiguous visibility metadata (ReservationRecommendationDetails_Get). Their effective compatibility cannot be established from incomplete contract evidence.",
-        "Inference inference-request-5542f78031438a51 is blocked: language-specific-sdk-customization-not-represented.",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-d6a6211d0c6d440b\",\"hunkId\":\"hunk-8a386f4c7f369431\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}"
+        "AutoRest contract evidence for ReservationRecommendationDetails_Get contains unresolved references or ambiguous visibility metadata; effective REST compatibility for that operation is not fully established."
       ],
       "reportUrl": "reports/pr-43855/",
       "jsonUrl": "reports/pr-43855/assessment.json",
@@ -864,7 +844,7 @@
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
       "reasonCategory": "Language-specific breaking change",
-      "coverage": "partial",
+      "coverage": "blocked",
       "verdict": "unknown",
       "assessmentResult": "fresh-report",
       "confidence": "low",
@@ -875,15 +855,14 @@
         "documentation": 2
       },
       "statuses": {
-        "rest": "passed",
+        "rest": "not-assessed",
         "downstream": "not-assessed",
         "guidelines": "failed",
         "documentation": "failed"
       },
       "blockers": [
-        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
-        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
-        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
+        "JavaScript AssociationUpdate flattening may change an existing SDK surface, but language-specific before/after symbol evidence is unavailable.",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-ec0325f28a51d086\",\"hunkId\":\"hunk-5fcc9116d6a8e356\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"Excluding JavaScript from AssociationUpdate property flattening may change an existing JavaScript SDK shape, but the bounded input provides no language-specific before/after symbol identity or callable contract to author a supported candidate.\"}"
       ],
       "reportUrl": "reports/pr-44200/",
       "jsonUrl": "reports/pr-44200/assessment.json",
@@ -925,22 +904,21 @@
       "coverage": "partial",
       "verdict": "unknown",
       "assessmentResult": "fresh-report",
-      "confidence": "medium",
+      "confidence": "low",
       "findings": {
         "rest": 0,
         "sdk": 0,
-        "guidelines": 1,
+        "guidelines": 0,
         "documentation": 1
       },
       "statuses": {
         "rest": "not-assessed",
         "downstream": "passed",
-        "guidelines": "failed",
+        "guidelines": "passed",
         "documentation": "failed"
       },
       "blockers": [
-        "Changed AutoRest contracts for 7 operations in project-37d12681d7d3 contain unresolved schema or parameter references (Accounts_Create, Accounts_Get, Accounts_List). Their effective compatibility cannot be established from placeholder references.",
-        "Changed AutoRest contracts for 7 operations in project-37d12681d7d3 contain unresolved schema or parameter references (Accounts_Create, Accounts_Get, Accounts_List). Their effective compatibility cannot be established from placeholder references."
+        "Changed AutoRest contracts for Accounts_Create, Accounts_Get, and Accounts_List contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established."
       ],
       "reportUrl": "reports/pr-44334/",
       "jsonUrl": "reports/pr-44334/assessment.json",
@@ -997,7 +975,7 @@
       "coverage": "partial",
       "verdict": "unknown",
       "assessmentResult": "fresh-report",
-      "confidence": "medium",
+      "confidence": "low",
       "findings": {
         "rest": 0,
         "sdk": 0,
@@ -1011,12 +989,10 @@
         "documentation": "failed"
       },
       "blockers": [
-        "Changed AutoRest contracts for 5 operations in project-5ce92fdb382e contain unresolved references or ambiguous visibility metadata (StorageAccounts_Create, StorageAccounts_GetProperties, StorageAccounts_List). Their effective compatibility cannot be established from incomplete contract evidence.",
-        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId.",
-        "Inference inference-request-d185205185e88848 is blocked: language-specific-sdk-customization-not-represented.",
-        "Inference inference-request-a8c0aa80e30eee48 is blocked: unsupported-customization-not-represented.",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-78c56564fa50bea9\",\"hunkId\":\"hunk-ba4805f476c41df2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-cb3e0140ab53f7ea\",\"hunkId\":\"hunk-ed4015b052de1342\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}"
+        "Changed AutoRest contracts for 5 Storage operations contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established.",
+        "Azure.ResourceManager.ResourceListResult has ambiguous downstream model identity because multiple target symbols share its cross-language definition ID.",
+        "The Python/Java StorageAccountEncryption client-name customization is not represented by language-neutral downstream evidence.",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-78c56564fa50bea9\",\"hunkId\":\"hunk-ba4805f476c41df2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The Python/Java-only client rename is not represented in the bounded language-neutral contract evidence, so impact cannot be established without language-specific generated surfaces.\"}"
       ],
       "reportUrl": "reports/pr-44384/",
       "jsonUrl": "reports/pr-44384/assessment.json",
@@ -1111,24 +1087,27 @@
       "categoryLabel": "Aligned",
       "outcome": "Aligned",
       "coverage": "partial",
-      "verdict": "unknown",
+      "verdict": "failed",
       "assessmentResult": "fresh-report",
       "confidence": "low",
       "findings": {
         "rest": 0,
-        "sdk": 0,
+        "sdk": 1,
         "guidelines": 0,
         "documentation": 1
       },
       "statuses": {
         "rest": "not-assessed",
-        "downstream": "not-assessed",
+        "downstream": "failed",
         "guidelines": "passed",
         "documentation": "failed"
       },
       "blockers": [
-        "Changed AutoRest contracts for 12 operations in project-d1d4d254feed contain unresolved references or ambiguous visibility metadata (AgentPools_CreateOrUpdate, AgentPools_Get, AgentPools_List). Their effective compatibility cannot be established from incomplete contract evidence.",
-        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
+        "Changed AutoRest contracts for 12 operations contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established.",
+        "Azure.ResourceManager.ResourceListResult has ambiguous downstream model identity because multiple target symbols share its cross-language definition ID.",
+        "Emitter api-version pinning is not represented by deterministic REST or language-neutral downstream contract evidence.",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-7c26fe1de45593a2\",\"hunkId\":\"hunk-1ed3b8c477ee4aee\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"Emitter api-version selection changes SDK generation behavior but has no deterministic REST or language-neutral downstream contract evidence in this assessment.\"}",
+        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-7c26fe1de45593a2\",\"hunkId\":\"hunk-f665d07aa8dab705\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"Emitter api-version selection changes SDK generation behavior but has no deterministic REST or language-neutral downstream contract evidence in this assessment.\"}"
       ],
       "reportUrl": "reports/pr-44598/",
       "jsonUrl": "reports/pr-44598/assessment.json",
@@ -1224,7 +1203,7 @@
       "reasonCategory": "Initial SDK release",
       "coverage": "blocked",
       "verdict": "unknown",
-      "assessmentResult": "fresh-report",
+      "assessmentResult": "fresh-reassessment-blocked-before-finalization",
       "confidence": "low",
       "findings": {
         "rest": 0,
@@ -1239,12 +1218,10 @@
         "documentation": "not-assessed"
       },
       "blockers": [
-        "Unable to resolve API versions from the versioned TypeSpec project.",
-        "Baseline and target AutoRest artifacts are required for project-97edaae931b3.",
-        "Baseline and target TCGC artifacts are required for project-97edaae931b3.",
-        "Unable to resolve API versions from the versioned TypeSpec project.",
-        "Baseline and target AutoRest artifacts are required for project-97edaae931b3.",
-        "Baseline and target TCGC artifacts are required for project-97edaae931b3."
+        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-97edaae931b3\",\"message\":\"Unable to resolve API versions from the versioned TypeSpec project.\"}",
+        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-97edaae931b3\",\"message\":\"Baseline and target AutoRest artifacts are required for project-97edaae931b3.\"}",
+        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-97edaae931b3\",\"message\":\"Baseline and target AutoRest artifacts are required for project-97edaae931b3.\"}",
+        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-97edaae931b3\",\"message\":\"Baseline and target TCGC artifacts are required for project-97edaae931b3.\"}"
       ],
       "reportUrl": "reports/pr-44842/",
       "jsonUrl": "reports/pr-44842/assessment.json",
@@ -1456,7 +1433,7 @@
       "outcome": "Cannot determine",
       "coverage": "blocked",
       "verdict": "unknown",
-      "assessmentResult": "fresh-report",
+      "assessmentResult": "fresh-reassessment-blocked-before-finalization",
       "confidence": "low",
       "findings": {
         "rest": 0,
@@ -1471,10 +1448,10 @@
         "documentation": "not-assessed"
       },
       "blockers": [
-        "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45197\\worktrees\\base\\specification\\redhatopenshift\\resource-manager\\Microsoft.RedHatOpenShift\\hcpopenshiftclusters'",
-        "Semantic assessment requires successful TypeSpec compiler source indexing.",
-        "Baseline and target AutoRest artifacts are required for project-831145c0e1f1.",
-        "Baseline and target TCGC artifacts are required for project-831145c0e1f1."
+        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-831145c0e1f1\",\"message\":\"ENOENT: no such file or directory, scandir 'C:\\\\Users\\\\haolingdong\\\\.copilot\\\\session-state\\\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\\\files\\\\main-unknown-reassessment\\\\batch-3\\\\pr-45197\\\\worktrees\\\\base\\\\specification\\\\redhatopenshift\\\\resource-manager\\\\Microsoft.RedHatOpenShift\\\\hcpopenshiftclusters'\"}",
+        "{\"code\":\"typespec-compiler-source-index-unavailable\",\"message\":\"Semantic assessment requires successful TypeSpec compiler source indexing.\",\"details\":[{\"revision\":\"base\",\"project\":\"specification/redhatopenshift/resource-manager/Microsoft.RedHatOpenShift/hcpopenshiftclusters\",\"message\":\"TypeSpec program has 1 error diagnostic(s).\"}]}",
+        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-831145c0e1f1\",\"message\":\"Baseline and target AutoRest artifacts are required for project-831145c0e1f1.\"}",
+        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-831145c0e1f1\",\"message\":\"Baseline and target TCGC artifacts are required for project-831145c0e1f1.\"}"
       ],
       "reportUrl": "reports/pr-45197/",
       "jsonUrl": "reports/pr-45197/assessment.json",
@@ -1519,7 +1496,7 @@
       "category": "unknown",
       "categoryLabel": "Cannot determine",
       "outcome": "Cannot determine",
-      "coverage": "partial",
+      "coverage": "blocked",
       "verdict": "unknown",
       "assessmentResult": "fresh-report",
       "confidence": "low",
@@ -1531,13 +1508,15 @@
       },
       "statuses": {
         "rest": "not-assessed",
-        "downstream": "passed",
+        "downstream": "not-assessed",
         "guidelines": "passed",
         "documentation": "not-applicable"
       },
       "blockers": [
-        "Effective compatibility cannot be established because AutoRest contract references are unresolved and the bounded input omits candidate-level before/after facts.",
-        "Changed AutoRest contracts for 109 operations in project-dd25e6db7b7b contain unresolved schema or parameter references (AssetEndpointProfiles_CreateOrReplace, AssetEndpointProfiles_Delete, AssetEndpointProfiles_Get). Their effective compatibility cannot be established from placeholder references."
+        "Changed AutoRest contracts for 109 operations in project-dd25e6db7b7b contain unresolved references or ambiguous visibility metadata (AssetEndpointProfiles_CreateOrReplace, AssetEndpointProfiles_Delete, AssetEndpointProfiles_Get). Their effective compatibility cannot be established from incomplete contract evidence.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
+        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
       ],
       "reportUrl": "reports/pr-45348/",
       "jsonUrl": "reports/pr-45348/assessment.json",
@@ -1638,7 +1617,7 @@
       "outcome": "Cannot determine",
       "coverage": "blocked",
       "verdict": "unknown",
-      "assessmentResult": "fresh-report",
+      "assessmentResult": "fresh-reassessment-blocked-before-finalization",
       "confidence": "low",
       "findings": {
         "rest": 0,
@@ -1653,10 +1632,10 @@
         "documentation": "not-assessed"
       },
       "blockers": [
-        "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45458\\worktrees\\base\\specification\\security\\resource-manager\\Microsoft.Security\\Security\\ServiceEntitlementsAPI'",
-        "Semantic assessment requires successful TypeSpec compiler source indexing.",
-        "Baseline and target AutoRest artifacts are required for project-fec4afad86a3.",
-        "Baseline and target TCGC artifacts are required for project-fec4afad86a3."
+        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-fec4afad86a3\",\"message\":\"ENOENT: no such file or directory, scandir 'C:\\\\Users\\\\haolingdong\\\\.copilot\\\\session-state\\\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\\\files\\\\main-unknown-reassessment\\\\batch-4\\\\pr-45458\\\\worktrees\\\\base\\\\specification\\\\security\\\\resource-manager\\\\Microsoft.Security\\\\Security\\\\ServiceEntitlementsAPI'\"}",
+        "{\"code\":\"typespec-compiler-source-index-unavailable\",\"message\":\"Semantic assessment requires successful TypeSpec compiler source indexing.\",\"details\":[{\"revision\":\"base\",\"project\":\"specification/security/resource-manager/Microsoft.Security/Security/ServiceEntitlementsAPI\",\"message\":\"TypeSpec program has 1 error diagnostic(s).\"}]}",
+        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-fec4afad86a3\",\"message\":\"Baseline and target AutoRest artifacts are required for project-fec4afad86a3.\"}",
+        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-fec4afad86a3\",\"message\":\"Baseline and target TCGC artifacts are required for project-fec4afad86a3.\"}"
       ],
       "reportUrl": "reports/pr-45458/",
       "jsonUrl": "reports/pr-45458/assessment.json",
@@ -1941,7 +1920,7 @@
       "outcome": "Cannot determine",
       "coverage": "blocked",
       "verdict": "unknown",
-      "assessmentResult": "fresh-report",
+      "assessmentResult": "fresh-reassessment-blocked-before-finalization",
       "confidence": "low",
       "findings": {
         "rest": 0,
@@ -1956,14 +1935,10 @@
         "documentation": "not-assessed"
       },
       "blockers": [
-        "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45794\\worktrees\\base\\specification\\edgeoperator\\resource-manager\\Microsoft.EdgeOperator\\SystemReadiness'",
-        "Semantic assessment requires successful TypeSpec compiler source indexing.",
-        "Baseline and target AutoRest artifacts are required for project-8f4a1730f7b4.",
-        "Baseline and target TCGC artifacts are required for project-8f4a1730f7b4.",
-        "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-45794\\worktrees\\base\\specification\\edgeoperator\\resource-manager\\Microsoft.EdgeOperator\\SystemReadiness'",
-        "Semantic assessment requires successful TypeSpec compiler source indexing.",
-        "Baseline and target AutoRest artifacts are required for project-8f4a1730f7b4.",
-        "Baseline and target TCGC artifacts are required for project-8f4a1730f7b4."
+        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-8f4a1730f7b4\",\"message\":\"ENOENT: no such file or directory, scandir 'C:\\\\Users\\\\haolingdong\\\\.copilot\\\\session-state\\\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\\\files\\\\main-unknown-reassessment\\\\batch-4\\\\pr-45794\\\\worktrees\\\\base\\\\specification\\\\edgeoperator\\\\resource-manager\\\\Microsoft.EdgeOperator\\\\SystemReadiness'\"}",
+        "{\"code\":\"typespec-compiler-source-index-unavailable\",\"message\":\"Semantic assessment requires successful TypeSpec compiler source indexing.\",\"details\":[{\"revision\":\"base\",\"project\":\"specification/edgeoperator/resource-manager/Microsoft.EdgeOperator/SystemReadiness\",\"message\":\"TypeSpec program has 1 error diagnostic(s).\"}]}",
+        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-8f4a1730f7b4\",\"message\":\"Baseline and target AutoRest artifacts are required for project-8f4a1730f7b4.\"}",
+        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-8f4a1730f7b4\",\"message\":\"Baseline and target TCGC artifacts are required for project-8f4a1730f7b4.\"}"
       ],
       "reportUrl": "reports/pr-45794/",
       "jsonUrl": "reports/pr-45794/assessment.json",
@@ -2004,7 +1979,7 @@
       "outcome": "Aligned",
       "coverage": "blocked",
       "verdict": "unknown",
-      "assessmentResult": "fresh-report",
+      "assessmentResult": "fresh-reassessment-blocked-before-finalization",
       "confidence": "low",
       "findings": {
         "rest": 0,
@@ -2019,12 +1994,10 @@
         "documentation": "not-assessed"
       },
       "blockers": [
-        "Unable to resolve API versions from the versioned TypeSpec project.",
-        "Baseline and target AutoRest artifacts are required for project-103c4b71e646.",
-        "Baseline and target TCGC artifacts are required for project-103c4b71e646.",
-        "Unable to resolve API versions from the versioned TypeSpec project.",
-        "Baseline and target AutoRest artifacts are required for project-103c4b71e646.",
-        "Baseline and target TCGC artifacts are required for project-103c4b71e646."
+        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-103c4b71e646\",\"message\":\"Unable to resolve API versions from the versioned TypeSpec project.\"}",
+        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-103c4b71e646\",\"message\":\"Baseline and target AutoRest artifacts are required for project-103c4b71e646.\"}",
+        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-103c4b71e646\",\"message\":\"Baseline and target AutoRest artifacts are required for project-103c4b71e646.\"}",
+        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-103c4b71e646\",\"message\":\"Baseline and target TCGC artifacts are required for project-103c4b71e646.\"}"
       ],
       "reportUrl": "reports/pr-46075/",
       "jsonUrl": "reports/pr-46075/assessment.json",
@@ -2065,7 +2038,7 @@
       "outcome": "Cannot determine",
       "coverage": "blocked",
       "verdict": "unknown",
-      "assessmentResult": "fresh-report",
+      "assessmentResult": "fresh-reassessment-blocked-before-finalization",
       "confidence": "low",
       "findings": {
         "rest": 0,
@@ -2080,14 +2053,10 @@
         "documentation": "not-assessed"
       },
       "blockers": [
-        "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-46429\\worktrees\\base\\specification\\deviceupdate\\resource-manager\\Microsoft.DeviceUpdate\\DuDeviceRegistry'",
-        "Semantic assessment requires successful TypeSpec compiler source indexing.",
-        "Baseline and target AutoRest artifacts are required for project-c8d8cf8fd000.",
-        "Baseline and target TCGC artifacts are required for project-c8d8cf8fd000.",
-        "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-46429\\worktrees\\base\\specification\\deviceupdate\\resource-manager\\Microsoft.DeviceUpdate\\DuDeviceRegistry'",
-        "Semantic assessment requires successful TypeSpec compiler source indexing.",
-        "Baseline and target AutoRest artifacts are required for project-c8d8cf8fd000.",
-        "Baseline and target TCGC artifacts are required for project-c8d8cf8fd000."
+        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-c8d8cf8fd000\",\"message\":\"ENOENT: no such file or directory, scandir 'C:\\\\Users\\\\haolingdong\\\\.copilot\\\\session-state\\\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\\\files\\\\main-unknown-reassessment\\\\batch-4\\\\pr-46429\\\\worktrees\\\\base\\\\specification\\\\deviceupdate\\\\resource-manager\\\\Microsoft.DeviceUpdate\\\\DuDeviceRegistry'\"}",
+        "{\"code\":\"typespec-compiler-source-index-unavailable\",\"message\":\"Semantic assessment requires successful TypeSpec compiler source indexing.\",\"details\":[{\"revision\":\"base\",\"project\":\"specification/deviceupdate/resource-manager/Microsoft.DeviceUpdate/DuDeviceRegistry\",\"message\":\"TypeSpec program has 1 error diagnostic(s).\"}]}",
+        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-c8d8cf8fd000\",\"message\":\"Baseline and target AutoRest artifacts are required for project-c8d8cf8fd000.\"}",
+        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-c8d8cf8fd000\",\"message\":\"Baseline and target TCGC artifacts are required for project-c8d8cf8fd000.\"}"
       ],
       "reportUrl": "reports/pr-46429/",
       "jsonUrl": "reports/pr-46429/assessment.json",

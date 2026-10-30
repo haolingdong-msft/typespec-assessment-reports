@@ -1,11 +1,11 @@
 {
   "pr": 44200,
   "result": "fresh-report",
-  "generatedAt": "2026-10-30T06:14:59.443Z",
+  "generatedAt": "2026-10-30T08:13:51.364Z",
   "confidence": "low",
   "safety": "not-assessed",
   "verdict": "unknown",
-  "coverage": "partial",
+  "coverage": "blocked",
   "findings": {
     "rest": 0,
     "sdk": 0,
@@ -13,19 +13,18 @@
     "documentation": 2
   },
   "statuses": {
-    "rest": "passed",
+    "rest": "not-assessed",
     "downstream": "not-assessed",
     "guidelines": "failed",
     "documentation": "failed"
   },
   "blockers": [
-    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
-    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
-    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
+    "JavaScript AssociationUpdate flattening may change an existing SDK surface, but language-specific before/after symbol evidence is unavailable.",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-ec0325f28a51d086\",\"hunkId\":\"hunk-5fcc9116d6a8e356\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"Excluding JavaScript from AssociationUpdate property flattening may change an existing JavaScript SDK shape, but the bounded input provides no language-specific before/after symbol identity or callable contract to author a supported candidate.\"}"
   ],
-  "assessmentJsonSha256": "434eaf8d2affc54db8dd44aa760a4ff5491277b084e2abcbb6d610e3612aac50",
-  "assessmentHtmlSha256": "54dd65e7212cd000bd51fd021e19b667d00d999edcf5ac60de9126474c7d839e",
+  "assessmentJsonSha256": "eb9faa5e858c3cf7748d5a4efdb237c2e40e4b9b405e7f6a55ad26cb9635750c",
+  "assessmentHtmlSha256": "12a8075b71c14e1e2b4ba2ea87ceef439d1f28f4938ff4929ab8fcfce19b11f7",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44200/",
   "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44200/assessment.json",
-  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
+  "implementationCommit": "d1ff1fd54f9e87b324a007570070cb0862a4e49c"
 }

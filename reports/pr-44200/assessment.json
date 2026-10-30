@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T06:14:59.443Z",
+  "generatedAt": "2026-10-30T08:13:51.364Z",
   "title": "TypeSpec assessment: specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/ServiceNetworking",
   "repository": {
     "root": "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-assessment-stack",
@@ -71,7 +71,7 @@
     "scope": "rest-and-downstream-only",
     "status": "not-assessed",
     "verdict": "unknown",
-    "coverage": "partial"
+    "coverage": "blocked"
   },
   "dimensions": {
     "semantic": {
@@ -17035,8 +17035,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Update AssociationUpdate",
-          "summary": "Updates AssociationUpdate across 1 affected operation. The bounded evidence records 10 changed constructs and requires judgment for uncovered customization or configuration hunks.",
+          "title": "Preserve SDK compatibility for the 2026-03-01 projection",
+          "summary": "Adjusts language-specific client names, alternate types, and property flattening for the new version. The REST shape of AssociationsInterface_Update is unchanged; one JavaScript flattening change cannot be resolved from the bounded language-neutral SDK evidence.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -17109,28 +17109,28 @@
               "requestId": "inference-request-89265bef1532bc7d",
               "hunkId": "hunk-3ffde1b0b84033b7",
               "decision": "no-impact",
-              "rationale": "The hunk is language-specific customization or version-lineage metadata; deterministic candidates already cover any contract change, and no additional language-neutral candidate is supported.",
+              "rationale": "The AutoRest-only flattening is applied to newly added private endpoint and private link resource properties, so no existing projected SDK contract is removed.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-dc7389302b88399c",
               "hunkId": "hunk-5fcc9116d6a8e356",
-              "decision": "no-impact",
-              "rationale": "The hunk is language-specific customization or version-lineage metadata; deterministic candidates already cover any contract change, and no additional language-neutral candidate is supported.",
+              "decision": "blocked",
+              "rationale": "Excluding JavaScript from AssociationUpdate property flattening may change an existing JavaScript SDK shape, but the bounded input provides no language-specific before/after symbol identity or callable contract to author a supported candidate.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-43023378cbce66f1",
               "hunkId": "hunk-770c16c9dbcdfab1",
               "decision": "no-impact",
-              "rationale": "The hunk is language-specific customization or version-lineage metadata; deterministic candidates already cover any contract change, and no additional language-neutral candidate is supported.",
+              "rationale": "The JavaScript client name is added only for the newly introduced 2026-03-01 version enum member and does not alter an existing REST or language-neutral SDK contract.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-77ac0fd55edb099b",
               "hunkId": "hunk-c35117a700e5174b",
               "decision": "no-impact",
-              "rationale": "The hunk is language-specific customization or version-lineage metadata; deterministic candidates already cover any contract change, and no additional language-neutral candidate is supported.",
+              "rationale": "The C# alternate types, flattening, and client names apply to newly added private networking models and preserve intended SDK conventions without removing an existing language-neutral contract.",
               "candidateIds": []
             }
           ],
@@ -28151,8 +28151,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add FrontendAssociation, FrontendProperties, PrivateEndpointConnection, PrivateEndpointConnectionProperties",
-          "summary": "Adds FrontendAssociation, FrontendProperties, PrivateEndpointConnection, PrivateEndpointConnectionProperties across 6 affected operations. The bounded evidence records 136 changed constructs.",
+          "title": "Add private endpoint and private link support",
+          "summary": "Adds Traffic Controller child proxy resources and six ARM operations for private endpoint connections and private link discovery, and adds frontend association and public-network-access models in API version 2026-03-01.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -31731,12 +31731,23 @@
       "blockers": []
     },
     "rest": {
-      "status": "passed",
-      "verdict": "passed",
-      "coverage": "complete",
+      "status": "not-assessed",
+      "verdict": "unknown",
+      "coverage": "blocked",
       "findings": [],
       "rejectedCandidateCount": 0,
-      "blockers": []
+      "blockers": [
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-ec0325f28a51d086",
+          "hunkId": "hunk-5fcc9116d6a8e356",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "Excluding JavaScript from AssociationUpdate property flattening may change an existing JavaScript SDK shape, but the bounded input provides no language-specific before/after symbol identity or callable contract to author a supported candidate."
+        }
+      ]
     },
     "downstream": {
       "status": "not-assessed",
@@ -31783,6 +31794,16 @@
             "sdk-fact-d6311950ab84026c",
             "sdk-fact-fcbdec7eab8a0419"
           ]
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-ec0325f28a51d086",
+          "hunkId": "hunk-5fcc9116d6a8e356",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "Excluding JavaScript from AssociationUpdate property flattening may change an existing JavaScript SDK shape, but the bounded input provides no language-specific before/after symbol identity or callable contract to author a supported candidate."
         }
       ]
     },
@@ -31809,7 +31830,7 @@
               "changeContext": 1,
               "total": 10
             },
-            "selectionRationale": "Matches the changed ARM constructs and versioned API context for this assessment."
+            "selectionRationale": "Directly governs PrivateEndpointConnection resources and their standard operations."
           },
           {
             "rank": 2,
@@ -31820,55 +31841,97 @@
               "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 0,
-              "total": 9
+              "changeContext": 1,
+              "total": 10
             },
-            "selectionRationale": "Matches the changed ARM constructs and versioned API context for this assessment."
+            "selectionRationale": "Directly governs PrivateLink resources and discovery operations."
           },
           {
             "rank": 3,
-            "catalogOrder": 12,
-            "title": "ARM resource operations",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-            "score": {
-              "exactSymbol": 4,
-              "patternCategory": 3,
-              "servicePlane": 0,
-              "changeContext": 1,
-              "total": 8
-            },
-            "selectionRationale": "Matches the changed ARM constructs and versioned API context for this assessment."
-          },
-          {
-            "rank": 4,
             "catalogOrder": 1,
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 7
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "Matches the changed ARM constructs and versioned API context for this assessment."
+            "selectionRationale": "Governs additions to an existing versioned ARM API."
           },
           {
-            "rank": 5,
+            "rank": 4,
             "catalogOrder": 7,
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "Governs ARM proxy child resource modeling and base resource types."
+          },
+          {
+            "rank": 5,
+            "catalogOrder": 12,
+            "title": "ARM resource operations",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 0,
-              "total": 2
+              "total": 5
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "Relevant to ARM lifecycle operation templates."
           },
           {
             "rank": 6,
+            "catalogOrder": 21,
+            "title": "Models",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 3
+            },
+            "selectionRationale": "Generic model guidance is relevant to added models."
+          },
+          {
+            "rank": 7,
+            "catalogOrder": 22,
+            "title": "Enums",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 3
+            },
+            "selectionRationale": "Enum guidance is relevant to added extensible unions."
+          },
+          {
+            "rank": 8,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 3
+            },
+            "selectionRationale": "Generic decorator guidance is relevant to customization syntax."
+          },
+          {
+            "rank": 9,
             "catalogOrder": 2,
             "title": "Versioning overview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
@@ -31879,10 +31942,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 7,
+            "rank": 10,
             "catalogOrder": 3,
             "title": "Add preview after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
@@ -31893,10 +31956,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 8,
+            "rank": 11,
             "catalogOrder": 4,
             "title": "Add stable after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
@@ -31907,10 +31970,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 9,
+            "rank": 12,
             "catalogOrder": 5,
             "title": "Add preview after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
@@ -31921,10 +31984,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 10,
+            "rank": 13,
             "catalogOrder": 6,
             "title": "Add stable after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
@@ -31935,10 +31998,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 11,
+            "rank": 14,
             "catalogOrder": 8,
             "title": "Specific extension resource sample",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
@@ -31949,10 +32012,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 12,
+            "rank": 15,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
@@ -31963,10 +32026,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 13,
+            "rank": 16,
             "catalogOrder": 13,
             "title": "Azure.ResourceManager interface reference",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
@@ -31977,10 +32040,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 14,
+            "rank": 17,
             "catalogOrder": 14,
             "title": "TypeSpec.Rest decorators",
             "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
@@ -31991,10 +32054,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 15,
+            "rank": 18,
             "catalogOrder": 15,
             "title": "Azure.ResourceManager decorators",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
@@ -32005,10 +32068,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 16,
+            "rank": 19,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
@@ -32019,10 +32082,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 17,
+            "rank": 20,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -32033,10 +32096,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 18,
+            "rank": 21,
             "catalogOrder": 18,
             "title": "Azure.ResourceManager data types",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
@@ -32047,10 +32110,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 19,
+            "rank": 22,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -32061,10 +32124,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 20,
+            "rank": 23,
             "catalogOrder": 20,
             "title": "ARM common types",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
@@ -32075,38 +32138,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
-            "rank": 21,
-            "catalogOrder": 21,
-            "title": "Models",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
-          },
-          {
-            "rank": 22,
-            "catalogOrder": 22,
-            "title": "Enums",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
-          },
-          {
-            "rank": 23,
+            "rank": 24,
             "catalogOrder": 23,
             "title": "Scalars",
             "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
@@ -32117,21 +32152,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
-          },
-          {
-            "rank": 24,
-            "catalogOrder": 24,
-            "title": "Decorators",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
             "rank": 25,
@@ -32145,7 +32166,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
             "rank": 26,
@@ -32159,7 +32180,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
             "rank": 27,
@@ -32173,7 +32194,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
             "rank": 28,
@@ -32187,7 +32208,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
             "rank": 29,
@@ -32201,7 +32222,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
             "rank": 30,
@@ -32215,7 +32236,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           },
           {
             "rank": 31,
@@ -32229,7 +32250,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without a stronger combined symbol, category, plane, and change-context match."
+            "selectionRationale": "No direct match for the assessed private-networking and SDK-customization changes."
           }
         ],
         "documents": [
@@ -32245,17 +32266,18 @@
               "changeContext": 1,
               "total": 10
             },
-            "selectionRationale": "Matches the changed ARM constructs and versioned API context for this assessment.",
+            "selectionRationale": "Directly governs PrivateEndpointConnection resources and their standard operations.",
             "guidance": [
               {
                 "section": "Defining a Private Endpoint Connection Resource",
-                "excerpt": "A provider supporting private endpoint connections must define a resource extending PrivateEndpointConnectionResource.",
+                "excerpt": "Resource providers that support private endpoint connections must declare a private endpoint connection resource type in their provider namespace and use the standard PrivateEndpoints interface to expose operations.",
                 "queryTerms": [
-                  "PrivateEndpointConnectionResource",
+                  "PrivateEndpointConnection",
                   "PrivateEndpoints"
                 ],
                 "examples": [
-                  "model PrivateEndpointConnection is PrivateEndpointConnectionResource;"
+                  "model PrivateEndpointConnection is PrivateEndpointConnectionResource;",
+                  "alias PrivateEndpointOps = PrivateEndpoints<PrivateEndpointConnection>;"
                 ],
                 "applicableDeclarationIds": [
                   "declaration-16ce43244c31e829",
@@ -32266,7 +32288,7 @@
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:25.741Z",
+            "retrievedAt": "2026-10-30T08:13:23.2882925Z",
             "contentHash": "sha256:4da844476220e286e694a2edd33b2bfd9fdd763fa8a24c353360c51544f9107c"
           },
           {
@@ -32278,20 +32300,21 @@
               "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 0,
-              "total": 9
+              "changeContext": 1,
+              "total": 10
             },
-            "selectionRationale": "Matches the changed ARM constructs and versioned API context for this assessment.",
+            "selectionRationale": "Directly governs PrivateLink resources and discovery operations.",
             "guidance": [
               {
                 "section": "Defining a Private Link Resource",
-                "excerpt": "A private link resource should extend the standard PrivateLink model.",
+                "excerpt": "Resource providers that support private link resources must declare a private link resource type in their provider namespace and use the standard PrivateLinks interface to expose operations.",
                 "queryTerms": [
-                  "PrivateLink",
+                  "PrivateLinkResource",
                   "PrivateLinks"
                 ],
                 "examples": [
-                  "model MyPrivateLinkResource is PrivateLink;"
+                  "model MyPrivateLinkResource is PrivateLink;",
+                  "alias PrivateLinkOps = PrivateLinks<MyPrivateLinkResource>;"
                 ],
                 "applicableDeclarationIds": [
                   "declaration-16ce43244c31e829",
@@ -32302,44 +32325,44 @@
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:25.986Z",
+            "retrievedAt": "2026-10-30T08:13:23.3349600Z",
             "contentHash": "sha256:4aa53d52fafb766322e2d381125eae396661087d567d58667fd115715fdeadff"
           },
           {
             "rank": 3,
-            "catalogOrder": 12,
-            "title": "ARM resource operations",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-            "score": {
-              "exactSymbol": 4,
-              "patternCategory": 3,
-              "servicePlane": 0,
-              "changeContext": 1,
-              "total": 8
-            },
-            "selectionRationale": "Matches the changed ARM constructs and versioned API context for this assessment.",
-            "guidance": [],
-            "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-30T06:13:25.495Z",
-            "contentHash": "sha256:c1f60e78029f3aaff88d0037256e628682821fc635a96f94e05c758bdbd7c962"
-          },
-          {
-            "rank": 4,
             "catalogOrder": 1,
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 7
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "Matches the changed ARM constructs and versioned API context for this assessment.",
+            "selectionRationale": "Governs additions to an existing versioned ARM API.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-30T06:13:24.956Z",
+            "retrievedAt": "2026-10-30T08:13:23.1973253Z",
             "contentHash": "sha256:30470c99aaddccfad0799e2dcdf370cc27e56e09b76ed81b70ef5de044e29854"
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 7,
+            "title": "ARM resource types and modeling",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "Governs ARM proxy child resource modeling and base resource types.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-30T08:13:23.4256093Z",
+            "contentHash": "sha256:530cea00cafd989f49e45120bdbba55d5502e02fc428f624f8623b4ddae88d56"
           }
         ]
       },
@@ -32364,23 +32387,10 @@
             "declaration-b000eda222feb7a6"
           ],
           "decision": "no-applicable-guidance",
-          "actual": "Updates AssociationUpdate across 1 affected operation. The bounded evidence records 10 changed constructs and requires judgment for uncovered customization or configuration hunks.",
-          "rationale": "The completed shared-document search did not identify governing Azure API guidance for this supporting or client-specific change.",
-          "gap": "The completed shared-document search did not identify governing Azure API guidance for this supporting or client-specific change.",
-          "sourceLinks": [
-            {
-              "path": "specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/ServiceNetworking/main.tsp",
-              "startLine": 109,
-              "endLine": 117,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d33364d832f4a26339b900c7a88f604753a4d74b/specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/ServiceNetworking/main.tsp#L110-L117"
-            },
-            {
-              "path": "specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/ServiceNetworking/main.tsp",
-              "startLine": 113,
-              "endLine": 116,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/d33364d832f4a26339b900c7a88f604753a4d74b/specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/ServiceNetworking/main.tsp#L116-L116"
-            }
-          ],
+          "actual": "The change consists of language-specific SDK customization decorators for flattening, naming, and alternate types.",
+          "rationale": "The shared official documents govern REST versioning and ARM resource patterns, not the language-specific SDK compatibility customizations in this intent.",
+          "gap": "The shared official documents govern REST versioning and ARM resource patterns, not the language-specific SDK compatibility customizations in this intent.",
+          "sourceLinks": [],
           "codeSnippets": [
             {
               "path": "specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/ServiceNetworking/main.tsp",
@@ -32510,12 +32520,12 @@
             "declaration-f723506fdb7c3be4"
           ],
           "decision": "applicable-fail",
-          "title": "Private networking resources bypass standard ARM templates",
+          "title": "Private networking resources bypass the standard ARM templates",
           "severity": "medium",
-          "expected": "Private endpoint resources extend PrivateEndpointConnectionResource and use PrivateEndpoints; private link resources extend PrivateLink and use PrivateLinks.",
-          "actual": "The change defines bespoke ProxyResource models and generic ARM operation templates for private endpoint connections and private link resources.",
-          "rationale": "Using the standard templates preserves the ARM private networking contract and avoids divergent resource shapes and lifecycle operations.",
-          "gap": "Using the standard templates preserves the ARM private networking contract and avoids divergent resource shapes and lifecycle operations.",
+          "expected": "Private endpoint connections extend PrivateEndpointConnectionResource and use PrivateEndpoints operations; private link resources extend PrivateLink and use PrivateLinks operations.",
+          "actual": "The change models both resources directly as ProxyResource types and exposes their operations with generic ArmResource templates.",
+          "rationale": "Using the standard private networking resource and operation templates is the documented ARM pattern and supplies the expected resource contracts consistently.",
+          "gap": "Using the standard private networking resource and operation templates is the documented ARM pattern and supplies the expected resource contracts consistently.",
           "sourceLinks": [
             {
               "path": "specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/ServiceNetworking/main.tsp",
@@ -32630,18 +32640,18 @@
         {
           "id": "compliance-2da475cf59222d9c",
           "semanticIntentId": "semantic-ffb7981abcd2bb11",
-          "title": "Private networking resources bypass standard ARM templates",
+          "title": "Private networking resources bypass the standard ARM templates",
           "severity": "medium",
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
               "guidanceSection": "Defining a Private Endpoint Connection Resource",
-              "excerpt": "A provider supporting private endpoint connections must define a resource extending PrivateEndpointConnectionResource."
+              "excerpt": "Resource providers that support private endpoint connections must declare a private endpoint connection resource type in their provider namespace and use the standard PrivateEndpoints interface to expose operations."
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
               "guidanceSection": "Defining a Private Link Resource",
-              "excerpt": "A private link resource should extend the standard PrivateLink model."
+              "excerpt": "Resource providers that support private link resources must declare a private link resource type in their provider namespace and use the standard PrivateLinks interface to expose operations."
             }
           ],
           "declarationIds": [
@@ -32660,9 +32670,9 @@
             "hunk-937665b6a37edb82",
             "hunk-cfc0f349d6da8790"
           ],
-          "expected": "Private endpoint resources extend PrivateEndpointConnectionResource and use PrivateEndpoints; private link resources extend PrivateLink and use PrivateLinks.",
-          "actual": "The change defines bespoke ProxyResource models and generic ARM operation templates for private endpoint connections and private link resources.",
-          "gap": "Using the standard templates preserves the ARM private networking contract and avoids divergent resource shapes and lifecycle operations.",
+          "expected": "Private endpoint connections extend PrivateEndpointConnectionResource and use PrivateEndpoints operations; private link resources extend PrivateLink and use PrivateLinks operations.",
+          "actual": "The change models both resources directly as ProxyResource types and exposes their operations with generic ArmResource templates.",
+          "gap": "Using the standard private networking resource and operation templates is the documented ARM pattern and supplies the expected resource contracts consistently.",
           "sourceLinks": [
             {
               "path": "specification/servicenetworking/resource-manager/Microsoft.ServiceNetworking/ServiceNetworking/main.tsp",
@@ -33151,15 +33161,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\projects\\project-5a2890a92772\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\projects\\project-5a2890a92772\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2025-01-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 9061,
+            "durationMs": 14883,
             "configPath": "worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking\\tspconfig.yaml",
             "configHash": "359ff0463d6a8ac59c76e838c08078876a58fee0b4fbcc5dc31969aee8f81493",
             "logPath": "logs\\project-5a2890a92772-baseline-autorest.log",
@@ -33183,16 +33193,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\projects\\project-5a2890a92772\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\projects\\project-5a2890a92772\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2025-01-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 9075,
+            "durationMs": 9916,
             "configPath": "worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking\\tspconfig.yaml",
             "configHash": "359ff0463d6a8ac59c76e838c08078876a58fee0b4fbcc5dc31969aee8f81493",
             "logPath": "logs\\project-5a2890a92772-baseline-tcgc.log",
@@ -33220,15 +33230,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\projects\\project-5a2890a92772\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\projects\\project-5a2890a92772\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-03-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 8424,
+            "durationMs": 10573,
             "configPath": "worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking\\tspconfig.yaml",
             "configHash": "359ff0463d6a8ac59c76e838c08078876a58fee0b4fbcc5dc31969aee8f81493",
             "logPath": "logs\\project-5a2890a92772-target-autorest.log",
@@ -33252,16 +33262,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\projects\\project-5a2890a92772\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\projects\\project-5a2890a92772\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-b\\pr-44200\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44200\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-03-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 9702,
+            "durationMs": 11772,
             "configPath": "worktrees\\current\\specification\\servicenetworking\\resource-manager\\Microsoft.ServiceNetworking\\ServiceNetworking\\tspconfig.yaml",
             "configHash": "359ff0463d6a8ac59c76e838c08078876a58fee0b4fbcc5dc31969aee8f81493",
             "logPath": "logs\\project-5a2890a92772-target-tcgc.log",
@@ -33344,9 +33354,17 @@
     }
   ],
   "blockers": [
-    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
-    "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
-    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
+    "JavaScript AssociationUpdate flattening may change an existing SDK surface, but language-specific before/after symbol evidence is unavailable.",
+    {
+      "code": "inference-blocked",
+      "reviewUnitId": "semantic-ec0325f28a51d086",
+      "hunkId": "hunk-5fcc9116d6a8e356",
+      "allowedDimensions": [
+        "rest",
+        "downstream"
+      ],
+      "message": "Excluding JavaScript from AssociationUpdate property flattening may change an existing JavaScript SDK shape, but the bounded input provides no language-specific before/after symbol identity or callable contract to author a supported candidate."
+    }
   ],
   "provenance": {
     "modelInput": "model-input.json",
@@ -33384,30 +33402,30 @@
     "inference": {
       "requestCount": 4,
       "inferredCandidateCount": 0,
-      "noImpactCount": 4,
-      "blockedCount": 0
+      "noImpactCount": 3,
+      "blockedCount": 1
     },
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 1499019,
+      "documentBytesFetched": 1814045,
       "guidanceExcerptsRetained": 2,
-      "guidanceExcerptBytesRetained": 187
+      "guidanceExcerptBytesRetained": 405
     }
   },
   "timings": {
-    "metadataMs": 1797,
-    "fetchMs": 235,
-    "scopeDiscoveryMs": 98,
-    "setupExcludingFetchMs": 8425,
-    "comparisonMs": 164,
-    "changeDiscoveryMs": 110,
-    "workspacePreparationMs": 5935,
-    "projectDiscoveryMs": 25,
-    "totalMs": 415636,
-    "semanticAnalysisMs": 224,
-    "restAnalysisMs": 90,
-    "downstreamAnalysisMs": 1591,
+    "metadataMs": 3281,
+    "fetchMs": 372,
+    "scopeDiscoveryMs": 166,
+    "setupExcludingFetchMs": 16210,
+    "comparisonMs": 311,
+    "changeDiscoveryMs": 221,
+    "workspacePreparationMs": 11640,
+    "projectDiscoveryMs": 28,
+    "totalMs": 948682,
+    "semanticAnalysisMs": 204,
+    "restAnalysisMs": 84,
+    "downstreamAnalysisMs": 1438,
     "documentQualityAnalysisMs": 2
   }
 }

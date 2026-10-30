@@ -1,8 +1,8 @@
 {
   "pr": 44384,
   "result": "fresh-report",
-  "generatedAt": "2026-10-30T06:14:40.093Z",
-  "confidence": "medium",
+  "generatedAt": "2026-10-30T08:18:14.833Z",
+  "confidence": "low",
   "safety": "not-assessed",
   "verdict": "unknown",
   "coverage": "partial",
@@ -19,16 +19,14 @@
     "documentation": "failed"
   },
   "blockers": [
-    "Changed AutoRest contracts for 5 operations in project-5ce92fdb382e contain unresolved references or ambiguous visibility metadata (StorageAccounts_Create, StorageAccounts_GetProperties, StorageAccounts_List). Their effective compatibility cannot be established from incomplete contract evidence.",
-    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId.",
-    "Inference inference-request-d185205185e88848 is blocked: language-specific-sdk-customization-not-represented.",
-    "Inference inference-request-a8c0aa80e30eee48 is blocked: unsupported-customization-not-represented.",
-    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-78c56564fa50bea9\",\"hunkId\":\"hunk-ba4805f476c41df2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.\"}",
-    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-cb3e0140ab53f7ea\",\"hunkId\":\"hunk-ed4015b052de1342\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.\"}"
+    "Changed AutoRest contracts for 5 Storage operations contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established.",
+    "Azure.ResourceManager.ResourceListResult has ambiguous downstream model identity because multiple target symbols share its cross-language definition ID.",
+    "The Python/Java StorageAccountEncryption client-name customization is not represented by language-neutral downstream evidence.",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-78c56564fa50bea9\",\"hunkId\":\"hunk-ba4805f476c41df2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The Python/Java-only client rename is not represented in the bounded language-neutral contract evidence, so impact cannot be established without language-specific generated surfaces.\"}"
   ],
-  "assessmentJsonSha256": "a231f8123c39c92bb6836c93145f14807972dcc749c212e8eddc426dfc9cac59",
-  "assessmentHtmlSha256": "bcccfcd5d37b2382e7ea3f2e9662995c7232aa96cf2d042061f32e2b8240c2b0",
+  "assessmentJsonSha256": "4c32c8ac5b8e06c7be4aae152db9ef146e3cdc3c26adac9d520d90cc294352c2",
+  "assessmentHtmlSha256": "e92a41c8e361532908d9ead4cc2c0293020dcbfc0c642aa7e319b465d98930d1",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44384/",
   "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44384/assessment.json",
-  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
+  "implementationCommit": "d1ff1fd54f9e87b324a007570070cb0862a4e49c"
 }

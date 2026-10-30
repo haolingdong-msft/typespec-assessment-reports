@@ -1,30 +1,33 @@
 {
   "pr": 44598,
   "result": "fresh-report",
-  "generatedAt": "2026-10-30T06:14:59.509Z",
+  "generatedAt": "2026-10-30T08:18:14.934Z",
   "confidence": "low",
-  "safety": "not-assessed",
-  "verdict": "unknown",
+  "safety": "failed",
+  "verdict": "failed",
   "coverage": "partial",
   "findings": {
     "rest": 0,
-    "sdk": 0,
+    "sdk": 1,
     "guidelines": 0,
     "documentation": 1
   },
   "statuses": {
     "rest": "not-assessed",
-    "downstream": "not-assessed",
+    "downstream": "failed",
     "guidelines": "passed",
     "documentation": "failed"
   },
   "blockers": [
-    "Changed AutoRest contracts for 12 operations in project-d1d4d254feed contain unresolved references or ambiguous visibility metadata (AgentPools_CreateOrUpdate, AgentPools_Get, AgentPools_List). Their effective compatibility cannot be established from incomplete contract evidence.",
-    "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
+    "Changed AutoRest contracts for 12 operations contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established.",
+    "Azure.ResourceManager.ResourceListResult has ambiguous downstream model identity because multiple target symbols share its cross-language definition ID.",
+    "Emitter api-version pinning is not represented by deterministic REST or language-neutral downstream contract evidence.",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-7c26fe1de45593a2\",\"hunkId\":\"hunk-1ed3b8c477ee4aee\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"Emitter api-version selection changes SDK generation behavior but has no deterministic REST or language-neutral downstream contract evidence in this assessment.\"}",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-7c26fe1de45593a2\",\"hunkId\":\"hunk-f665d07aa8dab705\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"Emitter api-version selection changes SDK generation behavior but has no deterministic REST or language-neutral downstream contract evidence in this assessment.\"}"
   ],
-  "assessmentJsonSha256": "a56ec23887fd9d653afdd6cf5347dcc0cae2b1c9a4f7f14f55a73605513660a7",
-  "assessmentHtmlSha256": "a9641d5e9ccb59034fad63b40d0600507e886c3cf97ddbd74ba198cec34c75fd",
+  "assessmentJsonSha256": "a46cce784b872b9cff8c46220df74a3a2dd7f993f1b57402cae77afc4e74648f",
+  "assessmentHtmlSha256": "1f009044a867bad4e8753af1656bab63797d080610f58a94d5249c693352144e",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44598/",
   "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44598/assessment.json",
-  "implementationCommit": "65624d8390528a42766326df8c4a280fa1a957ad"
+  "implementationCommit": "d1ff1fd54f9e87b324a007570070cb0862a4e49c"
 }

@@ -1,29 +1,31 @@
 {
   "pr": 44920,
   "result": "fresh-report",
-  "generatedAt": "2026-10-29T08:27:50.382Z",
-  "confidence": "medium",
-  "safety": "not-assessed",
-  "verdict": "unknown",
+  "generatedAt": "2026-10-30T08:13:59.665Z",
+  "confidence": "low",
+  "safety": "failed",
+  "verdict": "failed",
   "coverage": "partial",
   "findings": {
     "rest": 0,
-    "sdk": 0,
+    "sdk": 1,
     "guidelines": 0,
     "documentation": 0
   },
   "statuses": {
     "rest": "not-assessed",
-    "downstream": "passed",
+    "downstream": "failed",
     "guidelines": "passed",
     "documentation": "not-applicable"
   },
   "blockers": [
-    "Effective AutoRest contract comparison remains unresolved for five operations because their contract references could not be resolved.",
-    "Changed AutoRest contracts for 5 operations in project-9dc15a9f8ade contain unresolved schema or parameter references (Registries_Create, Registries_Get, Registries_List). Their effective compatibility cannot be established from placeholder references."
+    "Changed AutoRest contracts for 9 operations in project-9dc15a9f8ade contain unresolved references or ambiguous visibility metadata (ConnectedRegistries_Create, ConnectedRegistries_Get, ConnectedRegistries_List). Their effective compatibility cannot be established from incomplete contract evidence.",
+    "REST impact of the tokenId optionality hunk could not be fully mapped because no bounded REST operation facts were supplied for that hunk.",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-c6e4a1eb523ddb47\",\"hunkId\":\"hunk-8b65c0ea3123704e\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The hunk proves tokenId became optional, but supplies no REST operation facts to determine every request or response wire location; the deterministic downstream candidate covers the SDK impact.\"}"
   ],
-  "assessmentJsonSha256": "bea1bc0491607f9372fbc29e1356ca981b747535f8a3164127791c8a9d09ddd6",
-  "assessmentHtmlSha256": "4507d9958d7a843e535642969457f399b9e55cc6b22e9125e1fdb9f3017b91f4",
+  "assessmentJsonSha256": "bf546eb3e00f7ed89b1b5bd44ccfa27ecf237f112fc9b0cecff3c1bc30602b68",
+  "assessmentHtmlSha256": "6696af1f476c711712bc49f50c1a9b3c2e377a4b809b79eb7407b070e4d34dee",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44920/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44920/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44920/assessment.json",
+  "implementationCommit": "d1ff1fd54f9e87b324a007570070cb0862a4e49c"
 }

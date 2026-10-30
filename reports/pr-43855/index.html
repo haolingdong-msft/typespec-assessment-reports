@@ -635,7 +635,7 @@ body {
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">4 intents<br>1 operations<br>0 Added, 4 Modified, 0 Removed</div></a>
 <a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>3/3 intents assessed</div></a>
 <a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Verdict unknown<br>Partial coverage<br>0 findings</div></a>
-<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Verdict unknown<br>Partial coverage<br>0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Complete coverage<br>0 findings</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>3 declarations checked</div></a>
 </div></div></header>
 <details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
@@ -653,7 +653,7 @@ body {
 <span class="context"> }</span>
 <span class="context"> </span>
 <span class="context"> interface Operations</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/main.tsp#L41-L51">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/main.tsp:38</a></p></details><details class="report-subdetails" id="intent-semantic-3bffbdf26509d84e-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ReservationRecommendationDetails_Get</strong><span class="report-http">GET</span><code>/{resourceScope}/providers/Microsoft.Consumption/reservationRecommendationDetails</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Query parameter</span><strong>managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string · optional</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.projectedUsage</strong></td><td><pre>not present</pre></td><td><pre>ReservationRecommendationDetailsProjectedUsageProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.tenantId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: parameters, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-bed389c6a3aaeea8"><summary><div class="report-card-title"><strong>Add management-group reservation recommendation details</strong><small>Adds versioned management-group recommendation models, scope values, tenant and management-group identifiers, and projected-usage details for ReservationRecommendationDetails_Get.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-bed389c6a3aaeea8</code></p><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 16 normalized facts; 6 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>source:source-e0dafbd6ce44871d</code></p><details class="report-subdetails"><summary>Change facts and provenance (16)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ReservationRecommendationDetailsProperties</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-6072c4fa7868405c<br>declarations: declaration-8324e74cf3289aef, declaration-b5d79c718e7a162b</span></td></tr><tr><td><code>ReservationRecommendationDetailsProjectedUsageProperties.totalRetailUsageInCUs</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-2e8e34d5dc297519<br>declarations: declaration-317026525024f125</span></td></tr><tr><td><code>ModernManagementGroupScopeReservationRecommendationProperties.tenantId</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-d13700aa45370441<br>declarations: declaration-e3d154af435a35c5</span></td></tr><tr><td><code>ReservationRecommendationDetailsProjectedUsageProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-2e8e34d5dc297519<br>declarations: declaration-4b88e2390dc1ae03</span></td></tr><tr><td><code>LegacyManagementGroupScopeReservationRecommendationProperties.scope</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-54ddc34cf1888a61<br>declarations: declaration-1bbb5540d9dfec94</span></td></tr><tr><td><code>ReservationRecommendationDetailsProperties.managementGroupId</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-6072c4fa7868405c<br>declarations: declaration-b1bf02b7dcd4b310</span></td></tr><tr><td><code>LegacyManagementGroupScopeReservationRecommendationProperties.managementGroupId</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-54ddc34cf1888a61<br>declarations: declaration-751f7f37e90330ab</span></td></tr><tr><td><code>ModernManagementGroupScopeReservationRecommendationProperties</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-d13700aa45370441<br>declarations: declaration-fd2ad6cbd08049dd</span></td></tr><tr><td><code>ReservationRecommendationDetailsProperties.projectedUsage</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-6072c4fa7868405c<br>declarations: declaration-3ee476dfa3d68d9f</span></td></tr><tr><td><code>LegacyManagementGroupScopeReservationRecommendationProperties.tenantId</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-54ddc34cf1888a61<br>declarations: declaration-802caa295b332895</span></td></tr><tr><td><code>ModernManagementGroupScopeReservationRecommendationProperties.managementGroupId</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-d13700aa45370441<br>declarations: declaration-c1813c46583b5304</span></td></tr><tr><td><code>Scope.ManagementGroup</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-a487aa00de95d4d3<br>declarations: declaration-da9058f605559bdf</span></td></tr><tr><td><code>ModernManagementGroupScopeReservationRecommendationProperties.scope</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-d13700aa45370441<br>declarations: declaration-033f08ff32163679</span></td></tr><tr><td><code>Scope</code></td><td>type</td><td>modify</td><td>property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-a487aa00de95d4d3<br>declarations: declaration-17ad4c6a9275103e, declaration-b824474159f1320e</span></td></tr><tr><td><code>ReservationRecommendationDetailsProperties.tenantId</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-6072c4fa7868405c<br>declarations: declaration-607883c685c84d8d</span></td></tr><tr><td><code>LegacyManagementGroupScopeReservationRecommendationProperties</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-54ddc34cf1888a61<br>declarations: declaration-02383168bd4049dd</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp</div><pre><span class="context"> import &quot;@typespec/http&quot;;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/main.tsp#L41-L51">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/main.tsp:38</a></p></details><details class="report-subdetails" id="intent-semantic-3bffbdf26509d84e-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ReservationRecommendationDetails_Get</strong><span class="report-http">GET</span><code>/{resourceScope}/providers/Microsoft.Consumption/reservationRecommendationDetails</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Query parameter</span><strong>managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string · optional</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.projectedUsage</strong></td><td><pre>not present</pre></td><td><pre>ReservationRecommendationDetailsProjectedUsageProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.tenantId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: parameters, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-bed389c6a3aaeea8"><summary><div class="report-card-title"><strong>Add management-group reservation recommendation data</strong><small>Adds management-group scope variants, projected usage details, and related properties for reservation recommendations in API version 2026-06-01, affecting ReservationRecommendationDetails_Get.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-bed389c6a3aaeea8</code></p><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 16 normalized facts; 6 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>source:source-e0dafbd6ce44871d</code></p><details class="report-subdetails"><summary>Change facts and provenance (16)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ReservationRecommendationDetailsProperties</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-6072c4fa7868405c<br>declarations: declaration-8324e74cf3289aef, declaration-b5d79c718e7a162b</span></td></tr><tr><td><code>ReservationRecommendationDetailsProjectedUsageProperties.totalRetailUsageInCUs</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-2e8e34d5dc297519<br>declarations: declaration-317026525024f125</span></td></tr><tr><td><code>ModernManagementGroupScopeReservationRecommendationProperties.tenantId</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-d13700aa45370441<br>declarations: declaration-e3d154af435a35c5</span></td></tr><tr><td><code>ReservationRecommendationDetailsProjectedUsageProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-2e8e34d5dc297519<br>declarations: declaration-4b88e2390dc1ae03</span></td></tr><tr><td><code>LegacyManagementGroupScopeReservationRecommendationProperties.scope</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-54ddc34cf1888a61<br>declarations: declaration-1bbb5540d9dfec94</span></td></tr><tr><td><code>ReservationRecommendationDetailsProperties.managementGroupId</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-6072c4fa7868405c<br>declarations: declaration-b1bf02b7dcd4b310</span></td></tr><tr><td><code>LegacyManagementGroupScopeReservationRecommendationProperties.managementGroupId</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-54ddc34cf1888a61<br>declarations: declaration-751f7f37e90330ab</span></td></tr><tr><td><code>ModernManagementGroupScopeReservationRecommendationProperties</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-d13700aa45370441<br>declarations: declaration-fd2ad6cbd08049dd</span></td></tr><tr><td><code>ReservationRecommendationDetailsProperties.projectedUsage</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-6072c4fa7868405c<br>declarations: declaration-3ee476dfa3d68d9f</span></td></tr><tr><td><code>LegacyManagementGroupScopeReservationRecommendationProperties.tenantId</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-54ddc34cf1888a61<br>declarations: declaration-802caa295b332895</span></td></tr><tr><td><code>ModernManagementGroupScopeReservationRecommendationProperties.managementGroupId</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-d13700aa45370441<br>declarations: declaration-c1813c46583b5304</span></td></tr><tr><td><code>Scope.ManagementGroup</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-a487aa00de95d4d3<br>declarations: declaration-da9058f605559bdf</span></td></tr><tr><td><code>ModernManagementGroupScopeReservationRecommendationProperties.scope</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-d13700aa45370441<br>declarations: declaration-033f08ff32163679</span></td></tr><tr><td><code>Scope</code></td><td>type</td><td>modify</td><td>property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-a487aa00de95d4d3<br>declarations: declaration-17ad4c6a9275103e, declaration-b824474159f1320e</span></td></tr><tr><td><code>ReservationRecommendationDetailsProperties.tenantId</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-6072c4fa7868405c<br>declarations: declaration-607883c685c84d8d</span></td></tr><tr><td><code>LegacyManagementGroupScopeReservationRecommendationProperties</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-e0dafbd6ce44871d</code><br><span class="report-small">hunks: hunk-54ddc34cf1888a61<br>declarations: declaration-02383168bd4049dd</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp</div><pre><span class="context"> import &quot;@typespec/http&quot;;</span>
 <span class="context"> import &quot;@azure-tools/typespec-azure-core&quot;;</span>
 <span class="context"> import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
 <span class="add">+import &quot;@typespec/versioning&quot;;</span>
@@ -776,7 +776,7 @@ body {
 <span class="context"> /**</span>
 <span class="context">  * Legacy Reservation transaction resource.</span>
 <span class="context">  */</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp#L238-L250">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp:237</a></p></details><details class="report-subdetails" id="intent-semantic-bed389c6a3aaeea8-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ReservationRecommendationDetails_Get</strong><span class="report-http">GET</span><code>/{resourceScope}/providers/Microsoft.Consumption/reservationRecommendationDetails</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Query parameter</span><strong>managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string · optional</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.projectedUsage</strong></td><td><pre>not present</pre></td><td><pre>ReservationRecommendationDetailsProjectedUsageProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.tenantId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: parameters, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-c8ab444ba05f7128"><summary><div class="report-card-title"><strong>Add management-group query support</strong><small>Adds the optional versioned managementGroupId query parameter to ReservationRecommendationDetails_Get for management-group scoped recommendations.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-c8ab444ba05f7128</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 3 normalized facts; 2 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:routes</code></p><details class="report-subdetails"><summary>Change facts and provenance (3)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ReservationRecommendationDetailsOperationGroup.get</code></td><td>operation</td><td>modify</td><td>optionality, parameters, property-contract, responses, version-activation</td><td><code>source-71c3d998b87066fe</code><br><span class="report-small">hunks: hunk-74288a5ed5a678d1<br>declarations: declaration-a835c78f018de6c2, declaration-d03e6a3bd959d0e5</span></td></tr><tr><td><code>ReservationRecommendationDetailsOperationGroup</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-71c3d998b87066fe</code><br><span class="report-small">hunks: hunk-74288a5ed5a678d1<br>declarations: declaration-10622dee555e102a, declaration-cac9ba187fcc6cfd</span></td></tr><tr><td><code>managementGroupId</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-71c3d998b87066fe</code><br><span class="report-small">hunks: hunk-74288a5ed5a678d1<br>declarations: declaration-818881e25ef177b4, declaration-9f4a80aba996d663, declaration-b4801e550c9554e3, declaration-b4b7cbcbfd0cb73f, declaration-e60704d33488a279</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp</div><pre><span class="context"> </span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp#L238-L250">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp:237</a></p></details><details class="report-subdetails" id="intent-semantic-bed389c6a3aaeea8-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ReservationRecommendationDetails_Get</strong><span class="report-http">GET</span><code>/{resourceScope}/providers/Microsoft.Consumption/reservationRecommendationDetails</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Query parameter</span><strong>managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string · optional</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.projectedUsage</strong></td><td><pre>not present</pre></td><td><pre>ReservationRecommendationDetailsProjectedUsageProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.tenantId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: parameters, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-c8ab444ba05f7128"><summary><div class="report-card-title"><strong>Add an optional management group query parameter</strong><small>Adds the optional managementGroupId query parameter to ReservationRecommendationDetails_Get for management-group scoped recommendations in API version 2026-06-01.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-c8ab444ba05f7128</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 3 normalized facts; 2 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:routes</code></p><details class="report-subdetails"><summary>Change facts and provenance (3)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ReservationRecommendationDetailsOperationGroup.get</code></td><td>operation</td><td>modify</td><td>optionality, parameters, property-contract, responses, version-activation</td><td><code>source-71c3d998b87066fe</code><br><span class="report-small">hunks: hunk-74288a5ed5a678d1<br>declarations: declaration-a835c78f018de6c2, declaration-d03e6a3bd959d0e5</span></td></tr><tr><td><code>ReservationRecommendationDetailsOperationGroup</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-71c3d998b87066fe</code><br><span class="report-small">hunks: hunk-74288a5ed5a678d1<br>declarations: declaration-10622dee555e102a, declaration-cac9ba187fcc6cfd</span></td></tr><tr><td><code>managementGroupId</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-71c3d998b87066fe</code><br><span class="report-small">hunks: hunk-74288a5ed5a678d1<br>declarations: declaration-818881e25ef177b4, declaration-9f4a80aba996d663, declaration-b4801e550c9554e3, declaration-b4b7cbcbfd0cb73f, declaration-e60704d33488a279</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp</div><pre><span class="context"> </span>
 <span class="context"> import &quot;@azure-tools/typespec-azure-core&quot;;</span>
 <span class="context"> import &quot;@typespec/rest&quot;;</span>
 <span class="add">+import &quot;@typespec/versioning&quot;;</span>
@@ -802,7 +802,7 @@ body {
 <span class="context">   ):</span>
 <span class="context">     | ReservationRecommendationDetailsModel</span>
 <span class="context">     | NoContentResponse</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp#L573-L640">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp:572</a></p></details><details class="report-subdetails" id="intent-semantic-c8ab444ba05f7128-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ReservationRecommendationDetails_Get</strong><span class="report-http">GET</span><code>/{resourceScope}/providers/Microsoft.Consumption/reservationRecommendationDetails</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Query parameter</span><strong>managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string · optional</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.projectedUsage</strong></td><td><pre>not present</pre></td><td><pre>ReservationRecommendationDetailsProjectedUsageProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.tenantId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: parameters, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-d6a6211d0c6d440b"><summary><div class="report-card-title"><strong>Customize management-group identifier SDK types</strong><small>Applies C#-specific alternate SDK types to management-group identifier properties without changing a REST operation.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">sdk-customization</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-d6a6211d0c6d440b</code></p><p class="report-small"><strong>SDK-compatibility grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>sdk-compatibility</code>; <code>transform:arm-resource-identifier</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>sdk-customization</td><td>modify</td><td>sdk-mapping</td><td><code>source-e99003ab8db822ce</code><br><span class="report-small">hunks: hunk-8a386f4c7f369431<br>declarations: none</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/client.tsp</div><pre><span class="context">   armResourceIdentifier,</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp#L573-L640">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp:572</a></p></details><details class="report-subdetails" id="intent-semantic-c8ab444ba05f7128-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>ReservationRecommendationDetails_Get</strong><span class="report-http">GET</span><code>/{resourceScope}/providers/Microsoft.Consumption/reservationRecommendationDetails</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Query parameter</span><strong>managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string · optional</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.managementGroupId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.projectedUsage</strong></td><td><pre>not present</pre></td><td><pre>ReservationRecommendationDetailsProjectedUsageProperties (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.tenantId</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: parameters, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-d6a6211d0c6d440b"><summary><div class="report-card-title"><strong>Use resource identifiers for C# management group IDs</strong><small>Applies C# alternate-type customizations so newly added managementGroupId properties surface as ResourceIdentifier values rather than plain strings.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">sdk-customization</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-d6a6211d0c6d440b</code></p><p class="report-small"><strong>SDK-compatibility grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>sdk-compatibility</code>; <code>transform:arm-resource-identifier</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>sdk-customization</td><td>modify</td><td>sdk-mapping</td><td><code>source-e99003ab8db822ce</code><br><span class="report-small">hunks: hunk-8a386f4c7f369431<br>declarations: none</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/consumption/resource-manager/Microsoft.Consumption/Consumption/client.tsp</div><pre><span class="context">   armResourceIdentifier,</span>
 <span class="context">   &quot;csharp&quot;</span>
 <span class="context"> );</span>
 <span class="add">+// managementGroupId holds a full ARM resource id</span>
@@ -827,11 +827,11 @@ body {
 <span class="context">   ReservationRecommendationDetailsModel.location,</span>
 <span class="context">   azureLocation,</span>
 <span class="context"></span></pre></div><p class="sources"><code>specification/consumption/resource-manager/Microsoft.Consumption/Consumption/client.tsp</code></p></details><details class="report-subdetails" id="intent-semantic-d6a6211d0c6d440b-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details></section>
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">3 of 3 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-d6a6211d0c6d440b">Customize management-group identifier SDK types</a>.</p></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">3 of 3 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-d6a6211d0c6d440b">Use resource identifiers for C# management group IDs</a>.</p></section>
 <section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No REST compatibility verdict is available for the covered scope.</div></section>
-<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream compatibility verdict is available for the covered scope.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 3 declarations checked</p></section>
-<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Changed AutoRest contracts for 1 operations in project-49e7a00359db contain unresolved references or ambiguous visibility metadata (ReservationRecommendationDetails_Get). Their effective compatibility cannot be established from incomplete contract evidence.</li><li>Inference inference-request-5542f78031438a51 is blocked: language-specific-sdk-customization-not-represented.</li><li>The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.</li></ul>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>AutoRest contract evidence for ReservationRecommendationDetails_Get contains unresolved references or ambiguous visibility metadata; effective REST compatibility for that operation is not fully established.</li></ul>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/consumption/resource-manager/Microsoft.Consumption/Consumption</code></td><td>new-api-version</td><td><code>cc13471c83e1e1a06beba2d8912a00a97538f6cf@2024-08-01</code><br><small>current · previous-latest-stable</small></td><td><code>cc13471c83e1e1a06beba2d8912a00a97538f6cf@2026-06-01</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/43855">#43855</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
@@ -857,7 +857,7 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;
+        &quot;selectionRationale&quot;: &quot;Directly governs @added models, properties, and optional parameters in an existing versioned ARM API.&quot;
       },
       {
         &quot;rank&quot;: 2,
@@ -865,13 +865,13 @@ body {
         &quot;title&quot;: &quot;Models&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 4
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;
+        &quot;selectionRationale&quot;: &quot;Relevant to the added and inherited recommendation models.&quot;
       },
       {
         &quot;rank&quot;: 3,
@@ -879,13 +879,13 @@ body {
         &quot;title&quot;: &quot;Enums&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 4
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;
+        &quot;selectionRationale&quot;: &quot;Relevant to the added ManagementGroup scope member.&quot;
       },
       {
         &quot;rank&quot;: 4,
@@ -893,16 +893,30 @@ body {
         &quot;title&quot;: &quot;Decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 4
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;
+        &quot;selectionRationale&quot;: &quot;Relevant to changed decorators and augment customizations.&quot;
       },
       {
         &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 3
+        },
+        &quot;selectionRationale&quot;: &quot;Visibility metadata is present on added response properties.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
         &quot;catalogOrder&quot;: 2,
         &quot;title&quot;: &quot;Versioning overview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
@@ -913,10 +927,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 6,
+        &quot;rank&quot;: 7,
         &quot;catalogOrder&quot;: 3,
         &quot;title&quot;: &quot;Add preview after preview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
@@ -927,10 +941,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 7,
+        &quot;rank&quot;: 8,
         &quot;catalogOrder&quot;: 4,
         &quot;title&quot;: &quot;Add stable after preview&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
@@ -941,10 +955,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 8,
+        &quot;rank&quot;: 9,
         &quot;catalogOrder&quot;: 5,
         &quot;title&quot;: &quot;Add preview after stable&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
@@ -955,10 +969,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 9,
+        &quot;rank&quot;: 10,
         &quot;catalogOrder&quot;: 6,
         &quot;title&quot;: &quot;Add stable after stable&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
@@ -969,10 +983,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 10,
+        &quot;rank&quot;: 11,
         &quot;catalogOrder&quot;: 7,
         &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
@@ -983,10 +997,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 11,
+        &quot;rank&quot;: 12,
         &quot;catalogOrder&quot;: 8,
         &quot;title&quot;: &quot;Specific extension resource sample&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
@@ -997,10 +1011,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 12,
+        &quot;rank&quot;: 13,
         &quot;catalogOrder&quot;: 9,
         &quot;title&quot;: &quot;Private endpoints&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
@@ -1011,10 +1025,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 13,
+        &quot;rank&quot;: 14,
         &quot;catalogOrder&quot;: 10,
         &quot;title&quot;: &quot;Private links&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
@@ -1025,10 +1039,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 14,
+        &quot;rank&quot;: 15,
         &quot;catalogOrder&quot;: 11,
         &quot;title&quot;: &quot;Network security perimeter&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
@@ -1039,10 +1053,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 15,
+        &quot;rank&quot;: 16,
         &quot;catalogOrder&quot;: 12,
         &quot;title&quot;: &quot;ARM resource operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
@@ -1053,10 +1067,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 16,
+        &quot;rank&quot;: 17,
         &quot;catalogOrder&quot;: 13,
         &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
@@ -1067,10 +1081,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 17,
+        &quot;rank&quot;: 18,
         &quot;catalogOrder&quot;: 14,
         &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
@@ -1081,10 +1095,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 18,
+        &quot;rank&quot;: 19,
         &quot;catalogOrder&quot;: 15,
         &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
@@ -1095,10 +1109,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 19,
+        &quot;rank&quot;: 20,
         &quot;catalogOrder&quot;: 16,
         &quot;title&quot;: &quot;ARM long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
@@ -1109,10 +1123,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 20,
+        &quot;rank&quot;: 21,
         &quot;catalogOrder&quot;: 17,
         &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
@@ -1123,10 +1137,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 21,
+        &quot;rank&quot;: 22,
         &quot;catalogOrder&quot;: 18,
         &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
@@ -1137,10 +1151,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 22,
+        &quot;rank&quot;: 23,
         &quot;catalogOrder&quot;: 19,
         &quot;title&quot;: &quot;TypeSpec pagination&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
@@ -1151,10 +1165,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 23,
+        &quot;rank&quot;: 24,
         &quot;catalogOrder&quot;: 20,
         &quot;title&quot;: &quot;ARM common types&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
@@ -1165,10 +1179,10 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
-        &quot;rank&quot;: 24,
+        &quot;rank&quot;: 25,
         &quot;catalogOrder&quot;: 23,
         &quot;title&quot;: &quot;Scalars&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
@@ -1179,21 +1193,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
-      },
-      {
-        &quot;rank&quot;: 25,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
         &quot;rank&quot;: 26,
@@ -1207,7 +1207,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
         &quot;rank&quot;: 27,
@@ -1221,7 +1221,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
         &quot;rank&quot;: 28,
@@ -1235,7 +1235,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
         &quot;rank&quot;: 29,
@@ -1249,7 +1249,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
         &quot;rank&quot;: 30,
@@ -1263,7 +1263,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       },
       {
         &quot;rank&quot;: 31,
@@ -1277,7 +1277,7 @@ body {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct match for the assessed reservation-recommendation changes.&quot;
       }
     ],
     &quot;documents&quot;: [
@@ -1293,43 +1293,45 @@ body {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;,
+        &quot;selectionRationale&quot;: &quot;Directly governs @added models, properties, and optional parameters in an existing versioned ARM API.&quot;,
         &quot;guidance&quot;: [
           {
-            &quot;section&quot;: &quot;Versioning Decorators&quot;,
-            &quot;excerpt&quot;: &quot;Use @added with the version where a model, property, operation, or parameter is introduced so the element appears in that version and later.&quot;,
+            &quot;section&quot;: &quot;Add a property in v2&quot;,
+            &quot;excerpt&quot;: &quot;These examples show how to add models, operations, properties, and parameters in specific versions using TypeSpec versioning decorators.&quot;,
             &quot;queryTerms&quot;: [
               &quot;@added&quot;,
-              &quot;versioning&quot;,
-              &quot;operation&quot;,
-              &quot;property&quot;
+              &quot;managementGroupId&quot;,
+              &quot;Versions.v2026_06_01&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@added(Versions.v2) city?: string;&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-02383168bd4049dd&quot;,
+              &quot;declaration-3ee476dfa3d68d9f&quot;,
+              &quot;declaration-4b88e2390dc1ae03&quot;,
+              &quot;declaration-b1bf02b7dcd4b310&quot;,
+              &quot;declaration-da9058f605559bdf&quot;,
+              &quot;declaration-fd2ad6cbd08049dd&quot;
+            ]
+          },
+          {
+            &quot;section&quot;: &quot;Add a parameter to an operation in v2&quot;,
+            &quot;excerpt&quot;: &quot;An optional query parameter can be introduced in a later version with @added on the parameter.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@added&quot;,
+              &quot;@query&quot;,
+              &quot;optional parameter&quot;
             ],
             &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-02383168bd4049dd&quot;,
-              &quot;declaration-033f08ff32163679&quot;,
-              &quot;declaration-10622dee555e102a&quot;,
-              &quot;declaration-1bbb5540d9dfec94&quot;,
-              &quot;declaration-317026525024f125&quot;,
-              &quot;declaration-3ee476dfa3d68d9f&quot;,
-              &quot;declaration-4b88e2390dc1ae03&quot;,
-              &quot;declaration-607883c685c84d8d&quot;,
-              &quot;declaration-751f7f37e90330ab&quot;,
-              &quot;declaration-802caa295b332895&quot;,
               &quot;declaration-818881e25ef177b4&quot;,
-              &quot;declaration-b1bf02b7dcd4b310&quot;,
-              &quot;declaration-b5d79c718e7a162b&quot;,
-              &quot;declaration-b824474159f1320e&quot;,
-              &quot;declaration-c1813c46583b5304&quot;,
-              &quot;declaration-d03e6a3bd959d0e5&quot;,
-              &quot;declaration-da9058f605559bdf&quot;,
-              &quot;declaration-e3d154af435a35c5&quot;,
-              &quot;declaration-fd2ad6cbd08049dd&quot;
+              &quot;declaration-d03e6a3bd959d0e5&quot;
             ]
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:29.216Z&quot;,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T08:14:26.6771660Z&quot;,
         &quot;contentHash&quot;: &quot;sha256:30470c99aaddccfad0799e2dcdf370cc27e56e09b76ed81b70ef5de044e29854&quot;
       },
       {
@@ -1338,46 +1340,16 @@ body {
         &quot;title&quot;: &quot;Models&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 4
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Optional properties&quot;,
-            &quot;excerpt&quot;: &quot;A model property is optional when declared with the ? marker; model composition and inheritance determine the resulting model shape.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;model&quot;,
-              &quot;optional properties&quot;,
-              &quot;extends&quot;,
-              &quot;properties&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-02383168bd4049dd&quot;,
-              &quot;declaration-033f08ff32163679&quot;,
-              &quot;declaration-1bbb5540d9dfec94&quot;,
-              &quot;declaration-317026525024f125&quot;,
-              &quot;declaration-3ee476dfa3d68d9f&quot;,
-              &quot;declaration-4b88e2390dc1ae03&quot;,
-              &quot;declaration-607883c685c84d8d&quot;,
-              &quot;declaration-751f7f37e90330ab&quot;,
-              &quot;declaration-802caa295b332895&quot;,
-              &quot;declaration-b1bf02b7dcd4b310&quot;,
-              &quot;declaration-b5d79c718e7a162b&quot;,
-              &quot;declaration-b824474159f1320e&quot;,
-              &quot;declaration-c1813c46583b5304&quot;,
-              &quot;declaration-da9058f605559bdf&quot;,
-              &quot;declaration-e3d154af435a35c5&quot;,
-              &quot;declaration-fd2ad6cbd08049dd&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:29.282Z&quot;,
+        &quot;selectionRationale&quot;: &quot;Relevant to the added and inherited recommendation models.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T08:14:26.7932178Z&quot;,
         &quot;contentHash&quot;: &quot;sha256:b3e43ba6c64122566ab49e05a835fc03547f86ad4d25945a176a1d5ed0468547&quot;
       },
       {
@@ -1386,46 +1358,16 @@ body {
         &quot;title&quot;: &quot;Enums&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 4
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Assigning values to enums&quot;,
-            &quot;excerpt&quot;: &quot;Enums define named constants and may assign explicit service-facing string or numeric values to members.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;enum&quot;,
-              &quot;union&quot;,
-              &quot;member&quot;,
-              &quot;string value&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-02383168bd4049dd&quot;,
-              &quot;declaration-033f08ff32163679&quot;,
-              &quot;declaration-1bbb5540d9dfec94&quot;,
-              &quot;declaration-317026525024f125&quot;,
-              &quot;declaration-3ee476dfa3d68d9f&quot;,
-              &quot;declaration-4b88e2390dc1ae03&quot;,
-              &quot;declaration-607883c685c84d8d&quot;,
-              &quot;declaration-751f7f37e90330ab&quot;,
-              &quot;declaration-802caa295b332895&quot;,
-              &quot;declaration-b1bf02b7dcd4b310&quot;,
-              &quot;declaration-b5d79c718e7a162b&quot;,
-              &quot;declaration-b824474159f1320e&quot;,
-              &quot;declaration-c1813c46583b5304&quot;,
-              &quot;declaration-da9058f605559bdf&quot;,
-              &quot;declaration-e3d154af435a35c5&quot;,
-              &quot;declaration-fd2ad6cbd08049dd&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:29.293Z&quot;,
+        &quot;selectionRationale&quot;: &quot;Relevant to the added ManagementGroup scope member.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T08:14:26.8526900Z&quot;,
         &quot;contentHash&quot;: &quot;sha256:432e3a9fdecf7f6360a4d167184b3ade21e621c398da057b187685a09834020e&quot;
       },
       {
@@ -1434,33 +1376,16 @@ body {
         &quot;title&quot;: &quot;Decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
+          &quot;servicePlane&quot;: 0,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 4
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Applying decorators&quot;,
-            &quot;excerpt&quot;: &quot;Decorators attach metadata to declarations and are applied before the declaration or member they decorate.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;decorator&quot;,
-              &quot;@added&quot;,
-              &quot;metadata&quot;,
-              &quot;declaration&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-10622dee555e102a&quot;,
-              &quot;declaration-818881e25ef177b4&quot;,
-              &quot;declaration-d03e6a3bd959d0e5&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:29.302Z&quot;,
+        &quot;selectionRationale&quot;: &quot;Relevant to changed decorators and augment customizations.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T08:14:26.9180719Z&quot;,
         &quot;contentHash&quot;: &quot;sha256:776db87b6b90a2005f78869a214df72f5fe724973125ed5568fac35592aba9dc&quot;
       }
     ]
@@ -1488,18 +1413,18 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/consumption/resource-manager/Microsoft.Consumption/Consumption/client.tsp</code> (committed)</li><li><code>specification/consumption/resource-manager/Microsoft.Consumption/Consumption/main.tsp</code> (committed)</li><li><code>specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp</code> (committed)</li><li><code>specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 1866,
-    &quot;fetchMs&quot;: 221,
-    &quot;scopeDiscoveryMs&quot;: 113,
-    &quot;setupExcludingFetchMs&quot;: 19652,
-    &quot;comparisonMs&quot;: 172,
-    &quot;changeDiscoveryMs&quot;: 105,
-    &quot;workspacePreparationMs&quot;: 16577,
-    &quot;projectDiscoveryMs&quot;: 167,
-    &quot;totalMs&quot;: 424601,
-    &quot;semanticAnalysisMs&quot;: 1786,
-    &quot;restAnalysisMs&quot;: 93,
-    &quot;downstreamAnalysisMs&quot;: 31,
+    &quot;metadataMs&quot;: 3371,
+    &quot;fetchMs&quot;: 299,
+    &quot;scopeDiscoveryMs&quot;: 251,
+    &quot;setupExcludingFetchMs&quot;: 27116,
+    &quot;comparisonMs&quot;: 335,
+    &quot;changeDiscoveryMs&quot;: 204,
+    &quot;workspacePreparationMs&quot;: 21667,
+    &quot;projectDiscoveryMs&quot;: 131,
+    &quot;totalMs&quot;: 954860,
+    &quot;semanticAnalysisMs&quot;: 2878,
+    &quot;restAnalysisMs&quot;: 260,
+    &quot;downstreamAnalysisMs&quot;: 64,
     &quot;documentQualityAnalysisMs&quot;: 1
   },
   &quot;inputAccounting&quot;: {
@@ -1530,15 +1455,15 @@ body {
     &quot;inference&quot;: {
       &quot;requestCount&quot;: 1,
       &quot;inferredCandidateCount&quot;: 0,
-      &quot;noImpactCount&quot;: 0,
-      &quot;blockedCount&quot;: 1
+      &quot;noImpactCount&quot;: 1,
+      &quot;blockedCount&quot;: 0
     },
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
       &quot;documentBytesFetched&quot;: 1460440,
-      &quot;guidanceExcerptsRetained&quot;: 4,
-      &quot;guidanceExcerptBytesRetained&quot;: 482
+      &quot;guidanceExcerptsRetained&quot;: 2,
+      &quot;guidanceExcerptBytesRetained&quot;: 230
     }
   }
 }</pre>

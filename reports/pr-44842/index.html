@@ -172,85 +172,6 @@
 .report-badge.coverage {
   text-transform: none;
 }
-.report-method-signature {
-  margin: 14px 0 18px;
-}
-.report-signature-lines {
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-}
-.report-signature-lines > div {
-  display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  gap: 10px;
-  padding: 9px 12px;
-  background: color-mix(in srgb, var(--panel) 95%, var(--accent));
-}
-.report-signature-lines > div + div {
-  border-top: 1px solid var(--line);
-}
-.report-signature-lines span,
-.report-chain-label,
-.report-chain-detail {
-  color: var(--muted);
-  font-size: 11px;
-}
-.report-signature-lines code {
-  font-size: 12px;
-}
-.report-reference-chain {
-  margin: 8px 0;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: color-mix(in srgb, var(--panel) 98%, var(--accent));
-}
-.report-reference-chain ol {
-  margin: 6px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.report-reference-chain li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 8px;
-  min-height: 28px;
-  padding: 3px 0 3px min(calc(var(--reference-depth) * 20px), 35%);
-}
-.report-reference-chain li:not(:first-child)::before {
-  content: "\21B3";
-  color: var(--muted);
-}
-.report-reference-chain code {
-  min-width: 0;
-  font-size: 12px;
-}
-.report-path-scope {
-  margin: 9px 0 12px;
-  padding: 9px 12px;
-  border-left: 3px solid var(--line);
-  background: color-mix(in srgb, var(--panel) 96%, var(--accent));
-  color: var(--muted);
-  font-size: 12px;
-}
-@media (max-width: 650px) {
-  .report-reference-chain li {
-    padding-left: min(calc(var(--reference-depth) * 10px), 25%);
-  }
-  .report-signature-lines > div {
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 6px;
-    padding: 8px;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .report-badge.neutral {
-    background: #27374d;
-    color: #c3d4ea;
-  }
-}
 .report-table-wrap {
   max-width: 100%;
   overflow-x: auto;
@@ -375,44 +296,6 @@
 }
 .report-type-impact h4 {
   margin: 0 0 5px;
-}
-.report-model-change h4 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px 9px;
-}
-.report-model-evidence {
-  margin-top: 16px;
-  padding-top: 11px;
-  border-top: 1px solid var(--line);
-}
-.report-model-evidence > summary {
-  color: var(--accent);
-  cursor: pointer;
-  font-size: 12px;
-}
-.report-model-evidence > .report-type-impact:first-of-type {
-  border-top: 0;
-}
-.report-model-change .report-reference-path {
-  grid-template-columns: 110px minmax(0, 1fr) max-content;
-}
-.report-model-change .report-reference-path code {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-.report-model-scope {
-  margin-bottom: 0;
-}
-@media (max-width: 650px) {
-  .report-model-change .report-reference-path {
-    grid-template-columns: 1fr auto;
-  }
-  .report-model-change .report-reference-path code {
-    grid-row: 2;
-    grid-column: 1 / -1;
-  }
 }
 .report-guideline-section {
   min-width: 0;
@@ -794,20 +677,19 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/ApiVersions.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/routes.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/CreateWavesFromPlan.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/FetchSasUri.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GenerateWavePlan.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/GetWavePlans.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/ImportWavePlan.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/WavePlans/WavePlanCommon.tsp</code> (committed)</li><li><code>specification/migrate/resource-manager/Microsoft.Migrate/Waves/WebModels/Waves/GenerateWavePlan.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 2435,
-    &quot;fetchMs&quot;: 930,
-    &quot;scopeDiscoveryMs&quot;: 526,
-    &quot;setupExcludingFetchMs&quot;: 34159,
-    &quot;comparisonMs&quot;: 587,
-    &quot;changeDiscoveryMs&quot;: 433,
-    &quot;workspacePreparationMs&quot;: 28548,
-    &quot;projectDiscoveryMs&quot;: 56,
-    &quot;totalMs&quot;: 131152,
-    &quot;semanticAnalysisMs&quot;: 3,
-    &quot;restAnalysisMs&quot;: 2,
+    &quot;metadataMs&quot;: 2074,
+    &quot;fetchMs&quot;: 211,
+    &quot;scopeDiscoveryMs&quot;: 267,
+    &quot;setupExcludingFetchMs&quot;: 18392,
+    &quot;comparisonMs&quot;: 227,
+    &quot;changeDiscoveryMs&quot;: 135,
+    &quot;workspacePreparationMs&quot;: 15219,
+    &quot;projectDiscoveryMs&quot;: 52,
+    &quot;totalMs&quot;: 932064,
+    &quot;semanticAnalysisMs&quot;: 5,
+    &quot;restAnalysisMs&quot;: 4,
     &quot;downstreamAnalysisMs&quot;: 3,
-    &quot;semanticContextPolicyMs&quot;: 1,
-    &quot;documentQualityAnalysisMs&quot;: 0
+    &quot;documentQualityAnalysisMs&quot;: 1
   }
 }</pre>
 <p><strong>Provenance:</strong> preparation-manifest.json</p></div></details></section>

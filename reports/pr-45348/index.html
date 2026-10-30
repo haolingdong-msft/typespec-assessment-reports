@@ -172,85 +172,6 @@
 .report-badge.coverage {
   text-transform: none;
 }
-.report-method-signature {
-  margin: 14px 0 18px;
-}
-.report-signature-lines {
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-}
-.report-signature-lines > div {
-  display: grid;
-  grid-template-columns: 58px minmax(0, 1fr);
-  gap: 10px;
-  padding: 9px 12px;
-  background: color-mix(in srgb, var(--panel) 95%, var(--accent));
-}
-.report-signature-lines > div + div {
-  border-top: 1px solid var(--line);
-}
-.report-signature-lines span,
-.report-chain-label,
-.report-chain-detail {
-  color: var(--muted);
-  font-size: 11px;
-}
-.report-signature-lines code {
-  font-size: 12px;
-}
-.report-reference-chain {
-  margin: 8px 0;
-  padding: 10px 12px;
-  border: 1px solid var(--line);
-  border-radius: 7px;
-  background: color-mix(in srgb, var(--panel) 98%, var(--accent));
-}
-.report-reference-chain ol {
-  margin: 6px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.report-reference-chain li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 4px 8px;
-  min-height: 28px;
-  padding: 3px 0 3px min(calc(var(--reference-depth) * 20px), 35%);
-}
-.report-reference-chain li:not(:first-child)::before {
-  content: "\21B3";
-  color: var(--muted);
-}
-.report-reference-chain code {
-  min-width: 0;
-  font-size: 12px;
-}
-.report-path-scope {
-  margin: 9px 0 12px;
-  padding: 9px 12px;
-  border-left: 3px solid var(--line);
-  background: color-mix(in srgb, var(--panel) 96%, var(--accent));
-  color: var(--muted);
-  font-size: 12px;
-}
-@media (max-width: 650px) {
-  .report-reference-chain li {
-    padding-left: min(calc(var(--reference-depth) * 10px), 25%);
-  }
-  .report-signature-lines > div {
-    grid-template-columns: 42px minmax(0, 1fr);
-    gap: 6px;
-    padding: 8px;
-  }
-}
-@media (prefers-color-scheme: dark) {
-  .report-badge.neutral {
-    background: #27374d;
-    color: #c3d4ea;
-  }
-}
 .report-table-wrap {
   max-width: 100%;
   overflow-x: auto;
@@ -375,44 +296,6 @@
 }
 .report-type-impact h4 {
   margin: 0 0 5px;
-}
-.report-model-change h4 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 6px 9px;
-}
-.report-model-evidence {
-  margin-top: 16px;
-  padding-top: 11px;
-  border-top: 1px solid var(--line);
-}
-.report-model-evidence > summary {
-  color: var(--accent);
-  cursor: pointer;
-  font-size: 12px;
-}
-.report-model-evidence > .report-type-impact:first-of-type {
-  border-top: 0;
-}
-.report-model-change .report-reference-path {
-  grid-template-columns: 110px minmax(0, 1fr) max-content;
-}
-.report-model-change .report-reference-path code {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
-.report-model-scope {
-  margin-bottom: 0;
-}
-@media (max-width: 650px) {
-  .report-model-change .report-reference-path {
-    grid-template-columns: 1fr auto;
-  }
-  .report-model-change .report-reference-path code {
-    grid-row: 2;
-    grid-column: 1 / -1;
-  }
 }
 .report-guideline-section {
   min-width: 0;
@@ -746,20 +629,20 @@ body {
 }
 
 </style></head><body>
-<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>Downgrade ARM common types from v6 to v5</h1>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>Apply an API-version-wide change</h1>
 <p class="hero-meta">TypeSpec source diff: <code>2991970c5377110244bcf9614be03e5aaf32362f</code> → <code>b209254310b3e569b16210d3c59fc8b8ac3b84b4</code></p>
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">1 intent<br>109 operations<br>0 Added, 1 Modified, 0 Removed</div></a>
-<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>1/1 intents assessed</div></a>
-<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Verdict unknown<br>Partial coverage<br>0 findings</div></a>
-<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Complete coverage<br>0 findings</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>0/0 intents assessed</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Verdict unknown<br>Coverage blocked<br>0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Verdict unknown<br>Coverage blocked<br>0 findings</div></a>
 <a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>0 declarations checked</div></a>
 </div></div></header>
 <details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">1 intents · 0 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-f86557ff76bf0542"><summary><div class="report-card-title"><strong>Downgrade ARM common types from v6 to v5</strong><small>Changes @armCommonTypesVersion for the existing 2026-11-02-preview API version, potentially changing inherited ARM wire shapes.</small></div><div class="report-badges"><span class="report-badge">Shared dependency / version-wide change</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Operation/transform relationship grouping:</strong> deterministic coordinator heuristic, not Agent-verified business coherence. 1 declaration/source facts; 1 source hunks; 109 supporting operation mappings.</p><details class="report-subdetails"><summary>Change facts (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>common-type-version</td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/deviceregistry/DeviceRegistry.Management/main.tsp</div><pre><span class="context">   v2026_04_01: &quot;2026-04-01&quot;,</span>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">1 intents · 0 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-8378e6a139f28981"><summary><div class="report-card-title"><strong>Apply an API-version-wide change</strong><small>Covers 109 affected operations. This API-version-wide intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge">Shared dependency / version-wide change</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-8378e6a139f28981</code></p><p class="report-small"><strong>Operation/transform relationship grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 109 supporting operation mappings.</p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>common-type-version</td><td><code>source-fb3053d5bfba804f</code><br><span class="report-small">hunks: hunk-6f7cbb36779ac486<br>declarations: declaration-2216badbb8c3488e, declaration-66275f6b9ba818c6</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/deviceregistry/DeviceRegistry.Management/main.tsp</div><pre><span class="context">   v2026_04_01: &quot;2026-04-01&quot;,</span>
 <span class="context"> </span>
 <span class="context">   @doc(&quot;Microsoft.DeviceRegistry Resource Provider management API version 2026-11-01-preview.&quot;)</span>
 <span class="remove">-  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
@@ -773,576 +656,57 @@ body {
 <span class="context">   v2026_11_02_preview: &quot;2026-11-02-preview&quot;,</span>
 <span class="context"> }</span>
 <span class="context"> </span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b209254310b3e569b16210d3c59fc8b8ac3b84b4/specification/deviceregistry/DeviceRegistry.Management/main.tsp#L44-L85">specification/deviceregistry/DeviceRegistry.Management/main.tsp:42</a></p></details><details class="report-subdetails" id="intent-semantic-f86557ff76bf0542-operations"><summary>Affected operations (109)</summary><p class="report-small">Showing 10 operation cards; the remaining 99 are listed below.</p><details class="operation"><summary><strong>AssetEndpointProfiles_CreateOrReplace</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_ListBySubscription</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Assets_CreateOrReplace</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Assets_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Assets_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Assets_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (99)</strong></p><p><span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/assets">Assets_ListBySubscription (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName}">Assets_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/locations/{location}/asyncOperationStatuses/{operationId}">AsyncOperationStatus_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/billingContainers/{billingContainerName}">BillingContainers_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/billingContainers">BillingContainers_ListBySubscription (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/activate">CertificateAuthorities_Activate (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}">CertificateAuthorities_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}">CertificateAuthorities_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}">CertificateAuthorities_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities">CertificateAuthorities_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/revokeAndRotate">CertificateAuthorities_RevokeAndRotate (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}">CertificateAuthorities_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies/{certificatePolicyName}">CertificatePolicies_CreateOrUpdate (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies/{certificatePolicyName}">CertificatePolicies_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies/{certificatePolicyName}">CertificatePolicies_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies">CertificatePolicies_ListByCertificateAuthority (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies/{certificatePolicyName}">CertificatePolicies_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}/countMembers">Groups_CountMembers (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}">Groups_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}">Groups_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}">Groups_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups">Groups_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}/listMembers">Groups_ListMembers (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}/refreshMembers">Groups_RefreshMembers (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}">Groups_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}/cancel">JobRuns_Cancel (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}">JobRuns_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}">JobRuns_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}">JobRuns_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}/getSummary">JobRuns_GetSummary (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs">JobRuns_ListByJob (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobRuns">JobRuns_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}/listResults">JobRuns_ListResults (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}">Jobs_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}">Jobs_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}">Jobs_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs">Jobs_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}">Jobs_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}">NamespaceAssets_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}">NamespaceAssets_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}/executeAction">NamespaceAssets_ExecuteAction (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}">NamespaceAssets_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets">NamespaceAssets_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}">NamespaceAssets_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}">NamespaceDevices_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}">NamespaceDevices_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}">NamespaceDevices_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices">NamespaceDevices_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}">NamespaceDevices_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName}">NamespaceDiscoveredAssets_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName}">NamespaceDiscoveredAssets_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName}">NamespaceDiscoveredAssets_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets">NamespaceDiscoveredAssets_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName}">NamespaceDiscoveredAssets_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}">NamespaceDiscoveredDevices_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}">NamespaceDiscoveredDevices_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}">NamespaceDiscoveredDevices_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices">NamespaceDiscoveredDevices_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}">NamespaceDiscoveredDevices_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}">Namespaces_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}">Namespaces_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/generateReport">Namespaces_GenerateReport (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}">Namespaces_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/getLatestReport">Namespaces_GetLatestReport (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces">Namespaces_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/namespaces">Namespaces_ListBySubscription (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/migrate">Namespaces_Migrate (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}">Namespaces_Update (PATCH, 2026-11-02-preview)</span>; <span title="/providers/Microsoft.DeviceRegistry/operations">Operations_List (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/locations/{location}/operationStatuses/{operationId}">OperationStatus_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/attributes/{attributeName}">RegistryDeviceAttributes_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/attributes/{attributeName}">RegistryDeviceAttributes_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/attributes/{attributeName}">RegistryDeviceAttributes_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/attributes">RegistryDeviceAttributes_ListByDevice (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/authenticationProfiles/{authenticationProfileName}">RegistryDeviceAuthenticationProfiles_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/authenticationProfiles/{authenticationProfileName}/getKeys">RegistryDeviceAuthenticationProfiles_GetKeys (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/authenticationProfiles">RegistryDeviceAuthenticationProfiles_ListByDevice (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/authenticationProfiles/{authenticationProfileName}/revokeCertificates">RegistryDeviceAuthenticationProfiles_RevokeCertificates (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/capabilities/{capabilityName}">RegistryDeviceCapabilities_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/capabilities">RegistryDeviceCapabilities_ListByDevice (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}">RegistryDevices_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}">RegistryDevices_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}">RegistryDevices_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices">RegistryDevices_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}">RegistryDevices_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}">SchemaRegistries_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}">SchemaRegistries_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}">SchemaRegistries_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries">SchemaRegistries_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/schemaRegistries">SchemaRegistries_ListBySubscription (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}">SchemaRegistries_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}">Schemas_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}">Schemas_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}">Schemas_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas">Schemas_ListBySchemaRegistry (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}/schemaVersions/{schemaVersionName}">SchemaVersions_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}/schemaVersions/{schemaVersionName}">SchemaVersions_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}/schemaVersions/{schemaVersionName}">SchemaVersions_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}/schemaVersions">SchemaVersions_ListBySchema (GET, 2026-11-02-preview)</span>.</p></div></details></div></details></section>
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">1 of 1 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-f86557ff76bf0542">Downgrade ARM common types from v6 to v5</a>.</p></section>
-<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No REST compatibility verdict is available for the covered scope.</div></section>
-<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b209254310b3e569b16210d3c59fc8b8ac3b84b4/specification/deviceregistry/DeviceRegistry.Management/main.tsp#L44-L85">specification/deviceregistry/DeviceRegistry.Management/main.tsp:42</a></p></details><details class="report-subdetails" id="intent-semantic-8378e6a139f28981-operations"><summary>Affected operations (109)</summary><p class="report-small">Showing 10 operation cards; the remaining 99 are listed below.</p><details class="operation"><summary><strong>AssetEndpointProfiles_CreateOrReplace</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_ListBySubscription</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>AssetEndpointProfiles_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Assets_CreateOrReplace</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Assets_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Assets_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName}</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>Assets_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets</code><span>2026-11-02-preview</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (99)</strong></p><p><span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/assets">Assets_ListBySubscription (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assets/{assetName}">Assets_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/locations/{location}/asyncOperationStatuses/{operationId}">AsyncOperationStatus_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/billingContainers/{billingContainerName}">BillingContainers_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/billingContainers">BillingContainers_ListBySubscription (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/activate">CertificateAuthorities_Activate (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}">CertificateAuthorities_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}">CertificateAuthorities_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}">CertificateAuthorities_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities">CertificateAuthorities_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/revokeAndRotate">CertificateAuthorities_RevokeAndRotate (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}">CertificateAuthorities_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies/{certificatePolicyName}">CertificatePolicies_CreateOrUpdate (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies/{certificatePolicyName}">CertificatePolicies_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies/{certificatePolicyName}">CertificatePolicies_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies">CertificatePolicies_ListByCertificateAuthority (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/certificateAuthorities/{certificateAuthorityName}/certificatePolicies/{certificatePolicyName}">CertificatePolicies_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}/countMembers">Groups_CountMembers (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}">Groups_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}">Groups_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}">Groups_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups">Groups_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}/listMembers">Groups_ListMembers (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}/refreshMembers">Groups_RefreshMembers (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/groups/{groupName}">Groups_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}/cancel">JobRuns_Cancel (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}">JobRuns_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}">JobRuns_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}">JobRuns_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}/getSummary">JobRuns_GetSummary (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs">JobRuns_ListByJob (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobRuns">JobRuns_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}/runs/{runName}/listResults">JobRuns_ListResults (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}">Jobs_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}">Jobs_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}">Jobs_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs">Jobs_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/jobs/{jobName}">Jobs_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}">NamespaceAssets_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}">NamespaceAssets_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}/executeAction">NamespaceAssets_ExecuteAction (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}">NamespaceAssets_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets">NamespaceAssets_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/assets/{assetName}">NamespaceAssets_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}">NamespaceDevices_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}">NamespaceDevices_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}">NamespaceDevices_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices">NamespaceDevices_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/devices/{deviceName}">NamespaceDevices_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName}">NamespaceDiscoveredAssets_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName}">NamespaceDiscoveredAssets_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName}">NamespaceDiscoveredAssets_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets">NamespaceDiscoveredAssets_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredAssets/{discoveredAssetName}">NamespaceDiscoveredAssets_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}">NamespaceDiscoveredDevices_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}">NamespaceDiscoveredDevices_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}">NamespaceDiscoveredDevices_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices">NamespaceDiscoveredDevices_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}">NamespaceDiscoveredDevices_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}">Namespaces_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}">Namespaces_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/generateReport">Namespaces_GenerateReport (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}">Namespaces_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/getLatestReport">Namespaces_GetLatestReport (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces">Namespaces_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/namespaces">Namespaces_ListBySubscription (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/migrate">Namespaces_Migrate (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}">Namespaces_Update (PATCH, 2026-11-02-preview)</span>; <span title="/providers/Microsoft.DeviceRegistry/operations">Operations_List (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/locations/{location}/operationStatuses/{operationId}">OperationStatus_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/attributes/{attributeName}">RegistryDeviceAttributes_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/attributes/{attributeName}">RegistryDeviceAttributes_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/attributes/{attributeName}">RegistryDeviceAttributes_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/attributes">RegistryDeviceAttributes_ListByDevice (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/authenticationProfiles/{authenticationProfileName}">RegistryDeviceAuthenticationProfiles_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/authenticationProfiles/{authenticationProfileName}/getKeys">RegistryDeviceAuthenticationProfiles_GetKeys (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/authenticationProfiles">RegistryDeviceAuthenticationProfiles_ListByDevice (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/authenticationProfiles/{authenticationProfileName}/revokeCertificates">RegistryDeviceAuthenticationProfiles_RevokeCertificates (POST, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/capabilities/{capabilityName}">RegistryDeviceCapabilities_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}/capabilities">RegistryDeviceCapabilities_ListByDevice (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}">RegistryDevices_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}">RegistryDevices_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}">RegistryDevices_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices">RegistryDevices_ListByNamespace (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/registryDevices/{registryDeviceName}">RegistryDevices_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}">SchemaRegistries_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}">SchemaRegistries_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}">SchemaRegistries_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries">SchemaRegistries_ListByResourceGroup (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/providers/Microsoft.DeviceRegistry/schemaRegistries">SchemaRegistries_ListBySubscription (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}">SchemaRegistries_Update (PATCH, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}">Schemas_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}">Schemas_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}">Schemas_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas">Schemas_ListBySchemaRegistry (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}/schemaVersions/{schemaVersionName}">SchemaVersions_CreateOrReplace (PUT, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}/schemaVersions/{schemaVersionName}">SchemaVersions_Delete (DELETE, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}/schemaVersions/{schemaVersionName}">SchemaVersions_Get (GET, 2026-11-02-preview)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/schemaRegistries/{schemaRegistryName}/schemas/{schemaName}/schemaVersions">SchemaVersions_ListBySchema (GET, 2026-11-02-preview)</span>.</p></div></details></div></details></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">0 of 0 semantic intents assessed · 0 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">coverage blocked</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No REST compatibility verdict is available for the covered scope.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">coverage blocked</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream compatibility verdict is available for the covered scope.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 0 declarations checked</p></section>
-<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Effective compatibility cannot be established because AutoRest contract references are unresolved and the bounded input omits candidate-level before/after facts.</li></ul>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Changed AutoRest contracts for 109 operations in project-dd25e6db7b7b contain unresolved references or ambiguous visibility metadata (AssetEndpointProfiles_CreateOrReplace, AssetEndpointProfiles_Delete, AssetEndpointProfiles_Get). Their effective compatibility cannot be established from incomplete contract evidence.</li><li>Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.</li><li>Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.</li><li>Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId.</li></ul>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/deviceregistry/DeviceRegistry.Management</code></td><td>existing-api-version</td><td><code>2991970c5377110244bcf9614be03e5aaf32362f@2026-11-02-preview</code><br><small>base · affected-existing-version</small></td><td><code>b209254310b3e569b16210d3c59fc8b8ac3b84b4@2026-11-02-preview</code><br><small>current · affected-existing-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/45348">#45348</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/">ARM common types</a></li><li><a href="https://typespec.io/docs/language-basics/decorators/">Decorators</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+<div class="panel">No guidance fetched.</div><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
   &quot;status&quot;: &quot;passed&quot;,
   &quot;coverage&quot;: {
-    &quot;semanticIntentCount&quot;: 1,
-    &quot;assessedIntentCount&quot;: 1,
-    &quot;selectedDocumentCount&quot;: 4,
+    &quot;semanticIntentCount&quot;: 0,
+    &quot;assessedIntentCount&quot;: 0,
+    &quot;selectedDocumentCount&quot;: 0,
     &quot;unassessedIntentIds&quot;: []
   },
-  &quot;sharedSearch&quot;: {
-    &quot;catalogRanking&quot;: [
-      {
-        &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 1,
-        &quot;title&quot;: &quot;Evolving APIs&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Relevant to dependencies and common-type selection on version enum members.&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 2,
-        &quot;title&quot;: &quot;Versioning overview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Relevant Azure API version context for an existing preview version.&quot;
-      },
-      {
-        &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Direct category match for ARM common-type versions.&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
-        },
-        &quot;selectionRationale&quot;: &quot;Relevant language guidance for changing decorator arguments.&quot;
-      },
-      {
-        &quot;rank&quot;: 5,
-        &quot;catalogOrder&quot;: 3,
-        &quot;title&quot;: &quot;Add preview after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 6,
-        &quot;catalogOrder&quot;: 4,
-        &quot;title&quot;: &quot;Add stable after preview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 7,
-        &quot;catalogOrder&quot;: 5,
-        &quot;title&quot;: &quot;Add preview after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 8,
-        &quot;catalogOrder&quot;: 6,
-        &quot;title&quot;: &quot;Add stable after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 9,
-        &quot;catalogOrder&quot;: 7,
-        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 10,
-        &quot;catalogOrder&quot;: 8,
-        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 11,
-        &quot;catalogOrder&quot;: 9,
-        &quot;title&quot;: &quot;Private endpoints&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 12,
-        &quot;catalogOrder&quot;: 10,
-        &quot;title&quot;: &quot;Private links&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 13,
-        &quot;catalogOrder&quot;: 11,
-        &quot;title&quot;: &quot;Network security perimeter&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 14,
-        &quot;catalogOrder&quot;: 12,
-        &quot;title&quot;: &quot;ARM resource operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 15,
-        &quot;catalogOrder&quot;: 13,
-        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 16,
-        &quot;catalogOrder&quot;: 14,
-        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 17,
-        &quot;catalogOrder&quot;: 15,
-        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 18,
-        &quot;catalogOrder&quot;: 16,
-        &quot;title&quot;: &quot;ARM long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 19,
-        &quot;catalogOrder&quot;: 17,
-        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 20,
-        &quot;catalogOrder&quot;: 18,
-        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 21,
-        &quot;catalogOrder&quot;: 19,
-        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 22,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 23,
-        &quot;catalogOrder&quot;: 22,
-        &quot;title&quot;: &quot;Enums&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 24,
-        &quot;catalogOrder&quot;: 23,
-        &quot;title&quot;: &quot;Scalars&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 25,
-        &quot;catalogOrder&quot;: 25,
-        &quot;title&quot;: &quot;Built-in decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 26,
-        &quot;catalogOrder&quot;: 26,
-        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 27,
-        &quot;catalogOrder&quot;: 27,
-        &quot;title&quot;: &quot;Change provider namespace&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 28,
-        &quot;catalogOrder&quot;: 28,
-        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 29,
-        &quot;catalogOrder&quot;: 29,
-        &quot;title&quot;: &quot;Content negotiation&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 30,
-        &quot;catalogOrder&quot;: 30,
-        &quot;title&quot;: &quot;Directives&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 31,
-        &quot;catalogOrder&quot;: 31,
-        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, plane, or change-context match for this assessment.&quot;
-      }
-    ],
-    &quot;documents&quot;: [
-      {
-        &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 1,
-        &quot;title&quot;: &quot;Evolving APIs&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Relevant to dependencies and common-type selection on version enum members.&quot;,
-        &quot;guidance&quot;: [],
-        &quot;noRelevantGuidance&quot;: true,
-        &quot;retrievedAt&quot;: &quot;2026-10-29T08:24:51.284Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
-        &quot;catalogOrder&quot;: 2,
-        &quot;title&quot;: &quot;Versioning overview&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Relevant Azure API version context for an existing preview version.&quot;,
-        &quot;guidance&quot;: [],
-        &quot;noRelevantGuidance&quot;: true,
-        &quot;retrievedAt&quot;: &quot;2026-10-29T08:24:51.569Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:eeb249dc376b26d1695bb48bb64c3b9b028340fc5435b93f153342abdea51f2f&quot;
-      },
-      {
-        &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 20,
-        &quot;title&quot;: &quot;ARM common types&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 6
-        },
-        &quot;selectionRationale&quot;: &quot;Direct category match for ARM common-type versions.&quot;,
-        &quot;guidance&quot;: [],
-        &quot;noRelevantGuidance&quot;: true,
-        &quot;retrievedAt&quot;: &quot;2026-10-29T08:24:52.694Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:f2af6b02eab56fd2b27866b3152249245ca733e036138efa2d7b35f79f67b15c&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 24,
-        &quot;title&quot;: &quot;Decorators&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 4
-        },
-        &quot;selectionRationale&quot;: &quot;Relevant language guidance for changing decorator arguments.&quot;,
-        &quot;guidance&quot;: [],
-        &quot;noRelevantGuidance&quot;: true,
-        &quot;retrievedAt&quot;: &quot;2026-10-29T08:24:53.610Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:442d6c5c0d3887e36c2f840af417903eee4c3869fd0a1ba72388c53da543e4b5&quot;
-      }
-    ]
-  },
-  &quot;intentAssessments&quot;: [
-    {
-      &quot;semanticIntentId&quot;: &quot;semantic-f86557ff76bf0542&quot;,
-      &quot;decision&quot;: &quot;no-applicable-guidance&quot;,
-      &quot;blockers&quot;: []
-    }
-  ],
+  &quot;intentAssessments&quot;: [],
   &quot;retrievalFailures&quot;: [],
   &quot;blockers&quot;: []
 }</pre></details>
 <h3>Changed files</h3><ul><li><code>specification/deviceregistry/DeviceRegistry.Management/main.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 2181,
-    &quot;fetchMs&quot;: 1616,
-    &quot;scopeDiscoveryMs&quot;: 210,
-    &quot;setupExcludingFetchMs&quot;: 70996,
-    &quot;comparisonMs&quot;: 1816,
-    &quot;changeDiscoveryMs&quot;: 1259,
-    &quot;workspacePreparationMs&quot;: 57407,
-    &quot;projectDiscoveryMs&quot;: 6294,
-    &quot;totalMs&quot;: 2618956,
-    &quot;semanticAnalysisMs&quot;: 634,
-    &quot;restAnalysisMs&quot;: 389,
-    &quot;downstreamAnalysisMs&quot;: 8578,
-    &quot;semanticContextPolicyMs&quot;: 1897,
-    &quot;documentQualityAnalysisMs&quot;: 2
+    &quot;metadataMs&quot;: 2052,
+    &quot;fetchMs&quot;: 240,
+    &quot;scopeDiscoveryMs&quot;: 135,
+    &quot;setupExcludingFetchMs&quot;: 12915,
+    &quot;comparisonMs&quot;: 289,
+    &quot;changeDiscoveryMs&quot;: 129,
+    &quot;workspacePreparationMs&quot;: 9886,
+    &quot;projectDiscoveryMs&quot;: 86,
+    &quot;totalMs&quot;: 1023058,
+    &quot;semanticAnalysisMs&quot;: 379,
+    &quot;restAnalysisMs&quot;: 253,
+    &quot;downstreamAnalysisMs&quot;: 6160,
+    &quot;documentQualityAnalysisMs&quot;: 1
   },
   &quot;inputAccounting&quot;: {
-    &quot;budgetTier&quot;: &quot;medium&quot;,
-    &quot;budgetBytes&quot;: 262144,
-    &quot;bytes&quot;: 171580,
-    &quot;estimatedTokens&quot;: 42895,
+    &quot;budgetTier&quot;: &quot;small&quot;,
+    &quot;budgetBytes&quot;: 131072,
+    &quot;bytes&quot;: 56824,
+    &quot;estimatedTokens&quot;: 14206,
     &quot;retained&quot;: {
-      &quot;evidenceSets&quot;: 3,
-      &quot;facts&quot;: 0,
-      &quot;semanticReviewUnits&quot;: 1,
-      &quot;restCandidates&quot;: 237,
+      &quot;evidenceSets&quot;: 0,
+      &quot;facts&quot;: 45,
+      &quot;semanticReviewUnits&quot;: 0,
+      &quot;restCandidates&quot;: 0,
       &quot;downstreamCandidates&quot;: 0,
       &quot;downstreamRootCauses&quot;: 0,
-      &quot;complianceSearchRequests&quot;: 1,
+      &quot;complianceSearchRequests&quot;: 0,
       &quot;inferenceRequests&quot;: 0
     },
     &quot;omittedRedundant&quot;: {
@@ -1351,21 +715,13 @@ body {
       &quot;unchangedInventories&quot;: true,
       &quot;unreferencedFacts&quot;: true,
       &quot;unreferencedDeterministicFacts&quot;: true,
-      &quot;restCandidateEvidenceFacts&quot;: true,
       &quot;sourceChanges&quot;: true,
       &quot;repeatedDeclarationIds&quot;: true,
       &quot;repeatedReviewUnitEvidence&quot;: true
-    },
-    &quot;compliance&quot;: {
-      &quot;catalogEntriesScored&quot;: 31,
-      &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 1324615,
-      &quot;guidanceExcerptsRetained&quot;: 0,
-      &quot;guidanceExcerptBytesRetained&quot;: 0
     }
   }
 }</pre>
-<p><strong>Provenance:</strong> 2, model-input.json, dimensions/document-quality-input.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
 </main>
 <script>
 function revealHashTarget() {

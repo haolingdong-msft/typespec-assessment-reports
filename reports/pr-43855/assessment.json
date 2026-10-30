@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T06:14:40.065Z",
+  "generatedAt": "2026-10-30T08:15:00.407Z",
   "title": "TypeSpec assessment: specification/consumption/resource-manager/Microsoft.Consumption/Consumption",
   "repository": {
     "root": "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-assessment-stack",
@@ -3144,8 +3144,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add management-group reservation recommendation details",
-          "summary": "Adds versioned management-group recommendation models, scope values, tenant and management-group identifiers, and projected-usage details for ReservationRecommendationDetails_Get.",
+          "title": "Add management-group reservation recommendation data",
+          "summary": "Adds management-group scope variants, projected usage details, and related properties for reservation recommendations in API version 2026-06-01, affecting ReservationRecommendationDetails_Get.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -6217,8 +6217,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add management-group query support",
-          "summary": "Adds the optional versioned managementGroupId query parameter to ReservationRecommendationDetails_Get for management-group scoped recommendations.",
+          "title": "Add an optional management group query parameter",
+          "summary": "Adds the optional managementGroupId query parameter to ReservationRecommendationDetails_Get for management-group scoped recommendations in API version 2026-06-01.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -7132,8 +7132,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Customize management-group identifier SDK types",
-          "summary": "Applies C#-specific alternate SDK types to management-group identifier properties without changing a REST operation.",
+          "title": "Use resource identifiers for C# management group IDs",
+          "summary": "Applies C# alternate-type customizations so newly added managementGroupId properties surface as ResourceIdentifier values rather than plain strings.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -7167,8 +7167,8 @@
             {
               "requestId": "inference-request-5542f78031438a51",
               "hunkId": "hunk-8a386f4c7f369431",
-              "decision": "blocked",
-              "rationale": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.",
+              "decision": "no-impact",
+              "rationale": "The C# alternate types apply to managementGroupId properties introduced with the new 2026-06-01 API version, so they do not replace an existing language-neutral SDK contract.",
               "candidateIds": []
             }
           ],
@@ -7261,23 +7261,13 @@
           "code": "autorest-contract-unresolved",
           "projectId": "project-49e7a00359db",
           "message": "Changed AutoRest contracts for 1 operations in project-49e7a00359db contain unresolved references or ambiguous visibility metadata (ReservationRecommendationDetails_Get). Their effective compatibility cannot be established from incomplete contract evidence."
-        },
-        {
-          "code": "inference-blocked",
-          "reviewUnitId": "semantic-d6a6211d0c6d440b",
-          "hunkId": "hunk-8a386f4c7f369431",
-          "allowedDimensions": [
-            "rest",
-            "downstream"
-          ],
-          "message": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization."
         }
       ]
     },
     "downstream": {
-      "status": "not-assessed",
-      "verdict": "unknown",
-      "coverage": "partial",
+      "status": "passed",
+      "verdict": "passed",
+      "coverage": "complete",
       "findings": [],
       "methodGroups": [],
       "typeImpacts": [],
@@ -7425,18 +7415,7 @@
         }
       ],
       "rejectedCandidateCount": 3,
-      "blockers": [
-        {
-          "code": "inference-blocked",
-          "reviewUnitId": "semantic-d6a6211d0c6d440b",
-          "hunkId": "hunk-8a386f4c7f369431",
-          "allowedDimensions": [
-            "rest",
-            "downstream"
-          ],
-          "message": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization."
-        }
-      ]
+      "blockers": []
     },
     "compliance": {
       "status": "passed",
@@ -7461,7 +7440,7 @@
               "changeContext": 1,
               "total": 10
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment."
+            "selectionRationale": "Directly governs @added models, properties, and optional parameters in an existing versioned ARM API."
           },
           {
             "rank": 2,
@@ -7469,13 +7448,13 @@
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 10
+              "total": 4
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment."
+            "selectionRationale": "Relevant to the added and inherited recommendation models."
           },
           {
             "rank": 3,
@@ -7483,13 +7462,13 @@
             "title": "Enums",
             "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 10
+              "total": 4
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment."
+            "selectionRationale": "Relevant to the added ManagementGroup scope member."
           },
           {
             "rank": 4,
@@ -7497,16 +7476,30 @@
             "title": "Decorators",
             "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 10
+              "total": 4
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment."
+            "selectionRationale": "Relevant to changed decorators and augment customizations."
           },
           {
             "rank": 5,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 3
+            },
+            "selectionRationale": "Visibility metadata is present on added response properties."
+          },
+          {
+            "rank": 6,
             "catalogOrder": 2,
             "title": "Versioning overview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
@@ -7517,10 +7510,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 6,
+            "rank": 7,
             "catalogOrder": 3,
             "title": "Add preview after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
@@ -7531,10 +7524,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 7,
+            "rank": 8,
             "catalogOrder": 4,
             "title": "Add stable after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
@@ -7545,10 +7538,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 8,
+            "rank": 9,
             "catalogOrder": 5,
             "title": "Add preview after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
@@ -7559,10 +7552,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 9,
+            "rank": 10,
             "catalogOrder": 6,
             "title": "Add stable after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
@@ -7573,10 +7566,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 10,
+            "rank": 11,
             "catalogOrder": 7,
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
@@ -7587,10 +7580,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 11,
+            "rank": 12,
             "catalogOrder": 8,
             "title": "Specific extension resource sample",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
@@ -7601,10 +7594,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 12,
+            "rank": 13,
             "catalogOrder": 9,
             "title": "Private endpoints",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
@@ -7615,10 +7608,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 13,
+            "rank": 14,
             "catalogOrder": 10,
             "title": "Private links",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
@@ -7629,10 +7622,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 14,
+            "rank": 15,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
@@ -7643,10 +7636,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 15,
+            "rank": 16,
             "catalogOrder": 12,
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
@@ -7657,10 +7650,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 16,
+            "rank": 17,
             "catalogOrder": 13,
             "title": "Azure.ResourceManager interface reference",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
@@ -7671,10 +7664,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 17,
+            "rank": 18,
             "catalogOrder": 14,
             "title": "TypeSpec.Rest decorators",
             "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
@@ -7685,10 +7678,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 18,
+            "rank": 19,
             "catalogOrder": 15,
             "title": "Azure.ResourceManager decorators",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
@@ -7699,10 +7692,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 19,
+            "rank": 20,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
@@ -7713,10 +7706,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 20,
+            "rank": 21,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -7727,10 +7720,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 21,
+            "rank": 22,
             "catalogOrder": 18,
             "title": "Azure.ResourceManager data types",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
@@ -7741,10 +7734,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 22,
+            "rank": 23,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -7755,10 +7748,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 23,
+            "rank": 24,
             "catalogOrder": 20,
             "title": "ARM common types",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
@@ -7769,10 +7762,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
-            "rank": 24,
+            "rank": 25,
             "catalogOrder": 23,
             "title": "Scalars",
             "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
@@ -7783,21 +7776,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
-          },
-          {
-            "rank": 25,
-            "catalogOrder": 25,
-            "title": "Built-in decorators",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
             "rank": 26,
@@ -7811,7 +7790,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
             "rank": 27,
@@ -7825,7 +7804,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
             "rank": 28,
@@ -7839,7 +7818,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
             "rank": 29,
@@ -7853,7 +7832,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
             "rank": 30,
@@ -7867,7 +7846,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           },
           {
             "rank": 31,
@@ -7881,7 +7860,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct match for the assessed reservation-recommendation changes."
           }
         ],
         "documents": [
@@ -7897,43 +7876,45 @@
               "changeContext": 1,
               "total": 10
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.",
+            "selectionRationale": "Directly governs @added models, properties, and optional parameters in an existing versioned ARM API.",
             "guidance": [
               {
-                "section": "Versioning Decorators",
-                "excerpt": "Use @added with the version where a model, property, operation, or parameter is introduced so the element appears in that version and later.",
+                "section": "Add a property in v2",
+                "excerpt": "These examples show how to add models, operations, properties, and parameters in specific versions using TypeSpec versioning decorators.",
                 "queryTerms": [
                   "@added",
-                  "versioning",
-                  "operation",
-                  "property"
+                  "managementGroupId",
+                  "Versions.v2026_06_01"
+                ],
+                "examples": [
+                  "@added(Versions.v2) city?: string;"
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-02383168bd4049dd",
+                  "declaration-3ee476dfa3d68d9f",
+                  "declaration-4b88e2390dc1ae03",
+                  "declaration-b1bf02b7dcd4b310",
+                  "declaration-da9058f605559bdf",
+                  "declaration-fd2ad6cbd08049dd"
+                ]
+              },
+              {
+                "section": "Add a parameter to an operation in v2",
+                "excerpt": "An optional query parameter can be introduced in a later version with @added on the parameter.",
+                "queryTerms": [
+                  "@added",
+                  "@query",
+                  "optional parameter"
                 ],
                 "examples": [],
                 "applicableDeclarationIds": [
-                  "declaration-02383168bd4049dd",
-                  "declaration-033f08ff32163679",
-                  "declaration-10622dee555e102a",
-                  "declaration-1bbb5540d9dfec94",
-                  "declaration-317026525024f125",
-                  "declaration-3ee476dfa3d68d9f",
-                  "declaration-4b88e2390dc1ae03",
-                  "declaration-607883c685c84d8d",
-                  "declaration-751f7f37e90330ab",
-                  "declaration-802caa295b332895",
                   "declaration-818881e25ef177b4",
-                  "declaration-b1bf02b7dcd4b310",
-                  "declaration-b5d79c718e7a162b",
-                  "declaration-b824474159f1320e",
-                  "declaration-c1813c46583b5304",
-                  "declaration-d03e6a3bd959d0e5",
-                  "declaration-da9058f605559bdf",
-                  "declaration-e3d154af435a35c5",
-                  "declaration-fd2ad6cbd08049dd"
+                  "declaration-d03e6a3bd959d0e5"
                 ]
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:29.216Z",
+            "retrievedAt": "2026-10-30T08:14:26.6771660Z",
             "contentHash": "sha256:30470c99aaddccfad0799e2dcdf370cc27e56e09b76ed81b70ef5de044e29854"
           },
           {
@@ -7942,46 +7923,16 @@
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 10
+              "total": 4
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.",
-            "guidance": [
-              {
-                "section": "Optional properties",
-                "excerpt": "A model property is optional when declared with the ? marker; model composition and inheritance determine the resulting model shape.",
-                "queryTerms": [
-                  "model",
-                  "optional properties",
-                  "extends",
-                  "properties"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-02383168bd4049dd",
-                  "declaration-033f08ff32163679",
-                  "declaration-1bbb5540d9dfec94",
-                  "declaration-317026525024f125",
-                  "declaration-3ee476dfa3d68d9f",
-                  "declaration-4b88e2390dc1ae03",
-                  "declaration-607883c685c84d8d",
-                  "declaration-751f7f37e90330ab",
-                  "declaration-802caa295b332895",
-                  "declaration-b1bf02b7dcd4b310",
-                  "declaration-b5d79c718e7a162b",
-                  "declaration-b824474159f1320e",
-                  "declaration-c1813c46583b5304",
-                  "declaration-da9058f605559bdf",
-                  "declaration-e3d154af435a35c5",
-                  "declaration-fd2ad6cbd08049dd"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:29.282Z",
+            "selectionRationale": "Relevant to the added and inherited recommendation models.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-30T08:14:26.7932178Z",
             "contentHash": "sha256:b3e43ba6c64122566ab49e05a835fc03547f86ad4d25945a176a1d5ed0468547"
           },
           {
@@ -7990,46 +7941,16 @@
             "title": "Enums",
             "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 10
+              "total": 4
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.",
-            "guidance": [
-              {
-                "section": "Assigning values to enums",
-                "excerpt": "Enums define named constants and may assign explicit service-facing string or numeric values to members.",
-                "queryTerms": [
-                  "enum",
-                  "union",
-                  "member",
-                  "string value"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-02383168bd4049dd",
-                  "declaration-033f08ff32163679",
-                  "declaration-1bbb5540d9dfec94",
-                  "declaration-317026525024f125",
-                  "declaration-3ee476dfa3d68d9f",
-                  "declaration-4b88e2390dc1ae03",
-                  "declaration-607883c685c84d8d",
-                  "declaration-751f7f37e90330ab",
-                  "declaration-802caa295b332895",
-                  "declaration-b1bf02b7dcd4b310",
-                  "declaration-b5d79c718e7a162b",
-                  "declaration-b824474159f1320e",
-                  "declaration-c1813c46583b5304",
-                  "declaration-da9058f605559bdf",
-                  "declaration-e3d154af435a35c5",
-                  "declaration-fd2ad6cbd08049dd"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:29.293Z",
+            "selectionRationale": "Relevant to the added ManagementGroup scope member.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-30T08:14:26.8526900Z",
             "contentHash": "sha256:432e3a9fdecf7f6360a4d167184b3ade21e621c398da057b187685a09834020e"
           },
           {
@@ -8038,33 +7959,16 @@
             "title": "Decorators",
             "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 10
+              "total": 4
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.",
-            "guidance": [
-              {
-                "section": "Applying decorators",
-                "excerpt": "Decorators attach metadata to declarations and are applied before the declaration or member they decorate.",
-                "queryTerms": [
-                  "decorator",
-                  "@added",
-                  "metadata",
-                  "declaration"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-10622dee555e102a",
-                  "declaration-818881e25ef177b4",
-                  "declaration-d03e6a3bd959d0e5"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:29.302Z",
+            "selectionRationale": "Relevant to changed decorators and augment customizations.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-30T08:14:26.9180719Z",
             "contentHash": "sha256:776db87b6b90a2005f78869a214df72f5fe724973125ed5568fac35592aba9dc"
           }
         ]
@@ -8076,15 +7980,7 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/models/",
-              "guidanceSection": "Optional properties"
-            },
-            {
-              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/enums/",
-              "guidanceSection": "Assigning values to enums"
+              "guidanceSection": "Add a property in v2"
             }
           ],
           "sourceChangeIds": [
@@ -8117,17 +8013,11 @@
             "declaration-fd2ad6cbd08049dd"
           ],
           "decision": "applicable-pass",
-          "expected": "New models, properties, and union values are introduced in the intended API version with @added and retain their declared model semantics.",
-          "actual": "The added recommendation models, properties, and ManagementGroup scope value are decorated with @added(Versions.v2026_06_01).",
-          "rationale": "The changed declarations follow the cited versioning and TypeSpec model/enum patterns.",
-          "gap": "The changed declarations follow the cited versioning and TypeSpec model/enum patterns.",
+          "expected": "New models, members, and enum values introduced in a later version use @added for that version.",
+          "actual": "The management-group recommendation models, projected-usage model, related properties, and scope member are introduced with @added(Versions.v2026_06_01).",
+          "rationale": "The changes follow the documented versioning pattern for additions to an existing API.",
+          "gap": "The changes follow the documented versioning pattern for additions to an existing API.",
           "sourceLinks": [
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 237,
-              "endLine": 250,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp#L238-L250"
-            },
             {
               "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
               "startLine": 245,
@@ -8135,21 +8025,9 @@
             },
             {
               "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 1400,
-              "endLine": 1460,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp#L1403-L1460"
-            },
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
               "startLine": 1440,
               "endLine": 1445,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp#L1445-L1445"
-            },
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 1447,
-              "endLine": 1452,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp#L1452-L1452"
             },
             {
               "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
@@ -8165,51 +8043,15 @@
             },
             {
               "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 1630,
-              "endLine": 1635,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp#L1635-L1635"
-            },
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
               "startLine": 3789,
               "endLine": 3811,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp#L3793-L3793"
             },
             {
               "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 3795,
-              "endLine": 3799
-            },
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 3801,
-              "endLine": 3805
-            },
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 3807,
-              "endLine": 3810
-            },
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
               "startLine": 3984,
               "endLine": 4006,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp#L3988-L3988"
-            },
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 3990,
-              "endLine": 3994
-            },
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 3996,
-              "endLine": 4000
-            },
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/models.tsp",
-              "startLine": 4002,
-              "endLine": 4005
             }
           ],
           "codeSnippets": [
@@ -8314,11 +8156,7 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/decorators/",
-              "guidanceSection": "Applying decorators"
+              "guidanceSection": "Add a parameter to an operation in v2"
             }
           ],
           "sourceChangeIds": [
@@ -8334,17 +8172,11 @@
             "declaration-d03e6a3bd959d0e5"
           ],
           "decision": "applicable-pass",
-          "expected": "A new optional operation parameter is introduced in its target version with @added and its wire location decorator.",
-          "actual": "managementGroupId is optional, uses @query(\"managementGroupId\"), and is decorated with @added(Versions.v2026_06_01).",
-          "rationale": "The parameter follows the documented versioned-parameter pattern.",
-          "gap": "The parameter follows the documented versioned-parameter pattern.",
+          "expected": "A new optional query parameter in a later API version is marked with @added for that version.",
+          "actual": "managementGroupId is optional, serialized as a query parameter, and marked @added(Versions.v2026_06_01).",
+          "rationale": "The operation parameter uses the documented additive versioning pattern.",
+          "gap": "The operation parameter uses the documented additive versioning pattern.",
           "sourceLinks": [
-            {
-              "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp",
-              "startLine": 572,
-              "endLine": 640,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/cc13471c83e1e1a06beba2d8912a00a97538f6cf/specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp#L573-L640"
-            },
             {
               "path": "specification/consumption/resource-manager/Microsoft.Consumption/Consumption/routes.tsp",
               "startLine": 574,
@@ -8393,9 +8225,9 @@
           ],
           "declarationIds": [],
           "decision": "no-applicable-guidance",
-          "actual": "The change applies C#-specific @@alternateType customizations in client.tsp.",
-          "rationale": "The fetched Azure API design guidance does not govern language-specific SDK alternate-type customization.",
-          "gap": "The fetched Azure API design guidance does not govern language-specific SDK alternate-type customization.",
+          "actual": "The change adds C#-specific alternate types for newly introduced management group identifier properties.",
+          "rationale": "The fetched official documents describe TypeSpec decorators and API versioning but do not govern this language-specific SDK projection choice.",
+          "gap": "The fetched official documents describe TypeSpec decorators and API versioning but do not govern this language-specific SDK projection choice.",
           "sourceLinks": [],
           "codeSnippets": [
             {
@@ -8559,15 +8391,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\projects\\project-49e7a00359db\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\projects\\project-49e7a00359db\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2024-08-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 11177,
+            "durationMs": 13746,
             "configPath": "worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption\\tspconfig.yaml",
             "configHash": "e7c2e51049739dca91b4d14b26d23aaa8cdeb01a1ef0b4baf7cd1592f4e29298",
             "logPath": "logs\\project-49e7a00359db-baseline-autorest.log",
@@ -8591,16 +8423,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\projects\\project-49e7a00359db\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\projects\\project-49e7a00359db\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2024-08-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 9653,
+            "durationMs": 13501,
             "configPath": "worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption\\tspconfig.yaml",
             "configHash": "e7c2e51049739dca91b4d14b26d23aaa8cdeb01a1ef0b4baf7cd1592f4e29298",
             "logPath": "logs\\project-49e7a00359db-baseline-tcgc.log",
@@ -8628,15 +8460,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\projects\\project-49e7a00359db\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\projects\\project-49e7a00359db\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-06-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 10904,
+            "durationMs": 13011,
             "configPath": "worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption\\tspconfig.yaml",
             "configHash": "e7c2e51049739dca91b4d14b26d23aaa8cdeb01a1ef0b4baf7cd1592f4e29298",
             "logPath": "logs\\project-49e7a00359db-target-autorest.log",
@@ -8660,16 +8492,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\projects\\project-49e7a00359db\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\projects\\project-49e7a00359db\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-43855\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-43855\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-06-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 9822,
+            "durationMs": 12152,
             "configPath": "worktrees\\current\\specification\\consumption\\resource-manager\\Microsoft.Consumption\\Consumption\\tspconfig.yaml",
             "configHash": "e7c2e51049739dca91b4d14b26d23aaa8cdeb01a1ef0b4baf7cd1592f4e29298",
             "logPath": "logs\\project-49e7a00359db-target-tcgc.log",
@@ -8740,18 +8572,7 @@
     }
   ],
   "blockers": [
-    "Changed AutoRest contracts for 1 operations in project-49e7a00359db contain unresolved references or ambiguous visibility metadata (ReservationRecommendationDetails_Get). Their effective compatibility cannot be established from incomplete contract evidence.",
-    "Inference inference-request-5542f78031438a51 is blocked: language-specific-sdk-customization-not-represented.",
-    {
-      "code": "inference-blocked",
-      "reviewUnitId": "semantic-d6a6211d0c6d440b",
-      "hunkId": "hunk-8a386f4c7f369431",
-      "allowedDimensions": [
-        "rest",
-        "downstream"
-      ],
-      "message": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization."
-    }
+    "AutoRest contract evidence for ReservationRecommendationDetails_Get contains unresolved references or ambiguous visibility metadata; effective REST compatibility for that operation is not fully established."
   ],
   "provenance": {
     "modelInput": "model-input.json",
@@ -8789,30 +8610,30 @@
     "inference": {
       "requestCount": 1,
       "inferredCandidateCount": 0,
-      "noImpactCount": 0,
-      "blockedCount": 1
+      "noImpactCount": 1,
+      "blockedCount": 0
     },
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
       "documentBytesFetched": 1460440,
-      "guidanceExcerptsRetained": 4,
-      "guidanceExcerptBytesRetained": 482
+      "guidanceExcerptsRetained": 2,
+      "guidanceExcerptBytesRetained": 230
     }
   },
   "timings": {
-    "metadataMs": 1866,
-    "fetchMs": 221,
-    "scopeDiscoveryMs": 113,
-    "setupExcludingFetchMs": 19652,
-    "comparisonMs": 172,
-    "changeDiscoveryMs": 105,
-    "workspacePreparationMs": 16577,
-    "projectDiscoveryMs": 167,
-    "totalMs": 424601,
-    "semanticAnalysisMs": 1786,
-    "restAnalysisMs": 93,
-    "downstreamAnalysisMs": 31,
+    "metadataMs": 3371,
+    "fetchMs": 299,
+    "scopeDiscoveryMs": 251,
+    "setupExcludingFetchMs": 27116,
+    "comparisonMs": 335,
+    "changeDiscoveryMs": 204,
+    "workspacePreparationMs": 21667,
+    "projectDiscoveryMs": 131,
+    "totalMs": 954860,
+    "semanticAnalysisMs": 2878,
+    "restAnalysisMs": 260,
+    "downstreamAnalysisMs": 64,
     "documentQualityAnalysisMs": 1
   }
 }

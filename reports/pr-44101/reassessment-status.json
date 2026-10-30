@@ -1,8 +1,8 @@
 {
   "pr": 44101,
   "result": "fresh-report",
-  "generatedAt": "2026-10-29T08:28:05.914Z",
-  "confidence": "medium",
+  "generatedAt": "2026-10-30T08:17:43.773Z",
+  "confidence": "low",
   "safety": "not-assessed",
   "verdict": "unknown",
   "coverage": "partial",
@@ -19,26 +19,13 @@
     "documentation": "passed"
   },
   "blockers": [
-    "Language-specific client.tsp inference requests could not be resolved from bounded language-neutral evidence.",
-    "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-    "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-    "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-    "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-    "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-    "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-    "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-    "The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.",
-    "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-2c9bf26bdc7cb1bb\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-    "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-4b28cca4678bc269\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-    "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-4fc38014414d7483\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-    "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-a57e2fa331d97734\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-    "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-cb8912c4f3ca5778\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-884902daaaaa9100\"}",
-    "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-74e4449f01c54c5e\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-d9798705ad9627a9\"}",
-    "{\"allowedDimensions\": [\"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-47db074bf2ab9b6b\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-ea6598f433a523f6\"}",
-    "{\"allowedDimensions\": [\"rest\", \"downstream\"], \"code\": \"inference-blocked\", \"hunkId\": \"hunk-b81c862dd18a28e0\", \"message\": \"The request concerns language-specific client.tsp behavior, but the bounded input contains no authoritative language-neutral projected SDK surface sufficient to infer a cross-language candidate.\", \"reviewUnitId\": \"semantic-ea6598f433a523f6\"}"
+    "Python enum and C# type/name customizations lack language-specific before/after SDK evidence, so their compatibility impact is not assessed.",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-ea6598f433a523f6\",\"hunkId\":\"hunk-47db074bf2ab9b6b\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The Python enum client names may alter existing language-specific member names, but no Python before/after symbol evidence is supplied to establish the exact public change.\"}",
+    "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-ea6598f433a523f6\",\"hunkId\":\"hunk-b81c862dd18a28e0\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The C# alternate type and client names may alter existing public SDK types or property names, but no C# before/after symbol evidence is supplied for a supported candidate.\"}"
   ],
-  "assessmentJsonSha256": "0d7676ed903aebfcaaf0c3e13f82704c6d629c6c4af8a3314084c671a175afef",
-  "assessmentHtmlSha256": "e31c2f8116907dd3e833fa690e4d86671077ed26c1328ac5a6f9576f26b43f83",
+  "assessmentJsonSha256": "3545c0a5bcc86ed7540e7172a868254aceff578601fd1ce9366762af71be8a1e",
+  "assessmentHtmlSha256": "12868ea4b4b679c625d88ed6ebc198cd0f61144d357605c289cc9acefc4e40ed",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44101/",
-  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44101/assessment.json"
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44101/assessment.json",
+  "implementationCommit": "d1ff1fd54f9e87b324a007570070cb0862a4e49c"
 }

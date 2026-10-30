@@ -642,7 +642,7 @@ body {
 <div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
 <p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
 <main class="container">
-<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span></div></div><p class="report-small">2 findings · 21 declarations checked</p><div class="document-quality-scope"><details class="report-card document-quality-check" id="document-quality-document-finding-17557d14a25e963e"><summary><div class="report-card-title"><strong>ContextCaches</strong><small>Missing documentation for ContextCaches</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-1b34c694e7da74fb">Add Context Cache resources</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/storage/Storage.Management/StorageContextCache.tsp:34-66</code></p><pre><code>@armResourceOperations
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span></div></div><p class="report-small">2 findings · 21 declarations checked</p><div class="document-quality-scope"><details class="report-card document-quality-check" id="document-quality-document-finding-17557d14a25e963e"><summary><div class="report-card-title"><strong>ContextCaches</strong><small>Missing documentation for ContextCaches</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-1b34c694e7da74fb">Add context cache resources</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/storage/Storage.Management/StorageContextCache.tsp:34-66</code></p><pre><code>@armResourceOperations
 @added(Versions.v2026_06_01)
 interface ContextCaches {
   /**
@@ -674,7 +674,7 @@ interface ContextCaches {
    * List Context Caches by subscription.
    */
   listBySubscription is ArmListBySubscription&lt;ContextCache&gt;;
-}</code></pre></details><div class="report-guideline-section document-quality-explanation"><h3>Why this needs attention</h3><p>The TypeSpec compiler returned no nonempty documentation for this declaration.</p></div><div class="report-guideline-section document-quality-suggestion"><h3>Suggested change</h3><p>Add a nonempty TypeSpec documentation description.</p></div></div></details><details class="report-card document-quality-check" id="document-quality-document-finding-c6bc4dce52c5b606"><summary><div class="report-card-title"><strong>ContextCacheContainers</strong><small>Missing documentation for ContextCacheContainers</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-2f207fd387280e5f">Add Context Cache Container child resources</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/storage/Storage.Management/StorageContextCacheContainer.tsp:34-64</code></p><pre><code>@armResourceOperations
+}</code></pre></details><div class="report-guideline-section document-quality-explanation"><h3>Why this needs attention</h3><p>The TypeSpec compiler returned no nonempty documentation for this declaration.</p></div><div class="report-guideline-section document-quality-suggestion"><h3>Suggested change</h3><p>Add a nonempty TypeSpec documentation description.</p></div></div></details><details class="report-card document-quality-check" id="document-quality-document-finding-c6bc4dce52c5b606"><summary><div class="report-card-title"><strong>ContextCacheContainers</strong><small>Missing documentation for ContextCacheContainers</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-2f207fd387280e5f">Add context cache containers</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><details class="report-subdetails document-quality-source"><summary>View TypeSpec declaration missing a description</summary><p class="sources"><code>specification/storage/Storage.Management/StorageContextCacheContainer.tsp:34-64</code></p><pre><code>@armResourceOperations
 @added(Versions.v2026_06_01)
 interface ContextCacheContainers {
   /**
@@ -705,7 +705,7 @@ interface ContextCacheContainers {
    */
   listByContextCache is ArmResourceListByParent&lt;ContextCacheContainer&gt;;
 }</code></pre></details><div class="report-guideline-section document-quality-explanation"><h3>Why this needs attention</h3><p>The TypeSpec compiler returned no nonempty documentation for this declaration.</p></div><div class="report-guideline-section document-quality-suggestion"><h3>Suggested change</h3><p>Add a nonempty TypeSpec documentation description.</p></div></div></details></div></section>
-<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">5 intents · 3 added · 2 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-1b34c694e7da74fb"><summary><div class="report-card-title"><strong>Add Context Cache resources</strong><small>Adds the tracked ContextCache ARM resource and its create, read, update, delete, and list operations in API version 2026-06-01.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-17557d14a25e963e">Documentation Completeness: Missing documentation for ContextCaches</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-1b34c694e7da74fb</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 11 normalized facts; 2 source hunks; 11 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:StorageContextCache</code></p><details class="report-subdetails"><summary>Change facts and provenance (11)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ContextCaches</code></td><td>type</td><td>add</td><td>version-activation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-1e112e6ecaa9008d</span></td></tr><tr><td><code>ContextCache</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-3fd99bf33d8a43fe</span></td></tr><tr><td><code>ContextCaches.get</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-46162a1ae2ca74be</span></td></tr><tr><td><code>ContextCache.name</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-08ee7160188d7af0</span></td></tr><tr><td><code>ContextCaches.update</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-f91f3dd48b8d8db6</span></td></tr><tr><td><code>contextCacheName</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-9d69a053f474eb4e</span></td></tr><tr><td><code>ContextCaches.createOrUpdate</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-7a1050359b887eed</span></td></tr><tr><td><code>ContextCaches.listByResourceGroup</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-0c4918ac375b54fe</span></td></tr><tr><td><code>ContextCaches.listBySubscription</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-cb9f880213db0f9b</span></td></tr><tr><td><code>ContextCaches.delete</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-4f6cd0696785437b</span></td></tr><tr><td><code>(source/configuration)</code></td><td>type</td><td>modify</td><td>operation</td><td><code>source-2f70f6a5524d6d0f</code><br><span class="report-small">hunks: hunk-c3f6280f137c68b7<br>declarations: none</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/storage/Storage.Management/main.tsp</div><pre><span class="context"> import &quot;./StorageTaskAssignment.tsp&quot;;</span>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">5 intents · 3 added · 2 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-1b34c694e7da74fb"><summary><div class="report-card-title"><strong>Add context cache resources</strong><small>Adds the versioned ContextCache tracked resource and standard create, read, update, delete, and list operations for API version 2026-06-01.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-17557d14a25e963e">Documentation Completeness: Missing documentation for ContextCaches</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-1b34c694e7da74fb</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 11 normalized facts; 2 source hunks; 11 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:StorageContextCache</code></p><details class="report-subdetails"><summary>Change facts and provenance (11)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ContextCaches</code></td><td>type</td><td>add</td><td>version-activation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-1e112e6ecaa9008d</span></td></tr><tr><td><code>ContextCache</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-3fd99bf33d8a43fe</span></td></tr><tr><td><code>ContextCaches.get</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-46162a1ae2ca74be</span></td></tr><tr><td><code>ContextCache.name</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-08ee7160188d7af0</span></td></tr><tr><td><code>ContextCaches.update</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-f91f3dd48b8d8db6</span></td></tr><tr><td><code>contextCacheName</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-9d69a053f474eb4e</span></td></tr><tr><td><code>ContextCaches.createOrUpdate</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-7a1050359b887eed</span></td></tr><tr><td><code>ContextCaches.listByResourceGroup</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-0c4918ac375b54fe</span></td></tr><tr><td><code>ContextCaches.listBySubscription</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-cb9f880213db0f9b</span></td></tr><tr><td><code>ContextCaches.delete</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8d1931f6d7d7194f</code><br><span class="report-small">hunks: hunk-534e690306147a45<br>declarations: declaration-4f6cd0696785437b</span></td></tr><tr><td><code>(source/configuration)</code></td><td>type</td><td>modify</td><td>operation</td><td><code>source-2f70f6a5524d6d0f</code><br><span class="report-small">hunks: hunk-c3f6280f137c68b7<br>declarations: none</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (2)</summary><div class="diff"><div class="diff-path">specification/storage/Storage.Management/main.tsp</div><pre><span class="context"> import &quot;./StorageTaskAssignment.tsp&quot;;</span>
 <span class="context"> import &quot;./StorageConnector.tsp&quot;;</span>
 <span class="context"> import &quot;./StorageDataShare.tsp&quot;;</span>
 <span class="add">+import &quot;./StorageContextCache.tsp&quot;;</span>
@@ -778,7 +778,7 @@ interface ContextCacheContainers {
 <span class="add">+   */</span>
 <span class="add">+  listBySubscription is ArmListBySubscription&lt;ContextCache&gt;;</span>
 <span class="add">+}</span>
-<span class="context"></span></pre></div><p class="sources"><code>specification/storage/Storage.Management/main.tsp</code>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/feb0802b98948a7eb2b380e120442af5ca06e246/specification/storage/Storage.Management/StorageContextCache.tsp#L18-L18">specification/storage/Storage.Management/StorageContextCache.tsp:14</a></p></details><details class="report-subdetails" id="intent-semantic-1b34c694e7da74fb-operations"><summary>Affected operations (11)</summary><p class="report-small">Showing 10 operation cards; the remaining 1 are listed below.</p><details class="operation"><summary><strong>ContextCacheContainers_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_ListByContextCache</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_ListBySubscription</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.Storage/contextCaches</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/providers/Microsoft.Storage/contextCaches</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (1)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}">ContextCaches_Update (PATCH, 2026-06-01)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-2f207fd387280e5f"><summary><div class="report-card-title"><strong>Add Context Cache Container child resources</strong><small>Adds the ContextCacheContainer child resource under ContextCache with standard lifecycle and list-by-parent operations.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-c6bc4dce52c5b606">Documentation Completeness: Missing documentation for ContextCacheContainers</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-2f207fd387280e5f</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 9 normalized facts; 1 source hunks; 5 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:StorageContextCacheContainer</code></p><details class="report-subdetails"><summary>Change facts and provenance (9)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ContextCacheContainer</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-5d29b75dee232df6</span></td></tr><tr><td><code>ContextCacheContainers.update</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-09d408453d69b318</span></td></tr><tr><td><code>ContextCacheContainers</code></td><td>type</td><td>add</td><td>version-activation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-cca238a5253eb6a3</span></td></tr><tr><td><code>ContextCacheContainers.createOrUpdate</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-19f7e23943f1dd15</span></td></tr><tr><td><code>ContextCacheContainers.listByContextCache</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-8b099a4a4c5b53ef</span></td></tr><tr><td><code>ContextCacheContainers.get</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-9c121dacbbe2184e</span></td></tr><tr><td><code>ContextCacheContainers.delete</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-599a311430b605aa</span></td></tr><tr><td><code>contextCacheContainerName</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-07fcb7397a77770c</span></td></tr><tr><td><code>ContextCacheContainer.name</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-5e628831cf88f034</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storage/Storage.Management/StorageContextCacheContainer.tsp</div><pre><span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
+<span class="context"></span></pre></div><p class="sources"><code>specification/storage/Storage.Management/main.tsp</code>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/feb0802b98948a7eb2b380e120442af5ca06e246/specification/storage/Storage.Management/StorageContextCache.tsp#L18-L18">specification/storage/Storage.Management/StorageContextCache.tsp:14</a></p></details><details class="report-subdetails" id="intent-semantic-1b34c694e7da74fb-operations"><summary>Affected operations (11)</summary><p class="report-small">Showing 10 operation cards; the remaining 1 are listed below.</p><details class="operation"><summary><strong>ContextCacheContainers_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_ListByContextCache</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_ListBySubscription</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.Storage/contextCaches</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/providers/Microsoft.Storage/contextCaches</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (1)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}">ContextCaches_Update (PATCH, 2026-06-01)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-2f207fd387280e5f"><summary><div class="report-card-title"><strong>Add context cache containers</strong><small>Adds ContextCacheContainer as a child resource of ContextCache with versioned CRUD and list operations.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (1)</span><div class="report-link-row" aria-label="Documentation Completeness findings"><a class="report-link impact" href="#document-quality-document-finding-c6bc4dce52c5b606">Documentation Completeness: Missing documentation for ContextCacheContainers</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-2f207fd387280e5f</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 9 normalized facts; 1 source hunks; 5 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:StorageContextCacheContainer</code></p><details class="report-subdetails"><summary>Change facts and provenance (9)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ContextCacheContainer</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-5d29b75dee232df6</span></td></tr><tr><td><code>ContextCacheContainers.update</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-09d408453d69b318</span></td></tr><tr><td><code>ContextCacheContainers</code></td><td>type</td><td>add</td><td>version-activation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-cca238a5253eb6a3</span></td></tr><tr><td><code>ContextCacheContainers.createOrUpdate</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-19f7e23943f1dd15</span></td></tr><tr><td><code>ContextCacheContainers.listByContextCache</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-8b099a4a4c5b53ef</span></td></tr><tr><td><code>ContextCacheContainers.get</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-9c121dacbbe2184e</span></td></tr><tr><td><code>ContextCacheContainers.delete</code></td><td>operation</td><td>add</td><td>operation</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-599a311430b605aa</span></td></tr><tr><td><code>contextCacheContainerName</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-07fcb7397a77770c</span></td></tr><tr><td><code>ContextCacheContainer.name</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-8175804942056594</code><br><span class="report-small">hunks: hunk-691ea7eb2de312c1<br>declarations: declaration-5e628831cf88f034</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storage/Storage.Management/StorageContextCacheContainer.tsp</div><pre><span class="add">+import &quot;@azure-tools/typespec-azure-core&quot;;</span>
 <span class="add">+import &quot;@azure-tools/typespec-azure-resource-manager&quot;;</span>
 <span class="add">+import &quot;@typespec/openapi&quot;;</span>
 <span class="add">+import &quot;@typespec/rest&quot;;</span>
@@ -842,7 +842,7 @@ interface ContextCacheContainers {
 <span class="add">+   */</span>
 <span class="add">+  listByContextCache is ArmResourceListByParent&lt;ContextCacheContainer&gt;;</span>
 <span class="add">+}</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/feb0802b98948a7eb2b380e120442af5ca06e246/specification/storage/Storage.Management/StorageContextCacheContainer.tsp#L20-L20">specification/storage/Storage.Management/StorageContextCacheContainer.tsp:15</a></p></details><details class="report-subdetails" id="intent-semantic-2f207fd387280e5f-operations"><summary>Affected operations (5)</summary><details class="operation"><summary><strong>ContextCacheContainers_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_ListByContextCache</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-78c56564fa50bea9"><summary><div class="report-card-title"><strong>Customize encryption SDK name</strong><small>Applies Python- and Java-specific client naming for the shared Encryption model.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">sdk-customization</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-78c56564fa50bea9</code></p><p class="report-small"><strong>SDK-compatibility grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>sdk-compatibility</code>; <code>transform:client-name</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>sdk-customization</td><td>modify</td><td>public-name</td><td><code>source-6f300d5f99e59817</code><br><span class="report-small">hunks: hunk-ba4805f476c41df2<br>declarations: none</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storage/Storage.Management/client.tsp</div><pre><span class="context">   Azure.ClientGenerator.Core.Usage.input,</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/feb0802b98948a7eb2b380e120442af5ca06e246/specification/storage/Storage.Management/StorageContextCacheContainer.tsp#L20-L20">specification/storage/Storage.Management/StorageContextCacheContainer.tsp:15</a></p></details><details class="report-subdetails" id="intent-semantic-2f207fd387280e5f-operations"><summary>Affected operations (5)</summary><details class="operation"><summary><strong>ContextCacheContainers_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>DELETE /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_ListByContextCache</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-78c56564fa50bea9"><summary><div class="report-card-title"><strong>Customize storage encryption SDK name</strong><small>Adds Python and Java client-name customization that exposes the common encryption model as StorageAccountEncryption.</small></div><div class="report-badges"><span class="report-badge">Supporting change</span><span class="report-badge modify">modify</span><span class="report-badge">sdk-customization</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-78c56564fa50bea9</code></p><p class="report-small"><strong>SDK-compatibility grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>sdk-compatibility</code>; <code>transform:client-name</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>(source/configuration)</code></td><td>sdk-customization</td><td>modify</td><td>public-name</td><td><code>source-6f300d5f99e59817</code><br><span class="report-small">hunks: hunk-ba4805f476c41df2<br>declarations: none</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storage/Storage.Management/client.tsp</div><pre><span class="context">   Azure.ClientGenerator.Core.Usage.input,</span>
 <span class="context">   &quot;csharp&quot;</span>
 <span class="context"> );</span>
 <span class="add">+</span>
@@ -862,7 +862,7 @@ interface ContextCacheContainers {
 <span class="context"> }</span>
 <span class="context"> </span>
 <span class="context"> interface Operations</span>
-<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/feb0802b98948a7eb2b380e120442af5ca06e246/specification/storage/Storage.Management/main.tsp#L63-L83">specification/storage/Storage.Management/main.tsp:60</a></p></details><details class="report-subdetails" id="intent-semantic-b9c0e8a1834291f0-operations"><summary>Affected operations (5)</summary><details class="operation"><summary><strong>StorageAccounts_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>StorageAccounts_GetProperties</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>StorageAccounts_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.Storage/storageAccounts</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>StorageAccounts_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>StorageAccounts_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-cb3e0140ab53f7ea"><summary><div class="report-card-title"><strong>Add Context Cache models and storage policy fields</strong><small>Adds context-cache request and response models, provider and account-kind unions, provisioning states, and storage SAS policy properties for 2026-06-01.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-cb3e0140ab53f7ea</code></p><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 46 normalized facts; 6 source hunks; 6 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>source:source-d8449e493753a665</code></p><details class="report-subdetails"><summary>Change facts and provenance (46)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>PolicyViolationAction.None</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c9fb3741bf393354<br>declarations: declaration-3edaeca89a718b61</span></td></tr><tr><td><code>StorageAccountPropertiesUpdateParameters</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-2b16059c91ea6a5a<br>declarations: declaration-772ac94950a3e73e, declaration-99f2a0e2bdc41e3e</span></td></tr><tr><td><code>ContextCacheUpdate</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-66dcf782a48e833b</span></td></tr><tr><td><code>PolicyViolationAction.Log</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c9fb3741bf393354<br>declarations: declaration-4609ddbbb96a08f3</span></td></tr><tr><td><code>ContextCacheProvisioningState.Deleting</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-9286bad04a14647b</span></td></tr><tr><td><code>ContextCacheProperties.accountKind</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-d1264873e54e9503</span></td></tr><tr><td><code>ContextCacheContainerProperties.description</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-b06e4759738c421b</span></td></tr><tr><td><code>ContextCacheProperties.description</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-6aeb4d0ec7dfe720</span></td></tr><tr><td><code>AiProvider</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-6d30f9939858c909</span></td></tr><tr><td><code>ContextCacheContainerProperties.timeToLive</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-55078dde3a3074b4</span></td></tr><tr><td><code>AiProvider.OpenAI</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-f7f1a8a2a3bccca5</span></td></tr><tr><td><code>ContextCacheAccountKind.Regional</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-a67c24cf3f3a3e38</span></td></tr><tr><td><code>ContextCacheProvisioningState</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-8f0bb09493c17133</span></td></tr><tr><td><code>ContextCacheProvisioningState.Updating</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-9e8ff8deacd51fc6</span></td></tr><tr><td><code>ContextCacheProvisioningState.Accepted</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-ca2f42808530781c</span></td></tr><tr><td><code>ContextCacheContainerPropertiesUpdate.description</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-b55748a36064ca6b</span></td></tr><tr><td><code>ContextCacheProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-075d087eeafdcaae</span></td></tr><tr><td><code>SasPolicy</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c7a6ce903f79fbfe<br>declarations: declaration-575246deb219a604, declaration-e5ac001e981b71e8</span></td></tr><tr><td><code>ContextCacheProperties.encryption</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-f1aa5a0ed62c8833</span></td></tr><tr><td><code>ContextCacheUpdate.identity</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-b5a7c4c9e68e6eb9</span></td></tr><tr><td><code>ContextCacheContainerProperties.provisioningState</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-7382c09e19ee040a</span></td></tr><tr><td><code>ContextCacheUpdate.properties</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-cd67ed7a3c6a6420</span></td></tr><tr><td><code>ContextCacheContainerPropertiesUpdate.timeToLive</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-fce096c5123b8cc9</span></td></tr><tr><td><code>ContextCacheProvisioningState.Creating</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-1f3ec8da5a21130a</span></td></tr><tr><td><code>ContextCachePropertiesUpdate.encryption</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-892b7c588ce74247</span></td></tr><tr><td><code>ContextCacheContainerProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-e984fe2d805b33ea</span></td></tr><tr><td><code>StorageAccountProperties</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-96f2e8fa44432348<br>declarations: declaration-aed89d69a19442e9, declaration-ec78f3337e6409a8</span></td></tr><tr><td><code>SasPolicy.requireUserBoundUserDelegationSas</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c7a6ce903f79fbfe<br>declarations: declaration-4c2d2292f17ea517</span></td></tr><tr><td><code>ContextCacheContainerPropertiesUpdate</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-e060a430a1043806</span></td></tr><tr><td><code>ContextCacheProperties.provisioningState</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-7bb4411d8e19e1ce</span></td></tr><tr><td><code>StorageAccountPropertiesCreateParameters.allowCrossTenantDelegationSas</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-d20598b8b3ea9355<br>declarations: declaration-ee8c4990b1712060</span></td></tr><tr><td><code>SasPolicy.requireUserBoundUserDelegationSasAction</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c7a6ce903f79fbfe<br>declarations: declaration-c74727c8a57b8732</span></td></tr><tr><td><code>ContextCacheContainerProperties.provider</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-b9632bfdd22a4a80</span></td></tr><tr><td><code>ContextCachePropertiesUpdate</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-fcfb661c497750bf</span></td></tr><tr><td><code>PolicyViolationAction.Block</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c9fb3741bf393354<br>declarations: declaration-3ced1b56a6196307</span></td></tr><tr><td><code>StorageAccountProperties.allowCrossTenantDelegationSas</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-96f2e8fa44432348<br>declarations: declaration-ea09e98de30e8c86</span></td></tr><tr><td><code>ContextCacheContainerUpdate</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-1ce5b8535d618100</span></td></tr><tr><td><code>StorageAccountPropertiesCreateParameters</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-d20598b8b3ea9355<br>declarations: declaration-8032db79c5425372, declaration-9fb152a713005b8d</span></td></tr><tr><td><code>StorageAccountPropertiesUpdateParameters.allowCrossTenantDelegationSas</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-2b16059c91ea6a5a<br>declarations: declaration-53f36be3100c3b8d</span></td></tr><tr><td><code>ContextCacheAccountKind.Global</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-afcde30bac0653f6</span></td></tr><tr><td><code>PolicyViolationAction</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c9fb3741bf393354<br>declarations: declaration-39f28cd2a409147b</span></td></tr><tr><td><code>ContextCacheAccountKind</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-29a25ea1ff4ba66e</span></td></tr><tr><td><code>ContextCachePropertiesUpdate.description</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-edfa37ca37e06e28</span></td></tr><tr><td><code>ContextCacheContainerProperties.modelName</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-9ec502e3e8c141ff</span></td></tr><tr><td><code>ContextCacheContainerUpdate.properties</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-5d2c581590d41025</span></td></tr><tr><td><code>ContextCacheAccountKind.DataZone</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-1287d4ba58fdc736</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storage/Storage.Management/models.tsp</div><pre><span class="context">   SecuredByPerimeter: &quot;SecuredByPerimeter&quot;,</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/feb0802b98948a7eb2b380e120442af5ca06e246/specification/storage/Storage.Management/main.tsp#L63-L83">specification/storage/Storage.Management/main.tsp:60</a></p></details><details class="report-subdetails" id="intent-semantic-b9c0e8a1834291f0-operations"><summary>Affected operations (5)</summary><details class="operation"><summary><strong>StorageAccounts_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>StorageAccounts_GetProperties</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>StorageAccounts_List</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.Storage/storageAccounts</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>StorageAccounts_ListByResourceGroup</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>StorageAccounts_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.allowCrossTenantDelegationSas</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-cb3e0140ab53f7ea"><summary><div class="report-card-title"><strong>Add context cache models</strong><small>Adds context-cache account, container, provider, provisioning, update, and policy models and optional storage-account settings for 2026-06-01.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-cb3e0140ab53f7ea</code></p><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 46 normalized facts; 6 source hunks; 6 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>source:source-d8449e493753a665</code></p><details class="report-subdetails"><summary>Change facts and provenance (46)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>PolicyViolationAction.None</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c9fb3741bf393354<br>declarations: declaration-3edaeca89a718b61</span></td></tr><tr><td><code>StorageAccountPropertiesUpdateParameters</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-2b16059c91ea6a5a<br>declarations: declaration-772ac94950a3e73e, declaration-99f2a0e2bdc41e3e</span></td></tr><tr><td><code>ContextCacheUpdate</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-66dcf782a48e833b</span></td></tr><tr><td><code>PolicyViolationAction.Log</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c9fb3741bf393354<br>declarations: declaration-4609ddbbb96a08f3</span></td></tr><tr><td><code>ContextCacheProvisioningState.Deleting</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-9286bad04a14647b</span></td></tr><tr><td><code>ContextCacheProperties.accountKind</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-d1264873e54e9503</span></td></tr><tr><td><code>ContextCacheContainerProperties.description</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-b06e4759738c421b</span></td></tr><tr><td><code>ContextCacheProperties.description</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-6aeb4d0ec7dfe720</span></td></tr><tr><td><code>AiProvider</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-6d30f9939858c909</span></td></tr><tr><td><code>ContextCacheContainerProperties.timeToLive</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-55078dde3a3074b4</span></td></tr><tr><td><code>AiProvider.OpenAI</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-f7f1a8a2a3bccca5</span></td></tr><tr><td><code>ContextCacheAccountKind.Regional</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-a67c24cf3f3a3e38</span></td></tr><tr><td><code>ContextCacheProvisioningState</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-8f0bb09493c17133</span></td></tr><tr><td><code>ContextCacheProvisioningState.Updating</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-9e8ff8deacd51fc6</span></td></tr><tr><td><code>ContextCacheProvisioningState.Accepted</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-ca2f42808530781c</span></td></tr><tr><td><code>ContextCacheContainerPropertiesUpdate.description</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-b55748a36064ca6b</span></td></tr><tr><td><code>ContextCacheProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-075d087eeafdcaae</span></td></tr><tr><td><code>SasPolicy</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c7a6ce903f79fbfe<br>declarations: declaration-575246deb219a604, declaration-e5ac001e981b71e8</span></td></tr><tr><td><code>ContextCacheProperties.encryption</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-f1aa5a0ed62c8833</span></td></tr><tr><td><code>ContextCacheUpdate.identity</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-b5a7c4c9e68e6eb9</span></td></tr><tr><td><code>ContextCacheContainerProperties.provisioningState</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-7382c09e19ee040a</span></td></tr><tr><td><code>ContextCacheUpdate.properties</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-cd67ed7a3c6a6420</span></td></tr><tr><td><code>ContextCacheContainerPropertiesUpdate.timeToLive</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-fce096c5123b8cc9</span></td></tr><tr><td><code>ContextCacheProvisioningState.Creating</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-1f3ec8da5a21130a</span></td></tr><tr><td><code>ContextCachePropertiesUpdate.encryption</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-892b7c588ce74247</span></td></tr><tr><td><code>ContextCacheContainerProperties</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-e984fe2d805b33ea</span></td></tr><tr><td><code>StorageAccountProperties</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-96f2e8fa44432348<br>declarations: declaration-aed89d69a19442e9, declaration-ec78f3337e6409a8</span></td></tr><tr><td><code>SasPolicy.requireUserBoundUserDelegationSas</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c7a6ce903f79fbfe<br>declarations: declaration-4c2d2292f17ea517</span></td></tr><tr><td><code>ContextCacheContainerPropertiesUpdate</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-e060a430a1043806</span></td></tr><tr><td><code>ContextCacheProperties.provisioningState</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-7bb4411d8e19e1ce</span></td></tr><tr><td><code>StorageAccountPropertiesCreateParameters.allowCrossTenantDelegationSas</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-d20598b8b3ea9355<br>declarations: declaration-ee8c4990b1712060</span></td></tr><tr><td><code>SasPolicy.requireUserBoundUserDelegationSasAction</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c7a6ce903f79fbfe<br>declarations: declaration-c74727c8a57b8732</span></td></tr><tr><td><code>ContextCacheContainerProperties.provider</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-b9632bfdd22a4a80</span></td></tr><tr><td><code>ContextCachePropertiesUpdate</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-fcfb661c497750bf</span></td></tr><tr><td><code>PolicyViolationAction.Block</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c9fb3741bf393354<br>declarations: declaration-3ced1b56a6196307</span></td></tr><tr><td><code>StorageAccountProperties.allowCrossTenantDelegationSas</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-96f2e8fa44432348<br>declarations: declaration-ea09e98de30e8c86</span></td></tr><tr><td><code>ContextCacheContainerUpdate</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-1ce5b8535d618100</span></td></tr><tr><td><code>StorageAccountPropertiesCreateParameters</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-d20598b8b3ea9355<br>declarations: declaration-8032db79c5425372, declaration-9fb152a713005b8d</span></td></tr><tr><td><code>StorageAccountPropertiesUpdateParameters.allowCrossTenantDelegationSas</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-2b16059c91ea6a5a<br>declarations: declaration-53f36be3100c3b8d</span></td></tr><tr><td><code>ContextCacheAccountKind.Global</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-afcde30bac0653f6</span></td></tr><tr><td><code>PolicyViolationAction</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-c9fb3741bf393354<br>declarations: declaration-39f28cd2a409147b</span></td></tr><tr><td><code>ContextCacheAccountKind</code></td><td>type</td><td>add</td><td>property-contract, version-activation</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-29a25ea1ff4ba66e</span></td></tr><tr><td><code>ContextCachePropertiesUpdate.description</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-edfa37ca37e06e28</span></td></tr><tr><td><code>ContextCacheContainerProperties.modelName</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-9ec502e3e8c141ff</span></td></tr><tr><td><code>ContextCacheContainerUpdate.properties</code></td><td>type</td><td>add</td><td>optionality, property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-5d2c581590d41025</span></td></tr><tr><td><code>ContextCacheAccountKind.DataZone</code></td><td>type</td><td>add</td><td>property-contract</td><td><code>source-d8449e493753a665</code><br><span class="report-small">hunks: hunk-ed4015b052de1342<br>declarations: declaration-1287d4ba58fdc736</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/storage/Storage.Management/models.tsp</div><pre><span class="context">   SecuredByPerimeter: &quot;SecuredByPerimeter&quot;,</span>
 <span class="context"> }</span>
 <span class="context"> </span>
 <span class="add">+/**</span>
@@ -1099,14 +1099,14 @@ interface ContextCacheContainers {
 <span class="add">+  properties?: ContextCacheContainerPropertiesUpdate;</span>
 <span class="add">+}</span>
 <span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/feb0802b98948a7eb2b380e120442af5ca06e246/specification/storage/Storage.Management/models.tsp#L377-L394">specification/storage/Storage.Management/models.tsp:373</a></p></details><details class="report-subdetails" id="intent-semantic-cb3e0140ab53f7ea-operations"><summary>Affected operations (6)</summary><details class="operation"><summary><strong>ContextCacheContainers_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCacheContainers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}/contextCacheContainers/{contextCacheContainerName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details><details class="operation"><summary><strong>ContextCaches_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PATCH /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/contextCaches/{contextCacheName}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details></section>
-<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">4 of 4 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-78c56564fa50bea9">Customize encryption SDK name</a>.</p></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">4 of 4 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div><p class="report-small">No applicable guideline was found for: <a class="report-link" href="#intent-semantic-78c56564fa50bea9">Customize storage encryption SDK name</a>.</p></section>
 <section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No REST compatibility verdict is available for the covered scope.</div></section>
 <section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">coverage blocked</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream compatibility verdict is available for the covered scope.</div></section>
-<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Changed AutoRest contracts for 5 operations in project-5ce92fdb382e contain unresolved references or ambiguous visibility metadata (StorageAccounts_Create, StorageAccounts_GetProperties, StorageAccounts_List). Their effective compatibility cannot be established from incomplete contract evidence.</li><li>Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId.</li><li>Inference inference-request-d185205185e88848 is blocked: language-specific-sdk-customization-not-represented.</li><li>Inference inference-request-a8c0aa80e30eee48 is blocked: unsupported-customization-not-represented.</li><li>The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.</li><li>The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.</li></ul>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Changed AutoRest contracts for 5 Storage operations contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established.</li><li>Azure.ResourceManager.ResourceListResult has ambiguous downstream model identity because multiple target symbols share its cross-language definition ID.</li><li>The Python/Java StorageAccountEncryption client-name customization is not represented by language-neutral downstream evidence.</li><li>The Python/Java-only client rename is not represented in the bounded language-neutral contract evidence, so impact cannot be established without language-specific generated surfaces.</li></ul>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/storage/Storage.Management</code></td><td>new-api-version</td><td><code>feb0802b98948a7eb2b380e120442af5ca06e246@2026-04-01</code><br><small>current · previous-latest-stable</small></td><td><code>feb0802b98948a7eb2b380e120442af5ca06e246@2026-06-01</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/44384">#44384</a></p>
 <h3 id="compliance-search-evidence">Guidance fetched</h3>
-<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/">ARM resource types and modeling</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li><li><a href="https://typespec.io/docs/language-basics/models/">Models</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/">ARM resource types and modeling</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/">Add stable after stable</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
   &quot;status&quot;: &quot;passed&quot;,
   &quot;coverage&quot;: {
     &quot;semanticIntentCount&quot;: 4,
@@ -1118,20 +1118,6 @@ interface ContextCacheContainers {
     &quot;catalogRanking&quot;: [
       {
         &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 1,
-        &quot;title&quot;: &quot;Evolving APIs&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
-        },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 7,
         &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
@@ -1142,35 +1128,49 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;
+        &quot;selectionRationale&quot;: &quot;Directly relevant to the changed API pattern, service plane, or versioning context.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly relevant to the changed API pattern, service plane, or versioning context.&quot;
       },
       {
         &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly relevant to the changed API pattern, service plane, or versioning context.&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
         &quot;catalogOrder&quot;: 12,
         &quot;title&quot;: &quot;ARM resource operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
-        },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;
+        &quot;selectionRationale&quot;: &quot;Directly relevant to the changed API pattern, service plane, or versioning context.&quot;
       },
       {
         &quot;rank&quot;: 5,
@@ -1184,7 +1184,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 6,
@@ -1198,7 +1198,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 7,
@@ -1212,7 +1212,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 8,
@@ -1226,24 +1226,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 9,
-        &quot;catalogOrder&quot;: 6,
-        &quot;title&quot;: &quot;Add stable after stable&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 0,
-          &quot;patternCategory&quot;: 0,
-          &quot;servicePlane&quot;: 0,
-          &quot;changeContext&quot;: 0,
-          &quot;total&quot;: 0
-        },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
-      },
-      {
-        &quot;rank&quot;: 10,
         &quot;catalogOrder&quot;: 8,
         &quot;title&quot;: &quot;Specific extension resource sample&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
@@ -1254,10 +1240,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 11,
+        &quot;rank&quot;: 10,
         &quot;catalogOrder&quot;: 9,
         &quot;title&quot;: &quot;Private endpoints&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
@@ -1268,10 +1254,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 12,
+        &quot;rank&quot;: 11,
         &quot;catalogOrder&quot;: 10,
         &quot;title&quot;: &quot;Private links&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
@@ -1282,10 +1268,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 13,
+        &quot;rank&quot;: 12,
         &quot;catalogOrder&quot;: 11,
         &quot;title&quot;: &quot;Network security perimeter&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
@@ -1296,10 +1282,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 14,
+        &quot;rank&quot;: 13,
         &quot;catalogOrder&quot;: 13,
         &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
@@ -1310,10 +1296,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 15,
+        &quot;rank&quot;: 14,
         &quot;catalogOrder&quot;: 14,
         &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
@@ -1324,10 +1310,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 16,
+        &quot;rank&quot;: 15,
         &quot;catalogOrder&quot;: 15,
         &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
@@ -1338,10 +1324,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 17,
+        &quot;rank&quot;: 16,
         &quot;catalogOrder&quot;: 16,
         &quot;title&quot;: &quot;ARM long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
@@ -1352,10 +1338,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 18,
+        &quot;rank&quot;: 17,
         &quot;catalogOrder&quot;: 17,
         &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
@@ -1366,10 +1352,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 19,
+        &quot;rank&quot;: 18,
         &quot;catalogOrder&quot;: 18,
         &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
@@ -1380,10 +1366,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 20,
+        &quot;rank&quot;: 19,
         &quot;catalogOrder&quot;: 19,
         &quot;title&quot;: &quot;TypeSpec pagination&quot;,
         &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
@@ -1394,10 +1380,10 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
-        &quot;rank&quot;: 21,
+        &quot;rank&quot;: 20,
         &quot;catalogOrder&quot;: 20,
         &quot;title&quot;: &quot;ARM common types&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
@@ -1408,7 +1394,21 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 22,
@@ -1422,7 +1422,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 23,
@@ -1436,7 +1436,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 24,
@@ -1450,7 +1450,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 25,
@@ -1464,7 +1464,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 26,
@@ -1478,7 +1478,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 27,
@@ -1492,7 +1492,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 28,
@@ -1506,7 +1506,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 29,
@@ -1520,7 +1520,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 30,
@@ -1534,7 +1534,7 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       },
       {
         &quot;rank&quot;: 31,
@@ -1548,109 +1548,12 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 0,
           &quot;total&quot;: 0
         },
-        &quot;selectionRationale&quot;: &quot;Lower-ranked catalog entry without the same combined exact-symbol and change-context match.&quot;
+        &quot;selectionRationale&quot;: &quot;No direct symbol, pattern, service-plane, or change-context match for this assessment.&quot;
       }
     ],
     &quot;documents&quot;: [
       {
         &quot;rank&quot;: 1,
-        &quot;catalogOrder&quot;: 1,
-        &quot;title&quot;: &quot;Evolving APIs&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
-        },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Versioning Decorators&quot;,
-            &quot;excerpt&quot;: &quot;Use @added with the version where a model, property, operation, or parameter is introduced so the element appears in that version and later.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;@added&quot;,
-              &quot;versioning&quot;,
-              &quot;operation&quot;,
-              &quot;property&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-075d087eeafdcaae&quot;,
-              &quot;declaration-07fcb7397a77770c&quot;,
-              &quot;declaration-08ee7160188d7af0&quot;,
-              &quot;declaration-09d408453d69b318&quot;,
-              &quot;declaration-0c4918ac375b54fe&quot;,
-              &quot;declaration-1287d4ba58fdc736&quot;,
-              &quot;declaration-19f7e23943f1dd15&quot;,
-              &quot;declaration-1ce5b8535d618100&quot;,
-              &quot;declaration-1e112e6ecaa9008d&quot;,
-              &quot;declaration-1f3ec8da5a21130a&quot;,
-              &quot;declaration-29a25ea1ff4ba66e&quot;,
-              &quot;declaration-39f28cd2a409147b&quot;,
-              &quot;declaration-3ced1b56a6196307&quot;,
-              &quot;declaration-3edaeca89a718b61&quot;,
-              &quot;declaration-3fd99bf33d8a43fe&quot;,
-              &quot;declaration-4609ddbbb96a08f3&quot;,
-              &quot;declaration-46162a1ae2ca74be&quot;,
-              &quot;declaration-4c2d2292f17ea517&quot;,
-              &quot;declaration-4f6cd0696785437b&quot;,
-              &quot;declaration-53f36be3100c3b8d&quot;,
-              &quot;declaration-55078dde3a3074b4&quot;,
-              &quot;declaration-599a311430b605aa&quot;,
-              &quot;declaration-5d29b75dee232df6&quot;,
-              &quot;declaration-5d2c581590d41025&quot;,
-              &quot;declaration-5e628831cf88f034&quot;,
-              &quot;declaration-66dcf782a48e833b&quot;,
-              &quot;declaration-6aeb4d0ec7dfe720&quot;,
-              &quot;declaration-6d30f9939858c909&quot;,
-              &quot;declaration-7382c09e19ee040a&quot;,
-              &quot;declaration-7a1050359b887eed&quot;,
-              &quot;declaration-7bb4411d8e19e1ce&quot;,
-              &quot;declaration-8032db79c5425372&quot;,
-              &quot;declaration-892b7c588ce74247&quot;,
-              &quot;declaration-8b099a4a4c5b53ef&quot;,
-              &quot;declaration-8f0bb09493c17133&quot;,
-              &quot;declaration-9286bad04a14647b&quot;,
-              &quot;declaration-99f2a0e2bdc41e3e&quot;,
-              &quot;declaration-9c121dacbbe2184e&quot;,
-              &quot;declaration-9d69a053f474eb4e&quot;,
-              &quot;declaration-9e8ff8deacd51fc6&quot;,
-              &quot;declaration-9ec502e3e8c141ff&quot;,
-              &quot;declaration-a67c24cf3f3a3e38&quot;,
-              &quot;declaration-aed89d69a19442e9&quot;,
-              &quot;declaration-afcde30bac0653f6&quot;,
-              &quot;declaration-b06e4759738c421b&quot;,
-              &quot;declaration-b55748a36064ca6b&quot;,
-              &quot;declaration-b5a7c4c9e68e6eb9&quot;,
-              &quot;declaration-b9632bfdd22a4a80&quot;,
-              &quot;declaration-c74727c8a57b8732&quot;,
-              &quot;declaration-ca2f42808530781c&quot;,
-              &quot;declaration-cb9f880213db0f9b&quot;,
-              &quot;declaration-cca238a5253eb6a3&quot;,
-              &quot;declaration-cd67ed7a3c6a6420&quot;,
-              &quot;declaration-d1264873e54e9503&quot;,
-              &quot;declaration-e060a430a1043806&quot;,
-              &quot;declaration-e5ac001e981b71e8&quot;,
-              &quot;declaration-e984fe2d805b33ea&quot;,
-              &quot;declaration-ea09e98de30e8c86&quot;,
-              &quot;declaration-edfa37ca37e06e28&quot;,
-              &quot;declaration-ee8c4990b1712060&quot;,
-              &quot;declaration-f1aa5a0ed62c8833&quot;,
-              &quot;declaration-f7f1a8a2a3bccca5&quot;,
-              &quot;declaration-f91f3dd48b8d8db6&quot;,
-              &quot;declaration-fce096c5123b8cc9&quot;,
-              &quot;declaration-fcfb661c497750bf&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:29.216Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:30470c99aaddccfad0799e2dcdf370cc27e56e09b76ed81b70ef5de044e29854&quot;
-      },
-      {
-        &quot;rank&quot;: 2,
         &quot;catalogOrder&quot;: 7,
         &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
         &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
@@ -1661,120 +1564,38 @@ interface ContextCacheContainers {
           &quot;changeContext&quot;: 1,
           &quot;total&quot;: 10
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Modeling Resources in TypeSpec&quot;,
-            &quot;excerpt&quot;: &quot;Model ARM resources by choosing the appropriate base resource type, defining provider-specific properties, and using ResourceNameParameter for resource identity.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;TrackedResource&quot;,
-              &quot;ProxyResource&quot;,
-              &quot;ResourceNameParameter&quot;,
-              &quot;ARM resource&quot;
-            ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-07fcb7397a77770c&quot;,
-              &quot;declaration-08ee7160188d7af0&quot;,
-              &quot;declaration-09d408453d69b318&quot;,
-              &quot;declaration-0c4918ac375b54fe&quot;,
-              &quot;declaration-19f7e23943f1dd15&quot;,
-              &quot;declaration-1e112e6ecaa9008d&quot;,
-              &quot;declaration-3fd99bf33d8a43fe&quot;,
-              &quot;declaration-46162a1ae2ca74be&quot;,
-              &quot;declaration-4f6cd0696785437b&quot;,
-              &quot;declaration-599a311430b605aa&quot;,
-              &quot;declaration-5d29b75dee232df6&quot;,
-              &quot;declaration-5e628831cf88f034&quot;,
-              &quot;declaration-7a1050359b887eed&quot;,
-              &quot;declaration-8b099a4a4c5b53ef&quot;,
-              &quot;declaration-9c121dacbbe2184e&quot;,
-              &quot;declaration-9d69a053f474eb4e&quot;,
-              &quot;declaration-cb9f880213db0f9b&quot;,
-              &quot;declaration-cca238a5253eb6a3&quot;,
-              &quot;declaration-f91f3dd48b8d8db6&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:29.231Z&quot;,
+        &quot;selectionRationale&quot;: &quot;Directly relevant to the changed API pattern, service plane, or versioning context.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T08:15:33.450Z&quot;,
         &quot;contentHash&quot;: &quot;sha256:530cea00cafd989f49e45120bdbba55d5502e02fc428f624f8623b4ddae88d56&quot;
       },
       {
-        &quot;rank&quot;: 3,
-        &quot;catalogOrder&quot;: 12,
-        &quot;title&quot;: &quot;ARM resource operations&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
         &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
+          &quot;exactSymbol&quot;: 0,
           &quot;patternCategory&quot;: 3,
           &quot;servicePlane&quot;: 2,
           &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
+          &quot;total&quot;: 6
         },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;,
+        &quot;selectionRationale&quot;: &quot;Directly relevant to the changed API pattern, service plane, or versioning context.&quot;,
         &quot;guidance&quot;: [
           {
-            &quot;section&quot;: &quot;Recommended and Required Operations&quot;,
-            &quot;excerpt&quot;: &quot;Use the standard ARM resource operation templates for read, create or update, patch, delete, and list operations according to the resource kind.&quot;,
+            &quot;section&quot;: &quot;Evolving APIs with TypeSpec versioning&quot;,
+            &quot;excerpt&quot;: &quot;Use versioning decorators such as @added, @removed, and @renamedFrom so each projected API version exposes the intended operations, models, and properties.&quot;,
             &quot;queryTerms&quot;: [
-              &quot;@armResourceOperations&quot;,
-              &quot;ArmResourceRead&quot;,
-              &quot;ArmResourceListByParent&quot;,
-              &quot;ArmListBySubscription&quot;
+              &quot;@added&quot;,
+              &quot;@removed&quot;,
+              &quot;@renamedFrom&quot;,
+              &quot;versioned API&quot;
             ],
-            &quot;examples&quot;: [],
-            &quot;applicableDeclarationIds&quot;: [
-              &quot;declaration-07fcb7397a77770c&quot;,
-              &quot;declaration-08ee7160188d7af0&quot;,
-              &quot;declaration-09d408453d69b318&quot;,
-              &quot;declaration-0c4918ac375b54fe&quot;,
-              &quot;declaration-19f7e23943f1dd15&quot;,
-              &quot;declaration-1e112e6ecaa9008d&quot;,
-              &quot;declaration-3fd99bf33d8a43fe&quot;,
-              &quot;declaration-46162a1ae2ca74be&quot;,
-              &quot;declaration-4f6cd0696785437b&quot;,
-              &quot;declaration-599a311430b605aa&quot;,
-              &quot;declaration-5d29b75dee232df6&quot;,
-              &quot;declaration-5e628831cf88f034&quot;,
-              &quot;declaration-7a1050359b887eed&quot;,
-              &quot;declaration-8b099a4a4c5b53ef&quot;,
-              &quot;declaration-9c121dacbbe2184e&quot;,
-              &quot;declaration-9d69a053f474eb4e&quot;,
-              &quot;declaration-cb9f880213db0f9b&quot;,
-              &quot;declaration-cca238a5253eb6a3&quot;,
-              &quot;declaration-f91f3dd48b8d8db6&quot;
-            ]
-          }
-        ],
-        &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:29.243Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:c1f60e78029f3aaff88d0037256e628682821fc635a96f94e05c758bdbd7c962&quot;
-      },
-      {
-        &quot;rank&quot;: 4,
-        &quot;catalogOrder&quot;: 21,
-        &quot;title&quot;: &quot;Models&quot;,
-        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
-        &quot;score&quot;: {
-          &quot;exactSymbol&quot;: 4,
-          &quot;patternCategory&quot;: 3,
-          &quot;servicePlane&quot;: 2,
-          &quot;changeContext&quot;: 1,
-          &quot;total&quot;: 10
-        },
-        &quot;selectionRationale&quot;: &quot;Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.&quot;,
-        &quot;guidance&quot;: [
-          {
-            &quot;section&quot;: &quot;Optional properties&quot;,
-            &quot;excerpt&quot;: &quot;A model property is optional when declared with the ? marker; model composition and inheritance determine the resulting model shape.&quot;,
-            &quot;queryTerms&quot;: [
-              &quot;model&quot;,
-              &quot;optional properties&quot;,
-              &quot;extends&quot;,
-              &quot;properties&quot;
+            &quot;examples&quot;: [
+              &quot;Add a declaration in the version where it first becomes available.&quot;
             ],
-            &quot;examples&quot;: [],
             &quot;applicableDeclarationIds&quot;: [
               &quot;declaration-075d087eeafdcaae&quot;,
               &quot;declaration-1287d4ba58fdc736&quot;,
@@ -1826,8 +1647,79 @@ interface ContextCacheContainers {
           }
         ],
         &quot;noRelevantGuidance&quot;: false,
-        &quot;retrievedAt&quot;: &quot;2026-10-30T06:13:29.282Z&quot;,
-        &quot;contentHash&quot;: &quot;sha256:b3e43ba6c64122566ab49e05a835fc03547f86ad4d25945a176a1d5ed0468547&quot;
+        &quot;retrievedAt&quot;: &quot;2026-10-30T08:15:33.171Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:30470c99aaddccfad0799e2dcdf370cc27e56e09b76ed81b70ef5de044e29854&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly relevant to the changed API pattern, service plane, or versioning context.&quot;,
+        &quot;guidance&quot;: [],
+        &quot;noRelevantGuidance&quot;: true,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T08:15:33.438Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:27d5f02b01bbaec4b54ff842cf034467dc7d0c7047690b15e43c291d6178a12d&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly relevant to the changed API pattern, service plane, or versioning context.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;ARM resource operations&quot;,
+            &quot;excerpt&quot;: &quot;Group standard ARM CRUD and list operations in an @armResourceOperations interface and use the Azure Resource Manager operation templates.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@armResourceOperations&quot;,
+              &quot;createOrUpdate&quot;,
+              &quot;delete&quot;,
+              &quot;list&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;Use ArmResourceCreateOrUpdateAsync and ArmResourceDeleteWithoutOkAsync for long-running resource lifecycle operations.&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-07fcb7397a77770c&quot;,
+              &quot;declaration-08ee7160188d7af0&quot;,
+              &quot;declaration-09d408453d69b318&quot;,
+              &quot;declaration-0c4918ac375b54fe&quot;,
+              &quot;declaration-19f7e23943f1dd15&quot;,
+              &quot;declaration-1e112e6ecaa9008d&quot;,
+              &quot;declaration-3fd99bf33d8a43fe&quot;,
+              &quot;declaration-46162a1ae2ca74be&quot;,
+              &quot;declaration-4f6cd0696785437b&quot;,
+              &quot;declaration-599a311430b605aa&quot;,
+              &quot;declaration-5d29b75dee232df6&quot;,
+              &quot;declaration-5e628831cf88f034&quot;,
+              &quot;declaration-7a1050359b887eed&quot;,
+              &quot;declaration-8b099a4a4c5b53ef&quot;,
+              &quot;declaration-9c121dacbbe2184e&quot;,
+              &quot;declaration-9d69a053f474eb4e&quot;,
+              &quot;declaration-cb9f880213db0f9b&quot;,
+              &quot;declaration-cca238a5253eb6a3&quot;,
+              &quot;declaration-f91f3dd48b8d8db6&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-10-30T08:15:33.461Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:c1f60e78029f3aaff88d0037256e628682821fc635a96f94e05c758bdbd7c962&quot;
       }
     ]
   },
@@ -1859,18 +1751,18 @@ interface ContextCacheContainers {
 <h3>Changed files</h3><ul><li><code>specification/storage/Storage.Management/client.tsp</code> (committed)</li><li><code>specification/storage/Storage.Management/main.tsp</code> (committed)</li><li><code>specification/storage/Storage.Management/models.tsp</code> (committed)</li><li><code>specification/storage/Storage.Management/StorageContextCache.tsp</code> (committed)</li><li><code>specification/storage/Storage.Management/StorageContextCacheContainer.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 1762,
-    &quot;fetchMs&quot;: 179,
-    &quot;scopeDiscoveryMs&quot;: 98,
-    &quot;setupExcludingFetchMs&quot;: 65694,
-    &quot;comparisonMs&quot;: 179,
-    &quot;changeDiscoveryMs&quot;: 116,
-    &quot;workspacePreparationMs&quot;: 61242,
-    &quot;projectDiscoveryMs&quot;: 1984,
-    &quot;totalMs&quot;: 447394,
-    &quot;semanticAnalysisMs&quot;: 423,
-    &quot;restAnalysisMs&quot;: 427,
-    &quot;downstreamAnalysisMs&quot;: 4449,
+    &quot;metadataMs&quot;: 2577,
+    &quot;fetchMs&quot;: 417,
+    &quot;scopeDiscoveryMs&quot;: 220,
+    &quot;setupExcludingFetchMs&quot;: 281439,
+    &quot;comparisonMs&quot;: 422,
+    &quot;changeDiscoveryMs&quot;: 280,
+    &quot;workspacePreparationMs&quot;: 275373,
+    &quot;projectDiscoveryMs&quot;: 1683,
+    &quot;totalMs&quot;: 988460,
+    &quot;semanticAnalysisMs&quot;: 496,
+    &quot;restAnalysisMs&quot;: 551,
+    &quot;downstreamAnalysisMs&quot;: 6299,
     &quot;documentQualityAnalysisMs&quot;: 1
   },
   &quot;inputAccounting&quot;: {
@@ -1901,15 +1793,15 @@ interface ContextCacheContainers {
     &quot;inference&quot;: {
       &quot;requestCount&quot;: 2,
       &quot;inferredCandidateCount&quot;: 0,
-      &quot;noImpactCount&quot;: 0,
-      &quot;blockedCount&quot;: 2
+      &quot;noImpactCount&quot;: 1,
+      &quot;blockedCount&quot;: 1
     },
     &quot;compliance&quot;: {
       &quot;catalogEntriesScored&quot;: 31,
       &quot;documentsFetched&quot;: 4,
-      &quot;documentBytesFetched&quot;: 1867193,
-      &quot;guidanceExcerptsRetained&quot;: 4,
-      &quot;guidanceExcerptBytesRetained&quot;: 577
+      &quot;documentBytesFetched&quot;: 1783700,
+      &quot;guidanceExcerptsRetained&quot;: 2,
+      &quot;guidanceExcerptBytesRetained&quot;: 293
     }
   }
 }</pre>

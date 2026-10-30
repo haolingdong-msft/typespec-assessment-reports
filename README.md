@@ -4,11 +4,12 @@ The [main dashboard](https://haolingdong-msft.github.io/typespec-assessment-repo
 lists all **34 fresh PR reassessments** and preserves the earlier pinned
 Python/Java downstream-alignment analysis as a separate view.
 
-- **34** PRs produced guarded, finalized assessment reports.
-- **11** Passed, **7** Failed, and **16** Unknown due to partial evidence coverage.
-- Fresh reassessment findings: **123** total (58 REST, 35 downstream SDK, 5 Azure Guidelines, and 25 Documentation Completeness).
+- **28** PRs produced guarded, finalized assessment reports.
+- **6** PRs remain blocked before guarded finalization because their historical baseline project cannot produce required compiler or contract artifacts.
+- **11** Passed, **9** Failed, and **14** Unknown.
+- Fresh reassessment findings: **124** total (58 REST, 37 downstream SDK, 4 Azure Guidelines, and 25 Documentation Completeness).
 
-The report index uses the October 29 full reassessment plus October 30 retries on the latest assessment stack. The downstream
+The report index uses the October 29 full reassessment plus October 30 retries on the merged assessment implementation from main. The downstream
 alignment categories remain the earlier pinned comparison and are labeled as
 such; they were not automatically reclassified from the fresh finding counts.
 

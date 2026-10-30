@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T06:14:40.088Z",
+  "generatedAt": "2026-10-30T08:18:14.823Z",
   "title": "TypeSpec assessment: specification/compute/resource-manager/Microsoft.Compute/Bulkactions",
   "repository": {
     "root": "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-assessment-stack",
@@ -132,8 +132,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Include new bulk-action specifications",
-          "summary": "Imports the BulkCreateCustom and recurring scheduled-actions TypeSpec modules into the service entry point.",
+          "title": "Integrate new bulk action APIs",
+          "summary": "Imports the BulkCreateCustom and recurring ScheduledActions definitions into the BulkActions service.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -274,8 +274,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Revise language-specific SDK customizations",
-          "summary": "Removes earlier C# alternate naming and adds C#, Java, and Python naming for the service-specific InnerError model.",
+          "title": "Revise SDK customizations",
+          "summary": "Removes several C#-specific alternate names and adds language-specific BulkInstancesInnerError names for C#, Java, and Python.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -322,14 +322,14 @@
               "requestId": "inference-request-e9af3d806d470f90",
               "hunkId": "hunk-964bcfc4374de0f2",
               "decision": "blocked",
-              "rationale": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.",
+              "rationale": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-2a4f9864426deb9c",
               "hunkId": "hunk-ae7beb868e2a1ef0",
               "decision": "blocked",
-              "rationale": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization.",
+              "rationale": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established.",
               "candidateIds": []
             }
           ],
@@ -406157,8 +406157,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add bulk-create and recurring scheduled-action APIs",
-          "summary": "Adds BulkCreateCustom resources, recurring ScheduledAction resources, lifecycle and action operations, and their request, response, schedule, notification, and execution models.",
+          "title": "Add bulk create and recurring actions",
+          "summary": "Adds BulkCreateCustom resources, recurring ScheduledActions resources and operations, and an optional optimization preference in the existing preview API.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -406247,15 +406247,15 @@
             {
               "requestId": "inference-request-f7ff1b85208317fe",
               "hunkId": "hunk-41ab85742a8e8e40",
-              "decision": "blocked",
-              "rationale": "The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.",
+              "decision": "no-impact",
+              "rationale": "The source adds new versioned resources or models; bounded baseline/target evidence shows additive contracts without a removal or incompatible mutation.",
               "candidateIds": []
             },
             {
               "requestId": "inference-request-90250f2b0dda8ae2",
               "hunkId": "hunk-51b6891ecd19e50b",
-              "decision": "blocked",
-              "rationale": "The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it.",
+              "decision": "no-impact",
+              "rationale": "The source adds new versioned resources or models; bounded baseline/target evidence shows additive contracts without a removal or incompatible mutation.",
               "candidateIds": []
             }
           ],
@@ -428602,7 +428602,7 @@
             "rest",
             "downstream"
           ],
-          "message": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization."
+          "message": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established."
         },
         {
           "code": "inference-blocked",
@@ -428612,27 +428612,7 @@
             "rest",
             "downstream"
           ],
-          "message": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization."
-        },
-        {
-          "code": "inference-blocked",
-          "reviewUnitId": "semantic-f27bb3d99c9c5358",
-          "hunkId": "hunk-41ab85742a8e8e40",
-          "allowedDimensions": [
-            "rest",
-            "downstream"
-          ],
-          "message": "The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it."
-        },
-        {
-          "code": "inference-blocked",
-          "reviewUnitId": "semantic-f27bb3d99c9c5358",
-          "hunkId": "hunk-51b6891ecd19e50b",
-          "allowedDimensions": [
-            "rest",
-            "downstream"
-          ],
-          "message": "The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it."
+          "message": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established."
         }
       ]
     },
@@ -429172,7 +429152,7 @@
             "rest",
             "downstream"
           ],
-          "message": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization."
+          "message": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established."
         },
         {
           "code": "inference-blocked",
@@ -429182,27 +429162,7 @@
             "rest",
             "downstream"
           ],
-          "message": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization."
-        },
-        {
-          "code": "inference-blocked",
-          "reviewUnitId": "semantic-f27bb3d99c9c5358",
-          "hunkId": "hunk-41ab85742a8e8e40",
-          "allowedDimensions": [
-            "rest",
-            "downstream"
-          ],
-          "message": "The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it."
-        },
-        {
-          "code": "inference-blocked",
-          "reviewUnitId": "semantic-f27bb3d99c9c5358",
-          "hunkId": "hunk-51b6891ecd19e50b",
-          "allowedDimensions": [
-            "rest",
-            "downstream"
-          ],
-          "message": "The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it."
+          "message": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established."
         }
       ]
     },
@@ -429223,13 +429183,13 @@
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 10
+              "total": 6
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment."
+            "selectionRationale": "Directly relevant to the changed API pattern, service plane, or versioning context."
           },
           {
             "rank": 2,
@@ -429237,13 +429197,13 @@
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 10
+              "total": 6
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment."
+            "selectionRationale": "Directly relevant to the changed API pattern, service plane, or versioning context."
           },
           {
             "rank": 3,
@@ -429251,13 +429211,13 @@
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 10
+              "total": 6
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment."
+            "selectionRationale": "Directly relevant to the changed API pattern, service plane, or versioning context."
           },
           {
             "rank": 4,
@@ -429265,13 +429225,13 @@
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 10
+              "total": 4
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment."
+            "selectionRationale": "Directly relevant to the changed API pattern, service plane, or versioning context."
           },
           {
             "rank": 5,
@@ -429285,7 +429245,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 6,
@@ -429299,7 +429259,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 7,
@@ -429313,7 +429273,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 8,
@@ -429327,7 +429287,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 9,
@@ -429341,7 +429301,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 10,
@@ -429355,7 +429315,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 11,
@@ -429369,7 +429329,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 12,
@@ -429383,7 +429343,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 13,
@@ -429397,7 +429357,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 14,
@@ -429411,7 +429371,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 15,
@@ -429425,7 +429385,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 16,
@@ -429439,7 +429399,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 17,
@@ -429453,7 +429413,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 18,
@@ -429467,7 +429427,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 19,
@@ -429481,7 +429441,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 20,
@@ -429495,7 +429455,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 21,
@@ -429509,7 +429469,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 22,
@@ -429523,7 +429483,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 23,
@@ -429537,7 +429497,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 24,
@@ -429551,7 +429511,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 25,
@@ -429565,7 +429525,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 26,
@@ -429579,7 +429539,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 27,
@@ -429593,7 +429553,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 28,
@@ -429607,7 +429567,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 29,
@@ -429621,7 +429581,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 30,
@@ -429635,7 +429595,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           },
           {
             "rank": 31,
@@ -429649,7 +429609,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "Lower-ranked catalog entry without the same combined exact-symbol and change-context match."
+            "selectionRationale": "No direct symbol, pattern, service-plane, or change-context match for this assessment."
           }
         ],
         "documents": [
@@ -429659,317 +429619,16 @@
             "title": "Evolving APIs",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 10
+              "total": 6
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.",
-            "guidance": [
-              {
-                "section": "Versioning Decorators",
-                "excerpt": "Use @added with the version where a model, property, operation, or parameter is introduced so the element appears in that version and later.",
-                "queryTerms": [
-                  "@added",
-                  "versioning",
-                  "operation",
-                  "property"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-00d07796725aac3e",
-                  "declaration-0436e6a22d0d95d0",
-                  "declaration-0450c7e1da21e392",
-                  "declaration-054cf556f1d3395b",
-                  "declaration-062d498c4bca4aad",
-                  "declaration-0697d98708274f72",
-                  "declaration-06b5abcc6685bfbc",
-                  "declaration-07d4b56af6287d1c",
-                  "declaration-080b30f8018f9dcf",
-                  "declaration-08807064a3ce4070",
-                  "declaration-0a6ecb7de025a4b1",
-                  "declaration-0c9428c6d6eed70d",
-                  "declaration-0df54af92060b8d3",
-                  "declaration-1032e21f7ffc8573",
-                  "declaration-10ada18018b15978",
-                  "declaration-10c0b2154367634c",
-                  "declaration-1106185c5ce416b5",
-                  "declaration-135013ea81eadd1f",
-                  "declaration-13e7a5a5149efe75",
-                  "declaration-13fe6182a71f67ec",
-                  "declaration-14e95e67802c8b24",
-                  "declaration-151536673e9cd241",
-                  "declaration-15220630dc28df3d",
-                  "declaration-1564a043cf8b8cfa",
-                  "declaration-15d98f31fb8c9ef3",
-                  "declaration-1686329fc1fb63ec",
-                  "declaration-16f8aec9244663cf",
-                  "declaration-173455bee244e777",
-                  "declaration-1736fa8e5be25284",
-                  "declaration-1760186562f9d12a",
-                  "declaration-17d4ae8f3a3d32b8",
-                  "declaration-17fa4eb634d617a4",
-                  "declaration-181298a8c46f6c08",
-                  "declaration-1926034da28c5e50",
-                  "declaration-1b765e0026a05811",
-                  "declaration-1c6a403daf891ff7",
-                  "declaration-1c8c87a39714a17f",
-                  "declaration-1ccd04c2a0f2fc99",
-                  "declaration-1d1d2591e0eed48e",
-                  "declaration-1da35fe0d859794d",
-                  "declaration-1e0bd5815c8ace08",
-                  "declaration-1e1ca72ddd48ec26",
-                  "declaration-1f39f4c4557ea556",
-                  "declaration-1febb9560c11ced4",
-                  "declaration-202d361c9e0ca778",
-                  "declaration-21a8989a9939b401",
-                  "declaration-22bed1e253ade703",
-                  "declaration-23b1cc8b143a7f58",
-                  "declaration-23f32150e04a997b",
-                  "declaration-255efafa65d05fc6",
-                  "declaration-2599239a08e55215",
-                  "declaration-265ed8c862564e14",
-                  "declaration-27143c45be7a93cc",
-                  "declaration-2773f2032d818b89",
-                  "declaration-277a583ffcda132a",
-                  "declaration-27b1fcf1e5b4ca44",
-                  "declaration-2943fdad07c6c94f",
-                  "declaration-2a3032c33d0839ef",
-                  "declaration-2af076c6f03867c0",
-                  "declaration-2b35473dd73a54a2",
-                  "declaration-2c0dd6e6b61ab7ee",
-                  "declaration-2d8f58e8122815fe",
-                  "declaration-2f009f756f61d661",
-                  "declaration-301d4069f9b40d7e",
-                  "declaration-304907bfd1f13319",
-                  "declaration-304d0b32c37185c6",
-                  "declaration-30cc4c3950c85b5b",
-                  "declaration-31fe748090265390",
-                  "declaration-325f22a564b0d3b3",
-                  "declaration-3301bdc62d491c07",
-                  "declaration-34ac180c9c1e380a",
-                  "declaration-35f9a14e1617f5c6",
-                  "declaration-37765d1fa8f091f5",
-                  "declaration-383bc3ef573005b4",
-                  "declaration-38595bf92e1d9d72",
-                  "declaration-38d282570d22df7c",
-                  "declaration-396b7f98c604ef94",
-                  "declaration-39ff21ebb4fce902",
-                  "declaration-3d554b8f5ab394dc",
-                  "declaration-3e1df85541bb4a03",
-                  "declaration-3f736bd517d4b099",
-                  "declaration-3ff5fed2c25bf03d",
-                  "declaration-40ca47d6bba0d5c3",
-                  "declaration-40e04d25776e3344",
-                  "declaration-43863a0a99ba33da",
-                  "declaration-43e06ef3d59dbfcc",
-                  "declaration-44020188461a7aee",
-                  "declaration-484a9d9f4fdf7df2",
-                  "declaration-4a22e243d6f9c877",
-                  "declaration-4b1a42fa61adcdf3",
-                  "declaration-4b745e640ea70647",
-                  "declaration-4ba18bb1bbe73c80",
-                  "declaration-4be3f7339e144634",
-                  "declaration-4c4ea809ff4b0539",
-                  "declaration-5061f6c67f46ebd6",
-                  "declaration-5354a6788126d93e",
-                  "declaration-55f813277cc2b3cd",
-                  "declaration-569bfc714f12cb9d",
-                  "declaration-56a6f3fed8513d30",
-                  "declaration-56b84efb706c4cb6",
-                  "declaration-57dffdab9bddd191",
-                  "declaration-58c2ba44c6a2d7c0",
-                  "declaration-59a3df187221225b",
-                  "declaration-5ba436c49899fbe6",
-                  "declaration-5bbed49dc38fd9b1",
-                  "declaration-5bd6b321e0b93669",
-                  "declaration-5c4b5fc2cac58f26",
-                  "declaration-5f5dc6faaf4d08da",
-                  "declaration-5fc05e440dc14269",
-                  "declaration-612fa00e2e9f5454",
-                  "declaration-6423f24273f183b2",
-                  "declaration-65e9c39fe9692fdd",
-                  "declaration-6836256b75643f15",
-                  "declaration-683d24c8554cac9f",
-                  "declaration-68e8aef46b41d564",
-                  "declaration-6920e20d81ee567c",
-                  "declaration-6ac44e944b1c608e",
-                  "declaration-6aef068aff1397b7",
-                  "declaration-6b1d7267e052856b",
-                  "declaration-6bc6da2c7b5050a7",
-                  "declaration-6d2d8c6fd6e5258a",
-                  "declaration-6d350538d3a075db",
-                  "declaration-6ed2a45e6cd29e30",
-                  "declaration-6fdf4e70a97d5ac1",
-                  "declaration-6ff229d1991c1a16",
-                  "declaration-70ceafc7cd2ba64d",
-                  "declaration-71c2cc14ff8bf15a",
-                  "declaration-73427b79643c41a8",
-                  "declaration-738ecb1cae9f7dff",
-                  "declaration-73e6f223c54205bc",
-                  "declaration-74f562b41d3971df",
-                  "declaration-75de00efdd450881",
-                  "declaration-75f7769a02cb5bf5",
-                  "declaration-761a47d142702137",
-                  "declaration-769030a3741b05ce",
-                  "declaration-772ab840d6f213f5",
-                  "declaration-77426fe964e91b14",
-                  "declaration-778273d79e1beff1",
-                  "declaration-77ac1db8d1fe375b",
-                  "declaration-78cf92f331b17d56",
-                  "declaration-7adf77f770f6801f",
-                  "declaration-7beb8ef4014f41ac",
-                  "declaration-7c13885157c028ff",
-                  "declaration-7c197ff8d7805aff",
-                  "declaration-7d21df679a372bee",
-                  "declaration-7e728c60a645ce9d",
-                  "declaration-8039266ca41d9db3",
-                  "declaration-80e3ab6705515bfe",
-                  "declaration-811891f728c7c815",
-                  "declaration-8166f870afbf302d",
-                  "declaration-816a60d471eb661d",
-                  "declaration-826955918aba4218",
-                  "declaration-832cea80574fb804",
-                  "declaration-83a0be92ca4bf89f",
-                  "declaration-867d8dfac78a085a",
-                  "declaration-86a0ef0000627f29",
-                  "declaration-89031872cf2c2013",
-                  "declaration-8ab891069ee7a726",
-                  "declaration-8abc6f6c7a7202be",
-                  "declaration-8bfe9a71fb574bc8",
-                  "declaration-8f4c452182652133",
-                  "declaration-9007feee7c09fd67",
-                  "declaration-90a00de3cda81b96",
-                  "declaration-90e1f45d0e711162",
-                  "declaration-9145382f9642e647",
-                  "declaration-9218216462ada3b1",
-                  "declaration-9245c61786037a2e",
-                  "declaration-928e064c387b9f54",
-                  "declaration-92b02d197ed14861",
-                  "declaration-956041deb5a37cfd",
-                  "declaration-959bbf17a1ae2285",
-                  "declaration-96456dd0396ed562",
-                  "declaration-988a37a8d8e9a1ef",
-                  "declaration-98ea173656dfcc65",
-                  "declaration-99b668320b137492",
-                  "declaration-99da2521ee176d0d",
-                  "declaration-9ab9ef9aab13742a",
-                  "declaration-9b17d8cb15952bb1",
-                  "declaration-9b6810b6955793f4",
-                  "declaration-9c31d9debdf0c9ba",
-                  "declaration-9c527aa551fd6d85",
-                  "declaration-9c5a91c866c8accf",
-                  "declaration-9ceaaa3804f0c5c1",
-                  "declaration-9fd3385c1daa6018",
-                  "declaration-a130cbaec19928a2",
-                  "declaration-a30eff503ec4c258",
-                  "declaration-a3e69ac9196888c0",
-                  "declaration-a3ea2c18a62ceeb5",
-                  "declaration-a50174ebb5662741",
-                  "declaration-a627ccf018c13169",
-                  "declaration-a65aa3b8a0f68c35",
-                  "declaration-a6bbcf76575c3d0f",
-                  "declaration-a80d71af0f7b7b10",
-                  "declaration-a89300e957dbfc32",
-                  "declaration-a89adc2943ec3038",
-                  "declaration-a8fe989cc35e008e",
-                  "declaration-a97e67906949383d",
-                  "declaration-aa18d50413c94a68",
-                  "declaration-aa5995c402bba902",
-                  "declaration-abbcf780d6219bb4",
-                  "declaration-ac53c02b8d8dc007",
-                  "declaration-add8bf3bc0a8a15d",
-                  "declaration-adda8939518ee8ae",
-                  "declaration-adfe9c2532a39aac",
-                  "declaration-ae49acf040a1d4de",
-                  "declaration-ae4cdf86d6e56aae",
-                  "declaration-b0611edb78f0f140",
-                  "declaration-b25cfc5688bb0e9a",
-                  "declaration-b2da02c712c5c71f",
-                  "declaration-b3e85a75d686c19d",
-                  "declaration-b40bfc56a418eefd",
-                  "declaration-b45a57245af78921",
-                  "declaration-b4cb7c41cdb36d16",
-                  "declaration-b620c469bac63dcf",
-                  "declaration-b64a897ce682bb69",
-                  "declaration-b8bc19c07baca487",
-                  "declaration-b9abaa5ae610999a",
-                  "declaration-ba8ddda7fad9388b",
-                  "declaration-bc910f9cd6ca3705",
-                  "declaration-be9429307bf6a35a",
-                  "declaration-bf3d7ef5e645780e",
-                  "declaration-bf42e7440d22f077",
-                  "declaration-bf5566934a51789f",
-                  "declaration-c2af7f74d3c091c5",
-                  "declaration-c364355dafbfc1ef",
-                  "declaration-c3c93acf59dfdb44",
-                  "declaration-c4b17a339cc63073",
-                  "declaration-c5399afb47a24232",
-                  "declaration-c564198f612173c7",
-                  "declaration-c56df46d74247cde",
-                  "declaration-c67e0b63e9e3c443",
-                  "declaration-c6bdf3ad96451b3d",
-                  "declaration-c6c2ef45d3d49bce",
-                  "declaration-c762ab18aa63101d",
-                  "declaration-c8b02bc84a0d0b82",
-                  "declaration-c991ce98c899834b",
-                  "declaration-c9afabbe4df4c408",
-                  "declaration-ca79378f85ea6443",
-                  "declaration-cac5500dc5641d6c",
-                  "declaration-ce41780509f2d647",
-                  "declaration-cea995985e15574a",
-                  "declaration-d2174ab4a78809fa",
-                  "declaration-d2aa894382dcd63f",
-                  "declaration-d34cd6354e9e3a04",
-                  "declaration-d4c8bb8d0fd55a8c",
-                  "declaration-d745a115880d3fba",
-                  "declaration-d7d270e000ba27f4",
-                  "declaration-d94e9b402e5ebd93",
-                  "declaration-dcd554ab4b6b37d2",
-                  "declaration-dce47df89a24a994",
-                  "declaration-dd68f12d795116bb",
-                  "declaration-ddb42bcd029619bb",
-                  "declaration-ddbd612da8fe6197",
-                  "declaration-de54c62d4cba0e81",
-                  "declaration-de987428596f6fac",
-                  "declaration-e0843464301bc14b",
-                  "declaration-e09fc5c92396e2a8",
-                  "declaration-e0aa0a7029f4aef2",
-                  "declaration-e0f1b031c5f533f4",
-                  "declaration-e11aa61412a6ca75",
-                  "declaration-e274523eaef94935",
-                  "declaration-e3c4d355f9a811ed",
-                  "declaration-e40e5f057addd851",
-                  "declaration-e431d56924cd7a18",
-                  "declaration-e7157d838cac55c8",
-                  "declaration-e75118abf8dfbe6f",
-                  "declaration-eb2d784f3ee9c0b0",
-                  "declaration-ebbfa96c3f3f2b5e",
-                  "declaration-ebd27c791dbdac39",
-                  "declaration-ed6f95ce1c04c7fc",
-                  "declaration-edd74a973336cd91",
-                  "declaration-ee5b55cc6d0a6c45",
-                  "declaration-eee5d68fdefb9789",
-                  "declaration-ef222887405806d3",
-                  "declaration-f04ffd5cdf2ea6b0",
-                  "declaration-f215ad2175f4738d",
-                  "declaration-f4aa95d16d2c83dc",
-                  "declaration-f4d5ae9fc527dd0b",
-                  "declaration-f54201087207a2d8",
-                  "declaration-f938e4ae52174f38",
-                  "declaration-fa15f8d9753e3309",
-                  "declaration-faaed6477500fcc3",
-                  "declaration-fadf56abfb3ef7c4",
-                  "declaration-fb8c35f0a5147496",
-                  "declaration-fdca4362714395be",
-                  "declaration-fedfd19e10f9dbb8",
-                  "declaration-ff8dbc8a9dc1dc13"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:29.216Z",
+            "selectionRationale": "Directly relevant to the changed API pattern, service plane, or versioning context.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-30T08:15:33.171Z",
             "contentHash": "sha256:30470c99aaddccfad0799e2dcdf370cc27e56e09b76ed81b70ef5de044e29854"
           },
           {
@@ -429978,317 +429637,16 @@
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 10
+              "total": 6
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.",
-            "guidance": [
-              {
-                "section": "Modeling Resources in TypeSpec",
-                "excerpt": "Model ARM resources by choosing the appropriate base resource type, defining provider-specific properties, and using ResourceNameParameter for resource identity.",
-                "queryTerms": [
-                  "TrackedResource",
-                  "ProxyResource",
-                  "ResourceNameParameter",
-                  "ARM resource"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-00d07796725aac3e",
-                  "declaration-0436e6a22d0d95d0",
-                  "declaration-0450c7e1da21e392",
-                  "declaration-054cf556f1d3395b",
-                  "declaration-062d498c4bca4aad",
-                  "declaration-0697d98708274f72",
-                  "declaration-06b5abcc6685bfbc",
-                  "declaration-07d4b56af6287d1c",
-                  "declaration-080b30f8018f9dcf",
-                  "declaration-08807064a3ce4070",
-                  "declaration-0a6ecb7de025a4b1",
-                  "declaration-0c9428c6d6eed70d",
-                  "declaration-0df54af92060b8d3",
-                  "declaration-1032e21f7ffc8573",
-                  "declaration-10ada18018b15978",
-                  "declaration-10c0b2154367634c",
-                  "declaration-1106185c5ce416b5",
-                  "declaration-135013ea81eadd1f",
-                  "declaration-13e7a5a5149efe75",
-                  "declaration-13fe6182a71f67ec",
-                  "declaration-14e95e67802c8b24",
-                  "declaration-151536673e9cd241",
-                  "declaration-15220630dc28df3d",
-                  "declaration-1564a043cf8b8cfa",
-                  "declaration-15d98f31fb8c9ef3",
-                  "declaration-1686329fc1fb63ec",
-                  "declaration-16f8aec9244663cf",
-                  "declaration-173455bee244e777",
-                  "declaration-1736fa8e5be25284",
-                  "declaration-1760186562f9d12a",
-                  "declaration-17d4ae8f3a3d32b8",
-                  "declaration-17fa4eb634d617a4",
-                  "declaration-181298a8c46f6c08",
-                  "declaration-1926034da28c5e50",
-                  "declaration-1b765e0026a05811",
-                  "declaration-1c6a403daf891ff7",
-                  "declaration-1c8c87a39714a17f",
-                  "declaration-1ccd04c2a0f2fc99",
-                  "declaration-1d1d2591e0eed48e",
-                  "declaration-1da35fe0d859794d",
-                  "declaration-1e0bd5815c8ace08",
-                  "declaration-1e1ca72ddd48ec26",
-                  "declaration-1f39f4c4557ea556",
-                  "declaration-1febb9560c11ced4",
-                  "declaration-202d361c9e0ca778",
-                  "declaration-21a8989a9939b401",
-                  "declaration-22bed1e253ade703",
-                  "declaration-23b1cc8b143a7f58",
-                  "declaration-23f32150e04a997b",
-                  "declaration-255efafa65d05fc6",
-                  "declaration-2599239a08e55215",
-                  "declaration-265ed8c862564e14",
-                  "declaration-27143c45be7a93cc",
-                  "declaration-2773f2032d818b89",
-                  "declaration-277a583ffcda132a",
-                  "declaration-27b1fcf1e5b4ca44",
-                  "declaration-2943fdad07c6c94f",
-                  "declaration-2a3032c33d0839ef",
-                  "declaration-2af076c6f03867c0",
-                  "declaration-2b35473dd73a54a2",
-                  "declaration-2c0dd6e6b61ab7ee",
-                  "declaration-2d8f58e8122815fe",
-                  "declaration-2f009f756f61d661",
-                  "declaration-301d4069f9b40d7e",
-                  "declaration-304907bfd1f13319",
-                  "declaration-304d0b32c37185c6",
-                  "declaration-30cc4c3950c85b5b",
-                  "declaration-31fe748090265390",
-                  "declaration-325f22a564b0d3b3",
-                  "declaration-3301bdc62d491c07",
-                  "declaration-34ac180c9c1e380a",
-                  "declaration-35f9a14e1617f5c6",
-                  "declaration-37765d1fa8f091f5",
-                  "declaration-383bc3ef573005b4",
-                  "declaration-38595bf92e1d9d72",
-                  "declaration-38d282570d22df7c",
-                  "declaration-396b7f98c604ef94",
-                  "declaration-39ff21ebb4fce902",
-                  "declaration-3d554b8f5ab394dc",
-                  "declaration-3e1df85541bb4a03",
-                  "declaration-3f736bd517d4b099",
-                  "declaration-3ff5fed2c25bf03d",
-                  "declaration-40ca47d6bba0d5c3",
-                  "declaration-40e04d25776e3344",
-                  "declaration-43863a0a99ba33da",
-                  "declaration-43e06ef3d59dbfcc",
-                  "declaration-44020188461a7aee",
-                  "declaration-484a9d9f4fdf7df2",
-                  "declaration-4a22e243d6f9c877",
-                  "declaration-4b1a42fa61adcdf3",
-                  "declaration-4b745e640ea70647",
-                  "declaration-4ba18bb1bbe73c80",
-                  "declaration-4be3f7339e144634",
-                  "declaration-4c4ea809ff4b0539",
-                  "declaration-5061f6c67f46ebd6",
-                  "declaration-5354a6788126d93e",
-                  "declaration-55f813277cc2b3cd",
-                  "declaration-569bfc714f12cb9d",
-                  "declaration-56a6f3fed8513d30",
-                  "declaration-56b84efb706c4cb6",
-                  "declaration-57dffdab9bddd191",
-                  "declaration-58c2ba44c6a2d7c0",
-                  "declaration-59a3df187221225b",
-                  "declaration-5ba436c49899fbe6",
-                  "declaration-5bbed49dc38fd9b1",
-                  "declaration-5bd6b321e0b93669",
-                  "declaration-5c4b5fc2cac58f26",
-                  "declaration-5f5dc6faaf4d08da",
-                  "declaration-5fc05e440dc14269",
-                  "declaration-612fa00e2e9f5454",
-                  "declaration-6423f24273f183b2",
-                  "declaration-65e9c39fe9692fdd",
-                  "declaration-6836256b75643f15",
-                  "declaration-683d24c8554cac9f",
-                  "declaration-68e8aef46b41d564",
-                  "declaration-6920e20d81ee567c",
-                  "declaration-6ac44e944b1c608e",
-                  "declaration-6aef068aff1397b7",
-                  "declaration-6b1d7267e052856b",
-                  "declaration-6bc6da2c7b5050a7",
-                  "declaration-6d2d8c6fd6e5258a",
-                  "declaration-6d350538d3a075db",
-                  "declaration-6ed2a45e6cd29e30",
-                  "declaration-6fdf4e70a97d5ac1",
-                  "declaration-6ff229d1991c1a16",
-                  "declaration-70ceafc7cd2ba64d",
-                  "declaration-71c2cc14ff8bf15a",
-                  "declaration-73427b79643c41a8",
-                  "declaration-738ecb1cae9f7dff",
-                  "declaration-73e6f223c54205bc",
-                  "declaration-74f562b41d3971df",
-                  "declaration-75de00efdd450881",
-                  "declaration-75f7769a02cb5bf5",
-                  "declaration-761a47d142702137",
-                  "declaration-769030a3741b05ce",
-                  "declaration-772ab840d6f213f5",
-                  "declaration-77426fe964e91b14",
-                  "declaration-778273d79e1beff1",
-                  "declaration-77ac1db8d1fe375b",
-                  "declaration-78cf92f331b17d56",
-                  "declaration-7adf77f770f6801f",
-                  "declaration-7beb8ef4014f41ac",
-                  "declaration-7c13885157c028ff",
-                  "declaration-7c197ff8d7805aff",
-                  "declaration-7d21df679a372bee",
-                  "declaration-7e728c60a645ce9d",
-                  "declaration-8039266ca41d9db3",
-                  "declaration-80e3ab6705515bfe",
-                  "declaration-811891f728c7c815",
-                  "declaration-8166f870afbf302d",
-                  "declaration-816a60d471eb661d",
-                  "declaration-826955918aba4218",
-                  "declaration-832cea80574fb804",
-                  "declaration-83a0be92ca4bf89f",
-                  "declaration-867d8dfac78a085a",
-                  "declaration-86a0ef0000627f29",
-                  "declaration-89031872cf2c2013",
-                  "declaration-8ab891069ee7a726",
-                  "declaration-8abc6f6c7a7202be",
-                  "declaration-8bfe9a71fb574bc8",
-                  "declaration-8f4c452182652133",
-                  "declaration-9007feee7c09fd67",
-                  "declaration-90a00de3cda81b96",
-                  "declaration-90e1f45d0e711162",
-                  "declaration-9145382f9642e647",
-                  "declaration-9218216462ada3b1",
-                  "declaration-9245c61786037a2e",
-                  "declaration-928e064c387b9f54",
-                  "declaration-92b02d197ed14861",
-                  "declaration-956041deb5a37cfd",
-                  "declaration-959bbf17a1ae2285",
-                  "declaration-96456dd0396ed562",
-                  "declaration-988a37a8d8e9a1ef",
-                  "declaration-98ea173656dfcc65",
-                  "declaration-99b668320b137492",
-                  "declaration-99da2521ee176d0d",
-                  "declaration-9ab9ef9aab13742a",
-                  "declaration-9b17d8cb15952bb1",
-                  "declaration-9b6810b6955793f4",
-                  "declaration-9c31d9debdf0c9ba",
-                  "declaration-9c527aa551fd6d85",
-                  "declaration-9c5a91c866c8accf",
-                  "declaration-9ceaaa3804f0c5c1",
-                  "declaration-9fd3385c1daa6018",
-                  "declaration-a130cbaec19928a2",
-                  "declaration-a30eff503ec4c258",
-                  "declaration-a3e69ac9196888c0",
-                  "declaration-a3ea2c18a62ceeb5",
-                  "declaration-a50174ebb5662741",
-                  "declaration-a627ccf018c13169",
-                  "declaration-a65aa3b8a0f68c35",
-                  "declaration-a6bbcf76575c3d0f",
-                  "declaration-a80d71af0f7b7b10",
-                  "declaration-a89300e957dbfc32",
-                  "declaration-a89adc2943ec3038",
-                  "declaration-a8fe989cc35e008e",
-                  "declaration-a97e67906949383d",
-                  "declaration-aa18d50413c94a68",
-                  "declaration-aa5995c402bba902",
-                  "declaration-abbcf780d6219bb4",
-                  "declaration-ac53c02b8d8dc007",
-                  "declaration-add8bf3bc0a8a15d",
-                  "declaration-adda8939518ee8ae",
-                  "declaration-adfe9c2532a39aac",
-                  "declaration-ae49acf040a1d4de",
-                  "declaration-ae4cdf86d6e56aae",
-                  "declaration-b0611edb78f0f140",
-                  "declaration-b25cfc5688bb0e9a",
-                  "declaration-b2da02c712c5c71f",
-                  "declaration-b3e85a75d686c19d",
-                  "declaration-b40bfc56a418eefd",
-                  "declaration-b45a57245af78921",
-                  "declaration-b4cb7c41cdb36d16",
-                  "declaration-b620c469bac63dcf",
-                  "declaration-b64a897ce682bb69",
-                  "declaration-b8bc19c07baca487",
-                  "declaration-b9abaa5ae610999a",
-                  "declaration-ba8ddda7fad9388b",
-                  "declaration-bc910f9cd6ca3705",
-                  "declaration-be9429307bf6a35a",
-                  "declaration-bf3d7ef5e645780e",
-                  "declaration-bf42e7440d22f077",
-                  "declaration-bf5566934a51789f",
-                  "declaration-c2af7f74d3c091c5",
-                  "declaration-c364355dafbfc1ef",
-                  "declaration-c3c93acf59dfdb44",
-                  "declaration-c4b17a339cc63073",
-                  "declaration-c5399afb47a24232",
-                  "declaration-c564198f612173c7",
-                  "declaration-c56df46d74247cde",
-                  "declaration-c67e0b63e9e3c443",
-                  "declaration-c6bdf3ad96451b3d",
-                  "declaration-c6c2ef45d3d49bce",
-                  "declaration-c762ab18aa63101d",
-                  "declaration-c8b02bc84a0d0b82",
-                  "declaration-c991ce98c899834b",
-                  "declaration-c9afabbe4df4c408",
-                  "declaration-ca79378f85ea6443",
-                  "declaration-cac5500dc5641d6c",
-                  "declaration-ce41780509f2d647",
-                  "declaration-cea995985e15574a",
-                  "declaration-d2174ab4a78809fa",
-                  "declaration-d2aa894382dcd63f",
-                  "declaration-d34cd6354e9e3a04",
-                  "declaration-d4c8bb8d0fd55a8c",
-                  "declaration-d745a115880d3fba",
-                  "declaration-d7d270e000ba27f4",
-                  "declaration-d94e9b402e5ebd93",
-                  "declaration-dcd554ab4b6b37d2",
-                  "declaration-dce47df89a24a994",
-                  "declaration-dd68f12d795116bb",
-                  "declaration-ddb42bcd029619bb",
-                  "declaration-ddbd612da8fe6197",
-                  "declaration-de54c62d4cba0e81",
-                  "declaration-de987428596f6fac",
-                  "declaration-e0843464301bc14b",
-                  "declaration-e09fc5c92396e2a8",
-                  "declaration-e0aa0a7029f4aef2",
-                  "declaration-e0f1b031c5f533f4",
-                  "declaration-e11aa61412a6ca75",
-                  "declaration-e274523eaef94935",
-                  "declaration-e3c4d355f9a811ed",
-                  "declaration-e40e5f057addd851",
-                  "declaration-e431d56924cd7a18",
-                  "declaration-e7157d838cac55c8",
-                  "declaration-e75118abf8dfbe6f",
-                  "declaration-eb2d784f3ee9c0b0",
-                  "declaration-ebbfa96c3f3f2b5e",
-                  "declaration-ebd27c791dbdac39",
-                  "declaration-ed6f95ce1c04c7fc",
-                  "declaration-edd74a973336cd91",
-                  "declaration-ee5b55cc6d0a6c45",
-                  "declaration-eee5d68fdefb9789",
-                  "declaration-ef222887405806d3",
-                  "declaration-f04ffd5cdf2ea6b0",
-                  "declaration-f215ad2175f4738d",
-                  "declaration-f4aa95d16d2c83dc",
-                  "declaration-f4d5ae9fc527dd0b",
-                  "declaration-f54201087207a2d8",
-                  "declaration-f938e4ae52174f38",
-                  "declaration-fa15f8d9753e3309",
-                  "declaration-faaed6477500fcc3",
-                  "declaration-fadf56abfb3ef7c4",
-                  "declaration-fb8c35f0a5147496",
-                  "declaration-fdca4362714395be",
-                  "declaration-fedfd19e10f9dbb8",
-                  "declaration-ff8dbc8a9dc1dc13"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:29.231Z",
+            "selectionRationale": "Directly relevant to the changed API pattern, service plane, or versioning context.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-30T08:15:33.450Z",
             "contentHash": "sha256:530cea00cafd989f49e45120bdbba55d5502e02fc428f624f8623b4ddae88d56"
           },
           {
@@ -430297,24 +429655,26 @@
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
               "servicePlane": 2,
               "changeContext": 1,
-              "total": 10
+              "total": 6
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.",
+            "selectionRationale": "Directly relevant to the changed API pattern, service plane, or versioning context.",
             "guidance": [
               {
-                "section": "Recommended and Required Operations",
-                "excerpt": "Use the standard ARM resource operation templates for read, create or update, patch, delete, and list operations according to the resource kind.",
+                "section": "ARM resource operations",
+                "excerpt": "Group standard ARM CRUD and list operations in an @armResourceOperations interface and use the Azure Resource Manager operation templates.",
                 "queryTerms": [
                   "@armResourceOperations",
-                  "ArmResourceRead",
-                  "ArmResourceListByParent",
-                  "ArmListBySubscription"
+                  "createOrUpdate",
+                  "delete",
+                  "list"
                 ],
-                "examples": [],
+                "examples": [
+                  "Use ArmResourceCreateOrUpdateAsync and ArmResourceDeleteWithoutOkAsync for long-running resource lifecycle operations."
+                ],
                 "applicableDeclarationIds": [
                   "declaration-00d07796725aac3e",
                   "declaration-0436e6a22d0d95d0",
@@ -430607,7 +429967,7 @@
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:29.243Z",
+            "retrievedAt": "2026-10-30T08:15:33.461Z",
             "contentHash": "sha256:c1f60e78029f3aaff88d0037256e628682821fc635a96f94e05c758bdbd7c962"
           },
           {
@@ -430616,317 +429976,16 @@
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
-              "exactSymbol": 4,
+              "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 2,
+              "servicePlane": 0,
               "changeContext": 1,
-              "total": 10
+              "total": 4
             },
-            "selectionRationale": "Directly matches the changed versioning, resource, operation, model, enum, or decorator constructs in this assessment.",
-            "guidance": [
-              {
-                "section": "Optional properties",
-                "excerpt": "A model property is optional when declared with the ? marker; model composition and inheritance determine the resulting model shape.",
-                "queryTerms": [
-                  "model",
-                  "optional properties",
-                  "extends",
-                  "properties"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-00d07796725aac3e",
-                  "declaration-0436e6a22d0d95d0",
-                  "declaration-0450c7e1da21e392",
-                  "declaration-054cf556f1d3395b",
-                  "declaration-062d498c4bca4aad",
-                  "declaration-0697d98708274f72",
-                  "declaration-06b5abcc6685bfbc",
-                  "declaration-07d4b56af6287d1c",
-                  "declaration-080b30f8018f9dcf",
-                  "declaration-08807064a3ce4070",
-                  "declaration-0a6ecb7de025a4b1",
-                  "declaration-0c9428c6d6eed70d",
-                  "declaration-0df54af92060b8d3",
-                  "declaration-1032e21f7ffc8573",
-                  "declaration-10ada18018b15978",
-                  "declaration-10c0b2154367634c",
-                  "declaration-1106185c5ce416b5",
-                  "declaration-135013ea81eadd1f",
-                  "declaration-13e7a5a5149efe75",
-                  "declaration-13fe6182a71f67ec",
-                  "declaration-14e95e67802c8b24",
-                  "declaration-151536673e9cd241",
-                  "declaration-15220630dc28df3d",
-                  "declaration-1564a043cf8b8cfa",
-                  "declaration-15d98f31fb8c9ef3",
-                  "declaration-1686329fc1fb63ec",
-                  "declaration-16f8aec9244663cf",
-                  "declaration-173455bee244e777",
-                  "declaration-1736fa8e5be25284",
-                  "declaration-1760186562f9d12a",
-                  "declaration-17d4ae8f3a3d32b8",
-                  "declaration-17fa4eb634d617a4",
-                  "declaration-181298a8c46f6c08",
-                  "declaration-1926034da28c5e50",
-                  "declaration-1b765e0026a05811",
-                  "declaration-1c6a403daf891ff7",
-                  "declaration-1c8c87a39714a17f",
-                  "declaration-1ccd04c2a0f2fc99",
-                  "declaration-1d1d2591e0eed48e",
-                  "declaration-1da35fe0d859794d",
-                  "declaration-1e0bd5815c8ace08",
-                  "declaration-1e1ca72ddd48ec26",
-                  "declaration-1f39f4c4557ea556",
-                  "declaration-1febb9560c11ced4",
-                  "declaration-202d361c9e0ca778",
-                  "declaration-21a8989a9939b401",
-                  "declaration-22bed1e253ade703",
-                  "declaration-23b1cc8b143a7f58",
-                  "declaration-23f32150e04a997b",
-                  "declaration-255efafa65d05fc6",
-                  "declaration-2599239a08e55215",
-                  "declaration-265ed8c862564e14",
-                  "declaration-27143c45be7a93cc",
-                  "declaration-2773f2032d818b89",
-                  "declaration-277a583ffcda132a",
-                  "declaration-27b1fcf1e5b4ca44",
-                  "declaration-2943fdad07c6c94f",
-                  "declaration-2a3032c33d0839ef",
-                  "declaration-2af076c6f03867c0",
-                  "declaration-2b35473dd73a54a2",
-                  "declaration-2c0dd6e6b61ab7ee",
-                  "declaration-2d8f58e8122815fe",
-                  "declaration-2f009f756f61d661",
-                  "declaration-301d4069f9b40d7e",
-                  "declaration-304907bfd1f13319",
-                  "declaration-304d0b32c37185c6",
-                  "declaration-30cc4c3950c85b5b",
-                  "declaration-31fe748090265390",
-                  "declaration-325f22a564b0d3b3",
-                  "declaration-3301bdc62d491c07",
-                  "declaration-34ac180c9c1e380a",
-                  "declaration-35f9a14e1617f5c6",
-                  "declaration-37765d1fa8f091f5",
-                  "declaration-383bc3ef573005b4",
-                  "declaration-38595bf92e1d9d72",
-                  "declaration-38d282570d22df7c",
-                  "declaration-396b7f98c604ef94",
-                  "declaration-39ff21ebb4fce902",
-                  "declaration-3d554b8f5ab394dc",
-                  "declaration-3e1df85541bb4a03",
-                  "declaration-3f736bd517d4b099",
-                  "declaration-3ff5fed2c25bf03d",
-                  "declaration-40ca47d6bba0d5c3",
-                  "declaration-40e04d25776e3344",
-                  "declaration-43863a0a99ba33da",
-                  "declaration-43e06ef3d59dbfcc",
-                  "declaration-44020188461a7aee",
-                  "declaration-484a9d9f4fdf7df2",
-                  "declaration-4a22e243d6f9c877",
-                  "declaration-4b1a42fa61adcdf3",
-                  "declaration-4b745e640ea70647",
-                  "declaration-4ba18bb1bbe73c80",
-                  "declaration-4be3f7339e144634",
-                  "declaration-4c4ea809ff4b0539",
-                  "declaration-5061f6c67f46ebd6",
-                  "declaration-5354a6788126d93e",
-                  "declaration-55f813277cc2b3cd",
-                  "declaration-569bfc714f12cb9d",
-                  "declaration-56a6f3fed8513d30",
-                  "declaration-56b84efb706c4cb6",
-                  "declaration-57dffdab9bddd191",
-                  "declaration-58c2ba44c6a2d7c0",
-                  "declaration-59a3df187221225b",
-                  "declaration-5ba436c49899fbe6",
-                  "declaration-5bbed49dc38fd9b1",
-                  "declaration-5bd6b321e0b93669",
-                  "declaration-5c4b5fc2cac58f26",
-                  "declaration-5f5dc6faaf4d08da",
-                  "declaration-5fc05e440dc14269",
-                  "declaration-612fa00e2e9f5454",
-                  "declaration-6423f24273f183b2",
-                  "declaration-65e9c39fe9692fdd",
-                  "declaration-6836256b75643f15",
-                  "declaration-683d24c8554cac9f",
-                  "declaration-68e8aef46b41d564",
-                  "declaration-6920e20d81ee567c",
-                  "declaration-6ac44e944b1c608e",
-                  "declaration-6aef068aff1397b7",
-                  "declaration-6b1d7267e052856b",
-                  "declaration-6bc6da2c7b5050a7",
-                  "declaration-6d2d8c6fd6e5258a",
-                  "declaration-6d350538d3a075db",
-                  "declaration-6ed2a45e6cd29e30",
-                  "declaration-6fdf4e70a97d5ac1",
-                  "declaration-6ff229d1991c1a16",
-                  "declaration-70ceafc7cd2ba64d",
-                  "declaration-71c2cc14ff8bf15a",
-                  "declaration-73427b79643c41a8",
-                  "declaration-738ecb1cae9f7dff",
-                  "declaration-73e6f223c54205bc",
-                  "declaration-74f562b41d3971df",
-                  "declaration-75de00efdd450881",
-                  "declaration-75f7769a02cb5bf5",
-                  "declaration-761a47d142702137",
-                  "declaration-769030a3741b05ce",
-                  "declaration-772ab840d6f213f5",
-                  "declaration-77426fe964e91b14",
-                  "declaration-778273d79e1beff1",
-                  "declaration-77ac1db8d1fe375b",
-                  "declaration-78cf92f331b17d56",
-                  "declaration-7adf77f770f6801f",
-                  "declaration-7beb8ef4014f41ac",
-                  "declaration-7c13885157c028ff",
-                  "declaration-7c197ff8d7805aff",
-                  "declaration-7d21df679a372bee",
-                  "declaration-7e728c60a645ce9d",
-                  "declaration-8039266ca41d9db3",
-                  "declaration-80e3ab6705515bfe",
-                  "declaration-811891f728c7c815",
-                  "declaration-8166f870afbf302d",
-                  "declaration-816a60d471eb661d",
-                  "declaration-826955918aba4218",
-                  "declaration-832cea80574fb804",
-                  "declaration-83a0be92ca4bf89f",
-                  "declaration-867d8dfac78a085a",
-                  "declaration-86a0ef0000627f29",
-                  "declaration-89031872cf2c2013",
-                  "declaration-8ab891069ee7a726",
-                  "declaration-8abc6f6c7a7202be",
-                  "declaration-8bfe9a71fb574bc8",
-                  "declaration-8f4c452182652133",
-                  "declaration-9007feee7c09fd67",
-                  "declaration-90a00de3cda81b96",
-                  "declaration-90e1f45d0e711162",
-                  "declaration-9145382f9642e647",
-                  "declaration-9218216462ada3b1",
-                  "declaration-9245c61786037a2e",
-                  "declaration-928e064c387b9f54",
-                  "declaration-92b02d197ed14861",
-                  "declaration-956041deb5a37cfd",
-                  "declaration-959bbf17a1ae2285",
-                  "declaration-96456dd0396ed562",
-                  "declaration-988a37a8d8e9a1ef",
-                  "declaration-98ea173656dfcc65",
-                  "declaration-99b668320b137492",
-                  "declaration-99da2521ee176d0d",
-                  "declaration-9ab9ef9aab13742a",
-                  "declaration-9b17d8cb15952bb1",
-                  "declaration-9b6810b6955793f4",
-                  "declaration-9c31d9debdf0c9ba",
-                  "declaration-9c527aa551fd6d85",
-                  "declaration-9c5a91c866c8accf",
-                  "declaration-9ceaaa3804f0c5c1",
-                  "declaration-9fd3385c1daa6018",
-                  "declaration-a130cbaec19928a2",
-                  "declaration-a30eff503ec4c258",
-                  "declaration-a3e69ac9196888c0",
-                  "declaration-a3ea2c18a62ceeb5",
-                  "declaration-a50174ebb5662741",
-                  "declaration-a627ccf018c13169",
-                  "declaration-a65aa3b8a0f68c35",
-                  "declaration-a6bbcf76575c3d0f",
-                  "declaration-a80d71af0f7b7b10",
-                  "declaration-a89300e957dbfc32",
-                  "declaration-a89adc2943ec3038",
-                  "declaration-a8fe989cc35e008e",
-                  "declaration-a97e67906949383d",
-                  "declaration-aa18d50413c94a68",
-                  "declaration-aa5995c402bba902",
-                  "declaration-abbcf780d6219bb4",
-                  "declaration-ac53c02b8d8dc007",
-                  "declaration-add8bf3bc0a8a15d",
-                  "declaration-adda8939518ee8ae",
-                  "declaration-adfe9c2532a39aac",
-                  "declaration-ae49acf040a1d4de",
-                  "declaration-ae4cdf86d6e56aae",
-                  "declaration-b0611edb78f0f140",
-                  "declaration-b25cfc5688bb0e9a",
-                  "declaration-b2da02c712c5c71f",
-                  "declaration-b3e85a75d686c19d",
-                  "declaration-b40bfc56a418eefd",
-                  "declaration-b45a57245af78921",
-                  "declaration-b4cb7c41cdb36d16",
-                  "declaration-b620c469bac63dcf",
-                  "declaration-b64a897ce682bb69",
-                  "declaration-b8bc19c07baca487",
-                  "declaration-b9abaa5ae610999a",
-                  "declaration-ba8ddda7fad9388b",
-                  "declaration-bc910f9cd6ca3705",
-                  "declaration-be9429307bf6a35a",
-                  "declaration-bf3d7ef5e645780e",
-                  "declaration-bf42e7440d22f077",
-                  "declaration-bf5566934a51789f",
-                  "declaration-c2af7f74d3c091c5",
-                  "declaration-c364355dafbfc1ef",
-                  "declaration-c3c93acf59dfdb44",
-                  "declaration-c4b17a339cc63073",
-                  "declaration-c5399afb47a24232",
-                  "declaration-c564198f612173c7",
-                  "declaration-c56df46d74247cde",
-                  "declaration-c67e0b63e9e3c443",
-                  "declaration-c6bdf3ad96451b3d",
-                  "declaration-c6c2ef45d3d49bce",
-                  "declaration-c762ab18aa63101d",
-                  "declaration-c8b02bc84a0d0b82",
-                  "declaration-c991ce98c899834b",
-                  "declaration-c9afabbe4df4c408",
-                  "declaration-ca79378f85ea6443",
-                  "declaration-cac5500dc5641d6c",
-                  "declaration-ce41780509f2d647",
-                  "declaration-cea995985e15574a",
-                  "declaration-d2174ab4a78809fa",
-                  "declaration-d2aa894382dcd63f",
-                  "declaration-d34cd6354e9e3a04",
-                  "declaration-d4c8bb8d0fd55a8c",
-                  "declaration-d745a115880d3fba",
-                  "declaration-d7d270e000ba27f4",
-                  "declaration-d94e9b402e5ebd93",
-                  "declaration-dcd554ab4b6b37d2",
-                  "declaration-dce47df89a24a994",
-                  "declaration-dd68f12d795116bb",
-                  "declaration-ddb42bcd029619bb",
-                  "declaration-ddbd612da8fe6197",
-                  "declaration-de54c62d4cba0e81",
-                  "declaration-de987428596f6fac",
-                  "declaration-e0843464301bc14b",
-                  "declaration-e09fc5c92396e2a8",
-                  "declaration-e0aa0a7029f4aef2",
-                  "declaration-e0f1b031c5f533f4",
-                  "declaration-e11aa61412a6ca75",
-                  "declaration-e274523eaef94935",
-                  "declaration-e3c4d355f9a811ed",
-                  "declaration-e40e5f057addd851",
-                  "declaration-e431d56924cd7a18",
-                  "declaration-e7157d838cac55c8",
-                  "declaration-e75118abf8dfbe6f",
-                  "declaration-eb2d784f3ee9c0b0",
-                  "declaration-ebbfa96c3f3f2b5e",
-                  "declaration-ebd27c791dbdac39",
-                  "declaration-ed6f95ce1c04c7fc",
-                  "declaration-edd74a973336cd91",
-                  "declaration-ee5b55cc6d0a6c45",
-                  "declaration-eee5d68fdefb9789",
-                  "declaration-ef222887405806d3",
-                  "declaration-f04ffd5cdf2ea6b0",
-                  "declaration-f215ad2175f4738d",
-                  "declaration-f4aa95d16d2c83dc",
-                  "declaration-f4d5ae9fc527dd0b",
-                  "declaration-f54201087207a2d8",
-                  "declaration-f938e4ae52174f38",
-                  "declaration-fa15f8d9753e3309",
-                  "declaration-faaed6477500fcc3",
-                  "declaration-fadf56abfb3ef7c4",
-                  "declaration-fb8c35f0a5147496",
-                  "declaration-fdca4362714395be",
-                  "declaration-fedfd19e10f9dbb8",
-                  "declaration-ff8dbc8a9dc1dc13"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T06:13:29.282Z",
+            "selectionRationale": "Directly relevant to the changed API pattern, service plane, or versioning context.",
+            "guidance": [],
+            "noRelevantGuidance": true,
+            "retrievedAt": "2026-10-30T08:15:33.501Z",
             "contentHash": "sha256:b3e43ba6c64122566ab49e05a835fc03547f86ad4d25945a176a1d5ed0468547"
           }
         ]
@@ -430944,9 +430003,9 @@
           ],
           "declarationIds": [],
           "decision": "no-applicable-guidance",
-          "actual": "The entry point imports two new TypeSpec modules.",
-          "rationale": "The fetched documents govern resource and version design, not module import statements themselves.",
-          "gap": "The fetched documents govern resource and version design, not module import statements themselves.",
+          "actual": "The changed import, SDK customization, or emitter configuration is not governed by the selected REST API design guidance.",
+          "rationale": "No fetched guidance directly evaluates this non-wire or language-specific configuration change.",
+          "gap": "No fetched guidance directly evaluates this non-wire or language-specific configuration change.",
           "sourceLinks": [],
           "codeSnippets": [
             {
@@ -430973,9 +430032,9 @@
           ],
           "declarationIds": [],
           "decision": "no-applicable-guidance",
-          "actual": "The change modifies language-specific @@alternateType and @@clientName customizations in client.tsp.",
-          "rationale": "The fetched Azure API design guidance does not govern language-specific SDK naming and alternate-type customization.",
-          "gap": "The fetched Azure API design guidance does not govern language-specific SDK naming and alternate-type customization.",
+          "actual": "The changed import, SDK customization, or emitter configuration is not governed by the selected REST API design guidance.",
+          "rationale": "No fetched guidance directly evaluates this non-wire or language-specific configuration change.",
+          "gap": "No fetched guidance directly evaluates this non-wire or language-specific configuration change.",
           "sourceLinks": [],
           "codeSnippets": [
             {
@@ -431018,20 +430077,8 @@
           "reviewUnitId": "semantic-f27bb3d99c9c5358",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
-              "guidanceSection": "Modeling Resources in TypeSpec"
-            },
-            {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-              "guidanceSection": "Recommended and Required Operations"
-            },
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
-            },
-            {
-              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/models/",
-              "guidanceSection": "Optional properties"
+              "guidanceSection": "ARM resource operations"
             }
           ],
           "sourceChangeIds": [
@@ -431334,10 +430381,10 @@
             "declaration-ff8dbc8a9dc1dc13"
           ],
           "decision": "applicable-pass",
-          "expected": "New ARM resources select appropriate resource models, use standard lifecycle/list templates, and version newly introduced operations and models.",
-          "actual": "The added BulkCreateCustom and ScheduledAction surfaces use ARM resource operations and versioned declarations for the 2026-07-06-preview API.",
-          "rationale": "The bounded source follows the cited ARM resource, operation, model, and versioning patterns.",
-          "gap": "The bounded source follows the cited ARM resource, operation, model, and versioning patterns.",
+          "expected": "Group standard ARM CRUD and list operations in an @armResourceOperations interface and use the Azure Resource Manager operation templates.",
+          "actual": "The changed declarations are version-gated in the intended API version and use the applicable model or ARM operation pattern without altering the prior stable projection.",
+          "rationale": "The bounded source and projected-contract evidence is consistent with the cited guidance.",
+          "gap": "The bounded source and projected-contract evidence is consistent with the cited guidance.",
           "sourceLinks": [
             {
               "path": "specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringScheduledActions.tsp",
@@ -434484,15 +433531,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\worktrees\\base\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\worktrees\\base\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\projects\\project-8a23df6aa391\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\projects\\project-8a23df6aa391\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-07-06-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 10266,
+            "durationMs": 10445,
             "configPath": "worktrees\\base\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions\\tspconfig.yaml",
             "configHash": "7d21533a2b8b3e2c60147f3dfc2a7ab173d1cb7baecfb60d5f52963be1228624",
             "logPath": "logs\\project-8a23df6aa391-baseline-autorest.log",
@@ -434516,16 +433563,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\worktrees\\base\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\worktrees\\base\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\projects\\project-8a23df6aa391\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\projects\\project-8a23df6aa391\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-07-06-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 9279,
+            "durationMs": 12354,
             "configPath": "worktrees\\base\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions\\tspconfig.yaml",
             "configHash": "7d21533a2b8b3e2c60147f3dfc2a7ab173d1cb7baecfb60d5f52963be1228624",
             "logPath": "logs\\project-8a23df6aa391-baseline-tcgc.log",
@@ -434553,15 +433600,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\projects\\project-8a23df6aa391\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\projects\\project-8a23df6aa391\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-07-06-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 12144,
+            "durationMs": 15443,
             "configPath": "worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions\\tspconfig.yaml",
             "configHash": "7d21533a2b8b3e2c60147f3dfc2a7ab173d1cb7baecfb60d5f52963be1228624",
             "logPath": "logs\\project-8a23df6aa391-target-autorest.log",
@@ -434585,16 +433632,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\projects\\project-8a23df6aa391\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\projects\\project-8a23df6aa391\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-stack-retry\\batch-a\\pr-44524\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-2\\pr-44524\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-07-06-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 9835,
+            "durationMs": 14039,
             "configPath": "worktrees\\current\\specification\\compute\\resource-manager\\Microsoft.Compute\\Bulkactions\\tspconfig.yaml",
             "configHash": "7d21533a2b8b3e2c60147f3dfc2a7ab173d1cb7baecfb60d5f52963be1228624",
             "logPath": "logs\\project-8a23df6aa391-target-tcgc.log",
@@ -434667,10 +433714,7 @@
     }
   ],
   "blockers": [
-    "Inference inference-request-e9af3d806d470f90 is blocked: language-specific-sdk-customization-not-represented.",
-    "Inference inference-request-2a4f9864426deb9c is blocked: language-specific-sdk-customization-not-represented.",
-    "Inference inference-request-f7ff1b85208317fe is blocked: unsupported-customization-not-represented.",
-    "Inference inference-request-90250f2b0dda8ae2 is blocked: unsupported-customization-not-represented.",
+    "Removed and added language-specific SDK customizations cannot be evaluated from the language-neutral downstream evidence.",
     {
       "code": "inference-blocked",
       "reviewUnitId": "semantic-eb023548075d0003",
@@ -434679,7 +433723,7 @@
         "rest",
         "downstream"
       ],
-      "message": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization."
+      "message": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established."
     },
     {
       "code": "inference-blocked",
@@ -434689,27 +433733,7 @@
         "rest",
         "downstream"
       ],
-      "message": "The bounded language-neutral evidence cannot determine the public SDK impact of this language-specific client.tsp customization."
-    },
-    {
-      "code": "inference-blocked",
-      "reviewUnitId": "semantic-f27bb3d99c9c5358",
-      "hunkId": "hunk-41ab85742a8e8e40",
-      "allowedDimensions": [
-        "rest",
-        "downstream"
-      ],
-      "message": "The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it."
-    },
-    {
-      "code": "inference-blocked",
-      "reviewUnitId": "semantic-f27bb3d99c9c5358",
-      "hunkId": "hunk-51b6891ecd19e50b",
-      "allowedDimensions": [
-        "rest",
-        "downstream"
-      ],
-      "message": "The bounded input identifies an unsupported customization but supplies no represented REST or language-neutral SDK contract evidence to classify it."
+      "message": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established."
     }
   ],
   "provenance": {
@@ -434748,30 +433772,30 @@
     "inference": {
       "requestCount": 4,
       "inferredCandidateCount": 0,
-      "noImpactCount": 0,
-      "blockedCount": 4
+      "noImpactCount": 2,
+      "blockedCount": 2
     },
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
       "documentBytesFetched": 1867193,
-      "guidanceExcerptsRetained": 4,
-      "guidanceExcerptBytesRetained": 577
+      "guidanceExcerptsRetained": 1,
+      "guidanceExcerptBytesRetained": 138
     }
   },
   "timings": {
-    "metadataMs": 1883,
-    "fetchMs": 208,
-    "scopeDiscoveryMs": 100,
-    "setupExcludingFetchMs": 169828,
-    "comparisonMs": 168,
-    "changeDiscoveryMs": 109,
-    "workspacePreparationMs": 167262,
-    "projectDiscoveryMs": 33,
-    "totalMs": 427892,
-    "semanticAnalysisMs": 419,
-    "restAnalysisMs": 125,
-    "downstreamAnalysisMs": 1905,
-    "documentQualityAnalysisMs": 4
+    "metadataMs": 3116,
+    "fetchMs": 459,
+    "scopeDiscoveryMs": 214,
+    "setupExcludingFetchMs": 456035,
+    "comparisonMs": 362,
+    "changeDiscoveryMs": 260,
+    "workspacePreparationMs": 451340,
+    "projectDiscoveryMs": 37,
+    "totalMs": 964044,
+    "semanticAnalysisMs": 436,
+    "restAnalysisMs": 162,
+    "downstreamAnalysisMs": 2498,
+    "documentQualityAnalysisMs": 3
   }
 }
