@@ -703,6 +703,25 @@
       font-size: 13px;
     }
 
+    .root-cause {
+      margin: 0 0 10px;
+      padding: 10px 12px;
+      border-left: 3px solid var(--purple);
+      border-radius: 0 6px 6px 0;
+      background: var(--purple-bg);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .root-cause strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--purple);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
     .included-prs {
       display: flex;
       align-items: center;
@@ -853,11 +872,11 @@
           </p>
         </div>
         <aside class="insight">
-          <h3>Primary expected difference</h3>
+          <h3>Reviewed root cause</h3>
           <p>
-            <strong>An SDK release may contain changes from multiple spec PRs.</strong>
-            Assessment evaluates one PR, so historical SDK breaking items may correctly be absent
-            from that PR's findings.
+            <strong>Each report identifies the specific cause of its comparison result.</strong>
+            Causes include spec contract changes, TypeSpec migrations, language-specific
+            surfaces, aggregated releases, unavailable mappings, and blocked assessments.
           </p>
         </aside>
       </section>
@@ -865,7 +884,7 @@
       <section class="summary-grid" id="alignment-summary" aria-label="Alignment summary">
         <article class="summary-card aligned">
           <strong id="aligned-count">0</strong>
-          <span>Aligned</span>
+          <span>Fully aligned</span>
           <small>Earlier pinned assessment and SDK evidence agree</small>
         </article>
         <article class="summary-card expected">
@@ -884,7 +903,7 @@
         <input class="search" id="search" type="search" placeholder="Search PR, service, category, or reason" disabled>
         <div class="filters" id="filters">
           <button class="filter active" id="all-filter" data-filter="all" disabled>All</button>
-          <button class="filter" data-filter="aligned" disabled>Aligned</button>
+          <button class="filter" data-filter="aligned" disabled>Fully aligned</button>
           <button class="filter" data-filter="expected" disabled>Expected difference</button>
           <button class="filter" data-filter="unknown" disabled>Cannot determine</button>
         </div>
@@ -998,7 +1017,8 @@
           report.pr,
           report.service,
           report.categoryLabel,
-          report.reasonCategory || "",
+          report.rootCauseCategory,
+          report.rootCause,
           ...(report.relatedPrs || []).flatMap((pr) => [pr.number, pr.label]),
           report.outcome,
           report.reason
@@ -1014,7 +1034,7 @@
               <span class="category ${report.category}">${esc(report.categoryLabel)}</span>
             </div>
             <p class="service">${esc(report.service)}</p>
-            ${report.reasonCategory ? `<span class="reason-category">${esc(report.reasonCategory)}</span>` : ""}
+            <span class="reason-category">${esc(report.rootCauseCategory)}</span>
             <div class="links">
               <a href="${report.publicReportUrl}" target="_blank" rel="noreferrer">Assessment report</a>
               <a href="${report.prUrl}" target="_blank" rel="noreferrer">Spec PR</a>
@@ -1044,6 +1064,7 @@
               ${sdkTile("Java", report.java)}
             </div>
             <p class="outcome ${report.category}">${esc(report.outcome)}</p>
+            <p class="root-cause"><strong>Root cause</strong>${esc(report.rootCause)}</p>
             <p class="reason">${esc(report.reason)}</p>
             ${report.relatedPrs?.length ? `
               <div class="included-prs">
@@ -1101,7 +1122,7 @@
     }
 
     function validateAlignmentData(payload) {
-      if (payload?.schemaVersion !== 1 || !Array.isArray(payload.reports)) {
+      if (payload?.schemaVersion !== 2 || !Array.isArray(payload.reports)) {
         throw new Error("Unsupported alignment data schema.");
       }
       if (payload.reportCount !== payload.reports.length) {
@@ -1116,7 +1137,13 @@
         if (!["aligned", "expected", "unknown"].includes(report.category)) {
           throw new Error(`PR #${report.pr} has an unsupported alignment category.`);
         }
-        if (!report.findings || !report.python || !report.java) {
+        if (
+          !report.findings ||
+          !report.python ||
+          !report.java ||
+          typeof report.rootCauseCategory !== "string" ||
+          typeof report.rootCause !== "string"
+        ) {
           throw new Error(`PR #${report.pr} is missing dashboard data.`);
         }
         seen.add(report.pr);

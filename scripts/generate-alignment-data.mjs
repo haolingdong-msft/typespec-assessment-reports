@@ -5,12 +5,28 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = path.join(root, "alignment-data.json");
 const categoryLabels = {
-  aligned: "Aligned",
+  aligned: "Fully aligned",
   expected: "Expected difference",
   unknown: "Cannot determine",
 };
 const evidenceStates = new Set(["breaking", "clear", "initial", "unverified"]);
 const coverageValues = new Set(["complete", "partial", "blocked"]);
+const rootCauseCategories = new Set([
+  "Assessment and SDK compare different language surfaces",
+  "Assessment blocked",
+  "Assessment inference not emitted",
+  "Initial SDK release has no comparison baseline",
+  "Language-specific compatibility mitigation",
+  "Language-specific SDK generation",
+  "No downstream breaking change",
+  "No SDK surface configured",
+  "Runtime behavior omitted from changelog",
+  "TypeSpec migration",
+  "SDK release association unavailable",
+  "SDK release includes other spec changes",
+  "SDK targets a different API version",
+  "Spec contract change",
+]);
 
 function assert(condition, message) {
   if (!condition) {
@@ -100,6 +116,7 @@ async function buildAlignmentData() {
   assert(Array.isArray(manifest.entries), "publication-manifest.json must contain entries.");
   assert(Array.isArray(evidence.entries), "changelog-evidence.json must contain entries.");
   assert(Array.isArray(curation.reports), "alignment-curation.json must contain reports.");
+  assert(curation.schemaVersion === 2, "alignment-curation.json must use schemaVersion 2.");
   assert(manifest.reportCount === reports.length, "Publication manifest reportCount does not match reports.json.");
   assert(reports.length === 34, `Expected 34 retained reports, found ${reports.length}.`);
   assert(curation.reports.length === reports.length, "Curation count does not match reports.json.");
@@ -127,6 +144,14 @@ async function buildAlignmentData() {
     );
     assert(typeof curated.service === "string" && curated.service.length > 0, `PR #${curated.pr} is missing a service label.`);
     assert(typeof curated.outcome === "string" && curated.outcome.length > 0, `PR #${curated.pr} is missing an outcome.`);
+    assert(
+      rootCauseCategories.has(curated.rootCauseCategory),
+      `PR #${curated.pr} has invalid root cause category ${curated.rootCauseCategory}.`,
+    );
+    assert(
+      typeof curated.rootCause === "string" && curated.rootCause.length > 0,
+      `PR #${curated.pr} is missing a root cause.`,
+    );
     assert(typeof curated.reason === "string" && curated.reason.length > 0, `PR #${curated.pr} is missing a reason.`);
     assert(coverageValues.has(publication.coverage), `PR #${curated.pr} has invalid publication coverage ${publication.coverage}.`);
 
@@ -156,7 +181,8 @@ async function buildAlignmentData() {
       category: curated.category,
       categoryLabel: curated.categoryLabel,
       outcome: curated.outcome,
-      ...(curated.reasonCategory ? { reasonCategory: curated.reasonCategory } : {}),
+      rootCauseCategory: curated.rootCauseCategory,
+      rootCause: curated.rootCause,
       coverage: publication.coverage,
       verdict: publication.verdict,
       assessmentResult: publication.result,
@@ -190,7 +216,7 @@ async function buildAlignmentData() {
   });
 
   return {
-    schemaVersion: 1,
+    schemaVersion: 2,
     reportCount: generatedReports.length,
     sourceGeneratedAt: {
       reports: reports.reduce(

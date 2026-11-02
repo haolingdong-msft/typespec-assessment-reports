@@ -22,9 +22,17 @@ Machine-readable artifacts:
 - [Previous dashboard rows](https://haolingdong-msft.github.io/typespec-assessment-reports/legacy-reports.json)
 - [Pinned Python/Java changelog evidence](https://haolingdong-msft.github.io/typespec-assessment-reports/changelog-evidence.json)
 
-`alignment-curation.json` contains the reviewed classification, explanation,
-related spec PR attribution, and SDK evidence association for each retained
-report. Generate the dashboard-ready artifact after updating its inputs:
+`alignment-curation.json` contains the reviewed classification, explicit root
+cause category and explanation, related spec PR attribution, and SDK evidence
+association for each retained report. Root cause distinguishes spec-authored
+contract changes from TypeSpec migrations, language-specific SDK
+surfaces, aggregated releases, unavailable mappings, and blocked assessments.
+For a release with SDK breaking changes but no TCGC candidate, classify an
+explicit TypeSpec migration first. If migration is excluded, attribute the
+difference to an aggregated SDK release when the breaking item is traced to
+another spec PR; use a language-specific category only when the current PR has
+direct evidence of causing that generated-language surface change.
+Generate the dashboard-ready artifact after updating its inputs:
 
 ```shell
 node scripts/generate-alignment-data.mjs

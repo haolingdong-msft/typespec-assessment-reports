@@ -1,13 +1,13 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "description": "Reviewed downstream SDK alignment classifications, evidence associations, explanations, and related spec PR attribution.",
   "reports": [
     {
       "pr": 44288,
       "service": "Microsoft.HorizonDb / HorizonDb",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "breaking",
@@ -20,14 +20,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/0fbeae2758a5c57823006edc4e04c33c10e30f43/sdk/horizondb/azure-resourcemanager-horizondb/CHANGELOG.md#L3-L130"
         }
       },
-      "reason": "Assessment and SDK changelogs identify the clusterName and result-model breaking changes. The SDK release also carries later changes, but the relevant findings align."
+      "reason": "Assessment and SDK changelogs identify the clusterName and result-model breaking changes. The SDK release also carries later changes, but the relevant findings align.",
+      "rootCauseCategory": "Spec contract change",
+      "rootCause": "The assessed spec directly changed the private-endpoint operation and supporting models: clusterName became a required method input, the update method was replaced, and helper models were removed. The Python and Java breaks are generated consequences of that contract change."
     },
     {
       "pr": 46679,
       "service": "Commvault.ContentStore.Management",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "breaking",
@@ -40,14 +42,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/cf933c24ed9c761566a5dd061effed8fe66c3dd1/sdk/commvaultcontentstore/azure-resourcemanager-commvaultcontentstore/CHANGELOG.md#L3-L82"
         }
       },
-      "reason": "Assessment and SDK changelogs identify the model and property breaks. Both SDK PRs were closed without merging, so this is generated-surface evidence rather than shipped-package evidence."
+      "reason": "Assessment and SDK changelogs identify the model and property breaks. Both SDK PRs were closed without merging, so this is generated-surface evidence rather than shipped-package evidence.",
+      "rootCauseCategory": "Spec contract change",
+      "rootCause": "The assessed spec directly renamed and removed model members, made response properties required, and replaced the CloudAccount update model. The Python and Java breaks are generated consequences of those TypeSpec changes."
     },
     {
       "pr": 44332,
       "service": "Microsoft.HorizonDb / HorizonDb",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "relatedPrs": [
         {
           "number": 44288,
@@ -66,14 +70,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/0fbeae2758a5c57823006edc4e04c33c10e30f43/sdk/horizondb/azure-resourcemanager-horizondb/CHANGELOG.md#L3-L130"
         }
       },
-      "reason": "Assessment reports the removal of the private-endpoint update method. Python and Java list the corresponding update rename or replacement. Additional delete-signature changes came from earlier #44288, while helper-model removals are grouped under the same root method change."
+      "reason": "Assessment reports the removal of the private-endpoint update method. Python and Java list the corresponding update rename or replacement. Additional delete-signature changes came from earlier #44288, while helper-model removals are grouped under the same root method change.",
+      "rootCauseCategory": "Spec contract change",
+      "rootCause": "The assessed spec removed or replaced the private-endpoint update operation, producing the matching SDK method removal or rename. The shared SDK release also repeats older #44288 changes, but those are secondary to the directly matched operation change."
     },
     {
       "pr": 44920,
       "service": "Microsoft.ContainerRegistry / ContainerRegistry",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "breaking",
@@ -86,7 +92,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/190c951ea54881396494b54de36a879f91ed04f3/sdk/containerregistry/azure-resourcemanager-containerregistry/CHANGELOG.md#L3-L46"
         }
       },
-      "reason": "Assessment and Java align on tokenId becoming optional. Python reports the same change plus additional Python-specific TypedDict removals."
+      "reason": "Assessment and Java align on tokenId becoming optional. Python reports the same change plus additional Python-specific TypedDict removals.",
+      "rootCauseCategory": "Spec contract change",
+      "rootCause": "The assessed spec made tokenId optional, and both assessment and SDK evidence reflect that requiredness relaxation. Python TypedDict removals are additional Python generator cleanup, not the root of the matched break."
     },
     {
       "pr": 44101,
@@ -94,7 +102,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Partially aligned; difference expected",
-      "reasonCategory": "Language-specific breaking change",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -107,7 +114,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/d8de280c22558371ba175c39b916b7f30f285439/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md#L3-L530"
         }
       },
-      "reason": "Python reports no breaking change. Java changes ResourceOperation from a class to an interface because the model becomes a paged-operation item, a Java Fluent-specific generation effect."
+      "reason": "Python reports no breaking change. Java changes ResourceOperation from a class to an interface because the model becomes a paged-operation item, a Java Fluent-specific generation effect.",
+      "rootCauseCategory": "Language-specific SDK generation",
+      "rootCause": "Paging-item generation changes Java ResourceOperation from a serializable model class to a Fluent interface and removes fromJson/toJson. Python and the neutral TCGC contract do not expose that Java-only representation."
     },
     {
       "pr": 44524,
@@ -115,7 +124,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Partially aligned; difference expected",
-      "reasonCategory": "Language-specific and aggregated SDK changes",
       "relatedPrs": [
         {
           "number": 44101,
@@ -134,7 +142,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/d8de280c22558371ba175c39b916b7f30f285439/sdk/compute/azure-resourcemanager-compute-bulkactions/CHANGELOG.md#L3-L530"
         }
       },
-      "reason": "Python lists no breaking change. Java's ResourceOperation class-to-interface break was triggered by earlier #44101. The #44524 assessment findings are C# customizations and an inferred error-model replacement, so they are not expected to appear consistently in Python or Java changelogs."
+      "reason": "Python lists no breaking change. Java's ResourceOperation class-to-interface break was triggered by earlier #44101. The #44524 assessment findings are C# customizations and an inferred error-model replacement, so they are not expected to appear consistently in Python or Java changelogs.",
+      "rootCauseCategory": "SDK release includes other spec changes",
+      "rootCause": "TCGC produced no downstream finding for #44524, while the Java breaking section repeats the ResourceOperation representation change triggered by earlier #44101. The mapped SDK release therefore contains a breaking change from another spec PR; the C#-specific #44524 findings are a separate language surface."
     },
     {
       "pr": 46008,
@@ -142,7 +152,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "reasonCategory": "SDK release contains changes from multiple spec PRs",
       "relatedPrs": [
         {
           "number": 44941,
@@ -165,7 +174,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/29ef7d99eb2169947d820881807fe98e95ef283a/sdk/relationships/azure-resourcemanager-relationships/CHANGELOG.md#L3-L57"
         }
       },
-      "reason": "The SDK breaking items were introduced by earlier spec changes. The SDK release aggregates multiple spec PRs, while assessment evaluates only #46008."
+      "reason": "The SDK breaking items were introduced by earlier spec changes. The SDK release aggregates multiple spec PRs, while assessment evaluates only #46008.",
+      "rootCauseCategory": "SDK release includes other spec changes",
+      "rootCause": "The SDK release breaking section reflects relationship-model changes introduced by earlier API-version PRs, especially #44941 and #45024. The PR-scoped assessment of #46008 does not contain those earlier changes."
     },
     {
       "pr": 43918,
@@ -173,21 +184,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "reasonCategory": "SDK release contains changes from multiple spec PRs",
-      "relatedPrs": [
-        {
-          "number": 35829,
-          "label": "2025-04-01-preview"
-        },
-        {
-          "number": 38919,
-          "label": "2025-08-01-preview"
-        },
-        {
-          "number": 39498,
-          "label": "2026-02-01-preview"
-        }
-      ],
       "sdkEvidence": {
         "python": {
           "state": "breaking",
@@ -200,14 +196,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/d71816d7db44736e8897f350b38c3057938acad7/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md#L3-L335"
         }
       },
-      "reason": "The stable SDK release repeats breaking items already recorded in earlier beta releases. Those items were not introduced by #43918."
+      "reason": "Python 4.0.0 explicitly links the listed method breaks to the operations migration and the model changes to hybrid-model migration. Java lists generated Fluent helper and overload removals. These changelog breaks are migration and generator effects rather than evidence that #43918 introduced a neutral downstream contract break.",
+      "rootCauseCategory": "TypeSpec migration",
+      "rootCause": "Python 4.0.0 explicitly attributes method breaks to the TypeSpec operations migration and model reshaping to the hybrid-model migration. Java lists Fluent generator removals such as validate methods and convenience overloads; these are migration-generated language surface changes, not neutral REST or TCGC breaks introduced by #43918."
     },
     {
       "pr": 44557,
       "service": "Microsoft.DocumentDB / MongoCluster",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -220,14 +218,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/86c5cd5d4773c5e8b8cc9ec306c43d63dbeaa910/sdk/mongocluster/azure-resourcemanager-mongocluster/CHANGELOG.md#L3-L12"
         }
       },
-      "reason": "Assessment reports no downstream breaking changes, and neither SDK changelog lists a breaking change."
+      "reason": "Assessment reports no downstream breaking changes, and neither SDK changelog lists a breaking change.",
+      "rootCauseCategory": "No downstream breaking change",
+      "rootCause": "The assessed spec change is additive for the generated Python and Java surfaces. Neither assessment nor either mapped changelog identifies a downstream compatibility break."
     },
     {
       "pr": 43757,
       "service": "Microsoft.StorageCache / StorageCache",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -240,14 +240,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/3d03eade0a40e4bf958de781c8b8f11897d188a2/sdk/storagecache/azure-resourcemanager-storagecache/CHANGELOG.md#L3-L39"
         }
       },
-      "reason": "Assessment reports no downstream breaking changes, and the SDK changelogs contain only additive operations and models."
+      "reason": "Assessment reports no downstream breaking changes, and the SDK changelogs contain only additive operations and models.",
+      "rootCauseCategory": "No downstream breaking change",
+      "rootCause": "The assessed operations and models are additive. The mapped Python and Java release entries contain no breaking section."
     },
     {
       "pr": 39064,
       "service": "Microsoft.StorageSync / StorageSync",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -260,7 +262,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/83e503e01bafb07287ad4c55ffcce74a94369fa3/sdk/storagesync/azure-resourcemanager-storagesync/CHANGELOG.md#L3-L9"
         }
       },
-      "reason": "Neither assessment nor the available SDK changelogs report a breaking change. Java is an initial release, so historical comparison is limited, but the observed evidence is aligned."
+      "reason": "Neither assessment nor the available SDK changelogs report a breaking change. Java is an initial release, so historical comparison is limited, but the observed evidence is aligned.",
+      "rootCauseCategory": "No downstream breaking change",
+      "rootCause": "The assessed change produces no neutral downstream break and the mapped Python release is additive. Java is an initial release, so it has no prior package baseline, but the available evidence contains no conflicting break."
     },
     {
       "pr": 42373,
@@ -280,7 +284,9 @@
           "url": null
         }
       },
-      "reason": "Assessment reports no downstream break, but no Python or Java management SDK release could be mapped to API 2026-04-01. The visible SDK releases predate this spec PR."
+      "reason": "Assessment reports no downstream break, but no Python or Java management SDK release could be mapped to API 2026-04-01. The visible SDK releases predate this spec PR.",
+      "rootCauseCategory": "SDK release association unavailable",
+      "rootCause": "No Python or Java management SDK release can be mapped to the assessed 2026-04-01 API. Without a target release entry, the assessment result cannot be compared to SDK changelog behavior."
     },
     {
       "pr": 43855,
@@ -300,7 +306,9 @@
           "url": null
         }
       },
-      "reason": "The three assessment findings are C#-only ResourceIdentifier alternate types. No defensible Python or Java SDK release mapping was found for API 2026-06-01."
+      "reason": "The three assessment findings are C#-only ResourceIdentifier alternate types. No defensible Python or Java SDK release mapping was found for API 2026-06-01.",
+      "rootCauseCategory": "SDK release association unavailable",
+      "rootCause": "The assessment findings are C# ResourceIdentifier alternate-type changes, and no Python or Java release can be mapped to the assessed 2026-06-01 API. There is no comparable language release evidence."
     },
     {
       "pr": 44200,
@@ -308,7 +316,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "reasonCategory": "Language-specific breaking change",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -321,7 +328,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/f8084ee3a9ec07f356869c1ed70cb9ef49965b95/sdk/servicenetworking/azure-resourcemanager-servicenetworking/CHANGELOG.md#L3-L176"
         }
       },
-      "reason": "Python is additive. Java records Fluent-surface removals, mainly validate methods and update-wrapper changes, that are not represented by the neutral downstream contract."
+      "reason": "Python is additive. Java records broad removal of generated validate methods and update-wrapper helpers caused by the TypeSpec-generated SDK migration rather than a neutral contract break in this PR.",
+      "rootCauseCategory": "TypeSpec migration",
+      "rootCause": "TCGC produced no downstream finding and Python is additive, while Java broadly removes generated validate methods and update-wrapper helpers. This repeated generator-surface pattern is attributable to the TypeSpec SDK migration, not to the assessed PR's neutral contract."
     },
     {
       "pr": 44334,
@@ -355,15 +364,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/33636956ee8b13fe21cd8af7b21da46325d69d01/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md#L3-L161"
         }
       },
-      "reason": "The assessment was blocked. Both SDK releases compare against an earlier package and aggregate intervening spec changes, so their breaking sections cannot be attributed to #44334 alone."
+      "reason": "The assessment was blocked. Both SDK releases compare against an earlier package and aggregate intervening spec changes, so their breaking sections cannot be attributed to #44334 alone.",
+      "rootCauseCategory": "Assessment blocked",
+      "rootCause": "The historical assessment lacks a completed downstream result. The mapped SDK releases also aggregate intervening spec changes, so their breaking sections cannot be attributed to this PR while the assessment is blocked."
     },
     {
       "pr": 44384,
       "service": "Microsoft.Storage / Storage",
-      "category": "expected",
-      "categoryLabel": "Expected difference",
-      "outcome": "Not aligned, but the difference is explained",
-      "reasonCategory": "Assessment inference not reflected in emitted SDKs",
+      "category": "aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -376,7 +386,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/a638d29e68f842319c51b0d517bcde34f4efdcc1/sdk/storage/azure-resourcemanager-storage/CHANGELOG.md#L3-L55"
         }
       },
-      "reason": "Assessment inferred that Encryption was renamed. Both emitted SDKs retain Encryption and add StorageAccountEncryption, so the inferred replacement is not corroborated by Python or Java."
+      "reason": "The current reassessment reports no downstream SDK breaking changes. Both emitted SDKs retain Encryption, add StorageAccountEncryption, and list no breaking changes.",
+      "rootCauseCategory": "No downstream breaking change",
+      "rootCause": "The reassessed neutral SDK contract and both generated language changelogs agree: Encryption remains available, StorageAccountEncryption is additive, and there is no downstream breaking change."
     },
     {
       "pr": 44586,
@@ -384,7 +396,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "reasonCategory": "Language-specific breaking change",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -397,14 +408,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/2415d1810550ae5fe88b09805b066b667b2182ab/sdk/fabric/azure-resourcemanager-fabric/CHANGELOG.md#L3-L61"
         }
       },
-      "reason": "Python is additive. Every Java breaking item is a removed generated validate method; the feature models and operations themselves are additions."
+      "reason": "Python is additive. Every Java breaking item is a removed generated validate method from the TypeSpec-generated SDK migration; the assessed feature models and operations themselves are additions.",
+      "rootCauseCategory": "TypeSpec migration",
+      "rootCause": "TCGC produced no downstream finding and the assessed API changes are additive, while Java removes only generated validate methods. The break is a TypeSpec SDK migration effect rather than a contract change introduced by this PR."
     },
     {
       "pr": 44598,
       "service": "Microsoft.ContainerService / AKS",
-      "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -417,7 +430,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/c860595433b2ca8135ab0fa953b6cdad98c4cf5c/sdk/containerservice/azure-resourcemanager-containerservice/CHANGELOG.md#L3-L31"
         }
       },
-      "reason": "Python and Java publish additive stable and preview releases with no breaking section, matching the assessment's zero downstream-breaking findings."
+      "reason": "TCGC reports that ManagedClusters.delete gains the optional ignore-pod-disruption-budget public parameter, changing the ordered language-neutral signature. Python and Java do not list this optional-parameter addition as breaking.",
+      "rootCauseCategory": "Language-specific SDK generation",
+      "rootCause": "The neutral TCGC contract treats the added optional delete parameter as a positional-signature compatibility risk. The generated Python and Java surfaces handle the optional input without recording a changelog break, so the language-specific compatibility result differs from the neutral contract."
     },
     {
       "pr": 44750,
@@ -437,7 +452,9 @@
           "url": null
         }
       },
-      "reason": "No defensible Python or Java management SDK release association was found for API 2026-07-01-preview."
+      "reason": "No defensible Python or Java management SDK release association was found for API 2026-07-01-preview.",
+      "rootCauseCategory": "SDK release association unavailable",
+      "rootCause": "No Python or Java management SDK release can be defensibly associated with the assessed 2026-07-01-preview API. Existing package releases target different API versions."
     },
     {
       "pr": 44842,
@@ -445,7 +462,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "reasonCategory": "Initial SDK release",
       "sdkEvidence": {
         "python": {
           "state": "initial",
@@ -458,7 +474,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/f5d28ea9ae9b87b139081be2fed6685aeb89c56e/sdk/migrate/azure-resourcemanager-migrate/CHANGELOG.md#L3-L8"
         }
       },
-      "reason": "Assessment identifies two removed response properties. Both SDK packages are initial releases, so no previous published SDK surface exists for the changelog to describe as breaking."
+      "reason": "Assessment identifies two removed response properties. Both SDK packages are initial releases, so no previous published SDK surface exists for the changelog to describe as breaking.",
+      "rootCauseCategory": "Initial SDK release has no comparison baseline",
+      "rootCause": "The assessment detects removals relative to the spec baseline, but both language packages are initial releases. With no previously published SDK surface, their changelogs cannot report a package-level breaking change."
     },
     {
       "pr": 44882,
@@ -466,7 +484,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "reasonCategory": "Language and generator migration",
       "sdkEvidence": {
         "python": {
           "state": "breaking",
@@ -479,7 +496,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/1572763d3909bad07e84e27416d245ec76a5a2e1/sdk/newrelicobservability/azure-resourcemanager-newrelicobservability/CHANGELOG.md#L3-L215"
         }
       },
-      "reason": "The SDK breaking notes are dominated by Python hybrid-model and keyword-only changes plus Java validation and representation changes, rather than a neutral TCGC contract change in this PR."
+      "reason": "Python explicitly documents TypeSpec hybrid-model and operations migrations, while Java lists Fluent validation and representation changes. The mapped SDK breaks are dominated by TypeSpec migration rather than a neutral TCGC contract change.",
+      "rootCauseCategory": "TypeSpec migration",
+      "rootCause": "Python explicitly identifies TypeSpec hybrid-model and operations migrations, including properties nesting and keyword-only method parameters. Java additionally changes Fluent validation and representation helpers; the dominant breaks are migration effects rather than a neutral TCGC delta in this PR."
     },
     {
       "pr": 44988,
@@ -487,7 +506,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Partially aligned; difference expected",
-      "reasonCategory": "Language-specific and aggregated SDK changes",
       "relatedPrs": [
         {
           "number": 44613,
@@ -506,7 +524,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/95490d336a28001cb8d4c15133fea6d9a3dbc84a/sdk/network/azure-resourcemanager-network/CHANGELOG.md#L3-L129"
         }
       },
-      "reason": "Python directly records the ServiceGateways update-method renames corresponding to assessed LRO changes. Java reports only additions. The Python release also includes the earlier initial-version PR #44613."
+      "reason": "Assessment and Python both record the ServiceGateways method renames caused by LRO generation. Java remains additive because its generated operation surface differs; #44613 broadens the release context but is not the primary cause.",
+      "rootCauseCategory": "Language-specific SDK generation",
+      "rootCause": "The assessed LRO changes produce method renames in Python, while the Java generated surface remains additive. The mismatch is primarily language-specific operation generation; the earlier #44613 only broadens the release context."
     },
     {
       "pr": 45167,
@@ -514,7 +534,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "reasonCategory": "Language-specific breaking change",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -527,7 +546,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/44d3bd6299c6ac1ce499d32f5bcff8a6472e6828/sdk/networkcloud/azure-resourcemanager-networkcloud/CHANGELOG.md#L3-L68"
         }
       },
-      "reason": "Java reports three Fluent definition-stage removals while Python reports no break. These Java builder-surface changes are not represented by the neutral downstream assessment."
+      "reason": "Java reports three Fluent definition-stage removals while Python reports no break. These Java builder-surface changes are not represented by the neutral downstream assessment.",
+      "rootCauseCategory": "Language-specific SDK generation",
+      "rootCause": "Java Fluent removes three definition-stage builder methods while Python reports no break. Those builder stages are Java-only generated conveniences outside the neutral downstream contract."
     },
     {
       "pr": 45197,
@@ -553,7 +574,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/097862362e1c37402a79c31e23a062437e37abee/sdk/redhatopenshifthcp/azure-resourcemanager-redhatopenshifthcp/CHANGELOG.md#L3-L10"
         }
       },
-      "reason": "The assessment was blocked. Both initial SDKs were generated after #45624 for a later API version, not for the assessed 2026-06-30-preview surface alone."
+      "reason": "The assessment was blocked. Both initial SDKs were generated after #45624 for a later API version, not for the assessed 2026-06-30-preview surface alone.",
+      "rootCauseCategory": "SDK targets a different API version",
+      "rootCause": "The assessment is blocked for 2026-06-30-preview, while both initial SDKs were generated after #45624 from 2026-09-01-preview. The SDK entries do not represent the assessed API surface."
     },
     {
       "pr": 45348,
@@ -579,14 +602,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/28a6f536c6446c106fc57589a67e16f6c6093db5/sdk/deviceregistry/azure-resourcemanager-deviceregistry/CHANGELOG.md#L3-L314"
         }
       },
-      "reason": "The SDK PRs emit stable 2026-11-01 from aggregate parent #45288, while the assessment isolates a 2026-11-02-preview child fix. The SDK breaking sections cannot be attributed to #45348 alone."
+      "reason": "The SDK PRs emit stable 2026-11-01 from aggregate parent #45288, while the assessment isolates a 2026-11-02-preview child fix. The SDK breaking sections cannot be attributed to #45348 alone.",
+      "rootCauseCategory": "SDK targets a different API version",
+      "rootCause": "The assessment isolates a 2026-11-02-preview child fix, but the SDK PRs emit stable 2026-11-01 from aggregate parent #45288. Their breaking sections describe a different, broader API input."
     },
     {
       "pr": 45395,
       "service": "Napster / Companion API",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -599,7 +624,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/684681dba8cbe4e3867d110f72d067fe82989854/sdk/napsteromniagentapi/azure-resourcemanager-napsteromniagentapi/CHANGELOG.md#L3-L10"
         }
       },
-      "reason": "Both exact-API generated changelogs contain no breaking changes, matching the assessment. The SDK PRs are not both merged, so this is generated rather than fully shipped evidence."
+      "reason": "Both exact-API generated changelogs contain no breaking changes, matching the assessment. The SDK PRs are not both merged, so this is generated rather than fully shipped evidence.",
+      "rootCauseCategory": "No downstream breaking change",
+      "rootCause": "Both SDKs were generated for the exact assessed API and contain no breaking section, matching the assessment. Publication state limits shipment evidence but does not create a contract mismatch."
     },
     {
       "pr": 45458,
@@ -619,7 +646,9 @@
           "url": null
         }
       },
-      "reason": "The spec project has no Python or Java emitter configuration, no downstream package surface was found, and the assessment was blocked."
+      "reason": "The spec project has no Python or Java emitter configuration, no downstream package surface was found, and the assessment was blocked.",
+      "rootCauseCategory": "No SDK surface configured",
+      "rootCause": "The TypeSpec project configures neither Python nor Java emitters and no language package surface exists. The blocked downstream assessment therefore has no SDK changelog counterpart."
     },
     {
       "pr": 45608,
@@ -627,7 +656,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "reasonCategory": "Language-specific and aggregated SDK changes",
       "relatedPrs": [
         {
           "number": 40252,
@@ -654,7 +682,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/securityinsights/azure-resourcemanager-securityinsights/CHANGELOG.md#L13-L47"
         }
       },
-      "reason": "All ten assessment findings are C# client-name or alternate-type changes, so they are not expected in Python or Java. The SDK releases also aggregate other API-version and migration changes."
+      "reason": "All ten assessment findings are C# client-name or alternate-type changes, so they are not expected in Python or Java. The SDK releases also aggregate other API-version and migration changes.",
+      "rootCauseCategory": "Assessment and SDK compare different language surfaces",
+      "rootCause": "The assessment findings are C# client-name and alternate-type customizations, while Python and Java changelogs describe their own return-type, wrapper, and API-version changes. The evidence compares different language surfaces and release scopes."
     },
     {
       "pr": 45678,
@@ -662,7 +692,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "reasonCategory": "Runtime behavior not represented in changelog",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -675,7 +704,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/containerservicefleet/azure-resourcemanager-containerservicefleet/CHANGELOG.md#L13-L155"
         }
       },
-      "reason": "The assessment finding concerns an LRO final-state GET destination. That is runtime polling behavior, not a public type or signature change normally listed in generated SDK changelogs."
+      "reason": "The assessment finding concerns an LRO final-state GET destination. That is runtime polling behavior, not a public type or signature change normally listed in generated SDK changelogs.",
+      "rootCauseCategory": "Runtime behavior omitted from changelog",
+      "rootCause": "The assessment finding changes the LRO final-state GET destination. That polling behavior can affect runtime semantics without changing the public methods or models normally enumerated in generated SDK changelogs."
     },
     {
       "pr": 45714,
@@ -683,7 +714,6 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Partially aligned; difference expected",
-      "reasonCategory": "Language-specific mitigation",
       "relatedPrs": [
         {
           "number": 46662,
@@ -702,14 +732,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/oracledatabase/azure-resourcemanager-oracledatabase/CHANGELOG.md#L13-L270"
         }
       },
-      "reason": "Python confirms the hostname and scanDnsName removals found by the assessment. Java was generated after #46662 deliberately preserved those members, so no Java breaking changes remained."
+      "reason": "Python confirms the hostname and scanDnsName removals found by the assessment. Java was generated after #46662 deliberately preserved those members, so no Java breaking changes remained.",
+      "rootCauseCategory": "Language-specific compatibility mitigation",
+      "rootCause": "The spec removal reaches Python and matches the assessment, but later #46662 adds Java-specific compatibility preservation before Java generation. Java therefore retains members that Python removes."
     },
     {
       "pr": 45760,
       "service": "Microsoft.ServiceFabric / Managed Clusters",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -722,7 +754,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/servicefabricmanagedclusters/azure-resourcemanager-servicefabricmanagedclusters/CHANGELOG.md#L13-L17"
         }
       },
-      "reason": "The PR only adds C# names intended to preserve .NET compatibility. Python and Java regeneration entries contain no breaking section."
+      "reason": "The PR only adds C# names intended to preserve .NET compatibility. Python and Java regeneration entries contain no breaking section.",
+      "rootCauseCategory": "No downstream breaking change",
+      "rootCause": "The PR adds C# naming metadata to preserve .NET compatibility and does not change the neutral Python or Java surface. Both regeneration entries contain no breaking section."
     },
     {
       "pr": 45794,
@@ -742,14 +776,16 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/edgeoperator/azure-resourcemanager-edgeoperator/CHANGELOG.md#L3-L8"
         }
       },
-      "reason": "Both SDKs are initial releases, but the assessment was blocked by unavailable compiler, AutoRest, and TCGC baselines. There is no assessed downstream result to compare."
+      "reason": "Both SDKs are initial releases, but the assessment was blocked by unavailable compiler, AutoRest, and TCGC baselines. There is no assessed downstream result to compare.",
+      "rootCauseCategory": "Assessment blocked",
+      "rootCause": "Compiler, AutoRest, and TCGC baseline artifacts are unavailable, so no downstream assessment result exists. Initial SDK releases also have no prior package baseline for comparison."
     },
     {
       "pr": 46075,
       "service": "Microsoft.StorageDiscovery / StorageDiscovery",
       "category": "aligned",
-      "categoryLabel": "Aligned",
-      "outcome": "Aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkEvidence": {
         "python": {
           "state": "clear",
@@ -762,7 +798,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/9d720c4089c6d1885fdb9767b5c1ea08e186526d/sdk/storagediscovery/azure-resourcemanager-storagediscovery/CHANGELOG.md#L13-L46"
         }
       },
-      "reason": "Both changelogs contain additive capability models and properties only, matching the assessment's zero downstream-breaking findings."
+      "reason": "Both changelogs contain additive capability models and properties only, matching the assessment's zero downstream-breaking findings.",
+      "rootCauseCategory": "No downstream breaking change",
+      "rootCause": "The assessed capability models and properties are additive, and both mapped SDK changelogs list additions only."
     },
     {
       "pr": 46429,
@@ -782,7 +820,9 @@
           "url": "https://github.com/Azure/azure-sdk-for-java/blob/c33edd18a14fd29ee4be096d0c22baf20c5adc00/sdk/deviceregistry/azure-resourcemanager-deviceregistry-softwareupdate/CHANGELOG.md#L3-L8"
         }
       },
-      "reason": "The assessment was blocked, and neither SDK PR is merged or published. The exact generated mappings are provisional initial-release evidence only."
+      "reason": "The assessment was blocked, and neither SDK PR is merged or published. The exact generated mappings are provisional initial-release evidence only.",
+      "rootCauseCategory": "Assessment blocked",
+      "rootCause": "The historical assessment could not produce required downstream artifacts, and both SDK PRs remain provisional initial releases. There is neither a completed assessment nor a published prior SDK baseline."
     }
   ]
 }
