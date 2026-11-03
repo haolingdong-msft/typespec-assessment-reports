@@ -53,22 +53,38 @@ for (const report of alignmentData.reports) {
   assert(typeof report.rootCauseCategory === "string", `PR #${report.pr} is missing a root cause category.`);
   assert(typeof report.rootCause === "string", `PR #${report.pr} is missing a root cause.`);
   assert(
-    typeof report.sdkReleaseIncludesOtherSpecPrs === "boolean",
-    `PR #${report.pr} is missing the SDK release aggregation flag.`,
+    typeof report.sdkReleaseIncludesSameApiVersionSpecPrs === "boolean",
+    `PR #${report.pr} is missing the same-version SDK release aggregation flag.`,
   );
   assert(
-    report.sdkReleaseIncludesOtherSpecPrs === Boolean(report.relatedPrs?.length),
-    `PR #${report.pr} has inconsistent SDK release aggregation data.`,
+    report.sdkReleaseIncludesSameApiVersionSpecPrs === Boolean(report.sameApiVersionRelatedPrs?.length),
+    `PR #${report.pr} has inconsistent same-version SDK release aggregation data.`,
   );
+  for (const related of report.sameApiVersionRelatedPrs ?? []) {
+    assert(typeof related.apiVersion === "string" && related.apiVersion.length > 0, `PR #${report.pr} has a same-version relation without an API version.`);
+    assert(
+      report.relatedPrs?.some((candidate) => candidate.number === related.number),
+      `PR #${report.pr} same-version relation #${related.number} is missing from related PR context.`,
+    );
+  }
   assert(report.findings && report.python && report.java, `PR #${report.pr} is missing dashboard data.`);
   categories[report.category] += 1;
-  aggregatedSdkReleaseCount += Number(report.sdkReleaseIncludesOtherSpecPrs);
+  aggregatedSdkReleaseCount += Number(report.sdkReleaseIncludesSameApiVersionSpecPrs);
 }
 
 assert(
   categories.aligned === 11 && categories.expected === 14 && categories.unknown === 9,
   `Unexpected category totals: ${JSON.stringify(categories)}.`,
 );
-assert(aggregatedSdkReleaseCount === 9, `Expected 9 aggregated SDK releases, found ${aggregatedSdkReleaseCount}.`);
+assert(aggregatedSdkReleaseCount === 3, `Expected 3 same-version aggregated SDK releases, found ${aggregatedSdkReleaseCount}.`);
+assert(
+  JSON.stringify(
+    alignmentData.reports
+      .filter((report) => report.sdkReleaseIncludesSameApiVersionSpecPrs)
+      .map((report) => report.pr)
+      .sort((left, right) => left - right),
+  ) === JSON.stringify([44524, 44988, 46008]),
+  "Unexpected same-version SDK aggregation PR set.",
+);
 
 console.log("Dashboard data contract is valid.");

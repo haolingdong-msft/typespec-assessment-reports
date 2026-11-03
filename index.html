@@ -937,8 +937,8 @@
             <span class="filter-label">SDK release scope</span>
             <div class="filters" id="sdk-release-filters">
               <button class="filter active" id="all-sdk-releases-filter" data-sdk-release-filter="all" disabled>All releases</button>
-              <button class="filter" id="aggregated-sdk-releases-filter" data-sdk-release-filter="aggregated" disabled>Aggregates other spec PRs</button>
-              <button class="filter" id="unattributed-sdk-releases-filter" data-sdk-release-filter="unattributed" disabled>No attributed aggregation</button>
+              <button class="filter" id="aggregated-sdk-releases-filter" data-sdk-release-filter="aggregated" disabled>Aggregates same-version spec PRs</button>
+              <button class="filter" id="unattributed-sdk-releases-filter" data-sdk-release-filter="unattributed" disabled>No same-version aggregation</button>
             </div>
           </div>
         </div>
@@ -1054,15 +1054,15 @@
         const categoryMatch = activeFilter === "all" || report.category === activeFilter;
         const sdkReleaseMatch =
           activeSdkReleaseFilter === "all" ||
-          (activeSdkReleaseFilter === "aggregated" && report.sdkReleaseIncludesOtherSpecPrs) ||
-          (activeSdkReleaseFilter === "unattributed" && !report.sdkReleaseIncludesOtherSpecPrs);
+          (activeSdkReleaseFilter === "aggregated" && report.sdkReleaseIncludesSameApiVersionSpecPrs) ||
+          (activeSdkReleaseFilter === "unattributed" && !report.sdkReleaseIncludesSameApiVersionSpecPrs);
         const haystack = [
           report.pr,
           report.service,
           report.categoryLabel,
-          report.sdkReleaseIncludesOtherSpecPrs
-            ? "SDK release includes other spec PRs aggregated release"
-            : "No attributed SDK release aggregation",
+          report.sdkReleaseIncludesSameApiVersionSpecPrs
+            ? "SDK release includes same API version spec PRs aggregated release"
+            : "No same API version SDK release aggregation",
           report.rootCauseCategory,
           report.rootCause,
           ...(report.relatedPrs || []).flatMap((pr) => [pr.number, pr.label]),
@@ -1112,10 +1112,22 @@
             <p class="outcome ${report.category}">${esc(report.outcome)}</p>
             <p class="root-cause"><strong>Root cause</strong>${esc(report.rootCause)}</p>
             <p class="reason">${esc(report.reason)}</p>
-            ${report.relatedPrs?.length ? `
+            ${report.sameApiVersionRelatedPrs?.length ? `
               <div class="included-prs">
-                <span>SDK release also includes spec PRs</span>
-                ${report.relatedPrs.map((pr) => `
+                <span>Same API version spec PRs in SDK release</span>
+                ${report.sameApiVersionRelatedPrs.map((pr) => `
+                  <a href="https://github.com/Azure/azure-rest-api-specs/pull/${pr.number}" target="_blank" rel="noreferrer">#${pr.number} ${esc(pr.label)} (${esc(pr.apiVersion)})</a>
+                `).join("")}
+              </div>
+            ` : ""}
+            ${report.relatedPrs?.some((pr) =>
+              !report.sameApiVersionRelatedPrs?.some((sameVersionPr) => sameVersionPr.number === pr.number)
+            ) ? `
+              <div class="included-prs">
+                <span>Other related spec PR context</span>
+                ${report.relatedPrs.filter((pr) =>
+                  !report.sameApiVersionRelatedPrs?.some((sameVersionPr) => sameVersionPr.number === pr.number)
+                ).map((pr) => `
                   <a href="https://github.com/Azure/azure-rest-api-specs/pull/${pr.number}" target="_blank" rel="noreferrer">#${pr.number} ${esc(pr.label)}</a>
                 `).join("")}
               </div>
@@ -1169,9 +1181,9 @@
       document.querySelector("#unknown-count").textContent = counts.unknown;
       reportTotal.textContent = `${reports.length} reports`;
       allFilter.textContent = `All ${reports.length}`;
-      const aggregatedCount = reports.filter((report) => report.sdkReleaseIncludesOtherSpecPrs).length;
-      aggregatedSdkReleasesFilter.textContent = `Aggregates other spec PRs ${aggregatedCount}`;
-      unattributedSdkReleasesFilter.textContent = `No attributed aggregation ${reports.length - aggregatedCount}`;
+      const aggregatedCount = reports.filter((report) => report.sdkReleaseIncludesSameApiVersionSpecPrs).length;
+      aggregatedSdkReleasesFilter.textContent = `Aggregates same-version spec PRs ${aggregatedCount}`;
+      unattributedSdkReleasesFilter.textContent = `No same-version aggregation ${reports.length - aggregatedCount}`;
       allSdkReleasesFilter.textContent = `All releases ${reports.length}`;
     }
 
@@ -1195,7 +1207,7 @@
           !report.findings ||
           !report.python ||
           !report.java ||
-          typeof report.sdkReleaseIncludesOtherSpecPrs !== "boolean" ||
+          typeof report.sdkReleaseIncludesSameApiVersionSpecPrs !== "boolean" ||
           typeof report.rootCauseCategory !== "string" ||
           typeof report.rootCause !== "string"
         ) {

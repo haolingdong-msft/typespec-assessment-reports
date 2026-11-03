@@ -165,6 +165,29 @@ async function buildAlignmentData() {
       relatedNumbers.add(related.number);
     }
 
+    const sameApiVersionRelatedPrs = curated.sameApiVersionRelatedPrs ?? [];
+    const sameApiVersionRelatedNumbers = new Set();
+    for (const related of sameApiVersionRelatedPrs) {
+      assert(Number.isInteger(related.number), `PR #${curated.pr} has an invalid same-version related PR number.`);
+      assert(
+        relatedNumbers.has(related.number),
+        `PR #${curated.pr} same-version related PR #${related.number} is missing from relatedPrs.`,
+      );
+      assert(
+        !sameApiVersionRelatedNumbers.has(related.number),
+        `PR #${curated.pr} repeats same-version related PR #${related.number}.`,
+      );
+      assert(
+        typeof related.label === "string" && related.label.length > 0,
+        `PR #${curated.pr} has an unlabeled same-version related PR.`,
+      );
+      assert(
+        typeof related.apiVersion === "string" && related.apiVersion.length > 0,
+        `PR #${curated.pr} same-version related PR #${related.number} is missing an API version.`,
+      );
+      sameApiVersionRelatedNumbers.add(related.number);
+    }
+
     const pythonReportEvidence = report.changelog?.python ?? {};
     const javaReportEvidence = report.changelog?.java ?? {};
     const pythonDetails = pythonReportEvidence.evidenceId
@@ -181,7 +204,7 @@ async function buildAlignmentData() {
       category: curated.category,
       categoryLabel: curated.categoryLabel,
       outcome: curated.outcome,
-      sdkReleaseIncludesOtherSpecPrs: relatedPrs.length > 0,
+      sdkReleaseIncludesSameApiVersionSpecPrs: sameApiVersionRelatedPrs.length > 0,
       rootCauseCategory: curated.rootCauseCategory,
       rootCause: curated.rootCause,
       coverage: publication.coverage,
@@ -212,6 +235,7 @@ async function buildAlignmentData() {
         javaDetails,
       ),
       ...(relatedPrs.length > 0 ? { relatedPrs } : {}),
+      ...(sameApiVersionRelatedPrs.length > 0 ? { sameApiVersionRelatedPrs } : {}),
       reason: curated.reason,
     };
   });
