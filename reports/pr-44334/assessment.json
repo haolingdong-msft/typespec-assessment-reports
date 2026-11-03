@@ -1,9 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-30T08:21:06.747Z",
+  "assessmentMode": "full",
+  "generatedAt": "2026-11-03T03:56:08.605Z",
   "title": "TypeSpec assessment: specification/cognitiveservices/CognitiveServices.Management",
   "repository": {
-    "root": "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\latest-assessment-stack",
+    "root": "C:\\workspace\\azure-rest-api-specs",
     "remoteUrl": "https://github.com/Azure/azure-rest-api-specs.git"
   },
   "pullRequest": {
@@ -74,7 +75,7 @@
       }
     }
   ],
-  "confidence": "low",
+  "confidence": "high",
   "safety": {
     "scope": "rest-and-downstream-only",
     "status": "not-assessed",
@@ -705,7 +706,7 @@
           },
           "intentType": "normal",
           "title": "Add managed compute usage listing",
-          "summary": "Adds a managed compute usage list operation for the new preview API.",
+          "summary": "Adds the versioned managed-compute usage list operation.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -32761,7 +32762,7 @@
           },
           "intentType": "normal",
           "title": "Add Arc deployment resources",
-          "summary": "Adds the ArcDeployment proxy resource, its models and SKU, and create, read, update, delete, and list operations backed by customer-managed Arc-enabled Kubernetes resources.",
+          "summary": "Adds the Arc deployment proxy resource, supporting models, and standard lifecycle operations.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -32811,7 +32812,7 @@
               "requestId": "inference-request-631fe34fb285b497",
               "hunkId": "hunk-ad18fd8829111b55",
               "decision": "no-impact",
-              "rationale": "The ArcDeployment resource, models, and operations are newly introduced for the preview version, so they do not alter an existing REST or language-neutral SDK contract.",
+              "rationale": "ArcDeployment and its lifecycle operations are additive in the new preview version and do not remove or narrow an existing REST or neutral SDK contract.",
               "candidateIds": []
             }
           ],
@@ -38365,8 +38366,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Customize the C# logging property name",
-          "summary": "Maps the newly added a365LoggingEnabled property to IsA365LoggingEnabled in C#.",
+          "title": "Customize C# A365 logging name",
+          "summary": "Renames the C# SDK property to IsA365LoggingEnabled without changing the neutral contract.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -38401,7 +38402,7 @@
               "requestId": "inference-request-91d8159a5015c645",
               "hunkId": "hunk-24842d5d3fddd15e",
               "decision": "no-impact",
-              "rationale": "The C# client name applies to the newly added a365LoggingEnabled property, so it does not rename an existing generated SDK member.",
+              "rationale": "The @@clientName change is scoped to C# and does not alter the REST contract or neutral cross-language SDK surface.",
               "candidateIds": []
             }
           ],
@@ -41902,8 +41903,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add workbench retrieval",
-          "summary": "Adds the Workbench model and resource retrieval operation for the new preview API.",
+          "title": "Add workbench resources",
+          "summary": "Adds the versioned workbench resource and lifecycle operations.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -44230,8 +44231,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add account capabilities and deployment policy evaluation",
-          "summary": "Adds agent-hosting and capability settings to accounts and an action that evaluates deployment policies.",
+          "title": "Add account hosting and policy evaluation",
+          "summary": "Adds account hosting configuration models, capability settings, and deployment-policy evaluation.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -113044,8 +113045,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Expand compute, deployment, policy, and network models",
-          "summary": "Adds preview-only account flags, compute and managed-deployment models, deployment policy evaluation shapes, egress policy models, workbench properties, and related enum values.",
+          "title": "Expand Cognitive Services models",
+          "summary": "Adds versioned compute, deployment, policy, connectivity, logging, and auto-upgrade model members.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -131577,8 +131578,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add compute operation status retrieval",
-          "summary": "Adds compute operation status models and a get operation for the new preview API.",
+          "title": "Add compute operation status",
+          "summary": "Adds the compute operation-status model and retrieval operation.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -133730,8 +133731,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add managed compute capacity listing",
-          "summary": "Adds managed compute capacity data and its list operation.",
+          "title": "Add managed compute capacities listing",
+          "summary": "Adds the managed-compute capacity model and list operation.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -137881,8 +137882,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add managed compute deployment retrieval",
-          "summary": "Adds the managed compute deployment resource shape and retrieval operation.",
+          "title": "Add managed compute deployments",
+          "summary": "Adds the managed-compute deployment resource and lifecycle operations.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -140680,8 +140681,8 @@
             ]
           },
           "intentType": "normal",
-          "title": "Add compute retrieval",
-          "summary": "Adds the compute resource shape and retrieval operation.",
+          "title": "Add compute resources",
+          "summary": "Adds the compute resource and lifecycle operations.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -143309,20 +143310,6 @@
         "catalogRanking": [
           {
             "rank": 1,
-            "catalogOrder": 1,
-            "title": "Evolving APIs",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-            "score": {
-              "exactSymbol": 4,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 10
-            },
-            "selectionRationale": "Directly governs extensive @added changes in an existing versioned ARM API."
-          },
-          {
-            "rank": 2,
             "catalogOrder": 7,
             "title": "ARM resource types and modeling",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
@@ -143330,13 +143317,13 @@
               "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 10
+              "changeContext": 0,
+              "total": 9
             },
-            "selectionRationale": "Directly governs the new ProxyResource and other ARM resource shapes."
+            "selectionRationale": "The changes add ProxyResource and tracked ARM resource models using ResourceNameParameter."
           },
           {
-            "rank": 3,
+            "rank": 2,
             "catalogOrder": 12,
             "title": "ARM resource operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
@@ -143344,13 +143331,41 @@
               "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 10
+              "changeContext": 0,
+              "total": 9
             },
-            "selectionRationale": "Directly governs the added ARM read, list, lifecycle, and action operations."
+            "selectionRationale": "The changes add standard ARM read, create, update, delete, and list operation templates."
+          },
+          {
+            "rank": 3,
+            "catalogOrder": 1,
+            "title": "Evolving APIs",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "The intents add resources, operations, models, and properties to an existing versioned ARM API."
           },
           {
             "rank": 4,
+            "catalogOrder": 2,
+            "title": "Versioning overview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "The changes introduce the 2026-07-15-preview API after a stable version."
+          },
+          {
+            "rank": 5,
             "catalogOrder": 5,
             "title": "Add preview after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
@@ -143361,66 +143376,38 @@
               "changeContext": 1,
               "total": 6
             },
-            "selectionRationale": "Matches adding a preview version after the latest stable API version."
+            "selectionRationale": "The new API is a preview added after the 2026-07-01 stable version."
           },
           {
-            "rank": 5,
+            "rank": 6,
             "catalogOrder": 21,
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 0,
-              "changeContext": 1,
-              "total": 4
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
             },
-            "selectionRationale": "Relevant to the many added request and response models."
+            "selectionRationale": "Many intents add ARM request, response, resource, and supporting models."
           },
           {
-            "rank": 6,
+            "rank": 7,
             "catalogOrder": 22,
             "title": "Enums",
             "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 3,
-              "servicePlane": 0,
-              "changeContext": 1,
-              "total": 4
-            },
-            "selectionRationale": "Relevant to added enum members and extensible unions."
-          },
-          {
-            "rank": 7,
-            "catalogOrder": 24,
-            "title": "Decorators",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 3
+              "total": 5
             },
-            "selectionRationale": "General decorator guidance is relevant but does not directly govern language-specific client naming."
+            "selectionRationale": "The model additions include new service-facing union and enum values."
           },
           {
             "rank": 8,
-            "catalogOrder": 2,
-            "title": "Versioning overview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
-          },
-          {
-            "rank": 9,
             "catalogOrder": 3,
             "title": "Add preview after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
@@ -143431,10 +143418,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 10,
+            "rank": 9,
             "catalogOrder": 4,
             "title": "Add stable after preview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
@@ -143445,10 +143432,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 11,
+            "rank": 10,
             "catalogOrder": 6,
             "title": "Add stable after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
@@ -143459,10 +143446,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 12,
+            "rank": 11,
             "catalogOrder": 8,
             "title": "Specific extension resource sample",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
@@ -143473,10 +143460,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 13,
+            "rank": 12,
             "catalogOrder": 9,
             "title": "Private endpoints",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
@@ -143487,10 +143474,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 14,
+            "rank": 13,
             "catalogOrder": 10,
             "title": "Private links",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
@@ -143501,10 +143488,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 15,
+            "rank": 14,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
@@ -143515,10 +143502,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 16,
+            "rank": 15,
             "catalogOrder": 13,
             "title": "Azure.ResourceManager interface reference",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
@@ -143529,10 +143516,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 17,
+            "rank": 16,
             "catalogOrder": 14,
             "title": "TypeSpec.Rest decorators",
             "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
@@ -143543,10 +143530,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 18,
+            "rank": 17,
             "catalogOrder": 15,
             "title": "Azure.ResourceManager decorators",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
@@ -143557,10 +143544,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 19,
+            "rank": 18,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
@@ -143571,10 +143558,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 20,
+            "rank": 19,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -143585,10 +143572,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 21,
+            "rank": 20,
             "catalogOrder": 18,
             "title": "Azure.ResourceManager data types",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
@@ -143599,10 +143586,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 22,
+            "rank": 21,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -143613,10 +143600,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 23,
+            "rank": 22,
             "catalogOrder": 20,
             "title": "ARM common types",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
@@ -143627,10 +143614,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
-            "rank": 24,
+            "rank": 23,
             "catalogOrder": 23,
             "title": "Scalars",
             "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
@@ -143641,7 +143628,21 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
+          },
+          {
+            "rank": 24,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 0,
+              "changeContext": 0,
+              "total": 0
+            },
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
             "rank": 25,
@@ -143655,7 +143656,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
             "rank": 26,
@@ -143669,7 +143670,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
             "rank": 27,
@@ -143683,7 +143684,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
             "rank": 28,
@@ -143697,7 +143698,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
             "rank": 29,
@@ -143711,7 +143712,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
             "rank": 30,
@@ -143725,7 +143726,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           },
           {
             "rank": 31,
@@ -143739,30 +143740,560 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "No direct match for the assessed Cognitive Services preview additions."
+            "selectionRationale": "No changed Semantic intent requires this document."
           }
         ],
         "documents": [
           {
             "rank": 1,
-            "catalogOrder": 1,
-            "title": "Evolving APIs",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+            "catalogOrder": 7,
+            "title": "ARM resource types and modeling",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
             "score": {
               "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 10
+              "changeContext": 0,
+              "total": 9
             },
-            "selectionRationale": "Directly governs extensive @added changes in an existing versioned ARM API.",
+            "selectionRationale": "The changes add ProxyResource and tracked ARM resource models using ResourceNameParameter.",
             "guidance": [
               {
-                "section": "Versioning Decorators",
-                "excerpt": "You can add new models, properties, or operations in a specific version and all subsequent versions using the @added decorator.",
+                "section": "Modeling Resources in TypeSpec",
+                "excerpt": "ARM resources are modeled by choosing the appropriate base resource type, defining service-specific properties, and using the standard resource name parameter.",
+                "queryTerms": [
+                  "ProxyResource",
+                  "TrackedResource",
+                  "ResourceNameParameter"
+                ],
+                "examples": [
+                  "model Employee is TrackedResource<EmployeeProperties> {\n  ...ResourceNameParameter<Employee>;\n}"
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-06c12c40f6cecb7b",
+                  "declaration-06ea54a36177f9f2",
+                  "declaration-07871200b960cf31",
+                  "declaration-07a2e718cdc8a6df",
+                  "declaration-07aa26983729f9a3",
+                  "declaration-09b24f2d357176ba",
+                  "declaration-0b6e609770f9c726",
+                  "declaration-0e7846df28db5352",
+                  "declaration-151c98d44961d5c4",
+                  "declaration-16a1f0d5ed9fbdc9",
+                  "declaration-1dfd52b373a6b867",
+                  "declaration-265b1a175f573134",
+                  "declaration-27d18f0423afa2d6",
+                  "declaration-2f1e9b90b92f7351",
+                  "declaration-3730761d6e96b70a",
+                  "declaration-44927f76342bb037",
+                  "declaration-4c7003d701aa1593",
+                  "declaration-4d040b19c8df380b",
+                  "declaration-4f8ea65851debd0c",
+                  "declaration-50896e3292a894fb",
+                  "declaration-57c711a7546a952b",
+                  "declaration-57e8c3d9be84d9ec",
+                  "declaration-5b7bff03e1c44841",
+                  "declaration-5f58e48284157b03",
+                  "declaration-606c1cdb83b96ae1",
+                  "declaration-6294c49dbe842d1b",
+                  "declaration-629d455436bee9bd",
+                  "declaration-658c64bfd719605f",
+                  "declaration-682a0a3d71b15781",
+                  "declaration-686f273b6b396bb0",
+                  "declaration-6cec55fb9f0eb54d",
+                  "declaration-6f5d6e60ca896b96",
+                  "declaration-74e996beaf632f0c",
+                  "declaration-78d7f0645dc4ef9b",
+                  "declaration-7c25250af700d63a",
+                  "declaration-7e91448a618daa87",
+                  "declaration-803deffba2f0b3e0",
+                  "declaration-85304acf439f4b50",
+                  "declaration-8534ff14fbc8a983",
+                  "declaration-88e2ff3403370f0d",
+                  "declaration-9359781e31e2f252",
+                  "declaration-957143c71956e524",
+                  "declaration-978d0d90e440f3b6",
+                  "declaration-9ad7c9f2b681534e",
+                  "declaration-9be85ac1568eb754",
+                  "declaration-9e29d77fd3712aa9",
+                  "declaration-9f7d5d185e57b31f",
+                  "declaration-a134d32c35843f1a",
+                  "declaration-a70b96ca8cd96b87",
+                  "declaration-b0ef90b455e01314",
+                  "declaration-b14f0fd3f448df78",
+                  "declaration-b5b141bfad229378",
+                  "declaration-b8ecacf84f1963f7",
+                  "declaration-b98f17f5cd450417",
+                  "declaration-bd7e5834c545eaba",
+                  "declaration-c5127e34671143e7",
+                  "declaration-c79f6c1ef53ee4f6",
+                  "declaration-c8745c41430c8646",
+                  "declaration-c9558feec781249a",
+                  "declaration-d09ed3ab4beb926d",
+                  "declaration-d5fbb7c454f2d01d",
+                  "declaration-d8c876cebf7a5037",
+                  "declaration-d93a2d15acd011da",
+                  "declaration-d985f42a1ed9a72a",
+                  "declaration-d9cf3a0384b74c0e",
+                  "declaration-da4f95800a0bb420",
+                  "declaration-dbdb73e8b9da497c",
+                  "declaration-dcc0a060728e008e",
+                  "declaration-e375ba9d6720941f",
+                  "declaration-e5c9085951bbd37f",
+                  "declaration-eedba5efcd79a9da",
+                  "declaration-f00da31a63495714",
+                  "declaration-f183ad37d25b97a0",
+                  "declaration-f2266580ac65c3d3",
+                  "declaration-f359653602f13b48",
+                  "declaration-f3aab99d0c790910",
+                  "declaration-f73c1c59d6fb26cc",
+                  "declaration-fc7dbd0126c0efdc",
+                  "declaration-fd25dc21c0d73f80",
+                  "declaration-fd4ee21442bca9fb"
+                ]
+              }
+            ],
+            "noRelevantGuidance": false,
+            "retrievedAt": "2026-11-03T03:55:50.319Z",
+            "contentHash": "sha256:a6f16fa954f546feca184ed65d32460f1e9513a5f511634d7416b43fa552d650"
+          },
+          {
+            "rank": 2,
+            "catalogOrder": 12,
+            "title": "ARM resource operations",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 9
+            },
+            "selectionRationale": "The changes add standard ARM read, create, update, delete, and list operation templates.",
+            "guidance": [
+              {
+                "section": "Recommended and Required Operations",
+                "excerpt": "ARM resources use the standard read, create or update, patch, delete, and list operation templates appropriate to the resource.",
+                "queryTerms": [
+                  "ArmResourceRead",
+                  "ArmResourceCreateOrReplaceAsync",
+                  "ArmResourceListByParent"
+                ],
+                "examples": [],
+                "applicableDeclarationIds": [
+                  "declaration-06c12c40f6cecb7b",
+                  "declaration-06ea54a36177f9f2",
+                  "declaration-07871200b960cf31",
+                  "declaration-07a2e718cdc8a6df",
+                  "declaration-07aa26983729f9a3",
+                  "declaration-09b24f2d357176ba",
+                  "declaration-0b6e609770f9c726",
+                  "declaration-0d57645b226ac68b",
+                  "declaration-0e7846df28db5352",
+                  "declaration-151c98d44961d5c4",
+                  "declaration-16a1f0d5ed9fbdc9",
+                  "declaration-187fa3c8877b7025",
+                  "declaration-1dfd52b373a6b867",
+                  "declaration-2171ae8412f7cb84",
+                  "declaration-2221187f1626e0c7",
+                  "declaration-265b1a175f573134",
+                  "declaration-27d18f0423afa2d6",
+                  "declaration-2cd9ea2e304b57e3",
+                  "declaration-2cdea853ec429680",
+                  "declaration-2f1e9b90b92f7351",
+                  "declaration-3730761d6e96b70a",
+                  "declaration-395b7836a1deae80",
+                  "declaration-44927f76342bb037",
+                  "declaration-4c7003d701aa1593",
+                  "declaration-4d040b19c8df380b",
+                  "declaration-4e2d7c75e9b61cbb",
+                  "declaration-4f8ea65851debd0c",
+                  "declaration-4fd6758450a6926a",
+                  "declaration-50896e3292a894fb",
+                  "declaration-50fd00bfd1ec92b2",
+                  "declaration-57c711a7546a952b",
+                  "declaration-57e8c3d9be84d9ec",
+                  "declaration-5b55e508ab7a3379",
+                  "declaration-5b7bff03e1c44841",
+                  "declaration-5f58e48284157b03",
+                  "declaration-606c1cdb83b96ae1",
+                  "declaration-6294c49dbe842d1b",
+                  "declaration-629d455436bee9bd",
+                  "declaration-658c64bfd719605f",
+                  "declaration-682a0a3d71b15781",
+                  "declaration-686f273b6b396bb0",
+                  "declaration-6b8bdc943e085bf9",
+                  "declaration-6cec55fb9f0eb54d",
+                  "declaration-6e24173dcab7f453",
+                  "declaration-6f5d6e60ca896b96",
+                  "declaration-74e996beaf632f0c",
+                  "declaration-78d7f0645dc4ef9b",
+                  "declaration-7c25250af700d63a",
+                  "declaration-7e91448a618daa87",
+                  "declaration-803deffba2f0b3e0",
+                  "declaration-85304acf439f4b50",
+                  "declaration-8534ff14fbc8a983",
+                  "declaration-88e2ff3403370f0d",
+                  "declaration-89c51e18e969f3d4",
+                  "declaration-9359781e31e2f252",
+                  "declaration-957143c71956e524",
+                  "declaration-978d0d90e440f3b6",
+                  "declaration-97be481a181912c2",
+                  "declaration-99d3416d3149bbcf",
+                  "declaration-9ac445c36ca0d4af",
+                  "declaration-9ad7c9f2b681534e",
+                  "declaration-9be85ac1568eb754",
+                  "declaration-9e29d77fd3712aa9",
+                  "declaration-9f7d5d185e57b31f",
+                  "declaration-a134d32c35843f1a",
+                  "declaration-a70b96ca8cd96b87",
+                  "declaration-b0ef90b455e01314",
+                  "declaration-b14f0fd3f448df78",
+                  "declaration-b5b141bfad229378",
+                  "declaration-b8ecacf84f1963f7",
+                  "declaration-b98f17f5cd450417",
+                  "declaration-baf85ec438d23ff3",
+                  "declaration-bd7e5834c545eaba",
+                  "declaration-bf687308a1f0dd24",
+                  "declaration-c03f91d0c4818606",
+                  "declaration-c28ac420596c9670",
+                  "declaration-c5127e34671143e7",
+                  "declaration-c79f6c1ef53ee4f6",
+                  "declaration-c8745c41430c8646",
+                  "declaration-c9558feec781249a",
+                  "declaration-cc670fdc2f838d43",
+                  "declaration-d09ed3ab4beb926d",
+                  "declaration-d5fbb7c454f2d01d",
+                  "declaration-d8c876cebf7a5037",
+                  "declaration-d93a2d15acd011da",
+                  "declaration-d985f42a1ed9a72a",
+                  "declaration-d9cf3a0384b74c0e",
+                  "declaration-da34e9bac1f1f160",
+                  "declaration-da463bd8ac3d06fc",
+                  "declaration-da4f95800a0bb420",
+                  "declaration-dbdb73e8b9da497c",
+                  "declaration-dcc0a060728e008e",
+                  "declaration-de07515a473f1f3b",
+                  "declaration-e375ba9d6720941f",
+                  "declaration-e5c9085951bbd37f",
+                  "declaration-eedba5efcd79a9da",
+                  "declaration-f00da31a63495714",
+                  "declaration-f04ba04526669d9f",
+                  "declaration-f183ad37d25b97a0",
+                  "declaration-f2266580ac65c3d3",
+                  "declaration-f359653602f13b48",
+                  "declaration-f3aab99d0c790910",
+                  "declaration-f73c1c59d6fb26cc",
+                  "declaration-fc7dbd0126c0efdc",
+                  "declaration-fd040a63f49a5c98",
+                  "declaration-fd25dc21c0d73f80",
+                  "declaration-fd4ee21442bca9fb"
+                ]
+              },
+              {
+                "section": "Resource List Operations (GET)",
+                "excerpt": "ARM resource list operations return resources at their parent scope, with tracked resources also listing at subscription scope.",
+                "queryTerms": [
+                  "list",
+                  "ArmResourceListByParent",
+                  "ArmListBySubscription"
+                ],
+                "examples": [],
+                "applicableDeclarationIds": [
+                  "declaration-00f7fbf92b0c66d8",
+                  "declaration-14b2808a9432b064",
+                  "declaration-26afd7abc936d737",
+                  "declaration-470d61b08d34e51c",
+                  "declaration-764eb0878abb08c1",
+                  "declaration-bfbd3a26c6b2da6d"
+                ]
+              }
+            ],
+            "noRelevantGuidance": false,
+            "retrievedAt": "2026-11-03T03:55:50.560Z",
+            "contentHash": "sha256:d14985930731760bb8ef27df78756040258e5a02a9111abb1be79398de501208"
+          },
+          {
+            "rank": 3,
+            "catalogOrder": 1,
+            "title": "Evolving APIs",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "The intents add resources, operations, models, and properties to an existing versioned ARM API.",
+            "guidance": [
+              {
+                "section": "Add a property in v2",
+                "excerpt": "A property introduced in a later API version is marked with @added for that version.",
                 "queryTerms": [
                   "@added",
-                  "2026-07-15-preview"
+                  "property",
+                  "version"
+                ],
+                "examples": [
+                  "@added(Versions.v2)\ncity?: string;"
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-01af9a84f339fbc6",
+                  "declaration-0268163feb5d69eb",
+                  "declaration-026f8f0b3c234eaf",
+                  "declaration-062c4520cbe90650",
+                  "declaration-0b51c447eaf40432",
+                  "declaration-0b7f6f71431a36d2",
+                  "declaration-0ef168612aa5b63a",
+                  "declaration-19f30b51dea3a77b",
+                  "declaration-1c63f9731dfeefcd",
+                  "declaration-21bb76ab63c08f12",
+                  "declaration-2468742690d3fc40",
+                  "declaration-24de9bdb4b4324dc",
+                  "declaration-26caa324f17dad55",
+                  "declaration-298346546f4eeb72",
+                  "declaration-2b400cd456d8a22a",
+                  "declaration-2d17342d58dd81e8",
+                  "declaration-2e32ef8ca5b6780f",
+                  "declaration-2f00ef98b0739aac",
+                  "declaration-315528de8ba0bf3d",
+                  "declaration-38dae2e6e1905973",
+                  "declaration-393101dea0aed6e9",
+                  "declaration-3dda33bfad766b72",
+                  "declaration-43e88621ae8b42ca",
+                  "declaration-44b554e66179fb5c",
+                  "declaration-483f5fcb1c77fca4",
+                  "declaration-4a08fbfea44c40cb",
+                  "declaration-4a95ab16e9029502",
+                  "declaration-4d694974e6257a83",
+                  "declaration-5047235dec268bb6",
+                  "declaration-5105718677010c76",
+                  "declaration-510ff0c29deeadaf",
+                  "declaration-51e8265c11b9eb80",
+                  "declaration-54d6e787198059bb",
+                  "declaration-57e02826934fd806",
+                  "declaration-5923438fba2c305e",
+                  "declaration-59442cd2c206cb0a",
+                  "declaration-5aacd154dedab7a3",
+                  "declaration-5c43f9694d989977",
+                  "declaration-5ee48bc64e82f740",
+                  "declaration-5f4c71eb0816150c",
+                  "declaration-6061547d0f1901f1",
+                  "declaration-60f4d5be6ffc885e",
+                  "declaration-6267e1c79252dbb5",
+                  "declaration-692ed05fbe9eeb8c",
+                  "declaration-6b0929842d0bb8be",
+                  "declaration-6bcbede288234804",
+                  "declaration-6d4611c48fc560a0",
+                  "declaration-6d740b2050bcc5d7",
+                  "declaration-77a01fabdce95100",
+                  "declaration-7a4f46e5a4b589ba",
+                  "declaration-7afbbf4e95d6f6dc",
+                  "declaration-83ade753fef7cc53",
+                  "declaration-85e5dfd1472374d4",
+                  "declaration-87a49757f3286f99",
+                  "declaration-8b361abcec7d448d",
+                  "declaration-8cd8a992efe65069",
+                  "declaration-8da592bc5e76d18d",
+                  "declaration-91f08db23492cf38",
+                  "declaration-957c2e6ab93faa38",
+                  "declaration-9914443b434fb075",
+                  "declaration-9acf57b2c28b474a",
+                  "declaration-9bbcba43fb97e786",
+                  "declaration-9fb88d021c43f474",
+                  "declaration-a2b376953225de43",
+                  "declaration-a4981f943f9f12a1",
+                  "declaration-a6b16b9f6564ffe3",
+                  "declaration-a9a93f21750d6c2a",
+                  "declaration-abe730b236082239",
+                  "declaration-ac1172939391e1d5",
+                  "declaration-ac2cbd75a85e1ccf",
+                  "declaration-acbe21742772e57d",
+                  "declaration-acda2f3a7c8e7700",
+                  "declaration-ad32c660be1c643b",
+                  "declaration-b20daff55a2072c3",
+                  "declaration-ba4cfd13f4ed1a21",
+                  "declaration-bf9e35ac8922bdf6",
+                  "declaration-c28ac420596c9670",
+                  "declaration-c43d78a215402d9c",
+                  "declaration-c677b4fdac1fb907",
+                  "declaration-c6e8490202776294",
+                  "declaration-c8aba1db93b9ffd6",
+                  "declaration-c8c8a7c7f687ef84",
+                  "declaration-c910817fae9a2c6b",
+                  "declaration-c951c08b0ead3dc3",
+                  "declaration-ca560b895e488d1a",
+                  "declaration-cbc9958535e426a4",
+                  "declaration-d09a48a526943f1d",
+                  "declaration-d1a872ce87e999c8",
+                  "declaration-d5f88cdc8ce0f433",
+                  "declaration-dad8a36447386617",
+                  "declaration-e3359be22c07fa45",
+                  "declaration-e5738582cdbbb176",
+                  "declaration-e890dd0ace79d40c",
+                  "declaration-eae37cfe5f14248e",
+                  "declaration-ee15bd156638eaf4",
+                  "declaration-efe206c56156adef",
+                  "declaration-f5ba9d8e283fd1a2",
+                  "declaration-f5d13e133004289a",
+                  "declaration-fab723cf6fe1a7dc",
+                  "declaration-fe0f3d9f9a5522e2"
+                ]
+              },
+              {
+                "section": "Add an operation in v2",
+                "excerpt": "A newly introduced operation is marked with @added for the version where it becomes available.",
+                "queryTerms": [
+                  "@added",
+                  "operation",
+                  "version"
+                ],
+                "examples": [
+                  "@added(Versions.v2)\ncreateOrUpdate is ArmResourceCreateOrReplaceAsync<Employee>;"
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-00f7fbf92b0c66d8",
+                  "declaration-06c12c40f6cecb7b",
+                  "declaration-06ea54a36177f9f2",
+                  "declaration-07871200b960cf31",
+                  "declaration-07a2e718cdc8a6df",
+                  "declaration-07aa26983729f9a3",
+                  "declaration-09b24f2d357176ba",
+                  "declaration-0b6e609770f9c726",
+                  "declaration-0d57645b226ac68b",
+                  "declaration-0e7846df28db5352",
+                  "declaration-14b2808a9432b064",
+                  "declaration-151c98d44961d5c4",
+                  "declaration-16a1f0d5ed9fbdc9",
+                  "declaration-187fa3c8877b7025",
+                  "declaration-1dfd52b373a6b867",
+                  "declaration-2171ae8412f7cb84",
+                  "declaration-2221187f1626e0c7",
+                  "declaration-265b1a175f573134",
+                  "declaration-26afd7abc936d737",
+                  "declaration-27d18f0423afa2d6",
+                  "declaration-2cd9ea2e304b57e3",
+                  "declaration-2cdea853ec429680",
+                  "declaration-2f1e9b90b92f7351",
+                  "declaration-3730761d6e96b70a",
+                  "declaration-395b7836a1deae80",
+                  "declaration-44927f76342bb037",
+                  "declaration-470d61b08d34e51c",
+                  "declaration-4c7003d701aa1593",
+                  "declaration-4d040b19c8df380b",
+                  "declaration-4e2d7c75e9b61cbb",
+                  "declaration-4f8ea65851debd0c",
+                  "declaration-4fd6758450a6926a",
+                  "declaration-50896e3292a894fb",
+                  "declaration-50fd00bfd1ec92b2",
+                  "declaration-57c711a7546a952b",
+                  "declaration-57e8c3d9be84d9ec",
+                  "declaration-5b55e508ab7a3379",
+                  "declaration-5b7bff03e1c44841",
+                  "declaration-5f58e48284157b03",
+                  "declaration-606c1cdb83b96ae1",
+                  "declaration-6294c49dbe842d1b",
+                  "declaration-629d455436bee9bd",
+                  "declaration-658c64bfd719605f",
+                  "declaration-682a0a3d71b15781",
+                  "declaration-686f273b6b396bb0",
+                  "declaration-6b8bdc943e085bf9",
+                  "declaration-6cec55fb9f0eb54d",
+                  "declaration-6e24173dcab7f453",
+                  "declaration-6f5d6e60ca896b96",
+                  "declaration-74e996beaf632f0c",
+                  "declaration-764eb0878abb08c1",
+                  "declaration-78d7f0645dc4ef9b",
+                  "declaration-7c25250af700d63a",
+                  "declaration-7e91448a618daa87",
+                  "declaration-803deffba2f0b3e0",
+                  "declaration-85304acf439f4b50",
+                  "declaration-8534ff14fbc8a983",
+                  "declaration-88e2ff3403370f0d",
+                  "declaration-89c51e18e969f3d4",
+                  "declaration-9359781e31e2f252",
+                  "declaration-957143c71956e524",
+                  "declaration-978d0d90e440f3b6",
+                  "declaration-97be481a181912c2",
+                  "declaration-99d3416d3149bbcf",
+                  "declaration-9ac445c36ca0d4af",
+                  "declaration-9ad7c9f2b681534e",
+                  "declaration-9be85ac1568eb754",
+                  "declaration-9e29d77fd3712aa9",
+                  "declaration-9f7d5d185e57b31f",
+                  "declaration-a134d32c35843f1a",
+                  "declaration-a70b96ca8cd96b87",
+                  "declaration-b0ef90b455e01314",
+                  "declaration-b14f0fd3f448df78",
+                  "declaration-b5b141bfad229378",
+                  "declaration-b8ecacf84f1963f7",
+                  "declaration-b98f17f5cd450417",
+                  "declaration-baf85ec438d23ff3",
+                  "declaration-bd7e5834c545eaba",
+                  "declaration-bf687308a1f0dd24",
+                  "declaration-bfbd3a26c6b2da6d",
+                  "declaration-c03f91d0c4818606",
+                  "declaration-c28ac420596c9670",
+                  "declaration-c5127e34671143e7",
+                  "declaration-c79f6c1ef53ee4f6",
+                  "declaration-c8745c41430c8646",
+                  "declaration-c9558feec781249a",
+                  "declaration-cc670fdc2f838d43",
+                  "declaration-d09ed3ab4beb926d",
+                  "declaration-d5fbb7c454f2d01d",
+                  "declaration-d8c876cebf7a5037",
+                  "declaration-d93a2d15acd011da",
+                  "declaration-d985f42a1ed9a72a",
+                  "declaration-d9cf3a0384b74c0e",
+                  "declaration-da34e9bac1f1f160",
+                  "declaration-da463bd8ac3d06fc",
+                  "declaration-da4f95800a0bb420",
+                  "declaration-dbdb73e8b9da497c",
+                  "declaration-dcc0a060728e008e",
+                  "declaration-de07515a473f1f3b",
+                  "declaration-e375ba9d6720941f",
+                  "declaration-e5c9085951bbd37f",
+                  "declaration-eedba5efcd79a9da",
+                  "declaration-f00da31a63495714",
+                  "declaration-f04ba04526669d9f",
+                  "declaration-f183ad37d25b97a0",
+                  "declaration-f2266580ac65c3d3",
+                  "declaration-f359653602f13b48",
+                  "declaration-f3aab99d0c790910",
+                  "declaration-f73c1c59d6fb26cc",
+                  "declaration-fc7dbd0126c0efdc",
+                  "declaration-fd040a63f49a5c98",
+                  "declaration-fd25dc21c0d73f80",
+                  "declaration-fd4ee21442bca9fb"
+                ]
+              }
+            ],
+            "noRelevantGuidance": false,
+            "retrievedAt": "2026-11-03T03:55:50.315Z",
+            "contentHash": "sha256:966b000e4d0c3f5359405c0e734e7d4f531de297e6dc2922ecfc0cbe61f38bb1"
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 2,
+            "title": "Versioning overview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
+            },
+            "selectionRationale": "The changes introduce the 2026-07-15-preview API after a stable version.",
+            "guidance": [
+              {
+                "section": "Preview Versioning Rules for All Azure APIs",
+                "excerpt": "Changes from the latest stable API are marked with versioning decorators that reference the active preview version.",
+                "queryTerms": [
+                  "preview",
+                  "@previewVersion",
+                  "versioning decorators"
                 ],
                 "examples": [],
                 "applicableDeclarationIds": [
@@ -143982,293 +144513,8 @@
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T08:20:18.9570197Z",
-            "contentHash": "sha256:30470c99aaddccfad0799e2dcdf370cc27e56e09b76ed81b70ef5de044e29854"
-          },
-          {
-            "rank": 2,
-            "catalogOrder": 7,
-            "title": "ARM resource types and modeling",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
-            "score": {
-              "exactSymbol": 4,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 10
-            },
-            "selectionRationale": "Directly governs the new ProxyResource and other ARM resource shapes.",
-            "guidance": [
-              {
-                "section": "Modeling Resources in TypeSpec",
-                "excerpt": "Resources are modeled by choosing a base resource type, defining RP-specific properties, and optionally mixing in standard envelope properties.",
-                "queryTerms": [
-                  "ProxyResource",
-                  "ArcDeployment",
-                  "resource"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-06c12c40f6cecb7b",
-                  "declaration-06ea54a36177f9f2",
-                  "declaration-07871200b960cf31",
-                  "declaration-07a2e718cdc8a6df",
-                  "declaration-07aa26983729f9a3",
-                  "declaration-09b24f2d357176ba",
-                  "declaration-0b6e609770f9c726",
-                  "declaration-0e7846df28db5352",
-                  "declaration-151c98d44961d5c4",
-                  "declaration-16a1f0d5ed9fbdc9",
-                  "declaration-1dfd52b373a6b867",
-                  "declaration-265b1a175f573134",
-                  "declaration-27d18f0423afa2d6",
-                  "declaration-2f1e9b90b92f7351",
-                  "declaration-3730761d6e96b70a",
-                  "declaration-44927f76342bb037",
-                  "declaration-4c7003d701aa1593",
-                  "declaration-4d040b19c8df380b",
-                  "declaration-4f8ea65851debd0c",
-                  "declaration-50896e3292a894fb",
-                  "declaration-57c711a7546a952b",
-                  "declaration-57e8c3d9be84d9ec",
-                  "declaration-5b7bff03e1c44841",
-                  "declaration-5f58e48284157b03",
-                  "declaration-606c1cdb83b96ae1",
-                  "declaration-6294c49dbe842d1b",
-                  "declaration-629d455436bee9bd",
-                  "declaration-658c64bfd719605f",
-                  "declaration-682a0a3d71b15781",
-                  "declaration-686f273b6b396bb0",
-                  "declaration-6cec55fb9f0eb54d",
-                  "declaration-6f5d6e60ca896b96",
-                  "declaration-74e996beaf632f0c",
-                  "declaration-78d7f0645dc4ef9b",
-                  "declaration-7c25250af700d63a",
-                  "declaration-7e91448a618daa87",
-                  "declaration-803deffba2f0b3e0",
-                  "declaration-85304acf439f4b50",
-                  "declaration-8534ff14fbc8a983",
-                  "declaration-88e2ff3403370f0d",
-                  "declaration-9359781e31e2f252",
-                  "declaration-957143c71956e524",
-                  "declaration-978d0d90e440f3b6",
-                  "declaration-9ad7c9f2b681534e",
-                  "declaration-9be85ac1568eb754",
-                  "declaration-9e29d77fd3712aa9",
-                  "declaration-9f7d5d185e57b31f",
-                  "declaration-a134d32c35843f1a",
-                  "declaration-a70b96ca8cd96b87",
-                  "declaration-b0ef90b455e01314",
-                  "declaration-b14f0fd3f448df78",
-                  "declaration-b5b141bfad229378",
-                  "declaration-b8ecacf84f1963f7",
-                  "declaration-b98f17f5cd450417",
-                  "declaration-bd7e5834c545eaba",
-                  "declaration-c5127e34671143e7",
-                  "declaration-c79f6c1ef53ee4f6",
-                  "declaration-c8745c41430c8646",
-                  "declaration-c9558feec781249a",
-                  "declaration-d09ed3ab4beb926d",
-                  "declaration-d5fbb7c454f2d01d",
-                  "declaration-d8c876cebf7a5037",
-                  "declaration-d93a2d15acd011da",
-                  "declaration-d985f42a1ed9a72a",
-                  "declaration-d9cf3a0384b74c0e",
-                  "declaration-da4f95800a0bb420",
-                  "declaration-dbdb73e8b9da497c",
-                  "declaration-dcc0a060728e008e",
-                  "declaration-e375ba9d6720941f",
-                  "declaration-e5c9085951bbd37f",
-                  "declaration-eedba5efcd79a9da",
-                  "declaration-f00da31a63495714",
-                  "declaration-f183ad37d25b97a0",
-                  "declaration-f2266580ac65c3d3",
-                  "declaration-f359653602f13b48",
-                  "declaration-f3aab99d0c790910",
-                  "declaration-f73c1c59d6fb26cc",
-                  "declaration-fc7dbd0126c0efdc",
-                  "declaration-fd25dc21c0d73f80",
-                  "declaration-fd4ee21442bca9fb"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T08:20:19.0843501Z",
-            "contentHash": "sha256:530cea00cafd989f49e45120bdbba55d5502e02fc428f624f8623b4ddae88d56"
-          },
-          {
-            "rank": 3,
-            "catalogOrder": 12,
-            "title": "ARM resource operations",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-            "score": {
-              "exactSymbol": 4,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 10
-            },
-            "selectionRationale": "Directly governs the added ARM read, list, lifecycle, and action operations.",
-            "guidance": [
-              {
-                "section": "Recommended and Required Operations",
-                "excerpt": "ARM resources use standard GET, create or update, update, delete, and list operation templates appropriate to the resource type.",
-                "queryTerms": [
-                  "ArmResourceRead",
-                  "ArmResourceList",
-                  "createOrUpdate",
-                  "delete"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-00f7fbf92b0c66d8",
-                  "declaration-06c12c40f6cecb7b",
-                  "declaration-06ea54a36177f9f2",
-                  "declaration-07871200b960cf31",
-                  "declaration-07a2e718cdc8a6df",
-                  "declaration-07aa26983729f9a3",
-                  "declaration-09b24f2d357176ba",
-                  "declaration-0b6e609770f9c726",
-                  "declaration-0e7846df28db5352",
-                  "declaration-14b2808a9432b064",
-                  "declaration-151c98d44961d5c4",
-                  "declaration-16a1f0d5ed9fbdc9",
-                  "declaration-187fa3c8877b7025",
-                  "declaration-1dfd52b373a6b867",
-                  "declaration-265b1a175f573134",
-                  "declaration-26afd7abc936d737",
-                  "declaration-27d18f0423afa2d6",
-                  "declaration-2cdea853ec429680",
-                  "declaration-2f1e9b90b92f7351",
-                  "declaration-3730761d6e96b70a",
-                  "declaration-44927f76342bb037",
-                  "declaration-470d61b08d34e51c",
-                  "declaration-4c7003d701aa1593",
-                  "declaration-4d040b19c8df380b",
-                  "declaration-4f8ea65851debd0c",
-                  "declaration-4fd6758450a6926a",
-                  "declaration-50896e3292a894fb",
-                  "declaration-50fd00bfd1ec92b2",
-                  "declaration-57c711a7546a952b",
-                  "declaration-57e8c3d9be84d9ec",
-                  "declaration-5b7bff03e1c44841",
-                  "declaration-5f58e48284157b03",
-                  "declaration-606c1cdb83b96ae1",
-                  "declaration-6294c49dbe842d1b",
-                  "declaration-629d455436bee9bd",
-                  "declaration-658c64bfd719605f",
-                  "declaration-682a0a3d71b15781",
-                  "declaration-686f273b6b396bb0",
-                  "declaration-6cec55fb9f0eb54d",
-                  "declaration-6f5d6e60ca896b96",
-                  "declaration-74e996beaf632f0c",
-                  "declaration-764eb0878abb08c1",
-                  "declaration-78d7f0645dc4ef9b",
-                  "declaration-7c25250af700d63a",
-                  "declaration-7e91448a618daa87",
-                  "declaration-803deffba2f0b3e0",
-                  "declaration-85304acf439f4b50",
-                  "declaration-8534ff14fbc8a983",
-                  "declaration-88e2ff3403370f0d",
-                  "declaration-9359781e31e2f252",
-                  "declaration-957143c71956e524",
-                  "declaration-978d0d90e440f3b6",
-                  "declaration-99d3416d3149bbcf",
-                  "declaration-9ad7c9f2b681534e",
-                  "declaration-9be85ac1568eb754",
-                  "declaration-9e29d77fd3712aa9",
-                  "declaration-9f7d5d185e57b31f",
-                  "declaration-a134d32c35843f1a",
-                  "declaration-a70b96ca8cd96b87",
-                  "declaration-b0ef90b455e01314",
-                  "declaration-b14f0fd3f448df78",
-                  "declaration-b5b141bfad229378",
-                  "declaration-b8ecacf84f1963f7",
-                  "declaration-b98f17f5cd450417",
-                  "declaration-bd7e5834c545eaba",
-                  "declaration-bfbd3a26c6b2da6d",
-                  "declaration-c03f91d0c4818606",
-                  "declaration-c5127e34671143e7",
-                  "declaration-c79f6c1ef53ee4f6",
-                  "declaration-c8745c41430c8646",
-                  "declaration-c9558feec781249a",
-                  "declaration-d09ed3ab4beb926d",
-                  "declaration-d5fbb7c454f2d01d",
-                  "declaration-d8c876cebf7a5037",
-                  "declaration-d93a2d15acd011da",
-                  "declaration-d985f42a1ed9a72a",
-                  "declaration-d9cf3a0384b74c0e",
-                  "declaration-da4f95800a0bb420",
-                  "declaration-dbdb73e8b9da497c",
-                  "declaration-dcc0a060728e008e",
-                  "declaration-e375ba9d6720941f",
-                  "declaration-e5c9085951bbd37f",
-                  "declaration-eedba5efcd79a9da",
-                  "declaration-f00da31a63495714",
-                  "declaration-f183ad37d25b97a0",
-                  "declaration-f2266580ac65c3d3",
-                  "declaration-f359653602f13b48",
-                  "declaration-f3aab99d0c790910",
-                  "declaration-f73c1c59d6fb26cc",
-                  "declaration-fc7dbd0126c0efdc",
-                  "declaration-fd25dc21c0d73f80",
-                  "declaration-fd4ee21442bca9fb"
-                ]
-              },
-              {
-                "section": "Resource Actions (POST)",
-                "excerpt": "Operations outside CRUDL or lifecycle operations should be modeled as resource actions.",
-                "queryTerms": [
-                  "evaluateDeploymentPolicies",
-                  "resource action"
-                ],
-                "examples": [],
-                "applicableDeclarationIds": [
-                  "declaration-0d57645b226ac68b",
-                  "declaration-2171ae8412f7cb84",
-                  "declaration-2221187f1626e0c7",
-                  "declaration-2cd9ea2e304b57e3",
-                  "declaration-395b7836a1deae80",
-                  "declaration-4e2d7c75e9b61cbb",
-                  "declaration-5b55e508ab7a3379",
-                  "declaration-6b8bdc943e085bf9",
-                  "declaration-6e24173dcab7f453",
-                  "declaration-89c51e18e969f3d4",
-                  "declaration-97be481a181912c2",
-                  "declaration-9ac445c36ca0d4af",
-                  "declaration-baf85ec438d23ff3",
-                  "declaration-bf687308a1f0dd24",
-                  "declaration-c28ac420596c9670",
-                  "declaration-cc670fdc2f838d43",
-                  "declaration-da34e9bac1f1f160",
-                  "declaration-da463bd8ac3d06fc",
-                  "declaration-de07515a473f1f3b",
-                  "declaration-f04ba04526669d9f",
-                  "declaration-fd040a63f49a5c98"
-                ]
-              }
-            ],
-            "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-30T08:20:19.1468129Z",
-            "contentHash": "sha256:c1f60e78029f3aaff88d0037256e628682821fc635a96f94e05c758bdbd7c962"
-          },
-          {
-            "rank": 4,
-            "catalogOrder": 5,
-            "title": "Add preview after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Matches adding a preview version after the latest stable API version.",
-            "guidance": [],
-            "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-30T08:20:19.2014987Z",
-            "contentHash": "sha256:ffcd448ba0891c2e83a93bd02eb9f401d1e8d666d4d21154b520a0e8e71156b1"
+            "retrievedAt": "2026-11-03T03:55:50.315Z",
+            "contentHash": "sha256:6a9648d46e1346402e320e882ff5d8dc279604d9a386366337ddf51d807f93b7"
           }
         ]
       },
@@ -144279,11 +144525,15 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
+              "guidanceSection": "Add an operation in v2"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-              "guidanceSection": "Recommended and Required Operations"
+              "guidanceSection": "Resource List Operations (GET)"
             }
           ],
           "sourceChangeIds": [
@@ -144297,10 +144547,10 @@
             "declaration-764eb0878abb08c1"
           ],
           "decision": "applicable-pass",
-          "expected": "New API surface introduced in the preview version is marked with @added and uses ARM resource or operation templates appropriate to its behavior.",
-          "actual": "The managed compute usage list operation is added only in the new preview and uses an ARM list operation pattern.",
-          "rationale": "The addition follows the fetched versioning and operation guidance.",
-          "gap": "The addition follows the fetched versioning and operation guidance.",
+          "expected": "New preview resources, operations, and properties are version-scoped and use the applicable standard ARM resource patterns.",
+          "actual": "The declarations are marked @added(Versions.v2026_07_15_preview); resource intents use ARM base-resource and lifecycle templates, and other intents are additive.",
+          "rationale": "The additions follow the fetched versioning and ARM resource guidance.",
+          "gap": "The additions follow the fetched versioning and ARM resource guidance.",
           "sourceLinks": [
             {
               "path": "specification/cognitiveservices/CognitiveServices.Management/ManagedComputeUsages.tsp",
@@ -144331,7 +144581,11 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
+              "guidanceSection": "Add an operation in v2"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
@@ -144424,10 +144678,10 @@
             "declaration-fd4ee21442bca9fb"
           ],
           "decision": "applicable-pass",
-          "expected": "New API surface introduced in the preview version is marked with @added and uses ARM resource or operation templates appropriate to its behavior.",
-          "actual": "ArcDeployment is a versioned child proxy resource with standard create, read, update, delete, and list operations.",
-          "rationale": "The resource and lifecycle operation design matches the fetched ARM patterns.",
-          "gap": "The resource and lifecycle operation design matches the fetched ARM patterns.",
+          "expected": "New preview resources, operations, and properties are version-scoped and use the applicable standard ARM resource patterns.",
+          "actual": "The declarations are marked @added(Versions.v2026_07_15_preview); resource intents use ARM base-resource and lifecycle templates, and other intents are additive.",
+          "rationale": "The additions follow the fetched versioning and ARM resource guidance.",
+          "gap": "The additions follow the fetched versioning and ARM resource guidance.",
           "sourceLinks": [
             {
               "path": "specification/cognitiveservices/CognitiveServices.Management/ArcDeployment.tsp",
@@ -144889,9 +145143,9 @@
           ],
           "declarationIds": [],
           "decision": "no-applicable-guidance",
-          "actual": "The change adds a C# client name for a newly added property.",
-          "rationale": "The fetched REST and ARM resource guidance does not govern language-specific SDK naming.",
-          "gap": "The fetched REST and ARM resource guidance does not govern language-specific SDK naming.",
+          "actual": "The change applies a C#-only client name to a model property.",
+          "rationale": "The completed catalog search found no fetched Azure REST guidance governing this language-specific SDK customization.",
+          "gap": "The completed catalog search found no fetched Azure REST guidance governing this language-specific SDK customization.",
           "sourceLinks": [],
           "codeSnippets": [
             {
@@ -144914,7 +145168,11 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
+              "guidanceSection": "Add an operation in v2"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
@@ -144938,10 +145196,10 @@
             "declaration-f3aab99d0c790910"
           ],
           "decision": "applicable-pass",
-          "expected": "New API surface introduced in the preview version is marked with @added and uses ARM resource or operation templates appropriate to its behavior.",
-          "actual": "The Workbench resource shape and get operation are introduced in the preview version.",
-          "rationale": "The addition follows the fetched resource, operation, and versioning patterns.",
-          "gap": "The addition follows the fetched resource, operation, and versioning patterns.",
+          "expected": "New preview resources, operations, and properties are version-scoped and use the applicable standard ARM resource patterns.",
+          "actual": "The declarations are marked @added(Versions.v2026_07_15_preview); resource intents use ARM base-resource and lifecycle templates, and other intents are additive.",
+          "rationale": "The additions follow the fetched versioning and ARM resource guidance.",
+          "gap": "The additions follow the fetched versioning and ARM resource guidance.",
           "sourceLinks": [
             {
               "path": "specification/cognitiveservices/CognitiveServices.Management/Workbench.tsp",
@@ -144985,11 +145243,15 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
+              "guidanceSection": "Add an operation in v2"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-              "guidanceSection": "Resource Actions (POST)"
+              "guidanceSection": "Recommended and Required Operations"
             }
           ],
           "sourceChangeIds": [
@@ -145024,10 +145286,10 @@
             "declaration-fd040a63f49a5c98"
           ],
           "decision": "applicable-pass",
-          "expected": "New API surface introduced in the preview version is marked with @added and uses ARM resource or operation templates appropriate to its behavior.",
-          "actual": "The new account models and evaluateDeploymentPolicies action are preview-only and the non-CRUD operation is modeled as an action.",
-          "rationale": "The additions follow the fetched versioning and resource-action guidance.",
-          "gap": "The additions follow the fetched versioning and resource-action guidance.",
+          "expected": "New preview resources, operations, and properties are version-scoped and use the applicable standard ARM resource patterns.",
+          "actual": "The declarations are marked @added(Versions.v2026_07_15_preview); resource intents use ARM base-resource and lifecycle templates, and other intents are additive.",
+          "rationale": "The additions follow the fetched versioning and ARM resource guidance.",
+          "gap": "The additions follow the fetched versioning and ARM resource guidance.",
           "sourceLinks": [
             {
               "path": "specification/cognitiveservices/CognitiveServices.Management/Account.tsp",
@@ -145184,7 +145446,11 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
+              "guidanceSection": "Add a property in v2"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             }
           ],
           "sourceChangeIds": [
@@ -145351,10 +145617,10 @@
             "declaration-fe0f3d9f9a5522e2"
           ],
           "decision": "applicable-pass",
-          "expected": "New API surface introduced in the preview version is marked with @added and uses ARM resource or operation templates appropriate to its behavior.",
-          "actual": "The new compute, deployment, policy, network, and workbench model members are introduced for the new preview version.",
-          "rationale": "The model additions use the documented additive versioning pattern.",
-          "gap": "The model additions use the documented additive versioning pattern.",
+          "expected": "New preview resources, operations, and properties are version-scoped and use the applicable standard ARM resource patterns.",
+          "actual": "The declarations are marked @added(Versions.v2026_07_15_preview); resource intents use ARM base-resource and lifecycle templates, and other intents are additive.",
+          "rationale": "The additions follow the fetched versioning and ARM resource guidance.",
+          "gap": "The additions follow the fetched versioning and ARM resource guidance.",
           "sourceLinks": [
             {
               "path": "specification/cognitiveservices/CognitiveServices.Management/models.tsp",
@@ -146346,7 +146612,11 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
+              "guidanceSection": "Add an operation in v2"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
@@ -146371,10 +146641,10 @@
             "declaration-c03f91d0c4818606"
           ],
           "decision": "applicable-pass",
-          "expected": "New API surface introduced in the preview version is marked with @added and uses ARM resource or operation templates appropriate to its behavior.",
-          "actual": "Compute operation status models and retrieval are added for the preview version using a read operation.",
-          "rationale": "The addition follows the fetched versioning and operation patterns.",
-          "gap": "The addition follows the fetched versioning and operation patterns.",
+          "expected": "New preview resources, operations, and properties are version-scoped and use the applicable standard ARM resource patterns.",
+          "actual": "The declarations are marked @added(Versions.v2026_07_15_preview); resource intents use ARM base-resource and lifecycle templates, and other intents are additive.",
+          "rationale": "The additions follow the fetched versioning and ARM resource guidance.",
+          "gap": "The additions follow the fetched versioning and ARM resource guidance.",
           "sourceLinks": [
             {
               "path": "specification/cognitiveservices/CognitiveServices.Management/ComputeOperation.tsp",
@@ -146449,11 +146719,15 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
+              "guidanceSection": "Add an operation in v2"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-              "guidanceSection": "Recommended and Required Operations"
+              "guidanceSection": "Resource List Operations (GET)"
             }
           ],
           "sourceChangeIds": [
@@ -146470,10 +146744,10 @@
             "declaration-bfbd3a26c6b2da6d"
           ],
           "decision": "applicable-pass",
-          "expected": "New API surface introduced in the preview version is marked with @added and uses ARM resource or operation templates appropriate to its behavior.",
-          "actual": "Managed compute capacity data and listing are added for the preview version using a list operation.",
-          "rationale": "The addition follows the fetched versioning and operation patterns.",
-          "gap": "The addition follows the fetched versioning and operation patterns.",
+          "expected": "New preview resources, operations, and properties are version-scoped and use the applicable standard ARM resource patterns.",
+          "actual": "The declarations are marked @added(Versions.v2026_07_15_preview); resource intents use ARM base-resource and lifecycle templates, and other intents are additive.",
+          "rationale": "The additions follow the fetched versioning and ARM resource guidance.",
+          "gap": "The additions follow the fetched versioning and ARM resource guidance.",
           "sourceLinks": [
             {
               "path": "specification/cognitiveservices/CognitiveServices.Management/ManagedComputeCapacity.tsp",
@@ -146522,7 +146796,11 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
+              "guidanceSection": "Add an operation in v2"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
@@ -146546,10 +146824,10 @@
             "declaration-9ad7c9f2b681534e"
           ],
           "decision": "applicable-pass",
-          "expected": "New API surface introduced in the preview version is marked with @added and uses ARM resource or operation templates appropriate to its behavior.",
-          "actual": "The managed compute deployment shape and get operation are introduced for the preview version.",
-          "rationale": "The addition follows the fetched resource, operation, and versioning patterns.",
-          "gap": "The addition follows the fetched resource, operation, and versioning patterns.",
+          "expected": "New preview resources, operations, and properties are version-scoped and use the applicable standard ARM resource patterns.",
+          "actual": "The declarations are marked @added(Versions.v2026_07_15_preview); resource intents use ARM base-resource and lifecycle templates, and other intents are additive.",
+          "rationale": "The additions follow the fetched versioning and ARM resource guidance.",
+          "gap": "The additions follow the fetched versioning and ARM resource guidance.",
           "sourceLinks": [
             {
               "path": "specification/cognitiveservices/CognitiveServices.Management/ManagedComputeDeployment.tsp",
@@ -146593,7 +146871,11 @@
           "applicableGuidance": [
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
-              "guidanceSection": "Versioning Decorators"
+              "guidanceSection": "Add an operation in v2"
+            },
+            {
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
+              "guidanceSection": "Preview Versioning Rules for All Azure APIs"
             },
             {
               "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
@@ -146617,10 +146899,10 @@
             "declaration-9be85ac1568eb754"
           ],
           "decision": "applicable-pass",
-          "expected": "New API surface introduced in the preview version is marked with @added and uses ARM resource or operation templates appropriate to its behavior.",
-          "actual": "The compute shape and get operation are introduced for the preview version.",
-          "rationale": "The addition follows the fetched resource, operation, and versioning patterns.",
-          "gap": "The addition follows the fetched resource, operation, and versioning patterns.",
+          "expected": "New preview resources, operations, and properties are version-scoped and use the applicable standard ARM resource patterns.",
+          "actual": "The declarations are marked @added(Versions.v2026_07_15_preview); resource intents use ARM base-resource and lifecycle templates, and other intents are additive.",
+          "rationale": "The additions follow the fetched versioning and ARM resource guidance.",
+          "gap": "The additions follow the fetched versioning and ARM resource guidance.",
           "sourceLinks": [
             {
               "path": "specification/cognitiveservices/CognitiveServices.Management/Compute.tsp",
@@ -147253,15 +147535,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\projects\\project-37d12681d7d3\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\projects\\project-37d12681d7d3\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-07-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 24343,
+            "durationMs": 10452,
             "configPath": "worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management\\tspconfig.yaml",
             "configHash": "f984ff9389c1e631fadab2f5349aa608c5de383c660de50f0239d9bf228d5d98",
             "logPath": "logs\\project-37d12681d7d3-baseline-autorest.log",
@@ -147285,16 +147567,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\projects\\project-37d12681d7d3\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\projects\\project-37d12681d7d3\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-07-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 15324,
+            "durationMs": 8741,
             "configPath": "worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management\\tspconfig.yaml",
             "configHash": "f984ff9389c1e631fadab2f5349aa608c5de383c660de50f0239d9bf228d5d98",
             "logPath": "logs\\project-37d12681d7d3-baseline-tcgc.log",
@@ -147322,15 +147604,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\projects\\project-37d12681d7d3\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\projects\\project-37d12681d7d3\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-07-15-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 12154,
+            "durationMs": 8556,
             "configPath": "worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management\\tspconfig.yaml",
             "configHash": "f984ff9389c1e631fadab2f5349aa608c5de383c660de50f0239d9bf228d5d98",
             "logPath": "logs\\project-37d12681d7d3-target-autorest.log",
@@ -147354,16 +147636,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\projects\\project-37d12681d7d3\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\projects\\project-37d12681d7d3\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-1\\pr-44334\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\022fc465-2359-487e-a01f-1d4cc1f0238a\\files\\unknown-reanalysis\\pr-44334\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-07-15-preview"
               ]
             },
             "exitCode": 0,
-            "durationMs": 13476,
+            "durationMs": 9216,
             "configPath": "worktrees\\current\\specification\\cognitiveservices\\CognitiveServices.Management\\tspconfig.yaml",
             "configHash": "f984ff9389c1e631fadab2f5349aa608c5de383c660de50f0239d9bf228d5d98",
             "logPath": "logs\\project-37d12681d7d3-target-tcgc.log",
@@ -147461,9 +147743,7 @@
       }
     }
   ],
-  "blockers": [
-    "Changed AutoRest contracts for Accounts_Create, Accounts_Get, and Accounts_List contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established."
-  ],
+  "blockers": [],
   "provenance": {
     "modelInput": "model-input.json",
     "documentQuality": "dimensions/document-quality-input.json",
@@ -147475,8 +147755,8 @@
   "inputAccounting": {
     "budgetTier": "large",
     "budgetBytes": 524288,
-    "bytes": 371020,
-    "estimatedTokens": 92755,
+    "bytes": 371068,
+    "estimatedTokens": 92767,
     "retained": {
       "evidenceSets": 25,
       "facts": 129,
@@ -147506,24 +147786,24 @@
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 1789488,
-      "guidanceExcerptsRetained": 4,
-      "guidanceExcerptBytesRetained": 485
+      "documentBytesFetched": 1809467,
+      "guidanceExcerptsRetained": 6,
+      "guidanceExcerptBytesRetained": 706
     }
   },
   "timings": {
-    "metadataMs": 4149,
-    "fetchMs": 427,
-    "scopeDiscoveryMs": 204,
-    "setupExcludingFetchMs": 453766,
-    "comparisonMs": 309,
-    "changeDiscoveryMs": 181,
-    "workspacePreparationMs": 446922,
-    "projectDiscoveryMs": 1463,
-    "totalMs": 1002142,
-    "semanticAnalysisMs": 1168,
-    "restAnalysisMs": 505,
-    "downstreamAnalysisMs": 7016,
-    "documentQualityAnalysisMs": 4
+    "metadataMs": 1778,
+    "fetchMs": 197,
+    "scopeDiscoveryMs": 140,
+    "setupExcludingFetchMs": 226437,
+    "comparisonMs": 171,
+    "changeDiscoveryMs": 131,
+    "workspacePreparationMs": 223742,
+    "projectDiscoveryMs": 139,
+    "totalMs": 328371,
+    "semanticAnalysisMs": 741,
+    "restAnalysisMs": 311,
+    "downstreamAnalysisMs": 5630,
+    "documentQualityAnalysisMs": 2
   }
 }

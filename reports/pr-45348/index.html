@@ -630,7 +630,7 @@ body {
 
 </style></head><body>
 <header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>Apply an API-version-wide change</h1>
-<p class="hero-meta">TypeSpec source diff: <code>2991970c5377110244bcf9614be03e5aaf32362f</code> → <code>b209254310b3e569b16210d3c59fc8b8ac3b84b4</code></p>
+<p class="hero-meta">Assessment mode: <strong>full</strong><br>TypeSpec source diff: <code>2991970c5377110244bcf9614be03e5aaf32362f</code> → <code>b209254310b3e569b16210d3c59fc8b8ac3b84b4</code></p>
 <div class="summary-grid">
 <a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">1 intent<br>109 operations<br>0 Added, 1 Modified, 0 Removed</div></a>
 <a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>0/0 intents assessed</div></a>
@@ -661,11 +661,10 @@ body {
 <section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">coverage blocked</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No REST compatibility verdict is available for the covered scope.</div></section>
 <section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">coverage blocked</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream compatibility verdict is available for the covered scope.</div></section>
 <section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 0 declarations checked</p></section>
-<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Changed AutoRest contracts for 109 operations in project-dd25e6db7b7b contain unresolved references or ambiguous visibility metadata (AssetEndpointProfiles_CreateOrReplace, AssetEndpointProfiles_Delete, AssetEndpointProfiles_Get). Their effective compatibility cannot be established from incomplete contract evidence.</li><li>Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.</li><li>Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.</li><li>Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId.</li></ul>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
 <h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/deviceregistry/DeviceRegistry.Management</code></td><td>existing-api-version</td><td><code>2991970c5377110244bcf9614be03e5aaf32362f@2026-11-02-preview</code><br><small>base · affected-existing-version</small></td><td><code>b209254310b3e569b16210d3c59fc8b8ac3b84b4@2026-11-02-preview</code><br><small>current · affected-existing-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
 <p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/45348">#45348</a></p>
-<h3 id="compliance-search-evidence">Guidance fetched</h3>
-<div class="panel">No guidance fetched.</div><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+<h3 id="compliance-search-evidence">Guidance fetched</h3><div class="panel">No guidance fetched.</div><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
   &quot;status&quot;: &quot;passed&quot;,
   &quot;coverage&quot;: {
     &quot;semanticIntentCount&quot;: 0,
@@ -680,25 +679,25 @@ body {
 <h3>Changed files</h3><ul><li><code>specification/deviceregistry/DeviceRegistry.Management/main.tsp</code> (committed)</li></ul>
 <h3>Timing and model input</h3><pre>{
   &quot;timings&quot;: {
-    &quot;metadataMs&quot;: 2052,
-    &quot;fetchMs&quot;: 240,
-    &quot;scopeDiscoveryMs&quot;: 135,
-    &quot;setupExcludingFetchMs&quot;: 12915,
-    &quot;comparisonMs&quot;: 289,
-    &quot;changeDiscoveryMs&quot;: 129,
-    &quot;workspacePreparationMs&quot;: 9886,
-    &quot;projectDiscoveryMs&quot;: 86,
-    &quot;totalMs&quot;: 1023058,
-    &quot;semanticAnalysisMs&quot;: 379,
-    &quot;restAnalysisMs&quot;: 253,
-    &quot;downstreamAnalysisMs&quot;: 6160,
-    &quot;documentQualityAnalysisMs&quot;: 1
+    &quot;metadataMs&quot;: 1794,
+    &quot;fetchMs&quot;: 204,
+    &quot;scopeDiscoveryMs&quot;: 118,
+    &quot;setupExcludingFetchMs&quot;: 14679,
+    &quot;comparisonMs&quot;: 190,
+    &quot;changeDiscoveryMs&quot;: 93,
+    &quot;workspacePreparationMs&quot;: 12084,
+    &quot;projectDiscoveryMs&quot;: 94,
+    &quot;totalMs&quot;: 296673,
+    &quot;semanticAnalysisMs&quot;: 348,
+    &quot;restAnalysisMs&quot;: 206,
+    &quot;downstreamAnalysisMs&quot;: 4258,
+    &quot;documentQualityAnalysisMs&quot;: 0
   },
   &quot;inputAccounting&quot;: {
     &quot;budgetTier&quot;: &quot;small&quot;,
     &quot;budgetBytes&quot;: 131072,
-    &quot;bytes&quot;: 56824,
-    &quot;estimatedTokens&quot;: 14206,
+    &quot;bytes&quot;: 56872,
+    &quot;estimatedTokens&quot;: 14218,
     &quot;retained&quot;: {
       &quot;evidenceSets&quot;: 0,
       &quot;facts&quot;: 45,

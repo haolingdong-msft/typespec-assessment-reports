@@ -2,7 +2,7 @@
   "schemaVersion": 2,
   "reportCount": 34,
   "sourceGeneratedAt": {
-    "reports": "2026-10-30T08:21:06.747Z",
+    "reports": "2026-11-03T03:56:08.605Z",
     "publicationManifest": "2026-10-30T08:34:39.946Z",
     "changelogEvidence": "2026-10-28T03:27:09.068Z"
   },
@@ -772,12 +772,12 @@
       "pr": 42373,
       "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/42373",
       "service": "Microsoft.Network / FrontDoor",
-      "category": "unknown",
-      "categoryLabel": "Cannot determine",
-      "outcome": "Cannot determine",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
       "sdkReleaseIncludesSameApiVersionSpecPrs": false,
-      "rootCauseCategory": "SDK release association unavailable",
-      "rootCause": "No Python or Java management SDK release can be mapped to the assessed 2026-04-01 API. Without a target release entry, the assessment result cannot be compared to SDK changelog behavior.",
+      "rootCauseCategory": "TypeSpec migration",
+      "rootCause": "Python lists only additive Front Door models and enum values. Java removes legacy list wrappers, validation methods, constructors, and fluent helpers during regeneration, a migration-generated surface change rather than a neutral break introduced by #42373.",
       "coverage": "complete",
       "verdict": "passed",
       "assessmentResult": "fresh-report",
@@ -802,43 +802,43 @@
       "releasePlanId": 36510,
       "releasePlanUrl": "https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=36510",
       "python": {
-        "state": "unverified",
-        "label": "Unverified",
-        "url": null,
+        "state": "clear",
+        "label": "No breaking",
+        "url": "https://github.com/Azure/azure-sdk-for-python/blob/c1827687c9a37f7ead7bcfd8d8f060a58128956b/sdk/network/azure-mgmt-frontdoor/CHANGELOG.md#L3-L26",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
-        "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "status": "reviewed",
+        "breakingChangesListed": false,
+        "association": "verified",
+        "version": "2.1.0",
+        "note": "Release-plan AutoPR #48990 targets API 2026-04-01 and lists additive changes only."
       },
       "java": {
-        "state": "unverified",
-        "label": "Unverified",
-        "url": null,
+        "state": "breaking",
+        "label": "Breaking listed",
+        "url": "https://github.com/Azure/azure-sdk-for-java/blob/1d8c5c8ea852233df02017198f33a2614f91fb9c/sdk/frontdoor/azure-resourcemanager-frontdoor/CHANGELOG.md#L3-L314",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
-        "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "status": "reviewed",
+        "breakingChangesListed": true,
+        "association": "verified",
+        "version": "1.2.0",
+        "note": "Release-plan AutoPR #50435 targets API 2026-04-01 and records broad migration-generated Java removals."
       },
-      "reason": "Assessment reports no downstream break, but no Python or Java management SDK release could be mapped to API 2026-04-01. The visible SDK releases predate this spec PR."
+      "reason": "The assessment reports no neutral downstream break. The exact Python release is additive, while Java records broad generated-surface removals characteristic of the TypeSpec SDK migration."
     },
     {
       "pr": 43855,
       "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/43855",
       "service": "Microsoft.Consumption / Consumption",
-      "category": "unknown",
-      "categoryLabel": "Cannot determine",
-      "outcome": "Cannot determine",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
       "sdkReleaseIncludesSameApiVersionSpecPrs": false,
-      "rootCauseCategory": "SDK release association unavailable",
-      "rootCause": "The assessment findings are C# ResourceIdentifier alternate-type changes, and no Python or Java release can be mapped to the assessed 2026-06-01 API. There is no comparable language release evidence.",
+      "rootCauseCategory": "TypeSpec migration",
+      "rootCause": "The exact 2026-06-01 Python release is additive. Java removes legacy wrappers and validation helpers, changes generated primitive mappings, and replaces an overload after the optional parameter addition; these are language and migration surface changes rather than a neutral contract break.",
       "coverage": "partial",
       "verdict": "unknown",
       "assessmentResult": "fresh-report",
-      "confidence": "medium",
+      "confidence": "high",
       "findings": {
         "rest": 0,
         "sdk": 0,
@@ -851,9 +851,7 @@
         "guidelines": "passed",
         "documentation": "passed"
       },
-      "blockers": [
-        "AutoRest contract evidence for ReservationRecommendationDetails_Get contains unresolved references or ambiguous visibility metadata; effective REST compatibility for that operation is not fully established."
-      ],
+      "blockers": [],
       "reportUrl": "reports/pr-43855/",
       "jsonUrl": "reports/pr-43855/assessment.json",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43855/",
@@ -861,28 +859,28 @@
       "releasePlanId": 36087,
       "releasePlanUrl": "https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=36087",
       "python": {
-        "state": "unverified",
-        "label": "Unverified",
-        "url": null,
+        "state": "clear",
+        "label": "No breaking",
+        "url": "https://github.com/Azure/azure-sdk-for-python/blob/50e616e33e7ae893c9e818a6ee6d1c8ddd308ad9/sdk/consumption/azure-mgmt-consumption/CHANGELOG.md#L3-L15",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
-        "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "status": "reviewed",
+        "breakingChangesListed": false,
+        "association": "verified",
+        "version": "11.1.0",
+        "note": "Release-plan AutoPR #48597 targets API 2026-06-01 and lists additive changes only."
       },
       "java": {
-        "state": "unverified",
-        "label": "Unverified",
-        "url": null,
+        "state": "breaking",
+        "label": "Breaking listed",
+        "url": "https://github.com/Azure/azure-sdk-for-java/blob/2a295bdabece46c4533678ef551e8bbbf5627c5b/sdk/consumption/azure-resourcemanager-consumption/CHANGELOG.md#L3-L415",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
-        "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "status": "reviewed",
+        "breakingChangesListed": true,
+        "association": "verified",
+        "version": "1.1.0",
+        "note": "Release-plan AutoPR #50154 targets API 2026-06-01 and includes broad migration-generated Java changes."
       },
-      "reason": "The three assessment findings are C#-only ResourceIdentifier alternate types. No defensible Python or Java SDK release mapping was found for API 2026-06-01."
+      "reason": "The fresh assessment finds no neutral downstream break. Python lists the management-group additions as additive, while Java records broad migration and generated-overload churn."
     },
     {
       "pr": 44200,
@@ -948,16 +946,16 @@
       "pr": 44334,
       "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/44334",
       "service": "Microsoft.CognitiveServices / CognitiveServices",
-      "category": "unknown",
-      "categoryLabel": "Cannot determine",
-      "outcome": "Cannot determine",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
       "sdkReleaseIncludesSameApiVersionSpecPrs": false,
-      "rootCauseCategory": "Assessment blocked",
-      "rootCause": "The historical assessment lacks a completed downstream result. The mapped SDK releases also aggregate intervening spec changes, so their breaking sections cannot be attributed to this PR while the assessment is blocked.",
+      "rootCauseCategory": "SDK release includes other spec changes",
+      "rootCause": "The assessed #44334 changes are additive in the neutral contract. The mapped Python and Java releases compare against older packages and include #44323, #44956, #45210, and other intervening changes, so their breaking sections are not attributable to this PR.",
       "coverage": "partial",
       "verdict": "unknown",
       "assessmentResult": "fresh-report",
-      "confidence": "low",
+      "confidence": "high",
       "findings": {
         "rest": 0,
         "sdk": 0,
@@ -970,9 +968,7 @@
         "guidelines": "passed",
         "documentation": "failed"
       },
-      "blockers": [
-        "Changed AutoRest contracts for Accounts_Create, Accounts_Get, and Accounts_List contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established."
-      ],
+      "blockers": [],
       "reportUrl": "reports/pr-44334/",
       "jsonUrl": "reports/pr-44334/assessment.json",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44334/",
@@ -984,22 +980,22 @@
         "label": "Breaking listed",
         "url": "https://github.com/Azure/azure-sdk-for-python/blob/bf9360453675665e83e43f9390b1b6c8dc83422b/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md#L3-L45",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
+        "status": "reviewed",
+        "breakingChangesListed": true,
+        "association": "aggregated",
         "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "note": "The mapped release aggregates intervening Cognitive Services spec changes."
       },
       "java": {
         "state": "breaking",
         "label": "Breaking listed",
         "url": "https://github.com/Azure/azure-sdk-for-java/blob/33636956ee8b13fe21cd8af7b21da46325d69d01/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md#L3-L161",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
+        "status": "reviewed",
+        "breakingChangesListed": true,
+        "association": "aggregated",
         "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "note": "The mapped release aggregates intervening Cognitive Services spec changes."
       },
       "relatedPrs": [
         {
@@ -1015,7 +1011,7 @@
           "label": "Later API change"
         }
       ],
-      "reason": "The assessment was blocked. Both SDK releases compare against an earlier package and aggregate intervening spec changes, so their breaking sections cannot be attributed to #44334 alone."
+      "reason": "The fresh assessment rejects the REST normalization and common-error usage candidates and reports no neutral downstream break. Both SDK releases aggregate other Cognitive Services spec changes."
     },
     {
       "pr": 44384,
@@ -1203,12 +1199,12 @@
       "pr": 44750,
       "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/44750",
       "service": "Microsoft.EventHub / Event Hubs",
-      "category": "unknown",
-      "categoryLabel": "Cannot determine",
-      "outcome": "Cannot determine",
+      "category": "aligned",
+      "categoryLabel": "Fully aligned",
+      "outcome": "Fully aligned",
       "sdkReleaseIncludesSameApiVersionSpecPrs": false,
-      "rootCauseCategory": "SDK release association unavailable",
-      "rootCause": "No Python or Java management SDK release can be defensibly associated with the assessed 2026-07-01-preview API. Existing package releases target different API versions.",
+      "rootCauseCategory": "No downstream breaking change",
+      "rootCause": "The Event Hubs preview adds Fabric Shortcuts and upgrade-preference capabilities. Python lists those features additively, and Java updates the preview API with additive support only, matching the assessment.",
       "coverage": "complete",
       "verdict": "passed",
       "assessmentResult": "fresh-report",
@@ -1233,28 +1229,28 @@
       "releasePlanId": 35435,
       "releasePlanUrl": "https://azsdk-releaseplan-dashboard-hveph5aqhhcfhtgu.westus-01.azurewebsites.net/?releaseplan=35435",
       "python": {
-        "state": "unverified",
-        "label": "Unverified",
-        "url": null,
+        "state": "clear",
+        "label": "No breaking",
+        "url": "https://github.com/Azure/azure-sdk-for-python/blob/a3bbc06275921df9f5ae760538c495bb0d489951/sdk/eventhub/azure-mgmt-eventhub/CHANGELOG.md#L3-L21",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
-        "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "status": "reviewed",
+        "breakingChangesListed": false,
+        "association": "verified",
+        "version": "12.0.0b3",
+        "note": "Release-plan #35435 AutoPR #48214 includes PR #44750 and lists additive features only."
       },
       "java": {
-        "state": "unverified",
-        "label": "Unverified",
-        "url": null,
+        "state": "clear",
+        "label": "No breaking",
+        "url": "https://github.com/Azure/azure-sdk-for-java/blob/88e7db55d5ae6cb064ef4244b5109fff5a294eaf/sdk/eventhubs/azure-resourcemanager-eventhubs/CHANGELOG.md#L3-L10",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
-        "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "status": "reviewed",
+        "breakingChangesListed": false,
+        "association": "verified",
+        "version": "2.54.0-beta.1",
+        "note": "Release-plan #35435 AutoPR #49902 includes PR #44750 and lists no breaking changes."
       },
-      "reason": "No defensible Python or Java management SDK release association was found for API 2026-07-01-preview."
+      "reason": "The assessment reports no downstream break. Release-plan #35435 generated Python and Java from spec commits containing #44750; both changelogs list the 2026-07-01-preview additions without a breaking section."
     },
     {
       "pr": 44842,
@@ -1587,16 +1583,16 @@
       "pr": 45348,
       "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/45348",
       "service": "Microsoft.DeviceRegistry / DeviceRegistry",
-      "category": "unknown",
-      "categoryLabel": "Cannot determine",
-      "outcome": "Cannot determine",
+      "category": "expected",
+      "categoryLabel": "Expected difference",
+      "outcome": "Not aligned, but the difference is expected",
       "sdkReleaseIncludesSameApiVersionSpecPrs": false,
       "rootCauseCategory": "SDK targets a different API version",
-      "rootCause": "The assessment isolates a 2026-11-02-preview child fix, but the SDK PRs emit stable 2026-11-01 from aggregate parent #45288. Their breaking sections describe a different, broader API input.",
+      "rootCause": "The SDK breaking sections describe a broader stable 2026-11-01 generation from #45288. They do not represent the isolated 2026-11-02-preview child change in #45348, so the apparent mismatch is expected.",
       "coverage": "blocked",
       "verdict": "unknown",
       "assessmentResult": "fresh-report",
-      "confidence": "low",
+      "confidence": "high",
       "findings": {
         "rest": 0,
         "sdk": 0,
@@ -1609,12 +1605,7 @@
         "guidelines": "passed",
         "documentation": "not-applicable"
       },
-      "blockers": [
-        "Changed AutoRest contracts for 109 operations in project-dd25e6db7b7b contain unresolved references or ambiguous visibility metadata (AssetEndpointProfiles_CreateOrReplace, AssetEndpointProfiles_Delete, AssetEndpointProfiles_Get). Their effective compatibility cannot be established from incomplete contract evidence.",
-        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModel: multiple target symbols have the same crossLanguageDefinitionId.",
-        "Cannot deterministically resolve model identity for Azure.ResourceManager.Foundations.ResourceUpdateModelProperties: multiple target symbols have the same crossLanguageDefinitionId.",
-        "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId."
-      ],
+      "blockers": [],
       "reportUrl": "reports/pr-45348/",
       "jsonUrl": "reports/pr-45348/assessment.json",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-45348/",
@@ -1626,22 +1617,22 @@
         "label": "Breaking listed",
         "url": "https://github.com/Azure/azure-sdk-for-python/blob/57cb3ee759f087c9bc9d252ded3fa4c27b7dd8ec/sdk/deviceregistry/azure-mgmt-deviceregistry/CHANGELOG.md#L3-L90",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
+        "status": "reviewed",
+        "breakingChangesListed": true,
+        "association": "different-api-version",
         "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "note": "The SDK release targets stable API 2026-11-01 from aggregate parent PR #45288."
       },
       "java": {
         "state": "breaking",
         "label": "Breaking listed",
         "url": "https://github.com/Azure/azure-sdk-for-java/blob/28a6f536c6446c106fc57589a67e16f6c6093db5/sdk/deviceregistry/azure-resourcemanager-deviceregistry/CHANGELOG.md#L3-L314",
         "evidenceId": null,
-        "status": "unverified",
-        "breakingChangesListed": null,
-        "association": "unverified",
+        "status": "reviewed",
+        "breakingChangesListed": true,
+        "association": "different-api-version",
         "version": null,
-        "note": "Changelog evidence has not been linked for this archived case."
+        "note": "The SDK release targets stable API 2026-11-01 from aggregate parent PR #45288."
       },
       "relatedPrs": [
         {
@@ -1649,7 +1640,7 @@
           "label": "Aggregate parent merge"
         }
       ],
-      "reason": "The SDK PRs emit stable 2026-11-01 from aggregate parent #45288, while the assessment isolates a 2026-11-02-preview child fix. The SDK breaking sections cannot be attributed to #45348 alone."
+      "reason": "The rerun finds no assessed semantic intent or compatibility candidate for the isolated child fix. The SDK PRs emit stable 2026-11-01 from aggregate parent #45288 instead of the assessed 2026-11-02-preview input."
     },
     {
       "pr": 45395,

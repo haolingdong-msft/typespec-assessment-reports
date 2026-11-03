@@ -73,7 +73,7 @@ for (const report of alignmentData.reports) {
 }
 
 assert(
-  categories.aligned === 11 && categories.expected === 14 && categories.unknown === 9,
+  categories.aligned === 12 && categories.expected === 18 && categories.unknown === 4,
   `Unexpected category totals: ${JSON.stringify(categories)}.`,
 );
 assert(aggregatedSdkReleaseCount === 6, `Expected 6 same-version aggregated SDK releases, found ${aggregatedSdkReleaseCount}.`);
