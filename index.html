@@ -668,34 +668,6 @@
     .tcgc-state.clear { color: var(--green); background: var(--green-bg); }
     .tcgc-state.not-assessed { color: var(--amber); background: var(--amber-bg); }
 
-    .coverage-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border-muted);
-    }
-
-    .coverage-row span:first-child {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .coverage {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: var(--surface-subtle);
-      color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .coverage.complete { color: var(--green); background: var(--green-bg); }
-    .coverage.partial { color: var(--amber); background: var(--amber-bg); }
-    .coverage.blocked { color: var(--red); background: var(--red-bg); }
-    .coverage.legacy { color: var(--muted); background: var(--surface-subtle); }
-
     .sdk-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -890,7 +862,7 @@
           <p class="eyebrow">Assessment report index</p>
           <h2>TypeSpec assessment reports</h2>
           <p>
-            Browse every assessed spec PR, its overall verdict and coverage, and the finding count
+            Browse every assessed spec PR, its overall verdict, and the finding count
             for each assessment dimension.
           </p>
         </div>
@@ -1067,9 +1039,6 @@
             </div>
             <div class="index-status">
               <span class="verdict ${report.verdict}">${esc(report.verdict)}</span>
-              <span class="coverage ${report.coverage}">
-                ${esc(report.coverage)} coverage
-              </span>
             </div>
             <div class="index-findings">
               ${indexFinding("REST", report.findings.rest)}
@@ -1135,12 +1104,6 @@
               ${findingTile("Documentation", report.findings.documentation)}
             </div>
             ${tcgcBreakingChangeRow(report.tcgcBreakingChange)}
-            <div class="coverage-row">
-              <span>Assessment coverage</span>
-              <span class="coverage ${report.coverage}">
-                ${esc(report.coverage)}
-              </span>
-            </div>
           </section>
 
           <section class="comparison">
