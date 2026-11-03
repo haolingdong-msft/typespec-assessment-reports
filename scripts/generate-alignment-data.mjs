@@ -181,6 +181,7 @@ async function buildAlignmentData() {
       category: curated.category,
       categoryLabel: curated.categoryLabel,
       outcome: curated.outcome,
+      sdkReleaseIncludesOtherSpecPrs: relatedPrs.length > 0,
       rootCauseCategory: curated.rootCauseCategory,
       rootCause: curated.rootCause,
       coverage: publication.coverage,

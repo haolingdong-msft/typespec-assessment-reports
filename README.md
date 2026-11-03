@@ -27,6 +27,11 @@ cause category and explanation, related spec PR attribution, and SDK evidence
 association for each retained report. Root cause distinguishes spec-authored
 contract changes from TypeSpec migrations, language-specific SDK
 surfaces, aggregated releases, unavailable mappings, and blocked assessments.
+The generated `sdkReleaseIncludesOtherSpecPrs` flag identifies every mapped SDK
+release with attributed changes from other spec PRs. The Downstream analysis
+page exposes it as an independent SDK release scope filter, so aggregated
+releases can be viewed across Fully aligned, Expected difference, and Cannot
+determine results.
 For a release with SDK breaking changes but no TCGC candidate, classify an
 explicit TypeSpec migration first. If migration is excluded, attribute the
 difference to an aggregated SDK release when the breaking item is traced to

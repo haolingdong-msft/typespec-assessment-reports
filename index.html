@@ -423,7 +423,7 @@
       z-index: 4;
       top: 0;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
       margin-bottom: 16px;
       padding: 12px;
@@ -453,6 +453,26 @@
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
+    }
+
+    .filter-groups {
+      display: grid;
+      gap: 9px;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter-label {
+      min-width: 108px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     .filter {
@@ -802,6 +822,8 @@
       .brand-row { align-items: flex-start; }
       .summary-grid { grid-template-columns: repeat(2, 1fr); }
       .controls { align-items: stretch; flex-direction: column; }
+      .filter-group { align-items: flex-start; flex-direction: column; }
+      .filter-label { min-width: 0; }
       .finding-grid { grid-template-columns: repeat(2, 1fr); }
       .sdk-grid { grid-template-columns: 1fr; }
       .brand-row, .home-hero { align-items: flex-start; flex-direction: column; }
@@ -901,11 +923,24 @@
 
       <section class="controls" id="analysis-controls" aria-label="Report filters">
         <input class="search" id="search" type="search" placeholder="Search PR, service, category, or reason" disabled>
-        <div class="filters" id="filters">
-          <button class="filter active" id="all-filter" data-filter="all" disabled>All</button>
-          <button class="filter" data-filter="aligned" disabled>Fully aligned</button>
-          <button class="filter" data-filter="expected" disabled>Expected difference</button>
-          <button class="filter" data-filter="unknown" disabled>Cannot determine</button>
+        <div class="filter-groups">
+          <div class="filter-group">
+            <span class="filter-label">Alignment</span>
+            <div class="filters" id="filters">
+              <button class="filter active" id="all-filter" data-filter="all" disabled>All</button>
+              <button class="filter" data-filter="aligned" disabled>Fully aligned</button>
+              <button class="filter" data-filter="expected" disabled>Expected difference</button>
+              <button class="filter" data-filter="unknown" disabled>Cannot determine</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">SDK release scope</span>
+            <div class="filters" id="sdk-release-filters">
+              <button class="filter active" id="all-sdk-releases-filter" data-sdk-release-filter="all" disabled>All releases</button>
+              <button class="filter" id="aggregated-sdk-releases-filter" data-sdk-release-filter="aggregated" disabled>Aggregates other spec PRs</button>
+              <button class="filter" id="unattributed-sdk-releases-filter" data-sdk-release-filter="unattributed" disabled>No attributed aggregation</button>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -940,7 +975,11 @@
     const loadError = document.querySelector("#load-error");
     const reportTotal = document.querySelector("#report-total");
     const allFilter = document.querySelector("#all-filter");
+    const allSdkReleasesFilter = document.querySelector("#all-sdk-releases-filter");
+    const aggregatedSdkReleasesFilter = document.querySelector("#aggregated-sdk-releases-filter");
+    const unattributedSdkReleasesFilter = document.querySelector("#unattributed-sdk-releases-filter");
     let activeFilter = "all";
+    let activeSdkReleaseFilter = "all";
     let focusedPr = null;
 
     const esc = (value) => String(value)
@@ -1013,17 +1052,24 @@
       const visible = reports.filter((report) => {
         const focusMatch = focusedPr === null || report.pr === focusedPr;
         const categoryMatch = activeFilter === "all" || report.category === activeFilter;
+        const sdkReleaseMatch =
+          activeSdkReleaseFilter === "all" ||
+          (activeSdkReleaseFilter === "aggregated" && report.sdkReleaseIncludesOtherSpecPrs) ||
+          (activeSdkReleaseFilter === "unattributed" && !report.sdkReleaseIncludesOtherSpecPrs);
         const haystack = [
           report.pr,
           report.service,
           report.categoryLabel,
+          report.sdkReleaseIncludesOtherSpecPrs
+            ? "SDK release includes other spec PRs aggregated release"
+            : "No attributed SDK release aggregation",
           report.rootCauseCategory,
           report.rootCause,
           ...(report.relatedPrs || []).flatMap((pr) => [pr.number, pr.label]),
           report.outcome,
           report.reason
         ].join(" ").toLowerCase();
-        return focusMatch && categoryMatch && (!query || haystack.includes(query));
+        return focusMatch && categoryMatch && sdkReleaseMatch && (!query || haystack.includes(query));
       });
 
       reportList.innerHTML = visible.map((report) => `
@@ -1068,7 +1114,7 @@
             <p class="reason">${esc(report.reason)}</p>
             ${report.relatedPrs?.length ? `
               <div class="included-prs">
-                <span>Included spec PRs</span>
+                <span>SDK release also includes spec PRs</span>
                 ${report.relatedPrs.map((pr) => `
                   <a href="https://github.com/Azure/azure-rest-api-specs/pull/${pr.number}" target="_blank" rel="noreferrer">#${pr.number} ${esc(pr.label)}</a>
                 `).join("")}
@@ -1097,9 +1143,13 @@
 
       if (!showReports) {
         activeFilter = "all";
+        activeSdkReleaseFilter = "all";
         search.value = "";
         document.querySelectorAll(".filter").forEach((item) => {
-          item.classList.toggle("active", item.dataset.filter === "all");
+          item.classList.toggle(
+            "active",
+            item.dataset.filter === "all" || item.dataset.sdkReleaseFilter === "all",
+          );
         });
         render();
         window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1119,6 +1169,10 @@
       document.querySelector("#unknown-count").textContent = counts.unknown;
       reportTotal.textContent = `${reports.length} reports`;
       allFilter.textContent = `All ${reports.length}`;
+      const aggregatedCount = reports.filter((report) => report.sdkReleaseIncludesOtherSpecPrs).length;
+      aggregatedSdkReleasesFilter.textContent = `Aggregates other spec PRs ${aggregatedCount}`;
+      unattributedSdkReleasesFilter.textContent = `No attributed aggregation ${reports.length - aggregatedCount}`;
+      allSdkReleasesFilter.textContent = `All releases ${reports.length}`;
     }
 
     function validateAlignmentData(payload) {
@@ -1141,6 +1195,7 @@
           !report.findings ||
           !report.python ||
           !report.java ||
+          typeof report.sdkReleaseIncludesOtherSpecPrs !== "boolean" ||
           typeof report.rootCauseCategory !== "string" ||
           typeof report.rootCause !== "string"
         ) {
@@ -1181,6 +1236,15 @@
       if (!button) return;
       activeFilter = button.dataset.filter;
       document.querySelectorAll(".filter").forEach((item) => item.classList.toggle("active", item === button));
+      render();
+    });
+
+    document.querySelector("#sdk-release-filters").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-sdk-release-filter]");
+      if (!button) return;
+      activeSdkReleaseFilter = button.dataset.sdkReleaseFilter;
+      document.querySelectorAll("[data-sdk-release-filter]")
+        .forEach((item) => item.classList.toggle("active", item === button));
       render();
     });
 

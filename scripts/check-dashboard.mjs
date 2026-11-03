@@ -28,6 +28,9 @@ for (const id of [
   "expected-count",
   "unknown-count",
   "all-filter",
+  "all-sdk-releases-filter",
+  "aggregated-sdk-releases-filter",
+  "unattributed-sdk-releases-filter",
   "load-error",
 ]) {
   assert(html.includes(`id="${id}"`), `Dashboard is missing #${id}.`);
@@ -42,19 +45,30 @@ assert(alignmentData.reportCount === alignmentData.reports.length, "Alignment re
 assert(alignmentData.reportCount === 34, `Expected 34 reports, found ${alignmentData.reportCount}.`);
 
 const categories = { aligned: 0, expected: 0, unknown: 0 };
+let aggregatedSdkReleaseCount = 0;
 for (const report of alignmentData.reports) {
   assert(categories[report.category] !== undefined, `PR #${report.pr} has an invalid category.`);
   assert(typeof report.verdict === "string", `PR #${report.pr} is missing a verdict.`);
   assert(typeof report.coverage === "string", `PR #${report.pr} is missing coverage.`);
   assert(typeof report.rootCauseCategory === "string", `PR #${report.pr} is missing a root cause category.`);
   assert(typeof report.rootCause === "string", `PR #${report.pr} is missing a root cause.`);
+  assert(
+    typeof report.sdkReleaseIncludesOtherSpecPrs === "boolean",
+    `PR #${report.pr} is missing the SDK release aggregation flag.`,
+  );
+  assert(
+    report.sdkReleaseIncludesOtherSpecPrs === Boolean(report.relatedPrs?.length),
+    `PR #${report.pr} has inconsistent SDK release aggregation data.`,
+  );
   assert(report.findings && report.python && report.java, `PR #${report.pr} is missing dashboard data.`);
   categories[report.category] += 1;
+  aggregatedSdkReleaseCount += Number(report.sdkReleaseIncludesOtherSpecPrs);
 }
 
 assert(
   categories.aligned === 11 && categories.expected === 14 && categories.unknown === 9,
   `Unexpected category totals: ${JSON.stringify(categories)}.`,
 );
+assert(aggregatedSdkReleaseCount === 9, `Expected 9 aggregated SDK releases, found ${aggregatedSdkReleaseCount}.`);
 
 console.log("Dashboard data contract is valid.");
