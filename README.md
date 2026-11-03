@@ -34,6 +34,8 @@ API version as the assessed PR. Each qualifying relation records the exact
 compatibility mitigation remain related context but do not enter this filter.
 The Downstream analysis page exposes the flag as an independent SDK release
 scope filter across all alignment categories.
+Each analysis card also states whether the neutral TCGC downstream assessment
+detected a breaking change, detected no breaking change, or was not assessed.
 For a release with SDK breaking changes but no TCGC candidate, classify an
 explicit TypeSpec migration first. If migration is excluded, attribute the
 difference to an aggregated SDK release when the breaking item is traced to

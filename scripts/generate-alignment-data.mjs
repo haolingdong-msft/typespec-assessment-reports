@@ -104,6 +104,32 @@ function buildEvidence(language, pr, curated, reportEvidence, detailedEvidence) 
   };
 }
 
+function buildTcgcBreakingChange(publication, pr) {
+  const downstreamStatus = publication.statuses?.downstream;
+  assert(
+    ["failed", "passed", "not-assessed"].includes(downstreamStatus),
+    `PR #${pr} has unsupported TCGC downstream status ${downstreamStatus}.`,
+  );
+  const states = {
+    failed: {
+      state: "breaking",
+      label: "Breaking detected",
+    },
+    passed: {
+      state: "clear",
+      label: "No breaking detected",
+    },
+    "not-assessed": {
+      state: "not-assessed",
+      label: "Not assessed",
+    },
+  };
+  return {
+    ...states[downstreamStatus],
+    findingCount: publication.findings.sdk,
+  };
+}
+
 async function buildAlignmentData() {
   const [reports, manifest, evidence, curation] = await Promise.all([
     readJson("reports.json"),
@@ -213,6 +239,7 @@ async function buildAlignmentData() {
       confidence: publication.confidence,
       findings: publication.findings,
       statuses: publication.statuses,
+      tcgcBreakingChange: buildTcgcBreakingChange(publication, curated.pr),
       blockers: publication.blockers,
       reportUrl: report.reportUrl,
       jsonUrl: report.jsonUrl,

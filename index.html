@@ -640,6 +640,34 @@
 
     .finding.has-findings strong { color: var(--red); }
 
+    .tcgc-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding: 10px 12px;
+      border: 1px solid var(--border-muted);
+      border-radius: 8px;
+      background: var(--surface-subtle);
+    }
+
+    .tcgc-row span:first-child {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tcgc-state {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .tcgc-state.breaking { color: var(--red); background: var(--red-bg); }
+    .tcgc-state.clear { color: var(--green); background: var(--green-bg); }
+    .tcgc-state.not-assessed { color: var(--amber); background: var(--amber-bg); }
+
     .coverage-row {
       display: flex;
       align-items: center;
@@ -1009,6 +1037,16 @@
         </div>`;
     }
 
+    function tcgcBreakingChangeRow(tcgcBreakingChange) {
+      return `
+        <div class="tcgc-row">
+          <span>TCGC breaking change</span>
+          <strong class="tcgc-state ${tcgcBreakingChange.state}">
+            ${esc(tcgcBreakingChange.label)}
+          </strong>
+        </div>`;
+    }
+
     function indexFinding(label, value) {
       return `
         <div class="index-finding ${value > 0 ? "has-findings" : ""}">
@@ -1060,6 +1098,7 @@
           report.pr,
           report.service,
           report.categoryLabel,
+          report.tcgcBreakingChange.label,
           report.sdkReleaseIncludesSameApiVersionSpecPrs
             ? "SDK release includes same API version spec PRs aggregated release"
             : "No same API version SDK release aggregation",
@@ -1091,10 +1130,11 @@
             <p class="section-label">Assessment findings</p>
             <div class="finding-grid">
               ${findingTile("REST", report.findings.rest)}
-              ${findingTile("SDK", report.findings.sdk)}
+              ${findingTile("TCGC SDK", report.findings.sdk)}
               ${findingTile("Guidelines", report.findings.guidelines)}
               ${findingTile("Documentation", report.findings.documentation)}
             </div>
+            ${tcgcBreakingChangeRow(report.tcgcBreakingChange)}
             <div class="coverage-row">
               <span>Assessment coverage</span>
               <span class="coverage ${report.coverage}">
@@ -1207,6 +1247,9 @@
           !report.findings ||
           !report.python ||
           !report.java ||
+          !report.tcgcBreakingChange ||
+          !["breaking", "clear", "not-assessed"].includes(report.tcgcBreakingChange.state) ||
+          typeof report.tcgcBreakingChange.label !== "string" ||
           typeof report.sdkReleaseIncludesSameApiVersionSpecPrs !== "boolean" ||
           typeof report.rootCauseCategory !== "string" ||
           typeof report.rootCause !== "string"

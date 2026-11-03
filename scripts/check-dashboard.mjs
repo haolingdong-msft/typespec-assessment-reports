@@ -60,6 +60,16 @@ for (const report of alignmentData.reports) {
     report.sdkReleaseIncludesSameApiVersionSpecPrs === Boolean(report.sameApiVersionRelatedPrs?.length),
     `PR #${report.pr} has inconsistent same-version SDK release aggregation data.`,
   );
+  assert(
+    ["breaking", "clear", "not-assessed"].includes(report.tcgcBreakingChange?.state),
+    `PR #${report.pr} has an invalid TCGC breaking-change state.`,
+  );
+  assert(
+    typeof report.tcgcBreakingChange.label === "string" &&
+      Number.isInteger(report.tcgcBreakingChange.findingCount) &&
+      report.tcgcBreakingChange.findingCount === report.findings.sdk,
+    `PR #${report.pr} has inconsistent TCGC breaking-change data.`,
+  );
   for (const related of report.sameApiVersionRelatedPrs ?? []) {
     assert(typeof related.apiVersion === "string" && related.apiVersion.length > 0, `PR #${report.pr} has a same-version relation without an API version.`);
     assert(
@@ -77,6 +87,18 @@ assert(
   `Unexpected category totals: ${JSON.stringify(categories)}.`,
 );
 assert(aggregatedSdkReleaseCount === 6, `Expected 6 same-version aggregated SDK releases, found ${aggregatedSdkReleaseCount}.`);
+assert(
+  JSON.stringify(
+    alignmentData.reports.reduce(
+      (counts, report) => {
+        counts[report.tcgcBreakingChange.state] += 1;
+        return counts;
+      },
+      { breaking: 0, clear: 0, "not-assessed": 0 },
+    ),
+  ) === JSON.stringify({ breaking: 9, clear: 13, "not-assessed": 12 }),
+  "Unexpected TCGC breaking-change totals.",
+);
 assert(
   JSON.stringify(
     alignmentData.reports
