@@ -2,8 +2,8 @@
   "schemaVersion": 2,
   "reportCount": 34,
   "sourceGeneratedAt": {
-    "reports": "2026-11-03T03:56:08.605Z",
-    "publicationManifest": "2026-10-30T08:34:39.946Z",
+    "reports": "2026-11-03T10:47:35.612Z",
+    "publicationManifest": "2026-11-03T11:03:44.105Z",
     "changelogEvidence": "2026-10-28T03:27:09.068Z"
   },
   "reports": [
@@ -94,26 +94,36 @@
       "assessmentResult": "fresh-report",
       "confidence": "medium",
       "findings": {
-        "rest": 49,
-        "sdk": 12,
-        "guidelines": 1,
+        "rest": 32,
+        "sdk": 10,
+        "guidelines": 0,
         "documentation": 0
       },
       "statuses": {
         "rest": "failed",
         "downstream": "failed",
-        "guidelines": "failed",
+        "guidelines": "passed",
         "documentation": "passed"
       },
       "tcgcBreakingChange": {
         "state": "breaking",
         "label": "Breaking detected",
-        "findingCount": 12
+        "findingCount": 10
       },
       "blockers": [
-        "Changed AutoRest contracts for 1 operations contain unresolved schema or parameter references (CloudAccounts_Update). Their effective compatibility cannot be established from placeholder references.",
-        "Changed AutoRest contracts for 1 operations in project-0b8d0c5d536b contain unresolved schema or parameter references (CloudAccounts_Update). Their effective compatibility cannot be established from placeholder references.",
-        "Changed AutoRest contracts for 1 operations in project-0b8d0c5d536b contain unresolved schema or parameter references (CloudAccounts_Update). Their effective compatibility cannot be established from placeholder references."
+        "CloudAccounts_Update contains unresolved AutoRest references or visibility evidence, so the complete effective REST request contract cannot be established.",
+        "Azure.ResourceManager.ResourceListResult maps to multiple target symbols, so every generated list-result identity cannot be paired deterministically.",
+        "The TypeScript-only experimental-split-models-by-visibility option is not represented by the bounded language-neutral TCGC evidence, so its generated TypeScript compatibility is not assessed.",
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-6589f8fe6a4ae343",
+          "hunkId": "hunk-8b9abc3139b1cba0",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The TypeScript-only experimental split-models-by-visibility option can change generated language-specific model surfaces, but the bounded language-neutral TCGC evidence cannot establish the resulting TypeScript compatibility."
+        }
       ],
       "reportUrl": "reports/pr-46679/",
       "jsonUrl": "reports/pr-46679/assessment.json",

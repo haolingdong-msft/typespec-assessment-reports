@@ -1,30 +1,40 @@
 {
   "pr": 46679,
   "result": "fresh-report",
-  "generatedAt": "2026-10-29T09:03:32.302Z",
+  "generatedAt": "2026-11-03T10:47:35.612Z",
   "confidence": "medium",
   "safety": "failed",
   "verdict": "failed",
   "coverage": "partial",
   "findings": {
-    "rest": 49,
-    "sdk": 12,
-    "guidelines": 1,
+    "rest": 32,
+    "sdk": 10,
+    "guidelines": 0,
     "documentation": 0
   },
   "statuses": {
     "rest": "failed",
     "downstream": "failed",
-    "guidelines": "failed",
+    "guidelines": "passed",
     "documentation": "passed"
   },
   "blockers": [
-    "Changed AutoRest contracts for 1 operations contain unresolved schema or parameter references (CloudAccounts_Update). Their effective compatibility cannot be established from placeholder references.",
-    "Changed AutoRest contracts for 1 operations in project-0b8d0c5d536b contain unresolved schema or parameter references (CloudAccounts_Update). Their effective compatibility cannot be established from placeholder references.",
-    "Changed AutoRest contracts for 1 operations in project-0b8d0c5d536b contain unresolved schema or parameter references (CloudAccounts_Update). Their effective compatibility cannot be established from placeholder references."
+    "CloudAccounts_Update contains unresolved AutoRest references or visibility evidence, so the complete effective REST request contract cannot be established.",
+    "Azure.ResourceManager.ResourceListResult maps to multiple target symbols, so every generated list-result identity cannot be paired deterministically.",
+    "The TypeScript-only experimental-split-models-by-visibility option is not represented by the bounded language-neutral TCGC evidence, so its generated TypeScript compatibility is not assessed.",
+    {
+      "code": "inference-blocked",
+      "reviewUnitId": "semantic-6589f8fe6a4ae343",
+      "hunkId": "hunk-8b9abc3139b1cba0",
+      "allowedDimensions": [
+        "rest",
+        "downstream"
+      ],
+      "message": "The TypeScript-only experimental split-models-by-visibility option can change generated language-specific model surfaces, but the bounded language-neutral TCGC evidence cannot establish the resulting TypeScript compatibility."
+    }
   ],
-  "assessmentJsonSha256": "a31dde86c89e7b82122331aa9ae28ef21846a4651f700947793e66b894b39433",
-  "assessmentHtmlSha256": "1895c934ff5de70e5219062f243975f329f01a4b07b58923e5c1275ba03cf7e2",
+  "assessmentJsonSha256": "8ea3dc23f82af1730e607a9e0b7ddfca5c82a9cf648996b85446d6efc9ea7367",
+  "assessmentHtmlSha256": "7450fba747ed354efbad8cd28aa0c22c7c6c49a9abb0b341c2e270ff61dd3426",
   "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679/",
   "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679/assessment.json"
 }
