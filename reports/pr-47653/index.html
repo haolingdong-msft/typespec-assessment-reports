@@ -1,0 +1,1935 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TypeSpec Assessment</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#64748b;--line:#dbe3ef;--accent:#2563eb;--good:#047857;--warn:#b45309;--danger:#b91c1c;--add-bg:#dcfce7;--add-text:#166534;--remove-bg:#fee2e2;--remove-text:#991b1b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,sans-serif}.container{width:min(1100px,calc(100% - 32px));margin:auto}.hero{padding:38px 0 42px;background:linear-gradient(120deg,#172554,#2554d8);color:white}.hero .eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:800;color:#dbeafe}.hero h1{margin:.35em 0 .55em;font-size:clamp(34px,4.2vw,58px);line-height:1.08;letter-spacing:-.025em}.hero-meta{font-size:16px;color:#e0e7ff}.hero-meta strong{color:#86efac;text-transform:capitalize}.hero a{color:#dbeafe}.summary-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:28px}.summary-card{display:block;min-height:150px;padding:18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.09);color:white!important;text-decoration:none;transition:background .15s,border-color .15s,transform .15s}.summary-card:hover,.summary-card:focus-visible{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5);transform:translateY(-2px);outline:none}.summary-card:focus-visible{box-shadow:0 0 0 3px #93c5fd}.summary-value{display:flex;gap:10px;align-items:center;font-size:25px;font-weight:800}.summary-value .pass{color:#86efac}.summary-value .fail{color:#fecaca}.summary-label{margin-top:8px;font-size:16px;font-weight:750}.summary-detail{margin-top:7px;color:#dbeafe;font-size:13px}.notice{padding:16px 0;background:#fffbeb;color:#713f12;border-bottom:1px solid #fde68a}main{padding:28px 0}section{margin:0 0 30px}.dimension-details>summary{cursor:pointer;list-style-position:outside}.dimension-details>summary h2{display:inline-block;margin:0 0 12px}.panel,.finding,.intent,.operation,.compliance-intent,.compliance-comparison{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}.finding{border-left:4px solid var(--warn)}.finding.high,.compliance-comparison.applicable-fail{border-left:4px solid var(--danger)}.finding.low{border-left-color:var(--muted)}.intent>summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.intent>summary .action{margin-left:0}.intent-finding-badges{display:inline-flex;gap:7px;flex-wrap:wrap;margin-left:auto}.intent-finding-badge{border:1px solid #991b1b;border-radius:999px;padding:3px 10px;background:#b91c1c;color:#fff!important;font-size:13px;font-weight:800;text-decoration:none}.intent-finding-badge:hover,.intent-finding-badge:focus-visible{background:#7f1d1d;outline:2px solid #fca5a5;outline-offset:2px}.intent>summary,.representative-example>summary,.operation summary,.compliance-intent>summary,.compliance-comparison>summary,.finding>summary,.comparison-details>summary,.affected-operations>summary,.root-cause-provenance>summary{cursor:pointer}.intent>summary,.compliance-intent>summary{font-size:18px}.intent-body,.compliance-intent-body,.compliance-comparison-body{padding-top:12px}.finding>summary{display:flex;align-items:center;gap:12px;font-size:18px}.sdk-contract-card>summary,.sdk-method-card>summary{flex-wrap:wrap}.finding-summary{margin-left:auto;color:var(--muted);font-size:15px}.severity,.origin-tag,.contract-tag{border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800}.contract-tag{background:#dbeafe;color:#1e40af}.severity{text-transform:lowercase}.severity.high{background:#fee2e2;color:#991b1b}.severity.medium{background:#fef3c7;color:#92400e}.severity.low{background:#dbeafe;color:#1e40af}.origin-tag.rest-breaking-tag{background:#fee2e2;color:#991b1b}.downstream-rest-link{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}.downstream-rest-link:hover strong,.downstream-rest-link:focus-visible strong{text-decoration:underline}.finding-body{padding-top:12px}.comparison-details{margin:14px 0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--panel) 94%,var(--accent))}.comparison-details>summary{font-size:16px}.comparison-body{padding-top:12px}.contract-metadata{grid-template-columns:max-content minmax(0,1fr);margin:4px 0 22px}.http-contract{display:inline-flex;align-items:baseline;gap:8px;flex-wrap:wrap}.contract-change-table{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden}.contract-change-table th{background:#eaf0f9}.contract-change-table th,.contract-change-table td{padding:13px 15px;border-right:1px solid var(--line)}.contract-change-table th:last-child,.contract-change-table td:last-child{border-right:0}.contract-member{width:31%;background:color-mix(in srgb,#eaf0f9 70%,var(--panel))}.contract-area-kind{display:block;margin-bottom:3px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.contract-before{width:34.5%;background:#fff1f1}.contract-after{width:34.5%;background:#eefaf3}.contract-value{display:inline-block;padding:3px 7px;border-radius:5px;font-weight:700}.contract-value.before{background:var(--remove-bg);color:var(--remove-text)}.contract-value.after{background:var(--add-bg);color:var(--add-text)}.contract-detail{display:block;margin-top:4px;color:var(--muted);font-size:13px}.breaking-rationale{margin:17px 0 22px;padding:12px 14px;border-left:3px solid #e7a400;background:#fff9e8}.affected-operations{margin:20px 0}.affected-operations>summary{font-size:18px}.affected-operation-list{display:grid;gap:7px;margin-top:10px}.affected-operation{display:grid;grid-template-columns:minmax(230px,.8fr) 65px minmax(300px,1.8fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}.http-method{color:#075cab;font-family:ui-monospace,monospace;font-weight:800}.contract-footer{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:18px;color:var(--muted);font-size:13px}.root-cause-provenance{margin-top:14px}.mapping-unavailable{color:var(--muted)}.representative-example{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:9px}.operation summary{display:flex;gap:12px;align-items:center}.operation summary span,.action{margin-left:auto;border-radius:999px;padding:2px 8px;background:#dbeafe;color:#1e40af}.operation-body{padding-top:12px}.diff{background:#111827;color:#e5e7eb;border-radius:10px;overflow:auto;margin:12px 0}.diff-path{padding:7px 12px;background:#1f2937}.diff-path a{color:#93c5fd}.diff pre{padding:12px;margin:0}.diff pre span{display:block}.diff pre .line-number{display:inline-block;width:42px;color:#94a3b8;user-select:none}.diff .add{background:#123d2a;color:#bbf7d0}.diff .remove{background:#51212a;color:#fecaca}.parameter-diff{margin:12px 0}.parameter-line{display:flex;gap:8px;align-items:baseline;padding:5px 9px;margin:3px 0;border-radius:6px}.parameter-line.add,.delta-after,ins{background:var(--add-bg);color:var(--add-text)}.parameter-line.remove,.delta-before,del{background:var(--remove-bg);color:var(--remove-text)}.parameter-line.modify,.parameter-line.reorder{background:#fef3c7;color:#92400e}.parameter-line>span:first-child{font-weight:800}.parameter-attribute{white-space:nowrap}.delta-before,.delta-after,del,ins{padding:2px 5px;border-radius:4px;text-decoration:none}dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px}dt{font-weight:700}dd{margin:0}.not-assessed{color:var(--muted);font-weight:700}.good,.compliance-summary.passed{color:var(--good)}.compliance-summary.failed{color:var(--danger)}.sources{color:var(--muted);font-size:13px}blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--panel) 90%,var(--accent))}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere}@media(max-width:1050px){.summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.affected-operation{grid-template-columns:1fr 65px}.affected-operation code{grid-column:1/-1}}@media(max-width:700px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.finding-summary{width:100%;margin-left:0}.contract-change-table{display:block;overflow-x:auto}.contract-change-table th,.contract-change-table td{min-width:210px}}@media(max-width:540px){.summary-grid{grid-template-columns:1fr}.hero h1{font-size:32px}}@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--panel:#172033;--text:#e5e7eb;--muted:#9ca3af;--line:#334155;--add-bg:#123d2a;--add-text:#bbf7d0;--remove-bg:#51212a;--remove-text:#fecaca}.notice{background:#422006;color:#fde68a}.parameter-line.modify,.parameter-line.reorder{background:#422006;color:#fde68a}.contract-change-table th{background:#202d45}.contract-member{background:#1d293d}.contract-before{background:#431f29}.contract-after{background:#15382b}.breaking-rationale{background:#3b2f13}.http-method{color:#76b9ff}}
+.tag{border-radius:999px;padding:3px 10px;background:#dbeafe;color:#1e40af;font-size:13px;font-weight:800}.finding-summary-meta{margin-left:auto;color:var(--muted);font-size:14px}.rest-operation-list{display:grid;gap:7px}.rest-operation-line{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(260px,2fr);gap:12px;padding:9px 11px;border:1px solid var(--line);border-radius:8px}.rest-operation-line>span{color:var(--muted)}@media(max-width:700px){.rest-operation-line{grid-template-columns:1fr}.finding-summary-meta{width:100%;margin-left:0}}
+.finding{border-left:1px solid var(--line)}
+.rest-contract-card .contract-tag{background:#fee2e2;color:#991b1b}.rest-contract-card .rest-operation-list{margin-top:10px}
+.notice{padding:0}.notice>summary{display:flex;min-height:46px;align-items:center;gap:10px;padding:8px 0;cursor:pointer;list-style:none}.notice>summary::-webkit-details-marker{display:none}.notice>summary::before{content:"▸";flex:none;color:#b45309;font-size:15px;font-weight:900;transition:transform .15s ease}.notice[open]>summary::before{transform:rotate(90deg)}.notice-title{flex:none;font-size:14px;font-weight:800}.notice-summary{overflow:hidden;color:color-mix(in srgb,currentColor 78%,var(--muted));font-size:12.5px;text-overflow:ellipsis;white-space:nowrap}.notice-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 0 12px 25px;font-size:12.5px;line-height:1.4}.notice-body p{margin:0}@media(max-width:700px){.notice-summary{display:none}.notice-body{grid-template-columns:1fr;gap:6px}}@media(prefers-color-scheme:dark){.notice>summary::before{color:#fbbf24}}
+.compliance-finding-group>summary{flex-wrap:wrap}.compliance-affected-intents{display:grid;gap:12px}.compliance-affected-intent{margin:0;padding:14px 16px;border:1px solid var(--line);border-radius:10px}.compliance-affected-intent h4{margin:0 0 8px}.compliance-affected-intent h5{margin:14px 0 6px}
+.intent-finding-badge{font:inherit;font-size:13px;cursor:pointer}.intent-impact-trigger{position:relative}.intent-impact-popover{position:absolute;z-index:20;top:calc(100% + 8px);right:0;display:none;width:min(480px,88vw);overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--panel);box-shadow:0 14px 34px rgb(31 42 68 / 18%)}.intent-impact-trigger.open .intent-impact-popover{display:grid}.intent-impact-popover a{display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);color:var(--text)!important;text-decoration:none}.intent-impact-popover a:first-child{border-top:0}.intent-impact-popover a:hover,.intent-impact-popover a:focus-visible{background:color-mix(in srgb,var(--panel) 92%,var(--accent))}.intent-impact-popover a span{color:var(--muted);font-size:13px}.intent h3,.representative-example>summary{font-size:17px;font-weight:750;line-height:1.35}.impact-highlight{outline:3px solid #ef4444;outline-offset:3px}
+.affected-methods{margin:20px 0}.affected-methods>summary{font-size:18px}.affected-method-list{display:grid;gap:7px;margin-top:10px}.affected-method{display:grid;grid-template-columns:minmax(180px,.6fr) minmax(280px,1.4fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}@media(max-width:700px){.affected-method{grid-template-columns:1fr}}
+.summary-value {
+  white-space: nowrap;
+}
+.summary-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.summary-heading .summary-value {
+  flex: none;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.summary-heading .summary-label {
+  min-width: 0;
+  margin-top: 0;
+  line-height: 1.4;
+}
+.summary-heading .info {
+  color: #dbeafe;
+}
+@media (min-width: 1051px) {
+  .summary-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.report-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 14px;
+}
+.report-section-head > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+.report-section-head h2 {
+  margin: 0;
+}
+.report-section-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.report-section-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.report-count {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eaf0f9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+}
+.report-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+}
+.report-card {
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.report-card > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+.report-card > summary::-webkit-details-marker {
+  display: none;
+}
+.report-card > summary:before {
+  content: "+";
+  width: 16px;
+  flex: none;
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 1.2;
+}
+.report-card[open] > summary:before {
+  content: "−";
+}
+.report-card-title {
+  min-width: 0;
+  flex: 1;
+}
+.report-card-title strong {
+  display: block;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.report-card-title small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+.report-card-body {
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--line);
+}
+.report-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.report-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.report-badge.add {
+  background: #dcfce7;
+  color: #166534;
+}
+.report-badge.modify,
+.report-badge.direct {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.report-badge.remove {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.report-badge.indirect {
+  background: #ede9fe;
+  color: #6b21a8;
+}
+.report-badge.mixed {
+  background: #d1fae5;
+  color: #065f46;
+}
+.report-badge.unknown {
+  background: #fef3c7;
+  color: #92400e;
+}
+.report-badge.neutral {
+  background: #edf2f8;
+  color: #405c7c;
+}
+.report-badge.coverage {
+  text-transform: none;
+}
+.report-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.report-table th {
+  background: #f2f5fa;
+  color: #53637a;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.report-table th,
+.report-table td {
+  padding: 11px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.report-table tr:last-child td {
+  border-bottom: 0;
+}
+.report-table td:first-child {
+  width: 29%;
+  min-width: 145px;
+}
+.report-table td:nth-child(2),
+.report-table td:nth-child(3) {
+  width: 35.5%;
+  min-width: 170px;
+}
+.report-table td:nth-child(2) {
+  background: #fff5f4;
+}
+.report-table td:nth-child(3) {
+  background: #f0faf5;
+}
+.report-table pre {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-detail,
+.report-small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.report-link-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 5px 0 0;
+}
+.report-link {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.report-link:hover,
+.report-link:focus-visible {
+  text-decoration: underline;
+  outline-offset: 2px;
+}
+.report-intent-relations {
+  margin-top: 12px;
+  cursor: default;
+}
+.report-relation-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: text;
+}
+.report-link.impact,
+.report-link[href^="#compliance-finding-"] {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fff1f2;
+}
+.report-reference-paths {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0;
+}
+.report-reference-path {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.35fr) minmax(180px, 1fr) max-content;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--panel) 92%, var(--accent));
+  font-size: 12px;
+}
+.report-reference-path > span {
+  color: var(--muted);
+}
+.report-type-impact {
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+.report-type-impact:first-child {
+  border-top: 0;
+}
+.report-type-impact h4 {
+  margin: 0 0 5px;
+}
+.report-guideline-section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-guideline-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+.report-guideline-section + .report-guideline-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.report-document-snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.report-document-snapshots.single-snapshot {
+  grid-template-columns: minmax(0, 1fr);
+}
+.report-document-context {
+  min-width: 0;
+}
+.report-document-related {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.report-document-related-type > h5 {
+  font-size: 13px;
+  margin: 15px 0 8px;
+  overflow-wrap: anywhere;
+}
+.report-document-related pre {
+  max-height: 400px;
+  overflow: auto;
+}
+.report-document-snapshot {
+  min-width: 0;
+}
+.report-document-snapshot h4,
+.report-document-snapshot h5 {
+  margin: 12px 0 6px;
+}
+.document-quality-check pre {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-document-rationale {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.report-document-rationale p {
+  margin: 5px 0 0;
+}
+.document-quality-scope {
+  margin-top: 14px;
+}
+.document-quality-intent-link {
+  margin-bottom: 12px;
+}
+.document-quality-file {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.document-quality-file-count {
+  font-weight: 400;
+  color: var(--muted);
+}
+.document-quality-list {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+  overscroll-behavior: contain;
+}
+.document-quality-row,
+.document-quality-document > summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.document-quality-document > summary {
+  cursor: pointer;
+}
+.document-quality-document > summary:before {
+  content: "+";
+  color: var(--accent);
+}
+.document-quality-document[open] > summary:before {
+  content: "-";
+}
+.document-quality-document > summary > span:first-of-type {
+  flex: 1;
+}
+.document-quality-document > summary > span:first-child,
+.document-quality-row > a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.document-quality-document > summary > .report-badge,
+.document-quality-row > .report-badge {
+  flex: none;
+}
+.document-quality-document-body {
+  padding: 12px;
+}
+.document-quality-document-body h4 {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+.document-quality-document-body blockquote {
+  margin: 0 0 15px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.document-quality-current {
+  padding: 0;
+}
+.document-quality-description-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.document-quality-description-heading h3,
+.document-quality-explanation h3,
+.document-quality-suggestion h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.document-quality-current mark {
+  background: var(--remove-bg);
+  color: var(--remove-text);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+.document-quality-explanation p,
+.document-quality-suggestion p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+.document-quality-check .document-quality-source {
+  margin-top: 16px;
+}
+.document-quality-source pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-badge.neutral {
+  background: color-mix(in srgb, var(--panel) 85%, var(--muted));
+  color: var(--muted);
+}
+.document-quality-neutral > summary {
+  padding: 12px 18px;
+}
+.document-quality-neutral .report-card-title strong {
+  font-size: 13px;
+}
+.document-quality-list:focus-visible,
+.document-quality-file > summary:focus-visible,
+.document-quality-document > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.report-source {
+  margin-bottom: 16px;
+}
+.report-source > summary,
+.report-subdetails > summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+.report-http {
+  color: #075cab;
+  font:
+    800 12px ui-monospace,
+    monospace;
+}
+.report-card .operation summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+}
+.report-card .operation summary > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-card .operation summary > code {
+  grid-column: 1/-1;
+}
+.report-card .operation summary > span {
+  margin-left: 0;
+  justify-self: start;
+}
+.report-operation-remainder {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.container,
+.report-card-body,
+.report-card,
+.report-guideline-section,
+.report-source,
+.operation {
+  min-width: 0;
+}
+body {
+  overflow-wrap: anywhere;
+}
+.diff,
+.report-table-wrap,
+#appendix .panel {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.diff-path {
+  overflow-wrap: anywhere;
+}
+#appendix pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#appendix table {
+  display: block;
+  overflow-x: auto;
+}
+@media (max-width: 760px) {
+  .report-document-snapshots {
+    grid-template-columns: 1fr;
+  }
+  .report-section-head {
+    display: block;
+  }
+  .report-section-meta {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+  .report-card > summary {
+    flex-wrap: wrap;
+  }
+  .report-card > summary > .report-badges {
+    margin-left: 28px;
+  }
+  .report-reference-path {
+    grid-template-columns: 1fr;
+  }
+  .report-count {
+    max-width: 100%;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-count {
+    background: #26344d;
+    color: #cbd5e1;
+  }
+  .report-badge.indirect {
+    background: #3b2852;
+    color: #e9d5ff;
+  }
+  .report-badge.mixed {
+    background: #143d34;
+    color: #a7f3d0;
+  }
+  .report-badge.add {
+    background: #123d2a;
+    color: #bbf7d0;
+  }
+  .report-badge.modify,
+  .report-badge.direct {
+    background: #202d45;
+    color: #dbeafe;
+  }
+  .report-badge.remove {
+    background: #431f29;
+    color: #fecaca;
+  }
+  .report-badge.unknown {
+    background: #422006;
+    color: #fde68a;
+  }
+  .report-table th {
+    background: #202d45;
+    color: #cbd5e1;
+  }
+  .report-table td:nth-child(2) {
+    background: #431f29;
+  }
+  .report-table td:nth-child(3) {
+    background: #15382b;
+  }
+  .report-link.impact,
+  .report-link[href^="#compliance-finding-"] {
+    color: #fecaca;
+    border-color: #7f1d1d;
+    background: #431f29;
+  }
+  .report-http {
+    color: #93c5fd;
+  }
+}
+
+</style></head><body>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>7 TypeSpec changes for Bulkactions</h1>
+<p class="hero-meta">TypeSpec source diff: <code>1beb867de684dd195895a7400e4d7284c6d00b16</code> → <code>b1a00f40b40e2307eb44b9f1ae2757e184c50c89</code></p>
+<div class="summary-grid">
+<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">7 intents<br>10 operations<br>3 Added, 4 Modified, 0 Removed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>6/6 intents assessed</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Complete coverage<br>0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Complete coverage<br>0 findings</div></a>
+<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>3 declarations checked</div></a>
+</div></div></header>
+<details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
+<div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
+<p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
+<main class="container">
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">7 intents · 3 added · 4 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-09d43adf7a1d60ad"><summary><div class="report-card-title"><strong>Customize asynchronous PUT update responses</strong><small>Adds a reusable BulkCreateUpdatedResponse model so the BulkCreate and BulkCreateCustom asynchronous PUT operations return the resource body together with an Azure-AsyncOperation polling header when an existing resource is updated.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-09d43adf7a1d60ad</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 2 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:common</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>BulkCreateUpdatedResponse</code></td><td>type</td><td>add</td><td></td><td><code>source-fc2903d22c704dc1</code><br><span class="report-small">hunks: hunk-8273815f5607ae63<br>declarations: declaration-d9b5cb5bef7dc303</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/common.tsp</div><pre><span class="context"> </span>
+<span class="context"> namespace Microsoft.Compute;</span>
+<span class="context"> </span>
+<span class="add">+@doc(&quot;Resource &#39;{name}&#39; update operation succeeded&quot;, Resource)</span>
+<span class="add">+model BulkCreateUpdatedResponse&lt;Resource extends Azure.ResourceManager.Foundations.SimpleResource&gt; {</span>
+<span class="add">+  ...ArmResourceUpdatedResponse&lt;Resource&gt;;</span>
+<span class="add">+  ...ArmAsyncOperationHeader&lt;FinalResult = Resource&gt;;</span>
+<span class="add">+}</span>
+<span class="add">+</span>
+<span class="context"> @doc(&quot;A reference to an Azure resource.&quot;)</span>
+<span class="context"> model SubResource {</span>
+<span class="context">   @doc(&quot;The Azure resource ID.&quot;)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b1a00f40b40e2307eb44b9f1ae2757e184c50c89/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/common.tsp#L12-L15">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/common.tsp:11</a></p></details><details class="report-subdetails" id="intent-semantic-09d43adf7a1d60ad-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>BulkCreate_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreate/{name}</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreate/{name}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>BulkCreateCustom_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreateCustom/{name}</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreateCustom/{name}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-0b5de6fb0eed0647"><summary><div class="report-card-title"><strong>Exclude recurring bulk actions from GA</strong><small>Versions the recurring scheduled-action resources, occurrences, notification models, and related operations out of 2026-10-16 while retaining their earlier preview projections.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-0b5de6fb0eed0647</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 90 normalized facts; 44 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:recurringBulkActions</code></p><details class="report-subdetails"><summary>Change facts and provenance (90)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ScheduledActionResourceOperationResponse</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-c1dadbe534df7c41<br>declarations: declaration-8e172ea3d973ff65, declaration-a6a03ddded9fff61</span></td></tr><tr><td><code>OccurrenceResource.scheduledTime</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-8d62ea7e96cf04bd<br>declarations: declaration-579b4544ebb10d9e, declaration-cc0eb83d2697a5c2</span></td></tr><tr><td><code>ResourceStatus.resourceId</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9e47698bf59d9aec<br>declarations: declaration-10114376381001b6, declaration-2c040d8c26a218cb</span></td></tr><tr><td><code>ScheduledActionsSchedule.scheduledTime</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-190d23d425b9046f<br>declarations: declaration-8b07c15753298405, declaration-ece5358f89d5b350</span></td></tr><tr><td><code>OccurrenceState</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-6432d7074123fab6<br>declarations: declaration-42a1202fd3133d06, declaration-a469641372e532af</span></td></tr><tr><td><code>ScheduledActionsId</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9fb3adb560f29599<br>declarations: declaration-4ec77c56fe58ae1b, declaration-ca39509a11867bb0</span></td></tr><tr><td><code>CancelOccurrenceRequest</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9543f550742fd152<br>declarations: declaration-1ad3cc8a2498ce2d, declaration-7ffb04cee8474e74</span></td></tr><tr><td><code>OccurrenceResourceListResponse</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-ac42b7198a2b1473<br>declarations: declaration-1cfb2467a91cd9f9, declaration-e01be8925c08a6e3</span></td></tr><tr><td><code>ScheduledActionProperties.resourceType</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-1e878296edfb65e8<br>declarations: declaration-2c68eae5f67de7f6, declaration-3005d58b057e2613</span></td></tr><tr><td><code>ScheduledActionType.Start</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-461aeaf6016ed16b<br>declarations: declaration-c629f9e31800e234, declaration-c9eb5ee4a99c16f0</span></td></tr><tr><td><code>OccurrenceResultSummary</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-113ccc9669ed1f7f<br>declarations: declaration-3a50f798eff1637e, declaration-89532bdd3b618c54</span></td></tr><tr><td><code>ScheduledActionExtension.listByVms</code></td><td>operation</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9e2e5afb2d46f541<br>declarations: declaration-193373b7cd0a0370, declaration-c0db29669f6ed512</span></td></tr><tr><td><code>ResourceResultSummary</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-6c9d019e087c4c6f<br>declarations: declaration-31290301d8f31ab1, declaration-7d7e7aee5cdd0733</span></td></tr><tr><td><code>ResourceDetachRequest.resources</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-c27e48129c79800b<br>declarations: declaration-b08bbb8e0bdd07ef, declaration-f7c392fe4193e5bf</span></td></tr><tr><td><code>OccurrenceExtension.listOccurrenceByVms</code></td><td>operation</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-7b7157dacf05af81<br>declarations: declaration-8e674f253a48c199, declaration-b6232c9111b5079a</span></td></tr><tr><td><code>OccurrenceExtension</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-7b7157dacf05af81<br>declarations: declaration-459bcddd0722db91, declaration-6c7c46374236538e</span></td></tr><tr><td><code>ScheduledActions.get</code></td><td>operation</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-8bba813000876688<br>declarations: declaration-18afeccc9a2cbe0e, declaration-6d8b7af10ab6dae6</span></td></tr><tr><td><code>ResourceListResponse</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-ad9bdd4acb42b360<br>declarations: declaration-a12c62612fcfa337, declaration-c4bef4997a3e71cd</span></td></tr><tr><td><code>ResourceOperationStatus</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-7fccd077565429c0<br>declarations: declaration-18ade7d7fe15aa3a, declaration-cbb5e173055de009</span></td></tr><tr><td><code>ScheduledActionsRetryPolicy.retryCount</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9f72671e31f69960<br>declarations: declaration-9fa415e487ea3130, declaration-e8a6428eaabd215d</span></td></tr><tr><td><code>ResourceResultSummary.code</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-6c9d019e087c4c6f<br>declarations: declaration-72876c18eb24ba18, declaration-c45fe924da3c3549</span></td></tr><tr><td><code>ResourceOperationResponse</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-17f209b5e812a020<br>declarations: declaration-3dcf8bf72e4a2fd7, declaration-4d06a71f55f1299c</span></td></tr><tr><td><code>ScheduledActionsSchedule</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-190d23d425b9046f<br>declarations: declaration-4c40e668d255be6e, declaration-6e6119905a6e5489</span></td></tr><tr><td><code>ScheduledActionType</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-461aeaf6016ed16b<br>declarations: declaration-ba624384367e9548, declaration-db983109231efcc6</span></td></tr><tr><td><code>ResourceStatus</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9e47698bf59d9aec<br>declarations: declaration-6153652e46e17c67, declaration-65c7b91c87e347db</span></td></tr><tr><td><code>NotificationType</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-d251505a259beb32<br>declarations: declaration-1dcaa37f31e4ec32, declaration-75fb064be091c2db</span></td></tr><tr><td><code>ResourceUpdateModelProperties.resourceType</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-1c3954c9feb03290<br>declarations: declaration-888e338d090c0a8f, declaration-d4d2246f65fcd302</span></td></tr><tr><td><code>ScheduledActionOperationStatus.get</code></td><td>operation</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-a2685a415d5c8348<br>declarations: declaration-0f33ada7000bc182, declaration-550aa6df5f773c02</span></td></tr><tr><td><code>ScheduledActionsDeadlineType</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-f512e1f070441003<br>declarations: declaration-09c88b1e851794ea, declaration-dccc5a26f4c4fd5d</span></td></tr><tr><td><code>ScheduledActionsScheduleUpdate</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-15782370e93b64f1<br>declarations: declaration-2e62da8c1eb68eae, declaration-f42e25e82a02d85d</span></td></tr><tr><td><code>Month.January</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-1f62550fe67a91dc<br>declarations: declaration-0f1f6efe8092b62b, declaration-67d2fc4cec7f7cfd</span></td></tr><tr><td><code>ResourceOperationStatus.Succeeded</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-7fccd077565429c0<br>declarations: declaration-497f5ebbc93e3eda, declaration-6f0788963b8069cf</span></td></tr><tr><td><code>ResourceType</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-70cb4002cb113791<br>declarations: declaration-83400a56fb87532d, declaration-a6a845b0b4385a44</span></td></tr><tr><td><code>WeekDay.Monday</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-72fe3c8937a358e1<br>declarations: declaration-3373496110d0658d, declaration-c52cb3c35061c6a4</span></td></tr><tr><td><code>ResourceType.VirtualMachine</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-70cb4002cb113791<br>declarations: declaration-56e72d47c5155316, declaration-7090507503ba42da</span></td></tr><tr><td><code>Month</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-1f62550fe67a91dc<br>declarations: declaration-6dd3639993b269c8, declaration-a520646d378d7664</span></td></tr><tr><td><code>Occurrence</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-151df65e7ab57b6c<br>declarations: declaration-335a6b389077a11c, declaration-60a1f1a9733ec0de</span></td></tr><tr><td><code>ScheduledActionsResourceOperationType</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-60f20cf4a111e29b<br>declarations: declaration-66bc31e698d9232b, declaration-6d514115d91ce37e</span></td></tr><tr><td><code>OccurrenceResultSummary.total</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-113ccc9669ed1f7f<br>declarations: declaration-6c96376512fa14c2, declaration-d56c576db4194241</span></td></tr><tr><td><code>ScheduledActionResourceInput</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-ad9bdd4acb42b360<br>declarations: declaration-1b3ba40a7130cfea, declaration-3be26ffc5ac376dc</span></td></tr><tr><td><code>OccurrenceResource</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-8d62ea7e96cf04bd<br>declarations: declaration-6c1f53556fe3179a, declaration-9cf7c50ea0c3c57c</span></td></tr><tr><td><code>CancelOccurrenceRequest.resourceIds</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9543f550742fd152<br>declarations: declaration-9a3c6d5a96ef7138, declaration-ce0a6bc5e0eaa64c</span></td></tr><tr><td><code>ScheduledActionsExecutionParameters</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-51a132c2194cae0b<br>declarations: declaration-57ad07ed7409a703, declaration-b6b5ecc311e6eb2a</span></td></tr><tr><td><code>WeekDay</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-72fe3c8937a358e1<br>declarations: declaration-7311915d19a531a8, declaration-caabd4f26164d5e0</span></td></tr><tr><td><code>ValidScheduledActionResourceId</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-15782370e93b64f1<br>declarations: declaration-0a6ecaa5cf4d60a6, declaration-0ce3d6b8ca891a5b</span></td></tr><tr><td><code>NotificationProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-75420a5291eb6faa<br>declarations: declaration-07dc5279bea01651, declaration-9cb426c49667531c</span></td></tr><tr><td><code>Occurrences.listByScheduledAction</code></td><td>operation</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-f3e34a346a593506<br>declarations: declaration-7e05b272a270705c, declaration-8111b8912661541f</span></td></tr><tr><td><code>ScheduledActionsDeadlineType.Unknown</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-f512e1f070441003<br>declarations: declaration-372313a10c730734, declaration-91a913064a09a95c</span></td></tr><tr><td><code>OccurrenceState.Created</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-6432d7074123fab6<br>declarations: declaration-211121da3f57644e, declaration-5708f0f962c85ebe</span></td></tr><tr><td><code>ScheduledAction</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9deaa073e16ad439<br>declarations: declaration-5c6d4aba28e8a0a0, declaration-dec6fd2ba7817ace</span></td></tr><tr><td><code>Occurrences.get</code></td><td>operation</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-f3e34a346a593506<br>declarations: declaration-669250797e586be8, declaration-f6c8263b92554d80</span></td></tr><tr><td><code>ScheduledActionPropertiesUpdate.resourceType</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-1c3954c9feb03290<br>declarations: declaration-2427a72c8f73c077, declaration-6f88d8db0e6fee1b</span></td></tr><tr><td><code>OccurrenceExtensionProperties.resourceId</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9f31560245711731<br>declarations: declaration-37cfa50d51379a04, declaration-e956ee6d0f50f826</span></td></tr><tr><td><code>OccurrenceExtensionResource</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-b4860dec78325272<br>declarations: declaration-ddbb03e0a8082363, declaration-e945350be780c81a</span></td></tr><tr><td><code>ResourceAttachRequest</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-d9cad892939352f4<br>declarations: declaration-264fe53b897abb89, declaration-e322816a5e88ee9a</span></td></tr><tr><td><code>Occurrences</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-f3e34a346a593506<br>declarations: declaration-50f3d1c8aae43a64, declaration-766749c0ca638a8c</span></td></tr><tr><td><code>NotificationType.Email</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-d251505a259beb32<br>declarations: declaration-34ab96518251c2ee, declaration-50fbead1fd8a06df</span></td></tr><tr><td><code>ScheduledActionResourceOperationResponse.totalResources</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-c1dadbe534df7c41<br>declarations: declaration-8b654fec41625096, declaration-b226de4abc07095e</span></td></tr><tr><td><code>ScheduledActionResources</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9deaa073e16ad439<br>declarations: declaration-52ed12d080dfe281, declaration-f6f14f41100bdf74</span></td></tr><tr><td><code>ScheduledActionResource.name</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-f3d3e2c51cf5f33b<br>declarations: declaration-27fbad172d44052c, declaration-4b87f86066a20d47</span></td></tr><tr><td><code>ResourceOperationResponse.totalResources</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-17f209b5e812a020<br>declarations: declaration-71d3d7b8e4261705, declaration-df260f55b2abc600</span></td></tr><tr><td><code>ScheduledActions</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-8bba813000876688<br>declarations: declaration-2da1a74ad9a6a49c, declaration-fe97b26c807d743a</span></td></tr><tr><td><code>DayOfTheMonth</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-6432d7074123fab6<br>declarations: declaration-4ee36f66ee23f50f, declaration-bbf2afeeee225e6d</span></td></tr><tr><td><code>ResourcePatchRequest</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-4935dfacb91771dd<br>declarations: declaration-5a0c1fc8bfd8eab3, declaration-d13e68ee62f29359</span></td></tr><tr><td><code>NotificationProperties.destination</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-75420a5291eb6faa<br>declarations: declaration-0bdf762639fb9ced, declaration-1e7e2ffa426a9bd3</span></td></tr><tr><td><code>ScheduledActionExtension</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9e2e5afb2d46f541<br>declarations: declaration-7d5055b702d3df8f, declaration-e9d1712872057d08</span></td></tr><tr><td><code>ScheduledActionResourceInput.resourceId</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-ad9bdd4acb42b360<br>declarations: declaration-1ca9cfc5b481631c, declaration-b7a84004d185ad3d</span></td></tr><tr><td><code>ScheduledActionsExtensionProperties.resourceType</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-1e878296edfb65e8<br>declarations: declaration-192855c0a4f92fba, declaration-7a4c165a8afefd91</span></td></tr><tr><td><code>ScheduledActionsResourceOperationType.Unknown</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-60f20cf4a111e29b<br>declarations: declaration-0398b8882f41f48e, declaration-6458cab7a00d02dc</span></td></tr><tr><td><code>ScheduledActionsProvisioningState</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-397a3f5c2c9b10e7<br>declarations: declaration-79c3178a1d488165, declaration-c901df8e85da0234</span></td></tr><tr><td><code>ScheduledActionPropertiesUpdate</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-1c3954c9feb03290<br>declarations: declaration-463a4b5e45c54b8b, declaration-fe370f6a4fdd4147</span></td></tr><tr><td><code>ScheduledActionsExecutionParameters.optimizationPreference</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-51a132c2194cae0b<br>declarations: declaration-2c9ed0f1df5a4e3c, declaration-7f6bca2105d266c9</span></td></tr><tr><td><code>ScheduledActionsRetryPolicy</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9f72671e31f69960<br>declarations: declaration-96e80f7efdd7f7ad, declaration-bc8720c42ef0c08e</span></td></tr><tr><td><code>OccurrenceProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-016b15e817ebcde5<br>declarations: declaration-533e9f9aa5ab7967, declaration-70b7556f4be68b36</span></td></tr><tr><td><code>DelayRequest.delay</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-ac42b7198a2b1473<br>declarations: declaration-758028a39e70b7d4, declaration-a8f683e413af546b</span></td></tr><tr><td><code>ResourceAttachRequest.resources</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-d9cad892939352f4<br>declarations: declaration-610fc017629c9883, declaration-65dcfba6277f7e82</span></td></tr><tr><td><code>DelayRequest</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-ac42b7198a2b1473<br>declarations: declaration-03b3ae9c2a931ed3, declaration-383273803c9e9747</span></td></tr><tr><td><code>Language.EnUs</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-56b5377883b6c6e5<br>declarations: declaration-406786387bd7f19f, declaration-f02c2b8373c7da88</span></td></tr><tr><td><code>ScheduledActionProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-1e878296edfb65e8<br>declarations: declaration-41d9414c5c26230e, declaration-e7a03d61ba0a5cd8</span></td></tr><tr><td><code>OccurrenceExtensionProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-9f31560245711731<br>declarations: declaration-57ef5ffc843bb737, declaration-a3cdb2c5c7909c55</span></td></tr><tr><td><code>ScheduledActionsExtensionProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-fe808dcb6f2cba30<br>declarations: declaration-2ba94e893747c540, declaration-72749b64c1654d27</span></td></tr><tr><td><code>Language</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-56b5377883b6c6e5<br>declarations: declaration-3361038a8adcff1b, declaration-bf4bd6f1bd9355a1</span></td></tr><tr><td><code>ScheduledActionsScheduleUpdate.scheduledTime</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-190d23d425b9046f<br>declarations: declaration-c31fe9d7c93d33e2, declaration-eec07a2843919980</span></td></tr><tr><td><code>ResourcePatchRequest.resources</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-4935dfacb91771dd<br>declarations: declaration-5141c197708da1c5, declaration-63285f7728a43dc4</span></td></tr><tr><td><code>OccurrenceProperties.scheduledTime</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-016b15e817ebcde5<br>declarations: declaration-4a3c8d8aa2a5433e, declaration-bd5ba84b693243aa</span></td></tr><tr><td><code>ScheduledActionResource</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-f3d3e2c51cf5f33b<br>declarations: declaration-4df65aa045f152fd, declaration-a1e46a32498fae4e</span></td></tr><tr><td><code>ScheduledActionOperationStatus</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-a2685a415d5c8348<br>declarations: declaration-2f7670cb087035e4, declaration-880e9c720a8f2863</span></td></tr><tr><td><code>OccurrenceResourceProvisioningState</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-f07e1bb99c601748<br>declarations: declaration-962b5ad3a36214ff, declaration-d34f9a583b612c12</span></td></tr><tr><td><code>ResourceDetachRequest</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-c27e48129c79800b<br>declarations: declaration-081a7a24b5180615, declaration-8fb9f0b89a923afe</span></td></tr><tr><td><code>OccurrenceResource.name</code></td><td>type</td><td>modify</td><td></td><td><code>source-964eefefd60d8fc5</code><br><span class="report-small">hunks: hunk-f3d3e2c51cf5f33b<br>declarations: declaration-32b80c0226da0fb8, declaration-39e73ace309e5ad1</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> // ------------------ Shared enums ------------------</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;The type of compute resource targeted by the recurring bulk action.&quot;)</span>
+<span class="context"> union ResourceType {</span>
+<span class="context">   @doc(&quot;Azure virtual machines.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;The operation performed by the recurring bulk action.&quot;)</span>
+<span class="context"> union ScheduledActionType {</span>
+<span class="context">   @doc(&quot;Starts the targeted resources.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;A day of the week on which the recurring bulk action can run.&quot;)</span>
+<span class="context"> union WeekDay {</span>
+<span class="context">   @doc(&quot;The recurring bulk action can run on Monday.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;A month in which the recurring bulk action can run.&quot;)</span>
+<span class="context"> union Month {</span>
+<span class="context">   @doc(&quot;The recurring bulk action can run in January.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @minValue(1)</span>
+<span class="context"> @maxValue(31)</span>
+<span class="context"> @doc(&quot;A calendar day of the month, from 1 through 31.&quot;)</span>
+<span class="context"> scalar DayOfTheMonth extends int32;</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;The current state of a recurring bulk action occurrence.&quot;)</span>
+<span class="context"> union OccurrenceState {</span>
+<span class="context">   @doc(&quot;The occurrence has been created.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> </span>
+<span class="context"> // The provisioning state of a resource within an occurrence.</span>
+<span class="context"> @added(Versions.`2026-08-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;The provisioning state of a recurring bulk action resource within an occurrence.&quot;)</span>
+<span class="context"> union OccurrenceResourceProvisioningState {</span>
+<span class="context">   ResourceProvisioningState,</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;The delivery method for recurring bulk action notifications.&quot;)</span>
+<span class="context"> union NotificationType {</span>
+<span class="context">   @doc(&quot;Sends notifications by email.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;The language used for recurring bulk action notifications.&quot;)</span>
+<span class="context"> union Language {</span>
+<span class="context">   @doc(&quot;English (United States).&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Current status of an operation for the specific occurrence and resource&quot;)</span>
+<span class="context"> union ResourceOperationStatus {</span>
+<span class="context">   @doc(&quot;The operation completed successfully for the resource.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> // BulkActions LaunchBulkInstancesOperation `ProvisioningState`; takes the</span>
+<span class="context"> // `ScheduledActions*` identity (see file header).</span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @renamedFrom(</span>
+<span class="context">   Versions.`2026-08-06-preview`,</span>
+<span class="context">   &quot;RecurringScheduledActionsProvisioningState&quot;</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> // ------------------ Shared models ------------------</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Settings for notifications about upcoming recurring bulk action operations.&quot;)</span>
+<span class="context"> model NotificationProperties {</span>
+<span class="context">   @doc(&quot;The notification destination. For email notifications, specify a valid email address.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> // the `Microsoft.Compute` namespace with the BulkActions originals.</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @renamedFrom(</span>
+<span class="context">   Versions.`2026-08-06-preview`,</span>
+<span class="context">   &quot;RecurringScheduledActionsDeadlineType&quot;</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @renamedFrom(</span>
+<span class="context">   Versions.`2026-08-06-preview`,</span>
+<span class="context">   &quot;RecurringScheduledActionsResourceOperationType&quot;</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @renamedFrom(</span>
+<span class="context">   Versions.`2026-08-06-preview`,</span>
+<span class="context">   &quot;RecurringScheduledActionsRetryPolicy&quot;</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @renamedFrom(</span>
+<span class="context">   Versions.`2026-08-06-preview`,</span>
+<span class="context">   &quot;RecurringScheduledActionsExecutionParameters&quot;</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> // ------------------ Recurring bulk action resource + models ------------------</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;The recurring schedule for a recurring bulk action.&quot;)</span>
+<span class="context"> model ScheduledActionsSchedule {</span>
+<span class="context">   @doc(&quot;The local time of day when the recurring bulk action runs.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Schedule changes for a recurring bulk action. Omitted properties keep their current values.&quot;)</span>
+<span class="context"> model ScheduledActionsScheduleUpdate</span>
+<span class="context">   is OptionalProperties&lt;ScheduledActionsSchedule&gt;;</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;The Azure resource ID of a virtual machine attached to a recurring bulk action.&quot;)</span>
+<span class="context"> scalar ValidScheduledActionResourceId</span>
+<span class="context">   extends armResourceIdentifier&lt;[</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context">   ]&gt;;</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @parentResource(ScheduledAction)</span>
+<span class="context"> @segment(&quot;resources&quot;)</span>
+<span class="context"> @doc(&quot;A compute resource associated with a recurring bulk action.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> </span>
+<span class="context"> #suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;A paged list of compute resources associated with a recurring bulk action.&quot;)</span>
+<span class="context"> model ResourceListResponse is Azure.Core.Page&lt;ScheduledActionResource&gt;;</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;A compute resource to add to or update in a recurring bulk action.&quot;)</span>
+<span class="context"> model ScheduledActionResourceInput {</span>
+<span class="context">   @doc(&quot;The Azure resource ID of the targeted virtual machine.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Resources to attach to a recurring bulk action.&quot;)</span>
+<span class="context"> model ResourceAttachRequest {</span>
+<span class="context">   @doc(&quot;The list of resources to attach to the recurring bulk action.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Resources to remove from a recurring bulk action.&quot;)</span>
+<span class="context"> model ResourceDetachRequest {</span>
+<span class="context">   @doc(&quot;The Azure resource IDs of the resources to remove.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Resource-specific settings to update in a recurring bulk action.&quot;)</span>
+<span class="context"> model ResourcePatchRequest {</span>
+<span class="context">   @doc(&quot;The resources and notification settings to update.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Request body for canceling a recurring bulk action occurrence.&quot;)</span>
+<span class="context"> model CancelOccurrenceRequest {</span>
+<span class="context">   @doc(&quot;The resources for which operations should be canceled. An empty array cancels all operations for all resources for the occurrence.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Current status for a targeted resource in a recurring bulk action occurrence.&quot;)</span>
+<span class="context"> model ResourceStatus {</span>
+<span class="context">   @doc(&quot;The Azure resource ID of the targeted resource.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Results of a recurring bulk action operation for targeted resources.&quot;)</span>
+<span class="context"> model ResourceOperationResponse {</span>
+<span class="context">   @doc(&quot;The number of resources included in the operation.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Configuration and status of a recurring bulk action.&quot;)</span>
+<span class="context"> model ScheduledActionProperties {</span>
+<span class="context">   @doc(&quot;The type of compute resource targeted by the action.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Changes to a recurring bulk action. Omitted schedule properties keep their current values.&quot;)</span>
+<span class="context"> model ScheduledActionPropertiesUpdate {</span>
+<span class="context">   @doc(&quot;The type of compute resource targeted by the action.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;A recurring bulk action associated with a specific compute resource.&quot;)</span>
+<span class="context"> model ScheduledActionsExtensionProperties {</span>
+<span class="context">   ...ScheduledActionProperties;</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> </span>
+<span class="context"> #suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Results of a recurring bulk action resource operation.&quot;)</span>
+<span class="context"> model ScheduledActionResourceOperationResponse {</span>
+<span class="context">   @doc(&quot;The number of resources included in the operation.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;A recurring bulk action that operates on specified compute resources.&quot;)</span>
+<span class="context"> model ScheduledAction is TrackedResource&lt;ScheduledActionProperties&gt; {</span>
+<span class="context">   ...ResourceNameParameter&lt;ScheduledAction&gt;;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;A recurring bulk action associated with a specific compute resource.&quot;)</span>
+<span class="context"> model ScheduledActionResources</span>
+<span class="context">   is ExtensionResource&lt;ScheduledActionsExtensionProperties&gt; {</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> // ------------------ Occurrence resource + models ------------------</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Summary of operation results across targeted resources.&quot;)</span>
+<span class="context"> model ResourceResultSummary {</span>
+<span class="context">   @doc(&quot;The result code shared by the resources in this group. A successful result uses `Success`.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Summary of results for a recurring bulk action occurrence.&quot;)</span>
+<span class="context"> model OccurrenceResultSummary {</span>
+<span class="context">   @doc(&quot;The number of resources targeted by the occurrence.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Properties of a recurring bulk action occurrence.&quot;)</span>
+<span class="context"> model OccurrenceProperties {</span>
+<span class="context">   @doc(&quot;Read-only. The UTC date and time when the occurrence is scheduled to run.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @parentResource(ScheduledAction)</span>
+<span class="context"> @doc(&quot;One scheduled execution of a recurring bulk action.&quot;)</span>
+<span class="context"> model Occurrence is ProxyResource&lt;OccurrenceProperties&gt; {</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @parentResource(Occurrence)</span>
+<span class="context"> @doc(&quot;Scheduling and status details for a resource included in a recurring bulk action occurrence.&quot;)</span>
+<span class="context"> model OccurrenceResource is ScheduledActionResource {</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> </span>
+<span class="context"> #suppress &quot;@azure-tools/typespec-client-generator-core/csharp-model-suffix&quot; &quot;Name kept for backward compatibility&quot;</span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Paged list of resources included in a recurring bulk action occurrence.&quot;)</span>
+<span class="context"> model OccurrenceResourceListResponse is Azure.Core.Page&lt;OccurrenceResource&gt;;</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;Request body for delaying a recurring bulk action occurrence.&quot;)</span>
+<span class="context"> model DelayRequest {</span>
+<span class="context">   #suppress &quot;@azure-tools/typespec-azure-core/no-offsetdatetime&quot; &quot;Recurring bulk actions execute at a customer-provided local (wall-clock) time; the UTC offset carries the caller&#39;s timezone and must be preserved, so offsetDateTime is required.&quot;</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;The Azure resource ID of a recurring bulk action.&quot;)</span>
+<span class="context"> scalar ScheduledActionsId</span>
+<span class="context">   extends armResourceIdentifier&lt;[</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context">   ]&gt;;</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;An occurrence associated with a specific compute resource.&quot;)</span>
+<span class="context"> model OccurrenceExtensionProperties {</span>
+<span class="context">   @doc(&quot;The Azure resource ID of the targeted virtual machine.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @doc(&quot;A recurring bulk action occurrence associated with a specific compute resource.&quot;)</span>
+<span class="context"> model OccurrenceExtensionResource</span>
+<span class="context">   is ExtensionResource&lt;OccurrenceExtensionProperties&gt; {</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> // ------------------ Recurring bulk action operations ------------------</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @armResourceOperations</span>
+<span class="context"> interface ScheduledActions {</span>
+<span class="context">   @doc(&quot;Gets the specified recurring bulk action.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @armResourceOperations</span>
+<span class="context"> interface ScheduledActionExtension {</span>
+<span class="context">   @doc(&quot;Lists recurring bulk actions associated with the specified VM.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @armResourceOperations(#{ allowStaticRoutes: true })</span>
+<span class="context"> interface ScheduledActionOperationStatus {</span>
+<span class="context">   @doc(&quot;Gets the status of the specified recurring bulk action operation.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> // ------------------ Occurrence operations ------------------</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @armResourceOperations</span>
+<span class="context"> interface Occurrences {</span>
+<span class="context">   @doc(&quot;Gets the specified occurrence.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+@removed(Versions.`2026-10-16`)</span>
+<span class="context"> @armResourceOperations</span>
+<span class="context"> interface OccurrenceExtension {</span>
+<span class="context">   @doc(&quot;Lists recurring bulk action occurrences associated with the specified VM.&quot;)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b1a00f40b40e2307eb44b9f1ae2757e184c50c89/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp#L33-L41">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp:30</a></p></details><details class="report-subdetails" id="intent-semantic-0b5de6fb0eed0647-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-50ae51e219d68c34"><summary><div class="report-card-title"><strong>Version bulk-action target resource inputs</strong><small>Preserves the earlier resources property through a versioned alias, makes resources required in 2026-10-16, and removes the preview-only resourcesWithContext alternative for bulk start, deallocate, delete, hibernate, and reimage requests.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-50ae51e219d68c34</code></p><p class="report-small"><strong>Source-file grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 21 normalized facts; 5 source hunks; 4 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>source:source-94b459b8f1fde34f</code></p><details class="report-subdetails"><summary>Change facts and provenance (21)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ExecuteReimageRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-8a684900a9629af3<br>declarations: declaration-916a72f08961982c, declaration-ad0026172f797e4e</span></td></tr><tr><td><code>ExecuteReimageRequest.resourcesLegacy</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-8a684900a9629af3<br>declarations: declaration-330c6d621ae9ba63</span></td></tr><tr><td><code>ExecuteHibernateRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-ad1a64c3ff9cf250<br>declarations: declaration-c5ae3d90c66fa580, declaration-ce6279d5da6a007e</span></td></tr><tr><td><code>ExecuteStartRequest.resourcesLegacy</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-e72259f73f30c332<br>declarations: declaration-25f5310a5f82afab</span></td></tr><tr><td><code>ExecuteReimageRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-8a684900a9629af3<br>declarations: declaration-978fb4b832337130, declaration-dd40f3a7ac7b9dd8</span></td></tr><tr><td><code>ExecuteDeallocateRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-6208b58137b8cd4d<br>declarations: declaration-18dfe14bf0d35192, declaration-98ed2c64dc94491f</span></td></tr><tr><td><code>ExecuteHibernateRequest.resourcesWithContext</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-ad1a64c3ff9cf250<br>declarations: declaration-1aefc66f24811db5, declaration-8b49f864150993b2</span></td></tr><tr><td><code>ExecuteDeallocateRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-6208b58137b8cd4d<br>declarations: declaration-641c7ab73fb6d005, declaration-8f93555876dceb9a</span></td></tr><tr><td><code>ExecuteDeleteRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-951fdfc9c078b894<br>declarations: declaration-0c7079676a90ba78, declaration-f8d24fe45cea82ea</span></td></tr><tr><td><code>ExecuteHibernateRequest.executionParameters</code></td><td>type</td><td>modify</td><td></td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-6208b58137b8cd4d<br>declarations: declaration-019590eb9e931c48, declaration-b95800a9bdcb0377</span></td></tr><tr><td><code>ExecuteStartRequest.resourcesWithContext</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-e72259f73f30c332<br>declarations: declaration-44b4b0a91e62bdbe, declaration-f9cf78da56f763a6</span></td></tr><tr><td><code>ExecuteDeleteRequest.resourcesWithContext</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-951fdfc9c078b894<br>declarations: declaration-16291914562d44b9, declaration-948bc3309fef1ae8</span></td></tr><tr><td><code>ExecuteReimageRequest.resourcesWithContext</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-8a684900a9629af3<br>declarations: declaration-2b264468b05157d3, declaration-3c53a1c962ea6253</span></td></tr><tr><td><code>ExecuteStartRequest.resources</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-e72259f73f30c332<br>declarations: declaration-bd5b05142b45ebb1, declaration-ce01a5de2c26701f</span></td></tr><tr><td><code>ExecuteStartRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-e72259f73f30c332<br>declarations: declaration-9fee495ccd8a5089, declaration-ffd4da4291d52d7c</span></td></tr><tr><td><code>ExecuteDeleteRequest.resourcesLegacy</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-951fdfc9c078b894<br>declarations: declaration-5f3c81ab94cfbd22</span></td></tr><tr><td><code>ExecuteHibernateRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-6208b58137b8cd4d, hunk-ad1a64c3ff9cf250<br>declarations: declaration-0f9d246444b018e2, declaration-a99565b22b97438a</span></td></tr><tr><td><code>ExecuteDeallocateRequest.resourcesLegacy</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-6208b58137b8cd4d<br>declarations: declaration-fb745d336cfdaee2</span></td></tr><tr><td><code>ExecuteDeallocateRequest.resourcesWithContext</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-6208b58137b8cd4d<br>declarations: declaration-1ceed0eece54ed0f, declaration-dda438f5d6309119</span></td></tr><tr><td><code>ExecuteHibernateRequest.resourcesLegacy</code></td><td>type</td><td>add</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-ad1a64c3ff9cf250<br>declarations: declaration-d9f2c5cac7064627</span></td></tr><tr><td><code>ExecuteDeleteRequest</code></td><td>type</td><td>modify</td><td>optionality, property-contract, version-activation</td><td><code>source-94b459b8f1fde34f</code><br><span class="report-small">hunks: hunk-951fdfc9c078b894<br>declarations: declaration-0417507856e0b38b, declaration-904e5c3e49826774</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp</div><pre><span class="context"> </span>
+<span class="context">   @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="context">   @madeOptional(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="remove">-  resources?: Resources;</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  @renamedFrom(Microsoft.Compute.Versions.`2026-10-16`, &quot;resources&quot;)</span>
+<span class="add">+  resourcesLegacy?: Resources;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="add">+  @added(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  resources: Resources;</span>
+<span class="context"> </span>
+<span class="context">   @added(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="context">   @doc(&quot;The resources for the request with resource context information. Cannot be provided together with `resources` - exactly one must be specified.&quot;)</span>
+<span class="context">   resourcesWithContext?: ResourcesWithContext;</span>
+<span class="context"> }</span>
+<span class="remove">-</span>
+<span class="context"> @doc(&quot;The virtual machines and execution settings for a bulk hibernate action.&quot;)</span>
+<span class="context"> model ExecuteHibernateRequest {</span>
+<span class="context">   @doc(&quot;The execution settings for the bulk action.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp</div><pre><span class="context"> </span>
+<span class="context">   @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="context">   @madeOptional(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="remove">-  resources?: Resources;</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  @renamedFrom(Microsoft.Compute.Versions.`2026-10-16`, &quot;resources&quot;)</span>
+<span class="add">+  resourcesLegacy?: Resources;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="add">+  @added(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  resources: Resources;</span>
+<span class="context"> </span>
+<span class="context">   @added(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="context">   @doc(&quot;The resources for the request with resource context information. Cannot be provided together with `resources` - exactly one must be specified.&quot;)</span>
+<span class="context">   resourcesWithContext?: ResourcesWithContext;</span>
+<span class="context"> }</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp</div><pre><span class="context"> </span>
+<span class="context">   @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="context">   @madeOptional(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="remove">-  resources?: Resources;</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  @renamedFrom(Microsoft.Compute.Versions.`2026-10-16`, &quot;resources&quot;)</span>
+<span class="add">+  resourcesLegacy?: Resources;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="add">+  @added(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  resources: Resources;</span>
+<span class="context"> </span>
+<span class="context">   @added(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="context">   @doc(&quot;The resources for the request with resource context information. Cannot be provided together with `resources` - exactly one must be specified.&quot;)</span>
+<span class="context">   resourcesWithContext?: ResourcesWithContext;</span>
+<span class="context"> }</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp</div><pre><span class="context"> </span>
+<span class="context">   @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="context">   @madeOptional(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="remove">-  resources?: Resources;</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  @renamedFrom(Microsoft.Compute.Versions.`2026-10-16`, &quot;resources&quot;)</span>
+<span class="add">+  resourcesLegacy?: Resources;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="add">+  @added(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  resources: Resources;</span>
+<span class="context"> </span>
+<span class="context">   @added(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="context">   @doc(&quot;The resources for the request with resource context information. Cannot be provided together with `resources` - exactly one must be specified.&quot;)</span>
+<span class="context">   resourcesWithContext?: ResourcesWithContext;</span>
+<span class="context"> </span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp</div><pre><span class="context"> </span>
+<span class="context">   @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="context">   @madeOptional(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="remove">-  resources?: Resources;</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  @renamedFrom(Microsoft.Compute.Versions.`2026-10-16`, &quot;resources&quot;)</span>
+<span class="add">+  resourcesLegacy?: Resources;</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;The target virtual machines.&quot;)</span>
+<span class="add">+  @added(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="add">+  resources: Resources;</span>
+<span class="context"> </span>
+<span class="context">   @added(Microsoft.Compute.Versions.`2026-07-06-preview`)</span>
+<span class="add">+  @removed(Microsoft.Compute.Versions.`2026-10-16`)</span>
+<span class="context">   @doc(&quot;The resources for the request with resource context information. Cannot be provided together with `resources` - exactly one must be specified.&quot;)</span>
+<span class="context">   resourcesWithContext?: ResourcesWithContext;</span>
+<span class="context"> </span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b1a00f40b40e2307eb44b9f1ae2757e184c50c89/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp#L751-L769">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp:750</a></p></details><details class="report-subdetails" id="intent-semantic-50ae51e219d68c34-operations"><summary>Affected operations (4)</summary><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkDeallocate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkDeallocate</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.additionalCreateParameters</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.capacityRecommendationParameters</strong></td><td><pre>not present</pre></td><td><pre>CapacityRecommendationParameters (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkDelete</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkDelete</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.additionalCreateParameters</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.capacityRecommendationParameters</strong></td><td><pre>not present</pre></td><td><pre>CapacityRecommendationParameters (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkHibernate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkHibernate</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.additionalCreateParameters</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.capacityRecommendationParameters</strong></td><td><pre>not present</pre></td><td><pre>CapacityRecommendationParameters (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkStart</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkStart</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.additionalCreateParameters</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.capacityRecommendationParameters</strong></td><td><pre>not present</pre></td><td><pre>CapacityRecommendationParameters (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-8d9d483d6d97ebd9"><summary><div class="report-card-title"><strong>Promote BulkCreate to GA</strong><small>Carries BulkCreate create and read behavior into 2026-10-16, renames the createOrUpdate SDK operation to create with version lineage, customizes the asynchronous create/update response, and excludes preview-only tags, delete, and cancel behavior from GA.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-8d9d483d6d97ebd9</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 8 normalized facts; 4 source hunks; 2 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:bulkCreate</code></p><details class="report-subdetails"><summary>Change facts and provenance (8)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>BulkCreateEnvelope.tags</code></td><td>type</td><td>modify</td><td></td><td><code>source-ba02f28b76f241cb</code><br><span class="report-small">hunks: hunk-535890326fb9a046<br>declarations: declaration-a57d2c4c579a4369, declaration-e023f4e33521c434</span></td></tr><tr><td><code>BulkCreate.delete</code></td><td>operation</td><td>modify</td><td>operation, version-activation</td><td><code>source-ba02f28b76f241cb</code><br><span class="report-small">hunks: hunk-cfa5e38103b767f5<br>declarations: declaration-781abfca4410a5af, declaration-f21cb33d1c9c5e5a</span></td></tr><tr><td><code>BulkCreate.createOrUpdate</code></td><td>operation</td><td>remove</td><td>operation</td><td><code>source-ba02f28b76f241cb</code><br><span class="report-small">hunks: hunk-cfa5e38103b767f5<br>declarations: declaration-f614a98eb7da43cc</span></td></tr><tr><td><code>BulkCreate</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-ba02f28b76f241cb</code><br><span class="report-small">hunks: hunk-cfa5e38103b767f5<br>declarations: declaration-98de68a2c638a98e, declaration-af2372b04fd054c6</span></td></tr><tr><td><code>LocationBasedBulkCreate.tags</code></td><td>type</td><td>modify</td><td></td><td><code>source-ba02f28b76f241cb</code><br><span class="report-small">hunks: hunk-535890326fb9a046<br>declarations: declaration-2983a333a768dac9, declaration-43d48f9318613294</span></td></tr><tr><td><code>BulkCreateEnvelope</code></td><td>type</td><td>modify</td><td></td><td><code>source-ba02f28b76f241cb</code><br><span class="report-small">hunks: hunk-535890326fb9a046<br>declarations: declaration-5ff93b9ac67249a9, declaration-70d1ae4b0ce90abf</span></td></tr><tr><td><code>BulkCreate.cancel</code></td><td>operation</td><td>modify</td><td>operation, version-activation</td><td><code>source-ba02f28b76f241cb</code><br><span class="report-small">hunks: hunk-cfa5e38103b767f5<br>declarations: declaration-4b6be2344dd8867c, declaration-ac17da0b2b532052</span></td></tr><tr><td><code>BulkCreate.create</code></td><td>operation</td><td>add</td><td>operation, version-activation</td><td><code>source-ba02f28b76f241cb</code><br><span class="report-small">hunks: hunk-cfa5e38103b767f5<br>declarations: declaration-bcb375fe37a457b1</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreate.tsp</div><pre><span class="context">   placement?: Placement;</span>
+<span class="context"> </span>
+<span class="context">   #suppress &quot;@azure-tools/typespec-azure-resource-manager/arm-no-record&quot; &quot;Tags free-form object matches the established compute contract.&quot;</span>
+<span class="remove">-  #suppress &quot;@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property&quot; &quot;Tags is a standard ARM resource property.&quot;</span>
+<span class="add">+  #suppress &quot;@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property&quot; &quot;Preserved for compatibility with earlier preview versions; removed from GA.&quot;</span>
+<span class="context">   @doc(&quot;Resource tags.&quot;)</span>
+<span class="context">   tags?: Record&lt;string&gt;;</span>
+<span class="context"> </span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreate.tsp</div><pre><span class="context">   ...ResourcePlanProperty;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+@@removed(BulkCreateEnvelope.tags, Versions.`2026-10-16`);</span>
+<span class="context"> @@added(BulkCreateEnvelope.extendedLocation, Versions.`2026-10-06-preview`);</span>
+<span class="context"> @@doc(</span>
+<span class="context">   BulkCreateEnvelope.extendedLocation,</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreate.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> // ============================================================</span>
+<span class="remove">-// Routes: BulkCreate interface (8 operations)</span>
+<span class="add">+// Routes: BulkCreate interface</span>
+<span class="context"> // ============================================================</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-09-06-preview`)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreate.tsp</div><pre><span class="context">     | ArmResponse&lt;Azure.ResourceManager.CommonTypes.OperationStatusResult&gt;</span>
+<span class="context">     | ErrorResponse;</span>
+<span class="context"> </span>
+<span class="remove">-  @doc(&quot;Creates or updates BulkCreates.&quot;)</span>
+<span class="remove">-  createOrUpdate is ArmResourceCreateOrUpdateAsync&lt;</span>
+<span class="add">+  @renamedFrom(Versions.`2026-10-16`, &quot;createOrUpdate&quot;)</span>
+<span class="add">+  @doc(&quot;Creates virtual machines in bulk.&quot;)</span>
+<span class="add">+  create is ArmResourceCreateOrUpdateAsync&lt;</span>
+<span class="context">     Resource = LocationBasedBulkCreate,</span>
+<span class="remove">-    Parameters = BulkCreateId</span>
+<span class="add">+    Parameters = BulkCreateId,</span>
+<span class="add">+    Response =</span>
+<span class="add">+      | BulkCreateUpdatedResponse&lt;LocationBasedBulkCreate&gt;</span>
+<span class="add">+      | ArmResourceCreatedResponse&lt;</span>
+<span class="add">+          LocationBasedBulkCreate,</span>
+<span class="add">+          ArmAsyncOperationHeader&lt;FinalResult = LocationBasedBulkCreate&gt; &amp;</span>
+<span class="add">+            Azure.Core.Foundations.RetryAfterHeader</span>
+<span class="add">+        &gt;</span>
+<span class="context">   &gt;;</span>
+<span class="context"> </span>
+<span class="add">+  @removed(Versions.`2026-10-16`)</span>
+<span class="context">   @doc(&quot;Deletes BulkCreates.&quot;)</span>
+<span class="context">   delete is ArmResourceDeleteWithoutOkAsync&lt;</span>
+<span class="context">     Resource = LocationBasedBulkCreate,</span>
+<span class="context">     Parameters = BulkCreateId &amp; BulkCreateDeleteInstancesParameter</span>
+<span class="context">   &gt;;</span>
+<span class="context"> </span>
+<span class="add">+  @removed(Versions.`2026-10-16`)</span>
+<span class="context">   @doc(&quot;Cancels BulkCreate instances that have not yet launched.&quot;)</span>
+<span class="context">   cancel is ArmResourceActionNoResponseContentAsync&lt;</span>
+<span class="context">     Resource = LocationBasedBulkCreate,</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b1a00f40b40e2307eb44b9f1ae2757e184c50c89/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreate.tsp#L79-L102">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreate.tsp:77</a></p></details><details class="report-subdetails" id="intent-semantic-8d9d483d6d97ebd9-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>BulkCreate_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreate/{name}</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreate/{name}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>BulkCreate_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreate/{name}</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreate/{name}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-cc3f284b02d2c396"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 6 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-cc3f284b02d2c396</code></p><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 6 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>common-type-version</td><td><code>source-cf631ad9b1d4019f</code><br><span class="report-small">hunks: hunk-11e0f4eb11b4ae3d<br>declarations: declaration-22469d1a757d22ad, declaration-2e803dd7596d96c2</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp</div><pre><span class="context">   /** 2026-10-06-preview version */</span>
+<span class="context">   @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
+<span class="context">   `2026-10-06-preview`,</span>
+<span class="add">+</span>
+<span class="add">+  /** 2026-10-16 version */</span>
+<span class="add">+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v6)</span>
+<span class="add">+  `2026-10-16`,</span>
+<span class="context"> }</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b1a00f40b40e2307eb44b9f1ae2757e184c50c89/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp#L24-L52">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp:23</a></p></details><details class="report-subdetails" id="intent-semantic-cc3f284b02d2c396-operations"><summary>Affected operations (6)</summary><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkCancel</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkCancel</code><span>2026-10-16</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkDeallocate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkDeallocate</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.additionalCreateParameters</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.capacityRecommendationParameters</strong></td><td><pre>not present</pre></td><td><pre>CapacityRecommendationParameters (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkDelete</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkDelete</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.additionalCreateParameters</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.capacityRecommendationParameters</strong></td><td><pre>not present</pre></td><td><pre>CapacityRecommendationParameters (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkGetOperationsStatus</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkGetOperationStatus</code><span>2026-10-16</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkHibernate</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkHibernate</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.additionalCreateParameters</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.capacityRecommendationParameters</strong></td><td><pre>not present</pre></td><td><pre>CapacityRecommendationParameters (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details><details class="operation"><summary><strong>VirtualMachineBulkOperations_BulkStart</strong><span class="report-http">POST</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/virtualMachinesBulkStart</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.additionalCreateParameters</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.capacityRecommendationParameters</strong></td><td><pre>not present</pre></td><td><pre>CapacityRecommendationParameters (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>executionParameters.verifyVmAgentHealth</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-d90661f9c4a85f40"><summary><div class="report-card-title"><strong>Exclude preview-only VM bulk operations from GA</strong><small>Removes the reimage, operation-error listing, and operation-error acknowledgement operations from the 2026-10-16 projection while preserving them in earlier preview API versions.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-d90661f9c4a85f40</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 4 normalized facts; 3 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:routes</code></p><details class="report-subdetails"><summary>Change facts and provenance (4)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>VirtualMachineBulkOperations</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-b46cff45f86ae15d</code><br><span class="report-small">hunks: hunk-0bcfdb015f786fc9, hunk-557091467a718a3d, hunk-c17c7e6895a38554<br>declarations: declaration-55f4c982e49d3baf, declaration-7bc522a1d4bf35fa</span></td></tr><tr><td><code>VirtualMachineBulkOperations.bulkAcknowledgeOperationErrors</code></td><td>operation</td><td>modify</td><td>version-activation</td><td><code>source-b46cff45f86ae15d</code><br><span class="report-small">hunks: hunk-c17c7e6895a38554<br>declarations: declaration-041ca434aea3c451, declaration-feeda3a808a70145</span></td></tr><tr><td><code>VirtualMachineBulkOperations.bulkListOperationErrors</code></td><td>operation</td><td>modify</td><td>version-activation</td><td><code>source-b46cff45f86ae15d</code><br><span class="report-small">hunks: hunk-0bcfdb015f786fc9<br>declarations: declaration-bc3bbdfa37a65334, declaration-d5af97fcb9694834</span></td></tr><tr><td><code>VirtualMachineBulkOperations.bulkReimage</code></td><td>operation</td><td>modify</td><td>version-activation</td><td><code>source-b46cff45f86ae15d</code><br><span class="report-small">hunks: hunk-557091467a718a3d<br>declarations: declaration-70559068aa1b23e3, declaration-ef64e6b0cd56826d</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp</div><pre><span class="context">    */</span>
+<span class="context">   @removed(Versions.`2026-06-06`)</span>
+<span class="context">   @added(Versions.`2026-07-06-preview`)</span>
+<span class="add">+  @removed(Versions.`2026-10-16`)</span>
+<span class="context">   @post</span>
+<span class="context">   @autoRoute</span>
+<span class="context">   @armResourceCollectionAction</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp</div><pre><span class="context">   @added(Versions.`2026-07-06-preview`)</span>
+<span class="context">   @removed(Versions.`2026-09-06-preview`)</span>
+<span class="context">   @added(Versions.`2026-10-06-preview`)</span>
+<span class="add">+  @removed(Versions.`2026-10-16`)</span>
+<span class="context">   @get</span>
+<span class="context">   @autoRoute</span>
+<span class="context">   @list</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp</div><pre><span class="context">   @added(Versions.`2026-07-06-preview`)</span>
+<span class="context">   @removed(Versions.`2026-09-06-preview`)</span>
+<span class="context">   @added(Versions.`2026-10-06-preview`)</span>
+<span class="add">+  @removed(Versions.`2026-10-16`)</span>
+<span class="context">   @post</span>
+<span class="context">   @autoRoute</span>
+<span class="context">   @armResourceCollectionAction</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b1a00f40b40e2307eb44b9f1ae2757e184c50c89/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp#L104-L301">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp:103</a></p></details><details class="report-subdetails" id="intent-semantic-d90661f9c4a85f40-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-e9967c1d217ca341"><summary><div class="report-card-title"><strong>Promote BulkCreateCustom to GA</strong><small>Carries BulkCreateCustom create and read behavior into 2026-10-16, renames the createOrUpdate SDK operation to create with version lineage, customizes the asynchronous create/update response, and excludes preview-only tags, delete, and cancel behavior from GA.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge add">add</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-e9967c1d217ca341</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 8 normalized facts; 4 source hunks; 2 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:bulkCreateCustom</code></p><details class="report-subdetails"><summary>Change facts and provenance (8)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>BulkCreateCustom.createOrUpdate</code></td><td>operation</td><td>remove</td><td>operation</td><td><code>source-8ccba50e9952d932</code><br><span class="report-small">hunks: hunk-ed36bfa801135801<br>declarations: declaration-a421c7a5f5c227c2</span></td></tr><tr><td><code>BulkCreateCustomEnvelope</code></td><td>type</td><td>modify</td><td></td><td><code>source-8ccba50e9952d932</code><br><span class="report-small">hunks: hunk-65da77405421c1bf<br>declarations: declaration-007d7505d14275b5, declaration-c8c8565eaba4abe8</span></td></tr><tr><td><code>BulkCreateCustomEnvelope.tags</code></td><td>type</td><td>modify</td><td></td><td><code>source-8ccba50e9952d932</code><br><span class="report-small">hunks: hunk-65da77405421c1bf<br>declarations: declaration-a65724ea71cb6a6b, declaration-f5f439c706a0cd24</span></td></tr><tr><td><code>LocationBasedBulkCreateCustom.tags</code></td><td>type</td><td>modify</td><td></td><td><code>source-8ccba50e9952d932</code><br><span class="report-small">hunks: hunk-65da77405421c1bf<br>declarations: declaration-5ecf760670f4178d, declaration-652d82d7a78f7c3f</span></td></tr><tr><td><code>BulkCreateCustom.create</code></td><td>operation</td><td>add</td><td>operation, version-activation</td><td><code>source-8ccba50e9952d932</code><br><span class="report-small">hunks: hunk-ed36bfa801135801<br>declarations: declaration-4e361d1f48acdbee</span></td></tr><tr><td><code>BulkCreateCustom.delete</code></td><td>operation</td><td>modify</td><td>operation, version-activation</td><td><code>source-8ccba50e9952d932</code><br><span class="report-small">hunks: hunk-ed36bfa801135801<br>declarations: declaration-77e354647988479a, declaration-d01c0acb1c235c49</span></td></tr><tr><td><code>BulkCreateCustom</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-8ccba50e9952d932</code><br><span class="report-small">hunks: hunk-ed36bfa801135801<br>declarations: declaration-14e9c858977a5c70, declaration-464350b987901269</span></td></tr><tr><td><code>BulkCreateCustom.cancel</code></td><td>operation</td><td>modify</td><td>operation, version-activation</td><td><code>source-8ccba50e9952d932</code><br><span class="report-small">hunks: hunk-ed36bfa801135801<br>declarations: declaration-8903e78086a62aa1, declaration-df5550542bc94a39</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreateCustom.tsp</div><pre><span class="context">   placement?: Placement;</span>
+<span class="context"> </span>
+<span class="context">   #suppress &quot;@azure-tools/typespec-azure-resource-manager/arm-no-record&quot; &quot;Tags free-form object matches the established compute contract.&quot;</span>
+<span class="remove">-  #suppress &quot;@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property&quot; &quot;Tags is a standard ARM resource property.&quot;</span>
+<span class="add">+  #suppress &quot;@azure-tools/typespec-azure-resource-manager/arm-resource-invalid-envelope-property&quot; &quot;Preserved for compatibility with earlier preview versions; removed from GA.&quot;</span>
+<span class="context">   @doc(&quot;Resource tags.&quot;)</span>
+<span class="context">   tags?: Record&lt;string&gt;;</span>
+<span class="context"> </span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreateCustom.tsp</div><pre><span class="context">   ...ResourcePlanProperty;</span>
+<span class="context"> }</span>
+<span class="context"> </span>
+<span class="add">+@@removed(BulkCreateCustomEnvelope.tags, Versions.`2026-10-16`);</span>
+<span class="context"> @@added(</span>
+<span class="context">   BulkCreateCustomEnvelope.extendedLocation,</span>
+<span class="context">   Versions.`2026-10-06-preview`</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreateCustom.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> // ============================================================</span>
+<span class="remove">-// Routes: BulkCreateCustom interface (8 operations)</span>
+<span class="add">+// Routes: BulkCreateCustom interface</span>
+<span class="context"> // ============================================================</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.`2026-07-06-preview`)</span></pre></div><div class="diff"><div class="diff-path">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreateCustom.tsp</div><pre><span class="context">     | ArmResponse&lt;Azure.ResourceManager.CommonTypes.OperationStatusResult&gt;</span>
+<span class="context">     | ErrorResponse;</span>
+<span class="context"> </span>
+<span class="remove">-  @doc(&quot;Creates or updates BulkCreateCustoms.&quot;)</span>
+<span class="remove">-  createOrUpdate is ArmResourceCreateOrUpdateAsync&lt;</span>
+<span class="add">+  @renamedFrom(Versions.`2026-10-16`, &quot;createOrUpdate&quot;)</span>
+<span class="add">+  @doc(&quot;Creates virtual machines in bulk with custom settings.&quot;)</span>
+<span class="add">+  create is ArmResourceCreateOrUpdateAsync&lt;</span>
+<span class="context">     Resource = LocationBasedBulkCreateCustom,</span>
+<span class="remove">-    Parameters = BulkCreateCustomId</span>
+<span class="add">+    Parameters = BulkCreateCustomId,</span>
+<span class="add">+    Response =</span>
+<span class="add">+      | BulkCreateUpdatedResponse&lt;LocationBasedBulkCreateCustom&gt;</span>
+<span class="add">+      | ArmResourceCreatedResponse&lt;</span>
+<span class="add">+          LocationBasedBulkCreateCustom,</span>
+<span class="add">+          ArmAsyncOperationHeader&lt;FinalResult = LocationBasedBulkCreateCustom&gt; &amp;</span>
+<span class="add">+            Azure.Core.Foundations.RetryAfterHeader</span>
+<span class="add">+        &gt;</span>
+<span class="context">   &gt;;</span>
+<span class="context"> </span>
+<span class="add">+  @removed(Versions.`2026-10-16`)</span>
+<span class="context">   @doc(&quot;Deletes BulkCreateCustoms.&quot;)</span>
+<span class="context">   delete is ArmResourceDeleteWithoutOkAsync&lt;</span>
+<span class="context">     Resource = LocationBasedBulkCreateCustom,</span>
+<span class="context">     Parameters = BulkCreateCustomId &amp; BulkCreateCustomDeleteInstancesParameter</span>
+<span class="context">   &gt;;</span>
+<span class="context"> </span>
+<span class="add">+  @removed(Versions.`2026-10-16`)</span>
+<span class="context">   @doc(&quot;Cancels BulkCreateCustom instances that have not yet launched.&quot;)</span>
+<span class="context">   cancel is ArmResourceActionNoResponseContentAsync&lt;</span>
+<span class="context">     Resource = LocationBasedBulkCreateCustom,</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b1a00f40b40e2307eb44b9f1ae2757e184c50c89/specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreateCustom.tsp#L94-L117">specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreateCustom.tsp:92</a></p></details><details class="report-subdetails" id="intent-semantic-e9967c1d217ca341-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>BulkCreateCustom_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreateCustom/{name}</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreateCustom/{name}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, request, responses, lro, consumes, produces.</p></div></details><details class="operation"><summary><strong>BulkCreateCustom_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreateCustom/{name}</code><span>2026-10-16</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Operation</span><strong>operation</strong></td><td><pre>not present</pre></td><td><pre>GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/locations/{location}/bulkCreateCustom/{name}</pre></td></tr></tbody></table></div><p>REST contract changed: method, path, parameters, responses, consumes, produces.</p></div></details></details></div></details></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">6 of 6 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">0 operations · 0 findings</span></div></div><div class="report-empty">No confirmed REST breaking changes.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-badge neutral coverage">complete coverage</span><span class="report-count">0 mapped methods · 0 changed types</span></div></div><div class="report-empty">No downstream breaking changes detected.</div></section>
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 3 declarations checked</p></section>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><p>None</p>
+<h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions</code></td><td>new-api-version</td><td><code>b1a00f40b40e2307eb44b9f1ae2757e184c50c89@2026-06-06</code><br><small>current · previous-latest-stable</small></td><td><code>b1a00f40b40e2307eb44b9f1ae2757e184c50c89@2026-10-16</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
+<p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/47653">#47653</a></p>
+<h3 id="compliance-search-evidence">Guidance fetched</h3>
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/">ARM long-running operations</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/">Add stable after preview</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;coverage&quot;: {
+    &quot;semanticIntentCount&quot;: 6,
+    &quot;assessedIntentCount&quot;: 6,
+    &quot;selectedDocumentCount&quot;: 4,
+    &quot;unassessedIntentIds&quot;: []
+  },
+  &quot;sharedSearch&quot;: {
+    &quot;catalogRanking&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Names the changed ARM resource-operation construct and governs create, read, delete, list, and action templates used by the affected interfaces.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Directly names ArmAsyncOperationHeader, Retry-After, PUT LRO templates, and FinalResult behavior changed by the custom response model.&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly governs @added, @removed, and @renamedFrom changes to ARM operations and properties across API versions.&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers promotion of preview changes into the new 2026-10-16 stable API version.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Relevant reference for the exact ARM operation templates changed during the GA transition.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The change versions model properties and requiredness in an ARM stable release.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The GA projection changes public enum members, making enum modeling relevant.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The implementation relies heavily on versioning and augment decorators during the stable transition.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Relevant general version-enum guidance, but less specific than the stable-promotion and evolution documents.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;The changes affect ARM resource models, but do not introduce a new resource-kind pattern.&quot;
+      },
+      {
+        &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Resource lifecycle semantics are relevant, though the changed code primarily uses ARM templates rather than low-level REST decorators.&quot;
+      },
+      {
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;ARM lifecycle decorators are relevant background for the changed resource operations.&quot;
+      },
+      {
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Some affected interfaces expose ARM list operations, but no paging parameter change is central to this GA promotion.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Common ARM response and error models appear in the generated surface, but their definitions are not authored by this change.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;A scalar declaration is included in the broad change, but no scalar constraint drives the assessed compatibility impact.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Documentation decorators appear throughout the change, but value constraints and visibility are not the primary concern.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 17,
+        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;LRO-related, but the affected operations use Azure.ResourceManager-specific templates.&quot;
+      },
+      {
+        &quot;rank&quot;: 18,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;The source changes a #suppress justification, but the suppression is contextual and does not govern the promoted API contract.&quot;
+      },
+      {
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;Applies to ARM services but describes a preview-after-preview transition rather than this stable release.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM versioning guidance, but the requested change is stable after preview rather than preview after stable.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM versioning guidance, but the latest preexisting version is preview rather than stable.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 8,
+        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;The service is ARM, but the changed resources are not modeled as specific extension resources.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-only guidance unrelated to private endpoint resources in this change.&quot;
+      },
+      {
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-only guidance unrelated to private link resources in this change.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM-only guidance unrelated to network security perimeter configuration.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;The provider namespace is unchanged.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;No Azure Portal default-experience change is represented.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 19,
+        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;Data-plane low-level paging guidance does not govern ARM template-based lists.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No OpenAPI-specific decorator change is present.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No content-negotiation change is represented.&quot;
+      },
+      {
+        &quot;rank&quot;: 31,
+        &quot;catalogOrder&quot;: 31,
+        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;The changed suppression is not for the Azure Core no-openapi rule.&quot;
+      }
+    ],
+    &quot;documents&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Names the changed ARM resource-operation construct and governs create, read, delete, list, and action templates used by the affected interfaces.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Resource CreateOrUpdate Operations (PUT)&quot;,
+            &quot;excerpt&quot;: &quot;CreateOrUpdate operations may be asynchronous and use ArmResourceCreateOrReplaceAsync&lt;ResourceType&gt;. Resource operations should use the standard lifecycle templates, and create/delete lifecycle support should be considered together.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;ArmResourceCreateOrReplaceAsync&quot;,
+              &quot;CreateOrUpdate&quot;,
+              &quot;Delete&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-464350b987901269&quot;,
+              &quot;declaration-4e361d1f48acdbee&quot;,
+              &quot;declaration-77e354647988479a&quot;,
+              &quot;declaration-a421c7a5f5c227c2&quot;,
+              &quot;declaration-a57d2c4c579a4369&quot;,
+              &quot;declaration-a65724ea71cb6a6b&quot;,
+              &quot;declaration-af2372b04fd054c6&quot;,
+              &quot;declaration-bcb375fe37a457b1&quot;,
+              &quot;declaration-f21cb33d1c9c5e5a&quot;,
+              &quot;declaration-f614a98eb7da43cc&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-03T06:57:24.6321903Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:0cb547962b022d8856dcd21dfd13e5e9da4829e0cc777745f258455dff734440&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 10
+        },
+        &quot;selectionRationale&quot;: &quot;Directly names ArmAsyncOperationHeader, Retry-After, PUT LRO templates, and FinalResult behavior changed by the custom response model.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;CreateOrUpdate (PUT)&quot;,
+            &quot;excerpt&quot;: &quot;The ArmResourceCreateOrReplaceAsync and ArmResourceCreateOrUpdateAsync templates use ArmAsyncOperationHeader by default with the resource as the final result. The default LroHeaders for PUT is ArmAsyncOperationHeader&lt;FinalResult = MyResource&gt; &amp; Azure.Core.Foundations.RetryAfterHeader.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;ArmAsyncOperationHeader&quot;,
+              &quot;FinalResult&quot;,
+              &quot;RetryAfterHeader&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-464350b987901269&quot;,
+              &quot;declaration-4e361d1f48acdbee&quot;,
+              &quot;declaration-77e354647988479a&quot;,
+              &quot;declaration-a421c7a5f5c227c2&quot;,
+              &quot;declaration-a57d2c4c579a4369&quot;,
+              &quot;declaration-a65724ea71cb6a6b&quot;,
+              &quot;declaration-af2372b04fd054c6&quot;,
+              &quot;declaration-bcb375fe37a457b1&quot;,
+              &quot;declaration-d9b5cb5bef7dc303&quot;,
+              &quot;declaration-f21cb33d1c9c5e5a&quot;,
+              &quot;declaration-f614a98eb7da43cc&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-03T06:57:24.6321903Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:06b33eaf71ab3a84a01064c4e8adba1f41ee2667b7b8f6b07ab0f30110238238&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly governs @added, @removed, and @renamedFrom changes to ARM operations and properties across API versions.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Adding Decoration to an Existing Type&quot;,
+            &quot;excerpt&quot;: &quot;To change a decorator across versions, keep the old property with @removed and @renamedFrom, and add the replacement property with @added. Use @madeRequired or @madeOptional to change property requiredness in a specific version.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@removed&quot;,
+              &quot;@renamedFrom&quot;,
+              &quot;@added&quot;,
+              &quot;@madeRequired&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-1aefc66f24811db5&quot;,
+              &quot;declaration-25f5310a5f82afab&quot;,
+              &quot;declaration-2b264468b05157d3&quot;,
+              &quot;declaration-330c6d621ae9ba63&quot;,
+              &quot;declaration-44b4b0a91e62bdbe&quot;,
+              &quot;declaration-50f3d1c8aae43a64&quot;,
+              &quot;declaration-5c6d4aba28e8a0a0&quot;,
+              &quot;declaration-5f3c81ab94cfbd22&quot;,
+              &quot;declaration-60a1f1a9733ec0de&quot;,
+              &quot;declaration-641c7ab73fb6d005&quot;,
+              &quot;declaration-6c7c46374236538e&quot;,
+              &quot;declaration-70559068aa1b23e3&quot;,
+              &quot;declaration-948bc3309fef1ae8&quot;,
+              &quot;declaration-ad0026172f797e4e&quot;,
+              &quot;declaration-bc3bbdfa37a65334&quot;,
+              &quot;declaration-c5ae3d90c66fa580&quot;,
+              &quot;declaration-ce01a5de2c26701f&quot;,
+              &quot;declaration-d9f2c5cac7064627&quot;,
+              &quot;declaration-dda438f5d6309119&quot;,
+              &quot;declaration-e9d1712872057d08&quot;,
+              &quot;declaration-f8d24fe45cea82ea&quot;,
+              &quot;declaration-fb745d336cfdaee2&quot;,
+              &quot;declaration-fe97b26c807d743a&quot;,
+              &quot;declaration-feeda3a808a70145&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-03T06:57:24.6321903Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:c72b63c3609b5bd3a2e8c55835b5ffa6fa858c886faf929827a29507688b2089&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Directly covers promotion of preview changes into the new 2026-10-16 stable API version.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
+            &quot;excerpt&quot;: &quot;When promoting the latest preview to a stable version, determine which preview changes are stable, update their versioning decorators to the new stable version, reverse preview-only changes, and model additional stable changes with decorators referencing the new stable version.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;stable&quot;,
+              &quot;preview&quot;,
+              &quot;@added&quot;,
+              &quot;@removed&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-464350b987901269&quot;,
+              &quot;declaration-4e361d1f48acdbee&quot;,
+              &quot;declaration-50f3d1c8aae43a64&quot;,
+              &quot;declaration-5c6d4aba28e8a0a0&quot;,
+              &quot;declaration-60a1f1a9733ec0de&quot;,
+              &quot;declaration-6c7c46374236538e&quot;,
+              &quot;declaration-70559068aa1b23e3&quot;,
+              &quot;declaration-77e354647988479a&quot;,
+              &quot;declaration-a421c7a5f5c227c2&quot;,
+              &quot;declaration-a57d2c4c579a4369&quot;,
+              &quot;declaration-a65724ea71cb6a6b&quot;,
+              &quot;declaration-af2372b04fd054c6&quot;,
+              &quot;declaration-bc3bbdfa37a65334&quot;,
+              &quot;declaration-bcb375fe37a457b1&quot;,
+              &quot;declaration-e9d1712872057d08&quot;,
+              &quot;declaration-f21cb33d1c9c5e5a&quot;,
+              &quot;declaration-f614a98eb7da43cc&quot;,
+              &quot;declaration-fe97b26c807d743a&quot;,
+              &quot;declaration-feeda3a808a70145&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-03T06:57:24.6321903Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:2d80bdf83345ef0f831e39e4cfd24826e25d938b276ca1d8669656c587c369e8&quot;
+      }
+    ]
+  },
+  &quot;intentAssessments&quot;: [
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-09d43adf7a1d60ad&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-0b5de6fb0eed0647&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-50ae51e219d68c34&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-8d9d483d6d97ebd9&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-d90661f9c4a85f40&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-e9967c1d217ca341&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    }
+  ],
+  &quot;retrievalFailures&quot;: [],
+  &quot;blockers&quot;: []
+}</pre></details>
+<h3>Changed files</h3><ul><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreate.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/bulkCreateCustom.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/common.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/main.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/models.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/recurringBulkActions.tsp</code> (committed)</li><li><code>specification/compute/resource-manager/Microsoft.Compute/Bulkactions/routes.tsp</code> (committed)</li></ul>
+<h3>Timing and model input</h3><pre>{
+  &quot;timings&quot;: {
+    &quot;metadataMs&quot;: 2088,
+    &quot;fetchMs&quot;: 146,
+    &quot;scopeDiscoveryMs&quot;: 71,
+    &quot;setupExcludingFetchMs&quot;: 40112,
+    &quot;comparisonMs&quot;: 123,
+    &quot;changeDiscoveryMs&quot;: 100,
+    &quot;workspacePreparationMs&quot;: 37466,
+    &quot;projectDiscoveryMs&quot;: 46,
+    &quot;totalMs&quot;: 261978,
+    &quot;semanticAnalysisMs&quot;: 1161,
+    &quot;restAnalysisMs&quot;: 91,
+    &quot;downstreamAnalysisMs&quot;: 32,
+    &quot;documentQualityAnalysisMs&quot;: 2
+  },
+  &quot;inputAccounting&quot;: {
+    &quot;budgetTier&quot;: &quot;medium&quot;,
+    &quot;budgetBytes&quot;: 262144,
+    &quot;bytes&quot;: 256119,
+    &quot;estimatedTokens&quot;: 64030,
+    &quot;retained&quot;: {
+      &quot;evidenceSets&quot;: 18,
+      &quot;facts&quot;: 88,
+      &quot;semanticReviewUnits&quot;: 6,
+      &quot;restCandidates&quot;: 0,
+      &quot;downstreamCandidates&quot;: 8,
+      &quot;downstreamRootCauses&quot;: 7,
+      &quot;complianceSearchRequests&quot;: 6,
+      &quot;inferenceRequests&quot;: 9
+    },
+    &quot;omittedRedundant&quot;: {
+      &quot;rawEmitterArtifacts&quot;: true,
+      &quot;compilerLogs&quot;: true,
+      &quot;unchangedInventories&quot;: true,
+      &quot;unreferencedFacts&quot;: true,
+      &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;sourceChanges&quot;: true,
+      &quot;repeatedDeclarationIds&quot;: true,
+      &quot;repeatedReviewUnitEvidence&quot;: true
+    },
+    &quot;inference&quot;: {
+      &quot;requestCount&quot;: 9,
+      &quot;inferredCandidateCount&quot;: 0,
+      &quot;noImpactCount&quot;: 9,
+      &quot;blockedCount&quot;: 0
+    },
+    &quot;compliance&quot;: {
+      &quot;catalogEntriesScored&quot;: 31,
+      &quot;documentsFetched&quot;: 4,
+      &quot;documentBytesFetched&quot;: 1023,
+      &quot;guidanceExcerptsRetained&quot;: 4,
+      &quot;guidanceExcerptBytesRetained&quot;: 1023
+    }
+  }
+}</pre>
+<p><strong>Provenance:</strong> model-input.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+</main>
+<script>
+function revealHashTarget() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (!target) return;
+  for (let element = target; element; element = element.parentElement) {
+    if (element.tagName === "DETAILS") element.open = true;
+  }
+  target.scrollIntoView({ block: "start" });
+}
+window.addEventListener("hashchange", revealHashTarget);
+document.addEventListener("click", (event) => {
+  if (event.target instanceof Element &&
+      event.target.closest(".report-card > summary .report-intent-relations") &&
+      !event.target.closest("a")) {
+    event.preventDefault();
+    return;
+  }
+  const link = event.target instanceof Element
+    ? event.target.closest('a[href^="#"]')
+    : null;
+  if (link) {
+    event.preventDefault();
+    location.hash = link.getAttribute("href");
+    window.setTimeout(revealHashTarget);
+  }
+});
+revealHashTarget();
+</script>
+</body></html>
