@@ -76,14 +76,14 @@ assert(
   categories.aligned === 11 && categories.expected === 14 && categories.unknown === 9,
   `Unexpected category totals: ${JSON.stringify(categories)}.`,
 );
-assert(aggregatedSdkReleaseCount === 3, `Expected 3 same-version aggregated SDK releases, found ${aggregatedSdkReleaseCount}.`);
+assert(aggregatedSdkReleaseCount === 6, `Expected 6 same-version aggregated SDK releases, found ${aggregatedSdkReleaseCount}.`);
 assert(
   JSON.stringify(
     alignmentData.reports
       .filter((report) => report.sdkReleaseIncludesSameApiVersionSpecPrs)
       .map((report) => report.pr)
       .sort((left, right) => left - right),
-  ) === JSON.stringify([44524, 44988, 46008]),
+  ) === JSON.stringify([44524, 44988, 45167, 46008, 46075, 46679]),
   "Unexpected same-version SDK aggregation PR set.",
 );
 

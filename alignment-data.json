@@ -81,9 +81,9 @@
       "category": "aligned",
       "categoryLabel": "Fully aligned",
       "outcome": "Fully aligned",
-      "sdkReleaseIncludesSameApiVersionSpecPrs": false,
+      "sdkReleaseIncludesSameApiVersionSpecPrs": true,
       "rootCauseCategory": "Spec contract change",
-      "rootCause": "The assessed spec directly renamed and removed model members, made response properties required, and replaced the CloudAccount update model. The Python and Java breaks are generated consequences of those TypeSpec changes.",
+      "rootCause": "The assessed spec directly renamed and removed model members, made response properties required, and replaced the CloudAccount update model. Later #46924 aligned the same preview version and contributed additional generated release content, but the assessed breaking items remain consequences of #46679.",
       "coverage": "partial",
       "verdict": "failed",
       "assessmentResult": "fresh-report",
@@ -141,7 +141,20 @@
         "commit": "cf933c24ed9c761566a5dd061effed8fe66c3dd1",
         "sdkPrUrl": "https://github.com/Azure/azure-sdk-for-java/pull/50603"
       },
-      "reason": "Assessment and SDK changelogs identify the model and property breaks. Both SDK PRs were closed without merging, so this is generated-surface evidence rather than shipped-package evidence."
+      "relatedPrs": [
+        {
+          "number": 46924,
+          "label": "Later 2026-08-01-preview alignment"
+        }
+      ],
+      "sameApiVersionRelatedPrs": [
+        {
+          "number": 46924,
+          "label": "Later 2026-08-01-preview alignment",
+          "apiVersion": "2026-08-01-preview"
+        }
+      ],
+      "reason": "Assessment and SDK changelogs identify the model and property breaks. The generated release also includes later #46924 changes to the same 2026-08-01-preview surface, including compliance-lock operations and role-assignment alignment. Both SDK PRs were closed without merging, so this is generated-surface evidence rather than shipped-package evidence."
     },
     {
       "pr": 44332,
@@ -1439,9 +1452,9 @@
       "category": "expected",
       "categoryLabel": "Expected difference",
       "outcome": "Not aligned, but the difference is expected",
-      "sdkReleaseIncludesSameApiVersionSpecPrs": false,
-      "rootCauseCategory": "Language-specific SDK generation",
-      "rootCause": "Java Fluent removes three definition-stage builder methods while Python reports no break. Those builder stages are Java-only generated conveniences outside the neutral downstream contract.",
+      "sdkReleaseIncludesSameApiVersionSpecPrs": true,
+      "rootCauseCategory": "SDK release includes other spec changes",
+      "rootCause": "Later #46566 reordered required StorageAppliance properties across API versions, including 2026-08-01-preview. Java Fluent translated that other spec PR into three definition-stage removals, while the assessed #45167 changes remain additive and Python reports no break.",
       "coverage": "complete",
       "verdict": "passed",
       "assessmentResult": "fresh-report",
@@ -1487,7 +1500,20 @@
         "version": null,
         "note": "Changelog evidence has not been linked for this archived case."
       },
-      "reason": "Java reports three Fluent definition-stage removals while Python reports no break. These Java builder-surface changes are not represented by the neutral downstream assessment."
+      "relatedPrs": [
+        {
+          "number": 46566,
+          "label": "Later 2026-08-01-preview SDK fix"
+        }
+      ],
+      "sameApiVersionRelatedPrs": [
+        {
+          "number": 46566,
+          "label": "Later 2026-08-01-preview SDK fix",
+          "apiVersion": "2026-08-01-preview"
+        }
+      ],
+      "reason": "The shared SDK release includes later #46566 changes to the same 2026-08-01-preview version. Its required-property reordering removes three Java Fluent definition stages while Python reports no source break; those removals are not changes introduced by #45167."
     },
     {
       "pr": 45197,
@@ -2066,9 +2092,9 @@
       "category": "aligned",
       "categoryLabel": "Fully aligned",
       "outcome": "Fully aligned",
-      "sdkReleaseIncludesSameApiVersionSpecPrs": false,
+      "sdkReleaseIncludesSameApiVersionSpecPrs": true,
       "rootCauseCategory": "No downstream breaking change",
-      "rootCause": "The assessed capability models and properties are additive, and both mapped SDK changelogs list additions only.",
+      "rootCause": "The assessed capability models and properties are additive. Later #46658 finalized the same-version model name as PrefixConfiguration, so the aggregated Python and Java changelogs list the combined surface as additions only.",
       "coverage": "blocked",
       "verdict": "unknown",
       "assessmentResult": "fresh-reassessment-blocked-before-finalization",
@@ -2119,7 +2145,20 @@
         "version": null,
         "note": "Changelog evidence has not been linked for this archived case."
       },
-      "reason": "Both changelogs contain additive capability models and properties only, matching the assessment's zero downstream-breaking findings."
+      "relatedPrs": [
+        {
+          "number": 46658,
+          "label": "Later PrefixConfiguration rename"
+        }
+      ],
+      "sameApiVersionRelatedPrs": [
+        {
+          "number": 46658,
+          "label": "Later 2026-10-01-preview rename",
+          "apiVersion": "2026-10-01-preview"
+        }
+      ],
+      "reason": "Both changelogs contain additive capability models and properties only, matching the assessment's zero downstream-breaking findings. The release also includes later #46658, which renamed PrefixDefinition to PrefixConfiguration in the same 2026-10-01-preview version before SDK generation."
     },
     {
       "pr": 46429,
