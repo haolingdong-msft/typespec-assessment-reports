@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import vm from "node:vm";
 import { fileURLToPath } from "node:url";
@@ -11,8 +11,17 @@ function assert(condition, message) {
   }
 }
 
-const [html, alignmentData] = await Promise.all([
+const reportsRoot = path.join(root, "reports");
+const reportDirectories = await readdir(reportsRoot, { withFileTypes: true });
+const reportPaths = reportDirectories
+  .filter((entry) => entry.isDirectory())
+  .map((entry) => path.join(reportsRoot, entry.name, "index.html"));
+
+const [html, operationsHtml, combinedHtml, reportHtml, alignmentData] = await Promise.all([
   readFile(path.join(root, "index.html"), "utf8"),
+  readFile(path.join(root, "operations.html"), "utf8"),
+  readFile(path.join(root, "combined.html"), "utf8"),
+  Promise.all(reportPaths.map((reportPath) => readFile(reportPath, "utf8"))),
   readFile(path.join(root, "alignment-data.json"), "utf8").then(JSON.parse),
 ]);
 
@@ -21,6 +30,23 @@ assert(html.includes("payload?.schemaVersion !== 2"), "Dashboard does not accept
 assert(!html.includes("const reports = ["), "Dashboard still embeds the alignment report array.");
 assert(!html.includes("const assessmentStates ="), "Dashboard still embeds assessment states.");
 assert(!html.includes("const freshFindings ="), "Dashboard still embeds fresh finding counts.");
+
+const coverageLabels = [
+  "partial coverage",
+  "complete coverage",
+  "coverage blocked",
+  "blocked coverage",
+];
+const renderedHtml = [html, operationsHtml, combinedHtml, ...reportHtml];
+for (const label of coverageLabels) {
+  assert(
+    renderedHtml.every((document) => !document.toLowerCase().includes(label)),
+    `Static site still renders "${label}".`,
+  );
+}
+assert(!html.includes("Assessment coverage"), "Dashboard still renders assessment coverage.");
+assert(!html.includes("report.coverage"), "Dashboard still renders report coverage.");
+assert(!operationsHtml.includes("function coverage("), "Operations dashboard still renders coverage.");
 
 for (const id of [
   "report-total",

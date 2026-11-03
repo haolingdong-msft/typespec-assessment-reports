@@ -60,7 +60,6 @@ function renderPerformance(){
   document.querySelector('#coordinator-coverage').textContent=`${coordinator.length} / ${data.length} core reports timed`;
   document.querySelector('#first-report-coverage').textContent=`${firstReport.length} / ${data.length} core reports timed`;
 }
-function coverage(v){return v?`<div class="small">${esc(v==='blocked'?'coverage blocked':`${v.replaceAll('-', ' ')} coverage`)}</div>`:''}
 function bytes(v){if(v==null)return 'n/a';return v<1024?`${v} B`:v<1048576?`${(v/1024).toFixed(1)} KiB`:`${(v/1048576).toFixed(1)} MiB`}
 function render(){
   const q=document.querySelector('#search').value.toLowerCase(),g=document.querySelector('#group').value,b=document.querySelector('#breaking').value,p=document.querySelector('#python-changelog').value,j=document.querySelector('#java-changelog').value,s=document.querySelector('#safety').value;
@@ -72,8 +71,8 @@ function render(){
 <td>${regenFlag(r.regenerationFlag)}<div class="small">${esc(r.group)}</div></td>
 <td>${breakingFlag(r.sdkBreakingChangesFlag)}<div class="small">${r.downstreamFindings} downstream findings</div></td>
 <td>${changelogCell(r.changelog.python)}</td><td>${changelogCell(r.changelog.java)}</td>
-<td>${badge(r.safety)}${coverage(r.safetyCoverage)}<div class="small">${esc(r.confidence)} confidence</div></td>
-<td>${badge(r.rest)} ${r.restFindings||''}${coverage(r.restCoverage)}</td><td>${badge(r.downstream)} ${r.downstreamFindings||''}${coverage(r.downstreamCoverage)}</td>
+<td>${badge(r.safety)}<div class="small">${esc(r.confidence)} confidence</div></td>
+<td>${badge(r.rest)} ${r.restFindings||''}</td><td>${badge(r.downstream)} ${r.downstreamFindings||''}</td>
 <td>${badge(r.guidelines)} ${r.guidelineFindings||''}</td><td>${badge(r.documentation)} ${r.documentationFindings||''}</td>
 <td><strong>${r.findings}</strong>${r.blockers?`<div class="small">${r.blockers} blockers</div>`:''}</td>
 <td class="performance-cell">${performanceCell(r)}</td>
