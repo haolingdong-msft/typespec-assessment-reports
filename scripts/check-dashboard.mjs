@@ -122,7 +122,7 @@ assert(
       },
       { breaking: 0, clear: 0, "not-assessed": 0 },
     ),
-  ) === JSON.stringify({ breaking: 9, clear: 13, "not-assessed": 12 }),
+  ) === JSON.stringify({ breaking: 9, clear: 12, "not-assessed": 13 }),
   "Unexpected TCGC breaking-change totals.",
 );
 assert(

@@ -6,10 +6,10 @@ Python/Java downstream-alignment analysis as a separate view.
 
 - **28** PRs produced guarded, finalized assessment reports.
 - **6** PRs remain blocked before guarded finalization because their historical baseline project cannot produce required compiler or contract artifacts.
-- **11** Passed, **9** Failed, and **14** Unknown.
-- Fresh reassessment findings: **104** total (41 REST, 35 downstream SDK, 3 Azure Guidelines, and 25 Documentation Completeness).
+- **10** Passed, **9** Failed, and **15** Unknown.
+- Fresh reassessment findings: **107** total (43 REST, 33 downstream SDK, 6 Azure Guidelines, and 25 Documentation Completeness).
 
-The report index uses the October 29 full reassessment, October 30 retries, and the November 3 fresh #46679 reassessment. The downstream
+The report index uses the retained structured reassessments plus the November 6 AI source-review refreshes for PRs #43918, #44288, #44988, and #46679. PR #45678 retains its validated report because its historical structured finding uses an unsupported semantic match basis in the latest renderer. The downstream
 alignment categories remain the earlier pinned comparison and are labeled as
 such; they were not automatically reclassified from the fresh finding counts.
 
