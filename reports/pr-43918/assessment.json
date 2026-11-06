@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-29T08:28:05.723Z",
+  "generatedAt": "2026-11-06T03:56:47.357Z",
   "title": "TypeSpec assessment: specification/containerservice/resource-manager/Microsoft.ContainerService/fleet",
   "repository": {
-    "root": "C:\\workspace\\azure-rest-api-specs",
+    "root": "C:\\Users\\haolingdong\\.copilot\\repos\\copilot-worktrees\\azure-rest-api-specs\\haolingdong-msft-fluffy-barnacle",
     "remoteUrl": "https://github.com/Azure/azure-rest-api-specs.git"
   },
   "pullRequest": {
@@ -84,12 +84,12 @@
       }
     }
   ],
-  "confidence": "high",
+  "confidence": "low",
   "safety": {
     "scope": "rest-and-downstream-only",
-    "status": "passed",
-    "verdict": "passed",
-    "coverage": "complete"
+    "status": "not-assessed",
+    "verdict": "unknown",
+    "coverage": "blocked"
   },
   "dimensions": {
     "semantic": {
@@ -3083,37 +3083,8 @@
             ]
           },
           "intentType": "normal",
-          "carryOverProof": {
-            "schemaVersion": 1,
-            "status": "not-applicable",
-            "operations": [],
-            "equivalentOperationIds": [],
-            "differentOperationIds": [],
-            "unknownOperationIds": []
-          },
-          "contextPolicy": {
-            "schemaVersion": 1,
-            "rest": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-rest-scope",
-              "evidenceIds": []
-            },
-            "downstream": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-downstream-scope",
-              "evidenceIds": []
-            },
-            "guidelines": {
-              "mode": "agent",
-              "reason": "changed-design-facts-require-guidelines-assessment"
-            },
-            "documentation": {
-              "mode": "deterministic",
-              "reason": "compiler-effective-documentation-check"
-            }
-          },
-          "title": "Modify FleetMemberProperties, FleetMemberProperties.meshProperties",
-          "summary": "Modify covers 2 change facts (type) across 2 declarations and 3 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
+          "title": "Retire Fleet member mesh properties from the new stable API",
+          "summary": "FleetMemberProperties.meshProperties is marked removed in 2026-06-01, so the preview-only mesh data is absent from Fleet member create, get, and update projections in the new stable version.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -3126,22 +3097,36 @@
               "FleetMembers_Get",
               "FleetMembers_Update"
             ],
-            "coveredHunkIds": [
+            "coveredHunkIds": [],
+            "uncoveredHunkIds": [
               "hunk-112dbe9b618795fe"
             ],
-            "uncoveredHunkIds": [],
             "classifications": [
               {
                 "hunkId": "hunk-112dbe9b618795fe",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               }
             ],
-            "gaps": []
+            "gaps": [
+              {
+                "hunkId": "hunk-112dbe9b618795fe",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              }
+            ]
           },
-          "inferenceRequired": false,
+          "inferenceRequired": true,
+          "inferenceResults": [
+            {
+              "requestId": "inference-request-a0bb40908fe92e2a",
+              "hunkId": "hunk-112dbe9b618795fe",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            }
+          ],
           "sources": [
             {
               "id": "source-efbb4535f630e89f",
@@ -4629,9 +4614,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -4708,9 +4690,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -5214,9 +5193,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -5293,9 +5269,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -5677,9 +5650,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -5756,9 +5726,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -6602,9 +6569,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -6681,9 +6645,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -7132,9 +7093,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -7211,9 +7169,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -7613,9 +7568,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -7692,9 +7644,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -8291,9 +8240,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -8370,9 +8316,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -8726,9 +8669,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -8805,9 +8745,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -9501,9 +9438,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -9580,9 +9514,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -9980,9 +9911,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -10059,9 +9987,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -10443,9 +10368,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -10522,9 +10444,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -11506,9 +11425,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -11585,9 +11501,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -12081,9 +11994,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -12160,9 +12070,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -12544,9 +12451,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -12623,9 +12527,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -13245,9 +13146,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -13324,9 +13222,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -13890,9 +13785,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -13969,9 +13861,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -14535,9 +14424,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -14614,9 +14500,6 @@
                       "kind": "enum",
                       "qualifiedName": "Versions",
                       "decorators": [
-                        "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                        "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                        "@versioned(Versions)",
                         "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                       ],
                       "versionedMembers": [],
@@ -14785,217 +14668,9 @@
             ]
           },
           "intentType": "api-version-publication",
-          "carryOverProof": {
-            "schemaVersion": 1,
-            "status": "partial",
-            "operations": [
-              {
-                "operationId": "AutoUpgradeProfiles_CreateOrUpdate",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-cc2f0779b8704ce6",
-                "afterFactId": "operation-4e6b584502d68227"
-              },
-              {
-                "operationId": "AutoUpgradeProfiles_Get",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-05d1895f857029ce",
-                "afterFactId": "operation-a4bbc2ce7116ccb3"
-              },
-              {
-                "operationId": "AutoUpgradeProfiles_ListByFleet",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-6250650e819ccd26",
-                "afterFactId": "operation-00fab16528c40662"
-              },
-              {
-                "operationId": "FleetMembers_Create",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-986e9ee975a93bc3",
-                "afterFactId": "operation-56e954214a4d30d0"
-              },
-              {
-                "operationId": "FleetMembers_Get",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-d5ffc66348320585",
-                "afterFactId": "operation-fd91be32fc27c84f"
-              },
-              {
-                "operationId": "FleetMembers_ListByFleet",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-b1af15e9682e388e",
-                "afterFactId": "operation-15c6813163823727"
-              },
-              {
-                "operationId": "FleetMembers_Update",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-e095b0f950208e3e",
-                "afterFactId": "operation-8406a2581fb00b15"
-              },
-              {
-                "operationId": "Fleets_ListBySubscription",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-e256564b3dacd134",
-                "afterFactId": "operation-48462f1fe683edb5"
-              },
-              {
-                "operationId": "FleetUpdateStrategies_CreateOrUpdate",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-bb6ef1ab9e769222",
-                "afterFactId": "operation-3eb61913376671cf"
-              },
-              {
-                "operationId": "FleetUpdateStrategies_Get",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-3867adbd5f11af36",
-                "afterFactId": "operation-073857fb4ffe5b75"
-              },
-              {
-                "operationId": "FleetUpdateStrategies_ListByFleet",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-e1136f1e56d9e27a",
-                "afterFactId": "operation-3a9bf41301fc086c"
-              },
-              {
-                "operationId": "UpdateRuns_CreateOrUpdate",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-4321d6527ed07fb0",
-                "afterFactId": "operation-9b27243a17b1a26a"
-              },
-              {
-                "operationId": "UpdateRuns_Get",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-c63dd69d9c0d478d",
-                "afterFactId": "operation-833a19719359bbd3"
-              },
-              {
-                "operationId": "UpdateRuns_ListByFleet",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-8576f079a3192ad4",
-                "afterFactId": "operation-d9727eb9984e14e7"
-              },
-              {
-                "operationId": "UpdateRuns_Skip",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-2ce25c0d002ac4bf",
-                "afterFactId": "operation-39f106092333053b"
-              },
-              {
-                "operationId": "UpdateRuns_Start",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-6687e52cec50c7a5",
-                "afterFactId": "operation-05d4767c3e688c33"
-              },
-              {
-                "operationId": "UpdateRuns_Stop",
-                "rest": "different",
-                "downstream": "different",
-                "beforeFactId": "operation-0b9bbe038552a185",
-                "afterFactId": "operation-e4344e9bd8c9abd5"
-              }
-            ],
-            "equivalentOperationIds": [],
-            "differentOperationIds": [
-              "AutoUpgradeProfiles_CreateOrUpdate",
-              "AutoUpgradeProfiles_Get",
-              "AutoUpgradeProfiles_ListByFleet",
-              "FleetMembers_Create",
-              "FleetMembers_Get",
-              "FleetMembers_ListByFleet",
-              "FleetMembers_Update",
-              "FleetUpdateStrategies_CreateOrUpdate",
-              "FleetUpdateStrategies_Get",
-              "FleetUpdateStrategies_ListByFleet",
-              "Fleets_ListBySubscription",
-              "UpdateRuns_CreateOrUpdate",
-              "UpdateRuns_Get",
-              "UpdateRuns_ListByFleet",
-              "UpdateRuns_Skip",
-              "UpdateRuns_Start",
-              "UpdateRuns_Stop"
-            ],
-            "unknownOperationIds": []
-          },
-          "contextPolicy": {
-            "schemaVersion": 1,
-            "rest": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-rest-scope",
-              "evidenceIds": []
-            },
-            "downstream": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-downstream-scope",
-              "evidenceIds": []
-            },
-            "guidelines": {
-              "mode": "agent",
-              "reason": "version-event-remains-guidelines-eligible"
-            },
-            "documentation": {
-              "mode": "deterministic",
-              "reason": "compiler-effective-documentation-check"
-            }
-          },
-          "title": "Modify Versions",
-          "summary": "Modify covers 1 change facts (versioning) across 1 declarations and 17 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
-          "informational": false,
-          "deterministicCoverage": {
-            "restCandidateIds": [],
-            "downstreamCandidateIds": [],
-            "complianceSearchRequestIds": [
-              "compliance-search-1d474d5439b5e9da"
-            ],
-            "relatedOperationIds": [
-              "AutoUpgradeProfiles_CreateOrUpdate",
-              "AutoUpgradeProfiles_Get",
-              "AutoUpgradeProfiles_ListByFleet",
-              "FleetMembers_Create",
-              "FleetMembers_Get",
-              "FleetMembers_ListByFleet",
-              "FleetMembers_Update",
-              "FleetUpdateStrategies_CreateOrUpdate",
-              "FleetUpdateStrategies_Get",
-              "FleetUpdateStrategies_ListByFleet",
-              "Fleets_ListBySubscription",
-              "UpdateRuns_CreateOrUpdate",
-              "UpdateRuns_Get",
-              "UpdateRuns_ListByFleet",
-              "UpdateRuns_Skip",
-              "UpdateRuns_Start",
-              "UpdateRuns_Stop"
-            ],
-            "coveredHunkIds": [
-              "hunk-fb54c71bd7efebc0"
-            ],
-            "uncoveredHunkIds": [],
-            "classifications": [
-              {
-                "hunkId": "hunk-fb54c71bd7efebc0",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
-                "restCandidateIds": [],
-                "downstreamCandidateIds": []
-              }
-            ],
-            "gaps": []
-          },
-          "inferenceRequired": false,
+          "title": "Publish a new API version",
+          "summary": "Carries 17 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.",
+          "informational": true,
           "sources": [
             {
               "id": "source-e1b5addb90b380b1",
@@ -15034,9 +14709,6 @@
                   "kind": "enum",
                   "qualifiedName": "Versions",
                   "decorators": [
-                    "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                    "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                    "@versioned(Versions)",
                     "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                   ],
                   "versionedMembers": [],
@@ -15113,9 +14785,6 @@
                   "kind": "enum",
                   "qualifiedName": "Versions",
                   "decorators": [
-                    "@service(#{ title: \"ContainerServiceFleetClient\" })",
-                    "@doc(\"Azure Kubernetes Fleet Manager api client.\")",
-                    "@versioned(Versions)",
                     "@doc(\"Azure Kubernetes Fleet Manager api versions.\")"
                   ],
                   "versionedMembers": [],
@@ -15333,37 +15002,8 @@
             ]
           },
           "intentType": "normal",
-          "carryOverProof": {
-            "schemaVersion": 1,
-            "status": "not-applicable",
-            "operations": [],
-            "equivalentOperationIds": [],
-            "differentOperationIds": [],
-            "unknownOperationIds": []
-          },
-          "contextPolicy": {
-            "schemaVersion": 1,
-            "rest": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-rest-scope",
-              "evidenceIds": []
-            },
-            "downstream": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-downstream-scope",
-              "evidenceIds": []
-            },
-            "guidelines": {
-              "mode": "agent",
-              "reason": "changed-design-facts-require-guidelines-assessment"
-            },
-            "documentation": {
-              "mode": "deterministic",
-              "reason": "compiler-effective-documentation-check"
-            }
-          },
-          "title": "Modify MemberSelector, MemberSelector.byLabel",
-          "summary": "Modify covers 2 change facts (type) across 2 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
+          "title": "Retire the preview member selector model",
+          "summary": "MemberSelector, introduced in the 2026-03-02 preview, is marked removed in 2026-06-01 and has no bounded affected REST operation in the compared stable projections.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
@@ -15372,22 +15012,36 @@
               "compliance-search-1d0a1aad8a40c5ec"
             ],
             "relatedOperationIds": [],
-            "coveredHunkIds": [
+            "coveredHunkIds": [],
+            "uncoveredHunkIds": [
               "hunk-a42ee2ea86905886"
             ],
-            "uncoveredHunkIds": [],
             "classifications": [
               {
                 "hunkId": "hunk-a42ee2ea86905886",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               }
             ],
-            "gaps": []
+            "gaps": [
+              {
+                "hunkId": "hunk-a42ee2ea86905886",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              }
+            ]
           },
-          "inferenceRequired": false,
+          "inferenceRequired": true,
+          "inferenceResults": [
+            {
+              "requestId": "inference-request-6d8e3045687c2cd8",
+              "hunkId": "hunk-a42ee2ea86905886",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            }
+          ],
           "sources": [
             {
               "id": "source-42db908cc2bfc440",
@@ -16111,46 +15765,18 @@
             ]
           },
           "intentType": "normal",
-          "carryOverProof": {
-            "schemaVersion": 1,
-            "status": "not-applicable",
-            "operations": [],
-            "equivalentOperationIds": [],
-            "differentOperationIds": [],
-            "unknownOperationIds": []
-          },
-          "contextPolicy": {
-            "schemaVersion": 1,
-            "rest": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-rest-scope",
-              "evidenceIds": []
-            },
-            "downstream": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-downstream-scope",
-              "evidenceIds": []
-            },
-            "guidelines": {
-              "mode": "agent",
-              "reason": "changed-design-facts-require-guidelines-assessment"
-            },
-            "documentation": {
-              "mode": "deterministic",
-              "reason": "compiler-effective-documentation-check"
-            }
-          },
-          "title": "Modify ClusterMeshProfile, ClusterMeshProfile.name, ClusterMeshProfileProperties",
-          "summary": "Modify covers 11 change facts (operation, type) across 11 declarations and 0 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
+          "title": "Retire cluster mesh profile resources from the new stable API",
+          "summary": "The child ClusterMeshProfile resource, its ARM read interface, properties, status, and state declarations are marked removed in 2026-06-01 after preview introduction; no bounded stable REST operation is mapped to this unit.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
             "downstreamCandidateIds": [],
             "complianceSearchRequestIds": [
-              "compliance-search-171c602f9535608e"
+              "compliance-search-1286de6f0d2fb586"
             ],
             "relatedOperationIds": [],
-            "coveredHunkIds": [
+            "coveredHunkIds": [],
+            "uncoveredHunkIds": [
               "hunk-2f3370922037cca5",
               "hunk-685440e5c3dec034",
               "hunk-a647505fa32d358e",
@@ -16158,54 +15784,122 @@
               "hunk-d26bee357d2d41e3",
               "hunk-d8c2304692cc2412"
             ],
-            "uncoveredHunkIds": [],
             "classifications": [
               {
                 "hunkId": "hunk-2f3370922037cca5",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
               {
                 "hunkId": "hunk-685440e5c3dec034",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
               {
                 "hunkId": "hunk-a647505fa32d358e",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
               {
                 "hunkId": "hunk-c97f62cbd5b9501a",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
               {
                 "hunkId": "hunk-d26bee357d2d41e3",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
               {
                 "hunkId": "hunk-d8c2304692cc2412",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               }
             ],
-            "gaps": []
+            "gaps": [
+              {
+                "hunkId": "hunk-2f3370922037cca5",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              },
+              {
+                "hunkId": "hunk-685440e5c3dec034",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              },
+              {
+                "hunkId": "hunk-a647505fa32d358e",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              },
+              {
+                "hunkId": "hunk-c97f62cbd5b9501a",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              },
+              {
+                "hunkId": "hunk-d26bee357d2d41e3",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              },
+              {
+                "hunkId": "hunk-d8c2304692cc2412",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              }
+            ]
           },
-          "inferenceRequired": false,
+          "inferenceRequired": true,
+          "inferenceResults": [
+            {
+              "requestId": "inference-request-fe059a8229c60673",
+              "hunkId": "hunk-2f3370922037cca5",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            },
+            {
+              "requestId": "inference-request-d384357002a2e8c8",
+              "hunkId": "hunk-685440e5c3dec034",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            },
+            {
+              "requestId": "inference-request-35915f53397c5ba9",
+              "hunkId": "hunk-a647505fa32d358e",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            },
+            {
+              "requestId": "inference-request-74f4db0fda0fe4ed",
+              "hunkId": "hunk-c97f62cbd5b9501a",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            },
+            {
+              "requestId": "inference-request-72508d1c37188745",
+              "hunkId": "hunk-d26bee357d2d41e3",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            },
+            {
+              "requestId": "inference-request-bcb2c0e608a1dd49",
+              "hunkId": "hunk-d8c2304692cc2412",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            }
+          ],
           "sources": [
             {
               "id": "source-a5f09efc85bd13a9",
@@ -16774,7 +16468,6 @@
                   "kind": "model",
                   "qualifiedName": "ClusterMeshProfileProperties",
                   "decorators": [
-                    "@visibility(Lifecycle.Read)",
                     "@doc(\"A cluster mesh profile stores the general information about the mesh.\")",
                     "@added(Versions.v2026_03_02_preview)"
                   ],
@@ -17051,8 +16744,6 @@
                   "kind": "union",
                   "qualifiedName": "ClusterMeshProfileProvisioningState",
                   "decorators": [
-                    "@doc(\"The cluster mesh profile status.\")",
-                    "@visibility(Lifecycle.Read)",
                     "@doc(\"The provisioning state of the cluster mesh profile resource.\")",
                     "@added(Versions.v2026_03_02_preview)"
                   ],
@@ -17104,8 +16795,6 @@
                   "kind": "union",
                   "qualifiedName": "ClusterMeshProfileProvisioningState",
                   "decorators": [
-                    "@doc(\"The cluster mesh profile status.\")",
-                    "@visibility(Lifecycle.Read)",
                     "@doc(\"The provisioning state of the cluster mesh profile resource.\")",
                     "@added(Versions.v2026_03_02_preview)",
                     "@removed(Versions.v2026_06_01)"
@@ -17160,12 +16849,10 @@
                   "kind": "union",
                   "qualifiedName": "ClusterMeshState",
                   "decorators": [
-                    "@added(Versions.v2026_03_02_preview)",
                     "@doc(\"Cluster mesh state.\")",
                     "@added(Versions.v2026_03_02_preview)"
                   ],
                   "versionedMembers": [
-                    "@added(Versions.v2026_03_02_preview)",
                     "@added(Versions.v2026_03_02_preview)"
                   ],
                   "hunkIds": [
@@ -17297,7 +16984,6 @@
                   "kind": "model",
                   "qualifiedName": "ClusterMeshProfileStatus",
                   "decorators": [
-                    "@doc(\"The mesh failed to connect.\")",
                     "@doc(\"Status of the cluster mesh.\")",
                     "@added(Versions.v2026_03_02_preview)"
                   ],
@@ -17428,7 +17114,6 @@
                   "kind": "model",
                   "qualifiedName": "ClusterMeshProfileStatus",
                   "decorators": [
-                    "@doc(\"The mesh failed to connect.\")",
                     "@doc(\"Status of the cluster mesh.\")",
                     "@added(Versions.v2026_03_02_preview)",
                     "@removed(Versions.v2026_06_01)"
@@ -17563,8 +17248,6 @@
                   "kind": "interface",
                   "qualifiedName": "ClusterMeshProfiles",
                   "decorators": [
-                    "@visibility(Lifecycle.Read)",
-                    "@doc(\"The last operation error of the cluster mesh profile.\")",
                     "@added(Versions.v2026_03_02_preview)",
                     "@armResourceOperations"
                   ],
@@ -17705,8 +17388,6 @@
                   "kind": "interface",
                   "qualifiedName": "ClusterMeshProfiles",
                   "decorators": [
-                    "@visibility(Lifecycle.Read)",
-                    "@doc(\"The last operation error of the cluster mesh profile.\")",
                     "@added(Versions.v2026_03_02_preview)",
                     "@removed(Versions.v2026_06_01)",
                     "@armResourceOperations"
@@ -19429,87 +19110,105 @@
             ]
           },
           "intentType": "normal",
-          "carryOverProof": {
-            "schemaVersion": 1,
-            "status": "not-applicable",
-            "operations": [],
-            "equivalentOperationIds": [],
-            "differentOperationIds": [],
-            "unknownOperationIds": []
-          },
-          "contextPolicy": {
-            "schemaVersion": 1,
-            "rest": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-rest-scope",
-              "evidenceIds": []
-            },
-            "downstream": {
-              "mode": "agent",
-              "reason": "changed-or-unresolved-downstream-scope",
-              "evidenceIds": []
-            },
-            "guidelines": {
-              "mode": "agent",
-              "reason": "changed-design-facts-require-guidelines-assessment"
-            },
-            "documentation": {
-              "mode": "deterministic",
-              "reason": "compiler-effective-documentation-check"
-            }
-          },
-          "title": "Modify CiliumProperties, CiliumProperties.id, MeshMemberState",
-          "summary": "Modify covers 7 change facts (type) across 7 declarations and 1 affected operations. The assessment uses only the bounded source and projection evidence for this review unit.",
+          "title": "Retire preview mesh member models from the new stable API",
+          "summary": "MeshProperties, CiliumProperties, MeshMemberStatus, and MeshMemberState are marked removed in 2026-06-01; bounded evidence associates the preview mesh data with Fleet member creation but does not prove a stable-to-stable incompatibility.",
           "informational": false,
           "deterministicCoverage": {
             "restCandidateIds": [],
             "downstreamCandidateIds": [],
             "complianceSearchRequestIds": [
-              "compliance-search-2419847c8e57d17c"
+              "compliance-search-33293b83142135fd"
             ],
             "relatedOperationIds": [
               "FleetMembers_Create"
             ],
-            "coveredHunkIds": [
+            "coveredHunkIds": [],
+            "uncoveredHunkIds": [
               "hunk-5266f07198f1e4d6",
               "hunk-5a53309ab07167e0",
               "hunk-647f3f21058d87de",
               "hunk-cff95831d7273ed1"
             ],
-            "uncoveredHunkIds": [],
             "classifications": [
               {
                 "hunkId": "hunk-5266f07198f1e4d6",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
               {
                 "hunkId": "hunk-5a53309ab07167e0",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
               {
                 "hunkId": "hunk-647f3f21058d87de",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               },
               {
                 "hunkId": "hunk-cff95831d7273ed1",
-                "status": "no-impact",
-                "reason": "declaration-mapped-and-contracts-compared",
+                "status": "unknown",
+                "reason": "mapped-declaration-without-deterministic-candidate",
                 "restCandidateIds": [],
                 "downstreamCandidateIds": []
               }
             ],
-            "gaps": []
+            "gaps": [
+              {
+                "hunkId": "hunk-5266f07198f1e4d6",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              },
+              {
+                "hunkId": "hunk-5a53309ab07167e0",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              },
+              {
+                "hunkId": "hunk-647f3f21058d87de",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              },
+              {
+                "hunkId": "hunk-cff95831d7273ed1",
+                "reason": "mapped-declaration-without-deterministic-candidate"
+              }
+            ]
           },
-          "inferenceRequired": false,
+          "inferenceRequired": true,
+          "inferenceResults": [
+            {
+              "requestId": "inference-request-9a51404266a2edc8",
+              "hunkId": "hunk-5266f07198f1e4d6",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            },
+            {
+              "requestId": "inference-request-f272a852742644d7",
+              "hunkId": "hunk-5a53309ab07167e0",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            },
+            {
+              "requestId": "inference-request-e0d227a8fe4d1eac",
+              "hunkId": "hunk-647f3f21058d87de",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            },
+            {
+              "requestId": "inference-request-ede1236fcebf889b",
+              "hunkId": "hunk-cff95831d7273ed1",
+              "decision": "no-impact",
+              "rationale": "The bounded evidence only adds @removed(Versions.v2026_06_01); it does not establish a before/after wire or generated SDK incompatibility for the compared stable versions.",
+              "candidateIds": []
+            }
+          ],
           "sources": [
             {
               "id": "source-0ed72e77f3f3ad4a",
@@ -19871,8 +19570,6 @@
                   "kind": "model",
                   "qualifiedName": "CiliumProperties",
                   "decorators": [
-                    "@doc(\"Resource id of the cluster mesh profile associated with this mesh member.\")",
-                    "@visibility(Lifecycle.Read)",
                     "@added(Versions.v2026_03_02_preview)",
                     "@doc(\"The Cilium specific properties of the member cluster.\")"
                   ],
@@ -19928,8 +19625,6 @@
                   "kind": "model",
                   "qualifiedName": "CiliumProperties",
                   "decorators": [
-                    "@doc(\"Resource id of the cluster mesh profile associated with this mesh member.\")",
-                    "@visibility(Lifecycle.Read)",
                     "@added(Versions.v2026_03_02_preview)",
                     "@removed(Versions.v2026_06_01)",
                     "@doc(\"The Cilium specific properties of the member cluster.\")"
@@ -20071,8 +19766,6 @@
                   "kind": "union",
                   "qualifiedName": "MeshMemberState",
                   "decorators": [
-                    "@doc(\"Cilium requires each cluster to be assigned a unique human-readable name. The name is managed by Fleet, based on the Fleet Member name, and cannot be set by the user.\")",
-                    "@visibility(Lifecycle.Read)",
                     "@added(Versions.v2026_03_02_preview)",
                     "@doc(\"Mesh member state.\")"
                   ],
@@ -20135,8 +19828,6 @@
                   "kind": "union",
                   "qualifiedName": "MeshMemberState",
                   "decorators": [
-                    "@doc(\"Cilium requires each cluster to be assigned a unique human-readable name. The name is managed by Fleet, based on the Fleet Member name, and cannot be set by the user.\")",
-                    "@visibility(Lifecycle.Read)",
                     "@added(Versions.v2026_03_02_preview)",
                     "@removed(Versions.v2026_06_01)",
                     "@doc(\"Mesh member state.\")"
@@ -20202,7 +19893,6 @@
                   "kind": "model",
                   "qualifiedName": "MeshMemberStatus",
                   "decorators": [
-                    "@doc(\"The member failed to connect due to an error.\")",
                     "@added(Versions.v2026_03_02_preview)",
                     "@doc(\"Status of the mesh member.\")"
                   ],
@@ -20330,7 +20020,6 @@
                   "kind": "model",
                   "qualifiedName": "MeshMemberStatus",
                   "decorators": [
-                    "@doc(\"The member failed to connect due to an error.\")",
                     "@added(Versions.v2026_03_02_preview)",
                     "@removed(Versions.v2026_06_01)",
                     "@doc(\"Status of the mesh member.\")"
@@ -20580,30 +20269,52 @@
       "blockers": []
     },
     "rest": {
-      "status": "passed",
-      "verdict": "passed",
-      "coverage": "complete",
+      "status": "not-assessed",
+      "verdict": "unknown",
+      "coverage": "blocked",
       "findings": [],
       "rejectedCandidateCount": 0,
-      "blockers": []
+      "blockers": [
+        {
+          "code": "autorest-contract-unresolved",
+          "projectId": "project-582be75b8d3d",
+          "message": "Changed AutoRest contracts for 10 operations in project-582be75b8d3d contain unresolved references or ambiguous visibility metadata (FleetMembers_Create, FleetMembers_Get, FleetMembers_ListByFleet). Their effective compatibility cannot be established from incomplete contract evidence."
+        }
+      ]
     },
     "downstream": {
-      "status": "passed",
-      "verdict": "passed",
-      "coverage": "complete",
+      "status": "not-assessed",
+      "verdict": "unknown",
+      "coverage": "blocked",
       "findings": [],
       "methodGroups": [],
       "typeImpacts": [],
       "rootCauses": [],
       "rejectedCandidateCount": 0,
-      "blockers": []
+      "blockers": [
+        {
+          "code": "downstream-identity-unresolved",
+          "projectId": "project-582be75b8d3d",
+          "message": "Cannot deterministically resolve model identity for Azure.ResourceManager.ResourceListResult: multiple target symbols have the same crossLanguageDefinitionId.",
+          "evidenceFactIds": [
+            "sdk-fact-01ced6016e2c13aa",
+            "sdk-fact-1712c92a5468f752",
+            "sdk-fact-26e0a102f1c86037",
+            "sdk-fact-3a830596134e5a50",
+            "sdk-fact-4fb2c6f415bf3a6d",
+            "sdk-fact-53012b0d9bcb89eb",
+            "sdk-fact-f5c60f665518114c",
+            "sdk-fact-fd8ad067ee75b4cf"
+          ]
+        }
+      ]
     },
     "compliance": {
       "status": "passed",
       "summary": "All Semantic intents match applicable fetched guidance.",
       "coverage": {
-        "semanticIntentCount": 5,
-        "assessedIntentCount": 5,
+        "semanticIntentCount": 4,
+        "assessedIntentCount": 4,
         "selectedDocumentCount": 4,
         "unassessedIntentIds": []
       },
@@ -20611,9 +20322,9 @@
         "catalogRanking": [
           {
             "rank": 1,
-            "catalogOrder": 6,
-            "title": "Add stable after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "catalogOrder": 1,
+            "title": "Evolving APIs",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
               "exactSymbol": 4,
               "patternCategory": 3,
@@ -20621,77 +20332,77 @@
               "changeContext": 1,
               "total": 10
             },
-            "selectionRationale": "Selected for this ARM TypeSpec assessment because a stable-after-stable release should version each changed api element and include examples for the new version."
+            "selectionRationale": "Directly governs @removed changes to models, properties, and operations in an existing versioned Azure API."
           },
           {
             "rank": 2,
-            "catalogOrder": 1,
-            "title": "Evolving APIs",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+            "catalogOrder": 14,
+            "title": "TypeSpec.Rest decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
+              "changeContext": 0,
+              "total": 9
             },
-            "selectionRationale": "Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces."
+            "selectionRationale": "Names the exact @resource and @parentResource decorators used by ClusterMeshProfile."
           },
           {
             "rank": 3,
-            "catalogOrder": 7,
-            "title": "ARM resource types and modeling",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Selected for this ARM TypeSpec assessment because arm resources should use the appropriate tracked, proxy, child, tenant, or extension pattern."
-          },
-          {
-            "rank": 4,
             "catalogOrder": 21,
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
+              "changeContext": 0,
+              "total": 9
             },
-            "selectionRationale": "Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts."
+            "selectionRationale": "Names models and properties, the primary declaration kinds being versioned out."
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 9
+            },
+            "selectionRationale": "Names decorators, including the changed @removed applications."
           },
           {
             "rank": 5,
+            "catalogOrder": 25,
+            "title": "Built-in decorators",
+            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 9
+            },
+            "selectionRationale": "Names documentation and visibility decorators present in the changed declaration context."
+          },
+          {
+            "rank": 6,
             "catalogOrder": 2,
             "title": "Versioning overview",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 6,
-            "catalogOrder": 3,
-            "title": "Add preview after preview",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "Covers Azure versioning and stable/preview evolution, but not the exact changed declarations."
           },
           {
             "rank": 7,
@@ -20700,155 +20411,281 @@
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 1,
+              "total": 6
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "Matches the stable-after-preview transition that contains the bounded removals."
           },
           {
             "rank": 8,
+            "catalogOrder": 3,
+            "title": "Add preview after preview",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Azure version-transition guidance, but the change adds a stable version rather than preview after preview."
+          },
+          {
+            "rank": 9,
             "catalogOrder": 5,
             "title": "Add preview after stable",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/",
             "score": {
               "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 5
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "Azure version-transition guidance, but this is not preview after stable."
           },
           {
-            "rank": 9,
+            "rank": 10,
+            "catalogOrder": 6,
+            "title": "Add stable after stable",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Azure stable-version guidance, but the immediately preceding version is preview."
+          },
+          {
+            "rank": 11,
+            "catalogOrder": 7,
+            "title": "ARM resource types and modeling",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Relevant to ARM resource modeling, including the removed cluster mesh resource."
+          },
+          {
+            "rank": 12,
+            "catalogOrder": 12,
+            "title": "ARM resource operations",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Relevant to the @armResourceOperations interface removed from the stable version."
+          },
+          {
+            "rank": 13,
+            "catalogOrder": 13,
+            "title": "Azure.ResourceManager interface reference",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Relevant to ARM resource operation templates, without naming an exact changed template."
+          },
+          {
+            "rank": 14,
+            "catalogOrder": 15,
+            "title": "Azure.ResourceManager decorators",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Relevant ARM resource lifecycle decorator reference, but no exact listed decorator changed."
+          },
+          {
+            "rank": 15,
+            "catalogOrder": 22,
+            "title": "Enums",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 5
+            },
+            "selectionRationale": "Model/enum category is relevant to union-like state declarations, but no enum member edit is bounded."
+          },
+          {
+            "rank": 16,
             "catalogOrder": 8,
             "title": "Specific extension resource sample",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "ARM-specific, but the bounded change is not an extension-resource pattern."
           },
           {
-            "rank": 10,
+            "rank": 17,
             "catalogOrder": 9,
             "title": "Private endpoints",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "ARM-specific, but no private endpoint construct changes."
           },
           {
-            "rank": 11,
+            "rank": 18,
             "catalogOrder": 10,
             "title": "Private links",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "ARM-specific, but no private link construct changes."
           },
           {
-            "rank": 12,
+            "rank": 19,
             "catalogOrder": 11,
             "title": "Network security perimeter",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "ARM-specific, but no network security perimeter construct changes."
           },
           {
-            "rank": 13,
-            "catalogOrder": 12,
-            "title": "ARM resource operations",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 14,
-            "catalogOrder": 13,
-            "title": "Azure.ResourceManager interface reference",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 15,
-            "catalogOrder": 14,
-            "title": "TypeSpec.Rest decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 16,
-            "catalogOrder": 15,
-            "title": "Azure.ResourceManager decorators",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 17,
+            "rank": 20,
             "catalogOrder": 16,
             "title": "ARM long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/",
             "score": {
               "exactSymbol": 0,
               "patternCategory": 0,
-              "servicePlane": 0,
+              "servicePlane": 2,
               "changeContext": 0,
-              "total": 0
+              "total": 2
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "ARM-specific, but no long-running-operation construct changes."
           },
           {
-            "rank": 18,
+            "rank": 21,
+            "catalogOrder": 18,
+            "title": "Azure.ResourceManager data types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "ARM-specific, but no paging parameter construct changes."
+          },
+          {
+            "rank": 22,
+            "catalogOrder": 20,
+            "title": "ARM common types",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "ARM-specific, but no common-type authoring construct changes."
+          },
+          {
+            "rank": 23,
+            "catalogOrder": 23,
+            "title": "Scalars",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "General TypeSpec guidance applicable to ARM, but no scalar declaration changes."
+          },
+          {
+            "rank": 24,
+            "catalogOrder": 26,
+            "title": "OpenAPI decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "General decorator reference, but no OpenAPI-specific decorator changes."
+          },
+          {
+            "rank": 25,
+            "catalogOrder": 27,
+            "title": "Change provider namespace",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "ARM-specific, but no provider namespace change."
+          },
+          {
+            "rank": 26,
+            "catalogOrder": 28,
+            "title": "Azure Portal default experiences",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
+            "score": {
+              "exactSymbol": 0,
+              "patternCategory": 0,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 2
+            },
+            "selectionRationale": "ARM-specific, but no portal default-experience change."
+          },
+          {
+            "rank": 27,
             "catalogOrder": 17,
             "title": "Azure.Core long-running operations",
             "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/",
@@ -20859,24 +20696,10 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "Azure.Core LRO guidance does not govern this ARM version-removal change."
           },
           {
-            "rank": 19,
-            "catalogOrder": 18,
-            "title": "Azure.ResourceManager data types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 20,
+            "rank": 28,
             "catalogOrder": 19,
             "title": "TypeSpec pagination",
             "canonicalUrl": "https://typespec.io/docs/standard-library/pagination/",
@@ -20887,119 +20710,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 21,
-            "catalogOrder": 20,
-            "title": "ARM common types",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 22,
-            "catalogOrder": 22,
-            "title": "Enums",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/enums/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 23,
-            "catalogOrder": 23,
-            "title": "Scalars",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/scalars/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 24,
-            "catalogOrder": 24,
-            "title": "Decorators",
-            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 25,
-            "catalogOrder": 25,
-            "title": "Built-in decorators",
-            "canonicalUrl": "https://typespec.io/docs/standard-library/built-in-decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 26,
-            "catalogOrder": 26,
-            "title": "OpenAPI decorators",
-            "canonicalUrl": "https://typespec.io/docs/libraries/openapi/reference/decorators/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 27,
-            "catalogOrder": 27,
-            "title": "Change provider namespace",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
-          },
-          {
-            "rank": 28,
-            "catalogOrder": 28,
-            "title": "Azure Portal default experiences",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 0,
-              "servicePlane": 0,
-              "changeContext": 0,
-              "total": 0
-            },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "Data-plane pagination does not govern this ARM change."
           },
           {
             "rank": 29,
@@ -21013,7 +20724,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "Azure.Core content negotiation does not govern this ARM change."
           },
           {
             "rank": 30,
@@ -21027,7 +20738,7 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "No #suppress directive is present in the bounded changes."
           },
           {
             "rank": 31,
@@ -21041,15 +20752,15 @@
               "changeContext": 0,
               "total": 0
             },
-            "selectionRationale": "The bounded change evidence does not directly involve this catalog topic."
+            "selectionRationale": "No OpenAPI decorator or no-openapi suppression is present."
           }
         ],
         "documents": [
           {
             "rank": 1,
-            "catalogOrder": 6,
-            "title": "Add stable after stable",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
+            "catalogOrder": 1,
+            "title": "Evolving APIs",
+            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
             "score": {
               "exactSymbol": 4,
               "patternCategory": 3,
@@ -21057,105 +20768,145 @@
               "changeContext": 1,
               "total": 10
             },
-            "selectionRationale": "Selected for this ARM TypeSpec assessment because a stable-after-stable release should version each changed api element and include examples for the new version.",
+            "selectionRationale": "Directly governs @removed changes to models, properties, and operations in an existing versioned Azure API.",
             "guidance": [
               {
-                "section": "Making Changes to your TypeSpec spec",
-                "excerpt": "Add the new stable version and mark added, removed, renamed, or modified types with the appropriate versioning decorator.",
+                "section": "Versioning Decorators",
+                "excerpt": "To remove models, properties, or operations starting from a specific version, use @removed; the element is absent in that version and all later versions.",
                 "queryTerms": [
-                  "making",
-                  "changes",
-                  "to",
-                  "your",
-                  "typespec"
+                  "@removed",
+                  "Versions.v2026_06_01",
+                  "models",
+                  "properties",
+                  "operations"
                 ],
                 "examples": [
-                  "A stable-after-stable release should version each changed API element and include examples for the new version."
+                  "@removed(Versions.v2) city?: string;",
+                  "@removed(Versions.v3) model Employee { name: string; }"
                 ],
                 "applicableDeclarationIds": [
-                  "declaration-10c99e2ec75d39e6",
-                  "declaration-11d57be73543b0c0",
-                  "declaration-1c31f0469cb0cd7d",
-                  "declaration-283bef717b2b5719",
-                  "declaration-3e5b74235786ff96",
                   "declaration-459a7e46933ac80e",
-                  "declaration-5942d0948478a079",
                   "declaration-65239c6da420aa84",
-                  "declaration-68dae696d436b320",
                   "declaration-7c7baa9ff97789e5",
                   "declaration-86673ad8069b9b54",
                   "declaration-87312fd6a88ac8e7",
                   "declaration-968d76245db82cd1",
                   "declaration-af5a9606a5495ef4",
                   "declaration-b370cfa51267c70c",
-                  "declaration-bf7721e82dfc9389",
                   "declaration-c59c45e2dc2c6c09",
                   "declaration-d0467938ab1e91f6",
                   "declaration-d43efc23b65bdf01",
-                  "declaration-d599d84b7e2c4c32",
                   "declaration-df2796b93b389513",
-                  "declaration-e3cddbff950f4095",
                   "declaration-f691f7e74f7caf6d"
                 ]
               }
             ],
             "noRelevantGuidance": false,
-            "retrievedAt": "2026-10-29T08:26:11.041833Z",
-            "contentHash": "sha256:70a904d0e8c89b1310eff81cfdad9554ec0e94d597f4f139b174eb5d98da56b8"
+            "retrievedAt": "2026-11-06T03:55:51.6264778Z",
+            "contentHash": "sha256:7b6a9c141f7f7430c8381c3efb1810da2f71e3934634956ccede0a56ba24aa76"
           },
           {
             "rank": 2,
-            "catalogOrder": 1,
-            "title": "Evolving APIs",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+            "catalogOrder": 14,
+            "title": "TypeSpec.Rest decorators",
+            "canonicalUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
+              "changeContext": 0,
+              "total": 9
             },
-            "selectionRationale": "Selected for this ARM TypeSpec assessment because version api evolution explicitly and preserve already-published version surfaces.",
-            "guidance": [],
-            "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-29T08:26:10.671774Z",
-            "contentHash": "sha256:3e74c2870b84c929751fea4372bea568f3f3a5bbd43398da18361f987308f90c"
+            "selectionRationale": "Names the exact @resource and @parentResource decorators used by ClusterMeshProfile.",
+            "guidance": [
+              {
+                "section": "@parentResource and @resource",
+                "excerpt": "@parentResource marks a model as a child of a parent resource, and @resource marks a model as a resource type with a collection name.",
+                "queryTerms": [
+                  "@parentResource",
+                  "@resource",
+                  "ClusterMeshProfile"
+                ],
+                "examples": [
+                  "@TypeSpec.Rest.parentResource(parent: Model)",
+                  "@TypeSpec.Rest.resource(collectionName: valueof string)"
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-86673ad8069b9b54",
+                  "declaration-87312fd6a88ac8e7",
+                  "declaration-968d76245db82cd1",
+                  "declaration-b370cfa51267c70c",
+                  "declaration-c59c45e2dc2c6c09",
+                  "declaration-df2796b93b389513"
+                ]
+              }
+            ],
+            "noRelevantGuidance": false,
+            "retrievedAt": "2026-11-06T03:56:08.0271085Z",
+            "contentHash": "sha256:871496c024214aa96f6e470935722fd00a41d05cc81fa053cd28c062766bfdbf"
           },
           {
             "rank": 3,
-            "catalogOrder": 7,
-            "title": "ARM resource types and modeling",
-            "canonicalUrl": "https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/",
-            "score": {
-              "exactSymbol": 0,
-              "patternCategory": 3,
-              "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
-            },
-            "selectionRationale": "Selected for this ARM TypeSpec assessment because arm resources should use the appropriate tracked, proxy, child, tenant, or extension pattern.",
-            "guidance": [],
-            "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-29T08:26:12.408871Z",
-            "contentHash": "sha256:d3eb7225c2f499317611ae7d7226f8174f0b6b831b498fa53b93eb1687244c2f"
-          },
-          {
-            "rank": 4,
             "catalogOrder": 21,
             "title": "Models",
             "canonicalUrl": "https://typespec.io/docs/language-basics/models/",
             "score": {
-              "exactSymbol": 0,
+              "exactSymbol": 4,
               "patternCategory": 3,
               "servicePlane": 2,
-              "changeContext": 1,
-              "total": 6
+              "changeContext": 0,
+              "total": 9
             },
-            "selectionRationale": "Selected for this ARM TypeSpec assessment because model requiredness and composition changes alter request and response contracts.",
+            "selectionRationale": "Names models and properties, the primary declaration kinds being versioned out.",
             "guidance": [],
             "noRelevantGuidance": true,
-            "retrievedAt": "2026-10-29T08:26:13.273479Z",
-            "contentHash": "sha256:efd56120d9598700d213c873b8e93962fc666eede836a6009d5439fee74f75ce"
+            "retrievedAt": "2026-11-06T03:55:51.7300636Z",
+            "contentHash": "sha256:b8da032e904b571a7b6830812c2eee21596d8deed8276a6bcca241cb8a1af71e"
+          },
+          {
+            "rank": 4,
+            "catalogOrder": 24,
+            "title": "Decorators",
+            "canonicalUrl": "https://typespec.io/docs/language-basics/decorators/",
+            "score": {
+              "exactSymbol": 4,
+              "patternCategory": 3,
+              "servicePlane": 2,
+              "changeContext": 0,
+              "total": 9
+            },
+            "selectionRationale": "Names decorators, including the changed @removed applications.",
+            "guidance": [
+              {
+                "section": "Applying decorators",
+                "excerpt": "Decorators use the @ prefix and must be placed before the entity they decorate.",
+                "queryTerms": [
+                  "decorators",
+                  "@removed"
+                ],
+                "examples": [
+                  "@tag(\"Sample\") model Dog { @validate(false) name: string; }"
+                ],
+                "applicableDeclarationIds": [
+                  "declaration-459a7e46933ac80e",
+                  "declaration-65239c6da420aa84",
+                  "declaration-7c7baa9ff97789e5",
+                  "declaration-86673ad8069b9b54",
+                  "declaration-87312fd6a88ac8e7",
+                  "declaration-968d76245db82cd1",
+                  "declaration-af5a9606a5495ef4",
+                  "declaration-b370cfa51267c70c",
+                  "declaration-c59c45e2dc2c6c09",
+                  "declaration-d0467938ab1e91f6",
+                  "declaration-d43efc23b65bdf01",
+                  "declaration-df2796b93b389513",
+                  "declaration-f691f7e74f7caf6d"
+                ]
+              }
+            ],
+            "noRelevantGuidance": false,
+            "retrievedAt": "2026-11-06T03:55:51.7894051Z",
+            "contentHash": "sha256:b95bd07c8d0380183d7f41aef24a4fc929f553f7686312f386e81a6015b956f3"
           }
         ]
       },
@@ -21165,8 +20916,12 @@
           "reviewUnitId": "semantic-40f969cf96537930",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
-              "guidanceSection": "Making Changes to your TypeSpec spec"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+              "guidanceSection": "Versioning Decorators"
+            },
+            {
+              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/decorators/",
+              "guidanceSection": "Applying decorators"
             }
           ],
           "sourceChangeIds": [
@@ -21180,10 +20935,10 @@
             "declaration-65239c6da420aa84"
           ],
           "decision": "applicable-pass",
-          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
-          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
-          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
-          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "expected": "Use @removed on the declaration at the first API version where the preview-only property must be absent.",
+          "actual": "FleetMemberProperties.meshProperties is decorated with @removed(Versions.v2026_06_01) immediately before the property.",
+          "rationale": "The bounded source uses the documented versioning decorator on the affected property, matching the intended stable-version projection.",
+          "gap": "The bounded source uses the documented versioning decorator on the affected property, matching the intended stable-version projection.",
           "sourceLinks": [
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp",
@@ -21210,57 +20965,16 @@
           "blockers": []
         },
         {
-          "semanticIntentId": "semantic-7f10174c2080c2d5",
-          "reviewUnitId": "semantic-7f10174c2080c2d5",
-          "applicableGuidance": [
-            {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
-              "guidanceSection": "Making Changes to your TypeSpec spec"
-            }
-          ],
-          "sourceChangeIds": [
-            "source-e1b5addb90b380b1"
-          ],
-          "hunkIds": [
-            "hunk-fb54c71bd7efebc0"
-          ],
-          "declarationIds": [
-            "declaration-10c99e2ec75d39e6"
-          ],
-          "decision": "applicable-pass",
-          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
-          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
-          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
-          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
-          "sourceLinks": [
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp",
-              "startLine": 28,
-              "endLine": 77,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp#L29-L77"
-            }
-          ],
-          "codeSnippets": [
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp",
-              "hunkId": "hunk-fb54c71bd7efebc0",
-              "lines": [
-                "+",
-                "+  @doc(\"Azure Kubernetes Fleet Manager api version 2026-06-01.\")",
-                "+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5)",
-                "+  v2026_06_01: \"2026-06-01\","
-              ]
-            }
-          ],
-          "blockers": []
-        },
-        {
           "semanticIntentId": "semantic-c60ec0a41694e87f",
           "reviewUnitId": "semantic-c60ec0a41694e87f",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
-              "guidanceSection": "Making Changes to your TypeSpec spec"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+              "guidanceSection": "Versioning Decorators"
+            },
+            {
+              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/decorators/",
+              "guidanceSection": "Applying decorators"
             }
           ],
           "sourceChangeIds": [
@@ -21274,21 +20988,16 @@
             "declaration-e3cddbff950f4095"
           ],
           "decision": "applicable-pass",
-          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
-          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
-          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
-          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "expected": "Use @removed on the model at the first API version where the preview-only model must be absent.",
+          "actual": "MemberSelector is decorated with @removed(Versions.v2026_06_01) immediately before the model.",
+          "rationale": "The model is explicitly versioned out using the documented decorator placement and removal semantics.",
+          "gap": "The model is explicitly versioned out using the documented decorator placement and removal semantics.",
           "sourceLinks": [
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp",
               "startLine": 6,
               "endLine": 14,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp#L9-L14"
-            },
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp",
-              "startLine": 10,
-              "endLine": 13
             }
           ],
           "codeSnippets": [
@@ -21307,8 +21016,16 @@
           "reviewUnitId": "semantic-ce182d340902ecb0",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
-              "guidanceSection": "Making Changes to your TypeSpec spec"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+              "guidanceSection": "Versioning Decorators"
+            },
+            {
+              "canonicalDocumentUrl": "https://typespec.io/docs/libraries/rest/reference/decorators/",
+              "guidanceSection": "@parentResource and @resource"
+            },
+            {
+              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/decorators/",
+              "guidanceSection": "Applying decorators"
             }
           ],
           "sourceChangeIds": [
@@ -21336,10 +21053,10 @@
             "declaration-df2796b93b389513"
           ],
           "decision": "applicable-pass",
-          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
-          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
-          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
-          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "expected": "Version the child ARM resource and its supporting declarations out at the first version where the preview feature is absent, while retaining its canonical resource and parent associations in source.",
+          "actual": "The ClusterMeshProfile child resource, ARM operations interface, and supporting models/unions are each decorated with @removed(Versions.v2026_06_01); the resource remains declared with @resource and @parentResource.",
+          "rationale": "The bounded declarations use documented resource associations and explicit versioned removal for the preview-only resource family.",
+          "gap": "The bounded declarations use documented resource associations and explicit versioned removal for the preview-only resource family.",
           "sourceLinks": [
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
@@ -21349,24 +21066,9 @@
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
-              "startLine": 19,
-              "endLine": 27
-            },
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
-              "startLine": 19,
-              "endLine": 27
-            },
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
               "startLine": 32,
               "endLine": 51,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L35-L51"
-            },
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
-              "startLine": 36,
-              "endLine": 38
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
@@ -21388,20 +21090,9 @@
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
-              "startLine": 87,
-              "endLine": 89
-            },
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
               "startLine": 104,
               "endLine": 133,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L107-L133"
-            },
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp",
-              "startLine": 108,
-              "endLine": 108,
-              "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L108-L108"
             }
           ],
           "codeSnippets": [
@@ -21455,8 +21146,12 @@
           "reviewUnitId": "semantic-db14dcf83da2ac67",
           "applicableGuidance": [
             {
-              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/",
-              "guidanceSection": "Making Changes to your TypeSpec spec"
+              "canonicalDocumentUrl": "https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/",
+              "guidanceSection": "Versioning Decorators"
+            },
+            {
+              "canonicalDocumentUrl": "https://typespec.io/docs/language-basics/decorators/",
+              "guidanceSection": "Applying decorators"
             }
           ],
           "sourceChangeIds": [
@@ -21478,10 +21173,10 @@
             "declaration-f691f7e74f7caf6d"
           ],
           "decision": "applicable-pass",
-          "expected": "A stable-after-stable release should version each changed API element and include examples for the new version.",
-          "actual": "The changed declarations use explicit TypeSpec versioning and standard ARM/model constructs for the intended new API version.",
-          "rationale": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
-          "gap": "The bounded source evidence is consistent with the retrieved official guidance for this change intent; no separate guideline violation is established.",
+          "expected": "Use @removed on each preview-only model or union at the first API version where it must be absent.",
+          "actual": "The mesh member models and state union are decorated with @removed(Versions.v2026_06_01) immediately before their declarations.",
+          "rationale": "The bounded source explicitly versions each preview-only mesh declaration out of the new stable version.",
+          "gap": "The bounded source explicitly versions each preview-only mesh declaration out of the new stable version.",
           "sourceLinks": [
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
@@ -21491,19 +21186,9 @@
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
-              "startLine": 19,
-              "endLine": 21
-            },
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
               "startLine": 32,
               "endLine": 43,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp#L35-L43"
-            },
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
-              "startLine": 36,
-              "endLine": 38
             },
             {
               "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
@@ -21516,11 +21201,6 @@
               "startLine": 64,
               "endLine": 83,
               "link": "https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp#L67-L83"
-            },
-            {
-              "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp",
-              "startLine": 68,
-              "endLine": 70
             }
           ],
           "codeSnippets": [
@@ -21565,15 +21245,14 @@
       "status": "not-applicable",
       "summary": "No newly added operation, model, enum, or interface declarations require documentation completeness assessment.",
       "coverage": {
-        "semanticIntentCount": 5,
-        "assessedIntentCount": 5,
+        "semanticIntentCount": 4,
+        "assessedIntentCount": 4,
         "declarationCount": 0,
         "documentedDeclarationCount": 0,
         "missingDeclarationCount": 0,
         "unassessedIntentIds": [],
         "notApplicableIntentIds": [
           "semantic-40f969cf96537930",
-          "semantic-7f10174c2080c2d5",
           "semantic-c60ec0a41694e87f",
           "semantic-ce182d340902ecb0",
           "semantic-db14dcf83da2ac67"
@@ -21582,12 +21261,6 @@
       "intentAssessments": [
         {
           "reviewUnitId": "semantic-40f969cf96537930",
-          "status": "not-applicable",
-          "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
-          "declarations": []
-        },
-        {
-          "reviewUnitId": "semantic-7f10174c2080c2d5",
           "status": "not-applicable",
           "reason": "No newly added operation, model, enum, or interface declaration is in this Semantic intent.",
           "declarations": []
@@ -21661,6 +21334,7 @@
     {
       "id": "project-582be75b8d3d",
       "path": "specification/containerservice/resource-manager/Microsoft.ContainerService/fleet",
+      "classification": "existing",
       "sourceChangeIds": [
         "source-a5f09efc85bd13a9",
         "source-efbb4535f630e89f",
@@ -21680,15 +21354,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\projects\\project-582be75b8d3d\\baseline\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\projects\\project-582be75b8d3d\\baseline\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2025-03-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 38547,
+            "durationMs": 6673,
             "configPath": "worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet\\tspconfig.yaml",
             "configHash": "6f24de68aff0fb020e80e339577d7d59d6f3e62fd707507cc0eabaf5e18e39a7",
             "logPath": "logs\\project-582be75b8d3d-baseline-autorest.log",
@@ -21712,16 +21386,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\projects\\project-582be75b8d3d\\baseline\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\projects\\project-582be75b8d3d\\baseline\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2025-03-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 18032,
+            "durationMs": 10041,
             "configPath": "worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet\\tspconfig.yaml",
             "configHash": "6f24de68aff0fb020e80e339577d7d59d6f3e62fd707507cc0eabaf5e18e39a7",
             "logPath": "logs\\project-582be75b8d3d-baseline-tcgc.log",
@@ -21749,15 +21423,15 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
                 "--emit=@azure-tools/typespec-autorest",
-                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\projects\\project-582be75b8d3d\\target\\autorest",
+                "--option=@azure-tools/typespec-autorest.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\projects\\project-582be75b8d3d\\target\\autorest",
                 "--warn-as-error",
                 "--option=@azure-tools/typespec-autorest.version=2026-06-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 13173,
+            "durationMs": 9531,
             "configPath": "worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet\\tspconfig.yaml",
             "configHash": "6f24de68aff0fb020e80e339577d7d59d6f3e62fd707507cc0eabaf5e18e39a7",
             "logPath": "logs\\project-582be75b8d3d-target-autorest.log",
@@ -21781,16 +21455,16 @@
               "executable": "node_modules\\.bin\\tsp.cmd",
               "args": [
                 "compile",
-                "C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
+                "C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet",
                 "--emit=@azure-tools/typespec-client-generator-core",
-                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\projects\\project-582be75b8d3d\\target\\tcgc",
+                "--option=@azure-tools/typespec-client-generator-core.emitter-output-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\projects\\project-582be75b8d3d\\target\\tcgc",
                 "--warn-as-error",
-                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\full-dashboard-reassessment\\pr-43918\\inputs\\empty-examples",
+                "--option=@azure-tools/typespec-client-generator-core.examples-dir=C:\\Users\\haolingdong\\.copilot\\session-state\\c837dd38-0f77-40c1-945f-67b440b1bd7b\\files\\ai-source-review\\pr-43918-e2e\\inputs\\empty-examples",
                 "--option=@azure-tools/typespec-client-generator-core.api-version=2026-06-01"
               ]
             },
             "exitCode": 0,
-            "durationMs": 14401,
+            "durationMs": 8806,
             "configPath": "worktrees\\current\\specification\\containerservice\\resource-manager\\Microsoft.ContainerService\\fleet\\tspconfig.yaml",
             "configHash": "6f24de68aff0fb020e80e339577d7d59d6f3e62fd707507cc0eabaf5e18e39a7",
             "logPath": "logs\\project-582be75b8d3d-target-tcgc.log",
@@ -21908,11 +21582,14 @@
       }
     }
   ],
-  "blockers": [],
+  "blockers": [
+    "Changed AutoRest contracts for 10 operations contain unresolved references or ambiguous visibility metadata, so effective compatibility for affected Fleet member operations is not fully established.",
+    "Downstream model identity for Azure.ResourceManager.ResourceListResult is ambiguous because multiple target symbols share the same cross-language definition ID."
+  ],
   "provenance": {
-    "contextPolicyVersion": 2,
     "modelInput": "model-input.json",
     "documentQuality": "dimensions/document-quality-input.json",
+    "inference": "inference.json",
     "complianceSearchEvidence": "compliance-search-evidence.json",
     "judgment": "assessment-judgment.json",
     "preparationManifest": "preparation-manifest.json"
@@ -21920,17 +21597,19 @@
   "inputAccounting": {
     "budgetTier": "small",
     "budgetBytes": 131072,
-    "bytes": 29873,
-    "estimatedTokens": 7469,
+    "bytes": 54743,
+    "estimatedTokens": 13686,
     "retained": {
-      "evidenceSets": 10,
-      "facts": 0,
-      "semanticReviewUnits": 5,
+      "evidenceSets": 8,
+      "facts": 14,
+      "semanticReviewUnits": 4,
       "restCandidates": 0,
       "downstreamCandidates": 0,
       "downstreamRootCauses": 0,
-      "complianceSearchRequests": 5,
-      "inferenceRequests": 0
+      "sourceReviewDeclarations": 0,
+      "sourceReviewRequests": 0,
+      "complianceSearchRequests": 4,
+      "inferenceRequests": 12
     },
     "omittedRedundant": {
       "rawEmitterArtifacts": true,
@@ -21938,33 +21617,37 @@
       "unchangedInventories": true,
       "unreferencedFacts": true,
       "unreferencedDeterministicFacts": true,
-      "restCandidateEvidenceFacts": false,
       "sourceChanges": true,
       "repeatedDeclarationIds": true,
       "repeatedReviewUnitEvidence": true
     },
+    "inference": {
+      "requestCount": 12,
+      "inferredCandidateCount": 0,
+      "noImpactCount": 12,
+      "blockedCount": 0
+    },
     "compliance": {
       "catalogEntriesScored": 31,
       "documentsFetched": 4,
-      "documentBytesFetched": 1764241,
-      "guidanceExcerptsRetained": 1,
-      "guidanceExcerptBytesRetained": 121
+      "documentBytesFetched": 1512965,
+      "guidanceExcerptsRetained": 3,
+      "guidanceExcerptBytesRetained": 365
     }
   },
   "timings": {
-    "metadataMs": 3247,
-    "fetchMs": 625,
-    "scopeDiscoveryMs": 662,
-    "setupExcludingFetchMs": 1382790,
-    "comparisonMs": 662,
-    "changeDiscoveryMs": 438,
-    "workspacePreparationMs": 1371271,
-    "projectDiscoveryMs": 5015,
-    "totalMs": 2634782,
-    "semanticAnalysisMs": 3333,
-    "restAnalysisMs": 107,
-    "downstreamAnalysisMs": 14,
-    "semanticContextPolicyMs": 365,
+    "metadataMs": 2177,
+    "fetchMs": 178,
+    "scopeDiscoveryMs": 100,
+    "setupExcludingFetchMs": 63087,
+    "comparisonMs": 141,
+    "changeDiscoveryMs": 109,
+    "workspacePreparationMs": 59679,
+    "projectDiscoveryMs": 111,
+    "totalMs": 151114,
+    "semanticAnalysisMs": 2360,
+    "restAnalysisMs": 137,
+    "downstreamAnalysisMs": 12,
     "documentQualityAnalysisMs": 1
   }
 }

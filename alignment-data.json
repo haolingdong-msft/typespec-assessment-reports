@@ -2,8 +2,8 @@
   "schemaVersion": 2,
   "reportCount": 34,
   "sourceGeneratedAt": {
-    "reports": "2026-11-03T10:47:35.612Z",
-    "publicationManifest": "2026-11-03T11:03:44.105Z",
+    "reports": "2026-11-06T04:24:35.125Z",
+    "publicationManifest": "2026-11-06T04:31:06.595Z",
     "changelogEvidence": "2026-10-28T03:27:09.068Z"
   },
   "reports": [
@@ -20,10 +20,10 @@
       "coverage": "partial",
       "verdict": "failed",
       "assessmentResult": "fresh-report",
-      "confidence": "high",
+      "confidence": "low",
       "findings": {
-        "rest": 2,
-        "sdk": 1,
+        "rest": 4,
+        "sdk": 5,
         "guidelines": 1,
         "documentation": 0
       },
@@ -36,11 +36,11 @@
       "tcgcBreakingChange": {
         "state": "breaking",
         "label": "Breaking detected",
-        "findingCount": 1
+        "findingCount": 5
       },
       "blockers": [
-        "{\"code\": \"autorest-contract-unresolved\", \"message\": \"Changed AutoRest contracts for 2 operations in project-1a17ac3fb584 contain unresolved schema or parameter references (HorizonDbPrivateEndpointConnections_Delete, HorizonDbPrivateEndpointConnections_Update). Their effective compatibility cannot be established from placeholder references.\", \"projectId\": \"project-1a17ac3fb584\"}",
-        "Changed AutoRest contracts for 2 operations in project-1a17ac3fb584 contain unresolved schema or parameter references (HorizonDbPrivateEndpointConnections_Delete, HorizonDbPrivateEndpointConnections_Update). Their effective compatibility cannot be established from placeholder references."
+        "AutoRest reported unresolved references or ambiguous visibility metadata for the two changed operations; route and required-parameter facts are direct, but complete wire compatibility remains limited.",
+        "TCGC could not uniquely resolve Azure.ResourceManager.ResourceListResult identity because multiple target symbols share the same cross-language definition ID."
       ],
       "reportUrl": "reports/pr-44288/",
       "jsonUrl": "reports/pr-44288/assessment.json",
@@ -96,13 +96,13 @@
       "findings": {
         "rest": 32,
         "sdk": 10,
-        "guidelines": 0,
+        "guidelines": 1,
         "documentation": 0
       },
       "statuses": {
         "rest": "failed",
         "downstream": "failed",
-        "guidelines": "passed",
+        "guidelines": "failed",
         "documentation": "passed"
       },
       "tcgcBreakingChange": {
@@ -111,9 +111,7 @@
         "findingCount": 10
       },
       "blockers": [
-        "CloudAccounts_Update contains unresolved AutoRest references or visibility evidence, so the complete effective REST request contract cannot be established.",
-        "Azure.ResourceManager.ResourceListResult maps to multiple target symbols, so every generated list-result identity cannot be paired deterministically.",
-        "The TypeScript-only experimental-split-models-by-visibility option is not represented by the bounded language-neutral TCGC evidence, so its generated TypeScript compatibility is not assessed.",
+        "The bounded input does not include JavaScript emitter-specific before/after SDK contract evidence for experimental-split-models-by-visibility, so that downstream effect remains unresolved.",
         {
           "code": "inference-blocked",
           "reviewUnitId": "semantic-6589f8fe6a4ae343",
@@ -122,7 +120,7 @@
             "rest",
             "downstream"
           ],
-          "message": "The TypeScript-only experimental split-models-by-visibility option can change generated language-specific model surfaces, but the bounded language-neutral TCGC evidence cannot establish the resulting TypeScript compatibility."
+          "message": "The JavaScript emitter-only experimental-split-models-by-visibility option may alter generated SDK shapes, but the bounded input contains no emitter-specific before/after contract evidence from which to identify a canonical downstream definition safely."
         }
       ],
       "reportUrl": "reports/pr-46679/",
@@ -281,7 +279,16 @@
       "blockers": [
         "Changed AutoRest contracts for 9 operations in project-9dc15a9f8ade contain unresolved references or ambiguous visibility metadata (ConnectedRegistries_Create, ConnectedRegistries_Get, ConnectedRegistries_List). Their effective compatibility cannot be established from incomplete contract evidence.",
         "REST impact of the tokenId optionality hunk could not be fully mapped because no bounded REST operation facts were supplied for that hunk.",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-c6e4a1eb523ddb47\",\"hunkId\":\"hunk-8b65c0ea3123704e\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The hunk proves tokenId became optional, but supplies no REST operation facts to determine every request or response wire location; the deterministic downstream candidate covers the SDK impact.\"}"
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-c6e4a1eb523ddb47",
+          "hunkId": "hunk-8b65c0ea3123704e",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The hunk proves tokenId became optional, but supplies no REST operation facts to determine every request or response wire location; the deterministic downstream candidate covers the SDK impact."
+        }
       ],
       "reportUrl": "reports/pr-44920/",
       "jsonUrl": "reports/pr-44920/assessment.json",
@@ -353,8 +360,26 @@
       },
       "blockers": [
         "Python enum and C# type/name customizations lack language-specific before/after SDK evidence, so their compatibility impact is not assessed.",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-ea6598f433a523f6\",\"hunkId\":\"hunk-47db074bf2ab9b6b\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The Python enum client names may alter existing language-specific member names, but no Python before/after symbol evidence is supplied to establish the exact public change.\"}",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-ea6598f433a523f6\",\"hunkId\":\"hunk-b81c862dd18a28e0\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The C# alternate type and client names may alter existing public SDK types or property names, but no C# before/after symbol evidence is supplied for a supported candidate.\"}"
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-ea6598f433a523f6",
+          "hunkId": "hunk-47db074bf2ab9b6b",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The Python enum client names may alter existing language-specific member names, but no Python before/after symbol evidence is supplied to establish the exact public change."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-ea6598f433a523f6",
+          "hunkId": "hunk-b81c862dd18a28e0",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The C# alternate type and client names may alter existing public SDK types or property names, but no C# before/after symbol evidence is supplied for a supported candidate."
+        }
       ],
       "reportUrl": "reports/pr-44101/",
       "jsonUrl": "reports/pr-44101/assessment.json",
@@ -423,8 +448,26 @@
       },
       "blockers": [
         "Removed and added language-specific SDK customizations cannot be evaluated from the language-neutral downstream evidence.",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-964bcfc4374de0f2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established.\"}",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-eb023548075d0003\",\"hunkId\":\"hunk-ae7beb868e2a1ef0\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established.\"}"
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-eb023548075d0003",
+          "hunkId": "hunk-964bcfc4374de0f2",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-eb023548075d0003",
+          "hunkId": "hunk-ae7beb868e2a1ef0",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The removed or added language-specific customization is absent from the bounded language-neutral SDK evidence, so its per-language source impact cannot be established."
+        }
       ],
       "reportUrl": "reports/pr-44524/",
       "jsonUrl": "reports/pr-44524/assessment.json",
@@ -565,10 +608,10 @@
       "sdkReleaseIncludesSameApiVersionSpecPrs": false,
       "rootCauseCategory": "TypeSpec migration",
       "rootCause": "Python 4.0.0 explicitly attributes method breaks to the TypeSpec operations migration and model reshaping to the hybrid-model migration. Java lists Fluent generator removals such as validate methods and convenience overloads; these are migration-generated language surface changes, not neutral REST or TCGC breaks introduced by #43918.",
-      "coverage": "complete",
-      "verdict": "passed",
+      "coverage": "blocked",
+      "verdict": "unknown",
       "assessmentResult": "fresh-report",
-      "confidence": "high",
+      "confidence": "low",
       "findings": {
         "rest": 0,
         "sdk": 0,
@@ -576,17 +619,20 @@
         "documentation": 0
       },
       "statuses": {
-        "rest": "passed",
-        "downstream": "passed",
+        "rest": "not-assessed",
+        "downstream": "not-assessed",
         "guidelines": "passed",
         "documentation": "not-applicable"
       },
       "tcgcBreakingChange": {
-        "state": "clear",
-        "label": "No breaking detected",
+        "state": "not-assessed",
+        "label": "Not assessed",
         "findingCount": 0
       },
-      "blockers": [],
+      "blockers": [
+        "Changed AutoRest contracts for 10 operations contain unresolved references or ambiguous visibility metadata, so effective compatibility for affected Fleet member operations is not fully established.",
+        "Downstream model identity for Azure.ResourceManager.ResourceListResult is ambiguous because multiple target symbols share the same cross-language definition ID."
+      ],
       "reportUrl": "reports/pr-43918/",
       "jsonUrl": "reports/pr-43918/assessment.json",
       "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43918/",
@@ -990,7 +1036,16 @@
       },
       "blockers": [
         "JavaScript AssociationUpdate flattening may change an existing SDK surface, but language-specific before/after symbol evidence is unavailable.",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-ec0325f28a51d086\",\"hunkId\":\"hunk-5fcc9116d6a8e356\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"Excluding JavaScript from AssociationUpdate property flattening may change an existing JavaScript SDK shape, but the bounded input provides no language-specific before/after symbol identity or callable contract to author a supported candidate.\"}"
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-ec0325f28a51d086",
+          "hunkId": "hunk-5fcc9116d6a8e356",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "Excluding JavaScript from AssociationUpdate property flattening may change an existing JavaScript SDK shape, but the bounded input provides no language-specific before/after symbol identity or callable contract to author a supported candidate."
+        }
       ],
       "reportUrl": "reports/pr-44200/",
       "jsonUrl": "reports/pr-44200/assessment.json",
@@ -1133,7 +1188,16 @@
         "Changed AutoRest contracts for 5 Storage operations contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established.",
         "Azure.ResourceManager.ResourceListResult has ambiguous downstream model identity because multiple target symbols share its cross-language definition ID.",
         "The Python/Java StorageAccountEncryption client-name customization is not represented by language-neutral downstream evidence.",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-78c56564fa50bea9\",\"hunkId\":\"hunk-ba4805f476c41df2\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"The Python/Java-only client rename is not represented in the bounded language-neutral contract evidence, so impact cannot be established without language-specific generated surfaces.\"}"
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-78c56564fa50bea9",
+          "hunkId": "hunk-ba4805f476c41df2",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "The Python/Java-only client rename is not represented in the bounded language-neutral contract evidence, so impact cannot be established without language-specific generated surfaces."
+        }
       ],
       "reportUrl": "reports/pr-44384/",
       "jsonUrl": "reports/pr-44384/assessment.json",
@@ -1262,8 +1326,26 @@
         "Changed AutoRest contracts for 12 operations contain unresolved references or ambiguous visibility metadata, so their effective compatibility cannot be established.",
         "Azure.ResourceManager.ResourceListResult has ambiguous downstream model identity because multiple target symbols share its cross-language definition ID.",
         "Emitter api-version pinning is not represented by deterministic REST or language-neutral downstream contract evidence.",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-7c26fe1de45593a2\",\"hunkId\":\"hunk-1ed3b8c477ee4aee\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"Emitter api-version selection changes SDK generation behavior but has no deterministic REST or language-neutral downstream contract evidence in this assessment.\"}",
-        "{\"code\":\"inference-blocked\",\"reviewUnitId\":\"semantic-7c26fe1de45593a2\",\"hunkId\":\"hunk-f665d07aa8dab705\",\"allowedDimensions\":[\"rest\",\"downstream\"],\"message\":\"Emitter api-version selection changes SDK generation behavior but has no deterministic REST or language-neutral downstream contract evidence in this assessment.\"}"
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-7c26fe1de45593a2",
+          "hunkId": "hunk-1ed3b8c477ee4aee",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "Emitter api-version selection changes SDK generation behavior but has no deterministic REST or language-neutral downstream contract evidence in this assessment."
+        },
+        {
+          "code": "inference-blocked",
+          "reviewUnitId": "semantic-7c26fe1de45593a2",
+          "hunkId": "hunk-f665d07aa8dab705",
+          "allowedDimensions": [
+            "rest",
+            "downstream"
+          ],
+          "message": "Emitter api-version selection changes SDK generation behavior but has no deterministic REST or language-neutral downstream contract evidence in this assessment."
+        }
       ],
       "reportUrl": "reports/pr-44598/",
       "jsonUrl": "reports/pr-44598/assessment.json",
@@ -1389,10 +1471,26 @@
         "findingCount": 0
       },
       "blockers": [
-        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-97edaae931b3\",\"message\":\"Unable to resolve API versions from the versioned TypeSpec project.\"}",
-        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-97edaae931b3\",\"message\":\"Baseline and target AutoRest artifacts are required for project-97edaae931b3.\"}",
-        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-97edaae931b3\",\"message\":\"Baseline and target AutoRest artifacts are required for project-97edaae931b3.\"}",
-        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-97edaae931b3\",\"message\":\"Baseline and target TCGC artifacts are required for project-97edaae931b3.\"}"
+        {
+          "code": "api-version-resolution-failed",
+          "projectId": "project-97edaae931b3",
+          "message": "Unable to resolve API versions from the versioned TypeSpec project."
+        },
+        {
+          "code": "autorest-artifacts-unavailable",
+          "projectId": "project-97edaae931b3",
+          "message": "Baseline and target AutoRest artifacts are required for project-97edaae931b3."
+        },
+        {
+          "code": "autorest-artifacts-unavailable",
+          "projectId": "project-97edaae931b3",
+          "message": "Baseline and target AutoRest artifacts are required for project-97edaae931b3."
+        },
+        {
+          "code": "tcgc-artifacts-unavailable",
+          "projectId": "project-97edaae931b3",
+          "message": "Baseline and target TCGC artifacts are required for project-97edaae931b3."
+        }
       ],
       "reportUrl": "reports/pr-44842/",
       "jsonUrl": "reports/pr-44842/assessment.json",
@@ -1496,26 +1594,26 @@
       "sdkReleaseIncludesSameApiVersionSpecPrs": true,
       "rootCauseCategory": "Language-specific SDK generation",
       "rootCause": "The assessed LRO changes produce method renames in Python, while the Java generated surface remains additive. The mismatch is primarily language-specific operation generation; the earlier #44613 only broadens the release context.",
-      "coverage": "complete",
+      "coverage": "partial",
       "verdict": "failed",
       "assessmentResult": "fresh-report",
       "confidence": "high",
       "findings": {
         "rest": 6,
-        "sdk": 9,
-        "guidelines": 0,
+        "sdk": 3,
+        "guidelines": 2,
         "documentation": 4
       },
       "statuses": {
         "rest": "failed",
         "downstream": "failed",
-        "guidelines": "passed",
+        "guidelines": "failed",
         "documentation": "failed"
       },
       "tcgcBreakingChange": {
         "state": "breaking",
         "label": "Breaking detected",
-        "findingCount": 9
+        "findingCount": 3
       },
       "blockers": [],
       "reportUrl": "reports/pr-44988/",
@@ -1668,10 +1766,32 @@
         "findingCount": 0
       },
       "blockers": [
-        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-831145c0e1f1\",\"message\":\"ENOENT: no such file or directory, scandir 'C:\\\\Users\\\\haolingdong\\\\.copilot\\\\session-state\\\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\\\files\\\\main-unknown-reassessment\\\\batch-3\\\\pr-45197\\\\worktrees\\\\base\\\\specification\\\\redhatopenshift\\\\resource-manager\\\\Microsoft.RedHatOpenShift\\\\hcpopenshiftclusters'\"}",
-        "{\"code\":\"typespec-compiler-source-index-unavailable\",\"message\":\"Semantic assessment requires successful TypeSpec compiler source indexing.\",\"details\":[{\"revision\":\"base\",\"project\":\"specification/redhatopenshift/resource-manager/Microsoft.RedHatOpenShift/hcpopenshiftclusters\",\"message\":\"TypeSpec program has 1 error diagnostic(s).\"}]}",
-        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-831145c0e1f1\",\"message\":\"Baseline and target AutoRest artifacts are required for project-831145c0e1f1.\"}",
-        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-831145c0e1f1\",\"message\":\"Baseline and target TCGC artifacts are required for project-831145c0e1f1.\"}"
+        {
+          "code": "api-version-resolution-failed",
+          "projectId": "project-831145c0e1f1",
+          "message": "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-3\\pr-45197\\worktrees\\base\\specification\\redhatopenshift\\resource-manager\\Microsoft.RedHatOpenShift\\hcpopenshiftclusters'"
+        },
+        {
+          "code": "typespec-compiler-source-index-unavailable",
+          "message": "Semantic assessment requires successful TypeSpec compiler source indexing.",
+          "details": [
+            {
+              "revision": "base",
+              "project": "specification/redhatopenshift/resource-manager/Microsoft.RedHatOpenShift/hcpopenshiftclusters",
+              "message": "TypeSpec program has 1 error diagnostic(s)."
+            }
+          ]
+        },
+        {
+          "code": "autorest-artifacts-unavailable",
+          "projectId": "project-831145c0e1f1",
+          "message": "Baseline and target AutoRest artifacts are required for project-831145c0e1f1."
+        },
+        {
+          "code": "tcgc-artifacts-unavailable",
+          "projectId": "project-831145c0e1f1",
+          "message": "Baseline and target TCGC artifacts are required for project-831145c0e1f1."
+        }
       ],
       "reportUrl": "reports/pr-45197/",
       "jsonUrl": "reports/pr-45197/assessment.json",
@@ -1871,10 +1991,32 @@
         "findingCount": 0
       },
       "blockers": [
-        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-fec4afad86a3\",\"message\":\"ENOENT: no such file or directory, scandir 'C:\\\\Users\\\\haolingdong\\\\.copilot\\\\session-state\\\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\\\files\\\\main-unknown-reassessment\\\\batch-4\\\\pr-45458\\\\worktrees\\\\base\\\\specification\\\\security\\\\resource-manager\\\\Microsoft.Security\\\\Security\\\\ServiceEntitlementsAPI'\"}",
-        "{\"code\":\"typespec-compiler-source-index-unavailable\",\"message\":\"Semantic assessment requires successful TypeSpec compiler source indexing.\",\"details\":[{\"revision\":\"base\",\"project\":\"specification/security/resource-manager/Microsoft.Security/Security/ServiceEntitlementsAPI\",\"message\":\"TypeSpec program has 1 error diagnostic(s).\"}]}",
-        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-fec4afad86a3\",\"message\":\"Baseline and target AutoRest artifacts are required for project-fec4afad86a3.\"}",
-        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-fec4afad86a3\",\"message\":\"Baseline and target TCGC artifacts are required for project-fec4afad86a3.\"}"
+        {
+          "code": "api-version-resolution-failed",
+          "projectId": "project-fec4afad86a3",
+          "message": "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-4\\pr-45458\\worktrees\\base\\specification\\security\\resource-manager\\Microsoft.Security\\Security\\ServiceEntitlementsAPI'"
+        },
+        {
+          "code": "typespec-compiler-source-index-unavailable",
+          "message": "Semantic assessment requires successful TypeSpec compiler source indexing.",
+          "details": [
+            {
+              "revision": "base",
+              "project": "specification/security/resource-manager/Microsoft.Security/Security/ServiceEntitlementsAPI",
+              "message": "TypeSpec program has 1 error diagnostic(s)."
+            }
+          ]
+        },
+        {
+          "code": "autorest-artifacts-unavailable",
+          "projectId": "project-fec4afad86a3",
+          "message": "Baseline and target AutoRest artifacts are required for project-fec4afad86a3."
+        },
+        {
+          "code": "tcgc-artifacts-unavailable",
+          "projectId": "project-fec4afad86a3",
+          "message": "Baseline and target TCGC artifacts are required for project-fec4afad86a3."
+        }
       ],
       "reportUrl": "reports/pr-45458/",
       "jsonUrl": "reports/pr-45458/assessment.json",
@@ -2211,10 +2353,32 @@
         "findingCount": 0
       },
       "blockers": [
-        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-8f4a1730f7b4\",\"message\":\"ENOENT: no such file or directory, scandir 'C:\\\\Users\\\\haolingdong\\\\.copilot\\\\session-state\\\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\\\files\\\\main-unknown-reassessment\\\\batch-4\\\\pr-45794\\\\worktrees\\\\base\\\\specification\\\\edgeoperator\\\\resource-manager\\\\Microsoft.EdgeOperator\\\\SystemReadiness'\"}",
-        "{\"code\":\"typespec-compiler-source-index-unavailable\",\"message\":\"Semantic assessment requires successful TypeSpec compiler source indexing.\",\"details\":[{\"revision\":\"base\",\"project\":\"specification/edgeoperator/resource-manager/Microsoft.EdgeOperator/SystemReadiness\",\"message\":\"TypeSpec program has 1 error diagnostic(s).\"}]}",
-        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-8f4a1730f7b4\",\"message\":\"Baseline and target AutoRest artifacts are required for project-8f4a1730f7b4.\"}",
-        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-8f4a1730f7b4\",\"message\":\"Baseline and target TCGC artifacts are required for project-8f4a1730f7b4.\"}"
+        {
+          "code": "api-version-resolution-failed",
+          "projectId": "project-8f4a1730f7b4",
+          "message": "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-4\\pr-45794\\worktrees\\base\\specification\\edgeoperator\\resource-manager\\Microsoft.EdgeOperator\\SystemReadiness'"
+        },
+        {
+          "code": "typespec-compiler-source-index-unavailable",
+          "message": "Semantic assessment requires successful TypeSpec compiler source indexing.",
+          "details": [
+            {
+              "revision": "base",
+              "project": "specification/edgeoperator/resource-manager/Microsoft.EdgeOperator/SystemReadiness",
+              "message": "TypeSpec program has 1 error diagnostic(s)."
+            }
+          ]
+        },
+        {
+          "code": "autorest-artifacts-unavailable",
+          "projectId": "project-8f4a1730f7b4",
+          "message": "Baseline and target AutoRest artifacts are required for project-8f4a1730f7b4."
+        },
+        {
+          "code": "tcgc-artifacts-unavailable",
+          "projectId": "project-8f4a1730f7b4",
+          "message": "Baseline and target TCGC artifacts are required for project-8f4a1730f7b4."
+        }
       ],
       "reportUrl": "reports/pr-45794/",
       "jsonUrl": "reports/pr-45794/assessment.json",
@@ -2278,10 +2442,26 @@
         "findingCount": 0
       },
       "blockers": [
-        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-103c4b71e646\",\"message\":\"Unable to resolve API versions from the versioned TypeSpec project.\"}",
-        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-103c4b71e646\",\"message\":\"Baseline and target AutoRest artifacts are required for project-103c4b71e646.\"}",
-        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-103c4b71e646\",\"message\":\"Baseline and target AutoRest artifacts are required for project-103c4b71e646.\"}",
-        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-103c4b71e646\",\"message\":\"Baseline and target TCGC artifacts are required for project-103c4b71e646.\"}"
+        {
+          "code": "api-version-resolution-failed",
+          "projectId": "project-103c4b71e646",
+          "message": "Unable to resolve API versions from the versioned TypeSpec project."
+        },
+        {
+          "code": "autorest-artifacts-unavailable",
+          "projectId": "project-103c4b71e646",
+          "message": "Baseline and target AutoRest artifacts are required for project-103c4b71e646."
+        },
+        {
+          "code": "autorest-artifacts-unavailable",
+          "projectId": "project-103c4b71e646",
+          "message": "Baseline and target AutoRest artifacts are required for project-103c4b71e646."
+        },
+        {
+          "code": "tcgc-artifacts-unavailable",
+          "projectId": "project-103c4b71e646",
+          "message": "Baseline and target TCGC artifacts are required for project-103c4b71e646."
+        }
       ],
       "reportUrl": "reports/pr-46075/",
       "jsonUrl": "reports/pr-46075/assessment.json",
@@ -2358,10 +2538,32 @@
         "findingCount": 0
       },
       "blockers": [
-        "{\"code\":\"api-version-resolution-failed\",\"projectId\":\"project-c8d8cf8fd000\",\"message\":\"ENOENT: no such file or directory, scandir 'C:\\\\Users\\\\haolingdong\\\\.copilot\\\\session-state\\\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\\\files\\\\main-unknown-reassessment\\\\batch-4\\\\pr-46429\\\\worktrees\\\\base\\\\specification\\\\deviceupdate\\\\resource-manager\\\\Microsoft.DeviceUpdate\\\\DuDeviceRegistry'\"}",
-        "{\"code\":\"typespec-compiler-source-index-unavailable\",\"message\":\"Semantic assessment requires successful TypeSpec compiler source indexing.\",\"details\":[{\"revision\":\"base\",\"project\":\"specification/deviceupdate/resource-manager/Microsoft.DeviceUpdate/DuDeviceRegistry\",\"message\":\"TypeSpec program has 1 error diagnostic(s).\"}]}",
-        "{\"code\":\"autorest-artifacts-unavailable\",\"projectId\":\"project-c8d8cf8fd000\",\"message\":\"Baseline and target AutoRest artifacts are required for project-c8d8cf8fd000.\"}",
-        "{\"code\":\"tcgc-artifacts-unavailable\",\"projectId\":\"project-c8d8cf8fd000\",\"message\":\"Baseline and target TCGC artifacts are required for project-c8d8cf8fd000.\"}"
+        {
+          "code": "api-version-resolution-failed",
+          "projectId": "project-c8d8cf8fd000",
+          "message": "ENOENT: no such file or directory, scandir 'C:\\Users\\haolingdong\\.copilot\\session-state\\ba802ec3-9103-44d6-a81f-f49cea99ac6e\\files\\main-unknown-reassessment\\batch-4\\pr-46429\\worktrees\\base\\specification\\deviceupdate\\resource-manager\\Microsoft.DeviceUpdate\\DuDeviceRegistry'"
+        },
+        {
+          "code": "typespec-compiler-source-index-unavailable",
+          "message": "Semantic assessment requires successful TypeSpec compiler source indexing.",
+          "details": [
+            {
+              "revision": "base",
+              "project": "specification/deviceupdate/resource-manager/Microsoft.DeviceUpdate/DuDeviceRegistry",
+              "message": "TypeSpec program has 1 error diagnostic(s)."
+            }
+          ]
+        },
+        {
+          "code": "autorest-artifacts-unavailable",
+          "projectId": "project-c8d8cf8fd000",
+          "message": "Baseline and target AutoRest artifacts are required for project-c8d8cf8fd000."
+        },
+        {
+          "code": "tcgc-artifacts-unavailable",
+          "projectId": "project-c8d8cf8fd000",
+          "message": "Baseline and target TCGC artifacts are required for project-c8d8cf8fd000."
+        }
       ],
       "reportUrl": "reports/pr-46429/",
       "jsonUrl": "reports/pr-46429/assessment.json",
