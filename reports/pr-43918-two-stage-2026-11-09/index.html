@@ -1,0 +1,1472 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TypeSpec Assessment</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#64748b;--line:#dbe3ef;--accent:#2563eb;--good:#047857;--warn:#b45309;--danger:#b91c1c;--add-bg:#dcfce7;--add-text:#166534;--remove-bg:#fee2e2;--remove-text:#991b1b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,sans-serif}.container{width:min(1100px,calc(100% - 32px));margin:auto}.hero{padding:38px 0 42px;background:linear-gradient(120deg,#172554,#2554d8);color:white}.hero .eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:800;color:#dbeafe}.hero h1{margin:.35em 0 .55em;font-size:clamp(34px,4.2vw,58px);line-height:1.08;letter-spacing:-.025em}.hero-meta{font-size:16px;color:#e0e7ff}.hero-meta strong{color:#86efac;text-transform:capitalize}.hero a{color:#dbeafe}.summary-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:28px}.summary-card{display:block;min-height:150px;padding:18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.09);color:white!important;text-decoration:none;transition:background .15s,border-color .15s,transform .15s}.summary-card:hover,.summary-card:focus-visible{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5);transform:translateY(-2px);outline:none}.summary-card:focus-visible{box-shadow:0 0 0 3px #93c5fd}.summary-value{display:flex;gap:10px;align-items:center;font-size:25px;font-weight:800}.summary-value .pass{color:#86efac}.summary-value .fail{color:#fecaca}.summary-label{margin-top:8px;font-size:16px;font-weight:750}.summary-detail{margin-top:7px;color:#dbeafe;font-size:13px}.notice{padding:16px 0;background:#fffbeb;color:#713f12;border-bottom:1px solid #fde68a}main{padding:28px 0}section{margin:0 0 30px}.dimension-details>summary{cursor:pointer;list-style-position:outside}.dimension-details>summary h2{display:inline-block;margin:0 0 12px}.panel,.finding,.intent,.operation,.compliance-intent,.compliance-comparison{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}.finding{border-left:4px solid var(--warn)}.finding.high,.compliance-comparison.applicable-fail{border-left:4px solid var(--danger)}.finding.low{border-left-color:var(--muted)}.intent>summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.intent>summary .action{margin-left:0}.intent-finding-badges{display:inline-flex;gap:7px;flex-wrap:wrap;margin-left:auto}.intent-finding-badge{border:1px solid #991b1b;border-radius:999px;padding:3px 10px;background:#b91c1c;color:#fff!important;font-size:13px;font-weight:800;text-decoration:none}.intent-finding-badge:hover,.intent-finding-badge:focus-visible{background:#7f1d1d;outline:2px solid #fca5a5;outline-offset:2px}.intent>summary,.representative-example>summary,.operation summary,.compliance-intent>summary,.compliance-comparison>summary,.finding>summary,.comparison-details>summary,.affected-operations>summary,.root-cause-provenance>summary{cursor:pointer}.intent>summary,.compliance-intent>summary{font-size:18px}.intent-body,.compliance-intent-body,.compliance-comparison-body{padding-top:12px}.finding>summary{display:flex;align-items:center;gap:12px;font-size:18px}.sdk-contract-card>summary,.sdk-method-card>summary{flex-wrap:wrap}.finding-summary{margin-left:auto;color:var(--muted);font-size:15px}.severity,.origin-tag,.contract-tag{border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800}.contract-tag{background:#dbeafe;color:#1e40af}.severity{text-transform:lowercase}.severity.high{background:#fee2e2;color:#991b1b}.severity.medium{background:#fef3c7;color:#92400e}.severity.low{background:#dbeafe;color:#1e40af}.origin-tag.rest-breaking-tag{background:#fee2e2;color:#991b1b}.downstream-rest-link{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}.downstream-rest-link:hover strong,.downstream-rest-link:focus-visible strong{text-decoration:underline}.finding-body{padding-top:12px}.comparison-details{margin:14px 0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--panel) 94%,var(--accent))}.comparison-details>summary{font-size:16px}.comparison-body{padding-top:12px}.contract-metadata{grid-template-columns:max-content minmax(0,1fr);margin:4px 0 22px}.http-contract{display:inline-flex;align-items:baseline;gap:8px;flex-wrap:wrap}.contract-change-table{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden}.contract-change-table th{background:#eaf0f9}.contract-change-table th,.contract-change-table td{padding:13px 15px;border-right:1px solid var(--line)}.contract-change-table th:last-child,.contract-change-table td:last-child{border-right:0}.contract-member{width:31%;background:color-mix(in srgb,#eaf0f9 70%,var(--panel))}.contract-area-kind{display:block;margin-bottom:3px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.contract-before{width:34.5%;background:#fff1f1}.contract-after{width:34.5%;background:#eefaf3}.contract-value{display:inline-block;padding:3px 7px;border-radius:5px;font-weight:700}.contract-value.before{background:var(--remove-bg);color:var(--remove-text)}.contract-value.after{background:var(--add-bg);color:var(--add-text)}.contract-detail{display:block;margin-top:4px;color:var(--muted);font-size:13px}.breaking-rationale{margin:17px 0 22px;padding:12px 14px;border-left:3px solid #e7a400;background:#fff9e8}.affected-operations{margin:20px 0}.affected-operations>summary{font-size:18px}.affected-operation-list{display:grid;gap:7px;margin-top:10px}.affected-operation{display:grid;grid-template-columns:minmax(230px,.8fr) 65px minmax(300px,1.8fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}.http-method{color:#075cab;font-family:ui-monospace,monospace;font-weight:800}.contract-footer{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:18px;color:var(--muted);font-size:13px}.root-cause-provenance{margin-top:14px}.mapping-unavailable{color:var(--muted)}.representative-example{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:9px}.operation summary{display:flex;gap:12px;align-items:center}.operation summary span,.action{margin-left:auto;border-radius:999px;padding:2px 8px;background:#dbeafe;color:#1e40af}.operation-body{padding-top:12px}.diff{background:#111827;color:#e5e7eb;border-radius:10px;overflow:auto;margin:12px 0}.diff-path{padding:7px 12px;background:#1f2937}.diff-path a{color:#93c5fd}.diff pre{padding:12px;margin:0}.diff pre span{display:block}.diff pre .line-number{display:inline-block;width:42px;color:#94a3b8;user-select:none}.diff .add{background:#123d2a;color:#bbf7d0}.diff .remove{background:#51212a;color:#fecaca}.parameter-diff{margin:12px 0}.parameter-line{display:flex;gap:8px;align-items:baseline;padding:5px 9px;margin:3px 0;border-radius:6px}.parameter-line.add,.delta-after,ins{background:var(--add-bg);color:var(--add-text)}.parameter-line.remove,.delta-before,del{background:var(--remove-bg);color:var(--remove-text)}.parameter-line.modify,.parameter-line.reorder{background:#fef3c7;color:#92400e}.parameter-line>span:first-child{font-weight:800}.parameter-attribute{white-space:nowrap}.delta-before,.delta-after,del,ins{padding:2px 5px;border-radius:4px;text-decoration:none}dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px}dt{font-weight:700}dd{margin:0}.not-assessed{color:var(--muted);font-weight:700}.good,.compliance-summary.passed{color:var(--good)}.compliance-summary.failed{color:var(--danger)}.sources{color:var(--muted);font-size:13px}blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--panel) 90%,var(--accent))}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere}@media(max-width:1050px){.summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.affected-operation{grid-template-columns:1fr 65px}.affected-operation code{grid-column:1/-1}}@media(max-width:700px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.finding-summary{width:100%;margin-left:0}.contract-change-table{display:block;overflow-x:auto}.contract-change-table th,.contract-change-table td{min-width:210px}}@media(max-width:540px){.summary-grid{grid-template-columns:1fr}.hero h1{font-size:32px}}@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--panel:#172033;--text:#e5e7eb;--muted:#9ca3af;--line:#334155;--add-bg:#123d2a;--add-text:#bbf7d0;--remove-bg:#51212a;--remove-text:#fecaca}.notice{background:#422006;color:#fde68a}.parameter-line.modify,.parameter-line.reorder{background:#422006;color:#fde68a}.contract-change-table th{background:#202d45}.contract-member{background:#1d293d}.contract-before{background:#431f29}.contract-after{background:#15382b}.breaking-rationale{background:#3b2f13}.http-method{color:#76b9ff}}
+.model-diff-path{display:flex;justify-content:space-between;gap:16px}.model-diff-legend{display:flex;gap:12px;white-space:nowrap;color:#cbd5e1}.model-diff-legend>span::before{display:inline-block;width:8px;height:8px;margin-right:5px;border-radius:2px;content:""}.model-diff-baseline::before{background:#f87171}.model-diff-target::before{background:#86efac}.model-diff-code{padding:12px 0;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}.model-diff-line{display:grid;grid-template-columns:48px 48px 28px minmax(max-content,1fr);min-height:21px}.model-diff-number{padding:0 9px;border-right:1px solid #30363d;color:#94a3b8;text-align:right;user-select:none}.model-diff-marker{text-align:center;user-select:none}.model-diff-text{padding:0 14px 0 4px;white-space:pre}.model-diff-line.add .model-diff-number{border-color:#1f6f43}.model-diff-line.remove .model-diff-number{border-color:#8e2f3b}
+.tag{border-radius:999px;padding:3px 10px;background:#dbeafe;color:#1e40af;font-size:13px;font-weight:800}.finding-summary-meta{margin-left:auto;color:var(--muted);font-size:14px}.rest-operation-list{display:grid;gap:7px}.rest-operation-line{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(260px,2fr);gap:12px;padding:9px 11px;border:1px solid var(--line);border-radius:8px}.rest-operation-line>span{color:var(--muted)}@media(max-width:700px){.rest-operation-line{grid-template-columns:1fr}.finding-summary-meta{width:100%;margin-left:0}.model-diff-path{flex-direction:column}.model-diff-line{grid-template-columns:40px 40px 24px minmax(max-content,1fr)}}
+.finding{border-left:1px solid var(--line)}
+.rest-contract-card .contract-tag{background:#fee2e2;color:#991b1b}.rest-contract-card .rest-operation-list{margin-top:10px}
+.notice{padding:0}.notice>summary{display:flex;min-height:46px;align-items:center;gap:10px;padding:8px 0;cursor:pointer;list-style:none}.notice>summary::-webkit-details-marker{display:none}.notice>summary::before{content:"▸";flex:none;color:#b45309;font-size:15px;font-weight:900;transition:transform .15s ease}.notice[open]>summary::before{transform:rotate(90deg)}.notice-title{flex:none;font-size:14px;font-weight:800}.notice-summary{overflow:hidden;color:color-mix(in srgb,currentColor 78%,var(--muted));font-size:12.5px;text-overflow:ellipsis;white-space:nowrap}.notice-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 0 12px 25px;font-size:12.5px;line-height:1.4}.notice-body p{margin:0}@media(max-width:700px){.notice-summary{display:none}.notice-body{grid-template-columns:1fr;gap:6px}}@media(prefers-color-scheme:dark){.notice>summary::before{color:#fbbf24}}
+.compliance-finding-group>summary{flex-wrap:wrap}.compliance-affected-intents{display:grid;gap:12px}.compliance-affected-intent{margin:0;padding:14px 16px;border:1px solid var(--line);border-radius:10px}.compliance-affected-intent h4{margin:0 0 8px}.compliance-affected-intent h5{margin:14px 0 6px}
+.intent-finding-badge{font:inherit;font-size:13px;cursor:pointer}.intent-impact-trigger{position:relative}.intent-impact-popover{position:absolute;z-index:20;top:calc(100% + 8px);right:0;display:none;width:min(480px,88vw);overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--panel);box-shadow:0 14px 34px rgb(31 42 68 / 18%)}.intent-impact-trigger.open .intent-impact-popover{display:grid}.intent-impact-popover a{display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);color:var(--text)!important;text-decoration:none}.intent-impact-popover a:first-child{border-top:0}.intent-impact-popover a:hover,.intent-impact-popover a:focus-visible{background:color-mix(in srgb,var(--panel) 92%,var(--accent))}.intent-impact-popover a span{color:var(--muted);font-size:13px}.intent h3,.representative-example>summary{font-size:17px;font-weight:750;line-height:1.35}.impact-highlight{outline:3px solid #ef4444;outline-offset:3px}
+.affected-methods{margin:20px 0}.affected-methods>summary{font-size:18px}.affected-method-list{display:grid;gap:7px;margin-top:10px}.affected-method{display:grid;grid-template-columns:minmax(180px,.6fr) minmax(280px,1.4fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}@media(max-width:700px){.affected-method{grid-template-columns:1fr}}
+.summary-value {
+  white-space: nowrap;
+}
+.summary-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.summary-heading .summary-value {
+  flex: none;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.summary-heading .summary-label {
+  min-width: 0;
+  margin-top: 0;
+  line-height: 1.4;
+}
+.summary-heading .info {
+  color: #dbeafe;
+}
+@media (min-width: 1051px) {
+  .summary-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.report-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 14px;
+}
+.report-section-head > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+.report-section-head h2 {
+  margin: 0;
+}
+.report-section-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.report-section-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.report-count {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eaf0f9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+}
+.report-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+}
+.report-card {
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.report-card > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+.report-card > summary::-webkit-details-marker {
+  display: none;
+}
+.report-card > summary:before {
+  content: "+";
+  width: 16px;
+  flex: none;
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 1.2;
+}
+.report-card[open] > summary:before {
+  content: "−";
+}
+.report-card-title {
+  min-width: 0;
+  flex: 1;
+}
+.report-card-title strong {
+  display: block;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.report-card-title small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+.report-card-body {
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--line);
+}
+.report-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.report-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.report-badge.add {
+  background: #dcfce7;
+  color: #166534;
+}
+.report-badge.modify,
+.report-badge.direct {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.report-badge.remove {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.report-badge.indirect {
+  background: #ede9fe;
+  color: #6b21a8;
+}
+.report-badge.mixed {
+  background: #d1fae5;
+  color: #065f46;
+}
+.report-badge.unknown {
+  background: #fef3c7;
+  color: #92400e;
+}
+.report-badge.neutral {
+  background: #edf2f8;
+  color: #405c7c;
+}
+.report-badge.coverage {
+  text-transform: none;
+}
+.report-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.report-table th {
+  background: #f2f5fa;
+  color: #53637a;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.report-table th,
+.report-table td {
+  padding: 11px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.report-table tr:last-child td {
+  border-bottom: 0;
+}
+.report-table td:first-child {
+  width: 29%;
+  min-width: 145px;
+}
+.report-table td:nth-child(2),
+.report-table td:nth-child(3) {
+  width: 35.5%;
+  min-width: 170px;
+}
+.report-table td:nth-child(2) {
+  background: #fff5f4;
+}
+.report-table td:nth-child(3) {
+  background: #f0faf5;
+}
+.report-table pre {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-detail,
+.report-small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.report-link-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 5px 0 0;
+}
+.report-link {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.report-link:hover,
+.report-link:focus-visible {
+  text-decoration: underline;
+  outline-offset: 2px;
+}
+.report-intent-relations {
+  margin-top: 12px;
+  cursor: default;
+}
+.report-relation-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: text;
+}
+.report-link.impact,
+.report-link[href^="#compliance-finding-"] {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fff1f2;
+}
+.report-reference-paths {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0;
+}
+.report-reference-path {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.35fr) minmax(180px, 1fr) max-content;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--panel) 92%, var(--accent));
+  font-size: 12px;
+}
+.report-reference-path > span {
+  color: var(--muted);
+}
+.report-type-impact {
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+.report-type-impact:first-child {
+  border-top: 0;
+}
+.report-type-impact h4 {
+  margin: 0 0 5px;
+}
+.report-guideline-section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-guideline-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+.report-guideline-section + .report-guideline-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.report-document-snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.report-document-snapshots.single-snapshot {
+  grid-template-columns: minmax(0, 1fr);
+}
+.report-document-context {
+  min-width: 0;
+}
+.report-document-related {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.report-document-related-type > h5 {
+  font-size: 13px;
+  margin: 15px 0 8px;
+  overflow-wrap: anywhere;
+}
+.report-document-related pre {
+  max-height: 400px;
+  overflow: auto;
+}
+.report-document-snapshot {
+  min-width: 0;
+}
+.report-document-snapshot h4,
+.report-document-snapshot h5 {
+  margin: 12px 0 6px;
+}
+.document-quality-check pre {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-document-rationale {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.report-document-rationale p {
+  margin: 5px 0 0;
+}
+.document-quality-scope {
+  margin-top: 14px;
+}
+.document-quality-intent-link {
+  margin-bottom: 12px;
+}
+.document-quality-file {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.document-quality-file-count {
+  font-weight: 400;
+  color: var(--muted);
+}
+.document-quality-list {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+  overscroll-behavior: contain;
+}
+.document-quality-row,
+.document-quality-document > summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.document-quality-document > summary {
+  cursor: pointer;
+}
+.document-quality-document > summary:before {
+  content: "+";
+  color: var(--accent);
+}
+.document-quality-document[open] > summary:before {
+  content: "-";
+}
+.document-quality-document > summary > span:first-of-type {
+  flex: 1;
+}
+.document-quality-document > summary > span:first-child,
+.document-quality-row > a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.document-quality-document > summary > .report-badge,
+.document-quality-row > .report-badge {
+  flex: none;
+}
+.document-quality-document-body {
+  padding: 12px;
+}
+.document-quality-document-body h4 {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+.document-quality-document-body blockquote {
+  margin: 0 0 15px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.document-quality-current {
+  padding: 0;
+}
+.document-quality-description-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.document-quality-description-heading h3,
+.document-quality-explanation h3,
+.document-quality-suggestion h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.document-quality-current mark {
+  background: var(--remove-bg);
+  color: var(--remove-text);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+.document-quality-explanation p,
+.document-quality-suggestion p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+.document-quality-check .document-quality-source {
+  margin-top: 16px;
+}
+.document-quality-source pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-badge.neutral {
+  background: color-mix(in srgb, var(--panel) 85%, var(--muted));
+  color: var(--muted);
+}
+.document-quality-neutral > summary {
+  padding: 12px 18px;
+}
+.document-quality-neutral .report-card-title strong {
+  font-size: 13px;
+}
+.document-quality-list:focus-visible,
+.document-quality-file > summary:focus-visible,
+.document-quality-document > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.report-source {
+  margin-bottom: 16px;
+}
+.report-source > summary,
+.report-subdetails > summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+.report-http {
+  color: #075cab;
+  font:
+    800 12px ui-monospace,
+    monospace;
+}
+.report-card .operation summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+}
+.report-card .operation summary > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-card .operation summary > code {
+  grid-column: 1/-1;
+}
+.report-card .operation summary > span {
+  margin-left: 0;
+  justify-self: start;
+}
+.report-operation-remainder {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.container,
+.report-card-body,
+.report-card,
+.report-guideline-section,
+.report-source,
+.operation {
+  min-width: 0;
+}
+body {
+  overflow-wrap: anywhere;
+}
+.diff,
+.report-table-wrap,
+#appendix .panel {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.diff-path {
+  overflow-wrap: anywhere;
+}
+#appendix pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#appendix table {
+  display: block;
+  overflow-x: auto;
+}
+@media (max-width: 760px) {
+  .report-document-snapshots {
+    grid-template-columns: 1fr;
+  }
+  .report-section-head {
+    display: block;
+  }
+  .report-section-meta {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+  .report-card > summary {
+    flex-wrap: wrap;
+  }
+  .report-card > summary > .report-badges {
+    margin-left: 28px;
+  }
+  .report-reference-path {
+    grid-template-columns: 1fr;
+  }
+  .report-count {
+    max-width: 100%;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-count {
+    background: #26344d;
+    color: #cbd5e1;
+  }
+  .report-badge.indirect {
+    background: #3b2852;
+    color: #e9d5ff;
+  }
+  .report-badge.mixed {
+    background: #143d34;
+    color: #a7f3d0;
+  }
+  .report-badge.add {
+    background: #123d2a;
+    color: #bbf7d0;
+  }
+  .report-badge.modify,
+  .report-badge.direct {
+    background: #202d45;
+    color: #dbeafe;
+  }
+  .report-badge.remove {
+    background: #431f29;
+    color: #fecaca;
+  }
+  .report-badge.unknown {
+    background: #422006;
+    color: #fde68a;
+  }
+  .report-table th {
+    background: #202d45;
+    color: #cbd5e1;
+  }
+  .report-table td:nth-child(2) {
+    background: #431f29;
+  }
+  .report-table td:nth-child(3) {
+    background: #15382b;
+  }
+  .report-link.impact,
+  .report-link[href^="#compliance-finding-"] {
+    color: #fecaca;
+    border-color: #7f1d1d;
+    background: #431f29;
+  }
+  .report-http {
+    color: #93c5fd;
+  }
+}
+
+</style></head><body>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>5 TypeSpec changes for fleet</h1>
+<p class="hero-meta">TypeSpec source diff: <code>9e59a14b366a14d17522ea7a92af406e8170ee80</code> → <code>668c17e024727325842a75915dc6744197bc2300</code></p>
+<div class="summary-grid">
+<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">5 intents<br>17 operations<br>0 Added, 5 Modified, 0 Removed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">0 findings<br>4/4 intents assessed</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Verdict unknown<br>Coverage blocked<br>0 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="" aria-label="Not assessed">i</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Verdict unknown<br>Coverage blocked<br>0 findings</div></a>
+<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>0 declarations checked</div></a>
+</div></div></header>
+<details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
+<div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
+<p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
+<main class="container">
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">5 intents · 0 added · 5 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-40f969cf96537930"><summary><div class="report-card-title"><strong>Exclude preview mesh properties from stable Fleet member payloads</strong><small>Adds a 2026-06-01 removal boundary to the read-only FleetMemberProperties.meshProperties property introduced in 2026-03-02-preview. The mapped FleetMembers_Create, FleetMembers_Get and FleetMembers_Update contracts do not expose this property in either selected stable projection. Their other unresolved contracts remain a limit; the bounded source does not independently establish the Fleet member operations&#39; ARM lifecycle templates.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-40f969cf96537930</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 2 normalized facts; 1 source hunks; 3 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:fleetmember</code></p><details class="report-subdetails"><summary>Change facts and provenance (2)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>FleetMemberProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-efbb4535f630e89f</code><br><span class="report-small">hunks: hunk-112dbe9b618795fe<br>declarations: declaration-65239c6da420aa84, declaration-eed9e86c493cfcbf</span></td></tr><tr><td><code>FleetMemberProperties.meshProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-efbb4535f630e89f</code><br><span class="report-small">hunks: hunk-112dbe9b618795fe<br>declarations: declaration-459a7e46933ac80e, declaration-b7fd65b66f71c0d2</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp</div><pre><span class="context">   status?: FleetMemberStatus;</span>
+<span class="context"> </span>
+<span class="context">   @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+  @removed(Versions.v2026_06_01)</span>
+<span class="context">   @visibility(Lifecycle.Read)</span>
+<span class="context">   @doc(&quot;The Mesh Member Properties associated with this Fleet Member.&quot;)</span>
+<span class="context">   meshProperties?: MeshProperties;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp#L39-L74">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp:38</a></p></details><details class="report-subdetails" id="intent-semantic-40f969cf96537930-operations"><summary>Affected operations (3)</summary><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details><details class="report-card intent" id="intent-semantic-7f10174c2080c2d5"><summary><div class="report-card-title"><strong>Publish a new API version</strong><small>Carries 17 existing operations into the new API version. This publication intent is reported deterministically and is not used for inference, guideline findings, or breaking-change relationships.</small></div><div class="report-badges"><span class="report-badge">API-version publication</span><span class="report-badge modify">modify</span><span class="report-badge">versioning</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-7f10174c2080c2d5</code></p><p class="report-small"><strong>Version-publication grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 1 normalized facts; 1 source hunks; 17 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>governance:api-version</code>; <code>publication</code></p><details class="report-subdetails"><summary>Change facts and provenance (1)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>Versions</code></td><td>versioning</td><td>modify</td><td>common-type-version, property-contract</td><td><code>source-e1b5addb90b380b1</code><br><span class="report-small">hunks: hunk-fb54c71bd7efebc0<br>declarations: declaration-10c99e2ec75d39e6, declaration-3744c310cc54dd38</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp</div><pre><span class="context">   @doc(&quot;Azure Kubernetes Fleet Manager api version 2026-03-02-preview.&quot;)</span>
+<span class="context">   @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5)</span>
+<span class="context">   v2026_03_02_preview: &quot;2026-03-02-preview&quot;,</span>
+<span class="add">+</span>
+<span class="add">+  @doc(&quot;Azure Kubernetes Fleet Manager api version 2026-06-01.&quot;)</span>
+<span class="add">+  @armCommonTypesVersion(Azure.ResourceManager.CommonTypes.Versions.v5)</span>
+<span class="add">+  v2026_06_01: &quot;2026-06-01&quot;,</span>
+<span class="context"> }</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp#L29-L77">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp:28</a></p></details><details class="report-subdetails" id="intent-semantic-7f10174c2080c2d5-operations"><summary>Affected operations (17)</summary><p class="report-small">Showing 10 operation cards; the remaining 7 are listed below.</p><details class="operation"><summary><strong>AutoUpgradeProfiles_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>AutoUpgradeProfiles_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles/{autoUpgradeProfileName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.longTermSupport</strong></td><td><pre>not present</pre></td><td><pre>boolean (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.targetKubernetesVersion</strong></td><td><pre>not present</pre></td><td><pre>string (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>AutoUpgradeProfiles_ListByFleet</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/autoUpgradeProfiles</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: responses.</p></div></details><details class="operation"><summary><strong>FleetMembers_ListByFleet</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetMembers_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details><details class="operation"><summary><strong>Fleets_ListBySubscription</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/providers/Microsoft.ContainerService/fleets</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetUpdateStrategies_CreateOrUpdate</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><details class="operation"><summary><strong>FleetUpdateStrategies_Get</strong><span class="report-http">GET</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies/{updateStrategyName}</code><span>2026-06-01</span></summary><div class="operation-body"><p>HTTP signature and represented payload contract unchanged.</p></div></details><div class="report-operation-remainder"><p><strong>Other affected operations (7)</strong></p><p><span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateStrategies">FleetUpdateStrategies_ListByFleet (GET, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}">UpdateRuns_CreateOrUpdate (PUT, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}">UpdateRuns_Get (GET, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns">UpdateRuns_ListByFleet (GET, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/skip">UpdateRuns_Skip (POST, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/start">UpdateRuns_Start (POST, 2026-06-01)</span>; <span title="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/updateRuns/{updateRunName}/stop">UpdateRuns_Stop (POST, 2026-06-01)</span>.</p></div></details></div></details><details class="report-card intent" id="intent-semantic-c60ec0a41694e87f"><summary><div class="report-card-title"><strong>Keep the label-based member selector preview-only</strong><small>Adds @removed(2026-06-01) to MemberSelector, retaining its 2026-03-02-preview introduction. This confines the selector model to the preview interval rather than removing an existing 2025-03-01 stable contract. No affected operation or matched public SDK symbol is supplied for this unit.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-c60ec0a41694e87f</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 2 normalized facts; 1 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:selector</code></p><details class="report-subdetails"><summary>Change facts and provenance (2)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>MemberSelector.byLabel</code></td><td>type</td><td>modify</td><td></td><td><code>source-42db908cc2bfc440</code><br><span class="report-small">hunks: hunk-a42ee2ea86905886<br>declarations: declaration-685ab9146fc1196c, declaration-e3cddbff950f4095</span></td></tr><tr><td><code>MemberSelector</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-42db908cc2bfc440</code><br><span class="report-small">hunks: hunk-a42ee2ea86905886<br>declarations: declaration-9c1fefd0d2bbbdb0, declaration-af5a9606a5495ef4</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp</div><pre><span class="context"> </span>
+<span class="context"> @doc(&quot;Select members of a fleet.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> model MemberSelector {</span>
+<span class="context">   @doc(&quot;Kubernetes-style label selector for selecting Fleet members, e.g. `env=production`.&quot;)</span>
+<span class="context">   @maxLength(512)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp#L9-L14">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp:6</a></p></details><details class="report-subdetails" id="intent-semantic-c60ec0a41694e87f-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-ce182d340902ecb0"><summary><div class="report-card-title"><strong>Exclude cluster mesh profiles and their supporting types from stable</strong><small>Bounds ClusterMeshProfile, its properties, status and state types, and the ClusterMeshProfiles interface to the 2026-03-02-preview interval by removing them starting in 2026-06-01. @resource(&quot;clusterMeshProfiles&quot;) and @parentResource(Fleet) identify a Fleet child resource; get is ArmResourceRead&lt;ClusterMeshProfile&gt; establishes its read lifecycle role. No compiled affected operation is supplied, and no additional lifecycle requirement is inferred.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-ce182d340902ecb0</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 11 normalized facts; 6 source hunks; 0 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:clustermeshprofile</code></p><details class="report-subdetails"><summary>Change facts and provenance (11)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>ClusterMeshProfileProvisioningState</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-c97f62cbd5b9501a<br>declarations: declaration-5716552fefc1e58a, declaration-c59c45e2dc2c6c09</span></td></tr><tr><td><code>clusterMeshProfileName</code></td><td>type</td><td>modify</td><td></td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-a647505fa32d358e<br>declarations: declaration-731ae00faeb9f999, declaration-d599d84b7e2c4c32</span></td></tr><tr><td><code>ClusterMeshProfileProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-d8c2304692cc2412<br>declarations: declaration-16080bcff7b53d03, declaration-87312fd6a88ac8e7</span></td></tr><tr><td><code>ClusterMeshProfile.name</code></td><td>type</td><td>modify</td><td></td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-a647505fa32d358e<br>declarations: declaration-bf7721e82dfc9389, declaration-c3260f96b57f1779</span></td></tr><tr><td><code>ClusterMeshProfileStatus.state</code></td><td>type</td><td>modify</td><td></td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-2f3370922037cca5<br>declarations: declaration-3e5b74235786ff96, declaration-7c5077f33b9ed614</span></td></tr><tr><td><code>ClusterMeshProfiles.get</code></td><td>operation</td><td>modify</td><td></td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-685440e5c3dec034<br>declarations: declaration-283bef717b2b5719, declaration-fbea43b1d4a73c26</span></td></tr><tr><td><code>ClusterMeshState</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-d26bee357d2d41e3<br>declarations: declaration-968d76245db82cd1, declaration-f412274ff7b83819</span></td></tr><tr><td><code>ClusterMeshProfileProperties.provisioningState</code></td><td>type</td><td>modify</td><td></td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-d8c2304692cc2412<br>declarations: declaration-2c9440cea8c9c2c5, declaration-68dae696d436b320</span></td></tr><tr><td><code>ClusterMeshProfiles</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-685440e5c3dec034<br>declarations: declaration-676d51655567f2d4, declaration-86673ad8069b9b54</span></td></tr><tr><td><code>ClusterMeshProfileStatus</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-2f3370922037cca5<br>declarations: declaration-df2796b93b389513, declaration-fffbefc62db25014</span></td></tr><tr><td><code>ClusterMeshProfile</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-a5f09efc85bd13a9</code><br><span class="report-small">hunks: hunk-a647505fa32d358e<br>declarations: declaration-b370cfa51267c70c, declaration-f99a32fc6a456974</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> </span>
+<span class="context"> @doc(&quot;A cluster mesh profile stores the general information about the mesh.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> @resource(&quot;clusterMeshProfiles&quot;)</span>
+<span class="context"> @parentResource(Fleet)</span>
+<span class="context"> model ClusterMeshProfile</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> </span>
+<span class="context"> @doc(&quot;A cluster mesh profile stores the general information about the mesh.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> model ClusterMeshProfileProperties {</span>
+<span class="context">   @doc(&quot;The provisioning state of the cluster mesh profile.&quot;)</span>
+<span class="context">   @visibility(Lifecycle.Read)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> </span>
+<span class="context"> @doc(&quot;The provisioning state of the cluster mesh profile resource.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> union ClusterMeshProfileProvisioningState {</span>
+<span class="context">   string,</span>
+<span class="context">   ResourceProvisioningState,</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> </span>
+<span class="context"> @doc(&quot;Cluster mesh state.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> union ClusterMeshState {</span>
+<span class="context">   string,</span>
+<span class="context"> </span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> </span>
+<span class="context"> @doc(&quot;Status of the cluster mesh.&quot;)</span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> model ClusterMeshProfileStatus {</span>
+<span class="context">   @doc(&quot;The state of the cluster mesh.&quot;)</span>
+<span class="context">   @visibility(Lifecycle.Read)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> @armResourceOperations</span>
+<span class="context"> interface ClusterMeshProfiles {</span>
+<span class="context">   get is ArmResourceRead&lt;ClusterMeshProfile&gt;;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp#L17-L17">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp:12</a></p></details><details class="report-subdetails" id="intent-semantic-ce182d340902ecb0-operations"><summary>Affected operations (0)</summary><p class="report-empty">No directly affected REST operation.</p></details></div></details><details class="report-card intent" id="intent-semantic-db14dcf83da2ac67"><summary><div class="report-card-title"><strong>Keep mesh member models and state types out of stable</strong><small>Adds the 2026-06-01 removal boundary to preview-introduced MeshProperties, MeshMemberStatus, CiliumProperties and MeshMemberState. These supporting types were not introduced in the selected 2025-03-01 stable baseline. FleetMembers_Create is mapped only for MeshProperties; that mapping does not establish a missing stable request member or an SDK method change.</small></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-db14dcf83da2ac67</code></p><p class="report-small"><strong>File/name-based grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 7 normalized facts; 4 source hunks; 1 supporting operation mappings.</p><p class="report-small"><strong>Grouping diagnostics:</strong> <code>feature:meshmember</code></p><details class="report-subdetails"><summary>Change facts and provenance (7)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>CiliumProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-0ed72e77f3f3ad4a</code><br><span class="report-small">hunks: hunk-647f3f21058d87de<br>declarations: declaration-61d39089d4d13e68, declaration-f691f7e74f7caf6d</span></td></tr><tr><td><code>MeshMemberStatus</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-0ed72e77f3f3ad4a</code><br><span class="report-small">hunks: hunk-5266f07198f1e4d6<br>declarations: declaration-4a4d0c31b21685df, declaration-d43efc23b65bdf01</span></td></tr><tr><td><code>MeshMemberStatus.state</code></td><td>type</td><td>modify</td><td></td><td><code>source-0ed72e77f3f3ad4a</code><br><span class="report-small">hunks: hunk-5266f07198f1e4d6<br>declarations: declaration-5942d0948478a079, declaration-981f02baca38cf3c</span></td></tr><tr><td><code>CiliumProperties.id</code></td><td>type</td><td>modify</td><td></td><td><code>source-0ed72e77f3f3ad4a</code><br><span class="report-small">hunks: hunk-647f3f21058d87de<br>declarations: declaration-11d57be73543b0c0, declaration-4c2111e8972eabd7</span></td></tr><tr><td><code>MeshMemberState</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-0ed72e77f3f3ad4a</code><br><span class="report-small">hunks: hunk-cff95831d7273ed1<br>declarations: declaration-88c30639b7a7c64e, declaration-d0467938ab1e91f6</span></td></tr><tr><td><code>MeshProperties</code></td><td>type</td><td>modify</td><td>version-activation</td><td><code>source-0ed72e77f3f3ad4a</code><br><span class="report-small">hunks: hunk-5a53309ab07167e0<br>declarations: declaration-7c7baa9ff97789e5, declaration-8bf0a474a8568926</span></td></tr><tr><td><code>MeshProperties.ciliumProperties</code></td><td>type</td><td>modify</td><td></td><td><code>source-0ed72e77f3f3ad4a</code><br><span class="report-small">hunks: hunk-5a53309ab07167e0<br>declarations: declaration-1c31f0469cb0cd7d, declaration-2418cd1bf2dd4c49</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context">   ]&gt;;</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> @doc(&quot;The Mesh Member data for a Fleet Member resource.&quot;)</span>
+<span class="context"> model MeshProperties {</span>
+<span class="context">   @doc(&quot;The Cilium cluster properties.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> @doc(&quot;The Cilium specific properties of the member cluster.&quot;)</span>
+<span class="context"> model CiliumProperties {</span>
+<span class="context">   @doc(&quot;Cilium requires each cluster to be assigned a unique numeric cluster id from 1 - 255. The id is managed by Fleet and cannot be set by the user.&quot;)</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> @doc(&quot;Mesh member state.&quot;)</span>
+<span class="context"> union MeshMemberState {</span>
+<span class="context">   string,</span></pre></div><div class="diff"><div class="diff-path">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</div><pre><span class="context"> }</span>
+<span class="context"> </span>
+<span class="context"> @added(Versions.v2026_03_02_preview)</span>
+<span class="add">+@removed(Versions.v2026_06_01)</span>
+<span class="context"> @doc(&quot;Status of the mesh member.&quot;)</span>
+<span class="context"> model MeshMemberStatus {</span>
+<span class="context">   @doc(&quot;The mesh member state.&quot;)</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/668c17e024727325842a75915dc6744197bc2300/specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp#L18-L30">specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp:15</a></p></details><details class="report-subdetails" id="intent-semantic-db14dcf83da2ac67-operations"><summary>Affected operations (1)</summary><details class="operation"><summary><strong>FleetMembers_Create</strong><span class="report-http">PUT</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{fleetMemberName}</code><span>2026-06-01</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Request body property</span><strong>properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>200 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr><tr><td><span class="contract-area-kind">Response body property</span><strong>201 · properties.labels</strong></td><td><pre>not present</pre></td><td><pre>object (optional)</pre></td></tr></tbody></table></div><p>REST contract changed: request, responses.</p></div></details></details></div></details></section>
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span><span class="report-count">0 findings</span></div></div><p class="report-small">4 of 4 semantic intents assessed · 4 documents selected</p><div class="report-empty">No Azure Guidelines findings.</div></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">coverage blocked</span><span class="report-count">0 operations · 0 models/types · 0 findings</span></div></div><div class="report-empty">No REST compatibility verdict is available for the covered scope.</div></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge unknown">verdict unknown</span><span class="report-badge unknown coverage">coverage blocked</span><span class="report-count">0 direct method changes · 0 changed types</span></div></div><div class="report-empty">No downstream compatibility verdict is available for the covered scope.</div></section>
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 0 declarations checked</p></section>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>Changed AutoRest contracts for 10 operations contain unresolved references or ambiguous visibility metadata, including FleetMembers_Create, FleetMembers_Get and FleetMembers_ListByFleet. Effective compatibility of those incomplete contracts is not established by the no-impact decisions for the exact version-boundary hunks.</li><li>TCGC model identity remains unresolved for Azure.ResourceManager.ResourceListResult because multiple target symbols share its crossLanguageDefinitionId. The supplied AutoUpgradeProfileListResult remains public and reachable on both sides; other wrappers are not paired by names, shapes or proximity.</li><li>The selected artifact comparison is 2025-03-01 stable to 2026-06-01 stable at the current source commit. These results do not establish compatibility for users migrating from 2026-03-02-preview; no missing preview contracts, SDK identities or replacement lineage are invented.</li><li>web_fetch exposed markdown rather than HTTP provenance fields. Recorded retrieval timestamps are UTC observations of the completed retrievals; content hashes and byte counts describe their complete observed markdown bodies after whitespace normalization, not raw HTTP response bytes.</li></ul>
+<h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet</code></td><td>new-api-version</td><td><code>668c17e024727325842a75915dc6744197bc2300@2025-03-01</code><br><small>current · previous-latest-stable</small></td><td><code>668c17e024727325842a75915dc6744197bc2300@2026-06-01</code><br><small>current · newest-added-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
+<p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/43918">#43918</a></p>
+<h3 id="compliance-search-evidence">Guidance fetched</h3>
+<ul class="guidance-document-list"><li><a href="https://typespec.io/docs/libraries/rest/reference/decorators/">TypeSpec.Rest decorators</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/">Versioning overview</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/">Add stable after preview</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;passed&quot;,
+  &quot;coverage&quot;: {
+    &quot;semanticIntentCount&quot;: 4,
+    &quot;assessedIntentCount&quot;: 4,
+    &quot;selectedDocumentCount&quot;: 4,
+    &quot;unassessedIntentIds&quot;: []
+  },
+  &quot;sharedSearch&quot;: {
+    &quot;catalogRanking&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 9
+        },
+        &quot;selectionRationale&quot;: &quot;Description explicitly names the supplied @resource and @parentResource constructs; resource semantics apply to the changed ARM child-resource declaration, without a specific removal scenario.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Primary versioning guidance for removals of existing ARM declarations across selected versions; the description does not name an exact supplied decorator symbol.&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Versioning category and ARM applicability match all units; preview/stable evolution and historical preview handling match the change context.&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Versioning guidance applies to ARM and directly matches the latest existing preview followed by the new stable target.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM model-versioning category matches changed model declarations; no exact @@armCommonDefinition construct is supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;General model/property definitions apply to ARM and their modification; no exact supplied user declaration or decorator is named.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;General decorator application matches all four ARM units adding decorators, without naming the exact @removed symbol.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Azure versioning guidance applies to ARM, but this change targets a stable version rather than another preview.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Matches Azure versioning and ARM service plane, not the actual stable-after-preview transition.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Relevant Azure versioning category, but the latest existing version is preview; selecting two stable projections does not make publication stable-after-stable.&quot;
+      },
+      {
+        &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;ARM child-resource modeling matches ClusterMeshProfile&#39;s category; no new resource modeling or exact named standard template is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;ARM operation category matches the versioned read interface; the explicitly named list templates are not supplied and no operation is added.&quot;
+      },
+      {
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;ARM operation-template reference matches the interface category; its description does not name the supplied ArmResourceRead symbol or a removal transition.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;ARM resource lifecycle category is relevant; none of the description&#39;s exact @armResourceRead/CreateOrUpdate/Update/Delete/List symbols is supplied as a changed construct.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Matches the supplied enums/state-type query category and general ARM applicability, but these hunks do not edit enum members or values.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Decorator category and ARM applicability match, but documentation, visibility and length constraints are unchanged context rather than the actual removal decorator.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Broad decorator category can apply to ARM, but no OpenAPI decorator or @operationId is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 18,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Broad ARM decorator category matches, but there is no @armProviderNamespace or provider-namespace change.&quot;
+      },
+      {
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Broad ARM decorator category matches, but no Portal experience customization is supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 3
+        },
+        &quot;selectionRationale&quot;: &quot;Shares the broad decorator catalog category, but no Azure.Core content negotiation, Accept header or shared-route change applies to these ARM units.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 8,
+        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM sample, but no extension-resource scope or Extension template is supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM applicability only; no private endpoint connection change is supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM applicability only; no private link construct is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM applicability only; no network security perimeter construct is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but these hunks do not change an LRO template, polling behavior or response-header customization.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM plane matches, but no ArmTopParameter, ArmSkipParameter or paging construct is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;General TypeSpec scalar guidance can apply to ARM; no scalar declaration or constraint is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;General directives can apply to ARM, but no supplied hunk changes #suppress or its justification.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 17,
+        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No Azure.Core asynchronous operation or data-plane LRO change is supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 19,
+        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No low-level data-plane pagination decorator is changed; ARM list wrappers are not evidence for this category.&quot;
+      },
+      {
+        &quot;rank&quot;: 31,
+        &quot;catalogOrder&quot;: 31,
+        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No Azure.Core no-openapi warning or OpenAPI suppression is changed in the supplied ARM units.&quot;
+      }
+    ],
+    &quot;documents&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 4,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 9
+        },
+        &quot;selectionRationale&quot;: &quot;Description explicitly names the supplied @resource and @parentResource constructs; resource semantics apply to the changed ARM child-resource declaration, without a specific removal scenario.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;@TypeSpec.Rest.parentResource&quot;,
+            &quot;excerpt&quot;: &quot;Mark model as a child of the given parent resource.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@parentResource&quot;,
+              &quot;ClusterMeshProfile&quot;,
+              &quot;Fleet&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@TypeSpec.Rest.parentResource(parent: Model)&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-86673ad8069b9b54&quot;,
+              &quot;declaration-87312fd6a88ac8e7&quot;,
+              &quot;declaration-968d76245db82cd1&quot;,
+              &quot;declaration-b370cfa51267c70c&quot;,
+              &quot;declaration-c59c45e2dc2c6c09&quot;,
+              &quot;declaration-df2796b93b389513&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-06T12:15:04.2388847Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:72aacc75868f24cee4b9b752bd0574d96979229627aa810368203603e1d4f12c&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Primary versioning guidance for removals of existing ARM declarations across selected versions; the description does not name an exact supplied decorator symbol.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Versioning Decorators&quot;,
+            &quot;excerpt&quot;: &quot;You can add new models, properties, or operations in a specific version and all subsequent versions using the `@added` decorator.\nThe `version` argument is the version where the element is introduced.\nTo remove models, properties, or operations starting from a specific version, use the `@removed` decorator.\nThe element will not be present in that version or any later versions.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;@added&quot;,
+              &quot;@removed&quot;,
+              &quot;Versions.v2026_03_02_preview&quot;,
+              &quot;Versions.v2026_06_01&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;@removed(Versions.v3)\nmodel Employee {\n  name: string;\n}&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-459a7e46933ac80e&quot;,
+              &quot;declaration-7c7baa9ff97789e5&quot;,
+              &quot;declaration-86673ad8069b9b54&quot;,
+              &quot;declaration-87312fd6a88ac8e7&quot;,
+              &quot;declaration-968d76245db82cd1&quot;,
+              &quot;declaration-af5a9606a5495ef4&quot;,
+              &quot;declaration-b370cfa51267c70c&quot;,
+              &quot;declaration-c59c45e2dc2c6c09&quot;,
+              &quot;declaration-d0467938ab1e91f6&quot;,
+              &quot;declaration-d43efc23b65bdf01&quot;,
+              &quot;declaration-df2796b93b389513&quot;,
+              &quot;declaration-f691f7e74f7caf6d&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-06T12:15:04.3084047Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:c2b2bd6ac340c16ad92cddb61534ad7c784d264ce8b7c9ebf4111ba3b99a6b3a&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Versioning category and ARM applicability match all units; preview/stable evolution and historical preview handling match the change context.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Common Version Transition Scenarios&quot;,
+            &quot;excerpt&quot;: &quot;The following document describes how to convert an existing multi-API TypeSpec spec with multiple previews into a spec with a single active preview. Note that this is not required, but it may significantly simplify the versioning decoration in your spec:&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;preview&quot;,
+              &quot;stable&quot;,
+              &quot;versioning&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-459a7e46933ac80e&quot;,
+              &quot;declaration-7c7baa9ff97789e5&quot;,
+              &quot;declaration-86673ad8069b9b54&quot;,
+              &quot;declaration-87312fd6a88ac8e7&quot;,
+              &quot;declaration-968d76245db82cd1&quot;,
+              &quot;declaration-af5a9606a5495ef4&quot;,
+              &quot;declaration-b370cfa51267c70c&quot;,
+              &quot;declaration-c59c45e2dc2c6c09&quot;,
+              &quot;declaration-d0467938ab1e91f6&quot;,
+              &quot;declaration-d43efc23b65bdf01&quot;,
+              &quot;declaration-df2796b93b389513&quot;,
+              &quot;declaration-f691f7e74f7caf6d&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-06T12:15:04.2386892Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:f0710212a097670f39b70536852ceae15c4a76a03e29894e62002690358c271d&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Versioning guidance applies to ARM and directly matches the latest existing preview followed by the new stable target.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Making Changes to your TypeSpec spec&quot;,
+            &quot;excerpt&quot;: &quot;Determine which type changes from the latest preview are now stable\nModel any additional changes in the new stable version and mark with the appropriate versioning decorator, referencing the new stable version&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;preview&quot;,
+              &quot;stable&quot;,
+              &quot;@removed&quot;,
+              &quot;Versions.v2026_06_01&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-459a7e46933ac80e&quot;,
+              &quot;declaration-7c7baa9ff97789e5&quot;,
+              &quot;declaration-86673ad8069b9b54&quot;,
+              &quot;declaration-87312fd6a88ac8e7&quot;,
+              &quot;declaration-968d76245db82cd1&quot;,
+              &quot;declaration-af5a9606a5495ef4&quot;,
+              &quot;declaration-b370cfa51267c70c&quot;,
+              &quot;declaration-c59c45e2dc2c6c09&quot;,
+              &quot;declaration-d0467938ab1e91f6&quot;,
+              &quot;declaration-d43efc23b65bdf01&quot;,
+              &quot;declaration-df2796b93b389513&quot;,
+              &quot;declaration-f691f7e74f7caf6d&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-06T12:15:04.2930596Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:a1c8d5dda1ff9fdcf3a6c8a3fb95fca92896f3dad85eb7737532e4f5e350479c&quot;
+      }
+    ]
+  },
+  &quot;intentAssessments&quot;: [
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-40f969cf96537930&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-c60ec0a41694e87f&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-ce182d340902ecb0&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    },
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-db14dcf83da2ac67&quot;,
+      &quot;decision&quot;: &quot;applicable-pass&quot;,
+      &quot;blockers&quot;: []
+    }
+  ],
+  &quot;retrievalFailures&quot;: [],
+  &quot;blockers&quot;: []
+}</pre></details>
+<h3>Changed files</h3><ul><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/clustermeshprofile.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/fleetmember.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/main.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/meshmember.tsp</code> (committed)</li><li><code>specification/containerservice/resource-manager/Microsoft.ContainerService/fleet/selector.tsp</code> (committed)</li></ul>
+<h3>Timing and model input</h3><pre>{
+  &quot;timings&quot;: {
+    &quot;metadataMs&quot;: 1799,
+    &quot;fetchMs&quot;: 141,
+    &quot;scopeDiscoveryMs&quot;: 98,
+    &quot;setupExcludingFetchMs&quot;: 39627,
+    &quot;comparisonMs&quot;: 134,
+    &quot;changeDiscoveryMs&quot;: 85,
+    &quot;workspacePreparationMs&quot;: 36824,
+    &quot;projectDiscoveryMs&quot;: 101,
+    &quot;totalMs&quot;: 106487,
+    &quot;semanticAnalysisMs&quot;: 1260,
+    &quot;restAnalysisMs&quot;: 79,
+    &quot;downstreamAnalysisMs&quot;: 8,
+    &quot;documentQualityAnalysisMs&quot;: 1
+  },
+  &quot;inputAccounting&quot;: {
+    &quot;budgetTier&quot;: &quot;small&quot;,
+    &quot;budgetBytes&quot;: 131072,
+    &quot;bytes&quot;: 54656,
+    &quot;estimatedTokens&quot;: 13664,
+    &quot;retained&quot;: {
+      &quot;evidenceSets&quot;: 8,
+      &quot;facts&quot;: 14,
+      &quot;semanticReviewUnits&quot;: 4,
+      &quot;restCandidates&quot;: 0,
+      &quot;downstreamCandidates&quot;: 0,
+      &quot;sourceReviewDeclarations&quot;: 0,
+      &quot;sourceReviewRequests&quot;: 0,
+      &quot;complianceSearchRequests&quot;: 4,
+      &quot;inferenceRequests&quot;: 12
+    },
+    &quot;omittedRedundant&quot;: {
+      &quot;rawEmitterArtifacts&quot;: true,
+      &quot;compilerLogs&quot;: true,
+      &quot;unchangedInventories&quot;: true,
+      &quot;unreferencedFacts&quot;: true,
+      &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;sourceChanges&quot;: true,
+      &quot;repeatedDeclarationIds&quot;: true,
+      &quot;repeatedReviewUnitEvidence&quot;: true
+    },
+    &quot;inference&quot;: {
+      &quot;requestCount&quot;: 12,
+      &quot;inferredCandidateCount&quot;: 0,
+      &quot;noImpactCount&quot;: 12,
+      &quot;blockedCount&quot;: 0
+    },
+    &quot;compliance&quot;: {
+      &quot;catalogEntriesScored&quot;: 31,
+      &quot;documentsFetched&quot;: 4,
+      &quot;documentBytesFetched&quot;: 32993,
+      &quot;guidanceExcerptsRetained&quot;: 4,
+      &quot;guidanceExcerptBytesRetained&quot;: 893
+    }
+  }
+}</pre>
+<p><strong>Provenance:</strong> model-input.json, source-association-input.json, source-association.json, dimensions/document-quality-input.json, inference.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+</main>
+<script>
+function revealHashTarget() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (!target) return;
+  for (let element = target; element; element = element.parentElement) {
+    if (element.tagName === "DETAILS") element.open = true;
+  }
+  target.scrollIntoView({ block: "start" });
+}
+window.addEventListener("hashchange", revealHashTarget);
+document.addEventListener("click", (event) => {
+  if (event.target instanceof Element &&
+      event.target.closest(".report-card > summary .report-intent-relations") &&
+      !event.target.closest("a")) {
+    event.preventDefault();
+    return;
+  }
+  const link = event.target instanceof Element
+    ? event.target.closest('a[href^="#"]')
+    : null;
+  if (link) {
+    event.preventDefault();
+    location.hash = link.getAttribute("href");
+    window.setTimeout(revealHashTarget);
+  }
+});
+revealHashTarget();
+</script>
+</body></html>

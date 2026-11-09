@@ -1,0 +1,50 @@
+{
+  "pr": 44288,
+  "sourceRun": "pr-44288-run1",
+  "generatedAt": "2026-11-06T12:25:17.003Z",
+  "qualification": "Existing November 9 two-stage assessment runs, not reruns against the later stacked preview-only policy. Zero findings do not imply passed compatibility; PR 43918 is unknown/blocked and source AI was skipped.",
+  "safety": {
+    "scope": "rest-and-downstream-only",
+    "status": "failed",
+    "verdict": "failed",
+    "coverage": "partial"
+  },
+  "findings": {
+    "rest": 4,
+    "sdk": 4,
+    "guidelines": 1,
+    "documentation": 0
+  },
+  "statuses": {
+    "semantic": "assessed",
+    "rest": "failed",
+    "downstream": "failed",
+    "compliance": "failed",
+    "documentQuality": "not-applicable"
+  },
+  "blockers": 5,
+  "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288-two-stage-2026-11-09/",
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288-two-stage-2026-11-09/assessment.json",
+  "sourceAssessmentHtmlSha256": "89dfe3be94b450114730ed5c5f37da7366f5db290bab55a73b6673ff010cbe11",
+  "sourceAssessmentJsonSha256": "1531bb76e8d7516e6ed89c54bb27b1801e17fecb7afa44d2c4ad386ec4fba62b",
+  "publishedAssessmentHtmlSha256": "89dfe3be94b450114730ed5c5f37da7366f5db290bab55a73b6673ff010cbe11",
+  "publishedAssessmentJsonSha256": "db2c5ceaf0ff65e0c82c2f8df8df5e147a5ca6797a08c549f5c522d477dc8bd7",
+  "publishedDownloadSha256": "db2c5ceaf0ff65e0c82c2f8df8df5e147a5ca6797a08c549f5c522d477dc8bd7",
+  "structuredResultEncoding": "identity",
+  "sanitization": {
+    "description": "Only local workspace/artifact path prefixes are replaced with [local-workspace] or [local-artifacts]. Assessment findings, evidence, source excerpts, and canonical public code links are unchanged.",
+    "redactedFields": [
+      "$.repository.root",
+      "$.projects[0].artifacts.baseline.autorest.command.args[1]",
+      "$.projects[0].artifacts.baseline.autorest.command.args[3]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[1]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[3]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[5]",
+      "$.projects[0].artifacts.target.autorest.command.args[1]",
+      "$.projects[0].artifacts.target.autorest.command.args[3]",
+      "$.projects[0].artifacts.target.tcgc.command.args[1]",
+      "$.projects[0].artifacts.target.tcgc.command.args[3]",
+      "$.projects[0].artifacts.target.tcgc.command.args[5]"
+    ]
+  }
+}

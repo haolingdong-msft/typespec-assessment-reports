@@ -1,0 +1,1376 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TypeSpec Assessment</title>
+<style>
+:root{color-scheme:light dark;--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#64748b;--line:#dbe3ef;--accent:#2563eb;--good:#047857;--warn:#b45309;--danger:#b91c1c;--add-bg:#dcfce7;--add-text:#166534;--remove-bg:#fee2e2;--remove-text:#991b1b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,sans-serif}.container{width:min(1100px,calc(100% - 32px));margin:auto}.hero{padding:38px 0 42px;background:linear-gradient(120deg,#172554,#2554d8);color:white}.hero .eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:800;color:#dbeafe}.hero h1{margin:.35em 0 .55em;font-size:clamp(34px,4.2vw,58px);line-height:1.08;letter-spacing:-.025em}.hero-meta{font-size:16px;color:#e0e7ff}.hero-meta strong{color:#86efac;text-transform:capitalize}.hero a{color:#dbeafe}.summary-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:28px}.summary-card{display:block;min-height:150px;padding:18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:rgba(255,255,255,.09);color:white!important;text-decoration:none;transition:background .15s,border-color .15s,transform .15s}.summary-card:hover,.summary-card:focus-visible{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.5);transform:translateY(-2px);outline:none}.summary-card:focus-visible{box-shadow:0 0 0 3px #93c5fd}.summary-value{display:flex;gap:10px;align-items:center;font-size:25px;font-weight:800}.summary-value .pass{color:#86efac}.summary-value .fail{color:#fecaca}.summary-label{margin-top:8px;font-size:16px;font-weight:750}.summary-detail{margin-top:7px;color:#dbeafe;font-size:13px}.notice{padding:16px 0;background:#fffbeb;color:#713f12;border-bottom:1px solid #fde68a}main{padding:28px 0}section{margin:0 0 30px}.dimension-details>summary{cursor:pointer;list-style-position:outside}.dimension-details>summary h2{display:inline-block;margin:0 0 12px}.panel,.finding,.intent,.operation,.compliance-intent,.compliance-comparison{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin:10px 0}.finding{border-left:4px solid var(--warn)}.finding.high,.compliance-comparison.applicable-fail{border-left:4px solid var(--danger)}.finding.low{border-left-color:var(--muted)}.intent>summary{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.intent>summary .action{margin-left:0}.intent-finding-badges{display:inline-flex;gap:7px;flex-wrap:wrap;margin-left:auto}.intent-finding-badge{border:1px solid #991b1b;border-radius:999px;padding:3px 10px;background:#b91c1c;color:#fff!important;font-size:13px;font-weight:800;text-decoration:none}.intent-finding-badge:hover,.intent-finding-badge:focus-visible{background:#7f1d1d;outline:2px solid #fca5a5;outline-offset:2px}.intent>summary,.representative-example>summary,.operation summary,.compliance-intent>summary,.compliance-comparison>summary,.finding>summary,.comparison-details>summary,.affected-operations>summary,.root-cause-provenance>summary{cursor:pointer}.intent>summary,.compliance-intent>summary{font-size:18px}.intent-body,.compliance-intent-body,.compliance-comparison-body{padding-top:12px}.finding>summary{display:flex;align-items:center;gap:12px;font-size:18px}.sdk-contract-card>summary,.sdk-method-card>summary{flex-wrap:wrap}.finding-summary{margin-left:auto;color:var(--muted);font-size:15px}.severity,.origin-tag,.contract-tag{border-radius:999px;padding:3px 10px;font-size:13px;font-weight:800}.contract-tag{background:#dbeafe;color:#1e40af}.severity{text-transform:lowercase}.severity.high{background:#fee2e2;color:#991b1b}.severity.medium{background:#fef3c7;color:#92400e}.severity.low{background:#dbeafe;color:#1e40af}.origin-tag.rest-breaking-tag{background:#fee2e2;color:#991b1b}.downstream-rest-link{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}.downstream-rest-link:hover strong,.downstream-rest-link:focus-visible strong{text-decoration:underline}.finding-body{padding-top:12px}.comparison-details{margin:14px 0;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:color-mix(in srgb,var(--panel) 94%,var(--accent))}.comparison-details>summary{font-size:16px}.comparison-body{padding-top:12px}.contract-metadata{grid-template-columns:max-content minmax(0,1fr);margin:4px 0 22px}.http-contract{display:inline-flex;align-items:baseline;gap:8px;flex-wrap:wrap}.contract-change-table{border:1px solid var(--line);border-radius:10px;border-collapse:separate;border-spacing:0;overflow:hidden}.contract-change-table th{background:#eaf0f9}.contract-change-table th,.contract-change-table td{padding:13px 15px;border-right:1px solid var(--line)}.contract-change-table th:last-child,.contract-change-table td:last-child{border-right:0}.contract-member{width:31%;background:color-mix(in srgb,#eaf0f9 70%,var(--panel))}.contract-area-kind{display:block;margin-bottom:3px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.contract-before{width:34.5%;background:#fff1f1}.contract-after{width:34.5%;background:#eefaf3}.contract-value{display:inline-block;padding:3px 7px;border-radius:5px;font-weight:700}.contract-value.before{background:var(--remove-bg);color:var(--remove-text)}.contract-value.after{background:var(--add-bg);color:var(--add-text)}.contract-detail{display:block;margin-top:4px;color:var(--muted);font-size:13px}.breaking-rationale{margin:17px 0 22px;padding:12px 14px;border-left:3px solid #e7a400;background:#fff9e8}.affected-operations{margin:20px 0}.affected-operations>summary{font-size:18px}.affected-operation-list{display:grid;gap:7px;margin-top:10px}.affected-operation{display:grid;grid-template-columns:minmax(230px,.8fr) 65px minmax(300px,1.8fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}.http-method{color:#075cab;font-family:ui-monospace,monospace;font-weight:800}.contract-footer{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:18px;color:var(--muted);font-size:13px}.root-cause-provenance{margin-top:14px}.mapping-unavailable{color:var(--muted)}.representative-example{margin:14px 0;padding:12px;border:1px solid var(--line);border-radius:9px}.operation summary{display:flex;gap:12px;align-items:center}.operation summary span,.action{margin-left:auto;border-radius:999px;padding:2px 8px;background:#dbeafe;color:#1e40af}.operation-body{padding-top:12px}.diff{background:#111827;color:#e5e7eb;border-radius:10px;overflow:auto;margin:12px 0}.diff-path{padding:7px 12px;background:#1f2937}.diff-path a{color:#93c5fd}.diff pre{padding:12px;margin:0}.diff pre span{display:block}.diff pre .line-number{display:inline-block;width:42px;color:#94a3b8;user-select:none}.diff .add{background:#123d2a;color:#bbf7d0}.diff .remove{background:#51212a;color:#fecaca}.parameter-diff{margin:12px 0}.parameter-line{display:flex;gap:8px;align-items:baseline;padding:5px 9px;margin:3px 0;border-radius:6px}.parameter-line.add,.delta-after,ins{background:var(--add-bg);color:var(--add-text)}.parameter-line.remove,.delta-before,del{background:var(--remove-bg);color:var(--remove-text)}.parameter-line.modify,.parameter-line.reorder{background:#fef3c7;color:#92400e}.parameter-line>span:first-child{font-weight:800}.parameter-attribute{white-space:nowrap}.delta-before,.delta-after,del,ins{padding:2px 5px;border-radius:4px;text-decoration:none}dl{display:grid;grid-template-columns:max-content 1fr;gap:8px 14px}dt{font-weight:700}dd{margin:0}.not-assessed{color:var(--muted);font-weight:700}.good,.compliance-summary.passed{color:var(--good)}.compliance-summary.failed{color:var(--danger)}.sources{color:var(--muted);font-size:13px}blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--accent);background:color-mix(in srgb,var(--panel) 90%,var(--accent))}table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line)}code{overflow-wrap:anywhere}@media(max-width:1050px){.summary-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.affected-operation{grid-template-columns:1fr 65px}.affected-operation code{grid-column:1/-1}}@media(max-width:700px){.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.finding-summary{width:100%;margin-left:0}.contract-change-table{display:block;overflow-x:auto}.contract-change-table th,.contract-change-table td{min-width:210px}}@media(max-width:540px){.summary-grid{grid-template-columns:1fr}.hero h1{font-size:32px}}@media(prefers-color-scheme:dark){:root{--bg:#0f172a;--panel:#172033;--text:#e5e7eb;--muted:#9ca3af;--line:#334155;--add-bg:#123d2a;--add-text:#bbf7d0;--remove-bg:#51212a;--remove-text:#fecaca}.notice{background:#422006;color:#fde68a}.parameter-line.modify,.parameter-line.reorder{background:#422006;color:#fde68a}.contract-change-table th{background:#202d45}.contract-member{background:#1d293d}.contract-before{background:#431f29}.contract-after{background:#15382b}.breaking-rationale{background:#3b2f13}.http-method{color:#76b9ff}}
+.model-diff-path{display:flex;justify-content:space-between;gap:16px}.model-diff-legend{display:flex;gap:12px;white-space:nowrap;color:#cbd5e1}.model-diff-legend>span::before{display:inline-block;width:8px;height:8px;margin-right:5px;border-radius:2px;content:""}.model-diff-baseline::before{background:#f87171}.model-diff-target::before{background:#86efac}.model-diff-code{padding:12px 0;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}.model-diff-line{display:grid;grid-template-columns:48px 48px 28px minmax(max-content,1fr);min-height:21px}.model-diff-number{padding:0 9px;border-right:1px solid #30363d;color:#94a3b8;text-align:right;user-select:none}.model-diff-marker{text-align:center;user-select:none}.model-diff-text{padding:0 14px 0 4px;white-space:pre}.model-diff-line.add .model-diff-number{border-color:#1f6f43}.model-diff-line.remove .model-diff-number{border-color:#8e2f3b}
+.tag{border-radius:999px;padding:3px 10px;background:#dbeafe;color:#1e40af;font-size:13px;font-weight:800}.finding-summary-meta{margin-left:auto;color:var(--muted);font-size:14px}.rest-operation-list{display:grid;gap:7px}.rest-operation-line{display:grid;grid-template-columns:minmax(220px,1fr) auto minmax(260px,2fr);gap:12px;padding:9px 11px;border:1px solid var(--line);border-radius:8px}.rest-operation-line>span{color:var(--muted)}@media(max-width:700px){.rest-operation-line{grid-template-columns:1fr}.finding-summary-meta{width:100%;margin-left:0}.model-diff-path{flex-direction:column}.model-diff-line{grid-template-columns:40px 40px 24px minmax(max-content,1fr)}}
+.finding{border-left:1px solid var(--line)}
+.rest-contract-card .contract-tag{background:#fee2e2;color:#991b1b}.rest-contract-card .rest-operation-list{margin-top:10px}
+.notice{padding:0}.notice>summary{display:flex;min-height:46px;align-items:center;gap:10px;padding:8px 0;cursor:pointer;list-style:none}.notice>summary::-webkit-details-marker{display:none}.notice>summary::before{content:"▸";flex:none;color:#b45309;font-size:15px;font-weight:900;transition:transform .15s ease}.notice[open]>summary::before{transform:rotate(90deg)}.notice-title{flex:none;font-size:14px;font-weight:800}.notice-summary{overflow:hidden;color:color-mix(in srgb,currentColor 78%,var(--muted));font-size:12.5px;text-overflow:ellipsis;white-space:nowrap}.notice-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:0 0 12px 25px;font-size:12.5px;line-height:1.4}.notice-body p{margin:0}@media(max-width:700px){.notice-summary{display:none}.notice-body{grid-template-columns:1fr;gap:6px}}@media(prefers-color-scheme:dark){.notice>summary::before{color:#fbbf24}}
+.compliance-finding-group>summary{flex-wrap:wrap}.compliance-affected-intents{display:grid;gap:12px}.compliance-affected-intent{margin:0;padding:14px 16px;border:1px solid var(--line);border-radius:10px}.compliance-affected-intent h4{margin:0 0 8px}.compliance-affected-intent h5{margin:14px 0 6px}
+.intent-finding-badge{font:inherit;font-size:13px;cursor:pointer}.intent-impact-trigger{position:relative}.intent-impact-popover{position:absolute;z-index:20;top:calc(100% + 8px);right:0;display:none;width:min(480px,88vw);overflow:hidden;border:1px solid var(--line);border-radius:10px;background:var(--panel);box-shadow:0 14px 34px rgb(31 42 68 / 18%)}.intent-impact-trigger.open .intent-impact-popover{display:grid}.intent-impact-popover a{display:grid;grid-template-columns:minmax(240px,1fr) auto;gap:12px;align-items:center;padding:12px 14px;border-top:1px solid var(--line);color:var(--text)!important;text-decoration:none}.intent-impact-popover a:first-child{border-top:0}.intent-impact-popover a:hover,.intent-impact-popover a:focus-visible{background:color-mix(in srgb,var(--panel) 92%,var(--accent))}.intent-impact-popover a span{color:var(--muted);font-size:13px}.intent h3,.representative-example>summary{font-size:17px;font-weight:750;line-height:1.35}.impact-highlight{outline:3px solid #ef4444;outline-offset:3px}
+.affected-methods{margin:20px 0}.affected-methods>summary{font-size:18px}.affected-method-list{display:grid;gap:7px;margin-top:10px}.affected-method{display:grid;grid-template-columns:minmax(180px,.6fr) minmax(280px,1.4fr);align-items:center;gap:12px;padding:9px 12px;border:1px solid var(--line);border-radius:8px}@media(max-width:700px){.affected-method{grid-template-columns:1fr}}
+.summary-value {
+  white-space: nowrap;
+}
+.summary-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.summary-heading .summary-value {
+  flex: none;
+  font-size: 20px;
+  line-height: 1.4;
+}
+.summary-heading .summary-label {
+  min-width: 0;
+  margin-top: 0;
+  line-height: 1.4;
+}
+.summary-heading .info {
+  color: #dbeafe;
+}
+@media (min-width: 1051px) {
+  .summary-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.report-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 0 0 14px;
+}
+.report-section-head > div:first-child {
+  min-width: 0;
+  flex: 1;
+}
+.report-section-head h2 {
+  margin: 0;
+}
+.report-section-head p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.report-section-meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.report-count {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eaf0f9;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 800;
+}
+.report-empty {
+  padding: 18px;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--muted);
+}
+.report-card {
+  margin: 10px 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--panel);
+  overflow: hidden;
+}
+.report-card > summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+}
+.report-card > summary::-webkit-details-marker {
+  display: none;
+}
+.report-card > summary:before {
+  content: "+";
+  width: 16px;
+  flex: none;
+  color: var(--accent);
+  font-size: 19px;
+  line-height: 1.2;
+}
+.report-card[open] > summary:before {
+  content: "−";
+}
+.report-card-title {
+  min-width: 0;
+  flex: 1;
+}
+.report-card-title strong {
+  display: block;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.report-card-title small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+.report-card-body {
+  padding: 16px 20px 20px;
+  border-top: 1px solid var(--line);
+}
+.report-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.report-badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 800;
+}
+.report-badge.add {
+  background: #dcfce7;
+  color: #166534;
+}
+.report-badge.modify,
+.report-badge.direct {
+  background: #dbeafe;
+  color: #1e40af;
+}
+.report-badge.remove {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.report-badge.indirect {
+  background: #ede9fe;
+  color: #6b21a8;
+}
+.report-badge.mixed {
+  background: #d1fae5;
+  color: #065f46;
+}
+.report-badge.unknown {
+  background: #fef3c7;
+  color: #92400e;
+}
+.report-badge.neutral {
+  background: #edf2f8;
+  color: #405c7c;
+}
+.report-badge.coverage {
+  text-transform: none;
+}
+.report-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.report-table th {
+  background: #f2f5fa;
+  color: #53637a;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.report-table th,
+.report-table td {
+  padding: 11px 12px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.report-table tr:last-child td {
+  border-bottom: 0;
+}
+.report-table td:first-child {
+  width: 29%;
+  min-width: 145px;
+}
+.report-table td:nth-child(2),
+.report-table td:nth-child(3) {
+  width: 35.5%;
+  min-width: 170px;
+}
+.report-table td:nth-child(2) {
+  background: #fff5f4;
+}
+.report-table td:nth-child(3) {
+  background: #f0faf5;
+}
+.report-table pre {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-detail,
+.report-small {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.report-link-row {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 5px 0 0;
+}
+.report-link {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 9px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 750;
+  text-decoration: none;
+}
+.report-link:hover,
+.report-link:focus-visible {
+  text-decoration: underline;
+  outline-offset: 2px;
+}
+.report-intent-relations {
+  margin-top: 12px;
+  cursor: default;
+}
+.report-relation-label {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: text;
+}
+.report-link.impact,
+.report-link[href^="#compliance-finding-"] {
+  color: #b91c1c;
+  border-color: #fecaca;
+  background: #fff1f2;
+}
+.report-reference-paths {
+  display: grid;
+  gap: 6px;
+  margin: 9px 0;
+}
+.report-reference-path {
+  display: grid;
+  grid-template-columns: minmax(100px, 0.35fr) minmax(180px, 1fr) max-content;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--panel) 92%, var(--accent));
+  font-size: 12px;
+}
+.report-reference-path > span {
+  color: var(--muted);
+}
+.report-type-impact {
+  padding: 13px 0;
+  border-top: 1px solid var(--line);
+}
+.report-type-impact:first-child {
+  border-top: 0;
+}
+.report-type-impact h4 {
+  margin: 0 0 5px;
+}
+.report-guideline-section {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-guideline-section h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+.report-guideline-section + .report-guideline-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.report-document-snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.report-document-snapshots.single-snapshot {
+  grid-template-columns: minmax(0, 1fr);
+}
+.report-document-context {
+  min-width: 0;
+}
+.report-document-related {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.report-document-related-type > h5 {
+  font-size: 13px;
+  margin: 15px 0 8px;
+  overflow-wrap: anywhere;
+}
+.report-document-related pre {
+  max-height: 400px;
+  overflow: auto;
+}
+.report-document-snapshot {
+  min-width: 0;
+}
+.report-document-snapshot h4,
+.report-document-snapshot h5 {
+  margin: 12px 0 6px;
+}
+.document-quality-check pre {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-document-rationale {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.report-document-rationale p {
+  margin: 5px 0 0;
+}
+.document-quality-scope {
+  margin-top: 14px;
+}
+.document-quality-intent-link {
+  margin-bottom: 12px;
+}
+.document-quality-file {
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.document-quality-file-count {
+  font-weight: 400;
+  color: var(--muted);
+}
+.document-quality-list {
+  max-height: 300px;
+  overflow: auto;
+  margin-top: 10px;
+  overscroll-behavior: contain;
+}
+.document-quality-row,
+.document-quality-document > summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 4px;
+  border-bottom: 1px solid var(--line);
+  font-size: 13px;
+}
+.document-quality-document > summary {
+  cursor: pointer;
+}
+.document-quality-document > summary:before {
+  content: "+";
+  color: var(--accent);
+}
+.document-quality-document[open] > summary:before {
+  content: "-";
+}
+.document-quality-document > summary > span:first-of-type {
+  flex: 1;
+}
+.document-quality-document > summary > span:first-child,
+.document-quality-row > a {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.document-quality-document > summary > .report-badge,
+.document-quality-row > .report-badge {
+  flex: none;
+}
+.document-quality-document-body {
+  padding: 12px;
+}
+.document-quality-document-body h4 {
+  font-size: 13px;
+  margin: 0 0 8px;
+}
+.document-quality-document-body blockquote {
+  margin: 0 0 15px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--panel) 94%, var(--accent));
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.document-quality-current {
+  padding: 0;
+}
+.document-quality-description-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.document-quality-description-heading h3,
+.document-quality-explanation h3,
+.document-quality-suggestion h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.document-quality-current mark {
+  background: var(--remove-bg);
+  color: var(--remove-text);
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+.document-quality-explanation p,
+.document-quality-suggestion p {
+  margin: 8px 0;
+  font-size: 13px;
+}
+.document-quality-check .document-quality-source {
+  margin-top: 16px;
+}
+.document-quality-source pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+}
+.report-badge.neutral {
+  background: color-mix(in srgb, var(--panel) 85%, var(--muted));
+  color: var(--muted);
+}
+.document-quality-neutral > summary {
+  padding: 12px 18px;
+}
+.document-quality-neutral .report-card-title strong {
+  font-size: 13px;
+}
+.document-quality-list:focus-visible,
+.document-quality-file > summary:focus-visible,
+.document-quality-document > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.report-source {
+  margin-bottom: 16px;
+}
+.report-source > summary,
+.report-subdetails > summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+.report-http {
+  color: #075cab;
+  font:
+    800 12px ui-monospace,
+    monospace;
+}
+.report-card .operation summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  align-items: baseline;
+}
+.report-card .operation summary > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.report-card .operation summary > code {
+  grid-column: 1/-1;
+}
+.report-card .operation summary > span {
+  margin-left: 0;
+  justify-self: start;
+}
+.report-operation-remainder {
+  font-size: 12px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.container,
+.report-card-body,
+.report-card,
+.report-guideline-section,
+.report-source,
+.operation {
+  min-width: 0;
+}
+body {
+  overflow-wrap: anywhere;
+}
+.diff,
+.report-table-wrap,
+#appendix .panel {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.diff-path {
+  overflow-wrap: anywhere;
+}
+#appendix pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#appendix table {
+  display: block;
+  overflow-x: auto;
+}
+@media (max-width: 760px) {
+  .report-document-snapshots {
+    grid-template-columns: 1fr;
+  }
+  .report-section-head {
+    display: block;
+  }
+  .report-section-meta {
+    justify-content: flex-start;
+    margin-top: 8px;
+  }
+  .report-card > summary {
+    flex-wrap: wrap;
+  }
+  .report-card > summary > .report-badges {
+    margin-left: 28px;
+  }
+  .report-reference-path {
+    grid-template-columns: 1fr;
+  }
+  .report-count {
+    max-width: 100%;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .report-count {
+    background: #26344d;
+    color: #cbd5e1;
+  }
+  .report-badge.indirect {
+    background: #3b2852;
+    color: #e9d5ff;
+  }
+  .report-badge.mixed {
+    background: #143d34;
+    color: #a7f3d0;
+  }
+  .report-badge.add {
+    background: #123d2a;
+    color: #bbf7d0;
+  }
+  .report-badge.modify,
+  .report-badge.direct {
+    background: #202d45;
+    color: #dbeafe;
+  }
+  .report-badge.remove {
+    background: #431f29;
+    color: #fecaca;
+  }
+  .report-badge.unknown {
+    background: #422006;
+    color: #fde68a;
+  }
+  .report-table th {
+    background: #202d45;
+    color: #cbd5e1;
+  }
+  .report-table td:nth-child(2) {
+    background: #431f29;
+  }
+  .report-table td:nth-child(3) {
+    background: #15382b;
+  }
+  .report-link.impact,
+  .report-link[href^="#compliance-finding-"] {
+    color: #fecaca;
+    border-color: #7f1d1d;
+    background: #431f29;
+  }
+  .report-http {
+    color: #93c5fd;
+  }
+}
+
+</style></head><body>
+<header class="hero"><div class="container"><div class="eyebrow">TypeSpec Assessment</div><h1>Scope private endpoint updates and deletes to HorizonDB clusters</h1>
+<p class="hero-meta">TypeSpec source diff: <code>397a6977353e62db503b266fd796f51d14d60ef6</code> → <code>b931dadcc0382a211cc8d8489f45dab5bdf858b9</code></p>
+<div class="summary-grid">
+<a class="summary-card" href="#semantic-intents"><div class="summary-heading"><div class="summary-value"><span class="info" aria-label="Information only">ⓘ</span></div><div class="summary-label">Semantic intents</div></div><div class="summary-detail">1 intent<br>2 operations<br>0 Added, 1 Modified, 0 Removed</div></a>
+<a class="summary-card" href="#azure-compliance"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Azure Guidelines</div></div><div class="summary-detail">1 finding<br>1/1 intents assessed</div></a>
+<a class="summary-card" href="#rest-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">REST breaking changes</div></div><div class="summary-detail">Partial coverage<br>4 findings</div></a>
+<a class="summary-card" href="#downstream-breaking"><div class="summary-heading"><div class="summary-value"><span class="fail" aria-label="Failed">×</span></div><div class="summary-label">Downstream breaking changes</div></div><div class="summary-detail">Partial coverage<br>4 findings</div></a>
+<a class="summary-card" href="#document-quality"><div class="summary-heading"><div class="summary-value"><span class="pass" aria-label="Passed">✓</span></div><div class="summary-label">Documentation Completeness</div></div><div class="summary-detail">0 findings<br>0 declarations checked</div></a>
+</div></div></header>
+<details class="notice"><summary class="container"><span class="notice-title">Preview Notice</span><span class="notice-summary">The TypeSpec Assessment Assistant is in preview; official validation and review remain the source of truth.</span></summary>
+<div class="container notice-body"><p>The TypeSpec Assessment Assistant is currently in preview. Its goal is to help service developers build confidence earlier in the TypeSpec authoring workflow by providing contextual analysis, risk identification, and guidance on potential downstream impacts.</p>
+<p>This report is intended as a review reference and learning aid only. It does not replace official ARM API, Azure API Stewardship, Azure Breaking Change reviews, and should not be treated as authoritative review feedback or approval for specification changes. Official validation tools, generated artifacts, and reviewer feedback remain the source of truth for merge and release decisions.</p></div></details>
+<main class="container">
+<section id="azure-compliance"><div class="report-section-head"><div><h2>Azure Guidelines</h2><p>Findings and affected intents at a glance; expand for expected guidance and actual changes.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-count">1 findings</span></div></div><p class="report-small">1 of 1 semantic intents assessed · 4 documents selected</p><details class="report-card compliance-finding"><summary><div class="report-card-title"><strong>Existing preview operation contracts change without preserving prior callers</strong><small>The specific private endpoint and resource-operation sections support the corrected parent and async modeling; they do not prove backward compatibility. The Evolving APIs guidance supports preserving existing clients, whereas the same-version contract comparison establishes incompatible route/input changes. No service implementation or evidence that the old contract was never usable is supplied, so a specification-correction exemption cannot be inferred. This is one intent-level judgment, not a requirement to invent missing lifecycle operations.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-e0ef144ca8ef18d9">Scope private endpoint updates and deletes to HorizonDB clusters</a></div></div></div><div class="report-badges"><span class="report-badge remove">failed</span></div></summary><div class="report-card-body"><div class="report-guideline-section expected-details"><h3>Expected</h3><p>Evolve operations while preserving existing clients&#39; versioned contracts. Model private endpoint operations against their parent resource and use the supported asynchronous lifecycle patterns.</p><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs — Introduction</a><blockquote>Versioning allows you to evolve your API without breaking existing clients. By using versioning decorators, you can specify when resources, operations, or properties are added, removed, or changed.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/">ARM resource types and modeling — Modeling Resources in TypeSpec</a><blockquote>Resources are modeled in TypeSpec by choosing a _base resource type_, defining _rp-specific properties_, and optionally mixing in _standard envelope properties_.</blockquote></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Private endpoints — Adding Private Endpoint Operations to Your Resource Interface</a><blockquote>Add private endpoint operations to your resource interface using the operations alias:</blockquote><div class="diff"><div class="diff-path"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Documented TypeSpec example</a></div><pre><span class="">updateConnection is PrivateEndpointOps.CustomPatchAsync&lt;Employee&gt;;</span></pre></div><div class="diff"><div class="diff-path"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Documented TypeSpec example</a></div><pre><span class="">deleteConnection is PrivateEndpointOps.DeleteAsync&lt;Employee&gt;;</span></pre></div></div><div class="report-type-impact"><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations — Synchronous and Asynchronous APIs</a><blockquote>CreateOrUpdate (PUT), Update (Patch), Delete, and Action (POST) operations over a resource may be either synchronous or asynchronous. Synchronous operations complete before a response is returned. Asynchronous operations return an initial response before the operation fully completes, and support long-running operation (LRO) polling. The sections below describe the available templates for both synchronous and asynchronous variants of each operation.</blockquote></div></div><div class="report-guideline-section actual-details"><h3>Actual</h3><div class="report-type-impact" id="compliance-finding-compliance-6ccd18fd81d364ed"><p>The changed CustomPatchAsync and DeleteAsync applications explicitly use HorizonDbCluster and PrivateEndpointConnectionResource, which is consistent with parent-scoped private endpoint operations. However, both supplied baseline/target contracts use 2026-01-20-preview while their routes and required clusterName input change. The update SDK response/final-result identity also changes; asynchronous operation kind remains supported.</p><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104-133</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L119-L119">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:118-122</a>, <a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L125-L125">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:124-132</a></p><div class="diff"><div class="diff-path"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104-133</a></div><pre><span class="remove"><span class="line-number">104</span>-  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span>
+<span class="add"><span class="line-number">105</span>+  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;</span>
+<span class="add"><span class="line-number">106</span>+    HorizonDbCluster,</span>
+<span class="add"><span class="line-number">107</span>+    PrivateEndpointConnectionResource</span>
+<span class="add"><span class="line-number">108</span>+  &gt;;</span>
+<span class="add"><span class="line-number">109</span>+    HorizonDbCluster,</span></pre></div></div></div></div></details></section>
+<section id="rest-breaking"><div class="report-section-head"><div><h2>REST breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">2 operations · 0 models/types · 4 findings</span></div></div><h3>Operation changes</h3><details class="report-card rest-contract-card" id="rest-operation--HorizonDbPrivateEndpointConnections_Delete-2026-01-20-preview"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections_Delete</strong><small><span class="report-http">DELETE</span> <code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code> · 2026-01-20-preview</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-e0ef144ca8ef18d9">Scope private endpoint updates and deletes to HorizonDB clusters</a></div></div></div><div class="report-badges"><span class="report-count">2 changes</span></div></summary><div class="report-card-body"><span id="finding-rest-320869014d4b2b8c"></span><span id="finding-rest-ddb21d3d4b9868ad"></span><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr><tr><td><span class="contract-area-kind">Path parameter</span><strong>clusterName</strong></td><td><pre>removed</pre></td><td><pre>string</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> <ul><li>HorizonDbPrivateEndpointConnections_Delete moves from the provider-level privateEndpointConnections route to clusters/{clusterName}/privateEndpointConnections for the same 2026-01-20-preview selector. Existing callers must supply a cluster and change their URI; the target contract no longer describes their old DELETE route.</li><li>HorizonDbPrivateEndpointConnections_Delete adds a directly resolved, required string clusterName path parameter in 2026-01-20-preview. Existing DELETE requests without cluster context no longer satisfy the target URI contract. Compatibility of unrelated unresolved common parameters and error schemas is not established.</li></ul></div><details class="report-source"><summary>Relevant TypeSpec source</summary><div class="diff declaration model-declaration-diff"><div class="diff-path model-diff-path"><span>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp · HorizonDbPrivateEndpointConnections</span><span class="model-diff-legend"><span class="model-diff-baseline">Baseline</span><span class="model-diff-target">Target</span></span></div><div class="model-diff-code"><div class="model-diff-line context"><span class="model-diff-number">104</span><span class="model-diff-number">104</span><span class="model-diff-marker"> </span><span class="model-diff-text">@armResourceOperations</span></div><div class="model-diff-line context"><span class="model-diff-number">105</span><span class="model-diff-number">105</span><span class="model-diff-marker"> </span><span class="model-diff-text">interface HorizonDbPrivateEndpointConnections {</span></div><div class="model-diff-line context"><span class="model-diff-number">106</span><span class="model-diff-number">106</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Gets a private endpoint connection.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">107</span><span class="model-diff-number">107</span><span class="model-diff-marker"> </span><span class="model-diff-text">  get is HorizonDbPrivateEndpointOperations.Read&lt;</span></div><div class="model-diff-line context"><span class="model-diff-number">108</span><span class="model-diff-number">108</span><span class="model-diff-marker"> </span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">109</span><span class="model-diff-number">109</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line context"><span class="model-diff-number">110</span><span class="model-diff-number">110</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">111</span><span class="model-diff-number">111</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">112</span><span class="model-diff-number">112</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Lists private endpoint connections in a HorizonDB cluster.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">113</span><span class="model-diff-number">113</span><span class="model-diff-marker"> </span><span class="model-diff-text">  list is HorizonDbPrivateEndpointOperations.ListByParent&lt;</span></div><div class="model-diff-line context"><span class="model-diff-number">114</span><span class="model-diff-number">114</span><span class="model-diff-marker"> </span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">115</span><span class="model-diff-number">115</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line context"><span class="model-diff-number">116</span><span class="model-diff-number">116</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">117</span><span class="model-diff-number">117</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">118</span><span class="model-diff-number">118</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Updates a private endpoint connection.&quot;)</span></div><div class="model-diff-line remove"><span class="model-diff-number">119</span><span class="model-diff-number"></span><span class="model-diff-marker">−</span><span class="model-diff-text">  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">119</span><span class="model-diff-marker">+</span><span class="model-diff-text">  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">120</span><span class="model-diff-marker">+</span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">121</span><span class="model-diff-marker">+</span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">122</span><span class="model-diff-marker">+</span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">120</span><span class="model-diff-number">123</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">121</span><span class="model-diff-number">124</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Deletes a private endpoint connection.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">122</span><span class="model-diff-number">125</span><span class="model-diff-marker"> </span><span class="model-diff-text">  delete is HorizonDbPrivateEndpointOperations.DeleteAsync&lt;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">126</span><span class="model-diff-marker">+</span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">123</span><span class="model-diff-number">127</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource,</span></div><div class="model-diff-line context"><span class="model-diff-number">124</span><span class="model-diff-number">128</span><span class="model-diff-marker"> </span><span class="model-diff-text">    Response =</span></div><div class="model-diff-line context"><span class="model-diff-number">125</span><span class="model-diff-number">129</span><span class="model-diff-marker"> </span><span class="model-diff-text">      | ArmDeleteAcceptedLroResponse&lt;LroHeaders = ArmCombinedLroHeaders &amp;</span></div><div class="model-diff-line context"><span class="model-diff-number">126</span><span class="model-diff-number">130</span><span class="model-diff-marker"> </span><span class="model-diff-text">          Azure.Core.Foundations.RetryAfterHeader&gt;</span></div><div class="model-diff-line context"><span class="model-diff-number">127</span><span class="model-diff-number">131</span><span class="model-diff-marker"> </span><span class="model-diff-text">      | ArmDeletedNoContentResponse</span></div><div class="model-diff-line context"><span class="model-diff-number">128</span><span class="model-diff-number">132</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">129</span><span class="model-diff-number">133</span><span class="model-diff-marker"> </span><span class="model-diff-text">}</span></div></div></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104</a></p></details></div></details><details class="report-card rest-contract-card" id="rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections_Update</strong><small><span class="report-http">PATCH</span> <code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code> · 2026-01-20-preview</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-e0ef144ca8ef18d9">Scope private endpoint updates and deletes to HorizonDB clusters</a></div></div></div><div class="report-badges"><span class="report-count">2 changes</span></div></summary><div class="report-card-body"><span id="finding-rest-65b757c6f1cb25e2"></span><span id="finding-rest-d3aa85936d7ff1f8"></span><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr><tr><td><span class="contract-area-kind">Path parameter</span><strong>clusterName</strong></td><td><pre>removed</pre></td><td><pre>string</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> <ul><li>HorizonDbPrivateEndpointConnections_Update moves from the provider-level privateEndpointConnections route to clusters/{clusterName}/privateEndpointConnections for the same 2026-01-20-preview selector. Existing callers must change their PATCH URI and provide cluster context; correcting parent modeling does not preserve the old documented route.</li><li>HorizonDbPrivateEndpointConnections_Update adds a directly resolved, required string clusterName path parameter in 2026-01-20-preview. Requests previously expressed without clusterName cannot address the target PATCH contract. The unresolved common parameters do not negate this independently established required input.</li></ul></div><details class="report-source"><summary>Relevant TypeSpec source</summary><div class="diff declaration model-declaration-diff"><div class="diff-path model-diff-path"><span>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp · HorizonDbPrivateEndpointConnections</span><span class="model-diff-legend"><span class="model-diff-baseline">Baseline</span><span class="model-diff-target">Target</span></span></div><div class="model-diff-code"><div class="model-diff-line context"><span class="model-diff-number">104</span><span class="model-diff-number">104</span><span class="model-diff-marker"> </span><span class="model-diff-text">@armResourceOperations</span></div><div class="model-diff-line context"><span class="model-diff-number">105</span><span class="model-diff-number">105</span><span class="model-diff-marker"> </span><span class="model-diff-text">interface HorizonDbPrivateEndpointConnections {</span></div><div class="model-diff-line context"><span class="model-diff-number">106</span><span class="model-diff-number">106</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Gets a private endpoint connection.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">107</span><span class="model-diff-number">107</span><span class="model-diff-marker"> </span><span class="model-diff-text">  get is HorizonDbPrivateEndpointOperations.Read&lt;</span></div><div class="model-diff-line context"><span class="model-diff-number">108</span><span class="model-diff-number">108</span><span class="model-diff-marker"> </span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">109</span><span class="model-diff-number">109</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line context"><span class="model-diff-number">110</span><span class="model-diff-number">110</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">111</span><span class="model-diff-number">111</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">112</span><span class="model-diff-number">112</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Lists private endpoint connections in a HorizonDB cluster.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">113</span><span class="model-diff-number">113</span><span class="model-diff-marker"> </span><span class="model-diff-text">  list is HorizonDbPrivateEndpointOperations.ListByParent&lt;</span></div><div class="model-diff-line context"><span class="model-diff-number">114</span><span class="model-diff-number">114</span><span class="model-diff-marker"> </span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">115</span><span class="model-diff-number">115</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line context"><span class="model-diff-number">116</span><span class="model-diff-number">116</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">117</span><span class="model-diff-number">117</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">118</span><span class="model-diff-number">118</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Updates a private endpoint connection.&quot;)</span></div><div class="model-diff-line remove"><span class="model-diff-number">119</span><span class="model-diff-number"></span><span class="model-diff-marker">−</span><span class="model-diff-text">  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">119</span><span class="model-diff-marker">+</span><span class="model-diff-text">  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">120</span><span class="model-diff-marker">+</span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">121</span><span class="model-diff-marker">+</span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">122</span><span class="model-diff-marker">+</span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">120</span><span class="model-diff-number">123</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">121</span><span class="model-diff-number">124</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Deletes a private endpoint connection.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">122</span><span class="model-diff-number">125</span><span class="model-diff-marker"> </span><span class="model-diff-text">  delete is HorizonDbPrivateEndpointOperations.DeleteAsync&lt;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">126</span><span class="model-diff-marker">+</span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">123</span><span class="model-diff-number">127</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource,</span></div><div class="model-diff-line context"><span class="model-diff-number">124</span><span class="model-diff-number">128</span><span class="model-diff-marker"> </span><span class="model-diff-text">    Response =</span></div><div class="model-diff-line context"><span class="model-diff-number">125</span><span class="model-diff-number">129</span><span class="model-diff-marker"> </span><span class="model-diff-text">      | ArmDeleteAcceptedLroResponse&lt;LroHeaders = ArmCombinedLroHeaders &amp;</span></div><div class="model-diff-line context"><span class="model-diff-number">126</span><span class="model-diff-number">130</span><span class="model-diff-marker"> </span><span class="model-diff-text">          Azure.Core.Foundations.RetryAfterHeader&gt;</span></div><div class="model-diff-line context"><span class="model-diff-number">127</span><span class="model-diff-number">131</span><span class="model-diff-marker"> </span><span class="model-diff-text">      | ArmDeletedNoContentResponse</span></div><div class="model-diff-line context"><span class="model-diff-number">128</span><span class="model-diff-number">132</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">129</span><span class="model-diff-number">133</span><span class="model-diff-marker"> </span><span class="model-diff-text">}</span></div></div></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104</a></p></details></div></details></section>
+<section id="downstream-breaking"><div class="report-section-head"><div><h2>Downstream breaking changes</h2><p>Compatibility verdict and evidence coverage are reported independently.</p></div><div class="report-section-meta"><span class="report-badge remove">failed</span><span class="report-badge unknown coverage">partial coverage</span><span class="report-count">2 direct method changes · 0 changed types</span></div></div><h3>Method changes</h3><details class="report-card sdk-method-card" id="downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-delete"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections.delete</strong><small>The normalized SDK method contract changes directly.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-e0ef144ca8ef18d9">Scope private endpoint updates and deletes to HorizonDB clusters</a></div></div></div><div class="report-badges"><span class="report-badge direct">Direct method change</span></div></summary><div class="report-card-body"><span id="downstream-downstream-group-a04da6ddbd382f84"></span><span id="downstream-downstream-ed55490cefd690e3"></span><span id="finding-downstream-ed55490cefd690e3"></span><p class="report-small"><strong>Target normalized SDK method:</strong> <code>Microsoft.HorizonDb.HorizonDbPrivateEndpointConnections.delete</code></p><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK method</span><strong>Normalized input order</strong><span class="report-detail">HorizonDbPrivateEndpointConnections.delete inserts required clusterName before privateEndpointConnectionName. Existing SDK invocations must provide the cluster and, where generated signatures are positional, move the connection-name argument to its new position.</span></td><td><pre>1. resourceGroupName (path): string
+2. privateEndpointConnectionName (path): string</pre></td><td><pre>1. resourceGroupName (path): string
+2. clusterName (path): string
+3. privateEndpointConnectionName (path): string</pre></td></tr></tbody></table></div><div class="breaking-rationale"><strong>Why this is breaking:</strong> HorizonDbPrivateEndpointConnections.delete inserts required clusterName before privateEndpointConnectionName. Existing SDK invocations must provide the cluster and, where generated signatures are positional, move the connection-name argument to its new position.</div><details class="report-source"><summary>Relevant TypeSpec source</summary><div class="diff declaration model-declaration-diff"><div class="diff-path model-diff-path"><span>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp · HorizonDbPrivateEndpointConnections</span><span class="model-diff-legend"><span class="model-diff-baseline">Baseline</span><span class="model-diff-target">Target</span></span></div><div class="model-diff-code"><div class="model-diff-line context"><span class="model-diff-number">104</span><span class="model-diff-number">104</span><span class="model-diff-marker"> </span><span class="model-diff-text">@armResourceOperations</span></div><div class="model-diff-line context"><span class="model-diff-number">105</span><span class="model-diff-number">105</span><span class="model-diff-marker"> </span><span class="model-diff-text">interface HorizonDbPrivateEndpointConnections {</span></div><div class="model-diff-line context"><span class="model-diff-number">106</span><span class="model-diff-number">106</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Gets a private endpoint connection.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">107</span><span class="model-diff-number">107</span><span class="model-diff-marker"> </span><span class="model-diff-text">  get is HorizonDbPrivateEndpointOperations.Read&lt;</span></div><div class="model-diff-line context"><span class="model-diff-number">108</span><span class="model-diff-number">108</span><span class="model-diff-marker"> </span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">109</span><span class="model-diff-number">109</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line context"><span class="model-diff-number">110</span><span class="model-diff-number">110</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">111</span><span class="model-diff-number">111</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">112</span><span class="model-diff-number">112</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Lists private endpoint connections in a HorizonDB cluster.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">113</span><span class="model-diff-number">113</span><span class="model-diff-marker"> </span><span class="model-diff-text">  list is HorizonDbPrivateEndpointOperations.ListByParent&lt;</span></div><div class="model-diff-line context"><span class="model-diff-number">114</span><span class="model-diff-number">114</span><span class="model-diff-marker"> </span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">115</span><span class="model-diff-number">115</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line context"><span class="model-diff-number">116</span><span class="model-diff-number">116</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">117</span><span class="model-diff-number">117</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">118</span><span class="model-diff-number">118</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Updates a private endpoint connection.&quot;)</span></div><div class="model-diff-line remove"><span class="model-diff-number">119</span><span class="model-diff-number"></span><span class="model-diff-marker">−</span><span class="model-diff-text">  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">119</span><span class="model-diff-marker">+</span><span class="model-diff-text">  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">120</span><span class="model-diff-marker">+</span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">121</span><span class="model-diff-marker">+</span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">122</span><span class="model-diff-marker">+</span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">120</span><span class="model-diff-number">123</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">121</span><span class="model-diff-number">124</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Deletes a private endpoint connection.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">122</span><span class="model-diff-number">125</span><span class="model-diff-marker"> </span><span class="model-diff-text">  delete is HorizonDbPrivateEndpointOperations.DeleteAsync&lt;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">126</span><span class="model-diff-marker">+</span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">123</span><span class="model-diff-number">127</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource,</span></div><div class="model-diff-line context"><span class="model-diff-number">124</span><span class="model-diff-number">128</span><span class="model-diff-marker"> </span><span class="model-diff-text">    Response =</span></div><div class="model-diff-line context"><span class="model-diff-number">125</span><span class="model-diff-number">129</span><span class="model-diff-marker"> </span><span class="model-diff-text">      | ArmDeleteAcceptedLroResponse&lt;LroHeaders = ArmCombinedLroHeaders &amp;</span></div><div class="model-diff-line context"><span class="model-diff-number">126</span><span class="model-diff-number">130</span><span class="model-diff-marker"> </span><span class="model-diff-text">          Azure.Core.Foundations.RetryAfterHeader&gt;</span></div><div class="model-diff-line context"><span class="model-diff-number">127</span><span class="model-diff-number">131</span><span class="model-diff-marker"> </span><span class="model-diff-text">      | ArmDeletedNoContentResponse</span></div><div class="model-diff-line context"><span class="model-diff-number">128</span><span class="model-diff-number">132</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">129</span><span class="model-diff-number">133</span><span class="model-diff-marker"> </span><span class="model-diff-text">}</span></div></div></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104</a></p></details><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details><details class="report-card sdk-method-card" id="downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update"><summary><div class="report-card-title"><strong>HorizonDbPrivateEndpointConnections.update</strong><small>The normalized SDK method contract changes directly.</small><div class="report-intent-relations"><span class="report-relation-label">Affected intents (1)</span><div class="report-link-row"><a class="report-link" href="#intent-semantic-e0ef144ca8ef18d9">Scope private endpoint updates and deletes to HorizonDB clusters</a></div></div></div><div class="report-badges"><span class="report-badge direct">Direct method change</span></div></summary><div class="report-card-body"><span id="downstream-downstream-group-4e7a4c3d52495246"></span><span id="downstream-downstream-38923c7c65105569"></span><span id="finding-downstream-38923c7c65105569"></span><span id="downstream-downstream-8262316c0a3b516a"></span><span id="finding-downstream-8262316c0a3b516a"></span><span id="downstream-downstream-ee82380623aa067e"></span><span id="finding-downstream-ee82380623aa067e"></span><p class="report-small"><strong>Target normalized SDK method:</strong> <code>Microsoft.HorizonDb.HorizonDbPrivateEndpointConnections.update</code></p><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">SDK method</span><strong>Normalized input order</strong><span class="report-detail">HorizonDbPrivateEndpointConnections.update inserts required clusterName before privateEndpointConnectionName and properties. Existing SDK calls must supply the new argument and, in languages with positional signatures, adjust subsequent positions; constant content-type and accept values are not caller inputs.</span></td><td><pre>1. resourceGroupName (path): string
+2. privateEndpointConnectionName (path): string
+3. properties (body input): PrivateEndpointConnectionUpdate</pre></td><td><pre>1. resourceGroupName (path): string
+2. clusterName (path): string
+3. privateEndpointConnectionName (path): string
+4. properties (body input): PrivateEndpointConnectionUpdate</pre></td></tr><tr><td><span class="contract-area-kind">SDK method</span><strong>Long-running behavior</strong><span class="report-detail">HorizonDbPrivateEndpointConnections.update changes its LRO logical/final result from PrivateEndpointConnection to PrivateEndpointConnectionResource. Nominally typed poller-result consumers may need new result-type declarations, although member shape, Location polling, status monitoring, and terminal states remain unchanged.</span></td><td><pre>{
+  &quot;finalStateVia&quot;: &quot;location&quot;,
+  &quot;logicalResult&quot;: &quot;Azure.ResourceManager.CommonTypes.PrivateEndpointConnection&quot;,
+  &quot;pollingStep&quot;: &quot;model&quot;,
+  &quot;finalStep&quot;: &quot;finalOperationLink&quot;,
+  &quot;statusMonitorStep&quot;: &quot;nextOperationLink&quot;
+}</pre></td><td><pre>{
+  &quot;finalStateVia&quot;: &quot;location&quot;,
+  &quot;logicalResult&quot;: &quot;Azure.ResourceManager.PrivateEndpointConnectionResource&quot;,
+  &quot;pollingStep&quot;: &quot;model&quot;,
+  &quot;finalStep&quot;: &quot;finalOperationLink&quot;,
+  &quot;statusMonitorStep&quot;: &quot;nextOperationLink&quot;
+}</pre></td></tr><tr><td><span class="contract-area-kind">SDK method</span><strong>Return type (body output)</strong></td><td><pre>PrivateEndpointConnection</pre></td><td><pre>PrivateEndpointConnectionResource</pre></td></tr></tbody></table></div><p class="report-small"><strong>Constant headers (not numbered caller inputs):</strong> Baseline: Content-Type (header): &quot;application/json&quot;; Baseline: Accept (header): &quot;application/json&quot;; Target: Content-Type (header): &quot;application/json&quot;; Target: Accept (header): &quot;application/json&quot;</p><div class="breaking-rationale"><strong>Why this is breaking:</strong> <ul><li>HorizonDbPrivateEndpointConnections.update inserts required clusterName before privateEndpointConnectionName and properties. Existing SDK calls must supply the new argument and, in languages with positional signatures, adjust subsequent positions; constant content-type and accept values are not caller inputs.</li><li>HorizonDbPrivateEndpointConnections.update changes its LRO logical/final result from PrivateEndpointConnection to PrivateEndpointConnectionResource. Nominally typed poller-result consumers may need new result-type declarations, although member shape, Location polling, status monitoring, and terminal states remain unchanged.</li><li>HorizonDbPrivateEndpointConnections.update now returns PrivateEndpointConnectionResource rather than PrivateEndpointConnection. Existing nominally typed result assignments or type checks may require changes, despite matching properties and inheritance; this is an operation-return change, not evidence of a model rename.</li></ul></div><details class="report-source"><summary>Relevant TypeSpec source</summary><div class="diff declaration model-declaration-diff"><div class="diff-path model-diff-path"><span>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp · HorizonDbPrivateEndpointConnections</span><span class="model-diff-legend"><span class="model-diff-baseline">Baseline</span><span class="model-diff-target">Target</span></span></div><div class="model-diff-code"><div class="model-diff-line context"><span class="model-diff-number">104</span><span class="model-diff-number">104</span><span class="model-diff-marker"> </span><span class="model-diff-text">@armResourceOperations</span></div><div class="model-diff-line context"><span class="model-diff-number">105</span><span class="model-diff-number">105</span><span class="model-diff-marker"> </span><span class="model-diff-text">interface HorizonDbPrivateEndpointConnections {</span></div><div class="model-diff-line context"><span class="model-diff-number">106</span><span class="model-diff-number">106</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Gets a private endpoint connection.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">107</span><span class="model-diff-number">107</span><span class="model-diff-marker"> </span><span class="model-diff-text">  get is HorizonDbPrivateEndpointOperations.Read&lt;</span></div><div class="model-diff-line context"><span class="model-diff-number">108</span><span class="model-diff-number">108</span><span class="model-diff-marker"> </span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">109</span><span class="model-diff-number">109</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line context"><span class="model-diff-number">110</span><span class="model-diff-number">110</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">111</span><span class="model-diff-number">111</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">112</span><span class="model-diff-number">112</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Lists private endpoint connections in a HorizonDB cluster.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">113</span><span class="model-diff-number">113</span><span class="model-diff-marker"> </span><span class="model-diff-text">  list is HorizonDbPrivateEndpointOperations.ListByParent&lt;</span></div><div class="model-diff-line context"><span class="model-diff-number">114</span><span class="model-diff-number">114</span><span class="model-diff-marker"> </span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">115</span><span class="model-diff-number">115</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line context"><span class="model-diff-number">116</span><span class="model-diff-number">116</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">117</span><span class="model-diff-number">117</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">118</span><span class="model-diff-number">118</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Updates a private endpoint connection.&quot;)</span></div><div class="model-diff-line remove"><span class="model-diff-number">119</span><span class="model-diff-number"></span><span class="model-diff-marker">−</span><span class="model-diff-text">  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">119</span><span class="model-diff-marker">+</span><span class="model-diff-text">  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">120</span><span class="model-diff-marker">+</span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">121</span><span class="model-diff-marker">+</span><span class="model-diff-text">    PrivateEndpointConnectionResource</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">122</span><span class="model-diff-marker">+</span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">120</span><span class="model-diff-number">123</span><span class="model-diff-marker"> </span><span class="model-diff-text"></span></div><div class="model-diff-line context"><span class="model-diff-number">121</span><span class="model-diff-number">124</span><span class="model-diff-marker"> </span><span class="model-diff-text">  @doc(&quot;Deletes a private endpoint connection.&quot;)</span></div><div class="model-diff-line context"><span class="model-diff-number">122</span><span class="model-diff-number">125</span><span class="model-diff-marker"> </span><span class="model-diff-text">  delete is HorizonDbPrivateEndpointOperations.DeleteAsync&lt;</span></div><div class="model-diff-line add"><span class="model-diff-number"></span><span class="model-diff-number">126</span><span class="model-diff-marker">+</span><span class="model-diff-text">    HorizonDbCluster,</span></div><div class="model-diff-line context"><span class="model-diff-number">123</span><span class="model-diff-number">127</span><span class="model-diff-marker"> </span><span class="model-diff-text">    PrivateEndpointConnectionResource,</span></div><div class="model-diff-line context"><span class="model-diff-number">124</span><span class="model-diff-number">128</span><span class="model-diff-marker"> </span><span class="model-diff-text">    Response =</span></div><div class="model-diff-line context"><span class="model-diff-number">125</span><span class="model-diff-number">129</span><span class="model-diff-marker"> </span><span class="model-diff-text">      | ArmDeleteAcceptedLroResponse&lt;LroHeaders = ArmCombinedLroHeaders &amp;</span></div><div class="model-diff-line context"><span class="model-diff-number">126</span><span class="model-diff-number">130</span><span class="model-diff-marker"> </span><span class="model-diff-text">          Azure.Core.Foundations.RetryAfterHeader&gt;</span></div><div class="model-diff-line context"><span class="model-diff-number">127</span><span class="model-diff-number">131</span><span class="model-diff-marker"> </span><span class="model-diff-text">      | ArmDeletedNoContentResponse</span></div><div class="model-diff-line context"><span class="model-diff-number">128</span><span class="model-diff-number">132</span><span class="model-diff-marker"> </span><span class="model-diff-text">  &gt;;</span></div><div class="model-diff-line context"><span class="model-diff-number">129</span><span class="model-diff-number">133</span><span class="model-diff-marker"> </span><span class="model-diff-text">}</span></div></div></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104</a></p></details><p class="report-small">Language-neutral TCGC evidence is shown; generated language signatures are not fabricated.</p></div></details></section>
+<section id="semantic-intents"><div class="report-section-head"><div><h2>Semantic intents</h2><p>Impact links are visible at a glance; expand for changed TypeSpec source, followed by affected operations.</p></div><div class="report-section-meta"><span class="report-count">1 intents · 0 added · 1 modified · 0 removed</span></div></div><details class="report-card intent" id="intent-semantic-e0ef144ca8ef18d9"><summary><div class="report-card-title"><strong>Scope private endpoint updates and deletes to HorizonDB clusters</strong><small>The ARM private endpoint CustomPatchAsync and DeleteAsync applications now explicitly supply HorizonDbCluster as parent and PrivateEndpointConnectionResource as connection type. Both operations move below clusters/{clusterName} and require clusterName in the existing 2026-01-20-preview projection; update also changes its generated response and final-result type. These are connection update/delete lifecycle operations, not new cluster operations. The supplied delete response override is preserved. Unresolved common-type REST references and ambiguous ResourceListResult SDK identities prevent a complete compatibility conclusion.</small><div class="report-intent-relations"><span class="report-relation-label" title="REST, downstream, and failed Documentation Completeness impacts">Impacts (4)</span><div class="report-link-row" aria-label="Intent impacts"><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Delete-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Delete</a><a class="report-link impact" href="#rest-operation--HorizonDbPrivateEndpointConnections_Update-2026-01-20-preview">REST: HorizonDbPrivateEndpointConnections_Update</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-delete">Downstream: HorizonDbPrivateEndpointConnections.delete</a><a class="report-link impact" href="#downstream-method-project-1a17ac3fb584-Microsoft-HorizonDb-HorizonDbPrivateEndpointConnections-update">Downstream: HorizonDbPrivateEndpointConnections.update</a></div><div class="report-link-row" aria-label="Guideline findings"><a class="report-link" href="#compliance-finding-compliance-6ccd18fd81d364ed">Azure Guidelines</a></div></div></div><div class="report-badges"><span class="report-badge">Feature / contract change</span><span class="report-badge modify">modify</span><span class="report-badge">operation</span><span class="report-badge">type</span></div></summary><div class="report-card-body"><p class="report-small"><strong>Stable group:</strong> <code>semantic-e0ef144ca8ef18d9</code></p><p class="report-small"><strong>Operation/transform relationship grouping:</strong> deterministic coordinator grouping; later judgment and rendering preserve this identity and boundary. 3 normalized facts; 1 source hunks; 2 supporting operation mappings.</p><details class="report-subdetails"><summary>Change facts and provenance (3)</summary><table><thead><tr><th>Subject</th><th>Change type</th><th>Action</th><th>Facets</th><th>Evidence provenance</th></tr></thead><tbody><tr><td><code>HorizonDbPrivateEndpointConnections.update</code></td><td>operation</td><td>modify</td><td>lro, parameters, path</td><td><code>source-64fc44709ee9c077</code><br><span class="report-small">hunks: hunk-be12a0670688d306<br>declarations: declaration-2b7bb778f5e41164, declaration-82ecde4e4d56e9e4</span></td></tr><tr><td><code>HorizonDbPrivateEndpointConnections</code></td><td>type</td><td>modify</td><td></td><td><code>source-64fc44709ee9c077</code><br><span class="report-small">hunks: hunk-be12a0670688d306<br>declarations: declaration-2d3d846baac34783, declaration-7a33fd0e4dae5170</span></td></tr><tr><td><code>HorizonDbPrivateEndpointConnections.delete</code></td><td>operation</td><td>modify</td><td>lro, parameters, path</td><td><code>source-64fc44709ee9c077</code><br><span class="report-small">hunks: hunk-be12a0670688d306<br>declarations: declaration-775b200f38fdfccf, declaration-934363b30dd7dacf</span></td></tr></tbody></table></details><details class="report-source" open><summary>Changed TypeSpec source (1)</summary><div class="diff"><div class="diff-path">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</div><pre><span class="context">   &gt;;</span>
+<span class="context"> </span>
+<span class="context">   @doc(&quot;Updates a private endpoint connection.&quot;)</span>
+<span class="remove">-  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;PrivateEndpointConnectionResource&gt;;</span>
+<span class="add">+  update is HorizonDbPrivateEndpointOperations.CustomPatchAsync&lt;</span>
+<span class="add">+    HorizonDbCluster,</span>
+<span class="add">+    PrivateEndpointConnectionResource</span>
+<span class="add">+  &gt;;</span>
+<span class="context"> </span>
+<span class="context">   @doc(&quot;Deletes a private endpoint connection.&quot;)</span>
+<span class="context">   delete is HorizonDbPrivateEndpointOperations.DeleteAsync&lt;</span>
+<span class="add">+    HorizonDbCluster,</span>
+<span class="context">     PrivateEndpointConnectionResource,</span>
+<span class="context">     Response =</span>
+<span class="context">       | ArmDeleteAcceptedLroResponse&lt;LroHeaders = ArmCombinedLroHeaders &amp;</span>
+<span class="context"></span></pre></div><p class="sources"><a href="https://github.com/Azure/azure-rest-api-specs/blob/b931dadcc0382a211cc8d8489f45dab5bdf858b9/specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp#L105-L133">specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp:104</a></p></details><details class="report-subdetails" id="intent-semantic-e0ef144ca8ef18d9-operations"><summary>Affected operations (2)</summary><details class="operation"><summary><strong>HorizonDbPrivateEndpointConnections_Delete</strong><span class="report-http">DELETE</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code><span>2026-01-20-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Path parameter</span><strong>clusterName</strong></td><td><pre>removed</pre></td><td><pre>string</pre></td></tr><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr></tbody></table></div><p>REST contract changed: path, parameters.</p></div></details><details class="operation"><summary><strong>HorizonDbPrivateEndpointConnections_Update</strong><span class="report-http">PATCH</span><code>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</code><span>2026-01-20-preview</span></summary><div class="operation-body"><div class="report-table-wrap"><table class="report-table"><thead><tr><th>Contract area</th><th>Before</th><th>After</th></tr></thead><tbody><tr><td><span class="contract-area-kind">Path parameter</span><strong>clusterName</strong></td><td><pre>removed</pre></td><td><pre>string</pre></td></tr><tr><td><span class="contract-area-kind">Contract area</span><strong>path-changed</strong></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/privateEndpointConnections/{privateEndpointConnectionName}</pre></td><td><pre>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HorizonDb/clusters/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}</pre></td></tr></tbody></table></div><p>REST contract changed: path, parameters, lro.</p></div></details></details></div></details></section>
+<section id="document-quality"><div class="report-section-head"><div><h2>Documentation Completeness</h2><p>Checks only whether newly added operation, model, enum, and interface declarations have a nonempty effective TypeSpec description.</p></div><div class="report-section-meta"><span class="report-badge add">passed</span></div></div><p class="report-small">0 findings · 0 declarations checked</p></section>
+<section id="appendix"><details class="dimension-details"><summary><h2>Appendix</h2></summary><div class="panel"><h3 id="potential-limits">Potential limits</h3><ul><li>autorest-contract-unresolved: Common parameter, request-member, response, and error references remain unresolved for the two changed operations. The explicit route/clusterName changes are established, but complete effective REST compatibility remains not assessed; no external common-type resolution was attempted.</li><li>downstream-identity-unresolved: Multiple target ResourceListResult models share Azure.ResourceManager.ResourceListResult identity. No list-result pairing, rename, replacement, or extra compatibility finding is inferred.</li><li>The standalone CommonTypes.PrivateEndpointConnection availability candidate lacks intent-owned declaration/hunk causality. Its rejection is not proof that the old public type remains available; method return and LRO-result changes are judged independently from their exact supplied identities.</li><li>Official-guidance provenance is limited to the web_fetch content actually inspected. Resource-type and resource-operations responses were truncated at 20000 characters; only retrieved relevant sections were used. The host exposes no full-payload hash or per-request timestamp: contentHash/bytes therefore describe retained UTF-8 excerpts (and private-endpoint examples joined with two newlines), not complete page bodies; retrievedAt records the observed completion of the four concurrent fetches. No full-page provenance or unseen guidance is claimed.</li><li>The evidence compares specification and language-neutral generated SDK contracts, not deployed service behavior or language-specific SDK signatures. Result-type impacts are conditional on nominal typing; identical members alone do not establish nominal assignability.</li></ul>
+<h3 id="projects-and-compiler-status">Projects and compiler status</h3><table><thead><tr><th>Project</th><th>Mode</th><th>Baseline commit@version</th><th>Target commit@version</th><th>Baseline AutoRest / TCGC</th><th>Target AutoRest / TCGC</th></tr></thead><tbody><tr><td><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb</code></td><td>existing-api-version</td><td><code>397a6977353e62db503b266fd796f51d14d60ef6@2026-01-20-preview</code><br><small>base · affected-existing-version</small></td><td><code>b931dadcc0382a211cc8d8489f45dab5bdf858b9@2026-01-20-preview</code><br><small>current · affected-existing-version</small></td><td>succeeded / succeeded</td><td>succeeded / succeeded</td></tr></tbody></table>
+<p><strong>Pull request:</strong> <a href="https://github.com/Azure/azure-rest-api-specs/pull/44288">#44288</a></p>
+<h3 id="compliance-search-evidence">Guidance fetched</h3>
+<ul class="guidance-document-list"><li><a href="https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/">Evolving APIs</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/">ARM resource types and modeling</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/">Private endpoints</a></li><li><a href="https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/">ARM resource operations</a></li></ul><details class="guidance-coverage"><summary>Guidance coverage and retrieval evidence</summary><pre>{
+  &quot;status&quot;: &quot;failed&quot;,
+  &quot;coverage&quot;: {
+    &quot;semanticIntentCount&quot;: 1,
+    &quot;assessedIntentCount&quot;: 1,
+    &quot;selectedDocumentCount&quot;: 4,
+    &quot;unassessedIntentIds&quot;: []
+  },
+  &quot;sharedSearch&quot;: {
+    &quot;catalogRanking&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Primary existing-version evolution guidance covers changing ARM operations and required parameters; no exact changed template is named in catalog metadata.&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Changing the ARM connection&#39;s parent and resource template arguments directly concerns child-resource modeling; no exact changed construct is named.&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The changed ARM private endpoint connection operations and parent arguments are the document&#39;s specific modeling category.&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM update/delete lifecycle templates and asynchronous behavior are changed operation context; listed list templates are not exact matches.&quot;
+      },
+      {
+        &quot;rank&quot;: 5,
+        &quot;catalogOrder&quot;: 13,
+        &quot;title&quot;: &quot;Azure.ResourceManager interface reference&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/interfaces/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM operation-template signatures and parameter roles govern the changed generic applications, although their exact names are absent from catalog metadata.&quot;
+      },
+      {
+        &quot;rank&quot;: 6,
+        &quot;catalogOrder&quot;: 14,
+        &quot;title&quot;: &quot;TypeSpec.Rest decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/rest/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Resource-parent and lifecycle semantics apply to ARM connection scoping; no listed REST decorator is actually edited.&quot;
+      },
+      {
+        &quot;rank&quot;: 7,
+        &quot;catalogOrder&quot;: 15,
+        &quot;title&quot;: &quot;Azure.ResourceManager decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM lifecycle-role guidance is relevant to modified PATCH/DELETE templates; @armResourceOperations is not one of the exact catalog-listed decorators.&quot;
+      },
+      {
+        &quot;rank&quot;: 8,
+        &quot;catalogOrder&quot;: 16,
+        &quot;title&quot;: &quot;ARM long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Supplied ARM LRO candidates require comparing polling/results. Header spellings remain unchanged and are not exact changed template identifiers.&quot;
+      },
+      {
+        &quot;rank&quot;: 9,
+        &quot;catalogOrder&quot;: 20,
+        &quot;title&quot;: &quot;ARM common types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/add-common-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The changed ARM operation response selects a different common resource model, making common-model authoring/versioning relevant without a listed exact decorator edit.&quot;
+      },
+      {
+        &quot;rank&quot;: 10,
+        &quot;catalogOrder&quot;: 21,
+        &quot;title&quot;: &quot;Models&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/models/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;General model composition/inheritance guidance applies to the changed ARM response model and generated member compatibility.&quot;
+      },
+      {
+        &quot;rank&quot;: 11,
+        &quot;catalogOrder&quot;: 2,
+        &quot;title&quot;: &quot;Versioning overview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/01-about-versioning/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 5
+        },
+        &quot;selectionRationale&quot;: &quot;Azure versioning overview is relevant to the existing preview projection, but no enum ordering or version publication is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 12,
+        &quot;catalogOrder&quot;: 17,
+        &quot;title&quot;: &quot;Azure.Core long-running operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/long-running-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 4
+        },
+        &quot;selectionRationale&quot;: &quot;LRO pattern and change context match, but Azure.Core operation patterns are not a substitute for the supplied ARM templates.&quot;
+      },
+      {
+        &quot;rank&quot;: 13,
+        &quot;catalogOrder&quot;: 3,
+        &quot;title&quot;: &quot;Add preview after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/02-preview-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;Azure/ARM applicable, but this change adds no preview after a preview.&quot;
+      },
+      {
+        &quot;rank&quot;: 14,
+        &quot;catalogOrder&quot;: 4,
+        &quot;title&quot;: &quot;Add stable after preview&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/03-stable-after-preview/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;Azure/ARM applicable, but no preview-to-stable promotion occurs.&quot;
+      },
+      {
+        &quot;rank&quot;: 15,
+        &quot;catalogOrder&quot;: 5,
+        &quot;title&quot;: &quot;Add preview after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/04-preview-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;Azure/ARM applicable, but no preview follows a stable version in this comparison.&quot;
+      },
+      {
+        &quot;rank&quot;: 16,
+        &quot;catalogOrder&quot;: 6,
+        &quot;title&quot;: &quot;Add stable after stable&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/05-stable-after-stable/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;Azure/ARM applicable, but no new stable version is supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 17,
+        &quot;catalogOrder&quot;: 8,
+        &quot;title&quot;: &quot;Specific extension resource sample&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/samples/resource-manager/resource-types/specific-extension/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM sample, but no Extension.* template or extension-resource scope is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 18,
+        &quot;catalogOrder&quot;: 10,
+        &quot;title&quot;: &quot;Private links&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-links/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM applicable, but private-link resource discovery is distinct from changing connection PATCH/DELETE scope.&quot;
+      },
+      {
+        &quot;rank&quot;: 19,
+        &quot;catalogOrder&quot;: 11,
+        &quot;title&quot;: &quot;Network security perimeter&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/network-security-perimeter/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM applicable, but no network-security-perimeter resource or operation is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 20,
+        &quot;catalogOrder&quot;: 18,
+        &quot;title&quot;: &quot;Azure.ResourceManager data types&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-resource-manager/reference/data-types/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM reference, but no top/skip paging parameters are changed; the list-result identity blocker is not an inferred paging modification.&quot;
+      },
+      {
+        &quot;rank&quot;: 21,
+        &quot;catalogOrder&quot;: 22,
+        &quot;title&quot;: &quot;Enums&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/enums/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;General TypeSpec guidance applies to both planes, but no enum member or value is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 22,
+        &quot;catalogOrder&quot;: 23,
+        &quot;title&quot;: &quot;Scalars&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/scalars/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;General TypeSpec guidance applies to ARM, but no scalar definition or constraint is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 23,
+        &quot;catalogOrder&quot;: 24,
+        &quot;title&quot;: &quot;Decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;General decorator guidance is available for ARM, but the operation decorator prefixes are retained, not edited.&quot;
+      },
+      {
+        &quot;rank&quot;: 24,
+        &quot;catalogOrder&quot;: 25,
+        &quot;title&quot;: &quot;Built-in decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/built-in-decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;No documentation, visibility, or constraint decorator changes are supplied; documentation completeness is a separate deterministic dimension.&quot;
+      },
+      {
+        &quot;rank&quot;: 25,
+        &quot;catalogOrder&quot;: 26,
+        &quot;title&quot;: &quot;OpenAPI decorators&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/libraries/openapi/reference/decorators/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;OpenAPI decorators can apply to ARM specifications, but no @operationId or other OpenAPI decorator is edited.&quot;
+      },
+      {
+        &quot;rank&quot;: 26,
+        &quot;catalogOrder&quot;: 27,
+        &quot;title&quot;: &quot;Change provider namespace&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/change-provider-namespace/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;The ARM provider namespace is unchanged; this is a parent-route modification.&quot;
+      },
+      {
+        &quot;rank&quot;: 27,
+        &quot;catalogOrder&quot;: 28,
+        &quot;title&quot;: &quot;Azure Portal default experiences&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-portal/default-experiences/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;ARM applicable, but no portal experience customization is supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 28,
+        &quot;catalogOrder&quot;: 30,
+        &quot;title&quot;: &quot;Directives&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/language-basics/directives/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;General TypeSpec directives apply to ARM, but no changed suppression or warning is supplied.&quot;
+      },
+      {
+        &quot;rank&quot;: 29,
+        &quot;catalogOrder&quot;: 31,
+        &quot;title&quot;: &quot;Azure Core `no-openapi` rule&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/libraries/azure-core/rules/no-openapi/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 2
+        },
+        &quot;selectionRationale&quot;: &quot;Azure Core lint guidance can apply to ARM TypeSpec, but no OpenAPI-specific decorator or suppression is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 30,
+        &quot;catalogOrder&quot;: 19,
+        &quot;title&quot;: &quot;TypeSpec pagination&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://typespec.io/docs/standard-library/pagination/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No data-plane pagination decorator or paging behavior is changed.&quot;
+      },
+      {
+        &quot;rank&quot;: 31,
+        &quot;catalogOrder&quot;: 29,
+        &quot;title&quot;: &quot;Content negotiation&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/azure-core/content-negotiation/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 0,
+          &quot;servicePlane&quot;: 0,
+          &quot;changeContext&quot;: 0,
+          &quot;total&quot;: 0
+        },
+        &quot;selectionRationale&quot;: &quot;No Azure.Core content-negotiation change occurs; the constant JSON headers are preserved.&quot;
+      }
+    ],
+    &quot;documents&quot;: [
+      {
+        &quot;rank&quot;: 1,
+        &quot;catalogOrder&quot;: 1,
+        &quot;title&quot;: &quot;Evolving APIs&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/versioning/06-evolving-apis/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Primary existing-version evolution guidance covers changing ARM operations and required parameters; no exact changed template is named in catalog metadata.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Introduction&quot;,
+            &quot;excerpt&quot;: &quot;Versioning allows you to evolve your API without breaking existing clients. By using versioning decorators, you can specify when resources, operations, or properties are added, removed, or changed.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;existing-api-version&quot;,
+              &quot;operations&quot;,
+              &quot;clusterName&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-2d3d846baac34783&quot;,
+              &quot;declaration-82ecde4e4d56e9e4&quot;,
+              &quot;declaration-934363b30dd7dacf&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-06T11:56:39.9660277Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:5faf5fd80807690729c00dab44ebcfa1d698166dfb0caefc516bdf325fcfd630&quot;
+      },
+      {
+        &quot;rank&quot;: 2,
+        &quot;catalogOrder&quot;: 7,
+        &quot;title&quot;: &quot;ARM resource types and modeling&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-type/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;Changing the ARM connection&#39;s parent and resource template arguments directly concerns child-resource modeling; no exact changed construct is named.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Modeling Resources in TypeSpec&quot;,
+            &quot;excerpt&quot;: &quot;Resources are modeled in TypeSpec by choosing a _base resource type_, defining _rp-specific properties_, and optionally mixing in _standard envelope properties_.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;PrivateEndpointConnectionResource&quot;,
+              &quot;HorizonDbCluster&quot;,
+              &quot;Resource&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-2d3d846baac34783&quot;,
+              &quot;declaration-82ecde4e4d56e9e4&quot;,
+              &quot;declaration-934363b30dd7dacf&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-06T11:56:39.9660277Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:2b53184c9ab096ad2f519514bcab22ed1f7a7adf92b90f216adef9656f3dc3dd&quot;
+      },
+      {
+        &quot;rank&quot;: 3,
+        &quot;catalogOrder&quot;: 9,
+        &quot;title&quot;: &quot;Private endpoints&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/private-endpoints/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;The changed ARM private endpoint connection operations and parent arguments are the document&#39;s specific modeling category.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Adding Private Endpoint Operations to Your Resource Interface&quot;,
+            &quot;excerpt&quot;: &quot;Add private endpoint operations to your resource interface using the operations alias:&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;CustomPatchAsync&quot;,
+              &quot;DeleteAsync&quot;,
+              &quot;HorizonDbCluster&quot;,
+              &quot;PrivateEndpointConnectionResource&quot;
+            ],
+            &quot;examples&quot;: [
+              &quot;updateConnection is PrivateEndpointOps.CustomPatchAsync&lt;Employee&gt;;&quot;,
+              &quot;deleteConnection is PrivateEndpointOps.DeleteAsync&lt;Employee&gt;;&quot;
+            ],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-2d3d846baac34783&quot;,
+              &quot;declaration-82ecde4e4d56e9e4&quot;,
+              &quot;declaration-934363b30dd7dacf&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-06T11:56:39.9660277Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:5176d3a73db6278b790ed3901da3a0e52cc1ce64cac62f44c3040342b79df6a8&quot;
+      },
+      {
+        &quot;rank&quot;: 4,
+        &quot;catalogOrder&quot;: 12,
+        &quot;title&quot;: &quot;ARM resource operations&quot;,
+        &quot;canonicalUrl&quot;: &quot;https://azure.github.io/typespec-azure/docs/howtos/arm/resource-operations/&quot;,
+        &quot;score&quot;: {
+          &quot;exactSymbol&quot;: 0,
+          &quot;patternCategory&quot;: 3,
+          &quot;servicePlane&quot;: 2,
+          &quot;changeContext&quot;: 1,
+          &quot;total&quot;: 6
+        },
+        &quot;selectionRationale&quot;: &quot;ARM update/delete lifecycle templates and asynchronous behavior are changed operation context; listed list templates are not exact matches.&quot;,
+        &quot;guidance&quot;: [
+          {
+            &quot;section&quot;: &quot;Synchronous and Asynchronous APIs&quot;,
+            &quot;excerpt&quot;: &quot;CreateOrUpdate (PUT), Update (Patch), Delete, and Action (POST) operations over a resource may be either synchronous or asynchronous. Synchronous operations complete before a response is returned. Asynchronous operations return an initial response before the operation fully completes, and support long-running operation (LRO) polling. The sections below describe the available templates for both synchronous and asynchronous variants of each operation.&quot;,
+            &quot;queryTerms&quot;: [
+              &quot;CustomPatchAsync&quot;,
+              &quot;DeleteAsync&quot;,
+              &quot;LRO&quot;,
+              &quot;ArmAcceptedLroResponse&quot;
+            ],
+            &quot;examples&quot;: [],
+            &quot;applicableDeclarationIds&quot;: [
+              &quot;declaration-2d3d846baac34783&quot;,
+              &quot;declaration-82ecde4e4d56e9e4&quot;,
+              &quot;declaration-934363b30dd7dacf&quot;
+            ]
+          }
+        ],
+        &quot;noRelevantGuidance&quot;: false,
+        &quot;retrievedAt&quot;: &quot;2026-11-06T11:56:39.9660277Z&quot;,
+        &quot;contentHash&quot;: &quot;sha256:64bcbd90fd1df66e921b1bdcd0d0150db20799641cd96bc6a8c04dcc885f90d2&quot;
+      }
+    ]
+  },
+  &quot;intentAssessments&quot;: [
+    {
+      &quot;semanticIntentId&quot;: &quot;semantic-e0ef144ca8ef18d9&quot;,
+      &quot;decision&quot;: &quot;applicable-fail&quot;,
+      &quot;blockers&quot;: []
+    }
+  ],
+  &quot;retrievalFailures&quot;: [],
+  &quot;blockers&quot;: []
+}</pre></details>
+<h3>Changed files</h3><ul><li><code>specification/horizondb/resource-manager/Microsoft.HorizonDb/HorizonDb/routes.tsp</code> (committed)</li></ul>
+<h3>Timing and model input</h3><pre>{
+  &quot;timings&quot;: {
+    &quot;metadataMs&quot;: 1870,
+    &quot;fetchMs&quot;: 158,
+    &quot;scopeDiscoveryMs&quot;: 76,
+    &quot;setupExcludingFetchMs&quot;: 16120,
+    &quot;comparisonMs&quot;: 147,
+    &quot;changeDiscoveryMs&quot;: 114,
+    &quot;workspacePreparationMs&quot;: 13676,
+    &quot;projectDiscoveryMs&quot;: 29,
+    &quot;totalMs&quot;: 92481,
+    &quot;semanticAnalysisMs&quot;: 31,
+    &quot;restAnalysisMs&quot;: 42,
+    &quot;downstreamAnalysisMs&quot;: 848,
+    &quot;documentQualityAnalysisMs&quot;: 0
+  },
+  &quot;inputAccounting&quot;: {
+    &quot;budgetTier&quot;: &quot;small&quot;,
+    &quot;budgetBytes&quot;: 131072,
+    &quot;bytes&quot;: 42769,
+    &quot;estimatedTokens&quot;: 10693,
+    &quot;retained&quot;: {
+      &quot;evidenceSets&quot;: 8,
+      &quot;facts&quot;: 20,
+      &quot;semanticReviewUnits&quot;: 1,
+      &quot;restCandidates&quot;: 5,
+      &quot;downstreamCandidates&quot;: 7,
+      &quot;sourceReviewDeclarations&quot;: 0,
+      &quot;sourceReviewRequests&quot;: 0,
+      &quot;complianceSearchRequests&quot;: 1,
+      &quot;inferenceRequests&quot;: 0
+    },
+    &quot;omittedRedundant&quot;: {
+      &quot;rawEmitterArtifacts&quot;: true,
+      &quot;compilerLogs&quot;: true,
+      &quot;unchangedInventories&quot;: true,
+      &quot;unreferencedFacts&quot;: true,
+      &quot;unreferencedDeterministicFacts&quot;: true,
+      &quot;sourceChanges&quot;: true,
+      &quot;repeatedDeclarationIds&quot;: true,
+      &quot;repeatedReviewUnitEvidence&quot;: true
+    },
+    &quot;compliance&quot;: {
+      &quot;catalogEntriesScored&quot;: 31,
+      &quot;documentsFetched&quot;: 4,
+      &quot;documentBytesFetched&quot;: 1028,
+      &quot;guidanceExcerptsRetained&quot;: 4,
+      &quot;guidanceExcerptBytesRetained&quot;: 897
+    }
+  }
+}</pre>
+<p><strong>Provenance:</strong> model-input.json, source-association-input.json, source-association.json, dimensions/document-quality-input.json, compliance-search-evidence.json, assessment-judgment.json, preparation-manifest.json</p></div></details></section>
+</main>
+<script>
+function revealHashTarget() {
+  const target = document.getElementById(location.hash.slice(1));
+  if (!target) return;
+  for (let element = target; element; element = element.parentElement) {
+    if (element.tagName === "DETAILS") element.open = true;
+  }
+  target.scrollIntoView({ block: "start" });
+}
+window.addEventListener("hashchange", revealHashTarget);
+document.addEventListener("click", (event) => {
+  if (event.target instanceof Element &&
+      event.target.closest(".report-card > summary .report-intent-relations") &&
+      !event.target.closest("a")) {
+    event.preventDefault();
+    return;
+  }
+  const link = event.target instanceof Element
+    ? event.target.closest('a[href^="#"]')
+    : null;
+  if (link) {
+    event.preventDefault();
+    location.hash = link.getAttribute("href");
+    window.setTimeout(revealHashTarget);
+  }
+});
+revealHashTarget();
+</script>
+</body></html>

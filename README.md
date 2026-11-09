@@ -68,3 +68,28 @@ per-file size limit.
 The overall safety verdict covers REST and downstream SDK compatibility only.
 Azure Guidelines and Documentation Completeness remain independently reported.
 A blocked result is never presented as a compatibility pass.
+
+## November 9 two-stage reports
+
+These are the existing two-stage runs, not reruns against the later stacked
+preview-only policy. They are published separately so the dashboards and
+historical reports retain their existing data and navigation.
+
+| Azure/azure-rest-api-specs PR | HTML report | Structured result | REST / SDK findings |
+| --- | --- | --- | --- |
+| 46679 | [Report](reports/pr-46679-two-stage-2026-11-09/) | [JSON](reports/pr-46679-two-stage-2026-11-09/assessment.json) | 4 / 10 |
+| 44988 | [Report](reports/pr-44988-two-stage-2026-11-09/) | [JSON (gzip)](reports/pr-44988-two-stage-2026-11-09/assessment.json.gz) | 6 / 3 |
+| 44288 | [Report](reports/pr-44288-two-stage-2026-11-09/) | [JSON](reports/pr-44288-two-stage-2026-11-09/assessment.json) | 4 / 4 |
+| 43918 | [Report](reports/pr-43918-two-stage-2026-11-09/) | [JSON](reports/pr-43918-two-stage-2026-11-09/assessment.json) | 0 / 0 |
+
+PR 43918 remains **unknown/blocked**, with source AI skipped; zero findings do
+not mean compatibility passed. PR 46679 includes the repaired REST
+`CloudAccountProperties` owner, complete model source with `@removed`, and
+reciprocal affected-intent links.
+
+[Publication metadata](two-stage-publication-manifest.json) records source and
+published hashes, run identities, verdicts, and sanitization. HTML reports are
+published unchanged. JSON downloads replace local workspace/artifact path
+prefixes with placeholders; assessment content and canonical public code links
+are preserved. The PR 44988 JSON download is gzip-compressed to stay below
+GitHub's per-file size limit.
