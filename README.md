@@ -93,3 +93,20 @@ published unchanged. JSON downloads replace local workspace/artifact path
 prefixes with placeholders; assessment content and canonical public code links
 are preserved. The PR 44988 JSON download is gzip-compressed to stay below
 GitHub's per-file size limit.
+
+## November 10 provenance-fixed report
+
+The fresh scoped repair for Azure/azure-rest-api-specs PR 46679 is available as
+[HTML](reports/pr-46679-provenance-fixed-2026-11-10/) and
+[JSON](reports/pr-46679-provenance-fixed-2026-11-10/assessment.json), with
+[publication metadata](reports/pr-46679-provenance-fixed-2026-11-10/publication.json).
+It retains **7 REST and 12 SDK findings**, with **19/19 complete source mappings**
+and no unresolved source mappings. Compatibility remains **failed**, with
+partial evidence coverage; successful report generation is not a compatibility pass.
+
+The generated `CloudAccountUpdate` and `CloudAccountUpdateProperties` removals
+are independently retained, not treated as a rename. Their model cards include
+the complete baseline/current `CloudAccounts` operation/template source showing
+`ArmCustomPatchAsync`, `ResourceUpdateModel`, and `ArmResourcePatchAsync`.
+The HTML is unchanged from the supplied report; JSON uses the documented
+path-only sanitization. Earlier reports, dashboard data, and history are preserved.
