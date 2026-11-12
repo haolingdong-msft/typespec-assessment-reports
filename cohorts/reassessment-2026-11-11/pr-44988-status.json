@@ -1,0 +1,81 @@
+{
+  "pullRequest": 44988,
+  "name": "Network",
+  "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/44988",
+  "status": "blocked-no-validated-report",
+  "startedAtUtc": "2026-11-11T09:27:35.3022907Z",
+  "lastAttemptEndedAtUtc": "2026-11-12T02:46:14.8900491Z",
+  "preparationSeconds": 1597.8449764,
+  "judgmentAiSeconds": 170.3815949,
+  "sourceAiSeconds": 50.6737836,
+  "materializationSeconds": 0.7696332,
+  "sourceBuildRuntimeSeconds": 0.21,
+  "sourceMaterializationRuntimeSeconds": 0.213,
+  "failedFinalizationSeconds": 1.7569059,
+  "successfulEndToEndSeconds": null,
+  "observedCumulativeEndToEndSeconds": 62319.5877584,
+  "preparationEndToJudgmentStartGapSeconds": 60412.4096364,
+  "judgmentInput": {
+    "compactBytes": 86325,
+    "physicalBytes": 163474,
+    "estimatedTokens": 21582
+  },
+  "sourceInput": {
+    "compactBytes": 12866,
+    "physicalBytes": 18894,
+    "estimatedTokens": 3217
+  },
+  "sourceQueries": {
+    "count": 3,
+    "retrievedBytes": 1257,
+    "canonicalDeclarationBytes": 0
+  },
+  "candidateCoverage": {
+    "semanticUnits": 2,
+    "rest": 0,
+    "restStatus": "not-assessed",
+    "downstream": 6,
+    "inferenceRequests": 9
+  },
+  "provisionalFindings": {
+    "rest": null,
+    "downstream": 3,
+    "guideline": 1,
+    "documentation": null
+  },
+  "limits": [
+    "Blocked: no validated report, no successful E2E, and no compatibility verdict.",
+    "AutoRest contract analysis returned Invalid string length; REST evidence is unavailable.",
+    "Guarded finalization rejected 60 missing source hunks, none present in the two canonical semantic review units.",
+    "Three provisional accepted SDK source associations remain unresolved after scoped queries returned no canonical declarations.",
+    "Not like-for-like: reduced REST/semantic coverage and smaller input are not an optimization or speedup claim.",
+    "Observed E2E includes a 60412.4096364-second overnight inactive/scheduling gap, not provider compute."
+  ],
+  "historicalBaseline": {
+    "kind": "historical-observed-cohort-not-fresh-parent-branch-benchmark",
+    "preparationSeconds": 661.23,
+    "judgmentAiSeconds": 612.884,
+    "sourceAiSeconds": 86.792,
+    "endToEndSeconds": 2118.669,
+    "judgmentCompactInputBytes": 626953,
+    "sourceCompactInputBytes": 39974,
+    "findings": {
+      "rest": 6,
+      "sdk": 3
+    }
+  },
+  "reportUrl": null,
+  "assessmentJsonUrl": null,
+  "statusUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/cohorts/reassessment-2026-11-11/pr-44988.html",
+  "diagnostic": {
+    "status": "blocked-no-validated-report",
+    "earlierBlocker": "AutoRest contract analysis: Invalid string length",
+    "failedStage": "guarded-finalization",
+    "exitCode": 1,
+    "canonicalReviewUnits": 2,
+    "missingHunks": 60,
+    "missingHunksPresentInCanonicalUnits": 0,
+    "successfulEndToEndSeconds": null,
+    "fullFailureAndCanonicalInputs": "Retained locally; not published."
+  }
+}

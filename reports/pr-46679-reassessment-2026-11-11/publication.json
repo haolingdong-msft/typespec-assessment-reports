@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "pr": 46679,
+  "sourceRun": "reassessment-20261111/pr-46679",
+  "generatedAt": "2026-11-11T09:27:00.192Z",
+  "cohort": "2026-11-11-conflict-resolved-runtime",
+  "runtime": {
+    "headCommit": "3f6a390649709229f5865d19a6bedd593b24707c",
+    "headCommitProvenance": "Pinned runtime HEAD supplied by coordinating session, not a fresh Git metadata probe.",
+    "fingerprint": "sha256:6c6098e0775bef23c17a34af9e9a3780a306325c0b3167d67b093978cef5f77c",
+    "fingerprintProvenance": "Canonical agent index/workflow-state binding; unchanged originating runtime commands used."
+  },
+  "safety": {
+    "scope": "rest-and-downstream-only",
+    "status": "failed",
+    "verdict": "failed",
+    "coverage": "partial"
+  },
+  "findings": {
+    "rest": 7,
+    "downstream": 12,
+    "guideline": 1,
+    "documentation": 0
+  },
+  "statuses": {
+    "semantic": "assessed",
+    "rest": "failed",
+    "downstream": "failed",
+    "compliance": "failed",
+    "documentQuality": "passed"
+  },
+  "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679-reassessment-2026-11-11/",
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679-reassessment-2026-11-11/assessment.json",
+  "sourceAssessmentHtmlSha256": "c2edf9e4c08f192e85055f52460eedec0b9c52eeb98372725224c1beda8ef0b8",
+  "sourceAssessmentJsonSha256": "bf632895fc4c75ac5bbe0f60aa7378878041dcc39520afe30d933dae7bcbdc12",
+  "publishedAssessmentHtmlSha256": "c2edf9e4c08f192e85055f52460eedec0b9c52eeb98372725224c1beda8ef0b8",
+  "publishedAssessmentJsonSha256": "f72dfebc102553813827f69fade3f579b18eae834950c49ea7ad05d41a3f0fee",
+  "sourcePerformanceSha256": "1090eb3ffa3381d7f2b04847fb72d92694787520a2abb2562402e9914bf54865",
+  "sanitization": {
+    "description": "HTML unchanged. JSON replaces only local workspace/artifact path prefixes with placeholders; assessment content and canonical public code links are preserved.",
+    "redactedFields": [
+      "$.repository.root",
+      "$.projects[0].artifacts.baseline.autorest.command.args[1]",
+      "$.projects[0].artifacts.baseline.autorest.command.args[3]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[1]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[2]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[3]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[5]",
+      "$.projects[0].artifacts.target.autorest.command.args[1]",
+      "$.projects[0].artifacts.target.autorest.command.args[3]",
+      "$.projects[0].artifacts.target.tcgc.command.args[1]",
+      "$.projects[0].artifacts.target.tcgc.command.args[2]",
+      "$.projects[0].artifacts.target.tcgc.command.args[3]",
+      "$.projects[0].artifacts.target.tcgc.command.args[5]"
+    ]
+  },
+  "limits": [
+    "Emitter-specific visibility splitting inference blocked without TypeScript emitted surface evidence.",
+    "Source context recovered oversized canonical input via bounded rereads, not saved-buffer-only recovery; not a pure single-read baseline.",
+    "E2E includes coordinator-to-child handoff."
+  ]
+}

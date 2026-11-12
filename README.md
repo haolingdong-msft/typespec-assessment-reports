@@ -110,3 +110,24 @@ the complete baseline/current `CloudAccounts` operation/template source showing
 `ArmCustomPatchAsync`, `ResourceUpdateModel`, and `ArmResourcePatchAsync`.
 The HTML is unchanged from the supplied report; JSON uses the documented
 path-only sanitization. Earlier reports, dashboard data, and history are preserved.
+
+## November 11-12 reassessment cohort
+
+The [four-row performance/status page](cohorts/reassessment-2026-11-11/) publishes
+the conflict-resolved runtime cohort: **three validated reports and one blocked
+attempt**, with historical-to-fresh stage/input comparisons and timing caveats.
+The [performance JSON](cohorts/reassessment-2026-11-11/performance.json) records
+the measured stages, actual E2E boundaries, input sizes, and limitations.
+
+| Azure/azure-rest-api-specs PR | New cohort result | REST / SDK findings |
+| --- | --- | --- |
+| 46679 | [Report](reports/pr-46679-reassessment-2026-11-11/) / [JSON](reports/pr-46679-reassessment-2026-11-11/assessment.json): compatibility failed, partial evidence coverage | 7 / 12 |
+| 44988 | [Blocked diagnostic/performance summary](cohorts/reassessment-2026-11-11/pr-44988.html): **no validated report or successful E2E** | Unavailable / provisional only |
+| 44288 | [Report](reports/pr-44288-reassessment-2026-11-11/) / [JSON](reports/pr-44288-reassessment-2026-11-11/assessment.json): compatibility failed, complete evidence coverage | 4 / 2 |
+| 43918 | [Report](reports/pr-43918-reassessment-2026-11-11/) / [JSON](reports/pr-43918-reassessment-2026-11-11/assessment.json): passed for the selected stable-version pair, source AI skipped | 0 / 0 |
+
+These are wall-time observations, not pure provider compute or a controlled
+speedup benchmark. PR 44988's observed failed-attempt E2E includes a separately
+measured overnight inactive/scheduling gap; reduced evidence coverage is not an
+optimization claim. Fleet's result applies to `2025-03-01` to `2026-06-01`, not a
+blanket preview exemption. Earlier reports and dashboard data remain unchanged.

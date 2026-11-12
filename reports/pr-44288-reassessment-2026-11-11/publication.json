@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "pr": 44288,
+  "sourceRun": "reassessment-20261111/pr-44288",
+  "generatedAt": "2026-11-12T02:54:42.312Z",
+  "cohort": "2026-11-11-conflict-resolved-runtime",
+  "runtime": {
+    "headCommit": "3f6a390649709229f5865d19a6bedd593b24707c",
+    "headCommitProvenance": "Pinned runtime HEAD supplied by coordinating session, not a fresh Git metadata probe.",
+    "fingerprint": "sha256:6c6098e0775bef23c17a34af9e9a3780a306325c0b3167d67b093978cef5f77c",
+    "fingerprintProvenance": "Canonical agent index/workflow-state binding; unchanged originating runtime commands used."
+  },
+  "safety": {
+    "scope": "rest-and-downstream-only",
+    "status": "failed",
+    "verdict": "failed",
+    "coverage": "complete"
+  },
+  "findings": {
+    "rest": 4,
+    "downstream": 2,
+    "guideline": 1,
+    "documentation": 0
+  },
+  "statuses": {
+    "semantic": "assessed",
+    "rest": "failed",
+    "downstream": "failed",
+    "compliance": "failed",
+    "documentQuality": "not-applicable"
+  },
+  "publicReportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288-reassessment-2026-11-11/",
+  "publicJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288-reassessment-2026-11-11/assessment.json",
+  "sourceAssessmentHtmlSha256": "e76baf7a4f364d4737bd49bf723b04c9fd36e3db4cc9c3c6fbc3542a5ea0ce4c",
+  "sourceAssessmentJsonSha256": "6ebe4179340ab0ac99c13509c41c341f5c2c166f63483cd37ffdbdd41ce751c3",
+  "publishedAssessmentHtmlSha256": "e76baf7a4f364d4737bd49bf723b04c9fd36e3db4cc9c3c6fbc3542a5ea0ce4c",
+  "publishedAssessmentJsonSha256": "5210902741db6544a7b13f3d84d51c6950323bb7b2bd73d4391f264a10e21653",
+  "sourcePerformanceSha256": "2504516c8e52a735a6679c16f9b73ea7ddedc27bd1e7a20035a5f6565fb90b32",
+  "sanitization": {
+    "description": "HTML unchanged. JSON replaces only local workspace/artifact path prefixes with placeholders; assessment content and canonical public code links are preserved.",
+    "redactedFields": [
+      "$.repository.root",
+      "$.projects[0].artifacts.baseline.autorest.command.args[1]",
+      "$.projects[0].artifacts.baseline.autorest.command.args[3]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[1]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[2]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[3]",
+      "$.projects[0].artifacts.baseline.tcgc.command.args[5]",
+      "$.projects[0].artifacts.target.autorest.command.args[1]",
+      "$.projects[0].artifacts.target.autorest.command.args[3]",
+      "$.projects[0].artifacts.target.tcgc.command.args[1]",
+      "$.projects[0].artifacts.target.tcgc.command.args[2]",
+      "$.projects[0].artifacts.target.tcgc.command.args[3]",
+      "$.projects[0].artifacts.target.tcgc.command.args[5]"
+    ]
+  },
+  "limits": [
+    "Independent CommonTypes.PrivateEndpointConnection removal rejected for insufficient causal evidence; not proof of preserved type availability."
+  ]
+}

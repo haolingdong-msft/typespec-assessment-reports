@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "cohort": "2026-11-11-conflict-resolved-runtime",
+  "executionDates": "2026-11-11 through 2026-11-12",
+  "executionOrder": [
+    46679,
+    44988,
+    44288,
+    43918
+  ],
+  "assessmentExecution": "sequential",
+  "result": "3 validated reports; 1 blocked attempt with no validated report",
+  "runtime": {
+    "headCommit": "3f6a390649709229f5865d19a6bedd593b24707c",
+    "headCommitProvenance": "Pinned runtime HEAD supplied by coordinating session, not a fresh Git metadata probe.",
+    "parentCommit": "8e94d38b36644ed77b62cefea0d5a294137f45a9",
+    "fingerprint": "sha256:6c6098e0775bef23c17a34af9e9a3780a306325c0b3167d67b093978cef5f77c",
+    "fingerprintProvenance": "Canonical agent index/workflow-state binding; unchanged originating runtime commands used.",
+    "pipelineVersion": 2
+  },
+  "measurementDefinitions": {
+    "seconds": "Elapsed wall seconds, not isolated provider compute. AI phase times include reasoning, tool execution, network and transport.",
+    "endToEnd": "Exact UTC coordinator invocation start to verified HTTP 200, or failed-finalization end for blocked run. Includes handoff/inter-phase idle intervals. Successful E2E is null for blocked run.",
+    "providerComputeSeconds": null,
+    "inputBytes": "Physical UTF-8 bounded input file size versus compact JSON accounting; these are not identical measures. Source bytes refer to accepted-finding source-only input, not query responses.",
+    "estimatedTokens": "Approximately ceil(compact bytes / 4); estimates only, not tokenizer-measured or billed usage.",
+    "sourceQueryBytes": "UTF-8 compact JSON response payload bytes, excluding process wrappers and line endings; not exclusively TypeSpec text.",
+    "guidanceBytes": "Persisted normalized excerpts from actual official web_fetch retrievals. Native whole-response byte/hash metadata unavailable; no fabricated whole-response hashes.",
+    "sourceMaterializationRuntime": "Runtime workflow telemetry, not outer process wall time; do not sum overlapping measurements.",
+    "unmeasuredIntervals": "Remain in observed E2E. No guessed reasoning/provider compute subtraction or fabricated correction timings.",
+    "overnightGap": "44988 preparation completion to judgment start = 60412.4096364 seconds. Known inactive/scheduling gap, explicitly separated from measured processing stages."
+  },
+  "historicalBaseline": {
+    "generatedAt": "2026-11-06T12:25:17.500Z",
+    "inputSizeMetric": "UTF-8 compact JSON; source input is zero when no source AI was invoked",
+    "aiTimeMetric": "Phase wall time from measured timestamps; includes input/tool/model activity, not provider-only reasoning",
+    "endToEndMetric": "Coordinator invocation to successful guarded finalization; serving recorded separately",
+    "caveats": [
+      "Historical observed cohort, not a fresh parent-branch benchmark.",
+      "Historical E2E ends at successful guarded finalization; fresh E2E ends at verified local HTTP 200. Serving boundaries differ.",
+      "PR 46679 historical E2E includes engineering/interleaving/retries. Finding counts differ for PRs 46679 and 44288; not identical-output speedup.",
+      "PR 44988 failed with reduced evidence coverage; no successful E2E or speedup comparison.",
+      "Stage wall times include tools, reasoning and transport, not isolated provider compute. Do not sum overlapping outer/runtime telemetry."
+    ]
+  },
+  "sanitization": "Allowlisted performance/diagnostic projection only: local paths, local report-server URLs, raw commands, full errors and internal artifact references are omitted. No model inputs, logs, caches or decisions are published.",
+  "rows": [
+    {
+      "pullRequest": 46679,
+      "name": "Commvault",
+      "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/46679",
+      "status": "validated-report-with-partial-compatibility-coverage",
+      "startedAtUtc": "2026-11-11T09:12:16.5491264+00:00",
+      "completedAtUtc": "2026-11-11T09:27:13.2565220Z",
+      "preparationSeconds": 182.599,
+      "judgmentAiSeconds": 330.387617,
+      "sourceAiSeconds": 104.5314822,
+      "materializationSeconds": 0.5507906,
+      "sourceBuildRuntimeSeconds": 0.161,
+      "sourceMaterializationRuntimeSeconds": 0.402,
+      "finalizationSeconds": 1.0031862,
+      "successfulEndToEndSeconds": 896.7073956,
+      "observedCumulativeEndToEndSeconds": 896.7073956,
+      "judgmentInput": {
+        "compactBytes": 151867,
+        "physicalBytes": 257683,
+        "estimatedTokens": 37967
+      },
+      "sourceInput": {
+        "compactBytes": 80907,
+        "physicalBytes": 141434,
+        "estimatedTokens": 20227
+      },
+      "sourceQueries": {
+        "count": 1,
+        "retrievedBytes": 5955
+      },
+      "candidateCoverage": {
+        "semanticUnits": 2,
+        "rest": 31,
+        "downstream": 14,
+        "inferenceRequests": 9
+      },
+      "findings": {
+        "rest": 7,
+        "downstream": 12,
+        "guideline": 1,
+        "documentation": 0
+      },
+      "documentationStatus": "passed",
+      "safety": {
+        "verdict": "failed",
+        "coverage": "partial"
+      },
+      "limits": [
+        "Emitter-specific visibility splitting inference blocked without TypeScript emitted surface evidence.",
+        "Source context recovered oversized canonical input via bounded rereads, not saved-buffer-only recovery; not a pure single-read baseline.",
+        "E2E includes coordinator-to-child handoff."
+      ],
+      "historicalBaseline": {
+        "kind": "historical-observed-cohort-not-fresh-parent-branch-benchmark",
+        "preparationSeconds": 108.101,
+        "judgmentAiSeconds": 454.966,
+        "sourceAiSeconds": 175.819,
+        "endToEndSeconds": 3710.9,
+        "judgmentCompactInputBytes": 169837,
+        "sourceCompactInputBytes": 64471,
+        "findings": {
+          "rest": 4,
+          "sdk": 10
+        }
+      },
+      "reportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679-reassessment-2026-11-11/",
+      "assessmentJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679-reassessment-2026-11-11/assessment.json",
+      "performanceUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-46679-reassessment-2026-11-11/performance.json"
+    },
+    {
+      "pullRequest": 44988,
+      "name": "Network",
+      "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/44988",
+      "status": "blocked-no-validated-report",
+      "startedAtUtc": "2026-11-11T09:27:35.3022907Z",
+      "lastAttemptEndedAtUtc": "2026-11-12T02:46:14.8900491Z",
+      "preparationSeconds": 1597.8449764,
+      "judgmentAiSeconds": 170.3815949,
+      "sourceAiSeconds": 50.6737836,
+      "materializationSeconds": 0.7696332,
+      "sourceBuildRuntimeSeconds": 0.21,
+      "sourceMaterializationRuntimeSeconds": 0.213,
+      "failedFinalizationSeconds": 1.7569059,
+      "successfulEndToEndSeconds": null,
+      "observedCumulativeEndToEndSeconds": 62319.5877584,
+      "preparationEndToJudgmentStartGapSeconds": 60412.4096364,
+      "judgmentInput": {
+        "compactBytes": 86325,
+        "physicalBytes": 163474,
+        "estimatedTokens": 21582
+      },
+      "sourceInput": {
+        "compactBytes": 12866,
+        "physicalBytes": 18894,
+        "estimatedTokens": 3217
+      },
+      "sourceQueries": {
+        "count": 3,
+        "retrievedBytes": 1257,
+        "canonicalDeclarationBytes": 0
+      },
+      "candidateCoverage": {
+        "semanticUnits": 2,
+        "rest": 0,
+        "restStatus": "not-assessed",
+        "downstream": 6,
+        "inferenceRequests": 9
+      },
+      "provisionalFindings": {
+        "rest": null,
+        "downstream": 3,
+        "guideline": 1,
+        "documentation": null
+      },
+      "limits": [
+        "Blocked: no validated report, no successful E2E, and no compatibility verdict.",
+        "AutoRest contract analysis returned Invalid string length; REST evidence is unavailable.",
+        "Guarded finalization rejected 60 missing source hunks, none present in the two canonical semantic review units.",
+        "Three provisional accepted SDK source associations remain unresolved after scoped queries returned no canonical declarations.",
+        "Not like-for-like: reduced REST/semantic coverage and smaller input are not an optimization or speedup claim.",
+        "Observed E2E includes a 60412.4096364-second overnight inactive/scheduling gap, not provider compute."
+      ],
+      "historicalBaseline": {
+        "kind": "historical-observed-cohort-not-fresh-parent-branch-benchmark",
+        "preparationSeconds": 661.23,
+        "judgmentAiSeconds": 612.884,
+        "sourceAiSeconds": 86.792,
+        "endToEndSeconds": 2118.669,
+        "judgmentCompactInputBytes": 626953,
+        "sourceCompactInputBytes": 39974,
+        "findings": {
+          "rest": 6,
+          "sdk": 3
+        }
+      },
+      "reportUrl": null,
+      "assessmentJsonUrl": null,
+      "statusUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/cohorts/reassessment-2026-11-11/pr-44988.html",
+      "diagnostic": {
+        "status": "blocked-no-validated-report",
+        "earlierBlocker": "AutoRest contract analysis: Invalid string length",
+        "failedStage": "guarded-finalization",
+        "exitCode": 1,
+        "canonicalReviewUnits": 2,
+        "missingHunks": 60,
+        "missingHunksPresentInCanonicalUnits": 0,
+        "successfulEndToEndSeconds": null,
+        "fullFailureAndCanonicalInputs": "Retained locally; not published."
+      }
+    },
+    {
+      "pullRequest": 44288,
+      "name": "HorizonDB",
+      "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/44288",
+      "status": "validated-report",
+      "startedAtUtc": "2026-11-12T02:47:14.6460762Z",
+      "completedAtUtc": "2026-11-12T02:54:57.0825596Z",
+      "preparationSeconds": 113.4480096,
+      "judgmentAiSeconds": 145.7373162,
+      "sourceAiSeconds": 76.7888713,
+      "materializationSeconds": 0.4230606,
+      "sourceBuildRuntimeSeconds": 0.146,
+      "sourceMaterializationRuntimeSeconds": 0.137,
+      "finalizationSeconds": 1.0437238,
+      "successfulEndToEndSeconds": 462.4364834,
+      "observedCumulativeEndToEndSeconds": 462.4364834,
+      "judgmentInput": {
+        "compactBytes": 33416,
+        "physicalBytes": 48653,
+        "estimatedTokens": 8354
+      },
+      "sourceInput": {
+        "compactBytes": 29234,
+        "physicalBytes": 43747,
+        "estimatedTokens": 7309
+      },
+      "sourceQueries": {
+        "count": 2,
+        "retrievedBytes": 9762
+      },
+      "candidateCoverage": {
+        "semanticUnits": 1,
+        "rest": 5,
+        "downstream": 7,
+        "inferenceRequests": 0
+      },
+      "findings": {
+        "rest": 4,
+        "downstream": 2,
+        "guideline": 1,
+        "documentation": 0
+      },
+      "documentationStatus": "not-applicable",
+      "safety": {
+        "verdict": "failed",
+        "coverage": "complete"
+      },
+      "limits": [
+        "Independent CommonTypes.PrivateEndpointConnection removal rejected for insufficient causal evidence; not proof of preserved type availability."
+      ],
+      "historicalBaseline": {
+        "kind": "historical-observed-cohort-not-fresh-parent-branch-benchmark",
+        "preparationSeconds": 96.266,
+        "judgmentAiSeconds": 235.764,
+        "sourceAiSeconds": 139.387,
+        "endToEndSeconds": 795.981,
+        "judgmentCompactInputBytes": 42769,
+        "sourceCompactInputBytes": 31005,
+        "findings": {
+          "rest": 4,
+          "sdk": 4
+        }
+      },
+      "reportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288-reassessment-2026-11-11/",
+      "assessmentJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288-reassessment-2026-11-11/assessment.json",
+      "performanceUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-44288-reassessment-2026-11-11/performance.json"
+    },
+    {
+      "pullRequest": 43918,
+      "name": "ContainerService Fleet",
+      "prUrl": "https://github.com/Azure/azure-rest-api-specs/pull/43918",
+      "status": "validated-report",
+      "startedAtUtc": "2026-11-12T02:55:16.0350057Z",
+      "completedAtUtc": "2026-11-12T03:01:54.2977965Z",
+      "preparationSeconds": 141.1766837,
+      "judgmentAiSeconds": 179.7989277,
+      "sourceAiSeconds": 0,
+      "sourceAiStatus": "skipped-validated-not-applicable",
+      "materializationSeconds": 0.4115879,
+      "sourceBuildWallSeconds": 0.4268327,
+      "sourceBuildRuntimeSeconds": 0.125,
+      "sourceMaterializationRuntimeSeconds": 0.115,
+      "finalizationSeconds": 0.8584165,
+      "successfulEndToEndSeconds": 398.2627908,
+      "observedCumulativeEndToEndSeconds": 398.2627908,
+      "judgmentInput": {
+        "compactBytes": 46608,
+        "physicalBytes": 77277,
+        "estimatedTokens": 11652
+      },
+      "sourceInput": {
+        "compactBytes": 0,
+        "physicalBytes": 0,
+        "estimatedTokens": 0,
+        "scope": "No source AI input consumed; builder still persisted deterministic artifacts."
+      },
+      "sourceQueries": {
+        "count": 0,
+        "retrievedBytes": 0
+      },
+      "candidateCoverage": {
+        "semanticUnits": 4,
+        "informationalUnits": 1,
+        "rest": 0,
+        "downstream": 0,
+        "inferenceRequests": 12
+      },
+      "findings": {
+        "rest": 0,
+        "downstream": 0,
+        "guideline": 0,
+        "documentation": 0
+      },
+      "documentationStatus": "not-applicable",
+      "guidelinePasses": 4,
+      "safety": {
+        "verdict": "passed",
+        "coverage": "complete"
+      },
+      "comparison": {
+        "baseline": "2025-03-01",
+        "target": "2026-06-01",
+        "sourceRevisionForBoth": "current"
+      },
+      "limits": [
+        "No incompatibility under actual stable baseline/target pair. Not blanket preview exemption or assessment of preview-to-stable migration."
+      ],
+      "historicalBaseline": {
+        "kind": "historical-observed-cohort-not-fresh-parent-branch-benchmark",
+        "preparationSeconds": 111.031,
+        "judgmentAiSeconds": 423.961,
+        "sourceAiSeconds": 0,
+        "endToEndSeconds": 698.648,
+        "judgmentCompactInputBytes": 54656,
+        "sourceCompactInputBytes": 0,
+        "findings": {
+          "rest": 0,
+          "sdk": 0
+        }
+      },
+      "reportUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43918-reassessment-2026-11-11/",
+      "assessmentJsonUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43918-reassessment-2026-11-11/assessment.json",
+      "performanceUrl": "https://haolingdong-msft.github.io/typespec-assessment-reports/reports/pr-43918-reassessment-2026-11-11/performance.json"
+    }
+  ]
+}
