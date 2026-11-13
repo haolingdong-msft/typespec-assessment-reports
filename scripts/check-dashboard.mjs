@@ -17,12 +17,13 @@ const reportPaths = reportDirectories
   .filter((entry) => entry.isDirectory())
   .map((entry) => path.join(reportsRoot, entry.name, "index.html"));
 
-const [html, operationsHtml, combinedHtml, reportHtml, alignmentData] = await Promise.all([
+const [html, operationsHtml, combinedHtml, reportHtml, alignmentData, sourceReports] = await Promise.all([
   readFile(path.join(root, "index.html"), "utf8"),
   readFile(path.join(root, "operations.html"), "utf8"),
   readFile(path.join(root, "combined.html"), "utf8"),
   Promise.all(reportPaths.map((reportPath) => readFile(reportPath, "utf8"))),
   readFile(path.join(root, "alignment-data.json"), "utf8").then(JSON.parse),
+  readFile(path.join(root, "reports.json"), "utf8").then(JSON.parse),
 ]);
 
 assert(html.includes('fetch("alignment-data.json"'), "Dashboard does not load alignment-data.json.");
@@ -71,6 +72,8 @@ assert(alignmentData.reportCount === alignmentData.reports.length, "Alignment re
 assert(alignmentData.reportCount === 34, `Expected 34 reports, found ${alignmentData.reportCount}.`);
 
 const categories = { aligned: 0, expected: 0, unknown: 0 };
+const sourceReportsByPr = new Map(sourceReports.map((report) => [report.pr, report]));
+const regenerationCounts = { observed: 0, "not-observed": 0, unverified: 0 };
 let aggregatedSdkReleaseCount = 0;
 for (const report of alignmentData.reports) {
   assert(categories[report.category] !== undefined, `PR #${report.pr} has an invalid category.`);
@@ -78,6 +81,14 @@ for (const report of alignmentData.reports) {
   assert(typeof report.coverage === "string", `PR #${report.pr} is missing coverage.`);
   assert(typeof report.rootCauseCategory === "string", `PR #${report.pr} is missing a root cause category.`);
   assert(typeof report.rootCause === "string", `PR #${report.pr} is missing a root cause.`);
+  assert(
+    [true, false, null].includes(report.regenerationFlag) &&
+      report.regenerationFlag === sourceReportsByPr.get(report.pr)?.regenerationFlag,
+    `PR #${report.pr} has invalid or inconsistent regeneration data.`,
+  );
+  regenerationCounts[
+    report.regenerationFlag === true ? "observed" : report.regenerationFlag === false ? "not-observed" : "unverified"
+  ] += 1;
   assert(
     typeof report.sdkReleaseIncludesSameApiVersionSpecPrs === "boolean",
     `PR #${report.pr} is missing the same-version SDK release aggregation flag.`,
@@ -113,6 +124,65 @@ assert(
   `Unexpected category totals: ${JSON.stringify(categories)}.`,
 );
 assert(aggregatedSdkReleaseCount === 6, `Expected 6 same-version aggregated SDK releases, found ${aggregatedSdkReleaseCount}.`);
+assert(
+  JSON.stringify(regenerationCounts) === JSON.stringify({ observed: 20, "not-observed": 10, unverified: 4 }),
+  `Unexpected regeneration totals: ${JSON.stringify(regenerationCounts)}.`,
+);
+
+const elements = new Map();
+const context = vm.createContext({
+  document: {
+    querySelector(selector) {
+      if (!elements.has(selector)) {
+        elements.set(selector, {
+          innerHTML: "",
+          textContent: "",
+          value: "",
+          style: {},
+          classList: { toggle() {}, remove() {} },
+          addEventListener() {},
+        });
+      }
+      return elements.get(selector);
+    },
+    querySelectorAll() { return []; },
+  },
+  window: { scrollTo() {} },
+  console,
+  fetch: async () => ({ ok: true, json: async () => alignmentData }),
+});
+await new vm.Script(scriptMatch[1], { filename: "index.html" }).runInContext(context);
+for (const selector of ["#report-index", "#report-list"]) {
+  const markup = elements.get(selector).innerHTML;
+  for (const [state, count] of Object.entries(regenerationCounts)) {
+    assert(
+      markup.split(`class="regeneration-flag ${state}"`).length - 1 === count,
+      `${selector} does not render ${count} ${state} regeneration flags.`,
+    );
+  }
+}
+for (const flag of [true, false, null]) {
+  context.flag = flag;
+  context.payload = {
+    ...alignmentData,
+    reportCount: 1,
+    reports: [{ ...alignmentData.reports[0], regenerationFlag: flag }],
+  };
+  new vm.Script("validateAlignmentData(payload); regenerationBadge(flag);").runInContext(context);
+}
+for (const flag of [undefined, "false", "true", 0]) {
+  context.flag = flag;
+  context.payload.reports[0].regenerationFlag = flag;
+  for (const expression of ["validateAlignmentData(payload)", "regenerationBadge(flag)"]) {
+    let rejected = false;
+    try {
+      new vm.Script(expression).runInContext(context);
+    } catch {
+      rejected = true;
+    }
+    assert(rejected, `${expression} accepted invalid regeneration flag ${String(flag)}.`);
+  }
+}
 assert(
   JSON.stringify(
     alignmentData.reports.reduce(

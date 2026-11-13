@@ -36,6 +36,12 @@ The Downstream analysis page exposes the flag as an independent SDK release
 scope filter across all alignment categories.
 Each analysis card also states whether the neutral TCGC downstream assessment
 detected a breaking change, detected no breaking change, or was not assessed.
+The report index and downstream analysis cards display **Python SDK regeneration**
+from `reports.json`: `true` means **Observed**, `false` means **Not observed**,
+and `null` means **Unverified**. This records regeneration in the associated
+Python SDK PR, not causation by the assessed spec PR or a shipped SDK release.
+Not observed is limited to the evidence snapshot and does not prove no rerun
+occurred. Regeneration is independent of the assessment compatibility verdict.
 For a release with SDK breaking changes but no TCGC candidate, classify an
 explicit TypeSpec migration first. If migration is excluded, attribute the
 difference to an aggregated SDK release when the breaking item is traced to

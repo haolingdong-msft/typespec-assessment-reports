@@ -246,6 +246,28 @@
       overflow-wrap: anywhere;
     }
 
+    .regeneration {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 11px;
+    }
+
+    .regeneration-label { color: var(--muted); }
+
+    .regeneration-flag {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .regeneration-flag.observed { color: var(--blue); background: var(--blue-bg); }
+    .regeneration-flag.not-observed { color: var(--muted); background: var(--surface-subtle); }
+    .regeneration-flag.unverified { color: var(--amber); background: var(--amber-bg); }
+
     .verdict {
       display: inline-flex;
       padding: 3px 8px;
@@ -873,6 +895,10 @@
         <h3>All assessment reports</h3>
         <span id="report-total">Loading reports</span>
       </div>
+      <p class="result-count">
+        Python SDK regeneration records reruns in the associated SDK PR, not whether
+        this spec PR caused them. Not observed does not prove no regeneration occurred.
+      </p>
       <section class="report-index" id="report-index">
         <p class="load-state">Loading alignment data...</p>
       </section>
@@ -1019,6 +1045,28 @@
         </div>`;
     }
 
+    function regenerationBadge(flag) {
+      if (![true, false, null].includes(flag)) {
+        throw new Error("Invalid or missing regeneration flag.");
+      }
+      const state = flag === true ? "observed" : flag === false ? "not-observed" : "unverified";
+      const labels = {
+        observed: "Observed",
+        "not-observed": "Not observed",
+        unverified: "Unverified",
+      };
+      const notes = {
+        observed: "Regeneration was observed in the associated Python SDK PR; this does not establish that this spec PR caused the rerun.",
+        "not-observed": "No regeneration was observed in the mapped SDK PR within the evidence snapshot; this is not proof that none occurred.",
+        unverified: "The SDK regeneration association has not been verified.",
+      };
+      return `
+        <div class="regeneration">
+          <span class="regeneration-label">Python SDK regeneration</span>
+          <strong class="regeneration-flag ${state}" title="${esc(notes[state])}">${labels[state]}</strong>
+        </div>`;
+    }
+
     function indexFinding(label, value) {
       return `
         <div class="index-finding ${value > 0 ? "has-findings" : ""}">
@@ -1036,6 +1084,7 @@
                 <a href="${report.prUrl}" target="_blank" rel="noreferrer">#${report.pr}</a>
               </div>
               <div class="index-service">${esc(report.service)}</div>
+              ${regenerationBadge(report.regenerationFlag)}
             </div>
             <div class="index-status">
               <span class="verdict ${report.verdict}">${esc(report.verdict)}</span>
@@ -1067,6 +1116,11 @@
           report.pr,
           report.service,
           report.categoryLabel,
+          report.regenerationFlag === true
+            ? "Python SDK regeneration observed"
+            : report.regenerationFlag === false
+              ? "Python SDK regeneration not observed"
+              : "Python SDK regeneration unverified",
           report.tcgcBreakingChange.label,
           report.sdkReleaseIncludesSameApiVersionSpecPrs
             ? "SDK release includes same API version spec PRs aggregated release"
@@ -1088,6 +1142,7 @@
               <span class="category ${report.category}">${esc(report.categoryLabel)}</span>
             </div>
             <p class="service">${esc(report.service)}</p>
+            ${regenerationBadge(report.regenerationFlag)}
             <span class="reason-category">${esc(report.rootCauseCategory)}</span>
             <div class="links">
               <a href="${report.publicReportUrl}" target="_blank" rel="noreferrer">Assessment report</a>
@@ -1213,6 +1268,7 @@
           !report.tcgcBreakingChange ||
           !["breaking", "clear", "not-assessed"].includes(report.tcgcBreakingChange.state) ||
           typeof report.tcgcBreakingChange.label !== "string" ||
+          ![true, false, null].includes(report.regenerationFlag) ||
           typeof report.sdkReleaseIncludesSameApiVersionSpecPrs !== "boolean" ||
           typeof report.rootCauseCategory !== "string" ||
           typeof report.rootCause !== "string"

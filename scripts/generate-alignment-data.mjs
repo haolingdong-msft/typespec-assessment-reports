@@ -180,6 +180,10 @@ async function buildAlignmentData() {
     );
     assert(typeof curated.reason === "string" && curated.reason.length > 0, `PR #${curated.pr} is missing a reason.`);
     assert(coverageValues.has(publication.coverage), `PR #${curated.pr} has invalid publication coverage ${publication.coverage}.`);
+    assert(
+      [true, false, null].includes(report.regenerationFlag),
+      `PR #${curated.pr} has an invalid or missing regeneration flag.`,
+    );
 
     const relatedPrs = curated.relatedPrs ?? [];
     const relatedNumbers = new Set();
@@ -227,6 +231,7 @@ async function buildAlignmentData() {
       pr: curated.pr,
       prUrl: report.prUrl,
       service: curated.service,
+      regenerationFlag: report.regenerationFlag,
       category: curated.category,
       categoryLabel: curated.categoryLabel,
       outcome: curated.outcome,
